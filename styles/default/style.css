@@ -1,0 +1,84 @@
+/*
+	CSS style for TazPanel - (C) 2011 SliTaz GNU/Linux
+*/
+
+html { min-height:  102%; }
+body { padding: 40px 80px; font: 13px sans; }
+h1 { color: #4d4d4d; border-bottom: 1px dotted #ddd; }
+h2 { color: #444; }
+h3 { color: #666; font-size: 140%; }
+h4 { color: #888; font-size: 120%; }
+img { border: 0pt none; vertical-align: middle; padding: 0 6px 0 0;}
+p { margin: 6px 0; }
+ul { list-style-type: none; padding: 0; }
+li { padding: 4px 0; }
+a { text-decoration: none; color: #666; }
+a:hover { color: #000; }
+
+pre { 
+	background-color: #f8f8f8; 
+	border: 1px solid #ddd; 
+	padding: 10px;
+	overflow: auto;
+}
+
+input[type=submit] {
+	padding: 2px 4px;
+	background-color: #f1f1f1;
+	border: 1px solid #ddd;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	background-color: #ddd;
+	border: 1px solid #999;
+}
+
+input[type=text] { height: 16px; }
+
+table {
+	background-color: #f8f8f8;
+	border: 1px solid #ddd;
+	margin: 10px 0 0;
+	padding: 10px 10px 10px 0;
+	width: 100%;
+}
+
+.search { float: right; }
+.search p { margin: -1px; }
+
+#list { margin: 20px 0 0; }
+
+td.pkg { max-width: 160px; }
+td.desc { max-width: 300px; }
+
+#thead, thead {
+	height: 10px;
+	font-weight: bold;
+}
+
+#block { float: left; }
+
+/* Content */
+
+#content { margin: 60px 0 0 }
+
+.box {
+	margin: 10px 0;
+	padding: 12px;
+	background: #efefef;
+	border: 1px solid #ddd;
+}
+
+.debug {
+	padding: 6px 20px;
+	background-color: #ADD8E6;
+	border: 1px solid #ddd;
+}
+
+/* Round corner */
+table, pre, input[type=submit], .debug, .box {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
