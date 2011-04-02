@@ -5,8 +5,8 @@
 html { min-height:  102%; }
 body { padding: 20px 80px; font: 13px sans; }
 h1 { color: #d66018; border-bottom: 1px dotted #ddd; }
-h2 { color: #444; margin: 0 0 60px; }
-h3 { color: #666; font-size: 140%; }
+h2 { color: #444; margin: -20px 0 10px; }
+h3 { color: #666; font-size: 140%; margin: 0; }
 h4 { color: #888; font-size: 120%; }
 img { border: 0pt none; vertical-align: middle; padding: 0 6px 0 0;}
 p { margin: 6px 0; }
@@ -23,9 +23,11 @@ pre {
 	overflow: auto;
 }
 
+.pre_main { margin: 40px 0 10px; }
 
 input[type=submit] {
 	padding: 2px 4px;
+	margin: 4px 0 0;
 	background-color: #f1f1f1;
 	border: 1px solid #ddd;
 	cursor: pointer;
@@ -36,15 +38,13 @@ input[type=submit]:hover {
 	border: 1px solid #999;
 }
 
-input[type=text] { height: 16px; }
+input[type=text] { height: 15px; }
 
 /* Blocks */
 
-#list { margin: 20px 0 0; }
-
 #block { float: left; }
 
-#sub_block { margin: 50px 0 20px; }
+#sub_block { margin: 50px 0; }
 
 /* Content */
 
@@ -52,17 +52,18 @@ input[type=text] { height: 16px; }
 
 .search {
 	position: absolute;
-	right: 87px;
-	top: 214px;
+	right: 88px;
+	top: 200px;
 }
 
 #actions {
 	position: absolute;
-	left: 86px;
-	top: 212px;
+	left: 88px;
+	top: 200px;
 }
 
 #actions p { padding: 0; }
+
 .box {
 	margin: 10px 0;
 	padding: 12px;
@@ -71,15 +72,20 @@ input[type=text] { height: 16px; }
 }
 
 .debug {
+	position: fixed;
+	top: 5px;
+	left: 5px;
 	padding: 6px 20px;
-	background-color: #ADD8E6;
+	background-color: #f8f8f8;
 	border: 1px solid #ddd;
 }
+
+/* Table */
 
 table {
 	background-color: #f8f8f8;
 	border: 1px solid #ddd;
-	margin: 0;
+	margin: 30px 0 0 0;
 	padding: 10px 10px 10px 0;
 	width: 100%;
 }
@@ -93,6 +99,7 @@ td.desc { max-width: 300px; }
 }
 
 /* Round corner */
+
 table, pre, input[type=submit], .debug, .box {
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;

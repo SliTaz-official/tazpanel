@@ -24,7 +24,9 @@ export TEXTDOMAIN
 cat $HEADER | sed s'/%TITLE%/Tazpkg/'
 
 # DEBUG mode
-[ $DEBUG == "1" ] && echo "<p class='debug'>$REQUEST_METHOD ${QUERY_STRING}</p>"
+if [ $DEBUG == "1" ]; then
+	echo "<p class='debug'>$REQUEST_METHOD ${QUERY_STRING}</p>"
+fi
 
 # We need packages information for list and search
 parse_packages_desc() {
@@ -70,6 +72,17 @@ packages_summary() {
 	cat $LOCALSTATE/blocked-packages.list | wc -l
 }
 
+# Parse mirrors list to be able to have an icon an remove link
+list_mirrors() {
+	cat $LOCALSTATE/mirrors | while read line
+	do
+		cat << EOT
+<li><a href="$SCRIPT_NAME?config=rm-mirror=$line"><img
+	src="$IMAGES/clear.png" /></a><a href="$line">$line</a></li>
+EOT
+	done
+}
+
 #
 # xHTML functions
 #
@@ -79,8 +92,9 @@ search_form() {
 <div class="search">
 <form method="get" action="$SCRIPT_NAME">
 	<p>
-		`gettext "Search":`
+		
 		<input type="text" name="search" size="20">
+		<input type="submit" value="`gettext "Search"`">
 	</p>
 </form>
 </div>
@@ -114,7 +128,8 @@ sub_block() {
 	<a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a> |
 	<a href='$SCRIPT_NAME?list-all'>`gettext "All packages"`</a> |
 	<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge"`</a> |
-	<a href='$SCRIPT_NAME?upgradeable'>`gettext "Upgradeable"`</a>
+	<a href='$SCRIPT_NAME?upgradeable'>`gettext "Upgradeable"`</a> |
+	<a href='$SCRIPT_NAME?config'>`gettext "Configuration"`</a>
 </div>
 EOT
 }
@@ -233,7 +248,7 @@ EOT
 <div id="actions">
 	<p>`gettext "Recharge lists will check for new or updated packages"`</p>
 </div>	
-<pre>
+<pre class="pre_main">
 EOT
 		gettext "Recharging the packages list... please wait"; echo
 		tazpkg recharge | filter_tazpkg_msgs
@@ -275,11 +290,13 @@ EOT
 <p>
 EOT
 		gettext "Performing task on packages"
-		[ $DEBUG == "1" ] && echo "<p class='debug'>cmd: $cmd</p><p>pkgs: $pkgs </p>"
 		echo '</p></div>'
+		echo '<pre class="pre_main">'
+		gettext "Executing $cmd for:$pkgs"
+		echo '</pre>'
 		for pkg in $pkgs
 		do
-			echo '<pre class="nomargin">'
+			echo '<pre>'
 			echo 'y' | tazpkg $cmd $pkg $opt 2>/dev/null | filter_tazpkg_msgs
 			echo '</pre>'
 		done ;;
@@ -289,14 +306,15 @@ EOT
 		sub_block
 		. $INSTALLED/$pkg/receipt
 		cat << EOT
-<h2>`gettext "Upgradeable packages"`</h2>
+<h2>`gettext "Package info"`</h2>
 <div id="actions">
-	<p>`gettext "Detailled information on:" $PACKAGE`</p>
+	<p>`gettext "Detailled information on:"` $PACKAGE</p>
 </div>
-<pre>
+<pre class="pre_main">
 Name        : $PACKAGE
 Version     : $VERSION
 Description : $SHORT_DESC
+Maintainer  : $MAINTAINER
 Depends     : `for i in $DEPENDS; do echo -n \
 	"<a href="$SCRIPT_NAME?info=$i">$i</a> "; done`
 Website     : <a href="$WEB_SITE">$WEB_SITE</a>
@@ -310,21 +328,73 @@ Files       : `cat $INSTALLED/$pkg/files.list | wc -l`
 </pre>
 EOT
 		;;
+	config*)
+		# Tazpkg configuration page
+		cmd=${QUERY_STRING#*=}
+		case "$cmd" in
+			clean)
+				rm -rf /var/cache/tazpkg/* ;;
+			add-mirror*=http*|add-mirror*=ftp*)
+				# Decode url
+				mirror=`httpd -d ${cmd#*=}`
+				echo "$mirror" >> $LOCALSTATE/mirrors ;;
+			rm-mirror=http://*|rm-mirror=ftp://*)
+				mirror=${QUERY_STRING#*=rm-mirror=}
+				sed -i -e "s@$mirror@@" -e '/^$/d' $LOCALSTATE/mirrors ;;
+		esac
+		cache_files=`find /var/cache/tazpkg -name *.tazpkg | wc -l`
+		cache_size=`du -sh /var/cache/tazpkg`
+		sub_block
+		cat << EOT
+<h2>`gettext "Configuration"`</h2>
+<div>
+	<p>`gettext "Tazpkg configuration and settings"`</p>
+</div>
+<div>
+	<h3>`gettext "Package in cache"`</h3>
+	<form method="get" action="$SCRIPT_NAME">
+	<p>
+		`gettext "Packages in the cache:"` $cache_files ($cache_size)
+		<input type="hidden" name="config" value="clean" />
+		<input type="submit" value="Clean" />
+	</p>
+	</form>
+</div>
+<h3>`gettext "Current mirror list"`</h3>
+<div class="box">
+	<ul>
+		`list_mirrors`
+	</ul>
+</div>
+<form method="get" action="$SCRIPT_NAME">
+	<p>
+		<input type="hidden" name="config" value="add-mirror" />
+		<input type="text" name="mirror" size="60">
+		<input type="submit" value="Add mirror" />
+	</p>
+</form>
+EOT
+		 ;;
 	*)
 		# Default to summary
-		
-		sub_block
 		search_form
+		sub_block
 		cat << EOT
 <h2>`gettext "Summary"`</h2>
 <div id="actions">
 	<p>`gettext "Overview of all installed and mirrored packages"`</p>
 </div>
-<pre>
+<pre class="pre_main">
 `packages_summary`
 </pre>
+<h3>`gettext "Latest log entries"`</h3>
+<pre>
+`tail -n 6 /var/log/tazpkg.log | fgrep "-" | \
+	awk '{print $1, $2, $3, $4, $5, $6, $7}'`
+</pre>
+
 EOT
-		echo "" ;;
+		;;
 esac
 
 # xHTML 5 footer
