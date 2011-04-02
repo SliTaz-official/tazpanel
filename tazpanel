@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# Tiny Tazpanel cmdline interface
+#
+
+#. /etc/slitaz/tazpanel.conf
+[ -f tazpanel.conf ] && . tazpanel.conf
+
+case "$1" in
+	start)
+		httpd -p $HTTPD_PORT -u root -c $HTTPD_CONF ;;
+	stop)
+		killall httpd ;;
+	passwd|-p)
+		echo -e "\nChanging password for TazPanel"
+		echo -n "New password: " && read pass
+		sed -i s"/\/:root:.*/\/:root:$pass/" $HTTPD_CONF
+		echo -e "Password changed succeffuly\n" ;;
+	*)
+		echo "Usage: `basename $0` [start|stop|passwd]" ;;
+esac
