@@ -22,14 +22,6 @@ export TEXTDOMAIN
 
 # xHTML 5 header
 cat $HEADER | sed s'/%TITLE%/Tazpkg/'
-cat << EOT
-<form class="search" method="get" action="$SCRIPT_NAME">
-	<p>
-		`gettext "Search":`
-		<input type="text" name="search" size="20">
-	</p>
-</form>
-EOT
 
 # DEBUG mode
 [ $DEBUG == "1" ] && echo "<p class='debug'>$REQUEST_METHOD ${QUERY_STRING}</p>"
@@ -43,8 +35,7 @@ while read line
 		vers=$(echo $line | cut -d "|" -f 2)
 		desc=$(echo $line | cut -d "|" -f 3)
 		web=$(echo $line | cut -d "|" -f 5)
-		imgs=styles/$STYLE/images
-		if [ -d installed/$pkg ]; then
+		if [ -d $INSTALLED/$pkg ]; then
 			echo -e "<td><input type='checkbox' name='pkg' value=\"$pkg\">\n
 				<img src='$IMAGES/tazpkg-installed.png'/>$pkg</td>"
 		else
@@ -83,6 +74,19 @@ packages_summary() {
 # xHTML functions
 #
 
+search_form() {
+	cat << EOT
+<div class="search">
+<form method="get" action="$SCRIPT_NAME">
+	<p>
+		`gettext "Search":`
+		<input type="text" name="search" size="20">
+	</p>
+</form>
+</div>
+EOT
+}
+
 table_start() {
 	cat << EOT
 <table>
@@ -103,35 +107,48 @@ table_end () {
 EOT
 }
 
+sub_block() {
+	cat << EOT
+<div id="sub_block">
+	`gettext "List:"`
+	<a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a> |
+	<a href='$SCRIPT_NAME?list-all'>`gettext "All packages"`</a> |
+	<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge"`</a> |
+	<a href='$SCRIPT_NAME?upgradeable'>`gettext "Upgradeable"`</a>
+</div>
+EOT
+}
 
+# For my packages list
 list_actions() {
 	cat << EOT
-	<p>
-		`gettext "Selection:"`
-		<input type="submit" name="do" value="remove" />
-		`gettext "List:"`
-		<a href='$SCRIPT_NAME?list-all'>`gettext "All packages"`</a> |
-		<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge"`</a>
-	</p>
+<p>
+	`gettext "Selection:"`
+	<input type="submit" name="do" value="remove" />
+</p>
 EOT
 }
 
+# For list-all
 list_all_actions() {
 	cat << EOT
-	<p>
-		`gettext "Selection:"`
-		<input type="submit" name="do" value="install" />
-		<input type="submit" name="do" value="remove" />
-		`gettext "List:"`
-		<a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a> |
-		<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge"`</a> |
-	</p>
+<p>
+	`gettext "Selection:"`
+	<input type="submit" name="do" value="install" />
+	<input type="submit" name="do" value="remove" />
+</p>
 EOT
 }
 
-js_checkbox_all() {
-cat << EOT
-
+# For search and upgrade with JS function to toogle all pkgs
+list_full_actions() {
+	cat << EOT
+<p>
+	`gettext "Selection:"`
+	<input type="submit" name="do" value="install" />
+	<input type="submit" name="do" value="remove" />
+	<a href="`cat $PANEL/checkbox.js`">`gettext "Toogle all"`</a>
+</p>
 EOT
 }
 
@@ -143,9 +160,16 @@ case "$QUERY_STRING" in
 	list)
 		# List installed packages. This is the default because parsing
 		# the full packages.desc can be long and take some resources
-		cd /var/lib/tazpkg/installed
-		echo "<form method='get' action='$SCRIPT_NAME'>"
+		cd $INSTALLED
+		search_form
+		sub_block
+		cat << EOT
+<h2>`gettext "My packages"`</h2>
+<form method='get' action='$SCRIPT_NAME'>
+<div id="actions">
+EOT
 		list_actions
+		echo '</div>'
 		table_start
 		for pkg in *
 		do
@@ -156,7 +180,7 @@ case "$QUERY_STRING" in
 			echo "<td class='pkg'>
 				<input type='checkbox' name='pkg' value=\"$pkg\" />
 				<a href='$SCRIPT_NAME?info=$pkg'><img
-					src='$IMAGES/tazpkg.png'/></a>$pkg</td>"
+					src='$IMAGES/tazpkg-installed.png'/></a>$pkg</td>"
 			echo "<td>$VERSION</td>"
 			echo "<td class='desc'>$SHORT_DESC</td>"
 			echo "<td><a href='$WEB_SITE'>web</a></td>"
@@ -167,9 +191,16 @@ case "$QUERY_STRING" in
 		echo '</form>' ;;
 	list-all)
 		# List all available packages on mirror
-		cd /var/lib/tazpkg
-		echo "<form method='get' action='$SCRIPT_NAME'>"
+		cd  $LOCALSTATE
+		search_form
+		sub_block
+		cat << EOT
+<h2>`gettext "All packages"`</h2>
+<form method='get' action='$SCRIPT_NAME'>
+<div id="actions">
+EOT
 		list_all_actions
+		echo '</div>'
 		table_start
 		cat packages.desc | parse_packages_desc
 		table_end
@@ -178,31 +209,30 @@ case "$QUERY_STRING" in
 	search=*)
 		# Search for packages
 		pkg=${QUERY_STRING#*=}
-		cd /var/lib/tazpkg
+		cd  $LOCALSTATE
+		search_form
+		sub_block
 		cat << EOT
+<h2>`gettext "All packages"`</h2>
 <form method="get" action="$SCRIPT_NAME">
-	<p>
-		`gettext "Selection:"`
-		<input type="submit" name="do" value="install" />
-		<input type="submit" name="do" value="remove" />
-		`gettext "List:"`
-		<a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a> |
-		<a href='$SCRIPT_NAME?list-all'>`gettext "All packages"`</a> |
-		<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge"`</a> |
-		<a href="`cat checkbox.js`">`gettext "Toogle all"`</a>
-	</p>
+<div id="actions">
 EOT
+		list_full_actions
+		echo '</div>'
 		table_start
 		grep $pkg packages.desc | parse_packages_desc
 		table_end
 		echo '</form>' ;;
 	recharge)
 		# Let recharge the packages list
+		search_form
+		sub_block
 		cat << EOT
-	<p>
-		`gettext "List:"`
-		<a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a>
-	</p>
+<h2>`gettext "Recharge"`</h2>
+<form method='get' action='$SCRIPT_NAME'>
+<div id="actions">
+	<p>`gettext "Recharge lists will check for new or updated packages"`</p>
+</div>	
 <pre>
 EOT
 		gettext "Recharging the packages list... please wait"; echo
@@ -212,20 +242,19 @@ EOT
 		gettext "Packages lists are up-to-date"
 		echo '</p>' ;;
 	upgradeable)
+		cd $LOCALSTATE
+		search_form
+		sub_block
 		cat << EOT
+<h2>`gettext "Upgradeable packages"`</h2>
 <form method="get" action="$SCRIPT_NAME">
-<p>
-	`gettext "Selection:"`
-		<input type="submit" name="do" value="install" />
-	`gettext "List:"`
-	<a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a> |
-	`gettext "Upgradeable packages list"`
-	<a href="`cat checkbox.js`">`gettext "Toogle all"`</a>
-</p>
+<div id="actions">
 EOT
-		table_start
+		list_full_actions
 		tazpkg upgradeable
-		for pkg in `cat $LOCALSTATE/upgradeable-packages.list`
+		echo '</div>'
+		table_start
+		for pkg in `cat upgradeable-packages.list`
 		do
 			grep "^$pkg |" $LOCALSTATE/packages.desc | parse_packages_desc
 		done
@@ -236,24 +265,34 @@ EOT
 		cmdline=`echo ${QUERY_STRING#do=} | sed s'/&/ /g'`		
 		cmd=`echo ${cmdline} | awk '{print $1}'`		
 		pkgs=`echo $cmdline | sed -e s'/+/ /g' -e s'/pkg=//g' -e s/$cmd//`
-		[ $cmd == install ] && cmd=get-install
+		[ $cmd == install ] && cmd=get-install opt=--forced
+		search_form
+		sub_block
+		cat << EOT
+<h2>Tazpkg: $cmd</h2>
+<form method="get" action="$SCRIPT_NAME">
+<div id="actions">
+<p>
+EOT
+		gettext "Performing task on packages"
 		[ $DEBUG == "1" ] && echo "<p class='debug'>cmd: $cmd</p><p>pkgs: $pkgs </p>"
+		echo '</p></div>'
 		for pkg in $pkgs
 		do
-			echo '<p>'
-			gettext "Executing: tazpkg $cmd $pkg"
-			echo '</p><pre>'
-			echo 'y' | tazpkg $cmd $pkg --forced 2>/dev/null | filter_tazpkg_msgs
+			echo '<pre class="nomargin">'
+			echo 'y' | tazpkg $cmd $pkg $opt 2>/dev/null | filter_tazpkg_msgs
 			echo '</pre>'
 		done ;;
 	info=*)
 		pkg=${QUERY_STRING#*=}
+		search_form
+		sub_block
 		. $INSTALLED/$pkg/receipt
 		cat << EOT
-<p>
-	`gettext "List:"`
-	<a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a>
-</p>
+<h2>`gettext "Upgradeable packages"`</h2>
+<div id="actions">
+	<p>`gettext "Detailled information on:" $PACKAGE`</p>
+</div>
 <pre>
 Name        : $PACKAGE
 Version     : $VERSION
@@ -273,11 +312,14 @@ EOT
 		;;
 	*)
 		# Default to summary
+		
+		sub_block
+		search_form
 		cat << EOT
-`gettext "List:"`
-<a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a> |
-<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge"`</a> |
-<a href='$SCRIPT_NAME?upgradeable'>`gettext "Upgradeable"`</a>
+<h2>`gettext "Summary"`</h2>
+<div id="actions">
+	<p>`gettext "Overview of all installed and mirrored packages"`</p>
+</div>
 <pre>
 `packages_summary`
 </pre>
