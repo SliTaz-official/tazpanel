@@ -65,14 +65,18 @@ filter_tazpkg_msgs() {
 
 # Display a full summary of packages stats
 packages_summary() {
-	gettext "Installed packages : "
+	gettext "Installed packages   : "
 	ls $INSTALLED | wc -l
-	gettext "Mirrored packages  : "
+	gettext "Mirrored packages    : "
 	cat $LOCALSTATE/packages.list | wc -l
-	gettext "Last recharge      : "
+	gettext "Last recharge        : "
 	stat -c %y $LOCALSTATE/packages.list | sed 's/\(:..\):.*/\1/'
-	gettext "Installed files    : "
+	gettext "Upgradeable packages : "
+	cat $LOCALSTATE/upgradeable-packages.list | wc -l
+	gettext "Installed files      : "
 	cat $INSTALLED/*/files.list | wc -l
+	gettext "Blocked packages     : "
+	cat $LOCALSTATE/blocked-packages.list | wc -l
 }
 
 #
@@ -99,6 +103,7 @@ table_end () {
 EOT
 }
 
+
 list_actions() {
 	cat << EOT
 	<p>
@@ -119,8 +124,14 @@ list_all_actions() {
 		<input type="submit" name="do" value="remove" />
 		`gettext "List:"`
 		<a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a> |
-		<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge"`</a>
+		<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge"`</a> |
 	</p>
+EOT
+}
+
+js_checkbox_all() {
+cat << EOT
+
 EOT
 }
 
@@ -177,7 +188,8 @@ case "$QUERY_STRING" in
 		`gettext "List:"`
 		<a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a> |
 		<a href='$SCRIPT_NAME?list-all'>`gettext "All packages"`</a> |
-		<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge"`</a>
+		<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge"`</a> |
+		<a href="`cat checkbox.js`">`gettext "Toogle all"`</a>
 	</p>
 EOT
 		table_start
@@ -186,13 +198,39 @@ EOT
 		echo '</form>' ;;
 	recharge)
 		# Let recharge the packages list
-		echo '<p>'
-		gettext "Recharging the packages lists..."
-		echo '</p><pre>'
+		cat << EOT
+	<p>
+		`gettext "List:"`
+		<a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a>
+	</p>
+<pre>
+EOT
+		gettext "Recharging the packages list... please wait"; echo
 		tazpkg recharge | filter_tazpkg_msgs
-		echo '</pre><p>'
+		echo '</pre>'
+		echo '<p>'
 		gettext "Packages lists are up-to-date"
 		echo '</p>' ;;
+	upgradeable)
+		cat << EOT
+<form method="get" action="$SCRIPT_NAME">
+<p>
+	`gettext "Selection:"`
+		<input type="submit" name="do" value="install" />
+	`gettext "List:"`
+	<a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a> |
+	`gettext "Upgradeable packages list"`
+	<a href="`cat checkbox.js`">`gettext "Toogle all"`</a>
+</p>
+EOT
+		table_start
+		tazpkg upgradeable
+		for pkg in `cat $LOCALSTATE/upgradeable-packages.list`
+		do
+			grep "^$pkg |" $LOCALSTATE/packages.desc | parse_packages_desc
+		done
+		table_end
+		echo '</form>' ;;
 	do=*)
 		# Do an action on one or some packages
 		cmdline=`echo ${QUERY_STRING#do=} | sed s'/&/ /g'`		
@@ -205,7 +243,7 @@ EOT
 			echo '<p>'
 			gettext "Executing: tazpkg $cmd $pkg"
 			echo '</p><pre>'
-			echo 'y' | tazpkg $cmd $pkg 2>/dev/null | filter_tazpkg_msgs
+			echo 'y' | tazpkg $cmd $pkg --forced 2>/dev/null | filter_tazpkg_msgs
 			echo '</pre>'
 		done ;;
 	info=*)
@@ -220,8 +258,8 @@ EOT
 Name        : $PACKAGE
 Version     : $VERSION
 Description : $SHORT_DESC
-Depends     : 
-
+Depends     : `for i in $DEPENDS; do echo -n \
+	"<a href="$SCRIPT_NAME?info=$i">$i</a> "; done`
 Website     : <a href="$WEB_SITE">$WEB_SITE</a>
 Sizes       : $PACKED_SIZE/$UNPACKED_SIZE
 Files       : `cat $INSTALLED/$pkg/files.list | wc -l`
@@ -238,7 +276,8 @@ EOT
 		cat << EOT
 `gettext "List:"`
 <a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a> |
-<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge"`</a>
+<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge"`</a> |
+<a href='$SCRIPT_NAME?upgradeable'>`gettext "Upgradeable"`</a>
 <pre>
 `packages_summary`
 </pre>

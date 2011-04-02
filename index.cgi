@@ -7,8 +7,10 @@ echo ""
 
 . tazpanel.conf
 
-# xHTML 5 header
-cat $HEADER | sed s'/- %TITLE%//'
+xhtml_header() {
+	# xHTML 5 header
+	cat $HEADER | sed s/'- %TITLE%'/"$TITLE"/
+}
 
 [ $DEBUG == "1" ] && echo "<p class='debug'>DEBUG on</p>"
 
@@ -17,9 +19,9 @@ cat $HEADER | sed s'/- %TITLE%//'
 #
 
 case "$QUERY_STRING" in
-	sysinfo)
-		echo "TODO" ;;
 	users)
+		TITLE="- Users"
+		xhtml_header
 		echo '<ul>'
 		fgrep /home /etc/passwd | while read line
 		do
@@ -29,15 +31,20 @@ case "$QUERY_STRING" in
 		done
 		echo '</ul>' ;;
 	network)
+		TITLE="- Network"
+		xhtml_header
 		echo '<pre>'
 		ifconfig
 		echo '</pre>' ;;
 	hardware)
+		TITLE="- Hardware"
+		xhtml_header
 		echo '<pre>'
 		lspci
 		echo '</pre>' ;;
 	*)
 		# Default xHTML content
+		xhtml_header
 		cat << EOT
 <p>
 	Uptime: `uptime`
