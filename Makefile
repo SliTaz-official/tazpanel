@@ -4,6 +4,7 @@ PREFIX?=/usr
 SYSCONFDIR?=/etc/slitaz
 DESTDIR?=
 LINGUAS?=fr
+PANEL?=/var/www/tazpanel
 
 # i18n
 
@@ -24,10 +25,15 @@ msgfmt:
 		msgfmt -o po/mo/$$l/LC_MESSAGES/tazpkg-cgi.mo po/tazpkg-cgi/$$l.po; \
 	done;
 
-# Installation.
+# Installation
 
-install: msgfmt
-	install -m 0755 -d $(DESTDIR)$(PREFIX)/bin
-	install -m 0777 tazpanel $(DESTDIR)$(PREFIX)/bin
-	mkdir -p $(DESTDIR)$(PREFIX)/share/locale
-	cp -a po/mo/* $(DESTDIR)$(PREFIX)/share/locale
+install:
+	mkdir -p $(DESTDIR)$(PREFIX)/bin \
+		$(DESTDIR)$(PREFIX)/share/locale \
+		$(DESTDIR)$(SYSCONFDIR) \
+		$(DESTDIR)$(PANEL)
+	cp -f tazpanel $(DESTDIR)$(PREFIX)/bin
+	cp -f *.conf $(DESTDIR)$(SYSCONFDIR)
+	cp -a *.cgi lib/ styles/ $(DESTDIR)$(PANEL)	
+	#cp -a po/mo/* $(DESTDIR)$(PREFIX)/share/locale
+

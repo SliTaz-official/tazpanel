@@ -162,7 +162,7 @@ list_full_actions() {
 	`gettext "Selection:"`
 	<input type="submit" name="do" value="install" />
 	<input type="submit" name="do" value="remove" />
-	<a href="`cat $PANEL/checkbox.js`">`gettext "Toogle all"`</a>
+	<a href="`cat $PANEL/lib/checkbox.js`">`gettext "Toogle all"`</a>
 </p>
 EOT
 }
