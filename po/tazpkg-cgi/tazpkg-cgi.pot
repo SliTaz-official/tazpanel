@@ -1,0 +1,154 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Tazpkg CGI\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-02 21:33+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tazpkg.cgi:61
+msgid "Installed packages   : "
+msgstr ""
+
+#: tazpkg.cgi:63
+msgid "Mirrored packages    : "
+msgstr ""
+
+#: tazpkg.cgi:65
+msgid "Last recharge        : "
+msgstr ""
+
+#: tazpkg.cgi:67
+msgid "Upgradeable packages : "
+msgstr ""
+
+#: tazpkg.cgi:69
+msgid "Installed files      : "
+msgstr ""
+
+#: tazpkg.cgi:71
+msgid "Blocked packages     : "
+msgstr ""
+
+#: tazpkg.cgi:97
+msgid "Search"
+msgstr ""
+
+#: tazpkg.cgi:109
+msgid "Name"
+msgstr ""
+
+#: tazpkg.cgi:110
+msgid "Version"
+msgstr ""
+
+#: tazpkg.cgi:111
+msgid "Description"
+msgstr ""
+
+#: tazpkg.cgi:112
+msgid "Web"
+msgstr ""
+
+#: tazpkg.cgi:127
+msgid "List:"
+msgstr ""
+
+#: tazpkg.cgi:128 tazpkg.cgi:182
+msgid "My packages"
+msgstr ""
+
+#: tazpkg.cgi:129 tazpkg.cgi:213 tazpkg.cgi:231
+msgid "All packages"
+msgstr ""
+
+#: tazpkg.cgi:130 tazpkg.cgi:246
+msgid "Recharge"
+msgstr ""
+
+#: tazpkg.cgi:131
+msgid "Upgradeable"
+msgstr ""
+
+#: tazpkg.cgi:132 tazpkg.cgi:349
+msgid "Configuration"
+msgstr ""
+
+#: tazpkg.cgi:141 tazpkg.cgi:151 tazpkg.cgi:162
+msgid "Selection:"
+msgstr ""
+
+#: tazpkg.cgi:165
+msgid "Toogle all"
+msgstr ""
+
+#: tazpkg.cgi:249
+msgid "Recharge lists will check for new or updated packages"
+msgstr ""
+
+#: tazpkg.cgi:253
+msgid "Recharging the packages list... please wait"
+msgstr ""
+
+#: tazpkg.cgi:257
+msgid "Packages lists are up-to-date"
+msgstr ""
+
+#: tazpkg.cgi:264
+msgid "Upgradeable packages"
+msgstr ""
+
+#: tazpkg.cgi:292
+msgid "Performing task on packages"
+msgstr ""
+
+#: tazpkg.cgi:309
+msgid "Package info"
+msgstr ""
+
+#: tazpkg.cgi:311
+msgid "Detailled information on:"
+msgstr ""
+
+#: tazpkg.cgi:325
+msgid "Installed files"
+msgstr ""
+
+#: tazpkg.cgi:351
+msgid "Tazpkg configuration and settings"
+msgstr ""
+
+#: tazpkg.cgi:354
+msgid "Package in cache"
+msgstr ""
+
+#: tazpkg.cgi:357
+msgid "Packages in the cache:"
+msgstr ""
+
+#: tazpkg.cgi:363
+msgid "Current mirror list"
+msgstr ""
+
+#: tazpkg.cgi:383
+msgid "Summary"
+msgstr ""
+
+#: tazpkg.cgi:385
+msgid "Overview of all installed and mirrored packages"
+msgstr ""
+
+#: tazpkg.cgi:390
+msgid "Latest log entries"
+msgstr ""
