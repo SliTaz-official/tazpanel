@@ -1,0 +1,22 @@
+SliTaz Web Control Panel
+================================================================================
+
+
+Tazpanel is the SliTaz Control Panel, a web interface who let you manage the
+full system  in a redically simple way. The output xHTML code is valid xHTML 5
+and all theming is done with standard CSS.
+
+
+Web server
+----------
+Tazpanel can run with Busybox httpd applet or LightTPD an propably Apache.
+Start the webserver with custom config to listen only on local port for
+security reason since we run as root to perform system actions, example:
+
+# httpd -p 8080 u root -c /etc/slitaz/tazpanel-httpd.conf
+
+Quick notes
+-----------
+
+	Panel password is defined in httpd.conf
+	When cat is used: `gettext "Text to translate"`
