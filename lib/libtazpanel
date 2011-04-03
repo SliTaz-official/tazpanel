@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+# Common functions for TazPanel CGI and cmdline interface
+#
+
+# We need a config file first
+get_config() {
+	CONFIG="/etc/slitaz/tazpanel.conf"
+	[ -f $CONFIG ] && . $CONFIG
+	[ -f tazpanel.conf ] && . tazpanel.conf
+	[ ! -f $PANEL/lib/libtazpanel ] && \
+		echo "No config file or libtazpanel found: $CONFIG" && \
+		exit 1
+}
+
+#
+# xHTML 5 (header and footer skel are from the style)
+#
+
+xhtml_header() {
+	cat $HEADER | sed s/'- %TITLE%'/"$TITLE"/
+}
+
+xhtml_footer() {
+	cat $FOOTER
+}
+
+table_start() {
+	cat << EOT
+<table>
+	<tbody>
+EOT
+}
+
+table_end () {
+	cat << EOT
+	</tbody>
+</table>
+EOT
+}
