@@ -3,8 +3,11 @@
 # Tiny Tazpanel cmdline interface
 #
 
-#. /etc/slitaz/tazpanel.conf
+CONFIG="/etc/slitaz/tazpanel.conf"
+
+[ -f $CONFIG ] && . $CONFIG
 [ -f tazpanel.conf ] && . tazpanel.conf
+[ -z $PANEL ] && echo "No config file found" && exit 1
 
 case "$1" in
 	start)

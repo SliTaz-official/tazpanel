@@ -92,7 +92,6 @@ search_form() {
 <div class="search">
 <form method="get" action="$SCRIPT_NAME">
 	<p>
-		
 		<input type="text" name="search" size="20">
 		<input type="submit" value="`gettext "Search"`">
 	</p>
@@ -207,6 +206,7 @@ EOT
 	list-all)
 		# List all available packages on mirror
 		cd  $LOCALSTATE
+		loader
 		search_form
 		sub_block
 		cat << EOT

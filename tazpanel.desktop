@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=TazPanel
+Icon=slitaz-menu
+Exec=browser http://tazpanel:8080/
+Type=Application
+Categories=System;

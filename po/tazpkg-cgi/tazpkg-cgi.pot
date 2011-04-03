@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tazpkg CGI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-02 21:33+0200\n"
+"POT-Creation-Date: 2011-04-03 03:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,55 +41,55 @@ msgstr ""
 msgid "Blocked packages     : "
 msgstr ""
 
-#: tazpkg.cgi:97
+#: tazpkg.cgi:96
 msgid "Search"
 msgstr ""
 
-#: tazpkg.cgi:109
+#: tazpkg.cgi:108
 msgid "Name"
 msgstr ""
 
-#: tazpkg.cgi:110
+#: tazpkg.cgi:109
 msgid "Version"
 msgstr ""
 
-#: tazpkg.cgi:111
+#: tazpkg.cgi:110
 msgid "Description"
 msgstr ""
 
-#: tazpkg.cgi:112
+#: tazpkg.cgi:111
 msgid "Web"
 msgstr ""
 
-#: tazpkg.cgi:127
+#: tazpkg.cgi:126
 msgid "List:"
 msgstr ""
 
-#: tazpkg.cgi:128 tazpkg.cgi:182
+#: tazpkg.cgi:127 tazpkg.cgi:181
 msgid "My packages"
 msgstr ""
 
-#: tazpkg.cgi:129 tazpkg.cgi:213 tazpkg.cgi:231
+#: tazpkg.cgi:128 tazpkg.cgi:213 tazpkg.cgi:231
 msgid "All packages"
 msgstr ""
 
-#: tazpkg.cgi:130 tazpkg.cgi:246
+#: tazpkg.cgi:129 tazpkg.cgi:246
 msgid "Recharge"
 msgstr ""
 
-#: tazpkg.cgi:131
+#: tazpkg.cgi:130
 msgid "Upgradeable"
 msgstr ""
 
-#: tazpkg.cgi:132 tazpkg.cgi:349
+#: tazpkg.cgi:131 tazpkg.cgi:349
 msgid "Configuration"
 msgstr ""
 
-#: tazpkg.cgi:141 tazpkg.cgi:151 tazpkg.cgi:162
+#: tazpkg.cgi:140 tazpkg.cgi:150 tazpkg.cgi:161
 msgid "Selection:"
 msgstr ""
 
-#: tazpkg.cgi:165
+#: tazpkg.cgi:164
 msgid "Toogle all"
 msgstr ""
 
