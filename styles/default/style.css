@@ -2,10 +2,10 @@
 	CSS style for TazPanel - (C) 2011 SliTaz GNU/Linux
 */
 
-html { min-height:  102%; }
-body { padding: 20px 80px; font: 13px sans; }
+html { min-height:  102%; min-width: 300px; }
+body { padding: 0; font: 13px sans;  }
 h1 { color: #d66018; border-bottom: 1px dotted #ddd; }
-h2 { color: #444; margin: -20px 0 10px; }
+h2 { color: #444; margin: 10px 0 10px; }
 h3 { color: #666; font-size: 140%; margin: 0; }
 h4 { color: #888; font-size: 120%; }
 img { border: 0pt none; vertical-align: middle; padding: 0 6px 0 0;}
@@ -53,13 +53,13 @@ input[type=text] { height: 15px; }
 
 .search {
 	position: absolute;
-	right: 88px;
+	right: 48px;
 	top: 200px;
 }
 
 #actions {
 	position: absolute;
-	left: 88px;
+	left: 48px;
 	top: 200px;
 }
 
@@ -74,7 +74,7 @@ input[type=text] { height: 15px; }
 
 .debug {
 	position: fixed;
-	top: 5px;
+	top: 20px;
 	left: 5px;
 	padding: 6px 20px;
 	background-color: #f8f8f8;
@@ -101,6 +101,31 @@ td.desc { max-width: 300px; }
 	height: 10px;
 	font-weight: bold;
 }
+
+/* Desktop gui style */
+
+#tazbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 22px;
+	width: 100%;
+	padding: 0 0 0 0;
+	background-color: #f1efeb;
+	border-top: 1px solid #fefefe;
+	border-bottom: 1px solid #d3cdc3;
+	z-index: 200;
+}
+#menu { margin: 2px 8px; }
+#tazbar a { padding: 2px 4px;
+color: #000; border: 1px solid #ECE9E4;
+display: inline; }
+#tazbar a:hover { background-color: #fdfcfa ;
+ border: 1px solid #827a6c;
+ -moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;}
+
 
 /* Round corner */
 

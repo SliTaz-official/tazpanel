@@ -3,22 +3,49 @@
 # Tiny Tazpanel cmdline interface
 #
 
-CONFIG="/etc/slitaz/tazpanel.conf"
+VERSION=1.0
 
+# Get the configuration file and functions
+CONFIG="/etc/slitaz/tazpanel.conf"
 [ -f $CONFIG ] && . $CONFIG
-[ -f tazpanel.conf ] && . tazpanel.conf
-[ -z $PANEL ] && echo "No config file found" && exit 1
+[ -f $PWD/tazpanel.conf ] && . tazpanel.conf
+[ ! -f $PANEL/lib/libtazpanel ] && \
+	echo "No config file or libtazpanel found: $CONFIG" && exit 1
+. $PANEL/lib/libtazpanel
+. /usr/lib/slitaz/libtaz
+source_lib commons
+
+# Include gettext helper script.
+. /usr/bin/gettext.sh
+
+# Export package name for gettext.
+TEXTDOMAIN='tazpanel'
+export TEXTDOMAIN
+
+#
+# Commands
+#
 
 case "$1" in
 	start)
-		httpd -p $HTTPD_PORT -u root -c $HTTPD_CONF ;;
+		gettext "Starting TazPanel web server on port $HTTPD_PORT..."
+		httpd -p $HTTPD_PORT -u root -c $HTTPD_CONF \
+			-r "`gettext \"TazPanel Authentication\"`" &
+		status ;;
 	stop)
-		killall httpd ;;
+		gettext "Stopping TazPanel web server..."
+		killall httpd && status ;;
 	passwd|-p)
-		echo -e "\nChanging password for TazPanel"
-		echo -n "New password: " && read pass
+		echo ""
+		gettext "Changing password for TazPanel"
+		gettext "New password: " && read pass
 		sed -i s"/\/:root:.*/\/:root:$pass/" $HTTPD_CONF
-		echo -e "Password changed succeffuly\n" ;;
+		gettext "Password changed succeffuly"; echo
+		echo "" ;;
 	*)
-		echo "Usage: `basename $0` [start|stop|passwd]" ;;
+		echo ""
+		gettext "Usage:" && echo "`basename $0` [start|stop|passwd]"; echo
+		echo "" ;;
 esac
+
+exit 0

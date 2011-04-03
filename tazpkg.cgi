@@ -123,11 +123,10 @@ EOT
 sub_block() {
 	cat << EOT
 <div id="sub_block">
-	`gettext "List:"`
 	<a href='$SCRIPT_NAME?list'>`gettext "My packages"`</a> |
 	<a href='$SCRIPT_NAME?list-all'>`gettext "All packages"`</a> |
-	<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge"`</a> |
-	<a href='$SCRIPT_NAME?upgradeable'>`gettext "Upgradeable"`</a> |
+	<a href='$SCRIPT_NAME?recharge'>`gettext "Recharge list"`</a> |
+	<a href='$SCRIPT_NAME?upgradeable'>`gettext "Upgrade"`</a> |
 	<a href='$SCRIPT_NAME?config'>`gettext "Configuration"`</a>
 </div>
 EOT
@@ -376,7 +375,9 @@ EOT
 EOT
 		 ;;
 	*)
+		#
 		# Default to summary
+		#
 		search_form
 		sub_block
 		cat << EOT
@@ -398,6 +399,5 @@ EOT
 esac
 
 # xHTML 5 footer
-cd $PANEL && cat $FOOTER
-
+cd $PANEL && xhtml_footer
 exit 0

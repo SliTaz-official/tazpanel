@@ -1,34 +1,15 @@
 #!/bin/sh
 #
-# Main CGI interface for TazPanel. In on word: KISS
+# Main CGI interface for TazPanel. In on word: KISS. Use the main cas form
+# command so we are faster and dont load unneeded function. If nececarry
+# you can use the lib/ dir to handle external resources.
 #
 echo "Content-Type: text/html"
 echo ""
 
-# We need a config file first
-CONFIG="/etc/slitaz/tazpanel.conf"
-[ -f $CONFIG ] && . $CONFIG
-[ -f tazpanel.conf ] && . tazpanel.conf
-[ -z $PANEL ] && echo "No config file found" && exit 1
-
-# xHTML 5 header
-xhtml_header() {
-	cat $HEADER | sed s/'- %TITLE%'/"$TITLE"/
-}
-
-table_start() {
-	cat << EOT
-<table>
-	<tbody>
-EOT
-}
-
-table_end () {
-	cat << EOT
-	</tbody>
-</table>
-EOT
-}
+# Common functions from libtazpanel
+. lib/libtazpanel
+get_config
 
 #
 # Commands
@@ -36,34 +17,32 @@ EOT
 
 case "$QUERY_STRING" in
 	boot)
+		#
 		# Everything until user login
+		#
 		TITLE="- Network"
 		xhtml_header
 		cat << EOT
 <div id="wrapper">
-<h2>`gettext "Boot &amp; startup"`</h2>
-<p>
-	`gettext "Everything that appends before user login."` 
-</p>
+	<h2>`gettext "Boot &amp; startup"`</h2>
+	<p>
+		`gettext "Everything that appends before user login."` 
+	</p>
+</div>
 
 <h3>`gettext "Kernel cmdline"`</h3>
 <pre>
 `cat /proc/cmdline`
 </pre>
 EOT
-		echo '</div>' ;;
+		;;
 	users|user=*)
+		#
 		# Manage system user accounts
+		#
 		TITLE="- Users"
 		xhtml_header
-
 		cmdline=`echo ${QUERY_STRING#user*=} | sed s'/&/ /g'`		
-		#user=`echo ${cmdline} | sed s'/=/ /' | awk '{print $1}'`
-		#cmd=`echo ${cmdline} | sed s'/=/ /' |awk '{print $2}'`
-		
-		[ $DEBUG == "1" ] && echo \
-			"<p class='debug'>$cmdline</p>"
-			#$REQUEST_METHOD $QUERY_STRING
 		# Parse cmdline
 		for opt in $cmdline
 		do
@@ -92,8 +71,9 @@ EOT
 		esac
 		cat << EOT
 <div id="wrapper">
-<h2>`gettext "Manage users"`</h2>
-<div>`gettext "Manage human users on your SliTaz system"`</div>
+	<h2>`gettext "Manage users"`</h2>
+	<p>`gettext "Manage human users on your SliTaz system"`</p>
+</div>
 <form method="get" action="$SCRIPT_NAME">
 EOT
 		table_start
@@ -128,66 +108,101 @@ EOT
 			fi
 		done
 		table_end
-		#`gettext "Selection:"`
 		cat << EOT
-<div>
-	<input type="submit" value="`gettext "Delete selected user"`" />
-</div>
-
+	<div>
+		<input type="submit" value="`gettext "Delete selected user"`" />
+	</div>
 </form>
-</div>
 
 <h3>`gettext "Add a user"`</h3>
 <form method="get" action="$SCRIPT_NAME">
-<input type="hidden" name="user" size="30" />
-<p>
-	`gettext ""`
-	<input type="text" name="adduser" size="30" />
-</p>
-<p>
-	`gettext ""`
-	<input type="password" name="passwd" size="30" />
-</p>
-<input type="submit" value="`gettext ""`Create user" />
+	<input type="hidden" name="user" size="30" />
+	<p>
+		`gettext ""`
+		<input type="text" name="adduser" size="30" />
+	</p>
+	<p>
+		`gettext ""`
+		<input type="password" name="passwd" size="30" />
+	</p>
+	<input type="submit" value="`gettext ""`Create user" />
 </form
 EOT
 		;;
 	network)
+		#
 		# Network configuration
+		#
 		TITLE="- Network"
 		xhtml_header
 		cat << EOT
 <div id="wrapper">
-<h2>`gettext "Connections`</h2>
+	<h2>`gettext "Networking`</h2>
+	<p>`gettext "Manage network connection and services`</p>
+</div>
+
+<h3>Output of: ifconfig -a</h3>
+<pre>
+`ifconfig -a`
+</pre>
 EOT
-		echo '<pre>'
-		ifconfig
-		echo '</pre>'
-		echo '</div>' ;;
+		;;
 	hardware)
+		#
+		# Hardware drivers, devices, filesystem, screen
+		#
 		TITLE="- Hardware"
 		xhtml_header
 		cat << EOT
 <div id="wrapper">
-<h2>`gettext "Drivers &amp; Devices"`</h2>
+	<h2>`gettext "Drivers &amp; Devices"`</h2>
+	<p>`gettext "Manage your computer hardware`</p>
+</div>
 EOT
 		echo '<pre>'
-		lspci
+			fdisk -l | fgrep Disk
 		echo '</pre>'
-		echo '</div>' ;;
+		echo '<pre>'
+			df -h | grep ^/dev
+		echo '</pre>'
+		echo '<pre>'
+			lspci
+		echo '</pre>'
+		;;
 	*)
+		#
 		# Default xHTML content
+		#
 		xhtml_header
 		cat << EOT
 <div id="wrapper">
-<h2>`gettext "Host:"` `hostname`</h2>
+	<h2>`gettext "Host:"` `hostname`</h2>
+	<p>`gettext "SliTaz administration et configuration Panel"`<p>
+</div>
+
+<h3>`gettext "Summary"`</h3>
+<div id="summary">
+
 <p>
-	Uptime: `uptime`
+	`gettext "Uptime:"` `uptime`
 </p>
+<p>
+	`gettext "Memory in Mb:"`
+	`free -m | grep Mem: | awk \
+	'{print "| Total:", $2, "| Used:", $3, "| Free:", $4}'`
+</p>
+<p>
+	`gettext "Filesystem usage statistics:"`
+</p>
+<pre>
+`df -h | grep ^/dev`
+</pre>
+
+<!-- Close summary -->
+</div>
 EOT
-		echo '</div>'
 		;;
 esac
 
-# xHTML 5 footer
-cat $FOOTER
+xhtml_footer
+exit 0

@@ -6,11 +6,17 @@ DESTDIR?=
 LINGUAS?=fr
 PANEL?=/var/www/tazpanel
 
+VERSION:=$(shell grep ^VERSION tazpanel | cut -d '=' -f 2)
+
 # i18n
 
 pot:
 	xgettext -o po/tazpkg-cgi/tazpkg-cgi.pot -L Shell \
-		--package-name="Tazpkg CGI" ./tazpkg.cgi
+		--package-name="Tazpkg CGI" \
+		--package-version="$(VERSION)" ./tazpkg.cgi
+	xgettext -o po/tazpanel/tazpanel.pot -L Shell \
+		--package-name="TazPanel cmdline" \
+		--package-version="$(VERSION)" ./tazpanel
 
 msgmerge:
 	@for l in $(LINGUAS); do \
