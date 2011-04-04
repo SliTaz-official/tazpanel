@@ -4,7 +4,7 @@ SliTaz Web Control Panel
 
 Tazpanel is the SliTaz Control Panel, a web interface who let you manage the
 full system  in a redically simple way. The output xHTML code is valid xHTML 5
-and all theming is done with standard CSS.
+and all theming is done with standard CSS 3.
 
 
 Web server
@@ -15,8 +15,13 @@ security reason since we run as root to perform system actions, example:
 
 # httpd -p 8080 u root -c /etc/slitaz/tazpanel-httpd.conf
 
+Or use tazpanel cmdline:
+
+# tazpanel start
+
 Quick notes
 -----------
 
 	Panel password is defined in httpd.conf
 	When cat is used: `gettext "Text to translate"`
+	Devel can run the web server with root in the src tree

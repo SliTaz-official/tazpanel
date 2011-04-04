@@ -2,11 +2,21 @@
 	CSS style for TazPanel - (C) 2011 SliTaz GNU/Linux
 */
 
-html { min-height:  102%; min-width: 300px; }
-body { padding: 0; font: 13px sans;  }
-h1 { color: #d66018; border-bottom: 1px dotted #ddd; }
+/* To always have a scroll bar */
+html {
+	min-height:  102%;
+} 
+ 
+body {
+	background: #ffffff;
+	color: black;
+	font: 13px sans-serif, vernada, arial;
+	margin: 25px 0 0;
+}
+
+h1 { color: #d66018; padding: 18px 0 0 40px;}
 h2 { color: #444; margin: 10px 0 10px; }
-h3 { color: #666; font-size: 140%; margin: 0; }
+h3 { color: #666; font-size: 140%; }
 h4 { color: #888; font-size: 120%; }
 img { border: 0pt none; vertical-align: middle; padding: 0 6px 0 0;}
 p { margin: 6px 0; }
@@ -15,52 +25,32 @@ li { padding: 4px 0; }
 a { text-decoration: none; color: #666; }
 a:hover { color: #000; }
 
-pre { 
-	background-color: #f8f8f8; 
-	border: 1px solid #ddd; 
-	padding: 10px;
-	margin: 10px 0;
-	overflow: auto;
+/* Header and main title */
+
+#header {
+	height: 68px;
+	border-bottom: 1px dotted #ddd;
 }
-
-.pre_main { margin: 40px 0 10px; }
-
-input[type=submit] {
-	padding: 2px 4px;
-	margin: 4px 0 0;
-	background-color: #f1f1f1;
-	border: 1px solid #ddd;
-	cursor: pointer;
-}
-
-input[type=submit]:hover {
-	background-color: #ddd;
-	border: 1px solid #999;
-}
-
-input[type=text] { height: 15px; }
 
 /* Blocks */
 
 #block { float: left; }
 
-#sub_block { margin: 50px 0; }
+#sub_block { margin: 20px 0; }
 
 /* Content */
 
-#content { margin: 0; }
-#wrapper { margin: 80px 0 20px; }
+#content { margin: 20px 80px; }
+#wrapper { margin: 20px 0 20px; }
 
 .search {
 	position: absolute;
-	right: 48px;
-	top: 200px;
+	right: 80px;
+	top: 39px;
 }
 
 #actions {
-	position: absolute;
-	left: 48px;
-	top: 200px;
+	
 }
 
 #actions p { padding: 0; }
@@ -89,7 +79,6 @@ input[type=text] { height: 15px; }
 table {
 	background-color: #f8f8f8;
 	border: 1px solid #ddd;
-	margin: 40px 0 0 0;
 	padding: 10px 10px 10px 0;
 	width: 100%;
 }
@@ -102,30 +91,53 @@ td.desc { max-width: 300px; }
 	font-weight: bold;
 }
 
-/* Desktop gui style */
+/* Desktop gui style bar */
 
 #tazbar {
 	position: fixed;
 	top: 0;
 	left: 0;
-	height: 22px;
+	height: 24px;
 	width: 100%;
 	padding: 0 0 0 0;
 	background-color: #f1efeb;
-	border-top: 1px solid #fefefe;
-	border-bottom: 1px solid #d3cdc3;
+	border-bottom: 1px solid #c1baad;
 	z-index: 200;
+	cursor: default;
 }
-#menu { margin: 2px 8px; }
-#tazbar a { padding: 2px 4px;
-color: #000; border: 1px solid #ECE9E4;
-display: inline; }
-#tazbar a:hover { background-color: #fdfcfa ;
- border: 1px solid #827a6c;
- -moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;}
+#menu { margin: 4px 8px; }
+#menu a { padding: 2px 4px; color: #000; cursor: default; }
+#menu a:hover { color: #444; }
+#icons { margin: 2px 8px; float: right; }
+#icons img { padding: 0; }
 
+.progress { cursor: progress; }
+
+
+pre { 
+	background-color: #f8f8f8; 
+	border: 1px solid #ddd; 
+	padding: 10px;
+	margin: 10px 0;
+	overflow: auto;
+}
+
+.pre_main { margin: 20px 0 10px; }
+
+input[type=submit] {
+	padding: 2px 4px;
+	margin: 4px 0 0;
+	background-color: #f1f1f1;
+	border: 1px solid #ddd;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	background-color: #ddd;
+	border: 1px solid #999;
+}
+
+input[type=text] { height: 15px; }
 
 /* Round corner */
 

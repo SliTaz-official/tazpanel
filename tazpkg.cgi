@@ -11,7 +11,8 @@
 echo "Content-Type: text/html"
 echo ""
 
-. tazpanel.conf
+. lib/libtazpanel
+get_config
 
 # Include gettext helper script.
 . /usr/bin/gettext.sh
@@ -87,36 +88,28 @@ EOT
 # xHTML functions
 #
 
+# ENTER will search but user may search for a button, so put one.
 search_form() {
 	cat << EOT
 <div class="search">
-<form method="get" action="$SCRIPT_NAME">
-	<p>
-		<input type="text" name="search" size="20">
-		<input type="submit" value="`gettext "Search"`">
-	</p>
-</form>
+	<form method="get" action="$SCRIPT_NAME">
+		<p>
+			<input type="text" name="search" size="20">
+			<input type="submit" value="`gettext "Search"`">
+		</p>
+	</form>
 </div>
 EOT
 }
 
-table_start() {
+table_head() {
 	cat << EOT
-<table>
-	<tbody>
 		<tr id="thead">
 			<td>`gettext "Name"`</td>
 			<td>`gettext "Version"`</td>
 			<td>`gettext "Description"`</td>
 			<td>`gettext "Web"`</td>
 		</tr>
-EOT
-}
-
-table_end () {
-	cat << EOT
-	</tbody>
-</table>
 EOT
 }
 
@@ -205,7 +198,6 @@ EOT
 	list-all)
 		# List all available packages on mirror
 		cd  $LOCALSTATE
-		loader
 		search_form
 		sub_block
 		cat << EOT
@@ -216,6 +208,7 @@ EOT
 		list_all_actions
 		echo '</div>'
 		table_start
+		table_head
 		cat packages.desc | parse_packages_desc
 		table_end
 		list_all_actions
@@ -227,13 +220,14 @@ EOT
 		search_form
 		sub_block
 		cat << EOT
-<h2>`gettext "All packages"`</h2>
+<h2>`gettext "Search packages"`</h2>
 <form method="get" action="$SCRIPT_NAME">
 <div id="actions">
 EOT
 		list_full_actions
 		echo '</div>'
 		table_start
+		table_head
 		grep $pkg packages.desc | parse_packages_desc
 		table_end
 		echo '</form>' ;;
@@ -268,6 +262,7 @@ EOT
 		tazpkg upgradeable
 		echo '</div>'
 		table_start
+		table_head
 		for pkg in `cat upgradeable-packages.list`
 		do
 			grep "^$pkg |" $LOCALSTATE/packages.desc | parse_packages_desc
@@ -350,15 +345,15 @@ EOT
 	<p>`gettext "Tazpkg configuration and settings"`</p>
 </div>
 <div>
-	<h3>`gettext "Package in cache"`</h3>
 	<form method="get" action="$SCRIPT_NAME">
-	<p>
-		`gettext "Packages in the cache:"` $cache_files ($cache_size)
-		<input type="hidden" name="config" value="clean" />
-		<input type="submit" value="Clean" />
-	</p>
+		<p>
+			`gettext "Packages in the cache:"` $cache_files ($cache_size)
+			<input type="hidden" name="config" value="clean" />
+			<input type="submit" value="Clean" />
+		</p>
 	</form>
 </div>
+
 <h3>`gettext "Current mirror list"`</h3>
 <div class="box">
 	<ul>

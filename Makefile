@@ -39,7 +39,7 @@ install:
 		$(DESTDIR)$(SYSCONFDIR) \
 		$(DESTDIR)$(PANEL)
 	cp -f tazpanel $(DESTDIR)$(PREFIX)/bin
-	cp -f *.conf $(DESTDIR)$(SYSCONFDIR)
+	cp -f *.conf data/httpd.conf $(DESTDIR)$(SYSCONFDIR)
 	cp -a *.cgi lib/ styles/ $(DESTDIR)$(PANEL)	
 	#cp -a po/mo/* $(DESTDIR)$(PREFIX)/share/locale
 
