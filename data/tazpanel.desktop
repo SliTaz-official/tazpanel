@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=SliTaz Panel
+Icon=tazpanel
+Exec=tazweb http://tazpanel:8080/
+Categories=System;
