@@ -11,12 +11,15 @@ VERSION:=$(shell grep ^VERSION tazpanel | cut -d '=' -f 2)
 # i18n
 
 pot:
-	xgettext -o po/tazpkg-cgi/tazpkg-cgi.pot -L Shell \
-		--package-name="Tazpkg CGI" \
+	xgettext -o po/tazpanel-pkgs/tazpanel-pkgs.pot -L Shell \
+		--package-name="Tazpanel pkgs CGI" \
 		--package-version="$(VERSION)" ./tazpkg.cgi
 	xgettext -o po/tazpanel/tazpanel.pot -L Shell \
 		--package-name="TazPanel cmdline" \
 		--package-version="$(VERSION)" ./tazpanel
+	xgettext -o po/tazpanel-cgi/tazpanel-cgi.pot -L Shell \
+		--package-name="TazPanel CGI" \
+		--package-version="$(VERSION)" ./index.cgi
 
 msgmerge:
 	@for l in $(LINGUAS); do \
