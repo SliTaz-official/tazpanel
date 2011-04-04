@@ -27,7 +27,7 @@ case "$QUERY_STRING" in
 		#
 		# Everything until user login
 		#
-		TITLE="- Network"
+		TITLE="- Boot"
 		xhtml_header
 		cat << EOT
 <div id="wrapper">
@@ -86,7 +86,7 @@ EOT
 		table_start
 		cat << EOT
 <tr id="thead">
-	<td>`gettext "Name"`</td>
+	<td>`gettext "Login"`</td>
 	<td>`gettext "User ID"`</td>
 	<td>`gettext "Name"`</td>
 	<td>`gettext "Home"`</td>
@@ -121,18 +121,18 @@ EOT
 	</div>
 </form>
 
-<h3>`gettext "Add a user"`</h3>
+<h3>`gettext "Add a new user"`</h3>
 <form method="get" action="$SCRIPT_NAME">
 	<input type="hidden" name="user" size="30" />
+	<p>`gettext "User login:"`</p>
 	<p>
-		`gettext ""`
 		<input type="text" name="adduser" size="30" />
 	</p>
+	<p>`gettext "User password:"`</p>
 	<p>
-		`gettext ""`
 		<input type="password" name="passwd" size="30" />
 	</p>
-	<input type="submit" value="`gettext ""`Create user" />
+	<input type="submit" value="`gettext "Create user"`" />
 </form
 EOT
 		;;
@@ -194,7 +194,7 @@ EOT
 	`gettext "Uptime:"` `uptime`
 </p>
 <p>
-	`gettext "Memory in Mb:"`
+	`gettext "Memory in Mb"`
 	`free -m | grep Mem: | awk \
 	'{print "| Total:", $2, "| Used:", $3, "| Free:", $4}'`
 </p>

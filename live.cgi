@@ -16,6 +16,8 @@ get_config
 TEXTDOMAIN='tazpanel-live'
 export TEXTDOMAIN
 
+TITLE="- Live"
+
 #
 # Commands
 #
@@ -30,7 +32,7 @@ case "$QUERY_STRING" in
 		xhtml_header
 		cat << EOT
 <div id="wrapper">
-	<h2>`gettext "SliTaz Live"`</h2>
+	<h2>`gettext "SliTaz Live Systems"`</h2>
 	<p>`gettext "Create and manage Live CD or USB SliTaz systems"`<p>
 </div>
 

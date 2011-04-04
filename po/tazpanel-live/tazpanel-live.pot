@@ -6,7 +6,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: TazPanel cmdline 1.0\n"
+"Project-Id-Version: Tazpanel live CGI 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-04-05 01:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -17,26 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: tazpanel:33
-msgid "TazPanel Authentication"
+#: live.cgi:35
+msgid "SliTaz Live Systems"
 msgstr ""
 
-#: tazpanel:36
-msgid "Stopping TazPanel web server..."
-msgstr ""
-
-#: tazpanel:40
-msgid "Changing password for TazPanel"
-msgstr ""
-
-#: tazpanel:41
-msgid "New password: "
-msgstr ""
-
-#: tazpanel:43
-msgid "Password changed succeffuly"
-msgstr ""
-
-#: tazpanel:47
-msgid "Usage:"
+#: live.cgi:36
+msgid "Create and manage Live CD or USB SliTaz systems"
 msgstr ""
