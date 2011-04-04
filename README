@@ -7,6 +7,40 @@ full system  in a redically simple way. The output xHTML code is valid xHTML 5
 and all theming is done with standard CSS 3.
 
 
+i18n
+----
+TazPanel have been coded from the beginning with gettext support. Please
+forget 'echo' and use gettext, but remember that gettext "" is equivalent
+to echo -n. Each script have it own TEXTDOMAIN and pot files as well as
+translation goes in the po/ folder.
+
+
+User interface
+--------------
+If you develope an official SliTaz GUI for TazPanel, please follow the style.
+If you need more CSS markup and you not a coder, please ask an official
+developer the better way to implement your idea. TazPanel is fully themable
+and more than one theme can be installed, this will let us make packages
+for TazPanel style! All the GUI is done with xHTML 5 and CSS 3, some
+javascript can be used, but with precaution... one more time, it's better
+to check with a main contributor before adding to much stuff, the goal is,
+as for the all SliTaz project: KISS
+
+
+CGI template and files
+----------------------
+To start or test new function with TazPanel you will find a a file in
+utils/template.cgi that need to be in the $PANEL root to work, all TazPanel
+CGI scripts are in that location. If you think your code is too big to fit
+in an other script you can eventually creat a new CGI page and update all
+links, but please to talk to the AUTHORS before.
+
+	* index.cgi   Main Tazpanel CGI script (most stuff may be splited
+	              into system.cgi if too big or slow)
+	* tazpkg.cgi  Tazpkg CGI interface
+	* live.cgi    All tools related to Live systems (CD, USB, Frugal)
+	
+
 Web server
 ----------
 Tazpanel can run with Busybox httpd applet or LightTPD an propably Apache.
@@ -17,7 +51,8 @@ security reason since we run as root to perform system actions, example:
 
 Or use tazpanel cmdline:
 
-# tazpanel start
+# ./tazpanel start
+
 
 Quick notes
 -----------
