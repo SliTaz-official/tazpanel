@@ -11,6 +11,13 @@ echo ""
 . lib/libtazpanel
 get_config
 
+# Include gettext helper script.
+. /usr/bin/gettext.sh
+
+# Export package name for gettext.
+TEXTDOMAIN='tazpanel-cgi'
+export TEXTDOMAIN
+
 #
 # Commands
 #

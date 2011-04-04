@@ -18,7 +18,7 @@ get_config
 . /usr/bin/gettext.sh
 
 # Export package name for gettext.
-TEXTDOMAIN='tazpkg-cgi'
+TEXTDOMAIN='tazpanel-pkgs'
 export TEXTDOMAIN
 
 # xHTML 5 header
@@ -239,11 +239,13 @@ EOT
 <h2>`gettext "Recharge"`</h2>
 <form method='get' action='$SCRIPT_NAME'>
 <div id="actions">
-	<p>`gettext "Recharge lists will check for new or updated packages"`</p>
+	<p>
+		`gettext "Recharge will check for new or updated packages...
+		please wait"`
+	</p>
 </div>	
-<pre class="pre_main">
+<pre>
 EOT
-		gettext "Recharging the packages list... please wait"; echo
 		tazpkg recharge | filter_tazpkg_msgs
 		echo '</pre>'
 		echo '<p>'
@@ -304,7 +306,7 @@ EOT
 <div id="actions">
 	<p>`gettext "Detailled information on:"` $PACKAGE</p>
 </div>
-<pre class="pre_main">
+<pre>
 Name        : $PACKAGE
 Version     : $VERSION
 Description : $SHORT_DESC
