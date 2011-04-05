@@ -24,10 +24,16 @@ TITLE="- Live"
 
 case "$QUERY_STRING" in
 	write-iso=*)
-		COMPRESSION=${QUERY_STRING#write-iso=}
+		comp=${QUERY_STRING#write-iso=}
 		xterm $XTERM_OPTS \
-			-title "write-iso" \
-			-e "tazlito writeiso $COMPRESSION" & ;;
+			-T "write-iso" \
+			-e "tazlito writeiso $comp" & ;;
+	gen-liveusb=*)
+		dev=`httpd -d ${QUERY_STRING#gen-liveusb=}`
+		xterm $XTERM_OPTS \
+			-T "Tazusb gen-liveusb" \
+			-e "tazusb gen-liveusb $dev; \
+				gettext \"ENTER to quit\"; read i" & ;;
 	*)
 		continue ;;
 esac
@@ -53,11 +59,12 @@ case "$QUERY_STRING" in
 	<p>`gettext "Create and manage Live CD or USB SliTaz systems"`<p>
 </div>
 
-<h3>`gettext "Write an ISO"`</h3>
+<h3>`gettext "Write a Live CD"`</h3>
 <p>
-	`gettext "Writeiso will generate an ISO image of the current filesystem
-	as is, including the /home directory. It is an easy way to remaster a
-	SliTaz Live system, you just have to: boot, modify, writeiso."`
+	`gettext "The command writeiso will generate an ISO image of the
+	current filesystem as is, including all files in the /home directory.
+	It is an easy way to remaster a SliTaz Live system, you just have
+	to: boot, modify, writeiso."`
 </p>
 <form method="get" action="$SCRIPT_NAME">
 	`gettext "Compression type:"`
@@ -67,7 +74,31 @@ case "$QUERY_STRING" in
 		<option value="none">none</option>
 	</select>
 	<input type="submit" value="`gettext "write ISO"`" />
-</form
+</form>
+
+<h3>`gettext "Live USB"`</h3>
+<p>
+	`gettext "Generate SliTaz LiveUSB media and boot in RAM! Insert a
+	LiveCD into the cdrom drive, select the correct device and press
+	Generate."`
+</p>
+<form method="get" action="$SCRIPT_NAME">
+	`gettext "USB Media to use:"`
+	<select name="gen-liveusb">
+EOT
+		# List disk if plugged USB device
+		if [ -d /proc/scsi/usb-storage ]; then
+			for i in `blkid | cut -d ":" -f 1`; do
+				echo "<option value='$i'>$i</option>"
+			done
+		else
+			echo "<option value="">"`gettext "Not found"`"</option>"
+		fi
+		cat << EOT
+	</select>
+	<input type="submit" value="`gettext "generate"`" />
+</form>
+
 EOT
 		;;
 esac
