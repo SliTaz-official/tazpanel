@@ -3,7 +3,7 @@
 PREFIX?=/usr
 SYSCONFDIR?=/etc/slitaz
 DESTDIR?=
-LINGUAS?=fr
+LINGUAS?=pt
 PANEL?=/var/www/tazpanel
 
 VERSION:=$(shell grep ^VERSION tazpanel | cut -d '=' -f 2)
@@ -27,19 +27,20 @@ pot:
 msgmerge:
 	@for l in $(LINGUAS); do \
 		echo -n "Updating $$l po file."; \
-		msgmerge -U po/tazpkg-cgi/$$l.po po/tazpkg-cgi/tazpkg-cgi.pot; \
+		msgmerge -U po/tazpanel-pkgs/$$l.po po/tazpanel-pkgs/tazpanel-pkgs.pot; \
 	done;
 
 msgfmt:
 	@for l in $(LINGUAS); do \
 		echo "Compiling $$l mo file..."; \
 		mkdir -p po/mo/$$l/LC_MESSAGES; \
-		msgfmt -o po/mo/$$l/LC_MESSAGES/tazpkg-cgi.mo po/tazpkg-cgi/$$l.po; \
+		msgfmt -o po/mo/$$l/LC_MESSAGES/tazpanel-pkgs.mo \
+			po/tazpanel-pkgs/$$l.po; \
 	done;
 
 # Installation
 
-install:
+install: msgfmt
 	mkdir -p $(DESTDIR)$(PREFIX)/bin \
 		$(DESTDIR)$(PREFIX)/share/locale \
 		$(DESTDIR)$(SYSCONFDIR) \
@@ -47,5 +48,10 @@ install:
 	cp -f tazpanel $(DESTDIR)$(PREFIX)/bin
 	cp -f *.conf data/httpd.conf $(DESTDIR)$(SYSCONFDIR)
 	cp -a *.cgi lib/ styles/ $(DESTDIR)$(PANEL)	
-	#cp -a po/mo/* $(DESTDIR)$(PREFIX)/share/locale
+	cp -a po/mo/* $(DESTDIR)$(PREFIX)/share/locale
+
+# Clean source
+
+clean:
+	rm -rf po/mo
 

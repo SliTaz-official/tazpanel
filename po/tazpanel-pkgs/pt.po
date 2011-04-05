@@ -1,0 +1,166 @@
+# Brazilian Portuguese translation for Tazpkg GCI.
+# Copyright (C) 2011 www.slitaz.org
+# This file is distributed under the same license as the Tazpkg GCI package.
+# Claudinei Pereira <claudinei@slitaz.org>, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Tazpanel pkgs CGI 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-05 01:58+0200\n"
+"PO-Revision-Date: 2011-04-04 14:00+0000\n"
+"Last-Translator: Claudinei Pereira <claudinei@slitaz.org>\n"
+"Language-Team: Brazilian Portuguese <i18n@slitaz.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n >1);\n"
+
+#: pkgs.cgi:62
+msgid "Installed packages   : "
+msgstr "Pacotes Instalados   : "
+
+#: pkgs.cgi:64
+msgid "Mirrored packages    : "
+msgstr "Pacotes no Mirror    : "
+
+#: pkgs.cgi:66
+msgid "Last recharge        : "
+msgstr "Última Recarga       : "
+
+#: pkgs.cgi:68
+msgid "Upgradeable packages : "
+msgstr "Pacotes Atualizáveis : "
+
+#: pkgs.cgi:70
+msgid "Installed files      : "
+msgstr "Arquivos Instalados  : "
+
+#: pkgs.cgi:72
+msgid "Blocked packages     : "
+msgstr "Pacotes Bloqueados   : "
+
+#: pkgs.cgi:98
+msgid "Search"
+msgstr "Buscar"
+
+#: pkgs.cgi:108
+msgid "Name"
+msgstr "Nome"
+
+#: pkgs.cgi:109
+msgid "Version"
+msgstr "Versão"
+
+#: pkgs.cgi:110
+msgid "Description"
+msgstr "Descrição"
+
+#: pkgs.cgi:111
+msgid "Web"
+msgstr "Web"
+
+#: pkgs.cgi:119 pkgs.cgi:173
+msgid "My packages"
+msgstr "Meus Pacotes"
+
+#: pkgs.cgi:120 pkgs.cgi:204
+msgid "All packages"
+msgstr "Todos Pacotes"
+
+#: pkgs.cgi:121
+#, fuzzy
+msgid "Recharge list"
+msgstr "Recarregar"
+
+#: pkgs.cgi:122
+#, fuzzy
+msgid "Upgrade"
+msgstr "Atualizar"
+
+#: pkgs.cgi:123 pkgs.cgi:345
+msgid "Configuration"
+msgstr "Configuração"
+
+#: pkgs.cgi:132 pkgs.cgi:142 pkgs.cgi:153
+msgid "Selection:"
+msgstr "Seleção:"
+
+#: pkgs.cgi:156
+msgid "Toogle all"
+msgstr "Alternar Todos"
+
+#: pkgs.cgi:223
+#, fuzzy
+msgid "Search packages"
+msgstr "Meus Pacotes"
+
+#: pkgs.cgi:239
+msgid "Recharge"
+msgstr "Recarregar"
+
+#: pkgs.cgi:243
+#, fuzzy
+msgid ""
+"Recharge will check for new or updated packages...\n"
+"\t\tplease wait"
+msgstr "O comando `recharge lists` checará por pacotes novos ou atualizados"
+
+#: pkgs.cgi:252
+msgid "Packages lists are up-to-date"
+msgstr "A lista de pacotes está atualizada"
+
+#: pkgs.cgi:259
+msgid "Upgradeable packages"
+msgstr "Pacotes atualizáveis"
+
+#: pkgs.cgi:288
+msgid "Performing task on packages"
+msgstr "Executando tarefa nos pacotes"
+
+#: pkgs.cgi:305
+msgid "Package info"
+msgstr "Informação de pacote"
+
+#: pkgs.cgi:307
+msgid "Detailled information on:"
+msgstr "Informação detalhada sobre:"
+
+#: pkgs.cgi:321
+msgid "Installed files"
+msgstr "Arquivos instalados"
+
+#: pkgs.cgi:347
+msgid "Tazpkg configuration and settings"
+msgstr "Configurações do Tazpkg"
+
+#: pkgs.cgi:352
+msgid "Packages in the cache:"
+msgstr "Pacotes no cache:"
+
+#: pkgs.cgi:359
+msgid "Current mirror list"
+msgstr "Lista de mirrors atual"
+
+#: pkgs.cgi:381
+msgid "Summary"
+msgstr "Resumo"
+
+#: pkgs.cgi:383
+msgid "Overview of all installed and mirrored packages"
+msgstr "Descrição de todos os pacotes instalados e no mirror"
+
+#: pkgs.cgi:388
+msgid "Latest log entries"
+msgstr "Últimas entradas de log"
+
+#~ msgid "List:"
+#~ msgstr "Lista:"
+
+#~ msgid "Recharging the packages list... please wait"
+#~ msgstr "Recarregando a lista de pacotes... Aguarde"
+
+#~ msgid "Package in cache"
+#~ msgstr "Pacote no cache"
