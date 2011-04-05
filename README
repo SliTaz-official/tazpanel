@@ -55,7 +55,7 @@ Tazpanel can run with Busybox httpd applet or LightTPD an propably Apache.
 Start the webserver with custom config to listen only on local port for
 security reason since we run as root to perform system actions, example:
 
-# httpd -p 8080 u root -c /etc/slitaz/tazpanel-httpd.conf
+# httpd -p 8090 u root -c /etc/slitaz/tazpanel-httpd.conf
 
 Or use tazpanel cmdline:
 
