@@ -19,12 +19,29 @@ export TEXTDOMAIN
 TITLE="- Live"
 
 #
+# Commands executed in Xterm first
+#
+
+case "$QUERY_STRING" in
+	write-iso=*)
+		COMPRESSION=${QUERY_STRING#write-iso=}
+		xterm $XTERM_OPTS \
+			-title "write-iso" \
+			-e "tazlito writeiso $COMPRESSION" & ;;
+	*)
+		continue ;;
+esac
+
+#
 # Commands
 #
 
 case "$QUERY_STRING" in
-	gen-distro)
-		echo "" ;;
+	create)
+		#
+		# Create a flavor file and ISO in option with all settings
+		#
+		gettext "TODO" ;;
 	*)
 		#
 		# Default xHTML content
@@ -36,6 +53,21 @@ case "$QUERY_STRING" in
 	<p>`gettext "Create and manage Live CD or USB SliTaz systems"`<p>
 </div>
 
+<h3>`gettext "Write an ISO"`</h3>
+<p>
+	`gettext "Writeiso will generate an ISO image of the current filesystem
+	as is, including the /home directory. It is an easy way to remaster a
+	SliTaz Live system, you just have to: boot, modify, writeiso."`
+</p>
+<form method="get" action="$SCRIPT_NAME">
+	`gettext "Compression type:"`
+	<select name="write-iso">
+		<option value="gzip">gzip</option>
+		<option value="lzma">lzma</option>
+		<option value="none">none</option>
+	</select>
+	<input type="submit" value="`gettext "write ISO"`" />
+</form
 EOT
 		;;
 esac

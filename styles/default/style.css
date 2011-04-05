@@ -113,6 +113,7 @@ td.desc { max-width: 300px; }
 
 .progress { cursor: progress; }
 
+/* Misc */
 
 pre { 
 	background-color: #f8f8f8; 
@@ -124,7 +125,7 @@ pre {
 
 .pre_main { margin: 20px 0 10px; }
 
-input[type=submit] {
+input[type=submit], select {
 	padding: 2px 4px;
 	margin: 4px 0 0;
 	background-color: #f1f1f1;
@@ -132,7 +133,7 @@ input[type=submit] {
 	cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover, select:hover {
 	background-color: #ddd;
 	border: 1px solid #999;
 }
