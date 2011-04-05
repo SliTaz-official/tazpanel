@@ -37,7 +37,7 @@ list_network_interfaces() {
 <tr id="thead">
 	<td>`gettext "Interface"`</td>
 	<td>`gettext "Name"`</td>
-	<td>`gettext "Statut"`</td>
+	<td>`gettext "Status"`</td>
 	<td>`gettext "IP Address"`</td>
 </tr>
 EOT
@@ -229,26 +229,24 @@ EOT
 
 <h3>`gettext "Summary"`</h3>
 <div id="summary">
+	<p>
+		`gettext "Uptime:"` `uptime`
+	</p>
+	<p>
+		`gettext "Memory in Mb"`
+		`free -m | grep Mem: | awk \
+		'{print "| Total:", $2, "| Used:", $3, "| Free:", $4}'`
+	</p>
+<!-- Close summary -->
+</div>
 
-<p>
-	`gettext "Uptime:"` `uptime`
-</p>
-<p>
-	`gettext "Memory in Mb"`
-	`free -m | grep Mem: | awk \
-	'{print "| Total:", $2, "| Used:", $3, "| Free:", $4}'`
-</p>
-<p>
-	`gettext "Filesystem usage statistics:"`
-</p>
+<h4>`gettext "Network status"`</h4>
+`list_network_interfaces`
+
+<h4>`gettext "Filesystem usage statistics"`</h4>
 <pre>
 `df -h | grep ^/dev`
 </pre>
-
-`list_network_interfaces`
-
-<!-- Close summary -->
-</div>
 EOT
 		;;
 esac

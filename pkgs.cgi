@@ -22,7 +22,7 @@ TEXTDOMAIN='tazpanel-pkgs'
 export TEXTDOMAIN
 
 # xHTML 5 header
-cat $HEADER | sed s'/%TITLE%/Tazpkg/'
+xhtml_header
 
 # DEBUG mode
 if [ $DEBUG == "1" ]; then
@@ -396,5 +396,5 @@ EOT
 esac
 
 # xHTML 5 footer
-cd $PANEL && xhtml_footer
+xhtml_footer
 exit 0
