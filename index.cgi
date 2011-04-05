@@ -123,17 +123,13 @@ EOT
 
 <h3>`gettext "Add a new user"`</h3>
 <form method="get" action="$SCRIPT_NAME">
-	<input type="hidden" name="user" size="30" />
+	<input type="hidden" name="user" />
 	<p>`gettext "User login:"`</p>
-	<p>
-		<input type="text" name="adduser" size="30" />
-	</p>
+	<p><input type="text" name="adduser" size="30" /></p>
 	<p>`gettext "User password:"`</p>
-	<p>
-		<input type="password" name="passwd" size="30" />
-	</p>
+	<p><input type="password" name="passwd" size="30" /></p>
 	<input type="submit" value="`gettext "Create user"`" />
-</form
+</form>
 EOT
 		;;
 	network)
