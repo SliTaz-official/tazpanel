@@ -11,8 +11,8 @@ i18n
 ----
 TazPanel have been coded from the beginning with gettext support. Please
 forget 'echo' and use gettext, but remember that gettext "" is equivalent
-to echo -n. Each script have it own TEXTDOMAIN and pot files as well as
-translation goes in the po/ folder. To start a new translation please
+to echo -n. Each script have it own TEXTDOMAIN and pot files as well, all
+translations goes in the po/ folder. To start a new translation please
 use msginit from the pot file directory. Example for French/France
 locale (fr_FR):
 
@@ -43,9 +43,9 @@ CGI scripts are in that location. If you think your code is too big to fit
 in an other script you can eventually creat a new CGI page and update all
 links, but please to talk to the AUTHORS before.
 
-	* index.cgi   Main Tazpanel CGI script (most stuff may be splited
-	              into system.cgi if too big or slow)
-	* tazpkg.cgi  Tazpkg CGI interface
+	* index.cgi   Main Tazpanel CGI script (some stuff may be splited
+	              into users.cgi, boot.cgi, etc if too big or slow)
+	* pkgs.cgi    Tazpkg packages CGI interface
 	* live.cgi    All tools related to Live systems (CD, USB, Frugal)
 	
 

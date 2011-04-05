@@ -22,6 +22,7 @@ TEXTDOMAIN='tazpanel-pkgs'
 export TEXTDOMAIN
 
 # xHTML 5 header
+TITLE="- Packages"
 xhtml_header
 
 # DEBUG mode
