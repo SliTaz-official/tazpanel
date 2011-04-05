@@ -23,13 +23,14 @@ interface_status() {
 	if 	ifconfig | grep -A 1 $i | grep -q inet; then
 		ip=`ifconfig | grep -A 1 $i | grep inet | \
 			awk '{ print $2 }' | cut -d ":" -f 2`
-		echo "<td>connected</td> <td>$ip</td>"
+		echo "<td>connected</td><td>$ip</td>"
 	else
-		echo "<td>-</td>"
+		echo "<td>----</td><td>----</td>"
 	fi
 }
 
-# Catch network interface
+# Catch network interface (network is splited this function and above
+# must go in lib/libtazpanel
 list_network_interfaces() {
 	table_start
 	cat << EOT

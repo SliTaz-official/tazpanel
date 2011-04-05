@@ -18,11 +18,11 @@ get_config() {
 #
 
 xhtml_header() {
-	cat $HEADER | sed s/'- %TITLE%'/"$TITLE"/
+	cat ${PANEL}$HEADER | sed s/'- %TITLE%'/"$TITLE"/
 }
 
 xhtml_footer() {
-	cat $FOOTER
+	cat ${PANEL}$FOOTER
 }
 
 table_start() {
