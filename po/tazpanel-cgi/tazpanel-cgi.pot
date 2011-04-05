@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel CGI 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-05 01:58+0200\n"
+"POT-Creation-Date: 2011-04-05 04:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,50 +69,50 @@ msgstr ""
 msgid "User login:"
 msgstr ""
 
-#: index.cgi:131
+#: index.cgi:129
 msgid "User password:"
 msgstr ""
 
-#: index.cgi:135
+#: index.cgi:131
 msgid "Create user"
 msgstr ""
 
-#: index.cgi:147
+#: index.cgi:143
 msgid "Networking"
 msgstr ""
 
-#: index.cgi:148
+#: index.cgi:144
 msgid "Manage network connection and services"
 msgstr ""
 
-#: index.cgi:165
+#: index.cgi:161
 msgid "Drivers &amp; Devices"
 msgstr ""
 
-#: index.cgi:166
+#: index.cgi:162
 msgid "Manage your computer hardware"
 msgstr ""
 
-#: index.cgi:186
+#: index.cgi:182
 msgid "Host:"
 msgstr ""
 
-#: index.cgi:187
+#: index.cgi:183
 msgid "SliTaz administration et configuration Panel"
 msgstr ""
 
-#: index.cgi:190
+#: index.cgi:186
 msgid "Summary"
 msgstr ""
 
-#: index.cgi:194
+#: index.cgi:190
 msgid "Uptime:"
 msgstr ""
 
-#: index.cgi:197
+#: index.cgi:193
 msgid "Memory in Mb"
 msgstr ""
 
-#: index.cgi:202
+#: index.cgi:198
 msgid "Filesystem usage statistics:"
 msgstr ""

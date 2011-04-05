@@ -93,7 +93,7 @@ td.desc { max-width: 300px; }
 
 /* Desktop gui style bar */
 
-#tazbar {
+#toolbar {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -122,8 +122,6 @@ pre {
 	margin: 10px 0;
 	overflow: auto;
 }
-
-.pre_main { margin: 20px 0 10px; }
 
 input[type=submit], select {
 	padding: 2px 4px;

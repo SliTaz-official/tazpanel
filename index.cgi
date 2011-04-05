@@ -18,6 +18,47 @@ get_config
 TEXTDOMAIN='tazpanel-cgi'
 export TEXTDOMAIN
 
+# Network interface status
+interface_status() {
+	if 	ifconfig | grep -A 1 $i | grep -q inet; then
+		ip=`ifconfig | grep -A 1 $i | grep inet | \
+			awk '{ print $2 }' | cut -d ":" -f 2`
+		echo "<td>connected</td> <td>$ip</td>"
+	else
+		echo "<td>-</td>"
+	fi
+}
+
+# Catch network interface
+list_network_interfaces() {
+	table_start
+	cat << EOT
+<tr id="thead">
+	<td>`gettext "Interface"`</td>
+	<td>`gettext "Name"`</td>
+	<td>`gettext "Statut"`</td>
+	<td>`gettext "IP Address"`</td>
+</tr>
+EOT
+	for i in `ls /sys/class/net`
+	do
+		case $i in
+			eth*)
+				echo "<tr><td><img src='$IMAGES/ethernet.png' />$i</td>
+					<td>Ethernet</td> `interface_status`</tr>" ;;
+			wlan*|ath*|ra*)
+				echo "<tr><td><img src='$IMAGES/wireless.png' />$i</td>
+					<td>Wireless</td> `interface_status`</tr>" ;;
+			lo)
+				echo "<tr><td><img src='$IMAGES/loopback.png' />$i</td>
+				<td>Loopback</td> `interface_status`</tr>" ;;
+			*)
+				continue ;;
+		esac
+	done
+	table_end
+}
+
 #
 # Commands
 #
@@ -144,6 +185,8 @@ EOT
 	<p>`gettext "Manage network connection and services`</p>
 </div>
 
+`list_network_interfaces`
+
 <h3>Output of: ifconfig -a</h3>
 <pre>
 `ifconfig -a`
@@ -200,6 +243,8 @@ EOT
 <pre>
 `df -h | grep ^/dev`
 </pre>
+
+`list_network_interfaces`
 
 <!-- Close summary -->
 </div>
