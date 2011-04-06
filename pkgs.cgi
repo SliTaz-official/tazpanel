@@ -18,7 +18,7 @@ get_config
 . /usr/bin/gettext.sh
 
 # Export package name for gettext.
-TEXTDOMAIN='tazpanel-pkgs'
+TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
 
 # xHTML 5 header

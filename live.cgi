@@ -13,7 +13,7 @@ get_config
 . /usr/bin/gettext.sh
 
 # Export package name for gettext.
-TEXTDOMAIN='tazpanel-live'
+TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
 
 TITLE="- Live"
