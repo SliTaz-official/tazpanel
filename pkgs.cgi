@@ -3,7 +3,7 @@
 # TazPKG CGI interface - Manage packages via the a browse
 #
 # This CGI interface intensively use tazpkg to manage package and have
-# it how code for some tasks. Please KISS it important and keep speed
+# it own code for some tasks. Please KISS it important and keep speed
 # in mind. Thanks, Pankso.
 #
 # (C) 2011 SliTaz GNU/Linux - GNU gpl v2
@@ -60,12 +60,20 @@ filter_tazpkg_msgs() {
 
 # Display a full summary of packages stats
 packages_summary() {
+	gettext "Last recharge        : "
+	stat=`stat -c %y $LOCALSTATE/packages.list | \
+		sed 's/\(:..\):.*/\1/' | awk '{print $1}'`
+	mtime=`find /var/lib/tazpkg/packages.list -mtime +10`
+	echo -n "$stat "
+	if [ "$mtime" ]; then
+		echo "(Older than 10 days)"
+	else
+		echo "(Not older than 10 days)"
+	fi
 	gettext "Installed packages   : "
 	ls $INSTALLED | wc -l
 	gettext "Mirrored packages    : "
 	cat $LOCALSTATE/packages.list | wc -l
-	gettext "Last recharge        : "
-	stat -c %y $LOCALSTATE/packages.list | sed 's/\(:..\):.*/\1/'
 	gettext "Upgradeable packages : "
 	cat $LOCALSTATE/upgradeable-packages.list | wc -l
 	gettext "Installed files      : "

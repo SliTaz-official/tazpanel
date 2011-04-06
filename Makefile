@@ -45,8 +45,8 @@ install: msgfmt
 		$(DESTDIR)$(PREFIX)/share/locale \
 		$(DESTDIR)$(SYSCONFDIR) \
 		$(DESTDIR)$(PANEL)
-	cp -f tazpanel $(DESTDIR)$(PREFIX)/bin
-	cp -f *.conf data/httpd.conf $(DESTDIR)$(SYSCONFDIR)
+	cp -a tazpanel $(DESTDIR)$(PREFIX)/bin
+	cp -a *.conf data/httpd.conf $(DESTDIR)$(SYSCONFDIR)
 	cp -a *.cgi lib/ styles/ $(DESTDIR)$(PANEL)	
 	cp -a po/mo/* $(DESTDIR)$(PREFIX)/share/locale
 
