@@ -46,10 +46,12 @@ EOT
 	do
 		case $i in
 			eth*)
-				echo "<tr><td><img src='$IMAGES/ethernet.png' />$i</td>
+				echo "<tr><td><a href='/network.cgi?eth'>
+					<img src='$IMAGES/ethernet.png' />$i</a></td>
 					<td>Ethernet</td> `interface_status`</tr>" ;;
 			wlan*|ath*|ra*)
-				echo "<tr><td><img src='$IMAGES/wireless.png' />$i</td>
+				echo "<tr><td><a href='/network.cgi?wifi'>
+					<img src='$IMAGES/wireless.png' />$i</a></td>
 					<td>Wireless</td> `interface_status`</tr>" ;;
 			lo)
 				echo "<tr><td><img src='$IMAGES/loopback.png' />$i</td>
