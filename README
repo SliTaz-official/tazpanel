@@ -11,7 +11,7 @@ i18n
 ----
 TazPanel have been coded from the beginning with gettext support. Please
 forget 'echo' and use gettext, but remember that gettext "" is equivalent
-to echo -n. Each script have it own TEXTDOMAIN and pot files as well, all
+to echo -n. All script use the same TEXTDOMAIN and the same pot files, all
 translations goes in the po/ folder. To start a new translation please
 use msginit from the pot file directory. Example for French/France
 locale (fr_FR):

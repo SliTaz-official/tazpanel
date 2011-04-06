@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-06 06:09+0200\n"
+"POT-Creation-Date: 2011-04-06 06:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,119 +41,99 @@ msgstr ""
 msgid "Usage:"
 msgstr ""
 
-#: index.cgi:38
-msgid "Interface"
-msgstr ""
-
-#: index.cgi:39 index.cgi:133 pkgs.cgi:117
-msgid "Name"
-msgstr ""
-
-#: index.cgi:40
-msgid "Status"
-msgstr ""
-
-#: index.cgi:41
-msgid "IP Address"
-msgstr ""
-
-#: index.cgi:76
+#: index.cgi:34
 msgid "Boot &amp; startup"
 msgstr ""
 
-#: index.cgi:78
+#: index.cgi:36
 msgid "Everything that appends before user login."
 msgstr ""
 
-#: index.cgi:82
+#: index.cgi:40
 msgid "Kernel cmdline"
 msgstr ""
 
-#: index.cgi:123
+#: index.cgi:81
 msgid "Manage users"
 msgstr ""
 
-#: index.cgi:124
+#: index.cgi:82
 msgid "Manage human users on your SliTaz system"
 msgstr ""
 
-#: index.cgi:131
+#: index.cgi:89
 msgid "Login"
 msgstr ""
 
-#: index.cgi:132
+#: index.cgi:90
 msgid "User ID"
 msgstr ""
 
-#: index.cgi:134
+#: index.cgi:91 pkgs.cgi:117 lib/libtazpanel:40
+msgid "Name"
+msgstr ""
+
+#: index.cgi:92
 msgid "Home"
 msgstr ""
 
-#: index.cgi:135
+#: index.cgi:93
 msgid "SHell"
 msgstr ""
 
-#: index.cgi:162
+#: index.cgi:120
 msgid "Delete selected user"
 msgstr ""
 
-#: index.cgi:166
+#: index.cgi:124
 msgid "Add a new user"
 msgstr ""
 
-#: index.cgi:169
+#: index.cgi:127
 msgid "User login:"
 msgstr ""
 
-#: index.cgi:171
+#: index.cgi:129
 msgid "User password:"
 msgstr ""
 
-#: index.cgi:173
+#: index.cgi:131
 msgid "Create user"
 msgstr ""
 
-#: index.cgi:185 network.cgi:32
-msgid "Networking"
-msgstr ""
-
-#: index.cgi:186 network.cgi:33
-msgid "Manage network connection and services"
-msgstr ""
-
-#: index.cgi:205
+#: index.cgi:143
 msgid "Drivers &amp; Devices"
 msgstr ""
 
-#: index.cgi:206
+#: index.cgi:144
 msgid "Manage your computer hardware"
 msgstr ""
 
-#: index.cgi:226
+#: index.cgi:164
 msgid "Host:"
 msgstr ""
 
-#: index.cgi:227
+#: index.cgi:165
 msgid "SliTaz administration et configuration Panel"
 msgstr ""
 
-#: index.cgi:230 pkgs.cgi:390
+#: index.cgi:168 pkgs.cgi:390
 msgid "Summary"
 msgstr ""
 
-#: index.cgi:233
+#: index.cgi:171
 msgid "Uptime:"
 msgstr ""
 
-#: index.cgi:236
+#: index.cgi:174
 msgid "Memory in Mb"
 msgstr ""
 
-#: index.cgi:243
+#: index.cgi:181
 msgid "Network status"
 msgstr ""
 
-#: index.cgi:246
+#: index.cgi:184
 msgid "Filesystem usage statistics"
 msgstr ""
 
@@ -336,4 +316,24 @@ msgstr ""
 
 #: live.cgi:99
 msgid "generate"
+msgstr ""
+
+#: network.cgi:32
+msgid "Networking"
+msgstr ""
+
+#: network.cgi:33
+msgid "Manage network connection and services"
+msgstr ""
+
+#: lib/libtazpanel:39
+msgid "Interface"
+msgstr ""
+
+#: lib/libtazpanel:41
+msgid "Status"
+msgstr ""
+
+#: lib/libtazpanel:42
+msgid "IP Address"
 msgstr ""

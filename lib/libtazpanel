@@ -3,6 +3,13 @@
 # Common functions for TazPanel CGI and cmdline interface
 #
 
+# Include gettext helper script.
+. /usr/bin/gettext.sh
+
+# Export package name for gettext.
+TEXTDOMAIN='tazpanel'
+export TEXTDOMAIN
+
 # We need a config file first
 get_config() {
 	CONFIG="/etc/slitaz/tazpanel.conf"
@@ -11,6 +18,47 @@ get_config() {
 	[ ! -f $PANEL/lib/libtazpanel ] && \
 		echo "No config file or libtazpanel found: $CONFIG" && \
 		exit 1
+}
+
+# Network interface status
+interface_status() {
+	if 	ifconfig | grep -A 1 $i | grep -q inet; then
+		ip=`ifconfig | grep -A 1 $i | grep inet | \
+			awk '{ print $2 }' | cut -d ":" -f 2`
+		echo "<td>connected</td><td>$ip</td>"
+	else
+		echo "<td>----</td><td>----</td>"
+	fi
+}
+
+# Catch network interface (used in summary and network main page)
+list_network_interfaces() {
+	table_start
+	cat << EOT
+<tr id="thead">
+	<td>`gettext "Interface"`</td>
+	<td>`gettext "Name"`</td>
+	<td>`gettext "Status"`</td>
+	<td>`gettext "IP Address"`</td>
+</tr>
+EOT
+	for i in `ls /sys/class/net`
+	do
+		case $i in
+			eth*)
+				echo "<tr><td><img src='$IMAGES/ethernet.png' />$i</td>
+					<td>Ethernet</td> `interface_status`</tr>" ;;
+			wlan*|ath*|ra*)
+				echo "<tr><td><img src='$IMAGES/wireless.png' />$i</td>
+					<td>Wireless</td> `interface_status`</tr>" ;;
+			lo)
+				echo "<tr><td><img src='$IMAGES/loopback.png' />$i</td>
+				<td>Loopback</td> `interface_status`</tr>" ;;
+			*)
+				continue ;;
+		esac
+	done
+	table_end
 }
 
 #

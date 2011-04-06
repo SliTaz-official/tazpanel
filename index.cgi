@@ -18,48 +18,6 @@ get_config
 TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
 
-# Network interface status
-interface_status() {
-	if 	ifconfig | grep -A 1 $i | grep -q inet; then
-		ip=`ifconfig | grep -A 1 $i | grep inet | \
-			awk '{ print $2 }' | cut -d ":" -f 2`
-		echo "<td>connected</td><td>$ip</td>"
-	else
-		echo "<td>----</td><td>----</td>"
-	fi
-}
-
-# Catch network interface (network is splited this function and above
-# must go in lib/libtazpanel
-list_network_interfaces() {
-	table_start
-	cat << EOT
-<tr id="thead">
-	<td>`gettext "Interface"`</td>
-	<td>`gettext "Name"`</td>
-	<td>`gettext "Status"`</td>
-	<td>`gettext "IP Address"`</td>
-</tr>
-EOT
-	for i in `ls /sys/class/net`
-	do
-		case $i in
-			eth*)
-				echo "<tr><td><img src='$IMAGES/ethernet.png' />$i</td>
-					<td>Ethernet</td> `interface_status`</tr>" ;;
-			wlan*|ath*|ra*)
-				echo "<tr><td><img src='$IMAGES/wireless.png' />$i</td>
-					<td>Wireless</td> `interface_status`</tr>" ;;
-			lo)
-				echo "<tr><td><img src='$IMAGES/loopback.png' />$i</td>
-				<td>Loopback</td> `interface_status`</tr>" ;;
-			*)
-				continue ;;
-		esac
-	done
-	table_end
-}
-
 #
 # Commands
 #
@@ -172,26 +130,6 @@ EOT
 	<p><input type="password" name="passwd" size="30" /></p>
 	<input type="submit" value="`gettext "Create user"`" />
 </form>
-EOT
-		;;
-	network)
-		#
-		# Network configuration
-		#
-		TITLE="- Network"
-		xhtml_header
-		cat << EOT
-<div id="wrapper">
-	<h2>`gettext "Networking`</h2>
-	<p>`gettext "Manage network connection and services`</p>
-</div>
-
-`list_network_interfaces`
-
-<h3>Output of: ifconfig -a</h3>
-<pre>
-`ifconfig -a`
-</pre>
 EOT
 		;;
 	hardware)

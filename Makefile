@@ -14,7 +14,8 @@ pot:
 	xgettext -o po/tazpanel.pot -L Shell \
 		--package-name="TazPanel" \
 		--package-version="$(VERSION)" \
-		./tazpanel ./index.cgi ./pkgs.cgi ./live.cgi ./network.cgi
+		./tazpanel ./index.cgi ./pkgs.cgi ./live.cgi \
+		./network.cgi ./lib/libtazpanel
 
 msgmerge:
 	@for l in $(LINGUAS); do \
