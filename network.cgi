@@ -16,6 +16,8 @@ get_config
 TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
 
+TITLE="- Network"
+
 # Actions commands before page is displayed
 case "$QUERY_STRING" in
 	start)

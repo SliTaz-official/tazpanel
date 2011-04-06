@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-06 06:09+0200\n"
-"PO-Revision-Date: 2011-04-06 06:11+0200\n"
-"Last-Translator: Linux User <pankso@slitaz.org>\n"
+"POT-Creation-Date: 2011-04-06 20:37+0200\n"
+"PO-Revision-Date: 2011-04-06 20:40+0100\n"
+"Last-Translator: Christophe Lincoln <pankso@slitaz.org>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: tazpanel:33
 msgid "TazPanel Authentication"
-msgstr ""
+msgstr "Mot de passe de TazPanel"
 
 #: tazpanel:36
 msgid "Stopping TazPanel web server..."
@@ -41,245 +41,271 @@ msgstr ""
 msgid "Usage:"
 msgstr ""
 
-#: index.cgi:38
-msgid "Interface"
-msgstr ""
-
-#: index.cgi:39 index.cgi:133 pkgs.cgi:117
-msgid "Name"
-msgstr ""
-
-#: index.cgi:40
-msgid "Status"
-msgstr ""
-
-#: index.cgi:41
-msgid "IP Address"
-msgstr ""
-
-#: index.cgi:76
+#: index.cgi:43
 msgid "Boot &amp; startup"
 msgstr ""
 
-#: index.cgi:78
+#: index.cgi:45
 msgid "Everything that appends before user login."
 msgstr ""
 
-#: index.cgi:82
+#: index.cgi:49
 msgid "Kernel cmdline"
 msgstr ""
 
-#: index.cgi:123
+#: index.cgi:90
 msgid "Manage users"
 msgstr ""
 
-#: index.cgi:124
+#: index.cgi:91
 msgid "Manage human users on your SliTaz system"
 msgstr ""
 
-#: index.cgi:131
+#: index.cgi:98
 msgid "Login"
 msgstr ""
 
-#: index.cgi:132
+#: index.cgi:99
 msgid "User ID"
 msgstr ""
 
-#: index.cgi:134
+#: index.cgi:100
+#: pkgs.cgi:118
+#: lib/libtazpanel:40
+msgid "Name"
+msgstr "Nom"
+
+#: index.cgi:101
 msgid "Home"
 msgstr ""
 
-#: index.cgi:135
+#: index.cgi:102
 msgid "SHell"
 msgstr ""
 
-#: index.cgi:162
+#: index.cgi:129
 msgid "Delete selected user"
 msgstr ""
 
-#: index.cgi:166
+#: index.cgi:133
 msgid "Add a new user"
 msgstr ""
 
-#: index.cgi:169
+#: index.cgi:136
 msgid "User login:"
 msgstr ""
 
-#: index.cgi:171
+#: index.cgi:138
 msgid "User password:"
 msgstr ""
 
-#: index.cgi:173
+#: index.cgi:140
 msgid "Create user"
-msgstr ""
+msgstr "Creer un utilisateur"
 
-#: index.cgi:185 network.cgi:32
-msgid "Networking"
-msgstr ""
-
-#: index.cgi:186 network.cgi:33
-msgid "Manage network connection and services"
-msgstr ""
-
-#: index.cgi:205
+#: index.cgi:152
 msgid "Drivers &amp; Devices"
 msgstr ""
 
-#: index.cgi:206
+#: index.cgi:153
 msgid "Manage your computer hardware"
 msgstr ""
 
-#: index.cgi:226
+#: index.cgi:179
 msgid "Host:"
 msgstr ""
 
-#: index.cgi:227
+#: index.cgi:180
 msgid "SliTaz administration et configuration Panel"
 msgstr ""
 
-#: index.cgi:230 pkgs.cgi:390
+#: index.cgi:183
+#: pkgs.cgi:476
 msgid "Summary"
-msgstr ""
+msgstr "Resume"
 
-#: index.cgi:233
+#: index.cgi:186
 msgid "Uptime:"
 msgstr ""
 
-#: index.cgi:236
+#: index.cgi:189
 msgid "Memory in Mb"
 msgstr ""
 
-#: index.cgi:243
+#: index.cgi:196
 msgid "Network status"
 msgstr ""
 
-#: index.cgi:246
+#: index.cgi:199
 msgid "Filesystem usage statistics"
 msgstr ""
 
-#: pkgs.cgi:63
+#: index.cgi:204
+msgid "System language"
+msgstr ""
+
+#: index.cgi:215
+#, sh-format
+msgid ""
+"You must logout and login again your current\n"
+"\t\t\t\tsession to use $new_locale language."
+msgstr ""
+
+#: index.cgi:218
+#, sh-format
+msgid "Current system locales: "
+msgstr ""
+
+#: index.cgi:224
+msgid "Avalaible locales:"
+msgstr ""
+
+#: index.cgi:229
+msgid "Generated and use"
+msgstr ""
+
+#: pkgs.cgi:64
 msgid "Last recharge        : "
 msgstr ""
 
-#: pkgs.cgi:73
+#: pkgs.cgi:74
 msgid "Installed packages   : "
 msgstr ""
 
-#: pkgs.cgi:75
+#: pkgs.cgi:76
 msgid "Mirrored packages    : "
 msgstr ""
 
-#: pkgs.cgi:77
+#: pkgs.cgi:78
 msgid "Upgradeable packages : "
 msgstr ""
 
-#: pkgs.cgi:79
+#: pkgs.cgi:80
 msgid "Installed files      : "
 msgstr ""
 
-#: pkgs.cgi:81
+#: pkgs.cgi:82
 msgid "Blocked packages     : "
 msgstr ""
 
-#: pkgs.cgi:107
+#: pkgs.cgi:108
 msgid "Search"
 msgstr ""
 
-#: pkgs.cgi:118
+#: pkgs.cgi:119
 msgid "Version"
 msgstr ""
 
-#: pkgs.cgi:119
+#: pkgs.cgi:120
 msgid "Description"
 msgstr ""
 
-#: pkgs.cgi:120
+#: pkgs.cgi:121
 msgid "Web"
 msgstr ""
 
-#: pkgs.cgi:128 pkgs.cgi:182
-msgid "My packages"
-msgstr ""
-
-#: pkgs.cgi:129 pkgs.cgi:213
-msgid "All packages"
-msgstr ""
-
-#: pkgs.cgi:130
-msgid "Recharge list"
-msgstr ""
-
-#: pkgs.cgi:131
-msgid "Upgrade"
-msgstr ""
-
-#: pkgs.cgi:132 pkgs.cgi:354
-msgid "Configuration"
-msgstr ""
-
-#: pkgs.cgi:141 pkgs.cgi:151 pkgs.cgi:162
+#: pkgs.cgi:152
+#: pkgs.cgi:167
+#: pkgs.cgi:185
+#: pkgs.cgi:204
 msgid "Selection:"
 msgstr ""
 
-#: pkgs.cgi:165
+#: pkgs.cgi:156
+#: pkgs.cgi:172
+#: pkgs.cgi:191
+#: pkgs.cgi:210
+msgid "List:"
+msgstr ""
+
+#: pkgs.cgi:176
+#: pkgs.cgi:195
+#: pkgs.cgi:213
+#: pkgs.cgi:230
+#: pkgs.cgi:312
+#: pkgs.cgi:369
+#: pkgs.cgi:400
+#: pkgs.cgi:484
+msgid "My packages"
+msgstr ""
+
+#: pkgs.cgi:188
+#: pkgs.cgi:207
 msgid "Toogle all"
 msgstr ""
 
-#: pkgs.cgi:232
+#: pkgs.cgi:265
+msgid "Category:"
+msgstr ""
+
+#: pkgs.cgi:284
 msgid "Search packages"
 msgstr ""
 
-#: pkgs.cgi:248
+#: pkgs.cgi:300
 msgid "Recharge"
 msgstr ""
 
-#: pkgs.cgi:252
+#: pkgs.cgi:305
 msgid ""
 "Recharge will check for new or updated packages...\n"
-"\t\tplease wait"
+"please wait"
 msgstr ""
 
-#: pkgs.cgi:261
+#: pkgs.cgi:321
 msgid "Packages lists are up-to-date"
 msgstr ""
 
-#: pkgs.cgi:268
+#: pkgs.cgi:328
 msgid "Upgradeable packages"
 msgstr ""
 
-#: pkgs.cgi:297
-msgid "Performing task on packages"
+#: pkgs.cgi:363
+msgid "Performing task on packages... please wait"
 msgstr ""
 
-#: pkgs.cgi:314
-msgid "Package info"
+#: pkgs.cgi:390
+msgid "Package"
 msgstr ""
 
-#: pkgs.cgi:316
-msgid "Detailled information on:"
+#: pkgs.cgi:394
+msgid "Remove"
 msgstr ""
 
-#: pkgs.cgi:330
-msgid "Installed files"
+#: pkgs.cgi:416
+msgid "Installed files:"
 msgstr ""
 
-#: pkgs.cgi:356
+#: pkgs.cgi:440
+#: pkgs.cgi:490
+msgid "Configuration"
+msgstr ""
+
+#: pkgs.cgi:442
 msgid "Tazpkg configuration and settings"
 msgstr ""
 
-#: pkgs.cgi:361
+#: pkgs.cgi:447
 msgid "Packages in the cache:"
 msgstr ""
 
-#: pkgs.cgi:368
+#: pkgs.cgi:454
 msgid "Current mirror list"
 msgstr ""
 
-#: pkgs.cgi:392
+#: pkgs.cgi:478
 msgid "Overview of all installed and mirrored packages"
 msgstr ""
 
-#: pkgs.cgi:397
+#: pkgs.cgi:486
+msgid "Recharge list"
+msgstr ""
+
+#: pkgs.cgi:488
+msgid "Check upgrade"
+msgstr ""
+
+#: pkgs.cgi:492
 msgid "Latest log entries"
 msgstr ""
 
@@ -337,3 +363,48 @@ msgstr ""
 #: live.cgi:99
 msgid "generate"
 msgstr ""
+
+#: network.cgi:41
+msgid "Ethernet connection"
+msgstr ""
+
+#: network.cgi:51
+msgid "Wireless connection"
+msgstr ""
+
+#: network.cgi:61
+msgid "Networking"
+msgstr ""
+
+#: network.cgi:63
+msgid "Manage network connection and services"
+msgstr ""
+
+#: network.cgi:67
+msgid "Connection:"
+msgstr ""
+
+#: network.cgi:68
+msgid "Start"
+msgstr ""
+
+#: network.cgi:69
+msgid "Stop"
+msgstr ""
+
+#: network.cgi:75
+msgid "Output of ifconfig"
+msgstr ""
+
+#: lib/libtazpanel:39
+msgid "Interface"
+msgstr ""
+
+#: lib/libtazpanel:41
+msgid "Status"
+msgstr ""
+
+#: lib/libtazpanel:42
+msgid "IP Address"
+msgstr ""
+

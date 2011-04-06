@@ -3,7 +3,7 @@
 PREFIX?=/usr
 SYSCONFDIR?=/etc/slitaz
 DESTDIR?=
-LINGUAS?=pt
+LINGUAS?=fr
 PANEL?=/var/www/tazpanel
 
 VERSION:=$(shell grep ^VERSION tazpanel | cut -d '=' -f 2)
@@ -20,7 +20,7 @@ pot:
 msgmerge:
 	@for l in $(LINGUAS); do \
 		echo -n "Updating $$l po file."; \
-		msgmerge -U po/$$l.po po/tazpanel-pkgs.pot; \
+		msgmerge -U po/$$l.po po/tazpanel.pot; \
 	done;
 
 msgfmt:
@@ -46,4 +46,5 @@ install: msgfmt
 
 clean:
 	rm -rf po/mo
+	rm -f po/*.*~
 

@@ -17,7 +17,7 @@ body {
 h1 { color: #d66018; padding: 10px 0 0 40px;}
 h2 { color: #444; margin: 10px 0 10px; }
 h3 { color: #666; font-size: 140%; }
-h4 { color: #888; font-size: 120%; }
+h4 { color: #888; font-size: 120%; margin: 10px 0 5px; }
 img { border: 0pt none; vertical-align: middle; padding: 0px 6px 2px 0;}
 p { margin: 6px 0; }
 ul { list-style-type: none; padding: 0; }
@@ -160,7 +160,7 @@ table a:hover { color: #666; }
 td.pkg { max-width: 160px; }
 td.desc { max-width: 300px; }
 
-#thead, thead {
+#thead, .thead, thead {
 	height: 10px;
 	font-weight: bold;
 }
@@ -193,9 +193,12 @@ input[type=submit]:hover, select:hover, .button:hover {
 
 input[type=text] { height: 18px; }
 
+div.scroll { height: 200px; overflow: auto; border: 1px solid #ddd; }
+div.scroll table { border: 0px solid #fff; }
+
 /* Round corner */
 
-table, pre, input[type=submit], .debug, .box, .button {
+table, pre, input[type=submit], .debug, .box, .button, div.scroll {
 	/*-moz-border-radius: 4px;
 	-webkit-border-radius: 4px; */
 	border-radius: 4px;
