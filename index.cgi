@@ -29,6 +29,7 @@ case "$QUERY_STRING" in
 		#
 		# Everything until user login
 		#
+		. /etc/rcS.conf
 		TITLE="- Boot"
 		xhtml_header
 		cat << EOT
@@ -43,9 +44,15 @@ case "$QUERY_STRING" in
 <pre>
 `cat /proc/cmdline`
 </pre>
+
+<h3>`gettext "Local startup commands"`</h3>
+<pre>
+`cat /etc/init.d/local.sh`
+</pre>
+
 EOT
 		;;
-	hardware)
+	hardware|modinfo=*)
 		#
 		# Hardware drivers, devices, filesystem, screen
 		#
@@ -60,9 +67,45 @@ EOT
 		echo '<pre>'
 			fdisk -l | fgrep Disk
 		echo '</pre>'
+		echo '<h3>Filesystem usage statistics</h3>'
 		echo '<pre>'
 			df -h | grep ^/dev
 		echo '</pre>'
+		echo '<h3>Loaded kernel modules</h3>'
+		# We may want modinfi output
+		
+		case "$QUERY_STRING" in
+			modinfo=*)
+				mod=${QUERY_STRING#modinfo=}
+				gettext "Detailled information for module:"; echo " $mod"
+				echo '<pre>'
+				modinfo $mod
+				echo '</pre>' ;;
+			rmmod=*)
+				mod=${QUERY_STRING#rmmod=}
+				modprobe -r $mod ;;
+		esac
+		table_start
+		cat << EOT
+<tr class="thead">
+	<td>`gettext "Module"`</td>
+	<td>`gettext "Size"`</td>
+	<td>`gettext "Used"`</td>
+	<td>`gettext "by"`</td>
+</tr>
+EOT
+		# Get the list of modules and link to modinfo
+		lsmod | grep ^[a-z] | while read line
+		do
+			mod=`echo "$line" | awk '{print $1}'`
+			echo '<tr>'
+			echo "<td><a href='$SCRIPT_NAME?modinfo=$mod'>$mod</a></td>"
+			echo "$line" | awk '{print "<td>", $2, "</td>",
+				"<td>", $3, "</td>", "<td>", $4, "</td>"}'
+			echo '</tr>'
+		done
+		table_end
+		echo '<h3>lspci</h3>'
 		echo '<pre>'
 			lspci
 		echo '</pre>'
