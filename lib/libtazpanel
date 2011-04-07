@@ -67,6 +67,14 @@ EOT
 # xHTML 5 (header and footer skel are from the style)
 #
 
+loading_msg() {
+	cat << EOT
+<script type="text/javascript">
+	document.write('<div id="loading"><img src="/styles/default/images/loader.gif" />$LOADING_MSG</div>');
+</script>
+EOT
+}
+
 xhtml_header() {
 	cat ${PANEL}$HEADER | sed s/'- %TITLE%'/"$TITLE"/
 }

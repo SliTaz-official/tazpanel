@@ -6,7 +6,7 @@
 # it own code for some tasks. Please KISS it important and keep speed
 # in mind. Thanks, Pankso.
 #
-# (C) 2011 SliTaz GNU/Linux - GNU gpl v2
+# (C) 2011 SliTaz GNU/Linux - GNU gpl v3
 #
 echo "Content-Type: text/html"
 echo ""
@@ -77,8 +77,8 @@ packages_summary() {
 	cat $LOCALSTATE/packages.list | wc -l
 	gettext "Upgradeable packages : "
 	cat $LOCALSTATE/upgradeable-packages.list | wc -l
-	gettext "Installed files      : "
-	cat $INSTALLED/*/files.list | wc -l
+	#gettext "Installed files      : "
+	#cat $INSTALLED/*/files.list | wc -l
 	gettext "Blocked packages     : "
 	cat $LOCALSTATE/blocked-packages.list | wc -l
 }
@@ -226,6 +226,8 @@ case "$QUERY_STRING" in
 		cd $INSTALLED
 		search_form
 		sidebar
+		LOADING_MSG="Listing... please wait"
+		loading_msg
 		cat << EOT
 <h2>`gettext "My packages"`</h2>
 <form method='get' action='$SCRIPT_NAME'>

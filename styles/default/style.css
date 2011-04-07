@@ -25,6 +25,15 @@ li { padding: 4px 0; }
 a { text-decoration: none; color: #666; }
 a:hover { color: #000; }
 
+#loading {
+  /* font-weight: bold; */
+  color: #666;
+  position: fixed;
+  top: 92px;
+  right: 80px;
+  width: 200px;
+}
+
 /* Header and main title */
 
 #header {
@@ -46,8 +55,10 @@ a:hover { color: #000; }
 	z-index: 200;
 	cursor: default;
 }
+
 #menu { margin: 4px 8px; }
-#menu a { padding: 2px 4px; color: #000; cursor: default; }
+#menu a { padding: 2px 4px; color: #000;
+	cursor: default; }
 #menu a:hover { color: #444; }
 #icons { margin: 2px 8px; float: right; }
 #icons img { padding: 0; }
@@ -193,12 +204,14 @@ input[type=submit]:hover, select:hover, .button:hover {
 
 input[type=text] { height: 18px; }
 
-div.scroll { height: 200px; overflow: auto; border: 1px solid #ddd; }
+div.scroll { height: 200px; overflow: auto;
+	border: 1px solid #ddd; }
 div.scroll table { border: 0px solid #fff; }
 
 /* Round corner */
 
-table, pre, input[type=submit], .debug, .box, .button, div.scroll {
+table, pre, input[type=submit], .debug, .box,
+.button, div.scroll {
 	/*-moz-border-radius: 4px;
 	-webkit-border-radius: 4px; */
 	border-radius: 4px;
