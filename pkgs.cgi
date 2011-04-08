@@ -36,12 +36,12 @@ parse_packages_desc() {
 	cut -f 1,2,3,5 -d "|" | while read PACKAGE VERSION SHORT_DESC WEB_SITE
 	do
 		echo '<tr>'
-		if [ -d $INSTALLED/$PACKAGE ]; then
-			echo -e "<td><input type='checkbox' name='pkg' value=\"$PACKAGE\">\n
+		if [ -d $INSTALLED/${PACKAGE% } ]; then
+			echo -e "<td><input type='checkbox' name='pkg' value='$PACKAGE'>\n
 				<a href='$SCRIPT_NAME?info=$PACKAGE'>
 				<img src='$IMAGES/tazpkg-installed.png'/>$PACKAGE</a></td>"
 		else
-			echo -e "<td><input type='checkbox' name='pkg' value=\"$PACKAGE\">\n
+			echo -e "<td><input type='checkbox' name='pkg' value='$PACKAGE'>\n
 				<img src='$IMAGES/tazpkg.png'/>$PACKAGE</td>"
 		fi
 		echo "<td>$VERSION</td>"
@@ -162,17 +162,17 @@ case "$QUERY_STRING" in
 <h2>`gettext "My packages"`</h2>
 <form method='get' action='$SCRIPT_NAME'>
 <div id="actions">
-<div class="float-left">
-	`gettext "Selection:"`
-	<input type="submit" name="do" value="Remove" />
-</div>
-<div class="float-right">
-	`gettext "List:"`
-	<input type="submit" name="recharge" value="Recharge" />
-	<input type="submit" name="upgradeable" value="Upgrade" />
+	<div class="float-left">
+		`gettext "Selection:"`
+		<input type="submit" name="do" value="Remove" />
+	</div>
+	<div class="float-right">
+		`gettext "List:"`
+		<input type="submit" name="recharge" value="Recharge" />
+		<input type="submit" name="upgradeable" value="Upgrade" />
+	</div>
 </div>
 EOT
-		echo '</div>'
 		table_start
 		table_head
 		for pkg in *

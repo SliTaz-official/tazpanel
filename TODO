@@ -1,0 +1,13 @@
+
+
+	* Add full support for undigest to pkgs.cgi
+	* Add support for geniso2usb in live.cgi
+	* Entry to change user password in settings.cgi
+	* Create a step-by-step Live system builder (ending with an
+	  ISO or USB install)
+	* Radically improve hardware.cgi using tazhw capabilities, install
+	  drivers and firmware, setup printers and manage devices (mount,
+	  umount, format, backup with dd or ?)
+	* Improve boot.cgi to handle theming GRUB, fbsplash and Slim and
+	  improve rcS.conf.
+	* Handle start-stop-restart daemons and check status in system.cgi

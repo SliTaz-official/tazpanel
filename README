@@ -12,7 +12,8 @@ Use it!
 You can clone the tazpanel repo into /var/www/tazpanel and work on this
 copy or clone it someweher esle and 'make install'. After, add tazpanel to
 your /etc/hosts, type './tazpanel start' to start the server and go to the
-URL: http://tazpanel:8090
+URL: http://tazpanel:8090 Panel user and password is defined in httpd.conf
+and default is root:root
 
 
 i18n
@@ -51,16 +52,20 @@ CGI scripts are in that location. If you think your code is too big to fit
 in an other script you can eventually creat a new CGI page and update all
 links, but please to talk to the AUTHORS before.
 
-	* index.cgi    Main Tazpanel CGI script (some stuff may be splited
-	               into users.cgi, boot.cgi, etc if too big or slow)
-	* network.cgi  All related stuff to networking (eth, wifi, servives)
-	* pkgs.cgi     Tazpkg packages CGI interface
-	* settings.cgi System settings such as time, users accounts, locales
-	* live.cgi     All tools related to Live systems (CD, USB, Frugal)
+	* index.cgi     Main Tazpanel CGI script (some stuff may be splited
+	                into users.cgi, boot.cgi, etc if too big or slow)
+	* network.cgi   All related stuff to networking (eth, wifi, servives)
+	* pkgs.cgi      Tazpkg packages CGI interface
+	* system.cgi    System settings and services such as time, users
+	                accounts, locales or daemons management
+	* live.cgi      All tools related to Live systems (CD, USB, Frugal)
+	* hardware.cgi  Devices drivers, firmware, printing
 
 For common function have a look to lib/libtazpanel you may founf functions
 yoou need already coded such as xhtml_header to get the style header.html
-in you CGI script. For the loading message you can use loading_msg
+in you CGI script. For the loading message you can use loading_msg. When
+cat is used: `gettext "Text to translate"`
+
 
 Web server
 ----------
@@ -73,11 +78,3 @@ security reason since we run as root to perform system actions, example:
 Or use tazpanel cmdline:
 
 # ./tazpanel start
-
-
-Quick notes
------------
-
-	Panel password is defined in httpd.conf
-	When cat is used: `gettext "Text to translate"`
-	Devel can run the web server with root in the src tree

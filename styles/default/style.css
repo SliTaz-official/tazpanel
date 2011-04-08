@@ -171,6 +171,7 @@ table {
 
 table a { color: #000; }
 table a:hover { color: #666; }
+td.small { min-width: 60px; }
 td.pkg { max-width: 160px; }
 td.desc { max-width: 300px; }
 
