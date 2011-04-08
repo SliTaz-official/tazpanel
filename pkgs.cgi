@@ -73,8 +73,8 @@ packages_summary() {
 	ls $INSTALLED | wc -l
 	gettext "Mirrored packages    : "
 	cat $LOCALSTATE/packages.list | wc -l
-	gettext "Upgradeable packages : "
-	cat $LOCALSTATE/upgradeable-packages.list | wc -l
+	gettext "up packages : "
+	cat $LOCALSTATE/packages.up | wc -l
 	#gettext "Installed files      : "
 	#cat $INSTALLED/*/files.list | wc -l
 	gettext "Blocked packages     : "
@@ -169,7 +169,7 @@ case "$QUERY_STRING" in
 	<div class="float-right">
 		`gettext "List:"`
 		<input type="submit" name="recharge" value="Recharge" />
-		<input type="submit" name="upgradeable" value="Upgrade" />
+		<input type="submit" name="up" value="Upgrade" />
 	</div>
 </div>
 EOT
@@ -216,7 +216,7 @@ EOT
 <div class="float-right">
 	`gettext "List:"`
 	<input type="submit" name="recharge" value="Recharge" />
-	<input type="submit" name="upgradeable" value="Upgrade" />
+	<input type="submit" name="up" value="Upgrade" />
 	<a class="button" href='$SCRIPT_NAME?list'>
 		<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
 </div>
@@ -250,7 +250,7 @@ EOT
 <div class="float-right">
 	`gettext "List:"`
 	<input type="submit" name="recharge" value="Recharge" />
-	<input type="submit" name="upgradeable" value="Upgrade" />
+	<input type="submit" name="up" value="Upgrade" />
 	<a class="button" href='$SCRIPT_NAME?list'>
 		<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
 </div>
@@ -280,7 +280,7 @@ EOT
 	</div>
 	<div class="float-right">
 		<p>
-			<a class="button" href='$SCRIPT_NAME?upgradeable'>
+			<a class="button" href='$SCRIPT_NAME?up'>
 				`gettext "Check upgrade"`</a>
 			<a class="button" href='$SCRIPT_NAME?list'>
 				<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
@@ -297,7 +297,7 @@ EOT
 </p>
 EOT
 		;;
-	upgradeable*)
+	up*)
 		#
 		# Ugrade packages
 		#
@@ -307,27 +307,27 @@ EOT
 		LOADING_MSG="Checking for upgrade..."
 		loading_msg
 		cat << EOT
-<h2>`gettext "Upgradeable packages"`</h2>
+<h2>`gettext "up packages"`</h2>
 <form method="get" action="$SCRIPT_NAME">
 <div id="actions">
-<div class="float-left">
-	`gettext "Selection:"`
-	<input type="submit" name="do" value="Install" />
-	<input type="submit" name="do" value="Remove" />
-	<a href="`cat $PANEL/lib/checkbox.js`">`gettext "Toogle all"`</a>
-</div>
-<div class="float-right">
-	`gettext "List:"`
-	<input type="submit" name="recharge" value="Recharge" />
-	<a class="button" href='$SCRIPT_NAME?list'>
-		<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
+	<div class="float-left">
+		`gettext "Selection:"`
+		<input type="submit" name="do" value="Install" />
+		<input type="submit" name="do" value="Remove" />
+		<a href="`cat $PANEL/lib/checkbox.js`">`gettext "Toogle all"`</a>
+	</div>
+	<div class="float-right">
+		`gettext "List:"`
+		<input type="submit" name="recharge" value="Recharge" />
+		<a class="button" href='$SCRIPT_NAME?list'>
+			<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
+	</div>
 </div>
 EOT
-		tazpkg upgradeable
-		echo '</div>'
+		tazpkg up --check >/dev/null
 		table_start
 		table_head
-		for pkg in `cat upgradeable-packages.list`
+		for pkg in `cat packages.up`
 		do
 			grep "^$pkg |" $LOCALSTATE/packages.desc | parse_packages_desc
 		done
@@ -480,7 +480,7 @@ EOT
 		<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
 	<a class="button" href='$SCRIPT_NAME?recharge'>
 		<img src="$IMAGES/recharge.png" />`gettext "Recharge list"`</a>
-	<a class="button" href='$SCRIPT_NAME?upgradeable'>
+	<a class="button" href='$SCRIPT_NAME?up'>
 		<img src="$IMAGES/update.png" />`gettext "Check upgrade"`</a>
 	<a class="button" href='$SCRIPT_NAME?config'>
 		<img src="$IMAGES/edit.png" />`gettext "Configuration"`</a>	
