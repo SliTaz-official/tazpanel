@@ -46,5 +46,6 @@ install: msgfmt
 
 clean:
 	rm -rf po/mo
+	rm -f po/*.mo
 	rm -f po/*.*~
 
