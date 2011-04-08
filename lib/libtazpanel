@@ -94,5 +94,7 @@ table_end () {
 	cat << EOT
 	</tbody>
 </table>
+<a href="#header">`gettext "Go up"`</a>
 EOT
+	
 }
