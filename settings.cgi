@@ -2,8 +2,9 @@
 #
 # System settings CGI interface: user, locale, keyboard, date. Since we
 # dont have multiple page here there is only one case used to get commands
-# values and the full content is following directly. 
+# values and the full content is following directly.
 #
+# Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
 #
 echo "Content-Type: text/html"
 echo ""
@@ -78,6 +79,7 @@ esac
 # Default xHTML content
 #
 xhtml_header
+debug_info
 cat << EOT
 <div id="wrapper">
 	<h2>`gettext "System settings"`</h2>

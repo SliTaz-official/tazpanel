@@ -32,6 +32,7 @@ case "$QUERY_STRING" in
 		# Default to summary with mounted filesystem, loaded modules
 		#
 		xhtml_header
+		debug_info
 		cat << EOT
 <div id="wrapper">
 	<h2>`gettext "Drivers &amp; Devices"`</h2>
@@ -46,8 +47,7 @@ EOT
 			df -h | grep ^/dev
 		echo '</pre>'
 		echo '<h3>Loaded kernel modules</h3>'
-		# We may want modinfi output
-		
+		# Request may be modinfo output
 		case "$QUERY_STRING" in
 			modinfo=*)
 				mod=${QUERY_STRING#modinfo=}

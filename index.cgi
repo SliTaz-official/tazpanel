@@ -21,41 +21,27 @@ TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
 
 #
+# Things to do before displaying the page
+#
+
+case "$QUERY_STRING" in
+	panel-pass=*)
+		new=${QUERY_STRING#*=}
+		sed -i s@/:root:.*@/:root:$new@ $HTTPD_CONF ;;
+	*) continue ;;
+esac
+
+#
 # Commands
 #
 
 case "$QUERY_STRING" in
-	boot)
-		#
-		# Everything until user login
-		#
-		. /etc/rcS.conf
-		TITLE="- Boot"
-		xhtml_header
-		cat << EOT
-<div id="wrapper">
-	<h2>`gettext "Boot &amp; startup"`</h2>
-	<p>
-		`gettext "Everything that appends before user login."` 
-	</p>
-</div>
-
-<h3>`gettext "Kernel cmdline"`</h3>
-<pre>
-`cat /proc/cmdline`
-</pre>
-
-<h3>`gettext "Local startup commands"`</h3>
-<pre>
-`cat /etc/init.d/local.sh`
-</pre>
-EOT
-		;;
 	*)
 		#
 		# Default xHTML content
 		#
 		xhtml_header
+		debug_info
 		case "$QUERY_STRING" in
 			gen-locale=*)
 				new_locale=${QUERY_STRING#gen-locale=} ;;
@@ -88,6 +74,15 @@ EOT
 <pre>
 `df -h | grep ^/dev`
 </pre>
+
+<h3>`gettext "Panel settings"`</h3>
+<form method="get" action="$SCRIPT_NAME">
+	<div>
+		<input type="submit" value="`gettext "Change Panel password"`" />
+		<input type="password" name="panel-pass"/>
+	</div>
+</form>
+
 EOT
 		;;
 esac

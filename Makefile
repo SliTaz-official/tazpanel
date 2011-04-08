@@ -3,7 +3,7 @@
 PREFIX?=/usr
 SYSCONFDIR?=/etc/slitaz
 DESTDIR?=
-LINGUAS?=fr
+LINGUAS?=
 PANEL?=/var/www/tazpanel
 
 VERSION:=$(shell grep ^VERSION tazpanel | cut -d '=' -f 2)

@@ -2,6 +2,8 @@
 #
 # CGI interface for SliTaz Live systems using Tazlito and TazUSB.
 #
+# Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
+#
 echo "Content-Type: text/html"
 echo ""
 
@@ -25,12 +27,12 @@ TITLE="- Live"
 case "$QUERY_STRING" in
 	write-iso=*)
 		comp=${QUERY_STRING#write-iso=}
-		xterm $XTERM_OPTS \
+		$TERMINAL $TERM_OPTS \
 			-T "write-iso" \
 			-e "tazlito writeiso $comp" & ;;
 	gen-liveusb=*)
 		dev=`httpd -d ${QUERY_STRING#gen-liveusb=}`
-		xterm $XTERM_OPTS \
+		$TERMINAL $TERM_OPTS \
 			-T "Tazusb gen-liveusb" \
 			-e "tazusb gen-liveusb $dev; \
 				gettext \"ENTER to quit\"; read i" & ;;
@@ -46,6 +48,7 @@ case "$QUERY_STRING" in
 	create)
 		#
 		# Create a flavor file and ISO in option with all settings
+		# Step by step interface and store files in cache.
 		#
 		gettext "TODO" ;;
 	*)

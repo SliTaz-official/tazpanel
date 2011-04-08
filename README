@@ -78,3 +78,6 @@ security reason since we run as root to perform system actions, example:
 Or use tazpanel cmdline:
 
 # ./tazpanel start
+
+
+================================================================================

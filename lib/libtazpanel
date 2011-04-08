@@ -20,6 +20,13 @@ get_config() {
 		exit 1
 }
 
+# DEBUG mode
+debug_info() {
+	if [ $DEBUG == "1" ]; then
+		echo "<div class='debug'>$REQUEST_METHOD ${QUERY_STRING}</div>"
+	fi
+}
+
 # Network interface status
 interface_status() {
 	if 	ifconfig | grep -A 1 $i | grep -q inet; then

@@ -21,14 +21,10 @@ get_config
 TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
 
-# xHTML 5 header
+# xHTML 5 header with special side bar fo categories.
 TITLE="- Packages"
 xhtml_header | sed 's/id="content"/id="content-sidebar"/'
-
-# DEBUG mode
-if [ $DEBUG == "1" ]; then
-	echo "<p class='debug'>$REQUEST_METHOD ${QUERY_STRING}</p>"
-fi
+debug_info
 
 # We need packages information for list and search
 parse_packages_desc() {
@@ -73,7 +69,7 @@ packages_summary() {
 	ls $INSTALLED | wc -l
 	gettext "Mirrored packages    : "
 	cat $LOCALSTATE/packages.list | wc -l
-	gettext "up packages : "
+	gettext "Upgradeable packages : "
 	cat $LOCALSTATE/packages.up | wc -l
 	#gettext "Installed files      : "
 	#cat $INSTALLED/*/files.list | wc -l

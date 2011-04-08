@@ -130,7 +130,7 @@ a:hover { color: #000; }
 	padding: 4px;
 	height: 17px;
 	margin: 0;
-	width: 190px;
+	width: 200px;
 	border-top-left-radius: 4px;
 	border-bottom-left-radius: 4px;
 }
@@ -206,7 +206,7 @@ input[type=submit]:hover, select:hover, .button:hover {
 	border: 1px solid #999;
 }
 
-input[type=text] { height: 18px; }
+input[type=text], input[type=password] { height: 18px; }
 
 div.scroll { height: 200px; overflow: auto;
 	border: 1px solid #ddd; }
