@@ -27,6 +27,11 @@ debug_info() {
 	fi
 }
 
+# LOG activities
+log() {
+	grep ^[a-zA-Z0-9] | sed s'/\.*\]//' >> $LOG_FILE
+}
+
 # Network interface status
 interface_status() {
 	if 	ifconfig | grep -A 1 $i | grep -q inet; then

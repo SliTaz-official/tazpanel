@@ -26,26 +26,32 @@ TITLE="- Hardware"
 #
 
 case "$QUERY_STRING" in
-	*)
+	daemons*)
 		#
 		# Everything until user login
 		#
+		# Start and stop a daemom. I think we dont need restart sine 2 
+		# clicks and you done
+		case "$QUERY_STRING" in
+			*=start=*)
+				daemon=${QUERY_STRING#*=start=}
+				sleep 1
+				/etc/init.d/$daemon start | log ;;
+			*=stop=*)
+				daemon=${QUERY_STRING#*=stop=}
+				/etc/init.d/$daemon stop | log ;;
+		esac
 		. /etc/rcS.conf
 		TITLE="- Boot"
 		xhtml_header
 		debug_info
 		cat << EOT
 <div id="wrapper">
-	<h2>`gettext "Boot &amp; startup"`</h2>
+	<h2>`gettext "Manage deamons"`</h2>
 	<p>
-		`gettext "Everything that appends before user login."` 
+		`gettext "Check, start and stop deamons on SliTaz"` 
 	</p>
 </div>
-
-<h3>`gettext "Kernel cmdline"`</h3>
-<pre>
-`cat /proc/cmdline`
-</pre>
 EOT
 		# Demon list
 		table_start
@@ -53,42 +59,102 @@ EOT
 <thead>
 	<tr>
 		<td>`gettext "Name"`</td>
-		<td>`gettext "Dessciption"`</td>
+		<td>`gettext "Description"`</td>
 		<td>`gettext "Status"`</td>
+		<td>`gettext "Action"`</td>
+		<td>`gettext "PID"`</td>
 	</tr>
 </thead>
 EOT
-		for d in `echo $RUN_DAEMONS`
+		cd /etc/init.d
+		list="`ls | sed -e /.sh/d -e /rc./d -e /RE/d -e /daemon/d \
+			-e /firewall/d`"
+		for name in $list
 		do
+			pkg=""
+			pid=""
+			status=""
+			SHORT_DESC=""
 			echo '<tr>'
-			echo "<td>$d</td>"
-			if [ -d "$LOCALSTATE/installed/$d" ]; then
-				. $LOCALSTATE/installed/$d/receipt
-				echo "<td>$SHORT_DESC</td>"
+			# Name
+			echo "<td>$name</td>"
+			# First check if deamon is started at bootime
+			[ echo "RUN_DAEMONS" | fgrep $name ] && boot="on boot"
+			# Standard SliTaz busybox deamons and firewall
+			case "$name" in
+				firewall)
+					gettext "<td>SliTaz Firewall with iptable rules</td>" ;;
+				httpd)
+					gettext "<td>Small and fast web server with CGI support</td>" ;;
+				ntpd)
+					gettext "<td>Network time protocol deamon</td>" ;;
+				ftpd)
+					gettext "<td>Anonymous FTP server</td>" ;;
+				udhcpd)
+					gettext "<td>Busybox DHCP server</td>" ;;
+				syslogd|klogd)
+					gettext "<td>Linux Kernel log daemon</td>" ;;
+				crond|dnsd|tftpd|inetd|zcip)
+					gettext "<td>Deamon powered by BusyBox</td>" ;;
+				*)
+					# Descrition from receipt
+					[ -d "$LOCALSTATE/installed/$name" ] && pkg=$name
+					[ -d "$LOCALSTATE/installed/${name%d}" ] && pkg=${name%d}
+					[ -d "$LOCALSTATE/installed/${name}-pam" ] && pkg=${name}-pam
+					if [ "$pkg" ]; then
+						. $LOCALSTATE/installed/$pkg/receipt
+						echo "<td>$SHORT_DESC</td>"
+					else
+						echo "<td>----</td>"
+					fi ;;
+			esac
+			# Attemp to get daemon status
+			pidfile=`find /var/run -name *$name*.pid`
+			[ "$pidfile" ] && pid=`cat $pidfile`
+			# dbus
+			[ -f /var/run/${name}/pid ] && pid=`cat /var/run/${name}/pid`
+			# apache
+			[ "$name" = "apache" ] && pid=`cat /var/run/$name/httpd.pid`
+			# Pidof works for many daemon
+			[ "$pid" ] || pid=`pidof $name`
+			if [ "$pid" ]; then
+				echo "<td><img src='$IMAGES/started.png' /></td>"
+				echo "<td><a href='$SCRIPT_NAME?daemons=stop=$name'>
+				<img src='$IMAGES/stop.png' /></a></td>"
+				echo "<td>$pid</td>"
 			else
-				# Standard SliTaz deamons
-				case "$d" in
-					firewall)
-						gettext "<td>SliTaz Firewall with iptable rules</td>" ;;
-					hald)
-						. $LOCALSTATE/installed/hal/receipt
-						echo "<td>$SHORT_DESC</td>" ;;
-					*)
-						echo "<td>N/A</td>" ;;
-				esac
-			fi
-			# Running or not
-			if pidof $d; then
-				echo "<td>`gettext \"Running\"` (`pidof $d`)</td>"
-			else
-				gettext "<td>Stopper</td>"
+				echo "<td>-</td>"
+				echo "<td><a href='$SCRIPT_NAME?daemons=start=$name'>
+					<img src='$IMAGES/start.png' /></a></td>"
+				echo "<td>-----</td>"
 			fi
 			echo '</tr>'
 		done
-
-		
-		table_end
+		table_end ;;
+	*)
+		#
+		# Default content with summary
+		#
+		. /etc/rcS.conf
+		TITLE="- Boot"
+		xhtml_header
+		debug_info
 		cat << EOT
+<div id="wrapper">
+	<h2>`gettext "Boot &amp; Start services"`</h2>
+	<p>
+		`gettext "Everything that appends before user login."` 
+	</p>
+</div>
+
+<div>
+	<a class="button" href="$SCRIPT_NAME?daemons">Manage daemons</a>
+</div>
+
+<h3>`gettext "Kernel cmdline"`</h3>
+<pre>
+`cat /proc/cmdline`
+</pre>
 <h3>`gettext "Local startup commands"`</h3>
 <pre>
 `cat /etc/init.d/local.sh`
