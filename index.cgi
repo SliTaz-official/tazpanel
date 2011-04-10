@@ -1,7 +1,7 @@
 #!/bin/sh
 #
-# Main CGI interface for TazPanel. In on word: KISS. Use the main cas form
-# command so we are faster and dont load unneeded function. If nececarry
+# Main CGI interface for TazPanel. In on word: KISS. Use the main css form
+# command so we are faster and do not load unneeded functions. If necessary
 # you can use the lib/ dir to handle external resources.
 #
 # Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
@@ -51,7 +51,7 @@ case "$QUERY_STRING" in
 		cat << EOT
 <div id="wrapper">
 	<h2>`gettext "Host:"` `hostname`</h2>
-	<p>`gettext "SliTaz administration et configuration Panel"`<p>
+	<p>`gettext "SliTaz administration and configuration Panel"`<p>
 </div>
 
 <h3>`gettext "Summary"`</h3>

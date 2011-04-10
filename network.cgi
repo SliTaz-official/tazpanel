@@ -65,7 +65,7 @@ EOT
 		cat << EOT
 <h2>`gettext "Networking`</h2>
 <p>
-	`gettext "Manage network connection and services`
+	`gettext "Manage network connections and services`
 </p>
 <div id="actions">
 	<p>

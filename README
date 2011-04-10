@@ -2,26 +2,26 @@ SliTaz Web Control Panel
 ================================================================================
 
 
-Tazpanel is the SliTaz Control Panel, a web interface who let you manage the
-full system  in a redically simple way. The output xHTML code is valid xHTML 5
+Tazpanel is the SliTaz Control Panel, a web interface which lets you manage the
+full system in a radically simple way. The output xHTML code is valid xHTML 5
 and all theming is done with standard CSS 3.
 
 
 Use it!
 ------
 You can clone the tazpanel repo into /var/www/tazpanel and work on this
-copy or clone it someweher esle and 'make install'. After, add tazpanel to
+copy or clone it somewhere else and 'make install'. After, add tazpanel to
 your /etc/hosts, type './tazpanel start' to start the server and go to the
-URL: http://tazpanel:8090 Panel user and password is defined in httpd.conf
+URL: http://tazpanel:8090. Panel user and password is defined in httpd.conf
 and default is root:root
 
 
 i18n
 ----
-TazPanel have been coded from the beginning with gettext support. Please
+TazPanel has been coded from the beginning with gettext support. Please
 forget 'echo' and use gettext, but remember that gettext "" is equivalent
-to echo -n. All script use the same TEXTDOMAIN and the same pot files, all
-translations goes in the po/ folder. To start a new translation please
+to echo -n. All scripts use the same TEXTDOMAIN and the same pot files, all
+translations go in the po/ folder. To start a new translation please
 use msginit from the pot file directory. Example for French/France
 locale (fr_FR):
 
@@ -34,44 +34,44 @@ To update all translations from a newly updated the pot file:
 
 User interface
 --------------
-If you develope an official SliTaz GUI for TazPanel, please follow the style.
-If you need more CSS markup and you not a coder, please ask an official
-developer the better way to implement your idea. TazPanel is fully themable
+If you develop an official SliTaz GUI for TazPanel, please follow the style.
+If you need more CSS markup and you are not a coder, please ask an official
+developer for the best way to implement your idea. TazPanel is fully themable
 and more than one theme can be installed, this will let us make packages
-for TazPanel style! All the GUI is done with xHTML 5 and CSS 3, some
-javascript can be used, but with precaution... one more time, it's better
-to check with a main contributor before adding to much stuff, the goal is,
-as for the all SliTaz project: KISS
+in a TazPanel style! All the GUI is done with xHTML 5 and CSS 3, some
+javascript can be used, but with precautions... one more time, it's better
+to check with a main contributor before adding too much stuff, the goal is,
+as for the all SliTaz projects: KISS
 
 
 CGI template and files
 ----------------------
 To start or test new function with TazPanel you will find a a file in
-utils/template.cgi that need to be in the $PANEL root to work, all TazPanel
+utils/template.cgi that needs to be in the $PANEL root to work, all TazPanel
 CGI scripts are in that location. If you think your code is too big to fit
-in an other script you can eventually creat a new CGI page and update all
+in another script you can eventually create a new CGI page and update all
 links, but please to talk to the AUTHORS before.
 
-	* index.cgi     Main Tazpanel CGI script (some stuff may be splited
+	* index.cgi     Main Tazpanel CGI script (some stuff may be split
 	                into users.cgi, boot.cgi, etc if too big or slow)
-	* network.cgi   All related stuff to networking (eth, wifi, servives)
+	* network.cgi   All related stuff to networking (eth, wifi, services)
 	* pkgs.cgi      Tazpkg packages CGI interface
 	* system.cgi    System settings and services such as time, users
 	                accounts, locales or daemons management
 	* live.cgi      All tools related to Live systems (CD, USB, Frugal)
 	* hardware.cgi  Devices drivers, firmware, printing
 
-For common function have a look to lib/libtazpanel you may founf functions
-yoou need already coded such as xhtml_header to get the style header.html
-in you CGI script. For the loading message you can use loading_msg. When
+For common functions have a look to lib/libtazpanel, you may found functions
+you need already coded such as xhtml_header to get the style header.html
+in your CGI script. For the loading message you can use loading_msg. When
 cat is used: `gettext "Text to translate"`
 
 
 Web server
 ----------
-Tazpanel can run with Busybox httpd applet or LightTPD an propably Apache.
-Start the webserver with custom config to listen only on local port for
-security reason since we run as root to perform system actions, example:
+Tazpanel can run with Busybox httpd applet or LightTPD and probably Apache.
+Start the webserver with a custom config to listen only on a local port for
+security reasons since we run as root to perform system actions, example:
 
 # httpd -p 8090 u root -c /etc/slitaz/httpd.conf
 

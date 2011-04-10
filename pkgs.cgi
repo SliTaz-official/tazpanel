@@ -1,9 +1,9 @@
 #!/bin/sh
 #
-# TazPKG CGI interface - Manage packages via the a browse
+# TazPKG CGI interface - Manage packages via a browser
 #
-# This CGI interface intensively use tazpkg to manage package and have
-# it own code for some tasks. Please KISS it important and keep speed
+# This CGI interface intensively uses tazpkg to manage packages and have
+# its own code for some tasks. Please KISS, it is important and keep speed
 # in mind. Thanks, Pankso.
 #
 # (C) 2011 SliTaz GNU/Linux - GNU gpl v3
@@ -191,7 +191,7 @@ EOT
 	cat*)
 		#
 		# List all available packages by category on mirror. Listing all
-		# packages is to resource intensive and not usefull.
+		# packages is too resource intensive and not useful.
 		#
 		cd  $LOCALSTATE
 		category=${QUERY_STRING#cat=}
@@ -289,7 +289,7 @@ EOT
 		cat << EOT
 </pre>
 <p>
-	`gettext "Packages lists are up-to-date. You should check for upgrade now."`
+	`gettext "Packages lists are up-to-date. You should check for upgrades now."`
 </p>
 EOT
 		;;
@@ -300,10 +300,10 @@ EOT
 		cd $LOCALSTATE
 		search_form
 		sidebar
-		LOADING_MSG="Checking for upgrade..."
+		LOADING_MSG="Checking for upgrades..."
 		loading_msg
 		cat << EOT
-<h2>`gettext "up packages"`</h2>
+<h2>`gettext "Up packages"`</h2>
 <form method="get" action="$SCRIPT_NAME">
 <div id="actions">
 	<div class="float-left">
@@ -352,7 +352,7 @@ EOT
 <div id="actions">
 	<div class="float-left">
 		<p>
-			`gettext "Performing task on packages"`
+			`gettext "Performing tasks on packages"`
 		</p>
 	</div>
 	<div class="float-right">

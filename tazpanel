@@ -41,7 +41,7 @@ case "$1" in
 		gettext "Changing password for TazPanel"
 		gettext "New password: " && read pass
 		sed -i s"/\/:root:.*/\/:root:$pass/" $HTTPD_CONF
-		gettext "Password changed succeffuly"; echo
+		gettext "Password changed successfully"; echo
 		echo "" ;;
 	*)
 		echo ""

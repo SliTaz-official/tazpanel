@@ -47,7 +47,7 @@ esac
 case "$QUERY_STRING" in
 	create)
 		#
-		# Create a flavor file and ISO in option with all settings
+		# Create a flavor file and ISO in options with all settings
 		# Step by step interface and store files in cache.
 		#
 		gettext "TODO" ;;
@@ -76,7 +76,7 @@ case "$QUERY_STRING" in
 		<option value="lzma">lzma</option>
 		<option value="none">none</option>
 	</select>
-	<input type="submit" value="`gettext "write ISO"`" />
+	<input type="submit" value="`gettext "Write ISO"`" />
 </form>
 
 <h3>`gettext "Live USB"`</h3>
@@ -99,7 +99,7 @@ EOT
 		fi
 		cat << EOT
 	</select>
-	<input type="submit" value="`gettext "generate"`" />
+	<input type="submit" value="`gettext "Generate"`" />
 </form>
 
 EOT

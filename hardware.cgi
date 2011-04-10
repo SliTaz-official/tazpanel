@@ -51,7 +51,7 @@ EOT
 		case "$QUERY_STRING" in
 			modinfo=*)
 				mod=${QUERY_STRING#modinfo=}
-				gettext "Detailled information for module:"; echo " $mod"
+				gettext "Detailed information for module:"; echo " $mod"
 				echo '<pre>'
 				modinfo $mod
 				echo '</pre>' ;;

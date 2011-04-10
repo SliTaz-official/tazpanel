@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # System settings CGI interface: user, locale, keyboard, date. Since we
-# dont have multiple page here there is only one case used to get commands
+# dont have multiple pages here there is only one case used to get command
 # values and the full content is following directly.
 #
 # Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
@@ -92,7 +92,7 @@ cat << EOT
 `gettext "Hardware clock :"` `hwclock -r`
 </pre>
 <a class="button" href="$SCRIPT_NAME?rdate">`gettext "Sync online"`</a>
-<a class="button" href="$SCRIPT_NAME?hwclock">`gettext "Set harware clock"`</a>
+<a class="button" href="$SCRIPT_NAME?hwclock">`gettext "Set hardware clock"`</a>
 EOT
 #
 # Users management
@@ -167,7 +167,7 @@ EOT
 			# System configuration
 			echo "LANG=$new_locale" > /etc/locale.conf
 			echo "LC_ALL=$new_locale" >> /etc/locale.conf
-			eval_gettext "You must logout and login again your current
+			eval_gettext "You must logout and login again to your current
 				session to use \$new_locale locale."
 		else
 			eval_gettext "Current system locales: "
@@ -176,7 +176,7 @@ EOT
 		cat << EOT
 </p>
 <form method="get" action="$SCRIPT_NAME">
-	`gettext "Avalaible locales:"`
+	`gettext "Available locales:"`
 	<select name="gen-locale">
 		<option value="en_US">en_US</options>
 		`list_locales`

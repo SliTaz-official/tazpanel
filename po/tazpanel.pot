@@ -8,307 +8,216 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-06 20:37+0200\n"
+"POT-Creation-Date: 2011-04-10 10:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: tazpanel:33
+#: tazpanel:34
 msgid "TazPanel Authentication"
 msgstr ""
 
-#: tazpanel:36
+#: tazpanel:37
 msgid "Stopping TazPanel web server..."
 msgstr ""
 
-#: tazpanel:40
+#: tazpanel:41
 msgid "Changing password for TazPanel"
 msgstr ""
 
-#: tazpanel:41
+#: tazpanel:42
 msgid "New password: "
 msgstr ""
 
-#: tazpanel:43
-msgid "Password changed succeffuly"
+#: tazpanel:44
+msgid "Password changed successfully"
 msgstr ""
 
-#: tazpanel:47
+#: tazpanel:48
 msgid "Usage:"
 msgstr ""
 
-#: index.cgi:43
-msgid "Boot &amp; startup"
-msgstr ""
-
-#: index.cgi:45
-msgid "Everything that appends before user login."
-msgstr ""
-
-#: index.cgi:49
-msgid "Kernel cmdline"
-msgstr ""
-
-#: index.cgi:90
-msgid "Manage users"
-msgstr ""
-
-#: index.cgi:91
-msgid "Manage human users on your SliTaz system"
-msgstr ""
-
-#: index.cgi:98
-msgid "Login"
-msgstr ""
-
-#: index.cgi:99
-msgid "User ID"
-msgstr ""
-
-#: index.cgi:100 pkgs.cgi:118 lib/libtazpanel:40
-msgid "Name"
-msgstr ""
-
-#: index.cgi:101
-msgid "Home"
-msgstr ""
-
-#: index.cgi:102
-msgid "SHell"
-msgstr ""
-
-#: index.cgi:129
-msgid "Delete selected user"
-msgstr ""
-
-#: index.cgi:133
-msgid "Add a new user"
-msgstr ""
-
-#: index.cgi:136
-msgid "User login:"
-msgstr ""
-
-#: index.cgi:138
-msgid "User password:"
-msgstr ""
-
-#: index.cgi:140
-msgid "Create user"
-msgstr ""
-
-#: index.cgi:152
-msgid "Drivers &amp; Devices"
-msgstr ""
-
-#: index.cgi:153
-msgid "Manage your computer hardware"
-msgstr ""
-
-#: index.cgi:179
+#: index.cgi:53
 msgid "Host:"
 msgstr ""
 
-#: index.cgi:180
-msgid "SliTaz administration et configuration Panel"
+#: index.cgi:54
+msgid "SliTaz administration and configuration Panel"
 msgstr ""
 
-#: index.cgi:183 pkgs.cgi:476
+#: index.cgi:57 pkgs.cgi:473
 msgid "Summary"
 msgstr ""
 
-#: index.cgi:186
+#: index.cgi:60
 msgid "Uptime:"
 msgstr ""
 
-#: index.cgi:189
+#: index.cgi:63
 msgid "Memory in Mb"
 msgstr ""
 
-#: index.cgi:196
+#: index.cgi:70
 msgid "Network status"
 msgstr ""
 
-#: index.cgi:199
+#: index.cgi:73
 msgid "Filesystem usage statistics"
 msgstr ""
 
-#: index.cgi:204
-msgid "System language"
+#: index.cgi:78
+msgid "Panel settings"
 msgstr ""
 
-#: index.cgi:215
-#, sh-format
-msgid ""
-"You must logout and login again your current\n"
-"\t\t\t\tsession to use $new_locale language."
+#: index.cgi:81
+msgid "Change Panel password"
 msgstr ""
 
-#: index.cgi:218
-#, sh-format
-msgid "Current system locales: "
-msgstr ""
-
-#: index.cgi:224
-msgid "Avalaible locales:"
-msgstr ""
-
-#: index.cgi:229
-msgid "Generated and use"
-msgstr ""
-
-#: pkgs.cgi:64
+#: pkgs.cgi:58
 msgid "Last recharge        : "
 msgstr ""
 
-#: pkgs.cgi:74
+#: pkgs.cgi:68
 msgid "Installed packages   : "
 msgstr ""
 
-#: pkgs.cgi:76
+#: pkgs.cgi:70
 msgid "Mirrored packages    : "
 msgstr ""
 
-#: pkgs.cgi:78
+#: pkgs.cgi:72
 msgid "Upgradeable packages : "
 msgstr ""
 
-#: pkgs.cgi:80
-msgid "Installed files      : "
-msgstr ""
-
-#: pkgs.cgi:82
+#: pkgs.cgi:76
 msgid "Blocked packages     : "
 msgstr ""
 
-#: pkgs.cgi:108
+#: pkgs.cgi:102
 msgid "Search"
 msgstr ""
 
-#: pkgs.cgi:119
+#: pkgs.cgi:112 lib/libtazpanel:52
+msgid "Name"
+msgstr ""
+
+#: pkgs.cgi:113
 msgid "Version"
 msgstr ""
 
-#: pkgs.cgi:120
+#: pkgs.cgi:114
 msgid "Description"
 msgstr ""
 
-#: pkgs.cgi:121
+#: pkgs.cgi:115
 msgid "Web"
 msgstr ""
 
-#: pkgs.cgi:152 pkgs.cgi:167 pkgs.cgi:185 pkgs.cgi:204
-msgid "Selection:"
-msgstr ""
-
-#: pkgs.cgi:156 pkgs.cgi:172 pkgs.cgi:191 pkgs.cgi:210
-msgid "List:"
-msgstr ""
-
-#: pkgs.cgi:176 pkgs.cgi:195 pkgs.cgi:213 pkgs.cgi:230 pkgs.cgi:312
-#: pkgs.cgi:369 pkgs.cgi:400 pkgs.cgi:484
+#: pkgs.cgi:158 pkgs.cgi:217 pkgs.cgi:251 pkgs.cgi:282 pkgs.cgi:319
+#: pkgs.cgi:361 pkgs.cgi:395 pkgs.cgi:476
 msgid "My packages"
 msgstr ""
 
-#: pkgs.cgi:188 pkgs.cgi:207
-msgid "Toogle all"
+#: pkgs.cgi:162 pkgs.cgi:208 pkgs.cgi:241 pkgs.cgi:310
+msgid "Selection:"
 msgstr ""
 
-#: pkgs.cgi:265
+#: pkgs.cgi:166 pkgs.cgi:213 pkgs.cgi:247 pkgs.cgi:316
+msgid "List:"
+msgstr ""
+
+#: pkgs.cgi:204
 msgid "Category:"
 msgstr ""
 
-#: pkgs.cgi:284
+#: pkgs.cgi:237
 msgid "Search packages"
 msgstr ""
 
-#: pkgs.cgi:300
+#: pkgs.cgi:244 pkgs.cgi:313
+msgid "Toogle all"
+msgstr ""
+
+#: pkgs.cgi:269
 msgid "Recharge"
 msgstr ""
 
-#: pkgs.cgi:305
-msgid ""
-"Recharge will check for new or updated packages...\n"
-"please wait"
+#: pkgs.cgi:274
+msgid "Recharge checks for new or updated packages"
 msgstr ""
 
-#: pkgs.cgi:321
-msgid "Packages lists are up-to-date"
+#: pkgs.cgi:280 pkgs.cgi:480
+msgid "Check upgrade"
 msgstr ""
 
-#: pkgs.cgi:328
-msgid "Upgradeable packages"
+#: pkgs.cgi:292
+msgid "Packages lists are up-to-date. You should check for upgrades now."
 msgstr ""
 
-#: pkgs.cgi:363
-msgid "Performing task on packages... please wait"
+#: pkgs.cgi:306
+msgid "Up packages"
 msgstr ""
 
-#: pkgs.cgi:390
+#: pkgs.cgi:355
+msgid "Performing tasks on packages"
+msgstr ""
+
+#: pkgs.cgi:385
 msgid "Package"
 msgstr ""
 
-#: pkgs.cgi:394
+#: pkgs.cgi:389
 msgid "Remove"
 msgstr ""
 
-#: pkgs.cgi:416
+#: pkgs.cgi:411
 msgid "Installed files:"
 msgstr ""
 
-#: pkgs.cgi:440 pkgs.cgi:490
+#: pkgs.cgi:437 pkgs.cgi:482
 msgid "Configuration"
 msgstr ""
 
-#: pkgs.cgi:442
+#: pkgs.cgi:439
 msgid "Tazpkg configuration and settings"
 msgstr ""
 
-#: pkgs.cgi:447
+#: pkgs.cgi:444
 msgid "Packages in the cache:"
 msgstr ""
 
-#: pkgs.cgi:454
+#: pkgs.cgi:451
 msgid "Current mirror list"
 msgstr ""
 
 #: pkgs.cgi:478
-msgid "Overview of all installed and mirrored packages"
-msgstr ""
-
-#: pkgs.cgi:486
 msgid "Recharge list"
 msgstr ""
 
 #: pkgs.cgi:488
-msgid "Check upgrade"
-msgstr ""
-
-#: pkgs.cgi:492
 msgid "Latest log entries"
 msgstr ""
 
-#: live.cgi:50
+#: live.cgi:53
 msgid "TODO"
 msgstr ""
 
-#: live.cgi:58
+#: live.cgi:61
 msgid "SliTaz Live Systems"
 msgstr ""
 
-#: live.cgi:59
+#: live.cgi:62
 msgid "Create and manage Live CD or USB SliTaz systems"
 msgstr ""
 
-#: live.cgi:62
+#: live.cgi:65
 msgid "Write a Live CD"
 msgstr ""
 
-#: live.cgi:64
+#: live.cgi:67
 msgid ""
 "The command writeiso will generate an ISO image of the\n"
 "\tcurrent filesystem as is, including all files in the /home directory.\n"
@@ -316,77 +225,77 @@ msgid ""
 "\tto: boot, modify, writeiso."
 msgstr ""
 
-#: live.cgi:70
+#: live.cgi:73
 msgid "Compression type:"
 msgstr ""
 
-#: live.cgi:76
-msgid "write ISO"
+#: live.cgi:79
+msgid "Write ISO"
 msgstr ""
 
-#: live.cgi:79
+#: live.cgi:82
 msgid "Live USB"
 msgstr ""
 
-#: live.cgi:81
+#: live.cgi:84
 msgid ""
 "Generate SliTaz LiveUSB media and boot in RAM! Insert a\n"
 "\tLiveCD into the cdrom drive, select the correct device and press\n"
 "\tGenerate."
 msgstr ""
 
-#: live.cgi:86
+#: live.cgi:89
 msgid "USB Media to use:"
 msgstr ""
 
-#: live.cgi:95
+#: live.cgi:98
 msgid "Not found"
 msgstr ""
 
-#: live.cgi:99
-msgid "generate"
+#: live.cgi:102
+msgid "Generate"
 msgstr ""
 
-#: network.cgi:41
+#: network.cgi:44
 msgid "Ethernet connection"
 msgstr ""
 
-#: network.cgi:51
+#: network.cgi:55
 msgid "Wireless connection"
 msgstr ""
 
-#: network.cgi:61
+#: network.cgi:66
 msgid "Networking"
 msgstr ""
 
-#: network.cgi:63
-msgid "Manage network connection and services"
+#: network.cgi:68
+msgid "Manage network connections and services"
 msgstr ""
 
-#: network.cgi:67
+#: network.cgi:72
 msgid "Connection:"
 msgstr ""
 
-#: network.cgi:68
+#: network.cgi:73
 msgid "Start"
 msgstr ""
 
-#: network.cgi:69
+#: network.cgi:74
 msgid "Stop"
 msgstr ""
 
-#: network.cgi:75
+#: network.cgi:80
 msgid "Output of ifconfig"
 msgstr ""
 
-#: lib/libtazpanel:39
+#: lib/libtazpanel:51
 msgid "Interface"
 msgstr ""
 
-#: lib/libtazpanel:41
+#: lib/libtazpanel:53
 msgid "Status"
 msgstr ""
 
-#: lib/libtazpanel:42
+#: lib/libtazpanel:54
 msgid "IP Address"
 msgstr ""

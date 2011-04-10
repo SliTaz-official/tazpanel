@@ -30,8 +30,8 @@ case "$QUERY_STRING" in
 		#
 		# Everything until user login
 		#
-		# Start and stop a daemom. I think we dont need restart sine 2 
-		# clicks and you done
+		# Start and stop a daemon. I think we dont need restart since 2 
+		# clicks and you are done
 		case "$QUERY_STRING" in
 			*=start=*)
 				daemon=${QUERY_STRING#*=start=}
@@ -47,9 +47,9 @@ case "$QUERY_STRING" in
 		debug_info
 		cat << EOT
 <div id="wrapper">
-	<h2>`gettext "Manage deamons"`</h2>
+	<h2>`gettext "Manage daemons"`</h2>
 	<p>
-		`gettext "Check, start and stop deamons on SliTaz"` 
+		`gettext "Check, start and stop daemons on SliTaz"` 
 	</p>
 </div>
 EOT
@@ -78,16 +78,16 @@ EOT
 			echo '<tr>'
 			# Name
 			echo "<td>$name</td>"
-			# First check if deamon is started at bootime
+			# First check if daemon is started at bootime
 			[ echo "RUN_DAEMONS" | fgrep $name ] && boot="on boot"
-			# Standard SliTaz busybox deamons and firewall
+			# Standard SliTaz busybox daemons and firewall
 			case "$name" in
 				firewall)
 					gettext "<td>SliTaz Firewall with iptable rules</td>" ;;
 				httpd)
 					gettext "<td>Small and fast web server with CGI support</td>" ;;
 				ntpd)
-					gettext "<td>Network time protocol deamon</td>" ;;
+					gettext "<td>Network time protocol daemon</td>" ;;
 				ftpd)
 					gettext "<td>Anonymous FTP server</td>" ;;
 				udhcpd)
@@ -95,7 +95,7 @@ EOT
 				syslogd|klogd)
 					gettext "<td>Linux Kernel log daemon</td>" ;;
 				crond|dnsd|tftpd|inetd|zcip)
-					gettext "<td>Deamon powered by BusyBox</td>" ;;
+					gettext "<td>Daemon powered by BusyBox</td>" ;;
 				*)
 					# Descrition from receipt
 					[ -d "$LOCALSTATE/installed/$name" ] && pkg=$name
