@@ -12,6 +12,7 @@ echo ""
 # Common functions from libtazpanel
 . lib/libtazpanel
 get_config
+query_string_parser
 
 # Include gettext helper script.
 . /usr/bin/gettext.sh
@@ -36,9 +37,18 @@ esac
 #
 
 case "$QUERY_STRING" in
+	file=*)
+		#
+		# Handle files (may have an edit function, will see)
+		#
+		TITLE="- File"
+		xhtml_header
+		echo "<h2>$WANT</h2>"
+		echo '<pre>'
+		cat $WANT
+		echo '</pre>' ;;
 	debug*)
 		TITLE="- Debug"
-		query_string_parser
 		xhtml_header
 		cat << EOT
 <h2>QUERY_STRING</h2>

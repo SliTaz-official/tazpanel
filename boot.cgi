@@ -149,6 +149,7 @@ EOT
 
 <div>
 	<a class="button" href="$SCRIPT_NAME?daemons">Manage daemons</a>
+	Main configuration file: <a href="index.cgi?file=/etc/rcS.conf">rcS.conf</a>
 </div>
 
 <h3>`gettext "Kernel cmdline"`</h3>
