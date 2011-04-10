@@ -20,8 +20,6 @@ get_config
 TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
 
-
-
 #
 # Things to do before displaying the page
 #
@@ -43,6 +41,7 @@ case "$QUERY_STRING" in
 		query_string_parser
 		xhtml_header
 		cat << EOT
+<h2>QUERY_STRING</h2>
 <pre>
 QUERY_STRING="$QUERY_STRING" 
 
@@ -54,7 +53,19 @@ VAR_1="$VAR_1"
 VAR_2="$VAR_2"
 </pre>
 EOT
-		;;
+		echo '<h2>HTTP Environment</h2>'
+		local var
+		local info
+		echo '<pre>'
+		for var in SERVER_SOFTWARE SERVER_NAME SERVER_PORT GATEWAY_INTERFACE \
+			AUTH_TYPE REMOTE_ADDR REMOTE_PORT HTTP_HOST HTTP_USER_AGENT  \
+			HTTP_ACCEPT_LANGUAGE REQUEST_METHOD REQUEST_URI QUERY_STRING \
+			CONTENT_LENGTH CONTENT_TYPE SCRIPT_NAME SCRIPT_FILENAME PWD
+		do
+			eval info=\$$var
+			echo "$var=\"$info\""
+		done
+		echo '</pre>' ;;
 	*)
 		#
 		# Default xHTML content
