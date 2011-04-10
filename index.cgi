@@ -97,13 +97,14 @@ EOT
 <h3>`gettext "Panel settings"`</h3>
 <form method="get" action="$SCRIPT_NAME">
 	<div>
-		<input type="submit" value="`gettext "Change Panel password"`" />
+		`gettext "Panel password:"`
 		<input type="password" name="panel-pass"/>
+		<input type="submit" value="`gettext "Change"`" />
 	</div>
 </form>
 <p>
-$(gettext "TazPanel provide a debuging mode and page:")
-<a href='$SCRIPT_NAME?debug'>debug</a>
+	$(gettext "TazPanel provide a debuging mode and page:")
+	<a href='$SCRIPT_NAME?debug'>debug</a>
 </p>
 
 EOT
