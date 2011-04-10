@@ -149,8 +149,19 @@ EOT
 
 <div>
 	<a class="button" href="$SCRIPT_NAME?daemons">Manage daemons</a>
-	Main configuration file: <a href="index.cgi?file=/etc/rcS.conf">rcS.conf</a>
+	
+	
 </div>
+
+<h3>`gettext "Configuration files"`</h3>
+<ul>
+	<li>`gettext "Main configuration file:"`
+		<a href="index.cgi?file=/etc/rcS.conf">rcS.conf</a></li>
+	<li>`gettext "Grub menu:"`
+		<a href="index.cgi?file=/boot/grub/menu.lst">menu.lst</a></li>
+	<li>`gettext "Login manager settings:"`
+		<a href="index.cgi?file=/etc/slim.conf">slim.conf</a></li>
+<ul>
 
 <h3>`gettext "Kernel cmdline"`</h3>
 <pre>
