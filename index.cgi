@@ -20,6 +20,8 @@ get_config
 TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
 
+
+
 #
 # Things to do before displaying the page
 #
@@ -36,6 +38,23 @@ esac
 #
 
 case "$QUERY_STRING" in
+	debug*)
+		TITLE="- Debug"
+		query_string_parser
+		xhtml_header
+		cat << EOT
+<pre>
+QUERY_STRING="$QUERY_STRING" 
+
+Fuction: query_string_parser (<a href="?debug=test=var1=var2">test</a>)
+
+CASE="$CASE"
+WANT="$WANT"
+VAR_1="$VAR_1"
+VAR_2="$VAR_2"
+</pre>
+EOT
+		;;
 	*)
 		#
 		# Default xHTML content
@@ -82,6 +101,10 @@ case "$QUERY_STRING" in
 		<input type="password" name="panel-pass"/>
 	</div>
 </form>
+<p>
+$(gettext "TazPanel provide a debuging mode and page:")
+<a href='$SCRIPT_NAME?debug'>debug</a>
+</p>
 
 EOT
 		;;

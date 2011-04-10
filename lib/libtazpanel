@@ -20,6 +20,22 @@ get_config() {
 		exit 1
 }
 
+# TazPanel QUERY_STRING parser ruturns: CASE WANT VAR_1 VAR_4
+# we use that to help getting URL string variable an use names
+query_string_parser() {
+	id=0
+	for var in $(echo "$QUERY_STRING" | sed s'@=@ @'g)
+	do
+		id=$((id + 1))
+		case "$id" in
+			'1') CASE=${var% } ;;
+			'2') WANT=${var% } ;;
+			'3') VAR_1=${var% } ;;
+			'4') VAR_2=${var% } ;;
+		esac
+	done
+}
+
 # DEBUG mode
 debug_info() {
 	if [ $DEBUG == "1" ]; then
