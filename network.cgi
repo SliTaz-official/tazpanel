@@ -81,6 +81,21 @@ EOT
 <pre>
 `ifconfig`
 </pre>
+
+<h3>`gettext "Routing table"`</h3>
+<pre>
+`route -n`
+</pre>
+
+<h3>`gettext "Domain name resolution"`</h3>
+<pre>
+`cat /etc/resolv.conf`
+</pre>
+
+<h3>`gettext "ARP table"`</h3>
+<pre>
+`arp`
+</pre>
 EOT
 		;;
 esac
