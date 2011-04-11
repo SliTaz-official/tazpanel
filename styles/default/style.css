@@ -75,7 +75,7 @@ a:hover { color: #000; }
 
 #sidebar {
 	position: fixed;
-	top: 187px;
+	top: 100px;
 	right: 5px;
 	width: 116px;
 }
