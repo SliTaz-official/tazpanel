@@ -43,16 +43,22 @@ case "$QUERY_STRING" in
 </div>
 EOT
 		# Request may be modinfo output that we want in the page itself
-		case "$QUERY_STRING" in
+		case "$CASE" in
 			modinfo=*)
 				mod=${QUERY_STRING#modinfo=}
-				gettext "Detailed information for module:"; echo " $mod"
+				gettext "Detailed information for module: "; echo "$mod"
 				echo '<pre>'
 				modinfo $mod
 				echo '</pre>' ;;
 			rmmod=*)
 				mod=${QUERY_STRING#rmmod=}
 				modprobe -r $mod ;;
+			search=*)
+				mod=${QUERY_STRING#search=}
+				gettext "Matching result(s) for: "; echo "$mod"
+				echo '<pre>'
+				modprobe -l | grep "$mod"
+				echo '</pre>' ;;
 		esac
 		cat << EOT
 	`table_start`

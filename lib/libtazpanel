@@ -24,10 +24,11 @@ get_config() {
 # we use that to help get URL string variables and user names
 query_string_parser() {
 	id=0
-	IFS="&"
+	#IFS="&"
 	for var in $(echo "$QUERY_STRING" | sed s'@=@ @'g)
 	do
 		id=$((id + 1))
+		var=${var#&}
 		case "$id" in
 			'1') CASE=${var% } ;;
 			'2') WANT=${var% } ;;
@@ -35,7 +36,7 @@ query_string_parser() {
 			'4') VAR_2=${var% } ;;
 		esac
 	done
-	unset IFS
+	#unset IFS
 }
 
 # LOG activities
