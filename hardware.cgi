@@ -83,7 +83,11 @@ EOT
 		table_end
 		echo '<h3>lspci</h3>'
 		echo '<pre>'
-			lspci
+			lspci -k
+		echo '</pre>'
+		echo '<h3>lsusb</h3>'
+		echo '<pre>'
+			lsusb
 		echo '</pre>'
 		;;
 esac
