@@ -45,7 +45,18 @@ case "$QUERY_STRING" in
 		xhtml_header
 		echo "<h2>$WANT</h2>"
 		echo '<pre>'
-		cat $WANT
+		# Handle file type by extension as a Web Server does it.
+		# HTML entities: -e 's|&|\&amp;|g' -e 's|<|\&lt;|g' -e 's|>|\&gt;|g'
+		case "$WANT" in
+			*.conf|*.lst)
+				cat $WANT | sed \
+					-e s"#^\#\([^']*\)#<span style='color: \#555;'>\0</span>#"g \
+					-e s"#^[A-Z]\([^']*\)=#<span style='color: \#000073;'>\0</span>#"g \
+					-e s"#^[a-z]\([^']*\)#<span style='color: \#730c00;'>\0</span>#"g \
+					-e s"#\"\([^']*\)\"#<span style='color: \#730c00;'>\0</span>#"g ;;
+			*)
+				cat $WANT ;;
+		esac
 		echo '</pre>' ;;
 	debug*)
 		TITLE="- Debug"
