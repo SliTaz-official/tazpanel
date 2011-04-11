@@ -38,7 +38,8 @@ parse_packages_desc() {
 				<img src='$IMAGES/tazpkg-installed.png'/>$PACKAGE</a></td>"
 		else
 			echo -e "<td><input type='checkbox' name='pkg' value='$PACKAGE'>\n
-				<img src='$IMAGES/tazpkg.png'/>$PACKAGE</td>"
+				<a href='$SCRIPT_NAME?info=$PACKAGE'>
+				<img src='$IMAGES/tazpkg.png'/>$PACKAGE</a></td>"
 		fi
 		echo "<td>$VERSION</td>"
 		echo "<td class='desc'>$SHORT_DESC</td>"
@@ -379,14 +380,28 @@ EOT
 		pkg=${QUERY_STRING#*=}
 		search_form
 		sidebar
-		. $INSTALLED/$pkg/receipt
-		files=`cat $INSTALLED/$pkg/files.list | wc -l`
+		if [ -d $INSTALLED/$pkg ]; then
+			. $INSTALLED/$pkg/receipt
+			files=`cat $INSTALLED/$pkg/files.list | wc -l`
+			action=Remove
+		else
+			cd  $LOCALSTATE
+			IFS='|'
+			set -- $(grep "^$pkg |" packages.desc)
+			unset IFS
+			PACKAGE=$1
+			VERSION="$(echo $2)"
+			SHORT_DESC="$(echo $3)"
+			CATEGORY="$(echo $4)"
+			WEB_SITE="$(echo $5)"
+			action=Install
+		fi
 		cat << EOT
 <h2>`gettext "Package"` $PACKAGE</h2>
 <div id="actions">
 	<div class="float-left">
 		<p>
-			<a class="button" href='$SCRIPT_NAME?do=remove&$pkg'>`gettext "Remove"`</a>
+			<a class="button" href='$SCRIPT_NAME?do=$action&$pkg'>`gettext "$action"`</a>
 		</p>
 	</div>
 	<div class="float-right">
@@ -401,6 +416,9 @@ Name        : $PACKAGE
 Version     : $VERSION
 Description : $SHORT_DESC
 Category    : $CATEGORY
+EOT
+		if [ -d $INSTALLED/$pkg ]; then
+			cat << EOT
 Maintainer  : $MAINTAINER
 Depends     : `for i in $DEPENDS; do echo -n \
 	"<a href="$SCRIPT_NAME?info=$i">$i</a> "; done`
@@ -413,6 +431,18 @@ Sizes       : $PACKED_SIZE/$UNPACKED_SIZE
 `cat $INSTALLED/$pkg/files.list`
 </pre>
 EOT
+		else
+			cat << EOT
+Website     : <a href="$WEB_SITE">$WEB_SITE</a>
+Sizes       : `grep -A 3 ^$pkg$ packages.txt | tail -n 1 | sed 's/ *//'`
+</pre>
+
+<p>`gettext "Installed files:"`</p>
+<pre>
+`unlzma -c files.list.lzma | sed "/^$pkg: /!d;s/^$pkg: //"`
+</pre>
+EOT
+		fi
 		;;
 	config*)
 		#
