@@ -20,8 +20,8 @@ get_config() {
 		exit 1
 }
 
-# TazPanel QUERY_STRING parser ruturns: CASE WANT VAR_1 VAR_4
-# we use that to help getting URL string variable an use names
+# TazPanel QUERY_STRING parser returns: CASE WANT VAR_1 VAR_4
+# we use that to help get URL string variables and user names
 query_string_parser() {
 	id=0
 	for var in $(echo "$QUERY_STRING" | sed s'@=@ @'g)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-10 10:36+0100\n"
+"POT-Creation-Date: 2011-04-11 19:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,40 +40,48 @@ msgstr ""
 msgid "Usage:"
 msgstr ""
 
-#: index.cgi:53
+#: index.cgi:104
 msgid "Host:"
 msgstr ""
 
-#: index.cgi:54
+#: index.cgi:105
 msgid "SliTaz administration and configuration Panel"
 msgstr ""
 
-#: index.cgi:57 pkgs.cgi:473
+#: index.cgi:108 pkgs.cgi:473
 msgid "Summary"
 msgstr ""
 
-#: index.cgi:60
+#: index.cgi:111
 msgid "Uptime:"
 msgstr ""
 
-#: index.cgi:63
+#: index.cgi:114
 msgid "Memory in Mb"
 msgstr ""
 
-#: index.cgi:70
+#: index.cgi:121
 msgid "Network status"
 msgstr ""
 
-#: index.cgi:73
+#: index.cgi:124
 msgid "Filesystem usage statistics"
 msgstr ""
 
-#: index.cgi:78
+#: index.cgi:129
 msgid "Panel settings"
 msgstr ""
 
-#: index.cgi:81
-msgid "Change Panel password"
+#: index.cgi:132
+msgid "Panel password:"
+msgstr ""
+
+#: index.cgi:134
+msgid "Change"
+msgstr ""
+
+#: index.cgi:138
+msgid "TazPanel provides a debuging mode and page:"
 msgstr ""
 
 #: pkgs.cgi:58
@@ -100,7 +108,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: pkgs.cgi:112 lib/libtazpanel:52
+#: pkgs.cgi:112 lib/libtazpanel:68
 msgid "Name"
 msgstr ""
 
@@ -288,14 +296,14 @@ msgstr ""
 msgid "Output of ifconfig"
 msgstr ""
 
-#: lib/libtazpanel:51
+#: lib/libtazpanel:67
 msgid "Interface"
 msgstr ""
 
-#: lib/libtazpanel:53
+#: lib/libtazpanel:69
 msgid "Status"
 msgstr ""
 
-#: lib/libtazpanel:54
+#: lib/libtazpanel:70
 msgid "IP Address"
 msgstr ""

@@ -39,7 +39,7 @@ esac
 case "$QUERY_STRING" in
 	file=*)
 		#
-		# Handle files (may have an edit function, will see)
+		# Handle files (may have an edit function, we will see)
 		#
 		TITLE="- File"
 		xhtml_header
@@ -135,7 +135,7 @@ EOT
 	</div>
 </form>
 <p>
-	$(gettext "TazPanel provide a debuging mode and page:")
+	$(gettext "TazPanel provides a debuging mode and page:")
 	<a href='$SCRIPT_NAME?debug'>debug</a>
 </p>
 
