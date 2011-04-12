@@ -226,7 +226,8 @@ EOT
 		echo '</form>' ;;
 	search=*)
 		#
-		# Search for packages
+		# Search for packages. Here default is to search in packages.desc
+		# and so get result including packages names and descriptions
 		#
 		pkg=${QUERY_STRING#*=}
 		cd  $LOCALSTATE
@@ -255,7 +256,7 @@ EOT
 		echo '</div>'
 		table_start
 		table_head
-		grep $pkg packages.desc | parse_packages_desc
+		grep -i $pkg packages.desc | parse_packages_desc
 		table_end
 		echo '</form>' ;;
 	recharge*)
