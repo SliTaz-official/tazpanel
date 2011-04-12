@@ -94,8 +94,16 @@ EOT
 					gettext "<td>Busybox DHCP server</td>" ;;
 				syslogd|klogd)
 					gettext "<td>Linux Kernel log daemon</td>" ;;
-				crond|dnsd|tftpd|inetd|zcip)
-					gettext "<td>Daemon powered by BusyBox</td>" ;;
+				crond)
+					gettext "<td>Execute scheduled commands</td>" ;;
+				dnsd)
+					gettext "<td>Small static DNS server daemon</td>" ;;
+				tftpd)
+					gettext "<td>Transfer a file on tftp request</td>" ;;
+				inetd)
+					gettext "<td>Listen for network connections and launch programs</td>" ;;
+				zcip)
+					gettext "<td>Manage a ZeroConf IPv4 link-local address</td>" ;;
 				*)
 					# Descrition from receipt
 					[ -d "$LOCALSTATE/installed/$name" ] && pkg=$name

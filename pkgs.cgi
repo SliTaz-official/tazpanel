@@ -287,6 +287,7 @@ EOT
 </div>
 <pre>
 EOT
+		echo "$(date +%Y%M%d-%H:%M) Recharging packages list" | log
 		tazpkg recharge | filter_tazpkg_msgs
 		cat << EOT
 </pre>

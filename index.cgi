@@ -46,7 +46,6 @@ case "$QUERY_STRING" in
 		echo "<h2>$WANT</h2>"
 		echo '<pre>'
 		# Handle file type by extension as a Web Server does it.
-		# HTML entities: -e 's|&|\&amp;|g' -e 's|<|\&lt;|g' -e 's|>|\&gt;|g'
 		case "$WANT" in
 			*.conf|*.lst)
 				cat $WANT | syntax_highlighter conf ;;
@@ -121,6 +120,11 @@ EOT
 <h4>`gettext "Filesystem usage statistics"`</h4>
 <pre>
 `df -h | grep ^/dev`
+</pre>
+
+<h3>`gettext "Panel Activity"`</h3>
+<pre>
+$(cat $LOG_FILE | tail -n 6)
 </pre>
 
 <h3>`gettext "Panel settings"`</h3>

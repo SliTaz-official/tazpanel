@@ -38,6 +38,7 @@ query_string_parser() {
 }
 
 # Syntax highlighting for config file and SHell scripts
+# HTML entities: -e 's|&|\&amp;|g' -e 's|<|\&lt;|g' -e 's|>|\&gt;|g'
 syntax_highlighter() {
 	case $1 in
 		conf)

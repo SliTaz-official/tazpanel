@@ -23,10 +23,10 @@ case "$QUERY_STRING" in
 	start)
 		# Here we sleep a bit to let udhcp get the lease before reloading
 		# page with status
-		/etc/init.d/network.sh start >/dev/null
+		/etc/init.d/network.sh start | log
 		sleep 2 ;;
 	stop)
-		/etc/init.d/network.sh stop >/dev/null ;;
+		/etc/init.d/network.sh stop | log ;;
 	*)
 		continue ;;
 esac
