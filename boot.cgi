@@ -166,7 +166,7 @@ EOT
 </pre>
 <h3>`gettext "Local startup commands"`</h3>
 <pre>
-`cat /etc/init.d/local.sh`
+$(cat /etc/init.d/local.sh | syntax_highlighter sh)
 </pre>
 EOT
 		;;

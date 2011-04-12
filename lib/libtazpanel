@@ -45,6 +45,9 @@ syntax_highlighter() {
 				-e s"#^[A-Z]\([^']*\)=#<span class='conf-var'>\0</span>#"g \
 				-e s"#^[a-z]\([^']*\)#<span class='conf-var'>\0</span>#"g \
 				-e s"#\"\([^']*\)\"#<span class='conf-val'>\0</span>#"g ;;
+		sh)
+			sed -e s"#^\#\([^']*\)#<span class='sh-comment'>\0</span>#"g \
+				-e s"#\"\([^']*\)\"#<span class='sh-val'>\0</span>#"g
 	esac
 }
 

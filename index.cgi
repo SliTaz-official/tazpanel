@@ -50,6 +50,8 @@ case "$QUERY_STRING" in
 		case "$WANT" in
 			*.conf|*.lst)
 				cat $WANT | syntax_highlighter conf ;;
+			*.sh|*.cgi)
+				cat $WANT | syntax_highlighter sh ;;
 			*)
 				cat $WANT ;;
 		esac

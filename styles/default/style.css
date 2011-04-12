@@ -183,8 +183,9 @@ td.desc { max-width: 300px; }
 /* syntax_highlighter */
 
 span.conf-comment { color: #666; }
-span.conf-var { color: #1F1500; }
-span.conf-val { color: #F35A00; }
+span.conf-var { color: #1f1500; }
+span.conf-val, span.sh-val { color: #f35a00; }
+span.sh-comment { color: #b20000; }
 
 /* Misc */
 
