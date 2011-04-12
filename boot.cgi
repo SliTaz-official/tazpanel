@@ -158,7 +158,7 @@ EOT
 		<a href="index.cgi?file=/boot/grub/menu.lst">menu.lst</a></li>
 	<li>`gettext "Login manager settings:"`
 		<a href="index.cgi?file=/etc/slim.conf">slim.conf</a></li>
-<ul>
+</ul>
 
 <h3>`gettext "Kernel cmdline"`</h3>
 <pre>

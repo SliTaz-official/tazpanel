@@ -20,7 +20,7 @@ h3 { color: #666; font-size: 140%; }
 h4 { color: #888; font-size: 120%; margin: 10px 0 5px; }
 img { border: 0pt none; vertical-align: middle; padding: 0px 6px 2px 0;}
 p { margin: 6px 0; }
-ul { list-style-type: none; padding: 0; }
+ul { list-style-type: square; }
 li { padding: 4px 0; }
 a { text-decoration: none; color: #666; }
 a:hover { color: #000; }
@@ -62,7 +62,7 @@ a:hover { color: #000; }
   cursor: progress;
   position: fixed;
   top: 92px;
-  right: 40px;
+  right: 120px;
   width: 248px;
   padding: 4px 4px 2px;
 }
@@ -75,29 +75,24 @@ a:hover { color: #000; }
 
 #sidebar {
 	position: fixed;
-	top: 100px;
+	top: 102px;
 	right: 5px;
 	width: 116px;
 }
 
 #sidebar a {
 	display: block;
-	padding: 1px 0 1px 12px;
-	margin:0;
+	padding: 0px 0 0px 12px;
+	margin: 0;
 }
 
 #sidebar a.active {
 	color: #000;
 	font-weight: bold;
-	/* Vertical tab alike menu
-	background-color: #f8f8f8;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-	border-right: 1px solid #ddd;
-	border-top-right-radius: 4px;
-	border-bottom-right-radius: 4px; */
 }
+
 #sidebar h4 { margin: 0 0 2px 12px; }
+#sidebar ul { list-style-type: none; padding: 0; }
 
 /* Content */
 
