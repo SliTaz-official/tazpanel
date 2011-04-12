@@ -101,7 +101,12 @@ EOT
 xhtml_header() {
 	cat ${PANEL}$HEADER | sed s/'- %TITLE%'/"$TITLE"/
 	if [ $DEBUG == "1" ]; then
-		echo "<div class='debug'>$CASE $WANT $REQUEST_METHOD ${QUERY_STRING}</div>"
+		cat << EOT
+<pre class='debug'>
+QUERY_STRING="$QUERY_STRING"
+CASE="$CASE" WANT="$WANT"
+</pre>
+EOT
 	fi
 }
 

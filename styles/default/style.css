@@ -150,10 +150,15 @@ a:hover { color: #000; }
 .debug {
 	position: fixed;
 	bottom: 0px;
-	left: 0px;
-	margin: 10px 20px;
-	padding: 6px 20px;
-	background-color: #e64a00;
+	right: 10px;
+	left: 10px;
+	margin: 5px;
+	padding: 4px 10px;
+	background-color: #111;
+	color: #fff;
+	border: 0;
+	font-size: 12px;
+	opacity: 0.9;
 }
 
 .float-left { float: left;  }
