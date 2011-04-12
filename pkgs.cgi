@@ -384,9 +384,11 @@ EOT
 		if [ -d $INSTALLED/$pkg ]; then
 			. $INSTALLED/$pkg/receipt
 			files=`cat $INSTALLED/$pkg/files.list | wc -l`
-			action=Remove
+			action=$(gettext "Remove")
 		else
 			cd  $LOCALSTATE
+			LOADING_MSG=$(gettext "Getting package info...")
+			loading_msg
 			IFS='|'
 			set -- $(grep "^$pkg |" packages.desc)
 			unset IFS
@@ -395,14 +397,14 @@ EOT
 			SHORT_DESC="$(echo $3)"
 			CATEGORY="$(echo $4)"
 			WEB_SITE="$(echo $5)"
-			action=Install
+			action=$(gettext "Install")
 		fi
 		cat << EOT
 <h2>`gettext "Package"` $PACKAGE</h2>
 <div id="actions">
 	<div class="float-left">
 		<p>
-			<a class="button" href='$SCRIPT_NAME?do=$action&$pkg'>`gettext "$action"`</a>
+			<a class="button" href='$SCRIPT_NAME?do=$action&$pkg'>$action</a>
 		</p>
 	</div>
 	<div class="float-right">
