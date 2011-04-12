@@ -180,6 +180,12 @@ td.desc { max-width: 300px; }
 	font-weight: bold;
 }
 
+/* syntax_highlighter */
+
+span.conf-comment { color: #666; }
+span.conf-var { color: #1F1500; }
+span.conf-val { color: #F35A00; }
+
 /* Misc */
 
 pre, .pre-main { 

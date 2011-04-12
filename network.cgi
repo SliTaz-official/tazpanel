@@ -68,11 +68,15 @@ EOT
 	`gettext "Manage network connections and services`
 </p>
 <div id="actions">
-	<p>
+	<div class="float-left">
 		`gettext "Connection:"`
 		<a class="button" href="$SCRIPT_NAME?start">`gettext "Start"`</a>
 		<a class="button" href="$SCRIPT_NAME?stop">`gettext "Stop"`</a>
-	</p>
+	</div>
+	<div class="float-right">
+		`gettext "Configuration file:"`
+		<a class="button" href="index.cgi?file=/etc/network.conf">network.conf</a>
+	</div>
 </div>
 
 `list_network_interfaces`
