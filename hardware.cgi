@@ -27,13 +27,19 @@ TITLE="- Hardware"
 case "$QUERY_STRING" in
 	print*)
 		echo "TODO" ;;
-	modules|modinfo=*)
+	modules*|modinfo=*)
 		query_string_parser
 		xhtml_header
 		cat << EOT
 <div id="wrapper">
 	<h2>`gettext "Kernel modules"`</h2>
-	<p>`gettext "Manage and get info about the Linux kernel modules`</p>
+<div class="float-right">
+	<form method="get" action="$SCRIPT_NAME">
+		<input type="hidden" name="modules" />
+		<input type="text" name="search" />
+	</form>
+</div>
+	<p>`gettext "Manage, search or get info on the Linux kernel modules`</p>
 </div>
 EOT
 		# Request may be modinfo output that we want in the page itself

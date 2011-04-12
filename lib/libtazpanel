@@ -24,6 +24,7 @@ get_config() {
 # we use that to help get URL string variables and user names
 query_string_parser() {
 	id=0
+	IFS="&"
 	for var in $(echo "$QUERY_STRING" | sed s'@=@ @'g)
 	do
 		id=$((id + 1))
@@ -34,6 +35,7 @@ query_string_parser() {
 			'4') VAR_2=${var% } ;;
 		esac
 	done
+	unset IFS
 }
 
 # LOG activities
@@ -99,7 +101,7 @@ EOT
 xhtml_header() {
 	cat ${PANEL}$HEADER | sed s/'- %TITLE%'/"$TITLE"/
 	if [ $DEBUG == "1" ]; then
-		echo "<div class='debug'>$REQUEST_METHOD ${QUERY_STRING}</div>"
+		echo "<div class='debug'>$CASE $WANT $REQUEST_METHOD ${QUERY_STRING}</div>"
 	fi
 }
 
