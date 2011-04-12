@@ -5,6 +5,17 @@
 # Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
 #
 
+if [ "$1" == "call" ]; then
+	case "$2" in
+	merge_cleanup)
+		mv -f $3.merged $3
+		for i in $4/*; do
+			umount -d $i
+		done
+		rm -rf $4
+		exit ;;
+	esac
+fi
 
 . /usr/bin/httpd_helper.sh
 
@@ -22,6 +33,29 @@ TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
 
 TITLE="- Live"
+
+# Build arguments to create a meta iso using 'tazlito merge' command
+merge_args()
+{
+	tmp=$1
+	first=true
+	i=1
+	while [ -n "$(GET input$i)" ]; do
+		echo "$(stat -c "%s" $(GET input$i)) $(GET input$i) $(GET ram$i)"
+		$((i++))
+	done | sort -nr | while read size file ram; do
+		if $first; then
+			cp $file $(GET metaoutput)
+			echo -n "$ram $(GET metaoutput) "
+			first=false
+			continue
+		fi
+		dir=$tmp/$(basename $file)
+		mkdir $dir
+		mount -o loop,ro $file $dir
+		echo -n "$ram $dir/boot/rootfs.gz "
+	done
+}
 
 #
 # Commands executed in Xterm first
@@ -43,6 +77,14 @@ case " $(GET) " in
 		$TERMINAL $TERM_OPTS \
 			-T "build loram iso" \
 			-e "tazlito build-loram $(GET input) $(GET loramoutput) $(GET type)" & ;;
+	*\ meta\ *)
+		tmp=/tmp/$(basename $0).$$
+		cleanup="sh $0 call merge_cleanup $(GET output) $tmp"
+		$TERMINAL $TERM_OPTS \
+			-T "build meta iso" \
+			-e "tazlito merge $(merge_args $tmp); \
+				gettext \"ENTER to quit\"; read i; \
+				$cleanup" & ;;
 esac
 
 #
@@ -137,6 +179,49 @@ EOT
 	</tr>
 	</table>
 	<input type="submit" value="`gettext "Convert ISO to loram"`" />
+</form>
+
+<a name="meta"></a>
+<h4>`gettext "Buld a meta ISO"`</h4>
+<p>
+	`gettext "Combines several ISO flavors like nested Russian dolls.
+	The amount of RAM available at startup will be used to select the
+	utmost one."`
+</p>
+<form method="get" action="$SCRIPT_NAME#meta">
+	<table>
+EOT
+		i=""
+		while [ -n "$(GET addmeta)" ]; do
+			[ -n "$(GET input$i)" ] || break
+			j=$(($i + 1))
+			cat << EOT
+	<tr>
+	<td>`gettext "ISO number"` $j: $(GET input$i)
+	<input type="hidden" name="input$j" value="$(GET input$i)" /></td>
+	<td>`gettext "minimum RAM"`: $(GET ram$i)
+	<input type="hidden" name="ram$j" value="$(GET ram$i)" /></td>
+	</tr>
+EOT
+			i=$j
+		done
+		metaoutput="$(GET metaoutput)"
+		[ -n "$metaoutput" ] || metaoutput="/root/meta.iso"
+		
+		cat << EOT
+	<tr>
+	<td>`gettext "ISO to add"`
+	<input type="text" name="input" value="/root/" /></td>
+	<td>`gettext "minimum RAM"`
+	<input type="text" name="ram" value="128M" />
+	<input type="submit" name="addmeta" value="`gettext "Add to the list"`" /></td>
+	</tr>
+	<tr>
+	<td>`gettext "ISO to create"`
+	<input type="text" name="metaoutput" value="$metaoutput" /></td>
+	</tr>
+	</table>
+	<input type="submit" name="meta" value="`gettext "Build a meta ISO"`" />
 </form>
 
 EOT
