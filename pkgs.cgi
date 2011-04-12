@@ -8,8 +8,10 @@
 #
 # (C) 2011 SliTaz GNU/Linux - GNU gpl v3
 #
-echo "Content-Type: text/html"
-echo ""
+
+. /usr/bin/httpd_helper.sh
+
+header
 
 . lib/libtazpanel
 get_config
@@ -101,6 +103,7 @@ search_form() {
 		<p>
 			<input type="text" name="search" size="20">
 			<input type="submit" value="`gettext "Search"`">
+			<input type="submit" name="files" value="`gettext "Search files"`">
 		</p>
 	</form>
 </div>
@@ -255,8 +258,19 @@ EOT
 EOT
 		echo '</div>'
 		table_start
-		table_head
-		grep -i $pkg packages.desc | parse_packages_desc
+		if [ "$(GET files)" ]; then
+			cat <<EOT
+		<tr id="thead">
+			<td>`gettext "Package"`</td>
+			<td>`gettext "File"`</td>
+		</tr>
+		$(unlzma -c files.list.lzma | grep -i $(GET search) | \
+		  sed 's|\(.*\): \(.*\)|<tr><td>\1</td><td>\2</td></tr>|')
+EOT
+		else
+			table_head
+			grep -i $pkg packages.desc | parse_packages_desc
+		fi
 		table_end
 		echo '</form>' ;;
 	recharge*)
