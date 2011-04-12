@@ -39,25 +39,35 @@ case "$QUERY_STRING" in
 		<input type="text" name="search" />
 	</form>
 </div>
-	<p>`gettext "Manage, search or get info on the Linux kernel modules`</p>
+	<p>`gettext "Manage, search or get information about the Linux kernel modules`</p>
 </div>
 EOT
 		# Request may be modinfo output that we want in the page itself
-		case "$CASE" in
+		case "$QUERY_STRING" in
 			modinfo=*)
-				mod=${QUERY_STRING#modinfo=}
-				gettext "Detailed information for module: "; echo "$mod"
+				echo '<strong>'
+				gettext "Detailed information for module: "; echo "$WANT"
+				echo '</strong>'
 				echo '<pre>'
-				modinfo $mod
+				modinfo $WANT
+				echo '</pre>' ;;
+			modprobe=*)
+				echo '<pre>'
+				modprobe -v $WANT
 				echo '</pre>' ;;
 			rmmod=*)
-				mod=${QUERY_STRING#rmmod=}
-				modprobe -r $mod ;;
-			search=*)
-				mod=${QUERY_STRING#search=}
-				gettext "Matching result(s) for: "; echo "$mod"
+				#modprobe -r $WANT
+				echo "Removing"
+				rmmod -w $WANT ;;
+			*search=*)
+				gettext "Matching result(s) for: "; echo "$VAR_1"
 				echo '<pre>'
-				modprobe -l | grep "$mod"
+				modprobe -l | grep "$VAR_1" | while read line
+				do
+					name=$(basename $line)
+					mod=${name%.ko.gz}
+					echo "Module    : <a href='$SCRIPT_NAME?modinfo=$mod'>$mod</a> "
+				done
 				echo '</pre>' ;;
 		esac
 		cat << EOT

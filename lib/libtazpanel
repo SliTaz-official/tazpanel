@@ -105,7 +105,7 @@ xhtml_header() {
 		cat << EOT
 <pre class='debug'>
 QUERY_STRING="$QUERY_STRING"
-CASE="$CASE" WANT="$WANT"
+CASE="$CASE" WANT="$WANT" VAR_1="$VAR_1"
 </pre>
 EOT
 	fi
