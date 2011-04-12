@@ -24,7 +24,7 @@ export TEXTDOMAIN
 # xHTML 5 header with special side bar fo categories.
 TITLE="- Packages"
 xhtml_header | sed 's/id="content"/id="content-sidebar"/'
-debug_info
+
 
 # We need packages information for list and search
 parse_packages_desc() {

@@ -39,7 +39,7 @@ case "$QUERY_STRING" in
 	eth)
 		# Wired connections settings
 		xhtml_header
-		debug_info
+		
 		cat << EOT
 <h2>`gettext "Ethernet connection`</h2>
 <pre>
@@ -50,7 +50,7 @@ EOT
 	wifi)
 		# Wireless connections settings
 		xhtml_header
-		debug_info
+		
 		cat << EOT
 <h2>`gettext "Wireless connection`</h2>
 <pre>
@@ -61,7 +61,7 @@ EOT
 	*)
 		# Main Network page starting with a summary
 		xhtml_header
-		debug_info
+		
 		cat << EOT
 <h2>`gettext "Networking`</h2>
 <p>

@@ -44,7 +44,7 @@ case "$QUERY_STRING" in
 		. /etc/rcS.conf
 		TITLE="- Boot"
 		xhtml_header
-		debug_info
+		
 		cat << EOT
 <div id="wrapper">
 	<h2>`gettext "Manage daemons"`</h2>
@@ -138,7 +138,7 @@ EOT
 		. /etc/rcS.conf
 		TITLE="- Boot"
 		xhtml_header
-		debug_info
+		
 		cat << EOT
 <div id="wrapper">
 	<h2>`gettext "Boot &amp; Start services"`</h2>

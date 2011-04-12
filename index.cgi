@@ -92,7 +92,7 @@ EOT
 		# Default xHTML content
 		#
 		xhtml_header
-		debug_info
+		
 		case "$QUERY_STRING" in
 			gen-locale=*)
 				new_locale=${QUERY_STRING#gen-locale=} ;;

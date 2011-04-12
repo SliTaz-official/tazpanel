@@ -75,7 +75,7 @@ EOT
 		# Default to summary with mounted filesystem, loaded modules
 		#
 		xhtml_header
-		debug_info
+		
 		cat << EOT
 <div id="wrapper">
 	<h2>`gettext "Drivers &amp; Devices"`</h2>

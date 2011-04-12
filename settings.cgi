@@ -79,7 +79,7 @@ esac
 # Default xHTML content
 #
 xhtml_header
-debug_info
+
 cat << EOT
 <div id="wrapper">
 	<h2>`gettext "System settings"`</h2>
