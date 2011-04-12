@@ -146,11 +146,8 @@ EOT
 		`gettext "Everything that appends before user login."` 
 	</p>
 </div>
-
 <div>
 	<a class="button" href="$SCRIPT_NAME?daemons">Manage daemons</a>
-	
-	
 </div>
 
 <h3>`gettext "Configuration files"`</h3>

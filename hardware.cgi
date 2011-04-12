@@ -27,27 +27,16 @@ TITLE="- Hardware"
 case "$QUERY_STRING" in
 	print*)
 		echo "TODO" ;;
-	*)
-		#
-		# Default to summary with mounted filesystem, loaded modules
-		#
+	modules|modinfo=*)
+		query_string_parser
 		xhtml_header
-		debug_info
 		cat << EOT
 <div id="wrapper">
-	<h2>`gettext "Drivers &amp; Devices"`</h2>
-	<p>`gettext "Manage your computer hardware`</p>
+	<h2>`gettext "Kernel modules"`</h2>
+	<p>`gettext "Manage and get info about the Linux kernel modules`</p>
 </div>
 EOT
-		echo '<pre>'
-			fdisk -l | fgrep Disk
-		echo '</pre>'
-		echo '<h3>Filesystem usage statistics</h3>'
-		echo '<pre>'
-			df -h | grep ^/dev
-		echo '</pre>'
-		echo '<h3>Loaded kernel modules</h3>'
-		# Request may be modinfo output
+		# Request may be modinfo output that we want in the page itself
 		case "$QUERY_STRING" in
 			modinfo=*)
 				mod=${QUERY_STRING#modinfo=}
@@ -80,7 +69,29 @@ EOT
 		</tr>
 EOT
 		done
-		table_end
+		table_end ;;
+	*)
+		#
+		# Default to summary with mounted filesystem, loaded modules
+		#
+		xhtml_header
+		debug_info
+		cat << EOT
+<div id="wrapper">
+	<h2>`gettext "Drivers &amp; Devices"`</h2>
+	<p>`gettext "Manage your computer hardware`</p>
+</div>
+<div>
+	<a class="button" href="$SCRIPT_NAME?modules">Kernel modules</a>
+</div>
+EOT
+		echo '<h3>Filesystem usage statistics</h3>'
+		echo '<pre>'
+			fdisk -l | fgrep Disk
+		echo '</pre>'
+		echo '<pre>'
+			df -h | grep ^/dev
+		echo '</pre>'		
 		echo '<h3>lspci</h3>'
 		echo '<pre>'
 			lspci -k
