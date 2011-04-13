@@ -263,7 +263,15 @@ EOT
 			<td>`gettext "File"`</td>
 		</tr>
 		$(unlzma -c files.list.lzma | grep -Ei ": .*$(GET search)" | \
-		  sed 's|\(.*\): \(.*\)|<tr><td>\1</td><td>\2</td></tr>|')
+		  while read PACKAGE FILE; do
+		  	PACKAGE=${PACKAGE%:}
+		  	image=tazpkg-installed.png
+		  	[ -d $INSTALLED/$PACKAGE ] || image=tazpkg.png
+		  	echo "<tr>
+	<td><a href='$SCRIPT_NAME?info=$PACKAGE'><img src='$IMAGES/$image' />$PACKAGE</a></td>
+	<td>$FILE</td>
+</tr>"
+		 done)
 EOT
 		else
 			table_head
