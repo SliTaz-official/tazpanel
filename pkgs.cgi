@@ -268,7 +268,8 @@ EOT
 		  	image=tazpkg-installed.png
 		  	[ -d $INSTALLED/$PACKAGE ] || image=tazpkg.png
 		  	echo "<tr>
-	<td><a href='$SCRIPT_NAME?info=$PACKAGE'><img src='$IMAGES/$image' />$PACKAGE</a></td>
+	<td><input type='checkbox' name='pkg' value='$PACKAGE'>
+	    <a href='$SCRIPT_NAME?info=$PACKAGE'><img src='$IMAGES/$image' />$PACKAGE</a></td>
 	<td>$FILE</td>
 </tr>"
 		 done)
