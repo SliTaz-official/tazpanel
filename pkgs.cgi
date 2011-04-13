@@ -262,7 +262,7 @@ EOT
 			<td>`gettext "Package"`</td>
 			<td>`gettext "File"`</td>
 		</tr>
-		$(unlzma -c files.list.lzma | grep -i $(GET search) | \
+		$(unlzma -c files.list.lzma | grep -Ei ": .*$(GET search)" | \
 		  sed 's|\(.*\): \(.*\)|<tr><td>\1</td><td>\2</td></tr>|')
 EOT
 		else
