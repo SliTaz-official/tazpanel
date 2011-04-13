@@ -177,7 +177,7 @@ EOT
 </form>
 
 <a name="meta"></a>
-<h4>`gettext "Buld a meta ISO"`</h4>
+<h4>`gettext "Build a meta ISO"`</h4>
 <p>
 	`gettext "Combines several ISO flavors like nested Russian dolls.
 	The amount of RAM available at startup will be used to select the

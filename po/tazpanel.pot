@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-11 19:23+0100\n"
+"POT-Creation-Date: 2011-04-13 16:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,47 +40,51 @@ msgstr ""
 msgid "Usage:"
 msgstr ""
 
-#: index.cgi:104
+#: index.cgi:69
 msgid "Host:"
 msgstr ""
 
-#: index.cgi:105
+#: index.cgi:70
 msgid "SliTaz administration and configuration Panel"
 msgstr ""
 
-#: index.cgi:108 pkgs.cgi:473
+#: index.cgi:73 pkgs.cgi:523
 msgid "Summary"
 msgstr ""
 
-#: index.cgi:111
+#: index.cgi:76
 msgid "Uptime:"
 msgstr ""
 
-#: index.cgi:114
+#: index.cgi:79
 msgid "Memory in Mb"
 msgstr ""
 
-#: index.cgi:121
+#: index.cgi:86
 msgid "Network status"
 msgstr ""
 
-#: index.cgi:124
+#: index.cgi:89
 msgid "Filesystem usage statistics"
 msgstr ""
 
-#: index.cgi:129
+#: index.cgi:94
+msgid "Panel Activity"
+msgstr ""
+
+#: index.cgi:99
 msgid "Panel settings"
 msgstr ""
 
-#: index.cgi:132
+#: index.cgi:102
 msgid "Panel password:"
 msgstr ""
 
-#: index.cgi:134
+#: index.cgi:104
 msgid "Change"
 msgstr ""
 
-#: index.cgi:138
+#: index.cgi:108
 msgid "TazPanel provides a debuging mode and page:"
 msgstr ""
 
@@ -108,124 +112,163 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: pkgs.cgi:112 lib/libtazpanel:68
+#: pkgs.cgi:104
+msgid "files"
+msgstr ""
+
+#: pkgs.cgi:114 lib/libtazpanel:63
 msgid "Name"
 msgstr ""
 
-#: pkgs.cgi:113
+#: pkgs.cgi:115
 msgid "Version"
 msgstr ""
 
-#: pkgs.cgi:114
+#: pkgs.cgi:116
 msgid "Description"
 msgstr ""
 
-#: pkgs.cgi:115
+#: pkgs.cgi:117
 msgid "Web"
 msgstr ""
 
-#: pkgs.cgi:158 pkgs.cgi:217 pkgs.cgi:251 pkgs.cgi:282 pkgs.cgi:319
-#: pkgs.cgi:361 pkgs.cgi:395 pkgs.cgi:476
+#: pkgs.cgi:160 pkgs.cgi:219 pkgs.cgi:254 pkgs.cgi:296 pkgs.cgi:334
+#: pkgs.cgi:377 pkgs.cgi:427 pkgs.cgi:526
 msgid "My packages"
 msgstr ""
 
-#: pkgs.cgi:162 pkgs.cgi:208 pkgs.cgi:241 pkgs.cgi:310
+#: pkgs.cgi:164 pkgs.cgi:210 pkgs.cgi:244 pkgs.cgi:325
 msgid "Selection:"
 msgstr ""
 
-#: pkgs.cgi:166 pkgs.cgi:213 pkgs.cgi:247 pkgs.cgi:316
+#: pkgs.cgi:168 pkgs.cgi:215 pkgs.cgi:250 pkgs.cgi:331
 msgid "List:"
 msgstr ""
 
-#: pkgs.cgi:204
+#: pkgs.cgi:206
 msgid "Category:"
 msgstr ""
 
-#: pkgs.cgi:237
+#: pkgs.cgi:240
 msgid "Search packages"
 msgstr ""
 
-#: pkgs.cgi:244 pkgs.cgi:313
+#: pkgs.cgi:247 pkgs.cgi:328
 msgid "Toogle all"
 msgstr ""
 
-#: pkgs.cgi:269
-msgid "Recharge"
-msgstr ""
-
-#: pkgs.cgi:274
-msgid "Recharge checks for new or updated packages"
-msgstr ""
-
-#: pkgs.cgi:280 pkgs.cgi:480
-msgid "Check upgrade"
-msgstr ""
-
-#: pkgs.cgi:292
-msgid "Packages lists are up-to-date. You should check for upgrades now."
-msgstr ""
-
-#: pkgs.cgi:306
-msgid "Up packages"
-msgstr ""
-
-#: pkgs.cgi:355
-msgid "Performing tasks on packages"
-msgstr ""
-
-#: pkgs.cgi:385
+#: pkgs.cgi:262 pkgs.cgi:417
 msgid "Package"
 msgstr ""
 
-#: pkgs.cgi:389
+#: pkgs.cgi:263
+msgid "File"
+msgstr ""
+
+#: pkgs.cgi:283
+msgid "Recharge"
+msgstr ""
+
+#: pkgs.cgi:288
+msgid "Recharge checks for new or updated packages"
+msgstr ""
+
+#: pkgs.cgi:294 pkgs.cgi:530
+msgid "Check upgrade"
+msgstr ""
+
+#: pkgs.cgi:307
+msgid "Packages lists are up-to-date. You should check for upgrades now."
+msgstr ""
+
+#: pkgs.cgi:321
+msgid "Up packages"
+msgstr ""
+
+#: pkgs.cgi:371
+msgid "Performing tasks on packages"
+msgstr ""
+
+#: pkgs.cgi:401
 msgid "Remove"
 msgstr ""
 
-#: pkgs.cgi:411
+#: pkgs.cgi:404
+msgid "Getting package info..."
+msgstr ""
+
+#: pkgs.cgi:414
+msgid "Install"
+msgstr ""
+
+#: pkgs.cgi:446 pkgs.cgi:457
 msgid "Installed files:"
 msgstr ""
 
-#: pkgs.cgi:437 pkgs.cgi:482
+#: pkgs.cgi:487 pkgs.cgi:532
 msgid "Configuration"
 msgstr ""
 
-#: pkgs.cgi:439
+#: pkgs.cgi:489
 msgid "Tazpkg configuration and settings"
 msgstr ""
 
-#: pkgs.cgi:444
+#: pkgs.cgi:494
 msgid "Packages in the cache:"
 msgstr ""
 
-#: pkgs.cgi:451
+#: pkgs.cgi:501
 msgid "Current mirror list"
 msgstr ""
 
-#: pkgs.cgi:478
+#: pkgs.cgi:528
 msgid "Recharge list"
 msgstr ""
 
-#: pkgs.cgi:488
+#: pkgs.cgi:538
 msgid "Latest log entries"
 msgstr ""
 
-#: live.cgi:53
+#: live.cgi:95
 msgid "TODO"
 msgstr ""
 
-#: live.cgi:61
+#: live.cgi:103
 msgid "SliTaz Live Systems"
 msgstr ""
 
-#: live.cgi:62
+#: live.cgi:104
 msgid "Create and manage Live CD or USB SliTaz systems"
 msgstr ""
 
-#: live.cgi:65
+#: live.cgi:108
+msgid "Live USB"
+msgstr ""
+
+#: live.cgi:110
+msgid ""
+"Generate SliTaz LiveUSB media and boot in RAM! Insert a\n"
+"\tLiveCD into the cdrom drive, select the correct device and press\n"
+"\tGenerate."
+msgstr ""
+
+#: live.cgi:115
+msgid "USB Media to use:"
+msgstr ""
+
+#: live.cgi:124
+msgid "Not found"
+msgstr ""
+
+#: live.cgi:128
+msgid "Generate"
+msgstr ""
+
+#: live.cgi:132
 msgid "Write a Live CD"
 msgstr ""
 
-#: live.cgi:67
+#: live.cgi:134
 msgid ""
 "The command writeiso will generate an ISO image of the\n"
 "\tcurrent filesystem as is, including all files in the /home directory.\n"
@@ -233,77 +276,131 @@ msgid ""
 "\tto: boot, modify, writeiso."
 msgstr ""
 
-#: live.cgi:73
+#: live.cgi:140
 msgid "Compression type:"
 msgstr ""
 
-#: live.cgi:79
+#: live.cgi:146
 msgid "Write ISO"
 msgstr ""
 
-#: live.cgi:82
-msgid "Live USB"
+#: live.cgi:149
+msgid "Live CD tools"
 msgstr ""
 
-#: live.cgi:84
+#: live.cgi:151 live.cgi:176
+msgid "Convert ISO to loram"
+msgstr ""
+
+#: live.cgi:153
 msgid ""
-"Generate SliTaz LiveUSB media and boot in RAM! Insert a\n"
-"\tLiveCD into the cdrom drive, select the correct device and press\n"
-"\tGenerate."
+"This command will convert an ISO image of a SliTaz Live CD\n"
+"\tto a new ISO image requiring less RAM to run."
 msgstr ""
 
-#: live.cgi:89
-msgid "USB Media to use:"
+#: live.cgi:159
+msgid "ISO to convert"
 msgstr ""
 
-#: live.cgi:98
-msgid "Not found"
+#: live.cgi:163
+msgid "The filesystem is always in RAM"
 msgstr ""
 
-#: live.cgi:102
-msgid "Generate"
+#: live.cgi:166
+msgid "The filesystem may be on a small CDROM"
 msgstr ""
 
-#: network.cgi:44
+#: live.cgi:169
+msgid "The filesystem may be on a large CDROM"
+msgstr ""
+
+#: live.cgi:172 live.cgi:215
+msgid "ISO to create"
+msgstr ""
+
+#: live.cgi:180 live.cgi:219
+msgid "Build a meta ISO"
+msgstr ""
+
+#: live.cgi:182
+msgid ""
+"Combines several ISO flavors like nested Russian dolls.\n"
+"\tThe amount of RAM available at startup will be used to select the\n"
+"\tutmost one."
+msgstr ""
+
+#: live.cgi:195
+msgid "ISO number"
+msgstr ""
+
+#: live.cgi:197 live.cgi:210
+msgid "minimum RAM"
+msgstr ""
+
+#: live.cgi:208
+msgid "ISO to add"
+msgstr ""
+
+#: live.cgi:212
+msgid "Add to the list"
+msgstr ""
+
+#: network.cgi:43
 msgid "Ethernet connection"
 msgstr ""
 
-#: network.cgi:55
+#: network.cgi:54
 msgid "Wireless connection"
 msgstr ""
 
-#: network.cgi:66
+#: network.cgi:65
 msgid "Networking"
 msgstr ""
 
-#: network.cgi:68
+#: network.cgi:67
 msgid "Manage network connections and services"
 msgstr ""
 
-#: network.cgi:72
+#: network.cgi:71
 msgid "Connection:"
 msgstr ""
 
-#: network.cgi:73
+#: network.cgi:72
 msgid "Start"
 msgstr ""
 
-#: network.cgi:74
+#: network.cgi:73
 msgid "Stop"
 msgstr ""
 
-#: network.cgi:80
+#: network.cgi:76
+msgid "Configuration file:"
+msgstr ""
+
+#: network.cgi:83
 msgid "Output of ifconfig"
 msgstr ""
 
-#: lib/libtazpanel:67
+#: network.cgi:88
+msgid "Routing table"
+msgstr ""
+
+#: network.cgi:93
+msgid "Domain name resolution"
+msgstr ""
+
+#: network.cgi:98
+msgid "ARP table"
+msgstr ""
+
+#: lib/libtazpanel:62
 msgid "Interface"
 msgstr ""
 
-#: lib/libtazpanel:69
+#: lib/libtazpanel:64
 msgid "Status"
 msgstr ""
 
-#: lib/libtazpanel:70
+#: lib/libtazpanel:65
 msgid "IP Address"
 msgstr ""

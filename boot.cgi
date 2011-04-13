@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Boot CGI script - All what appens before login (grub, rcS, slim)
+# Boot CGI script - All what happens before login (grub, rcS, slim)
 #
 # Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
 #
@@ -149,7 +149,7 @@ EOT
 <div id="wrapper">
 	<h2>`gettext "Boot &amp; Start services"`</h2>
 	<p>
-		`gettext "Everything that appends before user login."` 
+		`gettext "Everything that happens before user login"` 
 	</p>
 </div>
 <div>

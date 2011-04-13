@@ -167,7 +167,7 @@ EOT
 		<option value="en_US">en_US</options>
 		`list_locales`
 	</select>
-	<input type="submit" value="`gettext "Generated and use"`" />
+	<input type="submit" value="`gettext "Select"`" />
 </form>
 EOT
 

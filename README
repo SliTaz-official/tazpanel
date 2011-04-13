@@ -12,7 +12,7 @@ Use it!
 You can clone the tazpanel repo into /var/www/tazpanel and work on this
 copy or clone it somewhere else and 'make install'. After, add tazpanel to
 your /etc/hosts, type './tazpanel start' to start the server and go to the
-URL: http://tazpanel:8090. Panel user and password is defined in httpd.conf
+URL: http://tazpanel:82. Panel user and password is defined in httpd.conf
 and default is root:root
 
 
@@ -27,7 +27,7 @@ locale (fr_FR):
 
 	$ msginit -l fr_FR -o fr.po -i tazpanel.pot
 
-To update all translations from a newly updated the pot file:
+To update all translations from a newly updated pot file:
 
 	$ make msgmerge
 
@@ -62,14 +62,14 @@ links, but please to talk to the AUTHORS before.
 	* hardware.cgi  Devices drivers, firmware, printing
 
 For common functions have a look to lib/libtazpanel, you may found functions
-you need already coded such as xhtml_header to get the style header.html
+you need already coded such as a xhtml_header to get the style header.html
 in your CGI script. For the loading message you can use loading_msg. When
 cat is used: `gettext "Text to translate"`
 
 
 Web server
 ----------
-Tazpanel can run with Busybox httpd applet or LightTPD and probably Apache.
+Tazpanel can run with the Busybox httpd applet or LightTPD and probably Apache.
 Start the webserver with a custom config to listen only on a local port for
 security reasons since we run as root to perform system actions, example:
 
