@@ -4,12 +4,11 @@
 #
 # Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
 #
-echo "Content-Type: text/html"
-echo ""
 
 # Common functions from libtazpanel
 . lib/libtazpanel
 get_config
+header
 
 # Include gettext helper script.
 . /usr/bin/gettext.sh
@@ -24,11 +23,10 @@ TITLE="- Hardware"
 # Commands
 #
 
-case "$QUERY_STRING" in
-	print*)
+case " $(GET) " in
+	*\ print\ *)
 		echo "TODO" ;;
-	modules*|modinfo=*)
-		query_string_parser
+	*\ modules\ *|*\ modinfo\ *)
 		xhtml_header
 		cat << EOT
 <div id="wrapper">
@@ -43,33 +41,34 @@ case "$QUERY_STRING" in
 </div>
 EOT
 		# Request may be modinfo output that we want in the page itself
-		case "$QUERY_STRING" in
-			modinfo=*)
-				echo '<strong>'
-				gettext "Detailed information for module: "; echo "$WANT"
-				echo '</strong>'
-				echo '<pre>'
-				modinfo $WANT
-				echo '</pre>' ;;
-			modprobe=*)
-				echo '<pre>'
-				modprobe -v $WANT
-				echo '</pre>' ;;
-			rmmod=*)
-				#modprobe -r $WANT
-				echo "Removing"
-				rmmod -w $WANT ;;
-			*search=*)
-				gettext "Matching result(s) for: "; echo "$VAR_1"
-				echo '<pre>'
-				modprobe -l | grep "$VAR_1" | while read line
-				do
-					name=$(basename $line)
-					mod=${name%.ko.gz}
-					echo "Module    : <a href='$SCRIPT_NAME?modinfo=$mod'>$mod</a> "
-				done
-				echo '</pre>' ;;
-		esac
+		if [ -n "$(GET modinfo)" ]; then
+			echo '<strong>'
+			gettext "Detailed information for module: "; echo "$(GET modinfo)"
+			echo '</strong>'
+			echo '<pre>'
+			modinfo $(GET modinfo)
+			echo '</pre>'
+		fi
+		if [ -n "$(GET modprobe)" ]; then
+			echo '<pre>'
+			modprobe -v $(GET modprobe)
+			echo '</pre>' 
+		fi
+		if [ -n "$(GET rmmod)" ]; then
+			echo "Removing"
+			rmmod -w $(GET rmmod)
+		fi
+		if [ -n "$(GET search)" ]; then
+			gettext "Matching result(s) for: "; echo "$(GET search)"
+			echo '<pre>'
+			modprobe -l | grep "$(GET search)" | while read line
+			do
+				name=$(basename $line)
+				mod=${name%.ko.gz}
+				echo "Module    : <a href='$SCRIPT_NAME?modinfo=$mod'>$mod</a> "
+			done
+			echo '</pre>'
+		fi
 		cat << EOT
 	`table_start`
 		<tr class="thead">

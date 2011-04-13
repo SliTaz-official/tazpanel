@@ -3,6 +3,9 @@
 # Common functions for TazPanel CGI and cmdline interface
 #
 
+# Get parameters with GET, POST and FILE functions
+. /usr/bin/httpd_helper.sh
+
 # Include gettext helper script.
 . /usr/bin/gettext.sh
 
@@ -18,23 +21,6 @@ get_config() {
 	[ ! -f $PANEL/lib/libtazpanel ] && \
 		echo "No config file or libtazpanel found: $CONFIG" && \
 		exit 1
-}
-
-# TazPanel QUERY_STRING parser returns: CASE WANT VAR_1 VAR_4
-# we use that to help get URL string variables and user names
-query_string_parser() {
-	id=0
-	for var in $(echo "$QUERY_STRING" | sed s'@=@ @'g)
-	do
-		id=$((id + 1))
-		var=${var#&}
-		case "$id" in
-			'1') CASE=${var% } ;;
-			'2') WANT=${var% } ;;
-			'3') VAR_1=${var% } ;;
-			'4') VAR_2=${var% } ;;
-		esac
-	done
 }
 
 # Syntax highlighting for config file and SHell scripts
@@ -115,10 +101,29 @@ EOT
 xhtml_header() {
 	cat ${PANEL}$HEADER | sed s/'- %TITLE%'/"$TITLE"/
 	if [ $DEBUG == "1" ]; then
+		local i
+		local j
+		local x
+		args=""
+		for x in GET POST COOKIE ; do
+			for i in $($x) ; do
+				if [ $($x $i count) -gt 1 ]; then
+					for j in $(seq 1 $($x $i count)); do
+						args="$args $x($i,$j)='$($x $i $j)'"
+					done
+				else
+					args="$args $x($i)='$($x $i)'"
+				fi
+			done
+		done
+		for i in $(FILE); do
+			for j in name size type tmpname ; do
+				args="$args FILE($i,$j)=$(FILE $i $j)"
+			done
+		done
 		cat << EOT
 <pre class='debug'>
-QUERY_STRING="$QUERY_STRING"
-CASE="$CASE" WANT="$WANT" VAR_1="$VAR_1"
+QUERY_STRING="$QUERY_STRING"$args
 </pre>
 EOT
 	fi

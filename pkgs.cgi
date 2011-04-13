@@ -9,12 +9,9 @@
 # (C) 2011 SliTaz GNU/Linux - GNU gpl v3
 #
 
-. /usr/bin/httpd_helper.sh
-
-header
-
 . lib/libtazpanel
 get_config
+header
 
 # Include gettext helper script.
 . /usr/bin/gettext.sh
@@ -148,8 +145,8 @@ EOT
 # Commands
 #
 
-case "$QUERY_STRING" in
-	list*)
+case " $(GET) " in
+	*\ list\ *)
 		#
 		# List installed packages. This is the default because parsing
 		# the full packages.desc can be long and take some resources
@@ -193,14 +190,14 @@ EOT
 		done
 		table_end
 		echo '</form>' ;;
-	cat*)
+	*\ cat\ *)
 		#
 		# List all available packages by category on mirror. Listing all
 		# packages is too resource intensive and not useful.
 		#
 		cd  $LOCALSTATE
-		category=${QUERY_STRING#cat=}
-		[ "${QUERY_STRING}" == "cat" ] && category="base-system"
+		category=$(GET cat)
+		[ "$category" == "cat" ] && category="base-system"
 		search_form
 		sidebar | sed s/"active_${category}"/"active"/
 		LOADING_MSG="Listing packages..."
@@ -228,12 +225,12 @@ EOT
 		grep "| $category |" packages.desc | parse_packages_desc
 		table_end
 		echo '</form>' ;;
-	search=*)
+	*\ search\ *)
 		#
 		# Search for packages. Here default is to search in packages.desc
 		# and so get result including packages names and descriptions
 		#
-		pkg=${QUERY_STRING#*=}
+		pkg=$(GET search)
 		cd  $LOCALSTATE
 		search_form
 		sidebar
@@ -274,7 +271,7 @@ EOT
 		fi
 		table_end
 		echo '</form>' ;;
-	recharge*)
+	*\ recharge\ *)
 		#
 		# Let recharge the packages list
 		#
@@ -311,7 +308,7 @@ EOT
 </p>
 EOT
 		;;
-	up*)
+	*\ up\ *)
 		#
 		# Ugrade packages
 		#
@@ -347,14 +344,15 @@ EOT
 		done
 		table_end
 		echo '</form>' ;;
-	do=*)
+	*\ do\ *)
 		#
 		# Do an action on one or some packages
 		#
-		cmdline=`echo ${QUERY_STRING#do=} | sed s'/&/ /g'`		
-		cmd=`echo ${cmdline} | awk '{print $1}'`		
-		pkgs=`echo $cmdline | sed -e s'/+/ /g' -e s'/pkg=//g' -e s/$cmd//`
-		case $cmd in
+		pkgs=""
+		for i in $(seq 1 $(GET pkg count)); do
+			pkgs="$pkgs$(GET pkg $i) " 
+		done
+		case "$(GET do)" in
 			install|Install)
 				cmd=get-install opt=--forced ;;
 			remove|Remove)
@@ -390,11 +388,11 @@ EOT
 			echo 'o' | tazpkg $cmd $pkg $opt 2>/dev/null | filter_tazpkg_msgs
 			echo '</pre>'
 		done ;;
-	info=*)
+	*\ info\ *)
 		#
 		# Packages info
 		#
-		pkg=${QUERY_STRING#*=}
+		pkg=$(GET info)
 		search_form
 		sidebar
 		if [ -d $INSTALLED/$pkg ]; then
@@ -463,20 +461,23 @@ Sizes       : `grep -A 3 ^$pkg$ packages.txt | tail -n 1 | sed 's/ *//'`
 EOT
 		fi
 		;;
-	config*)
+	*\ config\ *)
 		#
 		# Tazpkg configuration page
 		#
-		cmd=${QUERY_STRING#*=}
+		cmd=$(GET config)
 		case "$cmd" in
 			clean)
 				rm -rf /var/cache/tazpkg/* ;;
-			add-mirror*=http*|add-mirror*=ftp*)
+			add-mirror)
 				# Decode url
-				mirror=`httpd -d ${cmd#*=}`
-				echo "$mirror" >> $LOCALSTATE/mirrors ;;
+				mirror=$(GET mirror)
+				case "$mirror" in
+				http://*|ftp://*)
+					echo "$mirror" >> $LOCALSTATE/mirrors ;;
+				esac ;;
 			rm-mirror=http://*|rm-mirror=ftp://*)
-				mirror=${QUERY_STRING#*=rm-mirror=}
+				mirror=${cmd#rm-mirror=}
 				sed -i -e "s@$mirror@@" -e '/^$/d' $LOCALSTATE/mirrors ;;
 		esac
 		cache_files=`find /var/cache/tazpkg -name *.tazpkg | wc -l`

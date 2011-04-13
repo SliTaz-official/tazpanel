@@ -4,12 +4,11 @@
 #
 # Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
 #
-echo "Content-Type: text/html"
-echo ""
 
 # Common functions from libtazpanel and source main boot config file.
 . lib/libtazpanel
 . /etc/rcS.conf
+header
 get_config
 
 # Include gettext helper script.
@@ -25,21 +24,20 @@ TITLE="- Hardware"
 # Commands
 #
 
-case "$QUERY_STRING" in
-	daemons*)
+case " $(GET) " in
+	*\ daemons\ *)
 		#
 		# Everything until user login
 		#
 		# Start and stop a daemon. I think we dont need restart since 2 
 		# clicks and you are done
-		case "$QUERY_STRING" in
-			*=start=*)
-				daemon=${QUERY_STRING#*=start=}
+		daemon=$(GET daemons)
+		case "$daemon" in
+			start=*)
 				sleep 1
-				/etc/init.d/$daemon start | log ;;
-			*=stop=*)
-				daemon=${QUERY_STRING#*=stop=}
-				/etc/init.d/$daemon stop | log ;;
+				/etc/init.d/${daemon#start=} start | log ;;
+			stop=*)
+				/etc/init.d/${daemon#stop=} stop | log ;;
 		esac
 		. /etc/rcS.conf
 		TITLE="- Boot"

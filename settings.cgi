@@ -6,12 +6,11 @@
 #
 # Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
 #
-echo "Content-Type: text/html"
-echo ""
 
 # Common functions from libtazpanel
 . lib/libtazpanel
 get_config
+header
 
 # Include gettext helper script.
 . /usr/bin/gettext.sh
@@ -35,41 +34,28 @@ list_locales() {
 # Commands executed before page loading.
 #
 
-case "$QUERY_STRING" in
-	users|user=*)
+case " $(GET) " in
+	*\ user*)
 		#
 		# Manage system user accounts
 		#
-		cmdline=`echo ${QUERY_STRING#user*=} | sed s'/&/ /g'`		
-		# Parse cmdline
-		for opt in $cmdline
-		do
-			case $opt in
-				adduser=*)
-					user=${opt#adduser=}
-					cmd=adduser ;;
-				deluser=*)
-					user=${opt#deluser=}
-					deluser $user ;;
-				passwd=*)
-					pass=${opt#passwd=} ;;
-			esac
+		for i in $(seq 1 $(GET deluser count)); do
+			deluser $(GET deluser $i)
 		done
-		case "$cmd" in
-			adduser)
-				adduser -D $user
-				echo "$pass" | chpasswd
-				for g in audio cdrom floppy video
-				do
-					addgroup $user $g
-				done ;;
-			*) continue ;;
-		esac ;;
-	gen-locale=*)
-		new_locale=${QUERY_STRING#gen-locale=} ;;
-	rdate)
+		user=$(GET adduser)
+		if [ -n "$user" ]; then
+			adduser -D $user
+			echo "$(GET passwd)" | chpasswd
+			for g in audio cdrom floppy video
+			do
+				addgroup $user $g
+			done
+		fi ;;
+	*\ gen_locale\ *)
+		new_locale=$(GET gen_locale) ;;
+	*\ rdate\ *)
 		rdate -s tick.greyware.com ;;
-	hwclock)
+	*\ hwclock\ *)
 		hwclock -w ;;
 	*)
 		continue ;;
@@ -177,7 +163,7 @@ EOT
 </p>
 <form method="get" action="$SCRIPT_NAME">
 	`gettext "Available locales:"`
-	<select name="gen-locale">
+	<select name="gen_locale">
 		<option value="en_US">en_US</options>
 		`list_locales`
 	</select>

@@ -17,13 +17,10 @@ if [ "$1" == "call" ]; then
 	esac
 fi
 
-. /usr/bin/httpd_helper.sh
-
-header
-
 # Common functions from libtazpanel
 . lib/libtazpanel
 get_config
+header
 
 # Include gettext helper script.
 . /usr/bin/gettext.sh
@@ -62,16 +59,14 @@ merge_args()
 #
 
 case " $(GET) " in
-	*\ write-iso\ *)
-		comp=${QUERY_STRING#write-iso=}
+	*\ write_iso\ *)
 		$TERMINAL $TERM_OPTS \
 			-T "write-iso" \
-			-e "tazlito writeiso $comp" & ;;
-	*\ gen-liveusb\ *)
-		dev=`httpd -d ${QUERY_STRING#gen-liveusb=}`
+			-e "tazlito writeiso $(GET write_iso)" & ;;
+	*\ gen_liveusb\ *)
 		$TERMINAL $TERM_OPTS \
 			-T "Tazusb gen-liveusb" \
-			-e "tazusb gen-liveusb $dev; \
+			-e "tazusb gen-liveusb $(GET gen_liveusb); \
 				gettext \"ENTER to quit\"; read i" & ;;
 	*\ loramoutput\ *)
 		$TERMINAL $TERM_OPTS \
@@ -91,8 +86,8 @@ esac
 # Commands
 #
 
-case "$QUERY_STRING" in
-	create)
+case " $(GET) " in
+	*\ create\ *)
 		#
 		# Create a flavor file and ISO in options with all settings
 		# Step by step interface and store files in cache.
@@ -118,7 +113,7 @@ case "$QUERY_STRING" in
 </p>
 <form method="get" action="$SCRIPT_NAME">
 	`gettext "USB Media to use:"`
-	<select name="gen-liveusb">
+	<select name="gen_liveusb">
 EOT
 		# List disk if plugged USB device
 		if [ -d /proc/scsi/usb-storage ]; then
@@ -143,7 +138,7 @@ EOT
 </p>
 <form method="get" action="$SCRIPT_NAME">
 	`gettext "Compression type:"`
-	<select name="write-iso">
+	<select name="write_iso">
 		<option value="gzip">gzip</option>
 		<option value="lzma">lzma</option>
 		<option value="none">none</option>

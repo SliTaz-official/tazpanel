@@ -6,13 +6,11 @@
 #
 # Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
 #
-echo "Content-Type: text/html"
-echo ""
 
 # Common functions from libtazpanel
 . lib/libtazpanel
 get_config
-query_string_parser
+header
 
 # Include gettext helper script.
 . /usr/bin/gettext.sh
@@ -25,76 +23,47 @@ export TEXTDOMAIN
 # Things to do before displaying the page
 #
 
-case "$QUERY_STRING" in
-	panel-pass=*)
-		new=${QUERY_STRING#*=}
-		sed -i s@/:root:.*@/:root:$new@ $HTTPD_CONF ;;
-	*) continue ;;
-esac
+[ -n "$(GET panel_pass)" ] &&
+	sed -i s@/:root:.*@/:root:$(GET panel_pass)@ $HTTPD_CONF
 
 #
 # Commands
 #
 
-case "$QUERY_STRING" in
-	file=*)
+case " $(GET) " in
+	*\ file\ *)
 		#
 		# Handle files (may have an edit function, we will see)
 		#
 		TITLE="- File"
 		xhtml_header
-		echo "<h2>$WANT</h2>"
+		file="$(GET file)"
+		echo "<h2>$file</h2>"
 		echo '<pre>'
 		# Handle file type by extension as a Web Server does it.
-		case "$WANT" in
+		case "$file" in
 			*.conf|*.lst)
-				cat $WANT | syntax_highlighter conf ;;
+				syntax_highlighter conf ;;
 			*.sh|*.cgi)
-				cat $WANT | syntax_highlighter sh ;;
+				syntax_highlighter sh ;;
 			*)
-				cat $WANT ;;
-		esac
+				cat ;;
+		esac < $file
 		echo '</pre>' ;;
-	debug*)
+	*\ debug\ *)
 		TITLE="- Debug"
 		xhtml_header
-		cat << EOT
-<h2>QUERY_STRING</h2>
-<pre>
-QUERY_STRING="$QUERY_STRING" 
-
-Fuction: query_string_parser (<a href="?debug=test=var1=var2">test</a>)
-
-CASE="$CASE"
-WANT="$WANT"
-VAR_1="$VAR_1"
-VAR_2="$VAR_2"
-</pre>
-EOT
 		echo '<h2>HTTP Environment</h2>'
-		local var
-		local info
 		echo '<pre>'
-		for var in SERVER_SOFTWARE SERVER_NAME SERVER_PORT GATEWAY_INTERFACE \
-			AUTH_TYPE REMOTE_ADDR REMOTE_PORT HTTP_HOST HTTP_USER_AGENT  \
-			HTTP_ACCEPT_LANGUAGE REQUEST_METHOD REQUEST_URI QUERY_STRING \
-			CONTENT_LENGTH CONTENT_TYPE SCRIPT_NAME SCRIPT_FILENAME PWD
-		do
-			eval info=\$$var
-			echo "$var=\"$info\""
-		done
+		httpinfo
 		echo '</pre>' ;;
 	*)
 		#
 		# Default xHTML content
 		#
 		xhtml_header
-		case "$QUERY_STRING" in
-			gen-locale=*)
-				new_locale=${QUERY_STRING#gen-locale=} ;;
-			rdate)
-				echo "" ;;
-		esac
+		[ -n "$(GET gen_locale)" ] && new_locale=$(GET gen_locale)
+		[ -n "$(GET rdate)" ] && echo ""
 		cat << EOT
 <div id="wrapper">
 	<h2>`gettext "Host:"` `hostname`</h2>
@@ -131,7 +100,7 @@ $(cat $LOG_FILE | tail -n 6)
 <form method="get" action="$SCRIPT_NAME">
 	<div>
 		`gettext "Panel password:"`
-		<input type="password" name="panel-pass"/>
+		<input type="password" name="panel_pass"/>
 		<input type="submit" value="`gettext "Change"`" />
 	</div>
 </form>

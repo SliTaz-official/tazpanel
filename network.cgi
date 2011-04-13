@@ -2,12 +2,11 @@
 #
 # Network configuration CGI interface
 #
-echo "Content-Type: text/html"
-echo ""
 
 # Common functions from libtazpanel
 . lib/libtazpanel
 get_config
+header
 
 # Include gettext helper script.
 . /usr/bin/gettext.sh
@@ -19,13 +18,13 @@ export TEXTDOMAIN
 TITLE="- Network"
 
 # Actions commands before page is displayed
-case "$QUERY_STRING" in
-	start)
+case " $(GET) " in
+	*\ start\ *)
 		# Here we sleep a bit to let udhcp get the lease before reloading
 		# page with status
 		/etc/init.d/network.sh start | log
 		sleep 2 ;;
-	stop)
+	*\ stop\ *)
 		/etc/init.d/network.sh stop | log ;;
 	*)
 		continue ;;
@@ -35,8 +34,8 @@ esac
 # Main Commands for pages
 #
 
-case "$QUERY_STRING" in
-	eth)
+case " $(GET) " in
+	*\ eth\ *)
 		# Wired connections settings
 		xhtml_header
 		
@@ -47,7 +46,7 @@ case "$QUERY_STRING" in
 </pre>
 EOT
 		;;
-	wifi)
+	*\ wifi\ *)
 		# Wireless connections settings
 		xhtml_header
 		
