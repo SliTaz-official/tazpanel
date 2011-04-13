@@ -550,7 +550,43 @@ EOT
 	awk '{print $1, $2, $3, $4, $5, $6, $7}'`
 </pre>
 
+<a name="administration"></a>
+<h3>`gettext "Administration"`</h3>
+<div id="actions">
+	<a class="button" href='$SCRIPT_NAME?action=saveconf#administration'>
+		<img src="$IMAGES/tazpkg.png" />`gettext "Save configuration files"`</a>
+	<a class="button" href='$SCRIPT_NAME?action=listconf#administration'>
+		<img src="$IMAGES/edit.png" />`gettext "List configuration files"`</a>
+	<a class="button" href='$SCRIPT_NAME?action=quickcheck#administration'>
+		<img src="$IMAGES/recharge.png" />`gettext "Quick check"`</a>
+	<a class="button" href='$SCRIPT_NAME?action=fullcheck#administration'>
+		<img src="$IMAGES/recharge.png" />`gettext "Full check"`</a>
+</div>
+
 EOT
+		case "$(GET action)" in
+		saveconf)
+			echo "<pre>"
+			cd $HOME
+			tazpkg repack-config | sed 's/.\[[^mG]*.//g'
+			ls -l $HOME/config-*.tazpkg
+			echo "</pre>" ;;
+		listconf)
+			echo "<h4>`gettext "Configuration files"`</h4>"
+			echo "<ul>"
+			tazpkg list-config | sed \
+		'/^\//!d;s/.*/<li><a href="index.cgi?file=&">&<\/a><\/li>/'
+			echo "</ul>"
+			echo "</pre>" ;;
+		quickcheck)
+			echo "<pre>"
+			tazpkg check
+			echo "</pre>" ;;
+		fullcheck)
+			echo "<pre>"
+			tazpkg check --full
+			echo "</pre>" ;;
+		esac
 		;;
 esac
 
