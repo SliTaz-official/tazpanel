@@ -103,7 +103,8 @@ search_form() {
 		<p>
 			<input type="text" name="search" size="20">
 			<input type="submit" value="`gettext "Search"`">
-			<input type="submit" name="files" value="`gettext "Search files"`">
+			<input class="radius" type="submit" name="files"
+				value="`gettext "files"`">
 		</p>
 	</form>
 </div>
