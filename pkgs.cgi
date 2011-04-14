@@ -48,11 +48,6 @@ parse_packages_desc() {
 	unset IFS
 }
 
-# Remove status and ESC char from tazpkg commands output
-filter_tazpkg_msgs() {
-	grep ^[a-zA-Z0-9] | sed s'/\.*\]//'
-}
-
 # Display a full summary of packages stats
 packages_summary() {
 	gettext "Last recharge        : "
@@ -315,7 +310,7 @@ EOT
 <pre>
 EOT
 		gettext "Recharging packages list" | log
-		tazpkg recharge | filter_tazpkg_msgs
+		tazpkg recharge | filter_taztools_msgs
 		cat << EOT
 </pre>
 <p>
@@ -400,7 +395,7 @@ EOT
 		for pkg in $pkgs
 		do
 			echo '<pre>'
-			echo 'y' | tazpkg $cmd $pkg $opt 2>/dev/null | filter_tazpkg_msgs
+			echo 'y' | tazpkg $cmd $pkg $opt 2>/dev/null | filter_taztools_msgs
 			echo '</pre>'
 		done ;;
 	*\ info\ *)
@@ -548,7 +543,7 @@ EOT
 					loading_msg
 					echo "<pre>"
 					cd $HOME
-					tazpkg repack-config | filter_tazpkg_msgs
+					tazpkg repack-config | filter_taztools_msgs
 					gettext "Path : " && ls $HOME/config-*.tazpkg
 					echo "</pre>" ;;
 				listconf)

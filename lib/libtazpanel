@@ -43,10 +43,15 @@ syntax_highlighter() {
 	esac
 }
 
+# Remove status and ESC char from tazpkg/tazlito commands output
+filter_taztools_msgs() {
+	grep ^[a-zA-Z0-9] | sed s'/\.*\]//'
+}
+
 # LOG activities
 log() {
 	date=$(date "+%Y-%m-%d %H:%M")
-	grep ^[a-zA-Z0-9] | sed s'/\.*\]//' | \
+	filter_taztools_msgs | \
 	sed s"#[^']*#$date : \0#" >> $LOG_FILE
 }
 
