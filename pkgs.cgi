@@ -577,7 +577,7 @@ EOT
 	<form method="get" action="$SCRIPT_NAME">
 		<p>
 			`gettext "Packages in the cache:"` $cache_files ($cache_size)
-			<input type="hidden" name="config" value="clean" />
+			<input type="hidden" name="admin" value="clean" />
 			<input type="submit" value="Clean" />
 		</p>
 	</form>

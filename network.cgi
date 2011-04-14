@@ -49,12 +49,19 @@ EOT
 	*\ wifi\ *)
 		# Wireless connections settings
 		xhtml_header
-		
 		cat << EOT
 <h2>`gettext "Wireless connection`</h2>
+
+<h3>$(gettext "Configuration file")</h3>
+<p>
+$(gettext "These values are the wifi settings in the main
+/etc/network.conf configuration file")
+</p>
 <pre>
-`grep ^WIFI_ /etc/network.conf`
+$(grep ^WIFI_ /etc/network.conf | syntax_highlighter conf)
 </pre>
+<a class="button" href="index.cgi?file=/etc/network.conf&action=edit">
+	<img src="$IMAGES/edit.png" />$(gettext "Manual Edit")</a>
 EOT
 		;;
 	*)
