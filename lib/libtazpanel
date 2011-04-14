@@ -36,7 +36,7 @@ syntax_highlighter() {
 			sed -e s"#^\#\([^']*\)#<span class='sh-comment'>\0</span>#"g \
 				-e s"#\"\([^']*\)\"#<span class='sh-val'>\0</span>#"g ;;
 		diff)
-			sed  -e 's|&|\&amp;|g' -e 's|<|\&lt;|g' -e 's|>|\&gt;|g' \
+			sed -e 's|&|\&amp;|g' -e 's|<|\&lt;|g' -e 's|>|\&gt;|g' \
 				-e s"#^-\([^']*\).#<span style='color: red;'>\0</span>#"g \
 				-e s"#^+\([^']*\).#<span style='color: green;'>\0</span>#"g \
 				-e s"#@@\([^']*\)@@#<span style='color: blue;'>@@\1@@</span>#"g ;;
@@ -45,7 +45,8 @@ syntax_highlighter() {
 
 # LOG activities
 log() {
-	grep ^[a-zA-Z0-9] | sed s'/\.*\]//' >> $LOG_FILE
+	grep ^[a-zA-Z0-9] | sed s'/\.*\]//' | \
+	sed s"#[^']*#$date : \0#" >> $LOG_FILE
 }
 
 # Network interface status
