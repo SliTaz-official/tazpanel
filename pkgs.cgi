@@ -549,8 +549,14 @@ EOT
 				listconf)
 					echo "<h4>`gettext "Configuration files"`</h4>"
 					echo "<ul>"
-					tazpkg list-config | sed \
-				'/^\//!d;s/.*/<li><a href="index.cgi?file=&">&<\/a><\/li>/'
+					tazpkg list-config | while read file; do
+						[ "${file:0:1}" == "/" ] || continue
+						if [ -e $file ]; then
+							echo "<li><a href=\"index.cgi?file=$file\">$file</a></li>"
+						else
+							echo "<li>$file</li>"
+						fi
+					done
 					echo "</ul>"
 					echo "</pre>" ;;
 				quickcheck)
