@@ -43,6 +43,7 @@ file_is_modified()
 		<img src="/styles/default/images/help.png" />`gettext "Differences"`</a>
 EOT
 		esac
+		break
 	done
 }
 

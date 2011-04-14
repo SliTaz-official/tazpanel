@@ -137,6 +137,7 @@ sidebar() {
 	<a class="active_misc" href="$SCRIPT_NAME?cat=misc">Misc</a>
 	<a class="active_meta" href="$SCRIPT_NAME?cat=meta">Meta</a>
 	<a class="active_non-free" href="$SCRIPT_NAME?cat=non-free">Non free</a>
+	<a class="active_all" href="$SCRIPT_NAME?cat=all">All</a>
 </div>
 EOT
 }
@@ -201,6 +202,8 @@ EOT
 		cd  $LOCALSTATE
 		category=$(GET cat)
 		[ "$category" == "cat" ] && category="base-system"
+		grep_category=$category
+		[ "$grep_category" == "all" ] && grep_category=".*"
 		search_form
 		sidebar | sed s/"active_${category}"/"active"/
 		LOADING_MSG="Listing packages..."
@@ -225,7 +228,7 @@ EOT
 		echo '</div>'
 		table_start
 		table_head
-		grep "| $category |" packages.desc | parse_packages_desc
+		grep "| $grep_category |" packages.desc | parse_packages_desc
 		table_end
 		echo '</form>' ;;
 	*\ search\ *)
