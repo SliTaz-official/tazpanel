@@ -40,7 +40,7 @@ file_is_modified()
 		button)
 			cat <<EOT
 	<a class="button" href='/index.cgi?file=$1&action=diff'>
-		<img src="/styles/default/images/help.png" />`gettext "Differences"`</a>
+		<img src="$IMAGES/help.png" />`gettext "Differences"`</a>
 EOT
 		esac
 		break
@@ -70,7 +70,7 @@ case " $(GET) " in
 		if [ "$(GET action)" == "edit" ]; then
 			cat <<EOT
 <form method="post" action="/index.cgi?file=$file">
-<img src="/styles/default/images/edit.png" />
+<img src="$IMAGES/edit.png" />
 <input type="submit" value="`gettext "Save"`">
 <textarea name="content" rows="30" style="width: 100%;">
 $(cat $file)
@@ -89,7 +89,7 @@ EOT
 			cat <<EOT
 <div id="actions">
 	<a class="button" href='/index.cgi?file=$file&action=edit'>
-		<img src="/styles/default/images/edit.png" />`gettext "Edit"`</a>
+		<img src="$IMAGES/edit.png" />`gettext "Edit"`</a>
 EOT
 			file_is_modified $file button
 			echo -e "</div>\n<pre>"
