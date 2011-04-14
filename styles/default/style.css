@@ -146,6 +146,8 @@ a:hover { color: #000; }
 	border: 1px solid #ddd;
 }
 
+.box ul { list-style-type: none; padding: 0; }
+
 .debug {
 	position: fixed;
 	bottom: 0px;
