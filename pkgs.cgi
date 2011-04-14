@@ -592,6 +592,51 @@ EOT
 	</p>
 </form>
 EOT
+		version=$(cat /etc/slitaz-release)
+		cat << EOT
+
+<a name="DVD"></a>
+<h3>`gettext "SliTaz packages DVD"`</h3>
+<p>
+$(gettext "A bootable DVD image of all available packages for \
+the $version version is generated every day. It also contains a copy of \
+the website and can be used without an internet connection. This image can be \
+installed on a DVD or an USB key.")
+</p>
+<div id="actions">
+	<form method="post" class="button" action='$SCRIPT_NAME?admin&action=dvdimage#DVD'>
+	<a class="button" href='http://mirror.slitaz.org/iso/$version/packages-$version.iso'>
+		<img src="$IMAGES/tazpkg.png" />`gettext "Download DVD image"`</a>
+	<a class="button" href='$SCRIPT_NAME?admin&action=dvdusbkey#DVD'>
+		<img src="$IMAGES/tazpkg.png" />`gettext "Install DVD/USB key"`</a>
+		<img src="$IMAGES/tazpkg.png" />`gettext "Install image"`
+		<input type="text" name="dvdimage" value="/root/packages-$version.iso">
+	</form>
+</div>
+EOT
+		if [ "$(GET action)" == "dvdimage" ]; then
+			dev=$(POST dvdimage)
+			mkdir -p /mnt/packages 2> /dev/null
+			echo "<pre>"
+			mount -t iso9660 -o loop,ro $dev /mnt/packages &&
+			/mnt/packages/install.sh &&
+			echo "$dev is installed on /mnt/packages"
+			echo "</pre>"
+		fi
+		if [ "$(GET action)" == "dvdusbkey" ]; then
+			mkdir -p /mnt/packages 2> /dev/null
+			for tag in "LABEL=\"packages-$version\" TYPE=\"iso9660\"" \
+				"LABEL=\"sources-$version\" TYPE=\"iso9660\"" ; do
+				dev=$(blkid | grep "$tag" | cut -d: -f1)
+				[ -n "$dev" ] || continue
+				echo "<pre>"
+				mount -t iso9660 -o ro $dev /mnt/packages &&
+				/mnt/packages/install.sh &&
+				echo "$dev is installed on /mnt/packages"
+				echo "</pre>"
+				break
+			done
+		fi
 		 ;;
 	*)
 		#
