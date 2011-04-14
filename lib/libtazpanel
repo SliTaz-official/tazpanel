@@ -34,7 +34,12 @@ syntax_highlighter() {
 				-e s"#\"\([^']*\)\"#<span class='conf-val'>\0</span>#"g ;;
 		sh)
 			sed -e s"#^\#\([^']*\)#<span class='sh-comment'>\0</span>#"g \
-				-e s"#\"\([^']*\)\"#<span class='sh-val'>\0</span>#"g
+				-e s"#\"\([^']*\)\"#<span class='sh-val'>\0</span>#"g ;;
+		diff)
+			sed  -e 's|&|\&amp;|g' -e 's|<|\&lt;|g' -e 's|>|\&gt;|g' \
+				-e s"#^-\([^']*\).#<span style='color: red;'>\0</span>#"g \
+				-e s"#^+\([^']*\).#<span style='color: green;'>\0</span>#"g \
+				-e s"#@@\([^']*\)@@#<span style='color: blue;'>@@\1@@</span>#"g ;;
 	esac
 }
 

@@ -19,6 +19,33 @@ header
 TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
 
+# Check wether a configuration file has been modified after installation
+file_is_modified()
+{
+	grep -l "  $1$" $INSTALLED/*/md5sum | while read file; do
+	
+		# Found, but can we do diff ?
+		[ "$(grep -h "  $1$" $file)" != "$(md5sum $1)" ] || break
+		org=$(dirname $file)/volatile.cpio.gz
+		zcat $org 2>/dev/null | cpio -t 2>/dev/null | \
+			grep -q "^${1#/}$" || break
+
+		case "$2" in
+		diff)
+			tmp=/tmp/tazpanel$$
+			mkdir -p $tmp
+			( cd $tmp ; zcat $org | cpio -id ${1#/} )
+			diff -u $tmp$1 $1
+			rm -rf $tmp ;;
+		button)
+			cat <<EOT
+	<a class="button" href='/index.cgi?file=$1&action=diff'>
+		<img src="/styles/default/images/help.png" />`gettext "Differences"`</a>
+EOT
+		esac
+	done
+}
+
 #
 # Things to do before displaying the page
 #
@@ -33,7 +60,7 @@ export TEXTDOMAIN
 case " $(GET) " in
 	*\ file\ *)
 		#
-		# Handle files (may have an edit function, we will see)
+		# Handle files
 		#
 		TITLE="- File"
 		xhtml_header
@@ -49,6 +76,10 @@ $(cat $file)
 </textarea>
 </form>
 EOT
+		elif [ "$(GET action)" == "diff" ]; then
+			echo '<pre id="diff">'
+			file_is_modified $file diff | syntax_highlighter diff
+			echo '</pre>'
 		else
 			[ -n "$(POST content)" ] && 
 				sed "s/`echo -en '\r'` /\n/g" > $file <<EOT
@@ -58,10 +89,9 @@ EOT
 <div id="actions">
 	<a class="button" href='/index.cgi?file=$file&action=edit'>
 		<img src="/styles/default/images/edit.png" />`gettext "Edit"`</a>
-			
-</div>
-<pre>
 EOT
+			file_is_modified $file button
+			echo -e "</div>\n<pre>"
 			# Handle file type by extension as a Web Server does it.
 			case "$file" in
 				*.conf|*.lst)
