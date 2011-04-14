@@ -39,17 +39,40 @@ case " $(GET) " in
 		xhtml_header
 		file="$(GET file)"
 		echo "<h2>$file</h2>"
-		echo '<pre>'
-		# Handle file type by extension as a Web Server does it.
-		case "$file" in
-			*.conf|*.lst)
-				syntax_highlighter conf ;;
-			*.sh|*.cgi)
-				syntax_highlighter sh ;;
-			*)
-				cat ;;
-		esac < $file
-		echo '</pre>' ;;
+		if [ "$(GET action)" == "edit" ]; then
+			cat <<EOT
+<form method="post" action="/index.cgi?file=$file">
+<img src="/styles/default/images/edit.png" />
+<input type="submit" value="`gettext "Save"`">
+<textarea name="content" rows="30" style="width: 100%;">
+$(cat $file)
+</textarea>
+</form>
+EOT
+		else
+			[ -n "$(POST content)" ] && 
+				sed "s/`echo -en '\r'` /\n/g" > $file <<EOT
+$(POST content)
+EOT
+			cat <<EOT
+<div id="actions">
+	<a class="button" href='/index.cgi?file=$file&action=edit'>
+		<img src="/styles/default/images/edit.png" />`gettext "Edit"`</a>
+			
+</div>
+<pre>
+EOT
+			# Handle file type by extension as a Web Server does it.
+			case "$file" in
+				*.conf|*.lst)
+					syntax_highlighter conf ;;
+				*.sh|*.cgi)
+					syntax_highlighter sh ;;
+				*)
+					cat ;;
+			esac < $file
+			echo '</pre>'
+		fi ;;
 	*\ debug\ *)
 		TITLE="- Debug"
 		xhtml_header
