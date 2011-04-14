@@ -39,7 +39,7 @@ file_is_modified()
 			rm -rf $tmp ;;
 		button)
 			cat <<EOT
-	<a class="button" href='/index.cgi?file=$1&action=diff'>
+	<a class="button" href='$SCRIPT_NAME?file=$1&action=diff'>
 		<img src="$IMAGES/help.png" />`gettext "Differences"`</a>
 EOT
 		esac
@@ -69,7 +69,7 @@ case " $(GET) " in
 		echo "<h2>$file</h2>"
 		if [ "$(GET action)" == "edit" ]; then
 			cat <<EOT
-<form method="post" action="/index.cgi?file=$file">
+<form method="post" action="$SCRIPT_NAME?file=$file">
 <img src="$IMAGES/edit.png" />
 <input type="submit" value="`gettext "Save"`">
 <textarea name="content" rows="30" style="width: 100%;">
@@ -88,7 +88,7 @@ $(POST content)
 EOT
 			cat <<EOT
 <div id="actions">
-	<a class="button" href='/index.cgi?file=$file&action=edit'>
+	<a class="button" href='$SCRIPT_NAME?file=$file&action=edit'>
 		<img src="$IMAGES/edit.png" />`gettext "Edit"`</a>
 EOT
 			file_is_modified $file button
