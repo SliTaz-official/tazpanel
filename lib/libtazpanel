@@ -45,6 +45,7 @@ syntax_highlighter() {
 
 # LOG activities
 log() {
+	date=$(date "+%Y-%m-%d %H:%M")
 	grep ^[a-zA-Z0-9] | sed s'/\.*\]//' | \
 	sed s"#[^']*#$date : \0#" >> $LOG_FILE
 }
