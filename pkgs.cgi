@@ -179,10 +179,13 @@ EOT
 			echo '<tr>'
 			# Use default tazpkg icon since all packages displayed are
 			# installed
+			colorpkg=$pkg
+			grep -qs "^$pkg$" $LOCALSTATE/blocked-packages.list &&
+				colorpkg="<span style='color: red;'>$pkg</span>"
 			echo "<td class='pkg'>
 				<input type='checkbox' name='pkg' value=\"$pkg\" />
 				<a href='$SCRIPT_NAME?info=$pkg'><img
-					src='$IMAGES/tazpkg-installed.png'/>$pkg</a></td>"
+					src='$IMAGES/tazpkg-installed.png'/>$colorpkg</a></td>"
 			echo "<td>$VERSION</td>"
 			echo "<td class='desc'>$SHORT_DESC</td>"
 			echo "<td><a href='$WEB_SITE'>web</a></td>"
@@ -357,15 +360,15 @@ EOT
 		#
 		# Do an action on one or some packages
 		#
+		opt=""
 		pkgs=""
 		cmdline=`echo ${QUERY_STRING#do=} | sed s'/&/ /g'`		
 		cmd=`echo ${cmdline} | awk '{print $1}'`		
 		pkgs=`echo $cmdline | sed -e s'/+/ /g' -e s'/pkg=//g' -e s/$cmd//`
+		cmd=`echo $cmd | tr [A-Z] [a-z]`		
 		case $cmd in
-			install|Install)
+			install)
 				cmd=get-install opt=--forced ;;
-			remove|Remove)
-				cmd=remove ;;
 		esac
 		search_form
 		sidebar
@@ -428,6 +431,19 @@ EOT
 	<div class="float-left">
 		<p>
 			<a class="button" href='$SCRIPT_NAME?do=$action&$pkg'>$action</a>
+EOT
+		if [ -d $INSTALLED/$pkg ]; then
+			if grep -qs "^$pkg$" $LOCALSTATE/blocked-packages.list; then
+				block=$(gettext "Unblock")
+			else
+				block=$(gettext "Block")
+			fi
+			cat << EOT
+			<a class="button" href='$SCRIPT_NAME?do=$block&$pkg'>$block</a>
+			<a class="button" href='$SCRIPT_NAME?do=Repack&$pkg'>Repack</a>
+EOT
+		fi
+		cat << EOT
 		</p>
 	</div>
 	<div class="float-right">
@@ -446,10 +462,25 @@ EOT
 		if [ -d $INSTALLED/$pkg ]; then
 			cat << EOT
 Maintainer  : $MAINTAINER
-Depends     : `for i in $DEPENDS; do echo -n \
-	"<a href="$SCRIPT_NAME?info=$i">$i</a> "; done`
 Website     : <a href="$WEB_SITE">$WEB_SITE</a>
 Sizes       : $PACKED_SIZE/$UNPACKED_SIZE
+EOT
+			if [ -n "$DEPENDS" ]; then
+				echo -n "Depends     : "
+				for i in $DEPENDS; do 
+					echo -n "<a href="$SCRIPT_NAME?info=$i">$i</a> "
+				done
+				echo ""
+			fi
+			if [ -n "$SUGGESTED" ]; then
+				echo -n "Suggested   : "
+				for i in $SUGGESTED; do 
+					echo -n "<a href="$SCRIPT_NAME?info=$i">$i</a> "
+				done
+				echo ""
+			fi
+			[ -n "$TAGS" ] && echo "Tags        : $TAGS"
+			cat << EOT
 </pre>
 
 <p>`gettext "Installed files:"` `cat $INSTALLED/$pkg/files.list | wc -l`</p>
@@ -528,6 +559,9 @@ EOT
 		#
 		search_form
 		sidebar
+PAPY
+		[ -n "$(GET block)" ] && tazpkg block $(GET block)
+		[ -n "$(GET unblock)" ] && tazpkg unblock $(GET unblock)
 		cat << EOT
 <h2>`gettext "Summary"`</h2>
 <div id="actions">
@@ -554,7 +588,7 @@ EOT
 <h3>`gettext "Administration"`</h3>
 <div id="actions">
 	<a class="button" href='$SCRIPT_NAME?action=saveconf#administration'>
-		<img src="$IMAGES/tazpkg.png" />`gettext "Save configuration files"`</a>
+		<img src="$IMAGES/tazpkg.png" />`gettext "Save configuration"`</a>
 	<a class="button" href='$SCRIPT_NAME?action=listconf#administration'>
 		<img src="$IMAGES/edit.png" />`gettext "List configuration files"`</a>
 	<a class="button" href='$SCRIPT_NAME?action=quickcheck#administration'>
