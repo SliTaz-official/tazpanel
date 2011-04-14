@@ -504,11 +504,11 @@ Sizes       : `grep -A 3 ^$pkg$ packages.txt | tail -n 1 | sed 's/ *//'`
 EOT
 		fi
 		;;
-	*\ config\ *)
+	*\ admin\ * )
 		#
 		# Tazpkg configuration page
 		#
-		cmd=$(GET config)
+		cmd=$(GET admin)
 		case "$cmd" in
 			clean)
 				rm -rf /var/cache/tazpkg/* ;;
@@ -527,10 +527,52 @@ EOT
 		cache_size=`du -sh /var/cache/tazpkg`
 		sidebar
 		cat << EOT
-<h2>`gettext "Configuration"`</h2>
+<h2>$(gettext "Administration")</h2>
 <div>
-	<p>`gettext "Tazpkg configuration and settings"`</p>
+	<p>$(gettext "Tazpkg administration and settings")</p>
 </div>
+<div id="actions">
+	<a class="button" href='$SCRIPT_NAME?admin=&action=saveconf'>
+		<img src="$IMAGES/tazpkg.png" />`gettext "Save configuration"`</a>
+	<a class="button" href='$SCRIPT_NAME?admin=&action=listconf'>
+		<img src="$IMAGES/edit.png" />`gettext "List configuration files"`</a>
+	<a class="button" href='$SCRIPT_NAME?admin=&action=quickcheck'>
+		<img src="$IMAGES/recharge.png" />`gettext "Quick check"`</a>
+	<a class="button" href='$SCRIPT_NAME?admin=&action=fullcheck'>
+		<img src="$IMAGES/recharge.png" />`gettext "Full check"`</a>
+</div>
+EOT
+		case "$(GET action)" in
+				saveconf)
+					LOADING_MSG=$(gettext "Creating the package...")
+					loading_msg
+					echo "<pre>"
+					cd $HOME
+					tazpkg repack-config | filter_tazpkg_msgs
+					gettext "Path : " && ls $HOME/config-*.tazpkg
+					echo "</pre>" ;;
+				listconf)
+					echo "<h4>`gettext "Configuration files"`</h4>"
+					echo "<ul>"
+					tazpkg list-config | sed \
+				'/^\//!d;s/.*/<li><a href="index.cgi?file=&">&<\/a><\/li>/'
+					echo "</ul>"
+					echo "</pre>" ;;
+				quickcheck)
+					LOADING_MSG=$(gettext "Checking packages consitency...")
+					loading_msg
+					echo "<pre>"
+					tazpkg check
+					echo "</pre>" ;;
+				fullcheck)
+					LOADING_MSG=$(gettext "Full packages check...")
+					loading_msg
+					echo "<pre>"
+					tazpkg check --full
+					echo "</pre>" ;;
+				esac
+		cat << EOT
+<h3>$(gettext "Packages cache")</h3>
 <div>
 	<form method="get" action="$SCRIPT_NAME">
 		<p>
@@ -574,8 +616,8 @@ PAPY
 		<img src="$IMAGES/recharge.png" />`gettext "Recharge list"`</a>
 	<a class="button" href='$SCRIPT_NAME?up'>
 		<img src="$IMAGES/update.png" />`gettext "Check upgrade"`</a>
-	<a class="button" href='$SCRIPT_NAME?config'>
-		<img src="$IMAGES/edit.png" />`gettext "Configuration"`</a>	
+	<a class="button" href='$SCRIPT_NAME?admin'>
+		<img src="$IMAGES/edit.png" />`gettext "Administration"`</a>	
 </div>
 <pre class="pre-main">
 `packages_summary`
@@ -586,44 +628,7 @@ PAPY
 `tail -n 5 /var/log/tazpkg.log | fgrep "-" | \
 	awk '{print $1, $2, $3, $4, $5, $6, $7}'`
 </pre>
-
-<a name="administration"></a>
-<h3>`gettext "Administration"`</h3>
-<div id="actions">
-	<a class="button" href='$SCRIPT_NAME?action=saveconf#administration'>
-		<img src="$IMAGES/tazpkg.png" />`gettext "Save configuration"`</a>
-	<a class="button" href='$SCRIPT_NAME?action=listconf#administration'>
-		<img src="$IMAGES/edit.png" />`gettext "List configuration files"`</a>
-	<a class="button" href='$SCRIPT_NAME?action=quickcheck#administration'>
-		<img src="$IMAGES/recharge.png" />`gettext "Quick check"`</a>
-	<a class="button" href='$SCRIPT_NAME?action=fullcheck#administration'>
-		<img src="$IMAGES/recharge.png" />`gettext "Full check"`</a>
-</div>
-
 EOT
-		case "$(GET action)" in
-		saveconf)
-			echo "<pre>"
-			cd $HOME
-			tazpkg repack-config | sed 's/.\[[^mG]*.//g'
-			ls -l $HOME/config-*.tazpkg
-			echo "</pre>" ;;
-		listconf)
-			echo "<h4>`gettext "Configuration files"`</h4>"
-			echo "<ul>"
-			tazpkg list-config | sed \
-		'/^\//!d;s/.*/<li><a href="index.cgi?file=&">&<\/a><\/li>/'
-			echo "</ul>"
-			echo "</pre>" ;;
-		quickcheck)
-			echo "<pre>"
-			tazpkg check
-			echo "</pre>" ;;
-		fullcheck)
-			echo "<pre>"
-			tazpkg check --full
-			echo "</pre>" ;;
-		esac
 		;;
 esac
 
