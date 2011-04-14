@@ -358,10 +358,10 @@ EOT
 		# Do an action on one or some packages
 		#
 		pkgs=""
-		for i in $(seq 1 $(GET pkg count)); do
-			pkgs="$pkgs$(GET pkg $i) " 
-		done
-		case "$(GET do)" in
+		cmdline=`echo ${QUERY_STRING#do=} | sed s'/&/ /g'`		
+		cmd=`echo ${cmdline} | awk '{print $1}'`		
+		pkgs=`echo $cmdline | sed -e s'/+/ /g' -e s'/pkg=//g' -e s/$cmd//`
+		case $cmd in
 			install|Install)
 				cmd=get-install opt=--forced ;;
 			remove|Remove)
