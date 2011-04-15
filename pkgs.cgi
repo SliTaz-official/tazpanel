@@ -594,7 +594,7 @@ EOT
 		version=$(cat /etc/slitaz-release)
 		cat << EOT
 
-<a name="DVD"></a>
+<a name="dvd"></a>
 <h3>`gettext "SliTaz packages DVD"`</h3>
 <p>
 $(gettext "A bootable DVD image of all available packages for \
@@ -602,14 +602,19 @@ the $version version is generated every day. It also contains a copy of \
 the website and can be used without an internet connection. This image can be \
 installed on a DVD or an USB key.")
 </p>
-<div id="actions">
-	<form method="post" class="button" action='$SCRIPT_NAME?admin&action=dvdimage#DVD'>
-	<a class="button" href='http://mirror.slitaz.org/iso/$version/packages-$version.iso'>
-		<img src="$IMAGES/tazpkg.png" />`gettext "Download DVD image"`</a>
-	<a class="button" href='$SCRIPT_NAME?admin&action=dvdusbkey#DVD'>
-		<img src="$IMAGES/tazpkg.png" />`gettext "Install DVD/USB key"`</a>
-		<img src="$IMAGES/tazpkg.png" />`gettext "Install image"`
-		<input type="text" name="dvdimage" value="/root/packages-$version.iso">
+<div>
+	<form method="post" action='$SCRIPT_NAME?admin&action=dvdimage#dvd'>
+	<p>
+		<a class="button"
+			href='http://mirror.slitaz.org/iso/$version/packages-$version.iso'>
+			<img src="$IMAGES/tazpkg.png" />$(gettext "Download DVD image")</a>
+		<a class="button" href='$SCRIPT_NAME?admin&action=dvdusbkey#dvd'>
+			<img src="$IMAGES/tazpkg.png" />$(gettext "Install to DVD/USB key")</a>
+	</p>
+	<div class="box">
+		$(gettext "ISO image path: ")
+		<input type="text" name="dvdimage" size="40" value="/root/packages-$version.iso">
+	</div>
 	</form>
 </div>
 EOT
@@ -643,7 +648,6 @@ EOT
 		#
 		search_form
 		sidebar
-PAPY
 		[ -n "$(GET block)" ] && tazpkg block $(GET block)
 		[ -n "$(GET unblock)" ] && tazpkg unblock $(GET unblock)
 		cat << EOT
