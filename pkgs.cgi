@@ -35,7 +35,7 @@ parse_packages_desc() {
 		fi
 		echo "<td>$VERSION</td>"
 		echo "<td class='desc'>$SHORT_DESC</td>"
-		echo "<td><a href='$WEB_SITE'>web</a></td>"
+		echo "<td><a href='$WEB_SITE'><img src='$IMAGES/browser.png'/></a></td>"
 		echo '</tr>'
 	done
 	unset IFS
@@ -177,7 +177,7 @@ EOT
 					src='$IMAGES/tazpkg-installed.png'/>$colorpkg</a></td>"
 			echo "<td>$VERSION</td>"
 			echo "<td class='desc'>$SHORT_DESC</td>"
-			echo "<td><a href='$WEB_SITE'>web</a></td>"
+			echo "<td><a href='$WEB_SITE'><img src='$IMAGES/browser.png'/></a></td>"
 			echo '</tr>'
 		done
 		table_end
