@@ -95,13 +95,16 @@ case " $(GET) " in
 		# Wired connections settings
 		xhtml_header
 		if [ "$(GET ip)" ]; then
-			LOADING_MSG=$(gettext "Setting up static IP...")
+			DHCP=no
+			STATIC=no
+			[ -n "$(GET dhcp)" ] && DHCP=yes
+			[ -n "$(GET static)" ] && STATIC=yes
+			LOADING_MSG=$(gettext "Setting up IP...")
 			loading_msg
 			sed -i \
 				-e s"/^INTERFACE=.*/INTERFACE=\"$(GET iface)\""/ \
-				-e s'/^DHCP=.*/DHCP="no"/' \
-				-e s'/^WIFI=.*/WIFI="no"/' \
-				-e s'/^STATIC=.*/STATIC="yes"/' \
+				-e s"/^DHCP=.*/DHCP=\"$DHCP\"/" \
+				-e s"/^STATIC=.*/STATIC=\"$STATIC\"/" \
 				-e s"/^NETMASK=.*/NETMASK=\"$(GET netmask)\"/" \
 				-e s"/^GATEWAY=.*/GATEWAY=\"$(GET gateway)\"/" \
 				-e s"/^DNS_SERVER=.*/DNS_SERVER=\"$(GET dns)\"/" \
@@ -145,7 +148,9 @@ case " $(GET) " in
 		<td><input type="text" name="dns" size="20" value="$DNS_SERVER" /></td>
 	</tr>
 	$(table_end)
-		<input type="submit" value="`gettext "Activate"`">
+		<input type="submit" name="static" value="`gettext "Activate (static)"`">
+		<input type="submit" name="dhcp" value="`gettext "Activate (DHCP)"`">
+		<input type="submit" name="disable" value="`gettext "Disable"`">
 </form>
 
 <h3>$(gettext "Configuration file")</h3>

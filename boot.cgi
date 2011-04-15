@@ -144,7 +144,8 @@ EOT
 	</p>
 </div>
 <div>
-	<a class="button" href="$SCRIPT_NAME?daemons">Manage daemons</a>
+	<a class="button" href="$SCRIPT_NAME?daemons">
+		<img src="$IMAGES/recharge.png" />`gettext "Manage daemons"`</a>
 </div>
 
 <h3>`gettext "Configuration files"`</h3>
