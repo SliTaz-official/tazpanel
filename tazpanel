@@ -2,7 +2,7 @@
 #
 # Tiny Tazpanel cmdline interface
 #
-# Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
+# Copyright (C) 2011 SliTaz GNU/Linux - BSD License
 #
 VERSION=1.0
 

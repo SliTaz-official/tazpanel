@@ -4,7 +4,7 @@
 # dont have multiple pages here there is only one case used to get command
 # values and the full content is following directly.
 #
-# Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
+# Copyright (C) 2011 SliTaz GNU/Linux - BSD License
 #
 
 # Common functions from libtazpanel

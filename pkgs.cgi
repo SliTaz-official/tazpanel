@@ -6,7 +6,7 @@
 # its own code for some tasks. Please KISS, it is important and keep speed
 # in mind. Thanks, Pankso.
 #
-# (C) 2011 SliTaz GNU/Linux - GNU gpl v3
+# (C) 2011 SliTaz GNU/Linux - BSD License
 #
 
 . lib/libtazpanel

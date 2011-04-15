@@ -4,7 +4,8 @@ SliTaz Web Control Panel
 
 Tazpanel is the SliTaz Control Panel, a web interface which lets you manage the
 full system in a radically simple way. The output xHTML code is valid xHTML 5
-and all theming is done with standard CSS 3.
+and all theming is done with standard CSS 3. TazPanel is published under a
+BSD License.
 
 
 Use it!
@@ -52,11 +53,11 @@ CGI scripts are in that location. If you think your code is too big to fit
 in another script you can eventually create a new CGI page and update all
 links, but please to talk to the AUTHORS before.
 
-	* index.cgi     Main Tazpanel CGI script (some stuff may be split
-	                into users.cgi, boot.cgi, etc if too big or slow)
+	* index.cgi     Main Tazpanel CGI script
+	* boot.cgi      All what appens before login
 	* network.cgi   All related stuff to networking (eth, wifi, services)
 	* pkgs.cgi      Tazpkg packages CGI interface
-	* system.cgi    System settings and services such as time, users
+	* settings.cgi  System settings and services such as time, users
 	                accounts, locales or daemons management
 	* live.cgi      All tools related to Live systems (CD, USB, Frugal)
 	* hardware.cgi  Devices drivers, firmware, printing

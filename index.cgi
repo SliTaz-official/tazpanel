@@ -4,7 +4,7 @@
 # command so we are faster and do not load unneeded functions. If necessary
 # you can use the lib/ dir to handle external resources.
 #
-# Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
+# Copyright (C) 2011 SliTaz GNU/Linux - BSD License
 #
 
 # Common functions from libtazpanel

@@ -2,7 +2,7 @@
 #
 # CGI interface for SliTaz Live systems using Tazlito and TazUSB.
 #
-# Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
+# Copyright (C) 2011 SliTaz GNU/Linux - BSD License
 #
 
 if [ "$1" == "call" ]; then

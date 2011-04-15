@@ -2,7 +2,7 @@
 #
 # Boot CGI script - All what happens before login (grub, rcS, slim)
 #
-# Copyright (C) 2011 SliTaz GNU/Linux - GNU gpl v3
+# Copyright (C) 2011 SliTaz GNU/Linux - BSD License
 #
 
 # Common functions from libtazpanel and source main boot config file.
