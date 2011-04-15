@@ -106,11 +106,6 @@ case " $(GET) " in
 		<input type="submit" name="do" value="`gettext "Delete user"`" />
 		<input type="submit" name="do" value="`gettext "Lock user"`" />
 		<input type="submit" name="do" value="`gettext "Unlock user"`" />
-		<input type="submit" name="do" value="`gettext "Change password"`" />
-	</div>
-	<div class="float-right">
-		$(gettext "password":)
-		<input type="text" name="password" />
 	</div>
 </div>
 EOT
@@ -152,6 +147,11 @@ EOT
 		done
 		table_end
 		cat << EOT
+<p>
+	$(gettext "Password":)
+	<input type="text" name="password" />
+	<input type="submit" name="do" value="`gettext "Change password"`" />
+</p>
 </form>
 
 <h4>`gettext "Add a new user"`</h4>
