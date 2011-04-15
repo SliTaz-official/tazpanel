@@ -119,7 +119,7 @@ sidebar() {
 	<a class="active_graphics" href="$SCRIPT_NAME?cat=graphics">Graphics</a>
 	<a class="active_office" href="$SCRIPT_NAME?cat=office">Office</a>
 	<a class="active_multimedia" href="$SCRIPT_NAME?cat=multimedia">Multimedia</a>
-	<a class="active_developement" href="$SCRIPT_NAME?cat=development">Development</a>
+	<a class="active_development" href="$SCRIPT_NAME?cat=development">Development</a>
 	<a class="active_system-tools" href="$SCRIPT_NAME?cat=system-tools">System tools</a>
 	<a class="active_security" href="$SCRIPT_NAME?cat=security">Security</a>
 	<a class="active_misc" href="$SCRIPT_NAME?cat=misc">Misc</a>
