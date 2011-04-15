@@ -139,8 +139,8 @@ EOT
 </pre>
 
 <h3>`gettext "Panel Activity"`</h3>
-<pre>
-$(cat $LOG_FILE | tail -n 6)
+<pre id="panel-activity">
+$(cat $LOG_FILE | tail -n 8 | sort -r | syntax_highlighter activity)
 </pre>
 
 EOT
