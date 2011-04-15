@@ -143,19 +143,6 @@ EOT
 $(cat $LOG_FILE | tail -n 6)
 </pre>
 
-<h3>`gettext "Panel settings"`</h3>
-<form method="get" action="$SCRIPT_NAME">
-	<div>
-		`gettext "Panel password:"`
-		<input type="password" name="panel_pass"/>
-		<input type="submit" value="`gettext "Change"`" />
-	</div>
-</form>
-<p>
-	$(gettext "TazPanel provides a debuging mode and page:")
-	<a href='$SCRIPT_NAME?debug'>debug</a>
-</p>
-
 EOT
 		;;
 esac
