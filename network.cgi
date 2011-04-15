@@ -89,12 +89,70 @@ case " $(GET) " in
 	*\ eth\ *)
 		# Wired connections settings
 		xhtml_header
-		
+		if [ "$(GET ip)" ]; then
+			LOADING_MSG=$(gettext "Setting up static IP...")
+			loading_msg
+			sed -i \
+				-e s"/^INTERFACE=.*/INTERFACE=\"$(GET iface)\""/ \
+				-e s'/^DHCP=.*/DHCP="no"/' \
+				-e s'/^WIFI=.*/WIFI="no"/' \
+				-e s'/^STATIC=.*/STATIC="yes"/' \
+				-e s"/^NETMASK=.*/NETMASK=\"$(GET netmask)\"/" \
+				-e s"/^GATEWAY=.*/GATEWAY=\"$(GET gateway)\"/" \
+				-e s"/^DNS_SERVER=.*/DNS_SERVER=\"$(GET dns)\"/" \
+				-e s"/^IP=.*/IP=\"$(GET ip)\"/" /etc/network.conf
+			/etc/init.d/network stop | log
+			sleep 2
+			/etc/init.d/network start | log
+		fi
+		. /etc/network.conf
 		cat << EOT
 <h2>`gettext "Ethernet connection`</h2>
+
+<h3>$(gettext "Setup a static IP")</h3>
+<form method="get" action="$SCRIPT_NAME">
+	<input type="hidden" name="eth" />
+	$(table_start)
+	<thead>
+		<tr>
+			<td>$(gettext "Name")</td>
+			<td>$(gettext "Value")</td>
+		</tr>
+	</thead>
+	<tr>
+		<td>$(gettext "Interface")</td>
+		<td><input type="text" name="iface" size="20" value="$INTERFACE" /></td>
+	</tr>
+	<tr>
+		<td>$(gettext "IP address")</td>
+		<td><input type="text" name="ip" size="20" value="$IP" /></td>
+	</tr>
+	<tr>
+		<td>$(gettext "Netmask")</td>
+		<td><input type="text" name="netmask" size="20" value="$NETMASK" /></td>
+	</tr>
+	<tr>
+		<td>$(gettext "Gateway")</td>
+		<td><input type="text" name="gateway" size="20" value="$GATEWAY" /></td>
+	</tr>
+	<tr>
+		<td>$(gettext "DNS server")</td>
+		<td><input type="text" name="dns" size="20" value="$DNS_SERVER" /></td>
+	</tr>
+	$(table_end)
+		<input type="submit" value="`gettext "Activate"`">
+</form>
+
+<h3>$(gettext "Configuration file")</h3>
+<p>
+$(gettext "These values are the ethernet settings in the main
+/etc/network.conf configuration file")
+</p>
 <pre>
-`grep ^[A-V] /etc/network.conf`
+$(grep ^[A-V] /etc/network.conf | syntax_highlighter conf)
 </pre>
+<a class="button" href="index.cgi?file=/etc/network.conf&action=edit">
+	<img src="$IMAGES/edit.png" />$(gettext "Manual Edit")</a>
 EOT
 		;;
 	*\ wifi\ *)
@@ -117,7 +175,7 @@ $(gettext "These values are the wifi settings in the main
 /etc/network.conf configuration file")
 </p>
 <pre>
-$(grep ^WIFI_ /etc/network.conf | syntax_highlighter conf)
+$(grep ^WIFI /etc/network.conf | syntax_highlighter conf)
 </pre>
 <a class="button" href="index.cgi?file=/etc/network.conf&action=edit">
 	<img src="$IMAGES/edit.png" />$(gettext "Manual Edit")</a>
