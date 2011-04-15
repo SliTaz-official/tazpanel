@@ -108,26 +108,58 @@ EOT
 }
 
 sidebar() {
+	[ -n "$repo" ] || repo=public
 	cat << EOT
 <div id="sidebar">
 	<h4>Categories</h4>
-	<a class="active_base-system" href="$SCRIPT_NAME?cat=base-system">Base-system</a>
-	<a class="active_x-window" href="$SCRIPT_NAME?cat=x-window">X window</a>
-	<a class="active_utilities" href="$SCRIPT_NAME?cat=utilities">Utilities</a>
-	<a class="active_network" href="$SCRIPT_NAME?cat=network">Network</a>
-	<a class="active_games" href="$SCRIPT_NAME?cat=games">Games</a>
-	<a class="active_graphics" href="$SCRIPT_NAME?cat=graphics">Graphics</a>
-	<a class="active_office" href="$SCRIPT_NAME?cat=office">Office</a>
-	<a class="active_multimedia" href="$SCRIPT_NAME?cat=multimedia">Multimedia</a>
-	<a class="active_development" href="$SCRIPT_NAME?cat=development">Development</a>
-	<a class="active_system-tools" href="$SCRIPT_NAME?cat=system-tools">System tools</a>
-	<a class="active_security" href="$SCRIPT_NAME?cat=security">Security</a>
-	<a class="active_misc" href="$SCRIPT_NAME?cat=misc">Misc</a>
-	<a class="active_meta" href="$SCRIPT_NAME?cat=meta">Meta</a>
-	<a class="active_non-free" href="$SCRIPT_NAME?cat=non-free">Non free</a>
-	<a class="active_all" href="$SCRIPT_NAME?cat=all">All</a>
-</div>
+	<a class="active_base-system" href="$SCRIPT_NAME?cat=base-system&repo=$repo">Base-system</a>
+	<a class="active_x-window" href="$SCRIPT_NAME?cat=x-window&repo=$repo">X window</a>
+	<a class="active_utilities" href="$SCRIPT_NAME?cat=utilities&repo=$repo">Utilities</a>
+	<a class="active_network" href="$SCRIPT_NAME?cat=network&repo=$repo">Network</a>
+	<a class="active_games" href="$SCRIPT_NAME?cat=games&repo=$repo">Games</a>
+	<a class="active_graphics" href="$SCRIPT_NAME?cat=graphics&repo=$repo">Graphics</a>
+	<a class="active_office" href="$SCRIPT_NAME?cat=office&repo=$repo">Office</a>
+	<a class="active_multimedia" href="$SCRIPT_NAME?cat=multimedia&repo=$repo">Multimedia</a>
+	<a class="active_development" href="$SCRIPT_NAME?cat=development&repo=$repo">Development</a>
+	<a class="active_system-tools" href="$SCRIPT_NAME?cat=system-tools&repo=$repo">System tools</a>
+	<a class="active_security" href="$SCRIPT_NAME?cat=security&repo=$repo">Security</a>
+	<a class="active_misc" href="$SCRIPT_NAME?cat=misc&repo=$repo">Misc</a>
+	<a class="active_meta" href="$SCRIPT_NAME?cat=meta&repo=$repo">Meta</a>
+	<a class="active_non-free" href="$SCRIPT_NAME?cat=non-free&repo=$repo">Non free</a>
+	<a class="active_all" href="$SCRIPT_NAME?cat=all&repo=$repo">All</a>
 EOT
+	
+	if [ -d $LOCALSTATE/undigest ]; then
+		[ -n "$category" ] || category="base-system"
+		cat << EOT
+	<p></p>
+	<h4>Repositories</h4>
+	<a class="repo_public" href="$SCRIPT_NAME?repo=public&cat=$category">Public</a>
+EOT
+		for i in $(ls $LOCALSTATE/undigest); do
+			cat << EOT
+	<a class="repo_$i" href="$SCRIPT_NAME?repo=$i&cat=$category">$i</a>
+EOT
+		done
+		cat << EOT
+	<a class="repo_any" href="$SCRIPT_NAME?repo=any&cat=$category">Any</a>
+EOT
+	fi
+	echo "</div>"
+}
+
+repo_list() {
+	if [ -n "$(ls $LOCALSTATE/undigest/ 2> /dev/null)" ]; then
+		case "$repo" in
+		public)	;;
+		""|any) for i in $LOCALSTATE/undigest/* ; do
+				echo "$i/$1"
+			done ;;
+		*)	echo "$LOCALSTATE/undigest/$repo/$1"
+			return ;;
+		esac
+	fi
+	echo "$LOCALSTATE/$1"
 }
 
 #
@@ -188,12 +220,14 @@ EOT
 		# packages is too resource intensive and not useful.
 		#
 		cd  $LOCALSTATE
+		repo=$(GET repo)
+		[ -n "$repo" ] || repo=Any
 		category=$(GET cat)
 		[ "$category" == "cat" ] && category="base-system"
 		grep_category=$category
 		[ "$grep_category" == "all" ] && grep_category=".*"
 		search_form
-		sidebar | sed s/"active_${category}"/"active"/
+		sidebar | sed "s/active_$category/active/;s/repo_$repo/active/"
 		LOADING_MSG="Listing packages..."
 		loading_msg
 		cat << EOT
@@ -204,6 +238,7 @@ EOT
 	`gettext "Selection:"`
 	<input type="submit" name="do" value="Install" />
 	<input type="submit" name="do" value="Remove" />
+	<input type="hidden" name="repo" value="$repo" />
 </div>
 <div class="float-right">
 	`gettext "List:"`
@@ -212,12 +247,16 @@ EOT
 	<a class="button" href='$SCRIPT_NAME?list'>
 		<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
 </div>
+</div>
 EOT
-		echo '</div>'
-		table_start
-		table_head
-		grep "| $grep_category |" packages.desc | parse_packages_desc
-		table_end
+		for i in $(repo_list packages.desc); do
+			[ "$repo" != "public" -a -d $LOCALSTATE/undigest ] &&
+				echo "<h3>Repository: $(dirname $i)</h3>"
+			table_start
+			table_head
+			grep "| $grep_category |" $i | parse_packages_desc
+			table_end
+		done
 		echo '</form>' ;;
 	*\ search\ *)
 		#
@@ -247,8 +286,8 @@ EOT
 	<a class="button" href='$SCRIPT_NAME?list'>
 		<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
 </div>
+</div>
 EOT
-		echo '</div>'
 		table_start
 		if [ "$(GET files)" ]; then
 			cat <<EOT
@@ -256,7 +295,8 @@ EOT
 			<td>`gettext "Package"`</td>
 			<td>`gettext "File"`</td>
 		</tr>
-		$(unlzma -c files.list.lzma | grep -Ei ": .*$(GET search)" | \
+		$(unlzma -c files.list.lzma undigest/*/files.list.lzma \
+		  2>/dev/null | grep -Ei ": .*$(GET search)" | \
 		  while read PACKAGE FILE; do
 		  	PACKAGE=${PACKAGE%:}
 		  	image=tazpkg-installed.png
@@ -270,7 +310,8 @@ EOT
 EOT
 		else
 			table_head
-			grep -i $pkg packages.desc | parse_packages_desc
+			grep -is $pkg packages.desc undigest/*/packages.desc | \
+				parse_packages_desc
 		fi
 		table_end
 		echo '</form>' ;;
@@ -343,7 +384,9 @@ EOT
 		table_head
 		for pkg in `cat packages.up`
 		do
-			grep "^$pkg |" $LOCALSTATE/packages.desc | parse_packages_desc
+			grep -s "^$pkg |" $LOCALSTATE/packages.desc \
+				$LOCALSTATE/undisgest/*/packages.desc | \
+				parse_packages_desc
 		done
 		table_end
 		echo '</form>' ;;
@@ -407,7 +450,8 @@ EOT
 			LOADING_MSG=$(gettext "Getting package info...")
 			loading_msg
 			IFS='|'
-			set -- $(grep "^$pkg |" packages.desc)
+			set -- $(grep -s "^$pkg |" packages.desc \
+				 undigest/*/packages.desc)
 			unset IFS
 			PACKAGE=$1
 			VERSION="$(echo $2)"
@@ -482,12 +526,14 @@ EOT
 		else
 			cat << EOT
 Website     : <a href="$WEB_SITE">$WEB_SITE</a>
-Sizes       : `grep -A 3 ^$pkg$ packages.txt | tail -n 1 | sed 's/ *//'`
+Sizes       : `grep -sA 3 ^$pkg$ packages.txt undigest/*/packages.txt | \
+		tail -n 1 | sed 's/ *//'`
 </pre>
 
 <p>`gettext "Installed files:"`</p>
 <pre>
-`unlzma -c files.list.lzma | sed "/^$pkg: /!d;s/^$pkg: //"`
+`unlzma -c files.list.lzma undigest/*/files.list.lzma 2> /dev/null | \
+ sed "/^$pkg: /!d;s/^$pkg: //"`
 </pre>
 EOT
 		fi
