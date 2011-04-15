@@ -55,7 +55,7 @@ case " $(GET) " in
 				Delete*)	deluser $user ;;
 				Lock*)		passwd -l $user ;;
 				Unlock*)	passwd -u $user ;;
-				Change*)	echo "$user:$(GET password)" | chpasswd ;;
+				Change*)	echo "$user:$(GET password)" | chpasswd | log ;;
 				esac
 			done
 		done ;;
