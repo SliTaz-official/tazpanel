@@ -609,10 +609,10 @@ installed on a DVD or an USB key.")
 			href='http://mirror.slitaz.org/iso/$version/packages-$version.iso'>
 			<img src="$IMAGES/tazpkg.png" />$(gettext "Download DVD image")</a>
 		<a class="button" href='$SCRIPT_NAME?admin&action=dvdusbkey#dvd'>
-			<img src="$IMAGES/tazpkg.png" />$(gettext "Install to DVD/USB key")</a>
+			<img src="$IMAGES/tazpkg.png" />$(gettext "Install from DVD/USB key")</a>
 	</p>
 	<div class="box">
-		$(gettext "ISO image path: ")
+		$(gettext "Install from ISO image: ")
 		<input type="text" name="dvdimage" size="40" value="/root/packages-$version.iso">
 	</div>
 	</form>
