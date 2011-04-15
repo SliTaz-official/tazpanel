@@ -53,8 +53,8 @@ case " $(GET) " in
 			for user in $users ; do
 				case "$cmd" in
 				Delete*)	deluser $user ;;
-				Lock*)		passwd -l $user ;;
-				Unlock*)	passwd -u $user ;;
+				Lock*)		passwd -l $user | log ;;
+				Unlock*)	passwd -u $user | log ;;
 				Change*)	echo "$user:$(GET password)" | chpasswd | log ;;
 				esac
 			done
@@ -67,7 +67,7 @@ case " $(GET) " in
 		passwd=$(GET passwd)
 		if [ -n "$user" ]; then
 			adduser -D $user
-			echo "$user:$passwd" | chpasswd
+			echo "$user:$passwd" | chpasswd | log
 			for g in audio cdrom floppy video
 			do
 				addgroup $user $g
