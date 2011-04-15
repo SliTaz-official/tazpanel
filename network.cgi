@@ -83,7 +83,7 @@ case " $(GET) " in
 		echo "$(GET hostname)" > /etc/hostname ;;
 esac
 
-# Get values only now since ther could have been modified by actions.
+# Get values only now since they could have been modified by actions.
 . /etc/network.conf
 
 #

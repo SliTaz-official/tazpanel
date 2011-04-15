@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Use imagemagick to convert icon images fo TazPanel
+# Use imagemagick to convert icon images for TazPanel
 #
 
 STYLE=$1

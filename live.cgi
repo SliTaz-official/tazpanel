@@ -187,7 +187,7 @@ EOT
 	<tr>
 	<td>`gettext "ISO number"` $j: $(GET input$i)
 	<input type="hidden" name="input$j" value="$(GET input$i)" /></td>
-	<td>`gettext "minimum RAM"`: $(GET ram$i)
+	<td>`gettext "Minimum RAM"`: $(GET ram$i)
 	<input type="hidden" name="ram$j" value="$(GET ram$i)" /></td>
 	</tr>
 EOT
@@ -200,7 +200,7 @@ EOT
 	<tr>
 	<td>`gettext "ISO to add"`
 	<input type="text" name="input" value="/root/" /></td>
-	<td>`gettext "minimum RAM"`
+	<td>`gettext "Minimum RAM"`
 	<input type="text" name="ram" value="128M" />
 	<input type="submit" name="addmeta" value="`gettext "Add to the list"`" /></td>
 	</tr>

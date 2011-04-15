@@ -23,7 +23,7 @@ list_locales() {
 	done
 }
 
-# Get the list of panle styles
+# Get the list of panel styles
 list_styles() {
 	cd $PANEL/styles
 	for style in *

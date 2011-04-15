@@ -54,7 +54,7 @@ in another script you can eventually create a new CGI page and update all
 links, but please to talk to the AUTHORS before.
 
 	* index.cgi     Main Tazpanel CGI script
-	* boot.cgi      All what appens before login
+	* boot.cgi      All what happens before login
 	* network.cgi   All related stuff to networking (eth, wifi, services)
 	* pkgs.cgi      Tazpkg packages CGI interface
 	* settings.cgi  System settings and services such as time, users

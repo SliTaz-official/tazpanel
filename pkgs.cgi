@@ -65,7 +65,7 @@ packages_summary() {
 	cat $LOCALSTATE/blocked-packages.list | wc -l
 }
 
-# Parse mirrors list to be able to have an icon an remove link
+# Parse mirrors list to be able to have an icon and remove link
 list_mirrors() {
 	cat $LOCALSTATE/mirrors | while read line
 	do
@@ -89,7 +89,7 @@ search_form() {
 			<input type="text" name="search" size="20">
 			<input type="submit" value="`gettext "Search"`">
 			<input class="radius" type="submit" name="files"
-				value="`gettext "files"`">
+				value="`gettext "Files"`">
 		</p>
 	</form>
 </div>
@@ -170,7 +170,7 @@ case " $(GET) " in
 	*\ list\ *)
 		#
 		# List installed packages. This is the default because parsing
-		# the full packages.desc can be long and take some resources
+		# the full packages.desc can be long and take up some resources
 		#
 		cd $INSTALLED
 		search_form
@@ -317,7 +317,7 @@ EOT
 		echo '</form>' ;;
 	*\ recharge\ *)
 		#
-		# Let recharge the packages list
+		# Lets recharge the packages list
 		#
 		search_form
 		sidebar
@@ -335,7 +335,7 @@ EOT
 	<div class="float-right">
 		<p>
 			<a class="button" href='$SCRIPT_NAME?up'>
-				`gettext "Check upgrade"`</a>
+				<img src="$IMAGES/update.png" />`gettext "Check upgrades"`</a>
 			<a class="button" href='$SCRIPT_NAME?list'>
 				<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
 		</p>
@@ -354,7 +354,7 @@ EOT
 		;;
 	*\ up\ *)
 		#
-		# Ugrade packages
+		# Upgrade packages
 		#
 		cd $LOCALSTATE
 		search_form
@@ -599,7 +599,7 @@ EOT
 					echo "</ul>"
 					echo "</pre>" ;;
 				quickcheck)
-					LOADING_MSG=$(gettext "Checking packages consitency...")
+					LOADING_MSG=$(gettext "Checking packages consistency...")
 					loading_msg
 					echo "<pre>"
 					tazpkg check
@@ -704,7 +704,7 @@ EOT
 	<a class="button" href='$SCRIPT_NAME?recharge'>
 		<img src="$IMAGES/recharge.png" />`gettext "Recharge list"`</a>
 	<a class="button" href='$SCRIPT_NAME?up'>
-		<img src="$IMAGES/update.png" />`gettext "Check upgrade"`</a>
+		<img src="$IMAGES/update.png" />`gettext "Check upgrades"`</a>
 	<a class="button" href='$SCRIPT_NAME?admin'>
 		<img src="$IMAGES/edit.png" />`gettext "Administration"`</a>	
 </div>

@@ -12,7 +12,7 @@
 get_config
 header
 
-# Check wether a configuration file has been modified after installation
+# Check whether a configuration file has been modified after installation
 file_is_modified()
 {
 	grep -l "  $1$" $INSTALLED/*/md5sum | while read file; do
