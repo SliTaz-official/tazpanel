@@ -14,7 +14,7 @@ export TEXTDOMAIN
 # We need a config file first
 get_config() {
 	CONFIG="/etc/slitaz/tazpanel.conf"
-	[ -f tazpanel.conf ] && CONFIG="tazpanel.conf"
+	[ -f data/tazpanel.conf ] && CONFIG="data/tazpanel.conf"
 	[ -f "$CONFIG" ] && . $CONFIG
 	[ ! -f "$PANEL/lib/libtazpanel" ] && \
 		echo "No config file or libtazpanel found: $CONFIG" && \

@@ -9,7 +9,7 @@ VERSION=1.0
 # Get the configuration file and functions
 CONFIG="/etc/slitaz/tazpanel.conf"
 [ -f $CONFIG ] && . $CONFIG
-[ -f tazpanel.conf ] && . tazpanel.conf
+[ -f data/tazpanel.conf ] && . data/tazpanel.conf
 [ ! -f $PANEL/lib/libtazpanel ] && \
 	echo "No config file or libtazpanel found: $CONFIG" && exit 1
 . $PANEL/lib/libtazpanel
