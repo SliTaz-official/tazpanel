@@ -5,7 +5,6 @@
 
 # Common functions from libtazpanel
 . lib/libtazpanel
-. /etc/network.conf
 get_config
 header
 
@@ -53,15 +52,15 @@ EOT
 			fi
 			# Connected or not connected...
 			if ifconfig | grep -A 1 $WIFI_INTERFACE | \
-				grep -q inet && iwconfig $WIFI_INTERFACE | \
-				grep ESSID | grep -q -w "$ESSID"; then
-				STATUS=$(gettext "Connected")
+				fgrep -q inet && iwconfig $WIFI_INTERFACE | \
+				grep ESSID | fgrep -q -w "$ESSID"; then
+				status=$(gettext "Connected")
 			else
-				STATUS="-"
+				status="---"
 			fi
 			echo '<tr>'
 			echo "<td><img src='$IMAGES/wireless.png' />$ESSID</td>"
-			echo "<td>$QUALITY</td><td>$ENCRYPTION</td><td>$STATUS</td>"
+			echo "<td>$QUALITY</td><td>$ENCRYPTION</td><td>$status $ip</td>"
 			echo '</tr>'
 		done
 	fi
@@ -77,9 +76,19 @@ case " $(GET) " in
 		sleep 2 ;;
 	*\ stop\ *)
 		/etc/init.d/network.sh stop | log ;;
-	*)
-		continue ;;
+	*\ start-wifi\ *)
+		sed -i \
+			-e s'/^DHCP=.*/DHCP="yes"/' \
+			-e s'/^WIFI=.*/WIFI="yes"/' \
+			-e s'/^STATIC=.*/STATIC="no"/'/etc/network.conf
+		/etc/init.d/network.sh start | log
+		sleep 2 ;;
+	*\ hostname\ *)
+		echo $(gettext "Changed hostname:") $(GET hostname) | log
+		echo "$(GET hostname)" > /etc/hostname ;;
 esac
+
+. /etc/network.conf
 
 #
 # Main Commands for pages
@@ -163,6 +172,10 @@ EOT
 		cat << EOT
 <h2>`gettext "Wireless connection`</h2>
 <div id="actions">
+	<a class="button" href="$SCRIPT_NAME?wifi&start-wifi=start-wifi">
+		<img src="$IMAGES/start.png" />$(gettext "Start")</a>
+	<a class="button" href="$SCRIPT_NAME?wifi&stop=stop">
+		<img src="$IMAGES/stop.png" />$(gettext "Stop")</a>
 	<a class="button" href="$SCRIPT_NAME?wifi=scan">
 		<img src="$IMAGES/recharge.png" />$(gettext "Scan")</a>
 </div>
@@ -189,6 +202,7 @@ EOT
 	*)
 		# Main Network page starting with a summary
 		xhtml_header
+		hostname=$(cat /etc/hostname)
 		cat << EOT
 <h2>`gettext "Networking`</h2>
 <p>
@@ -197,16 +211,34 @@ EOT
 <div id="actions">
 	<div class="float-left">
 		`gettext "Connection:"`
-		<a class="button" href="$SCRIPT_NAME?start">`gettext "Start"`</a>
-		<a class="button" href="$SCRIPT_NAME?stop">`gettext "Stop"`</a>
+		<a class="button" href="$SCRIPT_NAME?start">
+			<img src="$IMAGES/start.png" />$(gettext "Start")</a>
+		<a class="button" href="$SCRIPT_NAME?stop">
+			<img src="$IMAGES/stop.png" />$(gettext "Stop")</a>
 	</div>
 	<div class="float-right">
-		`gettext "Configuration file:"`
+		`gettext "Configuration:"`
 		<a class="button" href="index.cgi?file=/etc/network.conf">network.conf</a>
+		<a class="button" href="$SCRIPT_NAME?eth">Ethernet</a>
+		<a class="button" href="$SCRIPT_NAME?wifi">Wireless</a>
 	</div>
 </div>
 
 $(list_network_interfaces)
+
+<h3>$(gettext "Hosts")</h3>
+<pre>
+$(cat /etc/hosts)
+</pre>
+<a class="button" href="index.cgi?file=/etc/hosts&action=edit">
+	<img src="$IMAGES/edit.png" />$(gettext "Edit hosts")</a>
+
+<h3>$(gettext "Hostname")</h3>
+<form method="get" name="$SCRIPT_NAME"
+	<input type="text" name="hostname" value="$hostname" />
+	<input type="submit" value="$(gettext "Change hostname")"
+</form>
+
 
 <h3>$(gettext "Output of ") ifconfig</h3>
 <pre>
