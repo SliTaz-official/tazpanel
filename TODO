@@ -12,7 +12,6 @@ TODO for TazPanel
 	  umount, format, backup with dd or ?)
 	* Improve boot.cgi to handle theming GRUB, fbsplash and Slim and
 	  improve rcS.conf.
-	* Handle start-stop-restart daemons and check status in system.cgi
 	* Crond management interface
 	* Firewall PID file and configuration
 

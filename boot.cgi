@@ -171,11 +171,11 @@ EOT
 `cat /proc/cmdline`
 </pre>
 <h3>`gettext "Local startup commands"`</h3>
-<a href="index.cgi?file=/etc/init.d/local.sh">
-<img src="$IMAGES/edit.png" />/etc/init.d/local.sh</a>
 <pre>
 $(cat /etc/init.d/local.sh | syntax_highlighter sh)
 </pre>
+<a class="button" href="index.cgi?file=/etc/init.d/local.sh&amp;action=edit">
+<img src="$IMAGES/edit.png" />$(gettext "Edit script")</a>
 EOT
 		;;
 esac
