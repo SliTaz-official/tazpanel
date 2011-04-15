@@ -149,7 +149,7 @@ EOT
 		cat << EOT
 <p>
 	$(gettext "Password":)
-	<input type="text" name="password" />
+	<input type="password" name="password" />
 	<input type="submit" name="do" value="`gettext "Change password"`" />
 </p>
 </form>
