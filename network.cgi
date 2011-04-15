@@ -8,13 +8,6 @@
 get_config
 header
 
-# Include gettext helper script.
-. /usr/bin/gettext.sh
-
-# Export package name for gettext.
-TEXTDOMAIN='tazpanel'
-export TEXTDOMAIN
-
 TITLE="- Network"
 
 # Catch ESSIDs and format output for GTK tree. We get the list of
@@ -88,6 +81,7 @@ case " $(GET) " in
 		echo "$(GET hostname)" > /etc/hostname ;;
 esac
 
+# Get values only now since ther could have been modified by actions.
 . /etc/network.conf
 
 #

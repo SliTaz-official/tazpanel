@@ -16,10 +16,8 @@ CONFIG="/etc/slitaz/tazpanel.conf"
 . /usr/lib/slitaz/libtaz
 source_lib commons
 
-# Include gettext helper script.
+# I18n
 . /usr/bin/gettext.sh
-
-# Export package name for gettext.
 TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
 

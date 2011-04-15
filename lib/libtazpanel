@@ -6,10 +6,8 @@
 # Get parameters with GET, POST and FILE functions
 . /usr/bin/httpd_helper.sh
 
-# Include gettext helper script.
+# I18n
 . /usr/bin/gettext.sh
-
-# Export package name for gettext.
 TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
 

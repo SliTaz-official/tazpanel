@@ -22,13 +22,6 @@ fi
 get_config
 header
 
-# Include gettext helper script.
-. /usr/bin/gettext.sh
-
-# Export package name for gettext.
-TEXTDOMAIN='tazpanel'
-export TEXTDOMAIN
-
 TITLE="- Live"
 
 # Build arguments to create a meta iso using 'tazlito merge' command

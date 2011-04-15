@@ -13,13 +13,6 @@
 get_config
 header
 
-# Include gettext helper script.
-. /usr/bin/gettext.sh
-
-# Export package name for gettext.
-TEXTDOMAIN='tazpanel'
-export TEXTDOMAIN
-
 # xHTML 5 header with special side bar fo categories.
 TITLE="- Packages"
 xhtml_header | sed 's/id="content"/id="content-sidebar"/'

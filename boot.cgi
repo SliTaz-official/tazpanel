@@ -11,14 +11,7 @@
 header
 get_config
 
-# Include gettext helper script.
-. /usr/bin/gettext.sh
-
-# Export package name for gettext.
-TEXTDOMAIN='tazpanel'
-export TEXTDOMAIN
-
-TITLE="- Hardware"
+TITLE="- Boot"
 
 #
 # Commands
@@ -40,7 +33,6 @@ case " $(GET) " in
 				/etc/init.d/${daemon#stop=} stop | log ;;
 		esac
 		. /etc/rcS.conf
-		TITLE="- Boot"
 		xhtml_header
 		
 		cat << EOT
@@ -142,7 +134,6 @@ EOT
 		# Default content with summary
 		#
 		. /etc/rcS.conf
-		TITLE="- Boot"
 		xhtml_header
 		
 		cat << EOT

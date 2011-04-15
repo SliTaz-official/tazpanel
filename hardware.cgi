@@ -96,14 +96,14 @@ EOT
 		# Default to summary with mounted filesystem, loaded modules
 		#
 		xhtml_header
-		
 		cat << EOT
 <div id="wrapper">
 	<h2>`gettext "Drivers &amp; Devices"`</h2>
 	<p>`gettext "Manage your computer hardware`</p>
 </div>
 <div>
-	<a class="button" href="$SCRIPT_NAME?modules">Kernel modules</a>
+	<a class="button" href="$SCRIPT_NAME?modules">
+		<img src="$IMAGES/tux.png" />Kernel modules</a>
 </div>
 EOT
 		echo '<h3>Filesystem usage statistics</h3>'

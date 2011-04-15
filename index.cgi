@@ -12,13 +12,6 @@
 get_config
 header
 
-# Include gettext helper script.
-. /usr/bin/gettext.sh
-
-# Export package name for gettext.
-TEXTDOMAIN='tazpanel'
-export TEXTDOMAIN
-
 # Check wether a configuration file has been modified after installation
 file_is_modified()
 {
