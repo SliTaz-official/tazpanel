@@ -37,17 +37,37 @@ list_styles() {
 #
 
 case " $(GET) " in
-	*\ user*)
+	*\ do\ *)
+		# Assume not array support in httpd_helper.sh ;^)
+		users=""
+		IFS="&"
+		for i in $QUERY_STRING ; do
+			case "$i" in
+			user=*)	users="$users ${i#user=}" ;;
+			esac
+		done
+		unset IFS
+		for cmd in "Delete user" "Lock user" "Unlock user" \
+			   "Change password" ; do
+			[ "$(GET do)" == "$(gettext "$cmd")" ] || continue
+			for user in $users ; do
+				case "$cmd" in
+				Delete*)	deluser $user ;;
+				Lock*)		passwd -l $user ;;
+				Unlock*)	passwd -u $user ;;
+				Change*)	echo "$user:$(GET password)" | chpasswd ;;
+				esac
+			done
+		done ;;
+	*\ adduser\ *)
 		#
 		# Manage system user accounts
 		#
-		if [ "$(GET deluser)" ]; then
-			deluser $(GET deluser)
-		fi
 		user=$(GET adduser)
+		passwd=$(GET passwd)
 		if [ -n "$user" ]; then
 			adduser -D $user
-			echo "$(GET passwd)" | chpasswd
+			echo "$user:$passwd" | chpasswd
 			for g in audio cdrom floppy video
 			do
 				addgroup $user $g
@@ -77,45 +97,61 @@ case " $(GET) " in
 		# Users management
 		#
 		cat <<EOT
+<a name="users"></a>
 <h3>`gettext "Manage users"`</h3>
 <form method="get" action="$SCRIPT_NAME">
-$(table_start)
-<thead>
-	<tr>
-		<td>`gettext "Login"`</td>
-		<td>`gettext "User ID"`</td>
-		<td>`gettext "Name"`</td>
-		<td>`gettext "Home"`</td>
-		<td>`gettext "SHell"`</td>
-	</tr>
-</thead>
+<div id="actions">
+	<div class="float-left">
+		$(gettext "Selection:")
+		<input type="submit" name="do" value="`gettext "Delete user"`" />
+		<input type="submit" name="do" value="`gettext "Lock user"`" />
+		<input type="submit" name="do" value="`gettext "Unlock user"`" />
+		<input type="submit" name="do" value="`gettext "Change password"`" />
+	</div>
+	<div class="float-right">
+		$(gettext "password":)
+		<input type="text" name="password" />
+	</div>
+</div>
 EOT
-		for i in `cat /etc/passwd | cut -d ":" -f 1`
+		table_start
+		cat << EOT
+<tr class="thead">
+	<td>`gettext "Login"`</td>
+	<td>`gettext "User ID"`</td>
+	<td>`gettext "Name"`</td>
+	<td>`gettext "Home"`</td>
+	<td>`gettext "Shell"`</td>
+</tr>
+EOT
+		for login in `cat /etc/passwd | cut -d ":" -f 1`
 		do
-			if [ -d /home/$i ]; then
-				login=$i
-				uid=`cat /etc/passwd | grep $i | cut -d ":" -f 3`
-				gid=`cat /etc/passwd | grep $i | cut -d ":" -f 4`
-				name=`cat /etc/passwd | grep $i | cut -d ":" -f 5 | \
-					sed s/,,,//`
-				home=`cat /etc/passwd | grep $i | cut -d ":" -f 6`
-				shell=`cat /etc/passwd | grep $i | cut -d ":" -f 7`
-				echo '<tr>'
-				echo "<td><input type='hidden' name='user' />
-					<input type='checkbox' name='deluser' value='$login' />
-					<img src='$IMAGES/user.png' />$login</td>"
-				echo "<td>$uid:$gid</td>"
-				echo "<td>$name</td>"
-				echo "<td>$home</td>"
-				echo "<td>$shell</td>"
-				echo '</tr>'
+			if [ -d /home/$login ]; then
+				colorlogin=$login
+				grep -qs "^$login:!" /etc/shadow &&
+					colorlogin="<span style='color: red;'>$login</span>"
+				IFS=':'
+				set -- $(grep "^$login:" /etc/passwd)
+				unset IFS
+				uid=$3
+				gid=$4
+				name="$(echo $5 | sed s/,.*//)"
+				home="$6"
+				shell=$7
+				cat <<EOT
+<tr>
+	<td><input type='checkbox' name='user' value='$login' />
+		<img src='$IMAGES/user.png' />$colorlogin</td>
+	<td>$uid:$gid</td>
+	<td>$name</td>
+	<td>$home</td>
+	<td>$shell</td>
+</tr>
+EOT
 			fi
 		done
 		table_end
 		cat << EOT
-	<div>
-		<input type="submit" value="`gettext "Delete selected user"`" />
-	</div>
 </form>
 
 <h4>`gettext "Add a new user"`</h4>

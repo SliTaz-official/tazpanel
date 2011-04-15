@@ -4,14 +4,16 @@ TODO for TazPanel
 
 	* Add full support for undigest to pkgs.cgi
 	* Add support for geniso2usb in live.cgi
-	* Entry to change user password in settings.cgi
 	* Create a step-by-step Live system builder (ending with an
 	  ISO or USB install)
 	* Radically improve hardware.cgi using tazhw capabilities, install
-	  drivers and firmware, setup printers and manage devices (mount,
-	  umount, format, backup with dd or ?)
+	  drivers and firmware, setup printers and manage devices (mount with
+	  loop & crypto support, umount, eject, burn, format, backup with dd or ?)
 	* Improve boot.cgi to handle theming GRUB, fbsplash and Slim and
 	  improve rcS.conf.
 	* Crond management interface
 	* Firewall PID file and configuration
+	* bootfloppybox support in boot.cgi (versatile floppy + floppy set)
+	* slitaz installer support ?
+	* desktopbox support with logout
 
