@@ -260,6 +260,11 @@ $(cat /etc/resolv.conf)
 <pre>
 $(arp)
 </pre>
+
+<h3>`gettext "IP Connections"`</h3>
+<pre>
+$(netstat -anp 2> /dev/null | sed '/UNIX domain sockets/,$d')
+</pre>
 EOT
 		;;
 esac
