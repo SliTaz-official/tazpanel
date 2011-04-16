@@ -91,6 +91,19 @@ esac
 #
 
 case " $(GET) " in
+	*\ scan\ *)
+		# Scan open ports
+		scan=$(GET scan)
+		xhtml_header
+		LOADING_MSG=$(gettext "Scanning open ports...")
+		loading_msg
+		cat << EOT
+<h2>`gettext "Port scanning for"` $scan</h2>
+<pre>
+$(pscan -b $scan)
+</pre>
+EOT
+		;;
 	*\ eth\ *)
 		# Wired connections settings
 		xhtml_header
@@ -115,7 +128,7 @@ case " $(GET) " in
 		fi
 		. /etc/network.conf
 		cat << EOT
-<h2>`gettext "Ethernet connection`</h2>
+<h2>`gettext "Ethernet connection"`</h2>
 
 <h3>$(gettext "Setup a static IP")</h3>
 <form method="get" action="$SCRIPT_NAME">
@@ -171,7 +184,7 @@ EOT
 		LOADING_MSG=$(gettext "Scanning wireless interface...")
 		loading_msg
 		cat << EOT
-<h2>`gettext "Wireless connection`</h2>
+<h2>`gettext "Wireless connection"`</h2>
 <div id="actions">
 	<a class="button" href="$SCRIPT_NAME?wifi&start-wifi=start-wifi">
 		<img src="$IMAGES/start.png" />$(gettext "Start")</a>
@@ -205,9 +218,9 @@ EOT
 		xhtml_header
 		hostname=$(cat /etc/hostname)
 		cat << EOT
-<h2>`gettext "Networking`</h2>
+<h2>`gettext "Networking"`</h2>
 <p>
-	`gettext "Manage network connections and services`
+	`gettext "Manage network connections and services"`
 </p>
 <div id="actions">
 	<div class="float-left">
@@ -270,12 +283,6 @@ $(arp)
 <h3>`gettext "IP Connections"`</h3>
 <pre>
 $(netstat -anp 2> /dev/null | sed '/UNIX domain sockets/,$d')
-</pre>
-
-<a name="scan"></a>
-<h3>`gettext "Local ports scan"`</h3>
-<pre>
-$(pscan -b localhost)
 </pre>
 EOT
 		;;
