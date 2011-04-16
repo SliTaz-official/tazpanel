@@ -18,6 +18,23 @@ TITLE="- Boot"
 #
 
 case " $(GET) " in
+	*\ log\ *)
+		xhtml_header
+		
+		cat << EOT
+<div id="wrapper">
+	<h2>`gettext "Boot log files"`</h2>
+</div>
+	<h3>`gettext "kernel messages"`</h3>
+	<pre>
+$(cat /var/log/dmesg.log)
+	</pre>
+	<h3>`gettext "boot scripts"`</h3>
+	<pre>
+$(sed 's/\[^Gm]*.//g' < /var/log/boot.log)
+	</pre>
+EOT
+		;;
 	*\ daemons\ *)
 		#
 		# Everything until user login
@@ -144,6 +161,8 @@ EOT
 	</p>
 </div>
 <div>
+	<a class="button" href="$SCRIPT_NAME?log">
+		<img src="$IMAGES/edit.png" />`gettext "Boot logs"`</a>
 	<a class="button" href="$SCRIPT_NAME?daemons">
 		<img src="$IMAGES/recharge.png" />`gettext "Manage daemons"`</a>
 </div>
