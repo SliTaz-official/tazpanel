@@ -265,6 +265,11 @@ $(arp)
 <pre>
 $(netstat -anp 2> /dev/null | sed '/UNIX domain sockets/,$d')
 </pre>
+
+<h3>`gettext "Local ports scan"`</h3>
+<pre>
+$(pscan -b localhost)
+</pre>
 EOT
 		;;
 esac
