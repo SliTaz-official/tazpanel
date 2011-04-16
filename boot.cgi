@@ -25,13 +25,28 @@ case " $(GET) " in
 <div id="wrapper">
 	<h2>`gettext "Boot log files"`</h2>
 </div>
+<div>
+	<a class="button" href="#kernel">
+		<img src="$IMAGES/edit.png" />`gettext "kernel messages"`</a>
+	<a class="button" href="#boot">
+		<img src="$IMAGES/edit.png" />`gettext "boot scripts"`</a>
+	<a class="button" href="#slim">
+		<img src="$IMAGES/edit.png" />`gettext "X server"`</a>
+</div>
+	<a name="kernel"></a>
 	<h3>`gettext "kernel messages"`</h3>
 	<pre>
 $(cat /var/log/dmesg.log)
 	</pre>
+	<a name="boot"></a>
 	<h3>`gettext "boot scripts"`</h3>
 	<pre>
 $(sed 's/\[^Gm]*.//g' < /var/log/boot.log)
+	</pre>
+	<a name="slim"></a>
+	<h3>`gettext "X server"`</h3>
+	<pre>
+$(cat /var/log/slim.log)
 	</pre>
 EOT
 		;;
