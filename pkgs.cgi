@@ -175,6 +175,13 @@ repo_list() {
 	echo "$LOCALSTATE$1"
 }
 
+repo_name() {
+	case "$1" in
+	$LOCALSTATE)		echo "Public" ;;
+	$LOCALSTATE/undigest/*)	echo ${1#$LOCALSTATE/undigest/} ;;
+	esac
+}
+
 #
 # Commands
 #
@@ -263,7 +270,7 @@ EOT
 EOT
 		for i in $(repo_list ""); do
 			[ "$repo" != "Public" ] &&
-				echo "<h3>Repository: $i</h3>"
+				echo "<h3>Repository: $(repo_name $i)</h3>"
 			table_start
 			table_head
 			grep "| $grep_category |" $i/packages.desc | \
@@ -657,7 +664,7 @@ EOT
 		echo '<div class="box">'
 			[ -s $i ] || continue
 			[ $i != $LOCALSTATE/mirrors ] &&
-				echo "<h4>Repository: $(dirname $i)</h4>"
+				echo "<h4>Repository: $(repo_name $(dirname $i))</h4>"
 			echo "<ul>"
 			list_mirrors $i
 			echo "</ul>"
@@ -673,13 +680,17 @@ EOT
 </form>
 EOT
 		done
-		cat << EOT
-<h3>`gettext "Private repositories"`</h3>
+		echo "<h3>"
+		gettext "Private repositories"
+		echo "</h3>"
+		[ -n "$(ls $LOCALSTATE/undigest 2> /dev/null)" ] && cat << EOT
 <div class="box">
 	<ul>
 		$(list_repos)
 	</ul>
 </div>
+EOT
+		cat << EOT
 <form method="get" action="$SCRIPT_NAME">
 	<p>
 		<input type="hidden" name="admin" value="add-repo" />
