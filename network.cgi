@@ -227,6 +227,7 @@ EOT
 
 $(list_network_interfaces)
 
+<a name="hosts"></a>
 <h3>$(gettext "Hosts")</h3>
 <pre>
 $(cat /etc/hosts)
@@ -241,31 +242,37 @@ $(cat /etc/hosts)
 </form>
 
 
+<a name="ifconfig"></a>
 <h3>$(gettext "Output of ") ifconfig</h3>
 <pre>
 $(ifconfig)
 </pre>
 
+<a name="routing"></a>
 <h3>`gettext "Routing table"`</h3>
 <pre>
 $(route -n)
 </pre>
 
+<a name="dns"></a>
 <h3>`gettext "Domain name resolution"`</h3>
 <pre>
 $(cat /etc/resolv.conf)
 </pre>
 
+<a name="arp"></a>
 <h3>`gettext "ARP table"`</h3>
 <pre>
 $(arp)
 </pre>
 
+<a name="connections"></a>
 <h3>`gettext "IP Connections"`</h3>
 <pre>
 $(netstat -anp 2> /dev/null | sed '/UNIX domain sockets/,$d')
 </pre>
 
+<a name="scan"></a>
 <h3>`gettext "Local ports scan"`</h3>
 <pre>
 $(pscan -b localhost)
