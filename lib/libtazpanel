@@ -45,7 +45,7 @@ syntax_highlighter() {
 
 # Remove status and ESC char from tazpkg/tazlito commands output
 filter_taztools_msgs() {
-	grep ^[a-zA-Z0-9] | sed s'/\.*\]//'
+	grep ^[a-zA-Z0-9] | sed s'/\[^Gm]*.//g//'
 }
 
 # LOG activities
