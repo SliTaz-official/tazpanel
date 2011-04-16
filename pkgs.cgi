@@ -82,6 +82,8 @@ EOT
 
 # ENTER will search but user may search for a button, so put one.
 search_form() {
+	[ -n "$repo" ] || repo="$(GET repo)"
+	[ -n "$repo" ] || repo=Any
 	cat << EOT
 <div class="search">
 	<form method="get" action="$SCRIPT_NAME">
@@ -90,6 +92,7 @@ search_form() {
 			<input type="submit" value="`gettext "Search"`">
 			<input class="radius" type="submit" name="files"
 				value="`gettext "Files"`">
+			<input type="hidden" name="repo" value="$repo" />
 		</p>
 	</form>
 </div>
@@ -108,7 +111,7 @@ EOT
 }
 
 sidebar() {
-	[ -n "$repo" ] || repo=public
+	[ -n "$repo" ] || repo=Public
 	cat << EOT
 <div id="sidebar">
 	<h4>Categories</h4>
@@ -134,7 +137,7 @@ EOT
 		cat << EOT
 	<p></p>
 	<h4>Repositories</h4>
-	<a class="repo_public" href="$SCRIPT_NAME?repo=public&cat=$category">Public</a>
+	<a class="repo_Public" href="$SCRIPT_NAME?repo=Public&cat=$category">Public</a>
 EOT
 		for i in $(ls $LOCALSTATE/undigest); do
 			cat << EOT
@@ -142,7 +145,7 @@ EOT
 EOT
 		done
 		cat << EOT
-	<a class="repo_any" href="$SCRIPT_NAME?repo=any&cat=$category">Any</a>
+	<a class="repo_Any" href="$SCRIPT_NAME?repo=Any&cat=$category">Any</a>
 EOT
 	fi
 	echo "</div>"
@@ -151,15 +154,15 @@ EOT
 repo_list() {
 	if [ -n "$(ls $LOCALSTATE/undigest/ 2> /dev/null)" ]; then
 		case "$repo" in
-		public)	;;
-		""|any) for i in $LOCALSTATE/undigest/* ; do
-				echo "$i/$1"
+		Public)	;;
+		""|Any) for i in $LOCALSTATE/undigest/* ; do
+				[ -d "$i" ] && echo "$i$1"
 			done ;;
-		*)	echo "$LOCALSTATE/undigest/$repo/$1"
+		*)	echo "$LOCALSTATE/undigest/$repo$1"
 			return ;;
 		esac
 	fi
-	echo "$LOCALSTATE/$1"
+	echo "$LOCALSTATE$1"
 }
 
 #
@@ -221,7 +224,6 @@ EOT
 		#
 		cd  $LOCALSTATE
 		repo=$(GET repo)
-		[ -n "$repo" ] || repo=Any
 		category=$(GET cat)
 		[ "$category" == "cat" ] && category="base-system"
 		grep_category=$category
@@ -249,12 +251,13 @@ EOT
 </div>
 </div>
 EOT
-		for i in $(repo_list packages.desc); do
-			[ "$repo" != "public" -a -d $LOCALSTATE/undigest ] &&
-				echo "<h3>Repository: $(dirname $i)</h3>"
+		for i in $(repo_list ""); do
+			[ "$repo" != "Public" ] &&
+				echo "<h3>Repository: $i</h3>"
 			table_start
 			table_head
-			grep "| $grep_category |" $i | parse_packages_desc
+			grep "| $grep_category |" $i/packages.desc | \
+				parse_packages_desc
 			table_end
 		done
 		echo '</form>' ;;
@@ -264,9 +267,10 @@ EOT
 		# and so get result including packages names and descriptions
 		#
 		pkg=$(GET search)
+		repo=$(GET repo)
 		cd  $LOCALSTATE
 		search_form
-		sidebar
+		sidebar | sed "s/repo_$repo/active/"
 		LOADING_MSG="Searching packages..."
 		loading_msg
 		cat << EOT
@@ -287,6 +291,7 @@ EOT
 		<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
 </div>
 </div>
+	<input type="hidden" name="repo" value="$repo" />
 EOT
 		table_start
 		if [ "$(GET files)" ]; then
@@ -295,8 +300,8 @@ EOT
 			<td>`gettext "Package"`</td>
 			<td>`gettext "File"`</td>
 		</tr>
-		$(unlzma -c files.list.lzma undigest/*/files.list.lzma \
-		  2>/dev/null | grep -Ei ": .*$(GET search)" | \
+		$(unlzma -c $(repo_list /files.list.lzma) \
+		  | grep -Ei ": .*$(GET search)" | \
 		  while read PACKAGE FILE; do
 		  	PACKAGE=${PACKAGE%:}
 		  	image=tazpkg-installed.png
@@ -310,7 +315,7 @@ EOT
 EOT
 		else
 			table_head
-			grep -is $pkg packages.desc undigest/*/packages.desc | \
+			grep -ih $pkg $(repo_list /packages.desc) | \
 				parse_packages_desc
 		fi
 		table_end
@@ -450,7 +455,7 @@ EOT
 			LOADING_MSG=$(gettext "Getting package info...")
 			loading_msg
 			IFS='|'
-			set -- $(grep -s "^$pkg |" packages.desc \
+			set -- $(grep -hs "^$pkg |" packages.desc \
 				 undigest/*/packages.desc)
 			unset IFS
 			PACKAGE=$1
@@ -526,7 +531,7 @@ EOT
 		else
 			cat << EOT
 Website     : <a href="$WEB_SITE">$WEB_SITE</a>
-Sizes       : `grep -sA 3 ^$pkg$ packages.txt undigest/*/packages.txt | \
+Sizes       : `grep -hsA 3 ^$pkg$ packages.txt undigest/*/packages.txt | \
 		tail -n 1 | sed 's/ *//'`
 </pre>
 
