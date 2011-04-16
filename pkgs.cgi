@@ -46,7 +46,7 @@ packages_summary() {
 	gettext "Last recharge        : "
 	stat=`stat -c %y $LOCALSTATE/packages.list | \
 		sed 's/\(:..\):.*/\1/' | awk '{print $1}'`
-	mtime=`find /var/lib/tazpkg/packages.list -mtime +10`
+	mtime=`find $LOCALSTATE/packages.list -mtime +10`
 	echo -n "$stat "
 	if [ "$mtime" ]; then
 		echo "(Older than 10 days)"
@@ -67,11 +67,21 @@ packages_summary() {
 
 # Parse mirrors list to be able to have an icon and remove link
 list_mirrors() {
-	cat $LOCALSTATE/mirrors | while read line
+	while read line
 	do
 		cat << EOT
-<li><a href="$SCRIPT_NAME?config=rm-mirror=$line"><img
+<li><a href="$SCRIPT_NAME?admin=rm-mirror=$line&amp;file=$(httpd -e $1)"><img
 	src="$IMAGES/clear.png" /></a><a href="$line">$line</a></li>
+EOT
+	done < $1
+}
+
+# Parse repositories list to be able to have an icon and remove link
+list_repos() {
+	ls $LOCALSTATE/undigest 2> /dev/null | while read repo ; do
+		cat <<EOT
+	<li><a href="$SCRIPT_NAME?admin=rm-repo=$repo">
+	    <img src="$IMAGES/clear.png">$repo</a></li>
 EOT
 	done
 }
@@ -556,11 +566,24 @@ EOT
 				mirror=$(GET mirror)
 				case "$mirror" in
 				http://*|ftp://*)
-					echo "$mirror" >> $LOCALSTATE/mirrors ;;
+					echo "$mirror" >> $(GET file) ;;
 				esac ;;
 			rm-mirror=http://*|rm-mirror=ftp://*)
 				mirror=${cmd#rm-mirror=}
-				sed -i -e "s@$mirror@@" -e '/^$/d' $LOCALSTATE/mirrors ;;
+				sed -i -e "s@$mirror@@" -e '/^$/d' $(GET file) ;;
+			add-repo)
+				# Decode url
+				mirror=$(GET mirror)
+				repository=$LOCALSTATE/undigest/$(GET repository)
+				case "$mirror" in
+				http://*|ftp://*)
+					mkdir -p $repository
+					echo "$mirror" > $repository/mirror
+					echo "$mirror" > $repository/mirrors ;;
+				esac ;;
+			rm-repo=*)
+				repository=${cmd#rm-repo=}
+				rm -rf $LOCALSTATE/undigest/$repository ;;
 		esac
 		cache_files=`find /var/cache/tazpkg -name *.tazpkg | wc -l`
 		cache_size=`du -sh /var/cache/tazpkg`
@@ -629,16 +652,41 @@ EOT
 </div>
 
 <h3>`gettext "Current mirror list"`</h3>
+EOT
+		for i in $LOCALSTATE/mirrors $LOCALSTATE/undigest/*/mirrors; do
+		echo '<div class="box">'
+			[ -s $i ] || continue
+			[ $i != $LOCALSTATE/mirrors ] &&
+				echo "<h4>Repository: $(dirname $i)</h4>"
+			echo "<ul>"
+			list_mirrors $i
+			echo "</ul>"
+			cat << EOT
+</div>
+<form method="get" action="$SCRIPT_NAME">
+	<p>
+		<input type="hidden" name="admin" value="add-mirror" />
+		<input type="hidden" name="file" value="$i" />
+		<input type="text" name="mirror" size="60">
+		<input type="submit" value="Add mirror" />
+	</p>
+</form>
+EOT
+		done
+		cat << EOT
+<h3>`gettext "Private repositories"`</h3>
 <div class="box">
 	<ul>
-		`list_mirrors`
+		$(list_repos)
 	</ul>
 </div>
 <form method="get" action="$SCRIPT_NAME">
 	<p>
-		<input type="hidden" name="config" value="add-mirror" />
-		<input type="text" name="mirror" size="60">
-		<input type="submit" value="Add mirror" />
+		<input type="hidden" name="admin" value="add-repo" />
+		Name <input type="text" name="repository" size="10">
+		mirror
+		<input type="text" name="mirror" value="http://" size="50">
+		<input type="submit" value="Add repository" />
 	</p>
 </form>
 EOT
