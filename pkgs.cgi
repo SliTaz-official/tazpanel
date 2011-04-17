@@ -830,7 +830,8 @@ EOT
 	<a class="button" href='$SCRIPT_NAME?list'>
 		<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
 EOT
-		[ -d "$(readlink $LOCALSTATE/fslink)/$INSTALLED" ] &&
+		fslink=$(readlink $LOCALSTATE/fslink)
+		[ -n "$fslink" -a -d "$fslink/$INSTALLED" ] &&
 			cat << EOT
 	<a class="button" href='$SCRIPT_NAME?linkable'>
 		<img src="$IMAGES/tazpkg.png" />`gettext "Linkable packages"`</a>
