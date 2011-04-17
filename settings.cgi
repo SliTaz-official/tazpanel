@@ -23,6 +23,15 @@ list_locales() {
 	done
 }
 
+# Get the list of console keymaps
+list_keymaps() {
+	cd /usr/share/kmap
+	for keymap in *.kmap
+	do
+		basename $keymap .kmap | sed "s|.*|<option value='&'>&</option>|"
+	done
+}
+
 # Get the list of panel styles
 list_styles() {
 	cd $PANEL/styles
@@ -75,6 +84,8 @@ case " $(GET) " in
 		fi ;;
 	*\ gen_locale\ *)
 		new_locale=$(GET gen_locale) ;;
+	*\ gen_keymap\ *)
+		new_keymap=$(GET gen_keymap) ;;
 	*\ rdate\ *)
 		rdate -s tick.greyware.com ;;
 	*\ hwclock\ *)
@@ -217,6 +228,31 @@ EOT
 	<select name="gen_locale">
 		<option value="en_US">en_US</options>
 		$(list_locales)
+	</select>
+	<input type="submit" value="$(gettext "Activate")" />
+</form>
+
+<a name="keymap"></a>
+<h3>`gettext "Console keymap"`</h3>
+<p>
+EOT
+		# Check if a new keymap was requested
+		if [ -n "$new_keymap" ]; then
+			echo "$new_keymap" > /etc/keymap.conf
+			if [ -x /bin/loadkeys ]; then
+				loadkeys $new_keymap
+			else
+				loadkmap < /usr/share/kmap/$new_keymap.kmap
+			fi
+		fi
+		gettext "Current console keymap: "
+		cat /etc/keymap.conf
+		cat << EOT
+</p>
+<form method="get" action="$SCRIPT_NAME">
+	$(gettext "Available keymaps:")
+	<select name="gen_keymap">
+		$(list_keymaps)
 	</select>
 	<input type="submit" value="$(gettext "Activate")" />
 </form>
