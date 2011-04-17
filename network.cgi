@@ -129,8 +129,11 @@ EOT
 		. /etc/network.conf
 		cat << EOT
 <h2>`gettext "Ethernet connection"`</h2>
-
-<h3>$(gettext "Setup a static IP")</h3>
+<p>
+$(gettext "Here you can configure a wired connection using DHCP to
+automatically get a random IP or configure a static/fixed IP")
+</p>
+<h3>$(gettext "Configuration")</h3>
 <form method="get" action="$SCRIPT_NAME">
 	<input type="hidden" name="eth" />
 	$(table_start)

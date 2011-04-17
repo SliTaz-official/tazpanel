@@ -62,7 +62,7 @@ interface_status() {
 			awk '{ print $2 }' | cut -d ":" -f 2`
 		echo "<td>connected</td><td>$ip</td>"
 		echo "<td><a href='/network.cgi?scan=$ip'>"
-		echo "<img src="$IMAGES/recharge.png" />Scan ports</a></td>"
+		echo "<img src='$IMAGES/recharge.png' /></a></td>"
 	else
 		echo "<td>----</td><td>----</td><td></td>"
 	fi
@@ -77,7 +77,7 @@ list_network_interfaces() {
 	<td>`gettext "Name"`</td>
 	<td>`gettext "Status"`</td>
 	<td>`gettext "IP Address"`</td>
-	<td></td>
+	<td>`gettext "Scan ports"`</td>
 </tr>
 EOT
 	for i in `ls /sys/class/net`
@@ -86,14 +86,14 @@ EOT
 			eth*)
 				echo "<tr><td><a href='/network.cgi?eth'>
 					<img src='$IMAGES/ethernet.png' />$i</a></td>
-					<td>Ethernet</td> `interface_status`</tr>" ;;
+					<td>Ethernet</td> $(interface_status)</tr>" ;;
 			wlan*|ath*|ra*)
 				echo "<tr><td><a href='/network.cgi?wifi'>
 					<img src='$IMAGES/wireless.png' />$i</a></td>
-					<td>Wireless</td> `interface_status`</tr>" ;;
+					<td>Wireless</td> $(interface_status)</tr>" ;;
 			lo)
 				echo "<tr><td><img src='$IMAGES/loopback.png' />$i</td>
-				<td>Loopback</td> `interface_status`</tr>" ;;
+				<td>Loopback</td> $(interface_status)</tr>" ;;
 			*)
 				continue ;;
 		esac
