@@ -92,7 +92,7 @@ case " $(GET) " in
 	*\ rdate\ *)
 		rdate -s tick.greyware.com ;;
 	*\ hwclock\ *)
-		hwclock -w ;;
+		hwclock -w -u ;;
 	*\ panel_pass*)
 		sed -i s@/:root:.*@/:root:$(GET panel_pass)@ $HTTPD_CONF ;;
 	*\ style*)
