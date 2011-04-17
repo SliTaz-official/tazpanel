@@ -177,6 +177,16 @@ EOT
 	<p><input type="password" name="passwd" size="30" /></p>
 	<input type="submit" value="`gettext "Create user"`" />
 </form>
+
+<h4>`gettext "Current user sessions"`</h4>
+<pre>
+$(who)
+</pre>
+
+<h4>`gettext "Last user sessions"`</h4>
+<pre>
+$(last)
+</pre>
 EOT
 		;;
 	*)
