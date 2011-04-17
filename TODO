@@ -2,7 +2,6 @@ TODO for TazPanel
 ================================================================================
 
 
-	* Add full support for undigest to pkgs.cgi
 	* Add support for geniso2usb in live.cgi
 	* Create a step-by-step Live system builder (ending with an
 	  ISO or USB install)

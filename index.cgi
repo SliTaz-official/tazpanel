@@ -97,6 +97,12 @@ EOT
 			esac < $file
 			echo '</pre>'
 		fi ;;
+	*\ top\ *)
+		TITLE="- $(gettext "Process activity")"
+		xhtml_header
+		echo '<pre>'
+		top -n1 -b
+		echo '</pre>' ;;
 	*\ debug\ *)
 		TITLE="- Debug"
 		xhtml_header
@@ -121,6 +127,8 @@ EOT
 <div id="summary">
 	<p>
 		`gettext "Uptime:"` `uptime`
+		<a class="button" href="$SCRIPT_NAME?top">
+		<img src="$IMAGES/recharge.png" />`gettext "Process activity"`</a>
 	</p>
 	<p>
 		`gettext "Memory in Mb"`
