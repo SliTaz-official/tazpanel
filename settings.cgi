@@ -86,6 +86,9 @@ case " $(GET) " in
 		new_locale=$(GET gen_locale) ;;
 	*\ gen_keymap\ *)
 		new_keymap=$(GET gen_keymap) ;;
+	*\ apply_xorg_kbd\ *)
+		sed -i "s/XkbLayout.*/XkbLayout \" \"$(GET apply_xorg_kbd)\"/" \
+			/etc/X11/xorg.conf.d/40-Keyboard.conf ;;
 	*\ rdate\ *)
 		rdate -s tick.greyware.com ;;
 	*\ hwclock\ *)
@@ -246,9 +249,32 @@ EOT
 			fi
 		fi
 		gettext "Current console keymap: "
-		cat /etc/keymap.conf
+		keymap=$(cat /etc/keymap.conf)
+		echo $keymap
+		echo "</p>"
+		if [ -n "$keymap" ]; then
+			case "$keymap" in
+			fr_CH*)
+				keymap="ch" ;;
+			ru)
+				keymap="us,ru(winkeys)" ;;
+			slovene)
+				keymap=si ;;
+			*)
+				keymap=${keymap%-lat*}
+				keymap=${keymap%-abnt2} ;;
+			esac
+			keyboard_config=/etc/X11/xorg.conf.d/40-Keyboard.conf
+			cat << EOT
+<form method="get" action="$SCRIPT_NAME">
+	$(gettext "Suggested keymap for Xorg:")
+	<input type="submit" name "apply_xorg_kbd" value="$keymap" />
+	<a class="button" href="index.cgi?file=$keyboard_config">
+		<img src="$IMAGES/edit.png" />$(gettext "Edit")</a>
+</form>
+EOT
+		fi
 		cat << EOT
-</p>
 <form method="get" action="$SCRIPT_NAME">
 	$(gettext "Available keymaps:")
 	<select name="gen_keymap">
