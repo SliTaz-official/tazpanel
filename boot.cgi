@@ -20,33 +20,30 @@ TITLE="- Boot"
 case " $(GET) " in
 	*\ log\ *)
 		xhtml_header
-		
 		cat << EOT
 <div id="wrapper">
 	<h2>`gettext "Boot log files"`</h2>
 </div>
 <div>
 	<a class="button" href="#kernel">
-		<img src="$IMAGES/edit.png" />`gettext "kernel messages"`</a>
-	<a class="button" href="#boot">
-		<img src="$IMAGES/edit.png" />`gettext "boot scripts"`</a>
-	<a class="button" href="#slim">
-		<img src="$IMAGES/edit.png" />`gettext "X server"`</a>
+		<img src="$IMAGES/tux.png" />$(gettext "Kernel messages")</a>
+	<a class="button" href="#boot">$(gettext "Boot scripts")</a>
+	<a class="button" href="#slim">$(gettext "X server")</a>
 </div>
 	<a name="kernel"></a>
-	<h3>`gettext "kernel messages"`</h3>
+	<h3>$(gettext "Kernel messages")</h3>
 	<pre>
 $(cat /var/log/dmesg.log)
 	</pre>
 	<a name="boot"></a>
-	<h3>`gettext "boot scripts"`</h3>
+	<h3>$(gettext "Boot scripts")</h3>
 	<pre>
-$(sed 's/\[^Gm]*.//g' < /var/log/boot.log)
+$(cat /var/log/boot.log | filter_taztools_msgs)
 	</pre>
 	<a name="slim"></a>
-	<h3>`gettext "X server"`</h3>
+	<h3>$(gettext "X server")</h3>
 	<pre>
-$(cat /var/log/slim.log)
+$(tail -n 40 /var/log/slim.log)
 	</pre>
 EOT
 		;;
@@ -190,7 +187,7 @@ EOT
 </div>
 <div>
 	<a class="button" href="$SCRIPT_NAME?log">
-		<img src="$IMAGES/edit.png" />`gettext "Boot logs"`</a>
+		<img src="$IMAGES/text.png" />`gettext "Boot logs"`</a>
 	<a class="button" href="$SCRIPT_NAME?daemons">
 		<img src="$IMAGES/recharge.png" />`gettext "Manage daemons"`</a>
 </div>
