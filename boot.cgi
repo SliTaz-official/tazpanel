@@ -56,14 +56,6 @@ EOT
 		#
 		# Start and stop a daemon. I think we dont need restart since 2 
 		# clicks and you are done
-		daemon=$(GET daemons)
-		case "$daemon" in
-			start=*)
-				sleep 1
-				/etc/init.d/${daemon#start=} start | log ;;
-			stop=*)
-				/etc/init.d/${daemon#stop=} stop | log ;;
-		esac
 		. /etc/rcS.conf
 		xhtml_header
 		
@@ -75,6 +67,18 @@ EOT
 	</p>
 </div>
 EOT
+		daemon=$(GET daemons)
+		case "$daemon" in
+			start=*)
+				sleep 1
+				/etc/init.d/${daemon#start=} start | log ;;
+			stop=*)
+				/etc/init.d/${daemon#stop=} stop | log ;;
+			pid=*)
+				echo "<pre>"
+				ps ww | sed "1p;/^ *${daemon#pid=} /!d"
+				echo "</pre>" ;;
+		esac
 		# Demon list
 		table_start
 		cat << EOT
@@ -148,17 +152,26 @@ EOT
 			# Pidof works for many daemon
 			[ "$pid" ] || pid=`pidof $name`
 			if [ "$pid" ]; then
-				echo "<td><img src='$IMAGES/started.png' /></td>"
-				echo "<td><a href='$SCRIPT_NAME?daemons=stop=$name'>
-				<img src='$IMAGES/stop.png' /></a></td>"
-				echo "<td>$pid</td>"
+				cat << EOT
+<td><img src="$IMAGES/started.png" /></td>
+<td><a href="$SCRIPT_NAME?daemons=stop=$name">
+    <img src="$IMAGES/stop.png" /></a></td>
+<td>
+EOT
+				for i in $pid; do
+					cat << EOT
+<a href="$SCRIPT_NAME?daemons=pid=$i">$i</a>
+EOT
+				done
 			else
-				echo "<td>-</td>"
-				echo "<td><a href='$SCRIPT_NAME?daemons=start=$name'>
-					<img src='$IMAGES/start.png' /></a></td>"
-				echo "<td>-----</td>"
+				cat << EOT
+<td>-</td>
+<td><a href="$SCRIPT_NAME?daemons=start=$name">
+    <img src="$IMAGES/start.png" /></a></td>
+<td>-----
+EOT
 			fi
-			echo '</tr>'
+			echo '</td></tr>'
 		done
 		table_end ;;
 	*)
