@@ -711,8 +711,8 @@ EOT
 <h3>`gettext "Current mirror list"`</h3>
 EOT
 		for i in $LOCALSTATE/mirrors $LOCALSTATE/undigest/*/mirrors; do
-		echo '<div class="box">'
 			[ -s $i ] || continue
+			echo '<div class="box">'
 			[ $i != $LOCALSTATE/mirrors ] &&
 				echo "<h4>Repository: $(repo_name $(dirname $i))</h4>"
 			echo "<ul>"
