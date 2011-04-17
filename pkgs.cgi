@@ -234,6 +234,49 @@ EOT
 		done
 		table_end
 		echo '</form>' ;;
+	*\ linkable\ *)
+		#
+		# List linkable packages.
+		#
+		cd $INSTALLED
+		search_form
+		sidebar
+		LOADING_MSG="Listing linkable packages..."
+		loading_msg
+		cat << EOT
+<h2>`gettext "Linkable packages"`</h2>
+<form method='get' action='$SCRIPT_NAME'>
+<div id="actions">
+	<div class="float-left">
+		`gettext "Selection:"`
+		<input type="submit" name="do" value="Link" />
+	</div>
+	<div class="float-right">
+		`gettext "List:"`
+		<input type="submit" name="recharge" value="Recharge" />
+		<input type="submit" name="up" value="Upgrade" />
+	</div>
+</div>
+EOT
+		table_start
+		table_head
+		target=$(readlink $LOCALSTATE/fslink)
+		for pkg in $(ls $target/$INSTALLED)
+		do
+			[ -s $pkg/receipt ] && continue
+			. $target/$INSTALLED/$pkg/receipt
+			echo '<tr>'
+			echo "<td class='pkg'>
+				<input type='checkbox' name='pkg' value=\"$pkg\" />
+				<a href='$SCRIPT_NAME?info=$pkg'><img
+					src='$IMAGES/tazpkg.png'/>$pkg</a></td>"
+			echo "<td>$VERSION</td>"
+			echo "<td class='desc'>$SHORT_DESC</td>"
+			echo "<td><a href='$WEB_SITE'><img src='$IMAGES/browser.png'/></a></td>"
+			echo '</tr>'
+		done
+		table_end
+		echo '</form>' ;;
 	*\ cat\ *)
 		#
 		# List all available packages by category on mirror. Listing all
@@ -425,6 +468,8 @@ EOT
 		case $cmd in
 			install)
 				cmd=get-install opt=--forced ;;
+			link)
+				opt=$(readlink $LOCALSTATE/fslink) ;;
 		esac
 		search_form
 		sidebar
@@ -592,6 +637,11 @@ EOT
 				repository=${cmd#rm-repo=}
 				rm -rf $LOCALSTATE/undigest/$repository ;;
 		esac
+		[ "$cmd" == "$(gettext "Set link")" ] &&
+			[ -d "$(GET link)/$INSTALLED" ] &&
+			ln -fs $(GET link) $LOCALSTATE/fslink
+		[ "$cmd" == "$(gettext "Remove link")" ] &&
+			rm -f $LOCALSTATE/fslink
 		cache_files=`find /var/cache/tazpkg -name *.tazpkg | wc -l`
 		cache_size=`du -sh /var/cache/tazpkg`
 		sidebar
@@ -700,6 +750,20 @@ EOT
 		<input type="submit" value="Add repository" />
 	</p>
 </form>
+<h3>`gettext "Link to another SliTaz installation"`</h3>
+<p>
+$(gettext "This link point to the root of another SliTaz installation. \
+You will be able to install packages using soft links to it.")
+</p>
+<form method="get" action="$SCRIPT_NAME">
+<p>
+	<input type="hidden" name="admin" value="add-link" />
+	<input type="text" name="link" 
+	 value="$(readlink $LOCALSTATE/fslink 2> /dev/null)" size="50">
+	<input type="submit" name="admin" value="$(gettext "Set link")" />
+	<input type="submit" name="admin" value="$(gettext "Remove link")" />
+</p>
+</form>
 EOT
 		version=$(cat /etc/slitaz-release)
 		cat << EOT
@@ -765,6 +829,13 @@ EOT
 <div id="actions">
 	<a class="button" href='$SCRIPT_NAME?list'>
 		<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
+EOT
+		[ -d "$(readlink $LOCALSTATE/fslink)/$INSTALLED" ] &&
+			cat << EOT
+	<a class="button" href='$SCRIPT_NAME?linkable'>
+		<img src="$IMAGES/tazpkg.png" />`gettext "Linkable packages"`</a>
+EOT
+		cat << EOT
 	<a class="button" href='$SCRIPT_NAME?recharge'>
 		<img src="$IMAGES/recharge.png" />`gettext "Recharge list"`</a>
 	<a class="button" href='$SCRIPT_NAME?up'>
