@@ -199,7 +199,7 @@ span.activity-log { color: #888; font-size: 95%; }
 span.diff-rm { color: red; }
 span.diff-add { color: green; }
 span.diff-at { color: blue; }
-
+span.top { color: #00c800; font-weight: bold; font-size: 95%; }
 /* Misc */
 
 pre, .pre-main { 

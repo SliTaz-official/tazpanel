@@ -101,7 +101,9 @@ EOT
 		TITLE="- $(gettext "Process activity")"
 		xhtml_header
 		echo '<pre>'
-		top -n1 -b
+		top -n1 -b | sed \
+			-e s"#^[A-Z].*:\([^']\)#<span class='sh-comment'>\0</span>#"g \
+			-e s"#PID.*\([^']\)#<span class='top'>\0</span>#"g
 		echo '</pre>' ;;
 	*\ debug\ *)
 		TITLE="- Debug"

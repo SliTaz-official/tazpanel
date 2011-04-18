@@ -105,17 +105,25 @@ EOT
 	<a class="button" href="$SCRIPT_NAME?modules">
 		<img src="$IMAGES/tux.png" />Kernel modules</a>
 </div>
+
+<h3>$(gettext "Filesystem usage statistics")</h3>
+<pre>
 EOT
-		echo '<h3>Filesystem usage statistics</h3>'
-		echo '<pre>'
-			fdisk -l | fgrep Disk
+		fdisk -l | fgrep Disk
 		echo '</pre>'
 		echo '<pre>'
 			df -h | grep ^/dev
-		echo '</pre>'		
+		echo '</pre>'
+		echo "<h3>$(gettext "System memory")</h3>"
+		echo '<pre>'
+		free -m | sed \
+			-e s"#total.*\([^']\)#<span class='top'>\0</span>#"g \
+			-e s"#^[A-Z-].*:\([^']\)#<span class='sh-comment'>\0</span>#"g
+		echo '</pre>'
 		echo '<h3>lspci</h3>'
 		echo '<pre>'
-			lspci -k
+			lspci -k | \
+				sed s"#^[0-9].*\([^']\)#<span class='diff-at'>\0</span>#"g
 		echo '</pre>'
 		echo '<h3>lsusb</h3>'
 		echo '<pre>'
