@@ -164,3 +164,17 @@ table_end () {
 EOT
 	
 }
+
+df_thead() {
+	cat << EOT
+<thead>
+	<tr>
+		<td>$(gettext "Filesystem")</td>
+		<td>$(gettext "Size")</td>
+		<td>$(gettext "Available")</td>
+		<td>$(gettext "Used")</td>
+		<td>$(gettext "Mount point")</td>
+	</tr>
+</thead>
+EOT
+}

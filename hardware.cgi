@@ -111,9 +111,25 @@ EOT
 EOT
 		fdisk -l | fgrep Disk
 		echo '</pre>'
-		echo '<pre>'
-			df -h | grep ^/dev
-		echo '</pre>'
+		#
+		# Disk stats and management (mount, umount, heck)
+		#
+		table_start
+		df_thead
+		df -h | grep ^/dev | while read fs size used av pct mp
+		do
+				cat << EOT
+<tr>
+	<td><img src="$IMAGES/harddisk.png" />$fs</td>
+	<td>$size</td>
+	<td>$av</td>
+	<td class="pct"><div class="pct"
+		style="width: $pct;">$used - $pct</div></td>
+	<td>$mp</td>
+</tr>
+EOT
+		done
+		table_end
 		echo "<h3>$(gettext "System memory")</h3>"
 		echo '<pre>'
 		free -m | sed \

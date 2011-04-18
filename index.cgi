@@ -142,13 +142,27 @@ EOT
 
 <h4>`gettext "Network status"`</h4>
 `list_network_interfaces`
-
-<h4>`gettext "Filesystem usage statistics"`</h4>
-<pre>
-`df -h | grep ^/dev`
-</pre>
-
-<h3>`gettext "Panel Activity"`</h3>
+EOT
+		# Disk stats (management is done is hardwar.cgi)
+		table_start
+		df_thead
+		df -h | grep ^/dev | while read fs size used av pct mp
+		do
+				cat << EOT
+<tr>
+	<td><a href="hardware.cgi">
+		<img src="$IMAGES/harddisk.png" />$fs</a></td>
+	<td>$size</td>
+	<td>$av</td>
+	<td class="pct"><div class="pct"
+		style="width: $pct;">$used - $pct</div></td>
+	<td>$mp</td>
+</tr>
+EOT
+		done
+		table_end
+		cat << EOT
+<h3>$(gettext "Panel Activity")</h3>
 <pre id="panel-activity">
 $(cat $LOG_FILE | tail -n 8 | sort -r | syntax_highlighter activity)
 </pre>

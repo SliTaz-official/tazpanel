@@ -183,6 +183,9 @@ table a:hover { color: #666; }
 td.small { min-width: 60px; }
 td.pkg { max-width: 160px; }
 td.desc { max-width: 300px; }
+td.pct { min-width: 200px; background: #eee; }
+div.pct { background: #ccc; }
+td.pct, div.pct { border-radius: 2px; }
 
 #thead, .thead, thead {
 	height: 10px;
@@ -198,8 +201,9 @@ span.sh-comment { color: #b20000; }
 span.activity-log { color: #888; font-size: 95%; }
 span.diff-rm { color: red; }
 span.diff-add { color: green; }
-span.diff-at { color: blue; }
+span.diff-at { color: blue;  }
 span.top { color: #00c800; font-weight: bold; font-size: 95%; }
+
 /* Misc */
 
 pre, .pre-main { 
