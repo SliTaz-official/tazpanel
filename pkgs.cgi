@@ -752,7 +752,7 @@ EOT
 </form>
 <h3>`gettext "Link to another SliTaz installation"`</h3>
 <p>
-$(gettext "This link point to the root of another SliTaz installation. \
+$(gettext "This link points to the root of another SliTaz installation. \
 You will be able to install packages using soft links to it.")
 </p>
 <form method="get" action="$SCRIPT_NAME">

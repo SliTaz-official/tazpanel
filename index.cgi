@@ -146,7 +146,7 @@ $(list_network_interfaces)
 
 <h4>$(gettext "Filesystem usage statistics")</h4>
 EOT
-		# Disk stats (management is done is hardwar.cgi)
+		# Disk stats (management is done as hardware.cgi)
 		table_start
 		df_thead
 		df -h | grep ^/dev | while read fs size used av pct mp

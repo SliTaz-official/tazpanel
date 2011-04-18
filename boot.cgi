@@ -190,7 +190,7 @@ EOT
 <div id="wrapper">
 	<h2>$(gettext "GRUB Boot loader")</h2>
 	<p>
-		$(gettext "The first application stated when computer got power on")
+		$(gettext "The first application started when the computer powers on")
 	</p>
 </div>
 
