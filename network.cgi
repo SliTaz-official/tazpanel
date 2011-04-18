@@ -285,7 +285,8 @@ $(arp)
 <a name="connections"></a>
 <h3>`gettext "IP Connections"`</h3>
 <pre>
-$(netstat -anp 2> /dev/null | sed '/UNIX domain sockets/,$d')
+$(netstat -anp 2> /dev/null | sed -e '/UNIX domain sockets/,$d' \
+-e 's#\([0-9]*\)/#<a href="boot.cgi?daemons=pid=\1">\1</a>/#')
 </pre>
 EOT
 		;;
