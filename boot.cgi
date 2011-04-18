@@ -171,33 +171,84 @@ EOT
 			echo '</td></tr>'
 		done
 		table_end ;;
+	*\ grub\ *)
+		if [ "$(GET splash)" ]; then
+			default=$(GET default)
+			timeout=$(GET timeout)
+			splash=$(GET splash)
+			sed -i \
+				-e s"/default .*/default $default/" \
+				-e s"/timeout .*/timeout $timeout/" \
+				-e s"#splashimage=.*#splashimage=$splash#" \
+				/boot/grub/menu.lst
+		fi
+		default=$(cat /boot/grub/menu.lst | grep ^default | cut -d " " -f 2)
+		timeout=$(cat /boot/grub/menu.lst | grep ^timeout | cut -d " " -f 2)
+		splash=$(cat /boot/grub/menu.lst | grep ^splashimage | cut -d "=" -f 2)
+		xhtml_header
+				cat << EOT
+<div id="wrapper">
+	<h2>$(gettext "GRUB Boot loader")</h2>
+	<p>
+		$(gettext "The first application stated when computer got power on")
+	</p>
+</div>
+
+<form method="get" action="$SCRIPT_NAME">
+	<input type="hidden" name="grub" />
+<pre>
+Default entry : <input type="text" name="default" value="$default" />
+
+Timeout       : <input type="text" name="timeout" value="$timeout" />
+
+Splash image  : <input type="text" name="splash" value="$splash" size="40" />
+</pre>
+	<input type="submit" value="$(gettext "Change")" />
+	<a class="button" href="index.cgi?file=/boot/grub/menu.lst">
+		<img src="$IMAGES/text.png" />View or edit menu.lst</a>
+</form>
+
+<h3>$(gettext "Boot entries")</h3>
+EOT
+	entry='-1'
+	grep ^title /boot/grub/menu.lst | while read title
+	do
+		entry=$(($entry + 1))
+		echo "<strong>$(gettext "Entry") $entry</strong>"
+		echo '<pre>'
+		grep -A 2 "$title" /boot/grub/menu.lst
+		echo '</pre>'
+	done
+	# Here we could check if an entry for gpxe is present if not
+	# display a form to add it.
+	[ -f "/boot/gpxe" ] && echo "<h3>gPXE</h3>" && \
+		gettext "Web boot is avalaible with gPXE"
+	;;
 	*)
 		#
 		# Default content with summary
 		#
 		. /etc/rcS.conf
 		xhtml_header
-		
 		cat << EOT
 <div id="wrapper">
-	<h2>`gettext "Boot &amp; Start services"`</h2>
+	<h2>$(gettext "Boot &amp; Start services")</h2>
 	<p>
-		`gettext "Everything that happens before user login"` 
+		$(gettext "Everything that happens before user login")
 	</p>
 </div>
 <div>
 	<a class="button" href="$SCRIPT_NAME?log">
-		<img src="$IMAGES/text.png" />`gettext "Boot logs"`</a>
+		<img src="$IMAGES/text.png" />$(gettext "Boot logs")</a>
 	<a class="button" href="$SCRIPT_NAME?daemons">
-		<img src="$IMAGES/recharge.png" />`gettext "Manage daemons"`</a>
+		<img src="$IMAGES/recharge.png" />$(gettext "Manage daemons")</a>
+	<a class="button" href="$SCRIPT_NAME?grub">$(gettext "Boot loader")</a>
 </div>
 
 <h3>`gettext "Configuration files"`</h3>
 <ul>
 	<li>`gettext "Main configuration file:"`
 		<a href="index.cgi?file=/etc/rcS.conf">rcS.conf</a></li>
-	<li>`gettext "Grub menu:"`
-		<a href="index.cgi?file=/boot/grub/menu.lst">menu.lst</a></li>
 	<li>`gettext "Login manager settings:"`
 		<a href="index.cgi?file=/etc/slim.conf">slim.conf</a></li>
 </ul>
