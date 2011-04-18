@@ -121,27 +121,30 @@ EOT
 		[ -n "$(GET rdate)" ] && echo ""
 		cat << EOT
 <div id="wrapper">
-	<h2>`gettext "Host:"` `hostname`</h2>
-	<p>`gettext "SliTaz administration and configuration Panel"`<p>
+	<h2>$(gettext "Host:") $(hostname)</h2>
+	<p>$(gettext "SliTaz administration and configuration Panel")<p>
+</div>
+<div id="actions">
+	<a class="button" href="$SCRIPT_NAME?top">$(gettext "Process activity")</a>
 </div>
 
-<h3>`gettext "Summary"`</h3>
+<h3>$(gettext "Summary")</h3>
 <div id="summary">
 	<p>
-		`gettext "Uptime:"` `uptime`
-		<a class="button" href="$SCRIPT_NAME?top">
-		<img src="$IMAGES/recharge.png" />`gettext "Process activity"`</a>
+		$(gettext "Uptime:") $(uptime)
 	</p>
 	<p>
-		`gettext "Memory in Mb"`
-		`free -m | grep Mem: | awk \
-		'{print "| Total:", $2, "| Used:", $3, "| Free:", $4}'`
+		$(gettext "Memory in Mb")
+		$(free -m | grep Mem: | awk \
+		'{print "| Total:", $2, "| Used:", $3, "| Free:", $4}')
 	</p>
 <!-- Close summary -->
 </div>
 
-<h4>`gettext "Network status"`</h4>
-`list_network_interfaces`
+<h4>$(gettext "Network status")</h4>
+$(list_network_interfaces)
+
+<h4>$(gettext "Filesystem usage statistics")</h4>
 EOT
 		# Disk stats (management is done is hardwar.cgi)
 		table_start
