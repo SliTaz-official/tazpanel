@@ -138,8 +138,9 @@ EOT
 		echo '</pre>'
 		echo '<h3>lspci</h3>'
 		echo '<pre>'
-			lspci -k | \
-				sed s"#^[0-9].*\([^']\)#<span class='diff-at'>\0</span>#"g
+			lspci -k | sed \
+			 -e s"#^[0-9].*\([^']\)#<span class='diff-at'>\0</span>#" \
+			 -e s"#use: \(.*\)#use: <span class='diff-rm'>\1</span>#"
 		echo '</pre>'
 		echo '<h3>lsusb</h3>'
 		echo '<pre>'
