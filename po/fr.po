@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: TazPanel 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-04-19 16:21+0200\n"
-"PO-Revision-Date: 2011-04-19 16:37+0100\n"
+"PO-Revision-Date: 2011-04-20 14:54+0100\n"
 "Last-Translator: Eric Joseph-Alexandre <erjo@slitaz.org>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -111,7 +111,7 @@ msgstr ""
 
 #: pkgs.cgi:64
 msgid "Blocked packages     : "
-msgstr ""
+msgstr "Paquets bloqués      :"
 
 #: pkgs.cgi:102
 msgid "Search"
@@ -358,7 +358,7 @@ msgstr ""
 
 #: live.cgi:88
 msgid "TODO"
-msgstr ""
+msgstr "A Faire"
 
 #: live.cgi:96
 msgid "SliTaz Live Systems"
@@ -389,7 +389,7 @@ msgstr ""
 
 #: live.cgi:121
 msgid "Generate"
-msgstr ""
+msgstr "Générer"
 
 #: live.cgi:125
 msgid "Write a Live CD"
@@ -474,11 +474,11 @@ msgstr ""
 
 #: live.cgi:205
 msgid "Add to the list"
-msgstr ""
+msgstr "Ajouter à la liste"
 
 #: network.cgi:24
 msgid "Quality"
-msgstr ""
+msgstr "Qualité"
 
 #: network.cgi:25
 msgid "Encryption"
@@ -488,23 +488,23 @@ msgstr ""
 #: boot.cgi:86
 #: lib/libtazpanel:80
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: network.cgi:52
 msgid "Connected"
-msgstr ""
+msgstr "Connecté"
 
 #: network.cgi:82
 msgid "Changed hostname:"
-msgstr ""
+msgstr "Changer le nom de l'hôte"
 
 #: network.cgi:98
 msgid "Scanning open ports..."
-msgstr ""
+msgstr "Balayer les ports ouverts"
 
 #: network.cgi:101
 msgid "Port scanning for"
-msgstr ""
+msgstr "Balayage des ports pour"
 
 #: network.cgi:115
 msgid "Setting up IP..."
@@ -512,7 +512,7 @@ msgstr ""
 
 #: network.cgi:131
 msgid "Ethernet connection"
-msgstr ""
+msgstr "Connexion réseau"
 
 #: network.cgi:133
 msgid ""
@@ -522,49 +522,49 @@ msgstr ""
 
 #: network.cgi:136
 msgid "Configuration"
-msgstr ""
+msgstr "Configuration"
 
 #: network.cgi:143
 msgid "Value"
-msgstr ""
+msgstr "Valeur"
 
 #: network.cgi:147
 #: lib/libtazpanel:78
 msgid "Interface"
-msgstr ""
+msgstr "Interface"
 
 #: network.cgi:151
 msgid "IP address"
-msgstr ""
+msgstr "Adresse IP"
 
 #: network.cgi:155
 msgid "Netmask"
-msgstr ""
+msgstr "Maque de sous-réseau"
 
 #: network.cgi:159
 msgid "Gateway"
-msgstr ""
+msgstr "Passerelle"
 
 #: network.cgi:163
 msgid "DNS server"
-msgstr ""
+msgstr "Serveur DNS"
 
 #: network.cgi:167
 msgid "Activate (static)"
-msgstr ""
+msgstr "Activer (static)"
 
 #: network.cgi:168
 msgid "Activate (DHCP)"
-msgstr ""
+msgstr "Activer (Dynamique)"
 
 #: network.cgi:169
 msgid "Disable"
-msgstr ""
+msgstr "Désactiver"
 
 #: network.cgi:172
 #: network.cgi:202
 msgid "Configuration file"
-msgstr ""
+msgstr "Fichier de configuration"
 
 #: network.cgi:174
 msgid ""
@@ -588,16 +588,16 @@ msgstr ""
 #: network.cgi:193
 #: network.cgi:232
 msgid "Start"
-msgstr ""
+msgstr "Demarrer"
 
 #: network.cgi:195
 #: network.cgi:234
 msgid "Stop"
-msgstr ""
+msgstr "Arrêter"
 
 #: network.cgi:197
 msgid "Scan"
-msgstr ""
+msgstr "Scanner"
 
 #: network.cgi:204
 msgid ""
@@ -619,15 +619,15 @@ msgstr ""
 
 #: network.cgi:230
 msgid "Connection:"
-msgstr ""
+msgstr "Connexion:"
 
 #: network.cgi:237
 msgid "Configuration:"
-msgstr ""
+msgstr "Configuratin"
 
 #: network.cgi:247
 msgid "Hosts"
-msgstr ""
+msgstr "Hôtes"
 
 #: network.cgi:252
 msgid "Edit hosts"
@@ -635,11 +635,11 @@ msgstr ""
 
 #: network.cgi:254
 msgid "Hostname"
-msgstr ""
+msgstr "Nom d'hôte"
 
 #: network.cgi:257
 msgid "Change hostname"
-msgstr ""
+msgstr "Changer le nom d'hôte"
 
 #: network.cgi:262
 msgid "Output of "
@@ -647,43 +647,43 @@ msgstr ""
 
 #: network.cgi:268
 msgid "Routing table"
-msgstr ""
+msgstr "Table de routage"
 
 #: network.cgi:274
 msgid "Domain name resolution"
-msgstr ""
+msgstr "Résolution de noms de domaines"
 
 #: network.cgi:280
 msgid "ARP table"
-msgstr ""
+msgstr "Table ARP"
 
 #: network.cgi:286
 msgid "IP Connections"
-msgstr ""
+msgstr "Connexions IP"
 
 #: boot.cgi:25
 msgid "Boot log files"
-msgstr ""
+msgstr "Journeaux de démarrage"
 
 #: boot.cgi:29
 #: boot.cgi:34
 msgid "Kernel messages"
-msgstr ""
+msgstr "Messages du noyau"
 
 #: boot.cgi:30
 #: boot.cgi:39
 msgid "Boot scripts"
-msgstr ""
+msgstr "Scripts de démarrage"
 
 #: boot.cgi:31
 #: boot.cgi:44
 msgid "X server"
-msgstr ""
+msgstr "Serveur x"
 
 #: boot.cgi:61
 #: boot.cgi:244
 msgid "Manage daemons"
-msgstr ""
+msgstr "Gérer les daemons"
 
 #: boot.cgi:63
 msgid "Check, start and stop daemons on SliTaz"
@@ -691,11 +691,11 @@ msgstr ""
 
 #: boot.cgi:87
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 #: boot.cgi:88
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: boot.cgi:109
 msgid "<td>SliTaz Firewall with iptable rules</td>"
