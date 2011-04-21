@@ -57,6 +57,10 @@ log() {
 	sed s"#[^']*#$date : \0#" >> $LOG_FILE
 }
 
+ok_status() {
+	echo "[<span class='diff-add'> OK </span>]"
+}
+
 # Network interface status
 interface_status() {
 	if 	ifconfig | grep -A 1 $i | grep -q inet; then

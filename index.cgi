@@ -56,10 +56,15 @@ case " $(GET) " in
 		#
 		# Handle files
 		#
-		TITLE="- File"
-		xhtml_header
 		file="$(GET file)"
-		echo "<h2>$file</h2>"
+		case $file in
+			*.html)
+				cat $file && exit 0 ;;
+			*)
+				TITLE="- File"
+				xhtml_header
+				echo "<h2>$file</h2>" ;;
+		esac
 		if [ "$(GET action)" == "edit" ]; then
 			cat <<EOT
 <form method="post" action="$SCRIPT_NAME?file=$file">
@@ -112,6 +117,83 @@ EOT
 		echo '<pre>'
 		httpinfo
 		echo '</pre>' ;;
+	*\ report\ *)
+		TITLE="- $(gettext "System report")"
+		output=/var/cache/slitaz/sys-report.html
+		xhtml_header
+		echo "<h2>$(gettext "Reporting to:") $output</h2>"
+		echo '<pre>'
+		gettext "Creating report header...  "
+		cat > $output << EOT
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>SliTaz system report</title>
+	<style type="text/css">
+		body { padding: 20px 60px; font-size: 13px; } h1, h2 { color: #444; }
+		pre { background: #f1f1f1; border: 1px solid #ddd;
+			padding: 10px; border-radius: 4px; }
+	</style>
+</head>
+<body>
+EOT
+		ok_status
+		gettext "Creating system summary... "
+		cat >> $output << EOT
+<h1>SliTaz system report</h1>
+Date: $(date)
+<pre>
+uptime   :$(uptime)
+cmdline  : $(cat /proc/cmdline)
+version  : $(cat /etc/slitaz-release)
+packages : $(ls /var/lib/tazpkg/installed | wc -l) installed
+kernel   : $(uname -r)
+</pre>
+EOT
+		ok_status
+		gettext "Getting hardware info...   "
+		cat >> $output << EOT
+<h2>free</h2>
+<pre>
+$(free)
+</pre>
+
+<h2>lspci -k</h2>
+<pre>
+$(lspci -k)
+</pre>
+
+<h2>lsusb</h2>
+<pre>
+$(lsusb)
+</pre>
+
+<h2>lsmod</h2>
+<pre>
+$(lsmod)
+</pre>
+
+EOT
+		ok_status
+		gettext "Getting networking info... "
+		cat >> $output << EOT
+<h2>ifconfig -a</h2>
+<pre>
+$(ifconfig -a)
+</pre>
+EOT
+		ok_status
+		gettext "Creating report footer...  "
+		cat cat >> $output << EOT
+</body>
+</html>
+EOT
+		ok_status
+		echo '</pre>'
+		echo "<p><a class='button' href='$SCRIPT_NAME?file=$output'>
+			$(gettext "View report")</a>"
+		gettext "This report can be attached with a bug report on: "
+		echo '<a href="http://bugs.slitaz.org/">bugs.slitaz.org</a></p>' ;;
 	*)
 		#
 		# Default xHTML content
@@ -125,19 +207,20 @@ EOT
 	<p>$(gettext "SliTaz administration and configuration Panel")<p>
 </div>
 <div id="actions">
-	<a class="button" href="$SCRIPT_NAME?top">$(gettext "Process activity")</a>
+	<a class="button" href="$SCRIPT_NAME?top">
+		<img src="$IMAGES/monitor.png" />$(gettext "Process activity")</a>
+	<a class="button" href="$SCRIPT_NAME?report">
+		<img src="$IMAGES/text.png" />$(gettext "Create a report")</a>
 </div>
 
 <h3>$(gettext "Summary")</h3>
 <div id="summary">
-	<p>
-		$(gettext "Uptime:") $(uptime)
-	</p>
-	<p>
-		$(gettext "Memory in Mb")
-		$(free -m | grep Mem: | awk \
-		'{print "| Total:", $2, "| Used:", $3, "| Free:", $4}')
-	</p>
+<pre>
+$(gettext "Uptime       :")$(uptime)
+$(gettext "Memory in Mb :") $(free -m | grep Mem: | awk \
+	'{print "Total:", $2, "Used:", $3, "Free:", $4}')
+$(gettext "Linux kernel :") $(uname -r)
+</pre>
 <!-- Close summary -->
 </div>
 
