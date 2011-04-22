@@ -119,6 +119,7 @@ EOT
 		echo '</pre>' ;;
 	*\ report\ *)
 		TITLE="- $(gettext "System report")"
+		[ -d /var/cache/slitaz ] || mkdir -p /var/cache/slitaz
 		output=/var/cache/slitaz/sys-report.html
 		xhtml_header
 		echo "<h2>$(gettext "Reporting to:") $output</h2>"
@@ -143,7 +144,7 @@ EOT
 <h1>SliTaz system report</h1>
 Date: $(date)
 <pre>
-uptime   :$(uptime)
+uptime   : $(uptime)
 cmdline  : $(cat /proc/cmdline)
 version  : $(cat /etc/slitaz-release)
 packages : $(ls /var/lib/tazpkg/installed | wc -l) installed
@@ -180,6 +181,50 @@ EOT
 <h2>ifconfig -a</h2>
 <pre>
 $(ifconfig -a)
+</pre>
+<h2>route -n</h2>
+<pre>
+$(route -n)
+</pre>
+<h2>/etc/resolv.conf</h2>
+<pre>
+$(cat /etc/resolv.conf)
+</pre>
+EOT
+		ok_status
+		gettext "Getting filesystems info..."
+		cat >> $output << EOT
+<h2>blkid</h2>
+<pre>
+$(blkid)
+</pre>
+<h2>fdisk -l</h2>
+<pre>
+$(fdisk -l)
+</pre>
+<h2>mount</h2>
+<pre>
+$(mount)
+</pre>
+<h2>df -h</h2>
+<pre>
+$(df -h)
+</pre>
+<h2>df -i</h2>
+<pre>
+$(df -i)
+</pre>
+EOT
+		ok_status
+		gettext "Getting boot logs...       "
+		cat >> $output << EOT
+<h2>$(gettext "Kernel messages")</h2>
+<pre>
+$(cat /var/log/dmesg.log)
+</pre>
+<h2>$(gettext "Boot scripts")</h2>
+<pre>
+$(cat /var/log/boot.log | filter_taztools_msgs)
 </pre>
 EOT
 		ok_status
