@@ -47,7 +47,8 @@ syntax_highlighter() {
 filter_taztools_msgs() {
 	grep ^[a-zA-Z0-9] | sed \
 		-e s'/\[^Gm]*.//g' \
-		-e s'@OK@<span class="diff-add">OK</span>@'
+		-e s'@OK@<span class="diff-add">OK</span>@' \
+		-e s'@Failed@<span class="diff-rm">Failed</span>@'
 }
 
 # LOG activities
