@@ -45,7 +45,7 @@ syntax_highlighter() {
 
 # Remove status and ESC char from tazpkg/tazlito commands output
 filter_taztools_msgs() {
-	grep ^[a-zA-Z0-9] | sed -e s'/\[^Gm]*.//g' \
+	sed	-e s'/\[^Gm]*.//g' \
 		-e ':a;s/^\(.\{1,68\}\)\(\[ [A-Za-z]* \]\)/\1 \2/;ta' \
 		-e 's#\[ OK \]#[ <span class="diff-add">OK</span> ]#' \
 		-e 's#\[ Failed \]#[ <span class="diff-rm">Failed</span> ]#'
