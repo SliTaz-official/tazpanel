@@ -134,6 +134,8 @@ EOT
 		body { padding: 20px 60px; font-size: 13px; } h1, h2 { color: #444; }
 		pre { background: #f1f1f1; border: 1px solid #ddd;
 			padding: 10px; border-radius: 4px; }
+		span.diff-rm { color: red; }
+		span.diff-add { color: green; }
 	</style>
 </head>
 <body>
