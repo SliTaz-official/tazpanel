@@ -3,7 +3,7 @@
 PREFIX?=/usr
 SYSCONFDIR?=/etc/slitaz
 DESTDIR?=
-LINGUAS?=fr
+LINGUAS?=fr pt
 PANEL?=/var/www/tazpanel
 
 VERSION:=$(shell grep ^VERSION tazpanel | cut -d '=' -f 2)
@@ -36,12 +36,16 @@ msgfmt:
 install: msgfmt
 	mkdir -p $(DESTDIR)$(PREFIX)/bin \
 		$(DESTDIR)$(PREFIX)/share/locale \
+		$(DESTDIR)$(PREFIX)/share/applications \
+		$(DESTDIR)$(PREFIX)/share/pixmaps \
 		$(DESTDIR)$(SYSCONFDIR) \
 		$(DESTDIR)$(PANEL)
 	cp -a tazpanel $(DESTDIR)$(PREFIX)/bin
 	cp -a data/*.conf $(DESTDIR)$(SYSCONFDIR)
-	cp -a *.cgi lib/ styles/ $(DESTDIR)$(PANEL)	
+	cp -a *.cgi lib/ styles/ doc/ README $(DESTDIR)$(PANEL)	
 	cp -a po/mo/* $(DESTDIR)$(PREFIX)/share/locale
+	cp -a data/*.desktop $(DESTDIR)$(PREFIX)/share/applications
+	cp -a data/*.png $(DESTDIR)$(PREFIX)/share/pixmaps
 
 # Clean source
 
