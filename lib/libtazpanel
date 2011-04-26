@@ -35,9 +35,9 @@ syntax_highlighter() {
 				-e s"#\"\([^']*\)\"#<span class='sh-val'>\0</span>#"g ;;
 		diff)
 			sed -e 's|&|\&amp;|g' -e 's|<|\&lt;|g' -e 's|>|\&gt;|g' \
-				-e s"#^-\([^']*\).#<span class='diff-rm'>\0</span>#"g \
-				-e s"#^+\([^']*\).#<span class='diff-add'>\0</span>#"g \
-				-e s"#@@\([^']*\)@@#<span class='diff-at'>@@\1@@</span>#"g ;;
+				-e s"#^-\(.*\).#<span class='diff-rm'>\0</span>#"g \
+				-e s"#^+\(.*\).#<span class='diff-add'>\0</span>#"g \
+				-e s"#@@\(.*\)@@#<span class='diff-at'>@@\1@@</span>#"g ;;
 		activity)
 			sed s"#^\([^']*:\)#<span class='activity-log''>\0</span>#"g ;;
 	esac
