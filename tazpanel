@@ -25,15 +25,22 @@ export TEXTDOMAIN
 # Commands
 #
 
+NAME=tazpanel
+DESC="SliTaz administration and configuration panel."
+DAEMON=/usr/sbin/httpd
+PIDFILE=/var/run/$NAME.pid
+
 case "$1" in
 	start)
 		gettext "Starting TazPanel web server on port $HTTPD_PORT..."
 		httpd -p $HTTPD_PORT -u root -c $HTTPD_CONF \
 			-r "`gettext \"TazPanel Authentication\"`" &
+		ps | grep 'httpd -p $HTTPD_PORT " | grep -v grep | \
+			awk '{ print $1 }' > $PIDFILE
 		status ;;
 	stop)
 		gettext "Stopping TazPanel web server..."
-		killall httpd && status ;;
+		kill $(cat $PIDFILE) && status ;;
 	passwd|-p)
 		echo ""
 		gettext "Changing password for TazPanel"
