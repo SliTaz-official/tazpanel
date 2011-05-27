@@ -462,7 +462,8 @@ EOT
 		opt=""
 		pkgs=""
 		cmdline=`echo ${QUERY_STRING#do=} | sed s'/&/ /g'`		
-		cmd=`echo ${cmdline} | awk '{print $1}'`		
+		cmd=`echo ${cmdline} | awk '{print $1}'`
+		cmdline=${cmdline#*repo=* }
 		pkgs=`echo $cmdline | sed -e s'/+/ /g' -e s'/pkg=//g' -e s/$cmd//`
 		cmd=`echo $cmd | tr [A-Z] [a-z]`		
 		case $cmd in
