@@ -27,7 +27,7 @@ syntax_highlighter() {
 	case $1 in
 		conf)
 			sed -e 's|&|\&amp;|g' -e 's|<|\&lt;|g' -e 's|>|\&gt;|g' \
-				s"#^\#\([^']*\)#<span class='conf-comment'>\0</span>#"g \
+				-e s"#^\#\([^']*\)#<span class='conf-comment'>\0</span>#"g \
 				-e s"#^[A-Z]\([^']*\)=#<span class='conf-var'>\0</span>#"g \
 				-e s"#^[a-z]\([^']*\)#<span class='conf-var'>\0</span>#"g \
 				-e s"#\"\([^']*\)\"#<span class='conf-val'>\0</span>#"g ;;
