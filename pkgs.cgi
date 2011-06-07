@@ -449,7 +449,7 @@ EOT
 		table_head
 		for pkg in `cat packages.up`
 		do
-			grep -s "^$pkg |" $LOCALSTATE/packages.desc \
+			grep -hs "^$pkg |" $LOCALSTATE/packages.desc \
 				$LOCALSTATE/undigest/*/packages.desc | \
 				parse_packages_desc
 		done
