@@ -34,7 +34,7 @@ case "$1" in
 	start)
 		gettext "Starting TazPanel web server on port $HTTPD_PORT..."
 		httpd -p $HTTPD_PORT -u root -c $HTTPD_CONF \
-			-r "`gettext \"TazPanel Authentication\"`" &
+			-r "$(gettext "TazPanel Authentication - Default: root:root")" &
 		ps | grep "httpd -p $HTTPD_PORT " | grep -v grep | \
 			awk '{ print $1 }' > $PIDFILE
 		status ;;
