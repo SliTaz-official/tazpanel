@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tazpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-10 16:01+0200\n"
+"POT-Creation-Date: 2011-06-10 21:40+0200\n"
 "PO-Revision-Date: 2011-04-21 21:00+0000\n"
 "Last-Translator: Claudinei Pereira <claudinei@slitaz.org>, 2011\n"
 "Language-Team: Portuguese <i18n@slitaz.org>\n"
@@ -55,110 +55,127 @@ msgstr "Salvar"
 msgid "Edit"
 msgstr "Editar"
 
-#: index.cgi:106 index.cgi:258
+#: index.cgi:109 index.cgi:290
+msgid "Terminal"
+msgstr ""
+
+#: index.cgi:122
+msgid "-e"
+msgstr ""
+
+#: index.cgi:123 index.cgi:134
+msgid "Commands:"
+msgstr ""
+
+#: index.cgi:127
+#, fuzzy
+msgid "Downloading to:"
+msgstr "Baixar imagem de DVD"
+
+#: index.cgi:138 index.cgi:292
 msgid "Process activity"
 msgstr "Atividade do processo"
 
-#: index.cgi:121
+#: index.cgi:153
 #, fuzzy
 msgid "System report"
 msgstr "Memória do sistema"
 
-#: index.cgi:125
+#: index.cgi:157
 #, fuzzy
 msgid "Reporting to:"
 msgstr "Tabela de roteamento"
 
-#: index.cgi:127
+#: index.cgi:159
 #, fuzzy
 msgid "Creating report header...  "
 msgstr "Criando o pacote..."
 
-#: index.cgi:144
+#: index.cgi:176
 #, fuzzy
 msgid "Creating system summary... "
 msgstr "Criando o pacote..."
 
-#: index.cgi:157
+#: index.cgi:189
 #, fuzzy
 msgid "Getting hardware info...   "
 msgstr "Obtendo informação de pacote..."
 
-#: index.cgi:181
+#: index.cgi:213
 #, fuzzy
 msgid "Getting networking info... "
 msgstr "Obtendo informação de pacote..."
 
-#: index.cgi:197
+#: index.cgi:229
 #, fuzzy
 msgid "Getting filesystems info..."
 msgstr "Obtendo informação de pacote..."
 
-#: index.cgi:221
+#: index.cgi:253
 msgid "Getting boot logs...       "
 msgstr ""
 
-#: index.cgi:223 boot.cgi:29 boot.cgi:34
+#: index.cgi:255 boot.cgi:29 boot.cgi:34
 msgid "Kernel messages"
 msgstr "Mensagens do kernel"
 
-#: index.cgi:227 boot.cgi:30 boot.cgi:39
+#: index.cgi:259 boot.cgi:30 boot.cgi:39
 msgid "Boot scripts"
 msgstr "Scripts de boot"
 
-#: index.cgi:233
+#: index.cgi:265
 #, fuzzy
 msgid "Creating report footer...  "
 msgstr "Criando o pacote..."
 
-#: index.cgi:241
+#: index.cgi:273
 msgid "View report"
 msgstr ""
 
-#: index.cgi:242
+#: index.cgi:274
 msgid "This report can be attached with a bug report on: "
 msgstr ""
 
-#: index.cgi:253
+#: index.cgi:285
 msgid "Host:"
 msgstr "Host:"
 
-#: index.cgi:254
+#: index.cgi:286
 msgid "SliTaz administration and configuration Panel"
 msgstr "Painel de configuração e administração do SliTaz"
 
-#: index.cgi:260
+#: index.cgi:294
 #, fuzzy
 msgid "Create a report"
 msgstr "Criar usuário"
 
-#: index.cgi:263 pkgs.cgi:829
+#: index.cgi:297 pkgs.cgi:829
 msgid "Summary"
 msgstr "Sumário"
 
-#: index.cgi:266
+#: index.cgi:300
 #, fuzzy
 msgid "Uptime       :"
 msgstr "Zona horária  :"
 
-#: index.cgi:267
+#: index.cgi:301
 #, fuzzy
 msgid "Memory in Mb :"
 msgstr "Memória em MB"
 
-#: index.cgi:269
+#: index.cgi:303
 msgid "Linux kernel :"
 msgstr ""
 
-#: index.cgi:274
+#: index.cgi:308
 msgid "Network status"
 msgstr "Status da Rede"
 
-#: index.cgi:277 hardware.cgi:109
+#: index.cgi:311 hardware.cgi:109
 msgid "Filesystem usage statistics"
 msgstr "Estatísticas de utilização do sistema de arquivos"
 
-#: index.cgi:298
+#: index.cgi:332
 msgid "Panel Activity"
 msgstr "Atividade do painel"
 
@@ -1059,8 +1076,8 @@ msgid "Scan ports"
 msgstr "Buscar portas"
 
 #: lib/libtazpanel:179
-msgid "Filesystem"
-msgstr "Sistema de arquios"
+msgid "Disk"
+msgstr ""
 
 #: lib/libtazpanel:181
 msgid "Available"
@@ -1069,6 +1086,9 @@ msgstr "Disponível"
 #: lib/libtazpanel:183
 msgid "Mount point"
 msgstr "Ponto de montagem"
+
+#~ msgid "Filesystem"
+#~ msgstr "Sistema de arquios"
 
 #~ msgid "Uptime:"
 #~ msgstr "Uptime:"
