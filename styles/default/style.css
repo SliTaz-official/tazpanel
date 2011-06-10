@@ -15,8 +15,8 @@ body {
 	margin: 25px 0 0;
 }
 
-h1 { color: #d66018; padding: 10px 0 0 40px;}
-h2 { color: #444; margin: 10px 0 10px; }
+h1 { color: #d66018; padding: 6px 0 0 20px; font-size: 180%; }
+h2 { color: #444; margin: 10px 0 10px; font-size: 150%; }
 h3 { color: #666; font-size: 140%; }
 h4 { color: #888; font-size: 120%; margin: 10px 0 5px; }
 img { border: 0pt none; vertical-align: middle; padding: 0px 6px 2px 0;}
@@ -29,7 +29,7 @@ a:hover { color: #000; }
 /* Header and main title */
 
 #header {
-	height: 52px;
+	height: 42px;
 	border-bottom: 1px dotted #ddd;
 }
 
@@ -76,7 +76,7 @@ a:hover { color: #000; }
 
 #sidebar {
 	position: fixed;
-	top: 102px;
+	top: 92px;
 	right: 5px;
 	width: 116px;
 }
@@ -97,8 +97,8 @@ a:hover { color: #000; }
 
 /* Content */
 
-#content { margin: 20px 40px 20px 40px; }
-#content-sidebar { margin: 20px 120px 20px 40px; }
+#content { margin: 20px; }
+#content-sidebar { margin: 20px 120px 20px 20px; }
 #wrapper { margin: 10px 0 20px; }
 
 #actions {
@@ -111,7 +111,7 @@ a:hover { color: #000; }
 .search {
 	position: absolute;
 	right: 40px;
-	top: 32px;
+	top: 23px;
 }
 
 .search input[type=submit] {
@@ -184,7 +184,7 @@ td.small { min-width: 60px; }
 td.pkg { max-width: 160px; }
 td.desc { max-width: 300px; }
 td.pct { min-width: 200px; background: #eee; }
-div.pct { background: #ccc; }
+div.pct { background: #ccc; display: inline; }
 td.pct, div.pct { border-radius: 2px; }
 
 #thead, .thead, thead {
