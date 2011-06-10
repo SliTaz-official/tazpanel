@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-10 15:19+0200\n"
+"POT-Creation-Date: 2011-06-10 16:01+0200\n"
 "PO-Revision-Date: 2011-04-20 14:54+0100\n"
 "Last-Translator: Eric Joseph-Alexandre <erjo@slitaz.org>\n"
 "Language-Team: French\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: tazpanel:37
-msgid "TazPanel Authentication"
+msgid "TazPanel Authentication - Default: root:root"
 msgstr ""
 
 #: tazpanel:42
