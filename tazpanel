@@ -50,7 +50,7 @@ case "$1" in
 		echo "" ;;
 	*)
 		echo ""
-		gettext "Usage:" && echo "`basename $0` [start|stop|passwd]"; echo
+		gettext "Usage:" && echo " $(basename $0) [start|stop|passwd]"
 		echo "" ;;
 esac
 
