@@ -293,7 +293,7 @@ EOT
 	<input type="submit" value="$(gettext "Activate")" />
 </form>
 
-<h3>$(gettext "Panel configuration")</h3>
+<h2>$(gettext "Panel configuration")</h2>
 <form method="get" action="$SCRIPT_NAME">
 	<p>
 		$(gettext "Style:")

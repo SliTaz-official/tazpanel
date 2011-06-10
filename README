@@ -61,6 +61,7 @@ links, but please to talk to the AUTHORS before.
 	                accounts, locales or daemons management
 	* live.cgi      All tools related to Live systems (CD, USB, Frugal)
 	* hardware.cgi  Devices drivers, firmware, printing
+	* help.cgi      Cat the html doc and this README file
 
 For common functions have a look to lib/libtazpanel, you may found functions
 you need already coded such as a xhtml_header to get the style header.html
@@ -74,7 +75,7 @@ Tazpanel can run with the Busybox httpd applet or LightTPD and probably Apache.
 Start the webserver with a custom config to listen only on a local port for
 security reasons since we run as root to perform system actions, example:
 
-# httpd -p 8090 u root -c /etc/slitaz/httpd.conf
+# httpd -p 82 u root -c /etc/slitaz/httpd.conf
 
 Or use tazpanel cmdline:
 
