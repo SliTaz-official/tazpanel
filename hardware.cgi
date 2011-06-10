@@ -120,7 +120,7 @@ EOT
 		do
 				cat << EOT
 <tr>
-	<td><img src="$IMAGES/harddisk.png" />$fs</td>
+	<td><img src="$IMAGES/harddisk.png" />${fs#/dev/}</td>
 	<td>$size</td>
 	<td>$av</td>
 	<td class="pct"><div class="pct"

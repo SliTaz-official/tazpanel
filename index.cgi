@@ -284,7 +284,7 @@ EOT
 				cat << EOT
 <tr>
 	<td><a href="hardware.cgi">
-		<img src="$IMAGES/harddisk.png" />$fs</a></td>
+		<img src="$IMAGES/harddisk.png" />${fs#/dev/}</a></td>
 	<td>$size</td>
 	<td>$av</td>
 	<td class="pct"><div class="pct"

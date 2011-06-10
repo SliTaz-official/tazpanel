@@ -176,7 +176,7 @@ df_thead() {
 	cat << EOT
 <thead>
 	<tr>
-		<td>$(gettext "Filesystem")</td>
+		<td>$(gettext "Disk")</td>
 		<td>$(gettext "Size")</td>
 		<td>$(gettext "Available")</td>
 		<td>$(gettext "Used")</td>
