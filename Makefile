@@ -41,13 +41,15 @@ install:
 		$(DESTDIR)$(PREFIX)/share/applications \
 		$(DESTDIR)$(PREFIX)/share/pixmaps \
 		$(DESTDIR)$(SYSCONFDIR) \
-		$(DESTDIR)$(PANEL)
+		$(DESTDIR)$(PANEL) \
+		$(DESTDIR)/var/log
 	cp -a tazpanel $(DESTDIR)$(PREFIX)/bin
 	cp -a data/*.conf $(DESTDIR)$(SYSCONFDIR)
 	cp -a *.cgi lib/ styles/ doc/ README $(DESTDIR)$(PANEL)	
 	cp -a po/mo/* $(DESTDIR)$(PREFIX)/share/locale
 	cp -a data/*.desktop $(DESTDIR)$(PREFIX)/share/applications
 	cp -a data/*.png $(DESTDIR)$(PREFIX)/share/pixmaps
+	touch $(DESTDIR)/var/log/tazpanel.log
 
 # Clean source
 

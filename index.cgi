@@ -104,7 +104,7 @@ EOT
 		fi ;;
 	*\ terminal\ *|*\ cmd\ *)
 		# Cmdline terminal.
-		commands='du help ls ping pwd who wget'
+		commands='cat du help ls ping pwd who wget'
 		cmd=$(GET cmd)
 		TITLE="- $(gettext "Terminal")"
 		xhtml_header
@@ -127,6 +127,12 @@ EOT
 			gettext "Downloading to:"; echo " $dl"
 			cd $dl && $cmd ;;
 		du*|ls*|ping*|pwd|who)
+			$cmd ;;
+		cat*)
+			# Cmd must be used with an arg.
+			arg=$(echo $cmd | awk '{print $2}')
+			[ "$arg" == "" ] && echo -n "$cmd " && \
+				gettext "needs an arument $arg" && exit 0
 			$cmd ;;
 		*)
 			[ "$cmd" == "" ] || \
