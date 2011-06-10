@@ -102,6 +102,38 @@ EOT
 			esac < $file
 			echo '</pre>'
 		fi ;;
+	*\ terminal\ *|*\ cmd\ *)
+		# Cmdline terminal.
+		commands='du help ls ping pwd who wget'
+		cmd=$(GET cmd)
+		TITLE="- $(gettext "Terminal")"
+		xhtml_header
+		cat << EOT
+<form method="get" action="$SCRIPT_NAME">
+	<div class="box">
+		root@$(hostname):~# <input type="text" name="cmd" style="width: 80%;" />
+	</div>
+</form>
+EOT
+	echo '<pre id="terminal">'
+	# Allow only a few commands for the moment.
+	case "$cmd" in
+		usage|help)
+			gettext -e "Small terminal emulator, commands options are supported.\n"
+			gettext "Commands:"; echo " $commands" ;;
+		wget*)
+			dl=/var/cache/downloads
+			[ ! -d "$dl" ] && mkdir -p $dl
+			gettext "Downloading to:"; echo " $dl"
+			cd $dl && $cmd ;;
+		du*|ls*|ping*|pwd|who)
+			$cmd ;;
+		*)
+			[ "$cmd" == "" ] || \
+				gettext "Unknow command: $cmd"
+			gettext "Commands:"; echo " $commands" ;;
+	esac
+	echo '</pre>' ;;
 	*\ top\ *)
 		TITLE="- $(gettext "Process activity")"
 		xhtml_header
@@ -254,6 +286,8 @@ EOT
 	<p>$(gettext "SliTaz administration and configuration Panel")<p>
 </div>
 <div id="actions">
+	<a class="button" href="$SCRIPT_NAME?terminal">
+		<img src="$IMAGES/terminal.png" />$(gettext "Terminal")</a>
 	<a class="button" href="$SCRIPT_NAME?top">
 		<img src="$IMAGES/monitor.png" />$(gettext "Process activity")</a>
 	<a class="button" href="$SCRIPT_NAME?report">

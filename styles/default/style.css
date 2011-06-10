@@ -56,16 +56,16 @@ a:hover { color: #000; }
 #icons img { padding: 0; }
 
 #loading {
-  /* font-weight: bold; */
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  color: #666;
-  cursor: progress;
-  position: fixed;
-  top: 92px;
-  right: 120px;
-  width: 248px;
-  padding: 4px 4px 2px;
+	/* font-weight: bold; */
+	background-color: #f8f8f8;
+	border: 1px solid #ddd;
+	color: #666;
+	cursor: progress;
+	position: fixed;
+	top: 92px;
+	right: 120px;
+	width: 248px;
+	padding: 4px 4px 2px;
 }
 
 /* Blocks */
@@ -235,6 +235,14 @@ input[type=text], input[type=password] { height: 18px; }
 div.scroll { height: 200px; overflow: auto;
 	border: 1px solid #ddd; }
 div.scroll table { border: 0px solid #fff; }
+
+#terminal {
+	background: #000;
+	color: #fff;
+	border: 1px solid #444;
+	min-height: 180px;
+	opacity: 0.8;
+}
 
 /* Round corner */
 
