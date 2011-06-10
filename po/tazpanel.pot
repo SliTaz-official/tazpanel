@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-10 21:40+0200\n"
+"POT-Creation-Date: 2011-06-10 22:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,115 +53,115 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: index.cgi:109 index.cgi:290
+#: index.cgi:109 index.cgi:297
 msgid "Terminal"
 msgstr ""
 
 #: index.cgi:122
-msgid "-e"
+msgid "Small terminal emulator, commands options are supported."
 msgstr ""
 
-#: index.cgi:123 index.cgi:134
+#: index.cgi:124 index.cgi:141
 msgid "Commands:"
 msgstr ""
 
-#: index.cgi:127
+#: index.cgi:128
 msgid "Downloading to:"
 msgstr ""
 
-#: index.cgi:138 index.cgi:292
+#: index.cgi:145 index.cgi:299
 msgid "Process activity"
 msgstr ""
 
-#: index.cgi:153
+#: index.cgi:160
 msgid "System report"
 msgstr ""
 
-#: index.cgi:157
+#: index.cgi:164
 msgid "Reporting to:"
 msgstr ""
 
-#: index.cgi:159
+#: index.cgi:166
 msgid "Creating report header...  "
 msgstr ""
 
-#: index.cgi:176
+#: index.cgi:183
 msgid "Creating system summary... "
 msgstr ""
 
-#: index.cgi:189
+#: index.cgi:196
 msgid "Getting hardware info...   "
 msgstr ""
 
-#: index.cgi:213
+#: index.cgi:220
 msgid "Getting networking info... "
 msgstr ""
 
-#: index.cgi:229
+#: index.cgi:236
 msgid "Getting filesystems info..."
 msgstr ""
 
-#: index.cgi:253
+#: index.cgi:260
 msgid "Getting boot logs...       "
 msgstr ""
 
-#: index.cgi:255 boot.cgi:29 boot.cgi:34
+#: index.cgi:262 boot.cgi:29 boot.cgi:34
 msgid "Kernel messages"
 msgstr ""
 
-#: index.cgi:259 boot.cgi:30 boot.cgi:39
+#: index.cgi:266 boot.cgi:30 boot.cgi:39
 msgid "Boot scripts"
 msgstr ""
 
-#: index.cgi:265
+#: index.cgi:272
 msgid "Creating report footer...  "
 msgstr ""
 
-#: index.cgi:273
+#: index.cgi:280
 msgid "View report"
 msgstr ""
 
-#: index.cgi:274
+#: index.cgi:281
 msgid "This report can be attached with a bug report on: "
 msgstr ""
 
-#: index.cgi:285
+#: index.cgi:292
 msgid "Host:"
 msgstr ""
 
-#: index.cgi:286
+#: index.cgi:293
 msgid "SliTaz administration and configuration Panel"
 msgstr ""
 
-#: index.cgi:294
+#: index.cgi:301
 msgid "Create a report"
 msgstr ""
 
-#: index.cgi:297 pkgs.cgi:829
+#: index.cgi:304 pkgs.cgi:829
 msgid "Summary"
 msgstr ""
 
-#: index.cgi:300
+#: index.cgi:307
 msgid "Uptime       :"
 msgstr ""
 
-#: index.cgi:301
+#: index.cgi:308
 msgid "Memory in Mb :"
 msgstr ""
 
-#: index.cgi:303
+#: index.cgi:310
 msgid "Linux kernel :"
 msgstr ""
 
-#: index.cgi:308
+#: index.cgi:315
 msgid "Network status"
 msgstr ""
 
-#: index.cgi:311 hardware.cgi:109
+#: index.cgi:318 hardware.cgi:109
 msgid "Filesystem usage statistics"
 msgstr ""
 
-#: index.cgi:332
+#: index.cgi:339
 msgid "Panel Activity"
 msgstr ""
 

@@ -119,7 +119,8 @@ EOT
 	# Allow only a few commands for the moment.
 	case "$cmd" in
 		usage|help)
-			gettext -e "Small terminal emulator, commands options are supported.\n"
+			gettext "Small terminal emulator, commands options are supported."
+			echo ""
 			gettext "Commands:"; echo " $commands" ;;
 		wget*)
 			dl=/var/cache/downloads
