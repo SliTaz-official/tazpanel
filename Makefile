@@ -3,10 +3,12 @@
 PREFIX?=/usr
 SYSCONFDIR?=/etc/slitaz
 DESTDIR?=
-LINGUAS?=fr pt
+LINGUAS?=fr pt_BR
 PANEL?=/var/www/tazpanel
 
 VERSION:=$(shell grep ^VERSION tazpanel | cut -d '=' -f 2)
+
+all: msgfmt
 
 # i18n
 
@@ -33,7 +35,7 @@ msgfmt:
 
 # Installation
 
-install: msgfmt
+install:
 	mkdir -p $(DESTDIR)$(PREFIX)/bin \
 		$(DESTDIR)$(PREFIX)/share/locale \
 		$(DESTDIR)$(PREFIX)/share/applications \
