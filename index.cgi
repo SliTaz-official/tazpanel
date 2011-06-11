@@ -133,11 +133,11 @@ EOT
 			# Cmd must be used with an arg.
 			arg=$(echo $cmd | awk '{print $2}')
 			[ "$arg" == "" ] && echo -n "$cmd " && \
-				gettext "needs an arument $arg" && exit 0
+				gettext "needs an argument $arg" && exit 0
 			$cmd ;;
 		*)
 			[ "$cmd" == "" ] || \
-				gettext "Unknow command: $cmd"
+				gettext "Unknown command: $cmd"
 			gettext "Commands:"; echo " $commands" ;;
 	esac
 	echo '</pre>' ;;
