@@ -26,7 +26,7 @@ case " $(GET) " in
 	<p>$(gettext "Page information")<p>
 </div>
 
-<h3>$(gettext "h3 title"`</h3>
+<h3>$(gettext "h3 title")</h3>
 
 <pre>
 Preformated output
