@@ -51,7 +51,7 @@ EOT
 		#
 		# Everything until user login
 		#
-		# Start and stop a daemon. I think we dont need restart since 2 
+		# Start and stop a daemon. I think we don't need a restart since 2 
 		# clicks and you are done
 		. /etc/rcS.conf
 		xhtml_header
@@ -76,7 +76,7 @@ EOT
 				ps ww | sed "1p;/^ *${daemon#pid=} /!d"
 				echo "</pre>" ;;
 		esac
-		# Demon list
+		# Daemon list
 		table_start
 		cat << EOT
 <thead>
@@ -128,7 +128,7 @@ EOT
 				zcip)
 					gettext "<td>Manage a ZeroConf IPv4 link-local address</td>" ;;
 				*)
-					# Descrition from receipt
+					# Description from receipt
 					[ -d "$LOCALSTATE/installed/$name" ] && pkg=$name
 					[ -d "$LOCALSTATE/installed/${name%d}" ] && pkg=${name%d}
 					[ -d "$LOCALSTATE/installed/${name}-pam" ] && pkg=${name}-pam
@@ -139,14 +139,14 @@ EOT
 						echo "<td>----</td>"
 					fi ;;
 			esac
-			# Attemp to get daemon status
+			# Attempt to get daemon status
 			pidfile=`find /var/run -name *$name*.pid`
 			[ "$pidfile" ] && pid=`cat $pidfile`
 			# dbus
 			[ -f /var/run/${name}/pid ] && pid=`cat /var/run/${name}/pid`
 			# apache
 			[ "$name" = "apache" ] && pid=`cat /var/run/$name/httpd.pid`
-			# Pidof works for many daemon
+			# Pidof works for many daemons
 			[ "$pid" ] || pid=`pidof $name`
 			if [ "$pid" ]; then
 				cat << EOT

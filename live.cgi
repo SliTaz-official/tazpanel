@@ -108,7 +108,7 @@ case " $(GET) " in
 	`gettext "USB Media to use:"`
 	<select name="gen_liveusb">
 EOT
-		# List disk if plugged USB device
+		# List disk if there is a plugged USB device
 		if [ -d /proc/scsi/usb-storage ]; then
 			for i in `blkid | cut -d ":" -f 1`; do
 				echo "<option value='$i'>$i</option>"

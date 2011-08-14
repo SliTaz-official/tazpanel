@@ -2,7 +2,7 @@
 #
 # TazPKG CGI interface - Manage packages via a browser
 #
-# This CGI interface intensively uses tazpkg to manage packages and have
+# This CGI interface extensively uses tazpkg to manage packages and have
 # its own code for some tasks. Please KISS, it is important and keep speed
 # in mind. Thanks, Pankso.
 #
@@ -13,7 +13,7 @@
 get_config
 header
 
-# xHTML 5 header with special side bar fo categories.
+# xHTML 5 header with special side bar for categories.
 TITLE="- Packages"
 xhtml_header | sed 's/id="content"/id="content-sidebar"/'
 

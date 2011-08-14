@@ -1,8 +1,8 @@
 #!/bin/sh
 #
 # System settings CGI interface: user, locale, keyboard, date. Since we
-# dont have multiple pages here there is only one case used to get command
-# values and the full content is following directly.
+# don't have multiple pages here there is only one case used to get command
+# values and the full content is followed directly.
 #
 # Copyright (C) 2011 SliTaz GNU/Linux - BSD License
 #
@@ -47,7 +47,7 @@ list_styles() {
 
 case " $(GET) " in
 	*\ do\ *)
-		# Assume not array support in httpd_helper.sh ;^)
+		# Assume no array support in httpd_helper.sh ;^)
 		users=""
 		IFS="&"
 		for i in $QUERY_STRING ; do

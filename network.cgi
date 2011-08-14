@@ -66,7 +66,7 @@ EOT
 case " $(GET) " in
 	*\ start\ *)
 		# Here we sleep a bit to let udhcp get the lease before reloading
-		# page with status
+		# the page with status
 		/etc/init.d/network.sh start | log
 		sleep 2 ;;
 	*\ stop\ *)
