@@ -70,6 +70,8 @@ case " $(GET) " in
 <form method="post" action="$SCRIPT_NAME?file=$file">
 <img src="$IMAGES/edit.png" />
 <input type="submit" value="`gettext "Save"`">
+<a class="button" href='$SCRIPT_NAME?file=$file&action=diff'>
+	<img src="$IMAGES/help.png" />`gettext "Differences"`</a>
 <textarea name="content" rows="30" style="width: 100%;">
 $(cat $file)
 </textarea>
