@@ -113,8 +113,8 @@ select_action()
 	cat <<EOT
 <div id="wrapper">
 	<h2>$(gettext "SliTaz Installer")</h2>
-	<p>$(gettext "The SliTaz Installer installs or upgrade SliTaz to a hard disk 
-		drive from a	device like a Live-CD or LiveUSB key, from a SliTaz ISO file, or 
+	<p>$(gettext "The SliTaz Installer installs or upgrades SliTaz to a hard disk 
+		drive from a device like a Live-CD or LiveUSB key, from a SliTaz ISO file, or 
 		from the web by downloading an ISO file.")<p>
 </div>
 EOT
@@ -125,8 +125,11 @@ select_gparted()
 	cat <<EOT
 <table>
 <tr>
-	<td>$(gettext "Before installation, you'll may need to resize partitions
-on your hard disk drive in order to make space for SlItaz GNU/Linux.")</td>
+	<td><h4>$(gettext "About")</h4></td>
+</tr>
+<tr>
+	<td>$(gettext "Before installation, you may need to resize partitions
+on your hard disk drive in order to make space for SliTaz GNU/Linux.")</td>
 </tr>
 </table>
 EOT
@@ -164,7 +167,7 @@ select_upgrade()
 <tr>
 	<td>$(gettext "Upgrade an already installed SliTaz system on your hard disk
 	drive. Your /home /etc /var/www directories will be kept, all other directories
-	will be removed. Any additional package added to your old Slitaz system
+	will be removed. Any additional packages added to your old Slitaz system
 	will be updated as long you have an active internet connection.")</td>
 </tr>
 <tr>
@@ -196,7 +199,7 @@ EOT
 <h2>$(gettext "Upgrade SliTaz")</h2>
 <p>$(gettext "You're going to upgrade an already installed SliTaz system on your hard disk
 	drive. Your /home /etc /var/www directories will be kept, all other directories
-	will be removed. Any additional package added to your old Slitaz system
+	will be removed. Any additional packages added to your old Slitaz system
 	will be updated as long you have an active internet connection.")<p>
 </div>
 <input type="hidden" name="INST_ACTION" value="$1">
@@ -450,8 +453,8 @@ page_redirection()
 <meta name="keywords" content="automatic redirection">
 </head>
 <body>
-$(gettext "If your browser doesn't automatically go there within a few seconds, 
-you may want to go manually to ")
+$(gettext "If your browser doesn't automatically redirect within a few seconds, 
+you may want to go there manually")
 <a href="$SCRIPT_NAME?page=$1">$1</a> 
 </body>
 </html>
@@ -467,7 +470,7 @@ check_ressources()
 		cat <<EOT
 <h3>$(gettext "Tazinst Error")</h3>
 <p><strong>tazinst</strong>, $(gettext "the lightweight SliTaz HDD installer
-is missing. Any installation can't be done without tazinst.")</p>
+is missing. Any installation can not be done without tazinst.")</p>
 <p>$(gettext "Check tazinst' permissions, or reinstall the slitaz-tools package:")</p>
 <code># tazpkg get-install slitaz-tools --forced</code>
 EOT
@@ -493,7 +496,7 @@ EOT
 		if [ ! -e "$INSTFILE" ]; then
 			cat <<EOT
 <h3>$(gettext "Setup File Error")</h3>
-<p>$(gettext "The setup file <strong>$INSTFILE</strong> doesn't exists.")</p>
+<p>$(gettext "The setup file <strong>$INSTFILE</strong> doesn't exist.")</p>
 EOT
 			code=1
 		else
