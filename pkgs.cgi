@@ -499,7 +499,7 @@ EOT
 		for pkg in $pkgs
 		do
 			echo '<pre>'
-			echo 'y' | tazpkg $cmd $pkg $opt 2>/dev/null | filter_taztools_msgs
+			echo 'y' | tazpkg $cmd $(httpd -d "$pkg") $opt 2>/dev/null | filter_taztools_msgs
 			echo '</pre>'
 		done ;;
 	*\ info\ *)
