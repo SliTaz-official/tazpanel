@@ -465,6 +465,7 @@ EOT
 		cmd=$(echo ${cmdline} | awk '{print $1}')
 		cmdline=${cmdline#*repo=* }
 		pkgs=$(echo $cmdline | sed -e s'/+/ /g' -e s'/pkg=//g' -e s/$cmd//)
+		pkgs="$(httpd -d "$pkgs")"
 		cmd=$(echo $cmd | tr [:upper:] [:lower:])
 		case $cmd in
 			install)
@@ -499,7 +500,7 @@ EOT
 		for pkg in $pkgs
 		do
 			echo '<pre>'
-			echo 'y' | tazpkg $cmd $(httpd -d "$pkg") $opt 2>/dev/null | filter_taztools_msgs
+			echo 'y' | tazpkg $cmd $pkg $opt 2>/dev/null | filter_taztools_msgs
 			echo '</pre>'
 		done ;;
 	*\ info\ *)
