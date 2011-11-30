@@ -20,14 +20,104 @@
 			<img src="/styles/default/images/help.png" /></a>
 	</div>
 	<div id="menu">
-		<a href="/">Panel</a>
-		<a href="/pkgs.cgi">Packages</a>
-		<a href="/network.cgi">Network</a>
-		<a href="/settings.cgi">Settings</a>
-		<a href="/live.cgi">Live</a>
-		<a href="/boot.cgi">Boot</a>
-		<a href="/hardware.cgi">Hardware</a>
-		<a href="/installer.cgi">Install</a>
+		<ul class="menu">
+			<li class="drop">
+				<a href="/">Panel</a>
+				<span class="toggle">&nbsp;</span>
+				<ul>
+					<li>
+						<a href="/index.cgi?terminal">Terminal</a>
+					</li>
+					<li>
+						<a href="/index.cgi?top">Processes</a>
+					</li>
+					<li>
+						<a href="/index.cgi?report">Create&nbsp;a&nbsp;report</a>
+					</li>
+				</ul>
+			</li>
+			<li class="drop">
+				<a href="/pkgs.cgi">Packages</a>
+				<span class="toggle">&nbsp;</span>
+				<ul>
+					<li>
+						<a href="/pkgs.cgi?list">My&nbsp;packages</a>
+					</li>
+					<li>
+						<a href="/pkgs.cgi?recharge">Recharge&nbsp;list</a>
+					</li>
+					<li>
+						<a href="/pkgs.cgi?up">Check&nbsp;updates</a>
+					</li>
+					<li>
+						<a href="/pkgs.cgi?admin">Administration</a>
+					</li>
+				</ul>
+			</li>
+			<li class="drop">
+				<a href="/network.cgi">Network</a>
+				<span class="toggle">&nbsp;</span>
+				<ul>
+					<li>
+						<a href="/network.cgi?eth">Ethernet</a>
+					</li>
+					<li>
+						<a href="/network.cgi?wifi">Wireless</a>
+					</li>
+					<li>
+						<a href="/index.cgi?file=/etc/network.conf">Configuration</a>
+					</li>
+				</ul>
+			</li>
+			<li class="drop">
+				<a href="/settings.cgi">Settings</a>
+				<span class="toggle">&nbsp;</span>
+				<ul>
+					<li>
+						<a href="/settings.cgi?users">Users</a>
+					</li>
+				</ul>
+			</li>
+			<li class="">
+				<a href="/live.cgi">Live</a>
+			</li>
+			<li class="drop">
+				<a href="/boot.cgi">Boot</a>
+				<span class="toggle">&nbsp;</span>
+				<ul>
+					<li>
+						<a href="/boot.cgi?log">Boot&nbsp;logs</a>
+					</li>
+					<li>
+						<a href="/boot.cgi?daemons">Manage&nbsp;daemons</a>
+					</li>
+					<li>
+						<a href="/boot.cgi?grub">Boot&nbsp;loader</a>
+					</li>
+				</ul>
+			</li>
+			<li class="drop">
+				<a href="/hardware.cgi">Hardware</a>
+				<span class="toggle">&nbsp;</span>
+				<ul>
+					<li>
+						<a href="/hardware.cgi?modules">Modules</a>
+					</li>
+				</ul>
+			</li>
+			<li class="drop">
+				<a href="/installer.cgi">Install</a>
+				<span class="toggle">&nbsp;</span>
+				<ul>
+					<li>
+						<a href="/installer.cgi?page=install">Install</a>
+					</li>
+					<li>
+						<a href="/installer.cgi?page=upgrade">Upgrade</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
 	</div>
 </div>
 

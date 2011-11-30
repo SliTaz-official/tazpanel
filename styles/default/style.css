@@ -272,3 +272,88 @@ div.scroll table { border: 0px solid #fff; }
 
 #footer a { color: #bbb; }
 #footer a:hover { color: #555; }
+
+/*  ------------------------------  */
+/*  DROPDOWN MENU                   */
+/*  ------------------------------  */
+ul.menu {
+	margin:0;
+	padding:0px 0 0 0;
+}
+ul.menu li {
+	display:block;
+	float:left;
+	position:relative;
+	padding:0;
+}
+ul.menu li.current {
+	background:#f1f1f1;
+}
+
+ul.menu li:hover {
+	background:#f1f1f1;
+} 
+
+
+ul.menu li a {
+	display:block;
+	text-decoration:none;
+	line-height:15px;
+}
+
+ul.menu li a span {
+	font-weight:normal;
+	padding-left:3px;
+}
+ul.menu li.drop a {
+	padding-right:7px;
+}
+ul.menu li.drop:hover li {
+	border:none;
+}
+ul.menu li.drop span.toggle {
+	display:block;
+	height:26px;
+	padding:0;
+}
+ul.menu li.drop:hover span.toggle, ul.menu li.drop.current span.toggle {
+	background-position:1px 5px;
+}
+ul.menu li.drop:hover ul {
+	display:block;
+	z-index:1;
+	padding-bottom:8px;
+}
+ul.menu li ul {
+	display:none;
+	position:absolute;
+	width: auto;
+	top: 15px;
+	left:0;
+	list-style-type:none;
+	margin:0;
+	padding:9px 0 0 0;
+}
+ul.menu li ul li {
+	float:none;
+	height: auto;
+	margin:0;
+	padding:0;
+	border:none;
+}
+ul.menu li ul li a {
+	float:none;
+	background:none;
+	margin:0;
+	padding:0;
+	display:block;
+	font-size:13px;
+	height:auto;
+	margin:0;
+	font-weight:normal;
+}
+
+/* drop down menu hover styles */
+ul.menu li:hover ul * {
+	background:#f1f1f1;
+}
