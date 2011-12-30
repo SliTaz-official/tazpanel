@@ -92,6 +92,9 @@ EOT
 		done
 		table_end ;;
 	*)
+		[ -n "$(GET brightness)" ] &&
+		echo -n $(GET brightness) > /proc/acpi/video/$(GET dev)/LCD/brightness
+		
 		#
 		# Default to summary with mounted filesystem, loaded modules
 		#
@@ -100,6 +103,41 @@ EOT
 <div id="wrapper">
 	<h2>`gettext "Drivers &amp; Devices"`</h2>
 	<p>`gettext "Manage your computer hardware`</p>
+EOT
+		if [ -n "$(ls /proc/acpi/video/*/LCD/brightness 2> /dev/null)" ]; then
+			cat <<EOT
+<form method="get" action="$SCRIPT_NAME">
+EOT
+			for dev in /proc/acpi/video/*/LCD/brightness ; do
+				name=$(echo $dev | sed 's|.*/video/||;s|/LCD/.*||')
+				cat <<EOT
+<input type="hidden" name="dev" value="$name" />
+$(gettext "LCD brightness") $name: <select name="brightness" onchange="submit();">
+EOT
+				awk '{
+					if ($1 == "levels:")
+					for (i = 2; i <= NF; i++) level[$i] = i
+					if ($1 == "current:") current=$2
+				}
+				END {
+					for (i in level) {
+						s="<option value=\"" i "\""
+						if (current == i) s=s " selected=\"selected\""
+						s=s ">" i "%</option>"
+						if (i == 100) last=s
+						else print s
+					}
+					print last
+				}' < $dev
+				cat <<EOT
+</select>
+EOT
+			done
+			cat << EOT
+</form>
+EOT
+		fi
+		cat << EOT
 </div>
 <div>
 	<a class="button" href="$SCRIPT_NAME?modules">
@@ -124,7 +162,7 @@ EOT
 	<td>$size</td>
 	<td>$av</td>
 	<td class="pct"><div class="pct"
-		style="width: $pct;">$used - $pct</div></td>
+		style="width: $pct;">$used&nbsp;-&nbsp;$pct</div></td>
 	<td>$mp</td>
 </tr>
 EOT

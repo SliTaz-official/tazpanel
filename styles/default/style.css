@@ -184,7 +184,7 @@ td.small { min-width: 60px; }
 td.pkg { max-width: 160px; }
 td.desc { max-width: 300px; }
 td.pct { min-width: 200px; background: #eee; }
-div.pct { background: #ccc; display: inline; }
+div.pct { background: #ccc; }
 td.pct, div.pct { border-radius: 2px; }
 
 #thead, .thead, thead {
