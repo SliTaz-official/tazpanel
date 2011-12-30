@@ -170,7 +170,7 @@ EOT
 		table_end
 		echo "<h3>$(gettext "System memory")</h3>"
 		echo '<pre>'
-		free -m | sed \
+		( free -m 2> /dev/null || free ) | sed \
 			-e s"#total.*\([^']\)#<span class='top'>\0</span>#"g \
 			-e s"#^[A-Z-].*:\([^']\)#<span class='sh-comment'>\0</span>#"g
 		echo '</pre>'
