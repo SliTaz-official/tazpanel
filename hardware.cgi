@@ -103,7 +103,51 @@ EOT
 <div id="wrapper">
 	<h2>`gettext "Drivers &amp; Devices"`</h2>
 	<p>`gettext "Manage your computer hardware`</p>
+</div>
+<div>
+	<a class="button" href="$SCRIPT_NAME?modules">
+		<img src="$IMAGES/tux.png" />Kernel modules</a>
+</div>
+
+<div id="wrapper">
 EOT
+		if [ -n "$(ls /proc/acpi/battery/*/info 2> /dev/null)" ]; then
+			echo "<table>"
+			for dev in /proc/acpi/battery/*; do
+				grep ^present $dev/info | grep -q yes || continue
+				design=$(sed '/design capacity:/!d;s/[^0-9]*\([0-9]*\).*/\1/' < $dev/info)
+				remain=$(sed '/remaining capacity/!d;s/[^0-9]*\([0-9]*\).*/\1/' < $dev/state)
+				rate=$(sed '/present rate/!d;s/[^0-9]*\([0-9]*\).*/\1/' < $dev/state)
+				full=$(sed '/last full capacity/!d;s/[^0-9]*\([0-9]*\).*/\1/' < $dev/info)
+				remtime=$(( ($remain * 60) / $rate ))
+				rempct=$(( ($remain * 100) / $full ))
+				cat << EOT
+<tr>
+	<td><img src="$IMAGES/battery.png" />
+		Battery $(grep "^battery type" $dev/info | sed 's/.*: *//')
+		$(grep "^design capacity:" $dev/info | sed 's/.*: *//') </td>
+	<td>health  $(( (100*$full)/$design))%</td>
+EOT
+				if grep -qis discharging $dev/state; then
+					cat <<EOT
+	<td class="pct"><div class="pct"
+		style="width: $rempct%;">charge&nbsp;$rempct%&nbsp;-&nbsp;$(printf "%d:%02d" $(($remtime/60)) $(($remtime%60)))</div></td>
+EOT
+				else
+					cat <<EOT
+	<td class="pct"><div class="pct"
+		style="width: $rempct%;">recharging&nbsp;$rempct%</div></td>
+EOT
+				fi
+			done
+			echo "</table>"
+		fi
+		if [ -n "$(ls /proc/acpi/thermal_zone/*/temperature 2> /dev/null)" ]; then
+			echo "Temperature: "
+			for temp in /proc/acpi/thermal_zone/*/temperature; do
+				sed 's/.*://' < $temp
+			done
+		fi
 		if [ -n "$(ls /proc/acpi/video/*/LCD/brightness 2> /dev/null)" ]; then
 			cat <<EOT
 <form method="get" action="$SCRIPT_NAME">
@@ -139,10 +183,6 @@ EOT
 		fi
 		cat << EOT
 </div>
-<div>
-	<a class="button" href="$SCRIPT_NAME?modules">
-		<img src="$IMAGES/tux.png" />Kernel modules</a>
-</div>
 
 <h3>$(gettext "Filesystem usage statistics")</h3>
 <pre>
@@ -170,7 +210,7 @@ EOT
 		table_end
 		echo "<h3>$(gettext "System memory")</h3>"
 		echo '<pre>'
-		( free -m 2> /dev/null || free ) | sed \
+		free -m | sed \
 			-e s"#total.*\([^']\)#<span class='top'>\0</span>#"g \
 			-e s"#^[A-Z-].*:\([^']\)#<span class='sh-comment'>\0</span>#"g
 		echo '</pre>'
