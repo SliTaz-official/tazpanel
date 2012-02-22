@@ -222,7 +222,7 @@ EOT
 	# Here we could check if an entry for gpxe is present if not
 	# display a form to add it.
 	[ -f "/boot/gpxe" ] && echo "<h3>gPXE</h3>" && \
-		gettext "Web boot is avalaible with gPXE"
+		gettext "Web boot is available with gPXE"
 	;;
 	*)
 		#
