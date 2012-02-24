@@ -14,33 +14,6 @@ header
 
 TITLE="- Settings"
 
-# Get the list of system locales
-list_locales() {
-	cd /usr/share/i18n/locales
-	for locale in `ls -1 [a-z][a-z]_[A-Z][A-Z]`
-	do
-		echo "<option value='$locale'>$locale</option>"
-	done
-}
-
-# Get the list of console keymaps
-list_keymaps() {
-	cd /usr/share/kmap
-	for keymap in *.kmap
-	do
-		basename $keymap .kmap | sed "s|.*|<option value='&'>&</option>|"
-	done
-}
-
-# Get the list of panel styles
-list_styles() {
-	cd $PANEL/styles
-	for style in *
-	do
-		echo "<option value='$style'>$style</option>"
-	done
-}
-
 #
 # Commands executed before page loading.
 #
@@ -75,9 +48,9 @@ case " $(GET) " in
 		user=$(GET adduser)
 		passwd=$(GET passwd)
 		if [ -n "$user" ]; then
-			adduser -D $user
+			adduser -D -s /bin/sh -g "SliTaz User" -G users -h /home/$user $user
 			echo "$user:$passwd" | chpasswd | log
-			for g in audio cdrom floppy video
+			for g in audio cdrom floppy video tty
 			do
 				addgroup $user $g
 			done
