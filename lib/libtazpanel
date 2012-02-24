@@ -110,6 +110,31 @@ EOT
 	table_end
 }
 
+# Get the list of panel styles
+list_styles() {
+	for style in $PANEL/styles/*
+	do
+		style=$(basename $style)
+		echo "<option value='$style'>$style</option>"
+	done
+}
+
+# Get the list of system locales
+list_locales() {
+	for locale in $(find /usr/share/i18n/locales -type f -name "[a-z][a-z]_[A-Z][A-Z]")
+	do
+		echo "<option value='$locale'>$locale</option>"
+	done
+}
+
+# Get the list of console keymaps
+list_keymaps() {
+	for keymap in /usr/share/kmap/*.kmap
+	do
+		basename $keymap .kmap | sed "s|.*|<option value='&'>&</option>|"
+	done
+}
+
 #
 # xHTML 5 (header and footer skel are from the style)
 #
