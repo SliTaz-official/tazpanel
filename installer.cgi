@@ -629,6 +629,21 @@ case "$(GET page)" in
 		xhtml_header
 		display_log
 		;;
+	menu_install)
+		xhtml_header
+		if check_ressources; then
+			select_action
+			select_gparted
+			select_install
+		fi
+		;;
+	menu_upgrade)
+		xhtml_header
+		if check_ressources; then
+			select_action
+			select_upgrade
+		fi
+		;;
 	*)
 		xhtml_header
 		if check_ressources; then
