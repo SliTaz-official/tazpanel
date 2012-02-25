@@ -7,7 +7,7 @@
 # Authors : Dominique Corbex <domcox@slitaz.org>
 #
 
-VERSION=0.21
+VERSION=0.22
 
 # Common functions from libtazpanel
 . lib/libtazpanel
@@ -540,10 +540,8 @@ scan_mkfs()
 		[ -e $path/mkfs.ext2 ] && FS="$FS ext2"
 		[ -e $path/mkfs.ext3 ] && FS="$FS ext3"
 		[ -e $path/mkfs.ext4 ] && FS="$FS ext4"
-		[ -e $path/mkfs.vfat ] && FS="$FS fat32"
 		[ -e $path/mkfs.jfs ] && FS="$FS jfs"
 		[ -e $path/mkfs.minix ] && FS="$FS minix"
-		[ -e $path/mkfs.ntfs ] && FS="$FS ntfs"
 		[ -e $path/mkfs.reiserfs ] && FS="$FS reiserfs"
 		[ -e $path/mkfs.xfs ] && FS="$FS xfs"
 	done
