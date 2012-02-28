@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-10 22:37+0200\n"
+"POT-Creation-Date: 2012-02-28 14:27+0100\n"
 "PO-Revision-Date: 2011-08-05 21:41+0200\n"
 "Last-Translator: Christophe Lincoln <pankso@slitaz.org>\n"
 "Language-Team: French\n"
@@ -42,7 +42,7 @@ msgstr "Mot de passe changé avec succès"
 msgid "Usage:"
 msgstr "Utilisation:"
 
-#: index.cgi:36
+#: index.cgi:36 index.cgi:74
 msgid "Differences"
 msgstr "Différences"
 
@@ -50,129 +50,120 @@ msgstr "Différences"
 msgid "Save"
 msgstr "Enregistrer"
 
-#: index.cgi:90
-#: settings.cgi:283
+#: index.cgi:92 settings.cgi:256
 msgid "Edit"
 msgstr "Éditer"
 
-#: index.cgi:109
-#: index.cgi:297
+#: index.cgi:111 index.cgi:299
 msgid "Terminal"
 msgstr "Terminal"
 
-#: index.cgi:122
-msgid "Small terminal emulator, commands options are supported."
-msgstr "Petit émulateur de terminal, les options des commandes sont supportées."
-
 #: index.cgi:124
-#: index.cgi:141
+msgid "Small terminal emulator, commands options are supported."
+msgstr ""
+"Petit émulateur de terminal, les options des commandes sont supportées."
+
+#: index.cgi:126 index.cgi:143
 msgid "Commands:"
 msgstr "Commandes:"
 
-#: index.cgi:128
+#: index.cgi:130
 msgid "Downloading to:"
 msgstr "Téléchargement dans:"
 
-#: index.cgi:145
-#: index.cgi:299
+#: index.cgi:147 index.cgi:301
 msgid "Process activity"
 msgstr "Activité des processus"
 
-#: index.cgi:160
+#: index.cgi:162
 msgid "System report"
 msgstr "Rapport système"
 
-#: index.cgi:164
+#: index.cgi:166
 msgid "Reporting to:"
 msgstr "Création du rapport vers:"
 
-#: index.cgi:166
+#: index.cgi:168
 msgid "Creating report header...  "
 msgstr "Création de l'en-tête du rapport..."
 
-#: index.cgi:183
+#: index.cgi:185
 msgid "Creating system summary... "
 msgstr "Création du résumé du système..."
 
-#: index.cgi:196
+#: index.cgi:198
 msgid "Getting hardware info...   "
 msgstr "Obtention de l'information sur le matériel..."
 
-#: index.cgi:220
+#: index.cgi:222
 msgid "Getting networking info... "
 msgstr "Obtention de l'information réseau..."
 
-#: index.cgi:236
+#: index.cgi:238
 msgid "Getting filesystems info..."
 msgstr "Obtention de l'information des systèmes de fichiers..."
 
-#: index.cgi:260
+#: index.cgi:262
 msgid "Getting boot logs...       "
 msgstr "Obtention des journaux de démarrage..."
 
-#: index.cgi:262
-#: boot.cgi:29
-#: boot.cgi:34
+#: index.cgi:264 boot.cgi:29 boot.cgi:34
 msgid "Kernel messages"
 msgstr "Messages du noyau"
 
-#: index.cgi:266
-#: boot.cgi:30
-#: boot.cgi:39
+#: index.cgi:268 boot.cgi:30 boot.cgi:39
 msgid "Boot scripts"
 msgstr "Scripts de démarrage"
 
-#: index.cgi:272
+#: index.cgi:274
 msgid "Creating report footer...  "
 msgstr "Création du pied de page du rapport..."
 
-#: index.cgi:280
+#: index.cgi:282
 msgid "View report"
 msgstr "Voir le rapport"
 
-#: index.cgi:281
+#: index.cgi:283
 msgid "This report can be attached with a bug report on: "
 msgstr "Ce rapport peut être attaché avec un rapport de bogue sur:"
 
-#: index.cgi:292
+#: index.cgi:294
 msgid "Host:"
 msgstr "Hôte:"
 
-#: index.cgi:293
+#: index.cgi:295
 msgid "SliTaz administration and configuration Panel"
 msgstr "Panneau de Configuration et d'Administration de SliTaz"
 
-#: index.cgi:301
+#: index.cgi:303
 msgid "Create a report"
 msgstr "Créer un rapport"
 
-#: index.cgi:304
-#: pkgs.cgi:829
+#: index.cgi:306 pkgs.cgi:830
 msgid "Summary"
 msgstr "Résumé"
 
-#: index.cgi:307
+#: index.cgi:309
 msgid "Uptime       :"
 msgstr "Fonctionne depuis:"
 
-#: index.cgi:308
+#: index.cgi:310
 msgid "Memory in Mb :"
 msgstr "Mémoires en Mb :"
 
-#: index.cgi:310
+#: index.cgi:312
 msgid "Linux kernel :"
 msgstr "Noyau Linux:"
 
-#: index.cgi:315
+#: index.cgi:317
 msgid "Network status"
 msgstr "État du réseau"
 
-#: index.cgi:318
-#: hardware.cgi:109
+#: index.cgi:320 hardware.cgi:199
 msgid "Filesystem usage statistics"
 msgstr "Statistiques d'utilisation du système de fichiers"
 
-#: index.cgi:339
+#: index.cgi:341
 msgid "Panel Activity"
 msgstr "Activité du panneau"
 
@@ -204,12 +195,8 @@ msgstr "Rechercher"
 msgid "Files"
 msgstr "Fichiers"
 
-#: pkgs.cgi:115
-#: network.cgi:23
-#: network.cgi:142
-#: boot.cgi:84
-#: settings.cgi:131
-#: lib/libtazpanel:86
+#: pkgs.cgi:115 network.cgi:23 network.cgi:143 network.cgi:238 boot.cgi:84
+#: settings.cgi:104 lib/libtazpanel:86
 msgid "Name"
 msgstr "Nom"
 
@@ -217,8 +204,7 @@ msgstr "Nom"
 msgid "Version"
 msgstr "Version"
 
-#: pkgs.cgi:117
-#: boot.cgi:85
+#: pkgs.cgi:117 boot.cgi:85
 msgid "Description"
 msgstr "Description"
 
@@ -226,36 +212,21 @@ msgstr "Description"
 msgid "Web"
 msgstr "Internet"
 
-#: pkgs.cgi:201
-#: pkgs.cgi:310
-#: pkgs.cgi:351
-#: pkgs.cgi:405
-#: pkgs.cgi:443
-#: pkgs.cgi:491
-#: pkgs.cgi:555
-#: pkgs.cgi:832
+#: pkgs.cgi:201 pkgs.cgi:310 pkgs.cgi:351 pkgs.cgi:405 pkgs.cgi:443
+#: pkgs.cgi:492 pkgs.cgi:556 pkgs.cgi:833
 msgid "My packages"
 msgstr "Mes paquets"
 
-#: pkgs.cgi:205
-#: pkgs.cgi:251
-#: pkgs.cgi:300
-#: pkgs.cgi:341
-#: pkgs.cgi:434
-#: settings.cgi:119
+#: pkgs.cgi:205 pkgs.cgi:251 pkgs.cgi:300 pkgs.cgi:341 pkgs.cgi:434
+#: settings.cgi:92
 msgid "Selection:"
 msgstr "Sélection:"
 
-#: pkgs.cgi:209
-#: pkgs.cgi:255
-#: pkgs.cgi:306
-#: pkgs.cgi:347
-#: pkgs.cgi:440
+#: pkgs.cgi:209 pkgs.cgi:255 pkgs.cgi:306 pkgs.cgi:347 pkgs.cgi:440
 msgid "List:"
 msgstr "Liste:"
 
-#: pkgs.cgi:247
-#: pkgs.cgi:838
+#: pkgs.cgi:247 pkgs.cgi:839
 msgid "Linkable packages"
 msgstr "Paquets liables"
 
@@ -267,13 +238,11 @@ msgstr "Catégorie:"
 msgid "Search packages"
 msgstr "Recherche de paquets"
 
-#: pkgs.cgi:344
-#: pkgs.cgi:437
+#: pkgs.cgi:344 pkgs.cgi:437
 msgid "Toogle all"
 msgstr "Tout séléctionner"
 
-#: pkgs.cgi:360
-#: pkgs.cgi:532
+#: pkgs.cgi:360 pkgs.cgi:533
 msgid "Package"
 msgstr "Paquet"
 
@@ -289,8 +258,7 @@ msgstr "Recharger"
 msgid "Recharge checks for new or updated packages"
 msgstr "Recharge vérifie les nouveaux paquets ou mise à jour"
 
-#: pkgs.cgi:403
-#: pkgs.cgi:844
+#: pkgs.cgi:403 pkgs.cgi:845
 msgid "Check upgrades"
 msgstr "Mettre à jour"
 
@@ -300,142 +268,144 @@ msgstr "Recharge des listes de paquets"
 
 #: pkgs.cgi:416
 msgid "Packages lists are up-to-date. You should check for upgrades now."
-msgstr "Les listes de paquets ont été actualisées. Vous devriez rechercher des mises à jour maintenant."
+msgstr ""
+"Les listes de paquets ont été actualisées. Vous devriez rechercher des mises "
+"à jour maintenant."
 
 #: pkgs.cgi:430
 msgid "Up packages"
 msgstr "Mettre à jour"
 
-#: pkgs.cgi:485
+#: pkgs.cgi:486
 msgid "Performing tasks on packages"
 msgstr "Opérations sur les paquets"
 
-#: pkgs.cgi:515
+#: pkgs.cgi:516
 msgid "Remove"
 msgstr "Supprimer"
 
-#: pkgs.cgi:518
+#: pkgs.cgi:519
 msgid "Getting package info..."
 msgstr "Obtention de l'information sur le paquet..."
 
-#: pkgs.cgi:529
+#: pkgs.cgi:530
 msgid "Install"
 msgstr "Installer"
 
-#: pkgs.cgi:540
+#: pkgs.cgi:541
 msgid "Unblock"
 msgstr "Débloquer"
 
-#: pkgs.cgi:542
+#: pkgs.cgi:543
 msgid "Block"
 msgstr "Bloquer"
 
-#: pkgs.cgi:589
-#: pkgs.cgi:601
+#: pkgs.cgi:590 pkgs.cgi:602
 msgid "Installed files:"
 msgstr "Fichiers installés:"
 
-#: pkgs.cgi:641
-#: pkgs.cgi:764
+#: pkgs.cgi:642 pkgs.cgi:765
 msgid "Set link"
 msgstr "Créer un lien"
 
-#: pkgs.cgi:644
-#: pkgs.cgi:765
+#: pkgs.cgi:645 pkgs.cgi:766
 msgid "Remove link"
 msgstr "Supprimer le lien"
 
-#: pkgs.cgi:650
-#: pkgs.cgi:846
+#: pkgs.cgi:651 pkgs.cgi:847
 msgid "Administration"
 msgstr "Administration"
 
-#: pkgs.cgi:652
+#: pkgs.cgi:653
 msgid "Tazpkg administration and settings"
 msgstr "Administration et réglages de Tazpkg"
 
-#: pkgs.cgi:656
+#: pkgs.cgi:657
 msgid "Save configuration"
 msgstr "Enregistrer la configuration"
 
-#: pkgs.cgi:658
+#: pkgs.cgi:659
 msgid "List configuration files"
 msgstr "Lister les fichiers de configuration"
 
-#: pkgs.cgi:660
+#: pkgs.cgi:661
 msgid "Quick check"
 msgstr "Contrôle rapide"
 
-#: pkgs.cgi:662
+#: pkgs.cgi:663
 msgid "Full check"
 msgstr "Vérifier tout"
 
-#: pkgs.cgi:667
+#: pkgs.cgi:668
 msgid "Creating the package..."
 msgstr "Création du paquet..."
 
-#: pkgs.cgi:672
+#: pkgs.cgi:673
 msgid "Path : "
 msgstr "Chemin:"
 
-#: pkgs.cgi:675
-#: boot.cgi:248
+#: pkgs.cgi:676 boot.cgi:248
 msgid "Configuration files"
 msgstr "Fichiers de configuration"
 
-#: pkgs.cgi:688
+#: pkgs.cgi:689
 msgid "Checking packages consistency..."
 msgstr "Vérification de la cohérence des paquets..."
 
-#: pkgs.cgi:694
+#: pkgs.cgi:695
 msgid "Full packages check..."
 msgstr "Vérifier tous les paquets..."
 
-#: pkgs.cgi:701
+#: pkgs.cgi:702
 msgid "Packages cache"
 msgstr "Cache des paquets"
 
-#: pkgs.cgi:705
+#: pkgs.cgi:706
 msgid "Packages in the cache:"
 msgstr "Paquets dans le cache:"
 
-#: pkgs.cgi:712
+#: pkgs.cgi:713
 msgid "Current mirror list"
 msgstr "Liste des miroirs actuels"
 
-#: pkgs.cgi:735
+#: pkgs.cgi:736
 msgid "Private repositories"
 msgstr "Dépôts privés"
 
-#: pkgs.cgi:754
+#: pkgs.cgi:755
 msgid "Link to another SliTaz installation"
 msgstr "Lien vers une autre installation de SliTaz"
 
-#: pkgs.cgi:756
-msgid "This link points to the root of another SliTaz installation. You will be able to install packages using soft links to it."
-msgstr "Ce lien pointe vers la racine d'une autre installation de SliTaz. Vous serez en mesure d'installer des paquets en utilisant des liens symboliques vers elle."
+#: pkgs.cgi:757
+msgid ""
+"This link points to the root of another SliTaz installation. You will be "
+"able to install packages using soft links to it."
+msgstr ""
+"Ce lien pointe vers la racine d'une autre installation de SliTaz. Vous serez "
+"en mesure d'installer des paquets en utilisant des liens symboliques vers "
+"elle."
 
-#: pkgs.cgi:773
+#: pkgs.cgi:774
 msgid "SliTaz packages DVD"
 msgstr "DVD des paquets SliTaz"
 
-#: pkgs.cgi:785
+#: pkgs.cgi:786
 msgid "Download DVD image"
 msgstr "Télécharger l'image DVD"
 
-#: pkgs.cgi:787
+#: pkgs.cgi:788
 msgid "Install from DVD/USB key"
 msgstr "Installer à partir de DVD / clé USB"
 
-#: pkgs.cgi:790
+#: pkgs.cgi:791
 msgid "Install from ISO image: "
 msgstr "Installer à partir d'une image ISO:"
 
-#: pkgs.cgi:842
+#: pkgs.cgi:843
 msgid "Recharge list"
 msgstr "Recharger la liste"
 
-#: pkgs.cgi:852
+#: pkgs.cgi:853
 msgid "Latest log entries"
 msgstr "Dernières entrées de journal"
 
@@ -462,7 +432,8 @@ msgid ""
 "\tGenerate."
 msgstr ""
 "Générez un média SliTaz LiveUSB et démarrez en mémoire vive! Insérez un\n"
-"\tLiveCD dans le lecteur de cdrom, sélectionnez le bon périphérique et appuyez sur\n"
+"\tLiveCD dans le lecteur de cdrom, sélectionnez le bon périphérique et "
+"appuyez sur\n"
 "\tGenerer."
 
 #: live.cgi:108
@@ -489,8 +460,10 @@ msgid ""
 "\tto: boot, modify, writeiso."
 msgstr ""
 "La commande writeiso va générer une image ISO du\n"
-"\tsystème de fichiers courant, y compris tous les fichiers du répertoire /home.\n"
-"\tC'est un moyen facile de remasteriser un système SliTaz Live, vous avez juste\n"
+"\tsystème de fichiers courant, y compris tous les fichiers du répertoire /"
+"home.\n"
+"\tC'est un moyen facile de remasteriser un système SliTaz Live, vous avez "
+"juste\n"
 "\tà: démarrer, modifier, writeiso."
 
 #: live.cgi:133
@@ -505,8 +478,7 @@ msgstr "Écrire une ISO"
 msgid "Live CD tools"
 msgstr "Outils pour Live CD"
 
-#: live.cgi:144
-#: live.cgi:169
+#: live.cgi:144 live.cgi:169
 msgid "Convert ISO to loram"
 msgstr "Convertir une ISO en loram"
 
@@ -534,13 +506,11 @@ msgstr "Le système de fichiers peut être sur un petit CDROM"
 msgid "The filesystem may be on a large CDROM"
 msgstr "<Le système de fichiers peut être sur un grand CDROM"
 
-#: live.cgi:165
-#: live.cgi:208
+#: live.cgi:165 live.cgi:208
 msgid "ISO to create"
 msgstr "ISO à créer"
 
-#: live.cgi:173
-#: live.cgi:212
+#: live.cgi:173 live.cgi:212
 msgid "Build a meta ISO"
 msgstr "Construire une méta ISO"
 
@@ -551,15 +521,15 @@ msgid ""
 "\tutmost one."
 msgstr ""
 "Combine plusieurs saveurs ISO comme des poupées russes emboîtées.\n"
-"\tLa taille de RAM disponible au démarrage sera utilisé pour sélectionner la\n"
+"\tLa taille de RAM disponible au démarrage sera utilisé pour sélectionner "
+"la\n"
 "\tplus adaptée."
 
 #: live.cgi:188
 msgid "ISO number"
 msgstr "Numéro d'ISO"
 
-#: live.cgi:190
-#: live.cgi:203
+#: live.cgi:190 live.cgi:203
 msgid "Minimum RAM"
 msgstr "RAM minimum"
 
@@ -579,9 +549,7 @@ msgstr "Qualité"
 msgid "Encryption"
 msgstr "Chiffrement"
 
-#: network.cgi:26
-#: boot.cgi:86
-#: lib/libtazpanel:87
+#: network.cgi:26 boot.cgi:86 lib/libtazpanel:87
 msgid "Status"
 msgstr "État"
 
@@ -589,81 +557,81 @@ msgstr "État"
 msgid "Connected"
 msgstr "Connecté"
 
-#: network.cgi:82
+#: network.cgi:83
 msgid "Changed hostname:"
 msgstr "Changer le nom de l'hôte"
 
-#: network.cgi:98
+#: network.cgi:99
 msgid "Scanning open ports..."
 msgstr "Balayer les ports ouverts"
 
-#: network.cgi:101
+#: network.cgi:102
 msgid "Port scanning for"
 msgstr "Balayage des ports pour"
 
-#: network.cgi:115
+#: network.cgi:116
 msgid "Setting up IP..."
 msgstr "Configurer l'IP..."
 
-#: network.cgi:131
+#: network.cgi:132
 msgid "Ethernet connection"
 msgstr "Connexion réseau"
 
-#: network.cgi:133
+#: network.cgi:134
 msgid ""
 "Here you can configure a wired connection using DHCP to\n"
 "automatically get a random IP or configure a static/fixed IP"
 msgstr ""
-"Ici vous pouvez configurer une connexion filaire en utilisant le protocole DHCP pour\n"
-"obtenir automatiquement une adresse IP aléatoire ou configurer une adresse IP statique / fixe"
+"Ici vous pouvez configurer une connexion filaire en utilisant le protocole "
+"DHCP pour\n"
+"obtenir automatiquement une adresse IP aléatoire ou configurer une adresse "
+"IP statique / fixe"
 
-#: network.cgi:136
+#: network.cgi:137
 msgid "Configuration"
 msgstr "Configuration"
 
-#: network.cgi:143
+#: network.cgi:144 network.cgi:239
 msgid "Value"
 msgstr "Valeur"
 
-#: network.cgi:147
-#: lib/libtazpanel:85
+#: network.cgi:148 lib/libtazpanel:85
 msgid "Interface"
 msgstr "Interface"
 
-#: network.cgi:151
+#: network.cgi:152
 msgid "IP address"
 msgstr "Adresse IP"
 
-#: network.cgi:155
+#: network.cgi:156
 msgid "Netmask"
 msgstr "Masque de sous-réseau"
 
-#: network.cgi:159
+#: network.cgi:160
 msgid "Gateway"
 msgstr "Passerelle"
 
-#: network.cgi:163
+#: network.cgi:164
 msgid "DNS server"
 msgstr "Serveur DNS"
 
-#: network.cgi:167
+#: network.cgi:168
 msgid "Activate (static)"
 msgstr "Activer (statique)"
 
-#: network.cgi:168
+#: network.cgi:169
 msgid "Activate (DHCP)"
 msgstr "Activer (Dynamique)"
 
-#: network.cgi:169
+#: network.cgi:170
 msgid "Disable"
 msgstr "Désactiver"
 
-#: network.cgi:172
-#: network.cgi:202
+#: network.cgi:173 network.cgi:258
 msgid "Configuration file"
 msgstr "Fichier de configuration"
 
-#: network.cgi:174
+#: network.cgi:175
 msgid ""
 "These values are the ethernet settings in the main\n"
 "/etc/network.conf configuration file"
@@ -671,34 +639,54 @@ msgstr ""
 "Ces valeurs sont celles des paramètres Ethernet dans le fichier\n"
 "de configuration principal /etc/network.conf"
 
-#: network.cgi:181
-#: network.cgi:211
+#: network.cgi:182 network.cgi:267
 msgid "Manual Edit"
 msgstr "Édition manuelle"
 
-#: network.cgi:187
+#: network.cgi:188
 msgid "Scanning wireless interface..."
 msgstr "Scan des interfaces wireless..."
 
-#: network.cgi:190
+#: network.cgi:192
 msgid "Wireless connection"
 msgstr "Connection sans fil"
 
-#: network.cgi:193
-#: network.cgi:232
+#: network.cgi:195 network.cgi:288
 msgid "Start"
 msgstr "Démarrer"
 
-#: network.cgi:195
-#: network.cgi:234
+#: network.cgi:197 network.cgi:290
 msgid "Stop"
 msgstr "Arrêter"
 
-#: network.cgi:197
+#: network.cgi:199
 msgid "Scan"
 msgstr "Scanner"
 
-#: network.cgi:204
+#: network.cgi:232
+#, fuzzy
+msgid "Connection"
+msgstr "Connexion:"
+
+#: network.cgi:243
+msgid "Wifi name (ESSID)"
+msgstr ""
+
+#: network.cgi:247
+msgid "Password (Wifi key)"
+msgstr ""
+
+#: network.cgi:251
+#, fuzzy
+msgid "Encryption type"
+msgstr "Chiffrement"
+
+#: network.cgi:255
+#, fuzzy
+msgid "Configure"
+msgstr "Configuration"
+
+#: network.cgi:260
 msgid ""
 "These values are the wifi settings in the main\n"
 "/etc/network.conf configuration file"
@@ -706,59 +694,59 @@ msgstr ""
 "Ces valeurs sont celles des paramètres wifi dans le fichier\n"
 "de configuration principal /etc/network.conf"
 
-#: network.cgi:213
+#: network.cgi:269
 msgid "Output of"
 msgstr "Résultat de"
 
-#: network.cgi:224
+#: network.cgi:280
 msgid "Networking"
 msgstr "Gestion de réseau"
 
-#: network.cgi:226
+#: network.cgi:282
 msgid "Manage network connections and services"
 msgstr "Gérer les connexions réseau et les services"
 
-#: network.cgi:230
+#: network.cgi:286
 msgid "Connection:"
 msgstr "Connexion:"
 
-#: network.cgi:237
+#: network.cgi:293
 msgid "Configuration:"
 msgstr "Configuration:"
 
-#: network.cgi:247
+#: network.cgi:303
 msgid "Hosts"
 msgstr "Hôtes"
 
-#: network.cgi:252
+#: network.cgi:308
 msgid "Edit hosts"
 msgstr "Editer les hôtes"
 
-#: network.cgi:254
+#: network.cgi:310
 msgid "Hostname"
 msgstr "Nom d'hôte"
 
-#: network.cgi:257
+#: network.cgi:313
 msgid "Change hostname"
 msgstr "Changer le nom d'hôte"
 
-#: network.cgi:262
+#: network.cgi:318
 msgid "Output of "
 msgstr "Sortie de "
 
-#: network.cgi:268
+#: network.cgi:324
 msgid "Routing table"
 msgstr "Table de routage"
 
-#: network.cgi:274
+#: network.cgi:330
 msgid "Domain name resolution"
 msgstr "Résolution de noms de domaines"
 
-#: network.cgi:280
+#: network.cgi:336
 msgid "ARP table"
 msgstr "Table ARP"
 
-#: network.cgi:286
+#: network.cgi:342
 msgid "IP Connections"
 msgstr "Connexions IP"
 
@@ -766,13 +754,11 @@ msgstr "Connexions IP"
 msgid "Boot log files"
 msgstr "Journaux du démarrage"
 
-#: boot.cgi:31
-#: boot.cgi:44
+#: boot.cgi:31 boot.cgi:44
 msgid "X server"
 msgstr "Serveur x"
 
-#: boot.cgi:61
-#: boot.cgi:244
+#: boot.cgi:61 boot.cgi:244
 msgid "Manage daemons"
 msgstr "Gérer les démons"
 
@@ -840,8 +826,7 @@ msgstr "Gestionnaire de démarrage GRUB"
 msgid "The first application started when the computer powers on"
 msgstr "La première application démarrée au lancement du système."
 
-#: boot.cgi:206
-#: settings.cgi:310
+#: boot.cgi:206 settings.cgi:283
 msgid "Change"
 msgstr "Changer"
 
@@ -854,7 +839,8 @@ msgid "Entry"
 msgstr "Entrée"
 
 #: boot.cgi:225
-msgid "Web boot is avalaible with gPXE"
+#, fuzzy
+msgid "Web boot is available with gPXE"
 msgstr "Le démarrage réseau est disponible avec PXE"
 
 #: boot.cgi:235
@@ -893,154 +879,165 @@ msgstr "Commandes locales exécutées au démarrage"
 msgid "Edit script"
 msgstr "Éditer le script"
 
-#: hardware.cgi:33
+#: hardware.cgi:28
+#, fuzzy
+msgid "Detect hardware"
+msgstr "Configurer l'horloge système"
+
+#: hardware.cgi:29
+msgid "Detect PCI and USB hardware"
+msgstr ""
+
+#: hardware.cgi:42
 msgid "Kernel modules"
 msgstr "Modules du noyau"
 
-#: hardware.cgi:40
+#: hardware.cgi:49
 msgid "Manage, search or get information about the Linux kernel modules"
-msgstr "Gérer, rechercher ou obtenir des informations sur les modules du noyau Linux"
+msgstr ""
+"Gérer, rechercher ou obtenir des informations sur les modules du noyau Linux"
 
-#: hardware.cgi:46
+#: hardware.cgi:55
 msgid "Detailed information for module: "
 msgstr "Les informations détaillées pour le module :"
 
-#: hardware.cgi:62
+#: hardware.cgi:71
 msgid "Matching result(s) for: "
 msgstr "Résultats correspondants pour : "
 
-#: hardware.cgi:75
+#: hardware.cgi:84
 msgid "Module"
 msgstr "Module"
 
-#: hardware.cgi:76
-#: lib/libtazpanel:180
+#: hardware.cgi:85 lib/libtazpanel:205
 msgid "Size"
 msgstr "Taille"
 
-#: hardware.cgi:77
-#: lib/libtazpanel:182
+#: hardware.cgi:86 lib/libtazpanel:207
 msgid "Used"
 msgstr "Utilisé"
 
-#: hardware.cgi:78
+#: hardware.cgi:87
 msgid "by"
 msgstr "par"
 
-#: hardware.cgi:101
+#: hardware.cgi:113
 msgid "Drivers &amp; Devices"
 msgstr "Pilotes &amp; périphériques"
 
-#: hardware.cgi:102
+#: hardware.cgi:114
 msgid "Manage your computer hardware"
 msgstr "Gérer le matériel de l'ordinateur"
 
-#: hardware.cgi:133
+#: hardware.cgi:171
+msgid "LCD brightness"
+msgstr ""
+
+#: hardware.cgi:223
 msgid "System memory"
 msgstr "Mémoire système"
 
-#: settings.cgi:115
-#: settings.cgi:203
+#: settings.cgi:88 settings.cgi:176
 msgid "Manage users"
 msgstr "Gérer les utilisateurs"
 
-#: settings.cgi:120
+#: settings.cgi:93
 msgid "Delete user"
 msgstr "Supprimer l'utilisateur"
 
-#: settings.cgi:121
+#: settings.cgi:94
 msgid "Lock user"
 msgstr "Bloquer l'utilisateur"
 
-#: settings.cgi:122
+#: settings.cgi:95
 msgid "Unlock user"
 msgstr "Débloquer l'utilisateur"
 
-#: settings.cgi:129
+#: settings.cgi:102
 msgid "Login"
 msgstr "Identifiant"
 
-#: settings.cgi:130
+#: settings.cgi:103
 msgid "User ID"
 msgstr "Id utilisateur"
 
-#: settings.cgi:132
+#: settings.cgi:105
 msgid "Home"
 msgstr "Répertoire personnel"
 
-#: settings.cgi:133
+#: settings.cgi:106
 msgid "Shell"
 msgstr "Shell"
 
-#: settings.cgi:165
+#: settings.cgi:138
 msgid "Password:"
 msgstr "Mot de passe:"
 
-#: settings.cgi:167
+#: settings.cgi:140
 msgid "Change password"
 msgstr "Changer le mot de passe"
 
-#: settings.cgi:171
+#: settings.cgi:144
 msgid "Add a new user"
 msgstr "Ajouter un utilisateur"
 
-#: settings.cgi:174
+#: settings.cgi:147
 msgid "User login:"
 msgstr "Nom de login:"
 
-#: settings.cgi:176
+#: settings.cgi:149
 msgid "User password:"
 msgstr "Mot de passe:"
 
-#: settings.cgi:178
+#: settings.cgi:151
 msgid "Create user"
 msgstr "Créer un utilisateur"
 
-#: settings.cgi:181
+#: settings.cgi:154
 msgid "Current user sessions"
 msgstr "Sessions utilisateur courantes"
 
-#: settings.cgi:186
+#: settings.cgi:159
 msgid "Last user sessions"
 msgstr "Dernières sessions utilisateur"
 
-#: settings.cgi:198
+#: settings.cgi:171
 msgid "System settings"
 msgstr "Réglages système"
 
-#: settings.cgi:199
+#: settings.cgi:172
 msgid "Manage system time, users or language settings"
 msgstr "Gérer l'horloge, les utilisateurs ou les paramètres de langue"
 
-#: settings.cgi:206
+#: settings.cgi:179
 msgid "System time"
 msgstr "Heure système"
 
-#: settings.cgi:208
+#: settings.cgi:181
 msgid "Time zome      :"
 msgstr "Zone horaire  :"
 
-#: settings.cgi:209
+#: settings.cgi:182
 msgid "System time    :"
 msgstr "Heure du système:"
 
-#: settings.cgi:210
+#: settings.cgi:183
 msgid "Hardware clock :"
 msgstr "Horloge système:"
 
-#: settings.cgi:212
+#: settings.cgi:185
 msgid "Sync online"
 msgstr "Synchroniser en ligne"
 
-#: settings.cgi:213
+#: settings.cgi:186
 msgid "Set hardware clock"
 msgstr "Configurer l'horloge système"
 
-#: settings.cgi:220
+#: settings.cgi:193
 msgid "System language"
 msgstr "Langue du système"
 
-#: settings.cgi:231
+#: settings.cgi:204
 #, sh-format
 msgid ""
 "You must logout and login again to your current\n"
@@ -1049,61 +1046,59 @@ msgstr ""
 "Vous devez vous déconnecter et vous reconnecter à votre session\n"
 "\t\t\t\tcourante pour utiliser la locale $new_locale"
 
-#: settings.cgi:234
+#: settings.cgi:207
 msgid "Current system locales: "
 msgstr "Locales système courantes : "
 
-#: settings.cgi:240
+#: settings.cgi:213
 msgid "Available locales:"
 msgstr "Langues disponibles:"
 
-#: settings.cgi:245
-#: settings.cgi:293
-#: settings.cgi:303
+#: settings.cgi:218 settings.cgi:266 settings.cgi:276
 msgid "Activate"
 msgstr "Activer"
 
-#: settings.cgi:249
+#: settings.cgi:222
 msgid "Console keymap"
 msgstr "keymap de la console"
 
-#: settings.cgi:261
+#: settings.cgi:234
 msgid "Current console keymap: "
 msgstr "keymap de la console courante : "
 
-#: settings.cgi:280
+#: settings.cgi:253
 msgid "Suggested keymap for Xorg:"
 msgstr "keymap suggéré pour Xorg : "
 
-#: settings.cgi:289
+#: settings.cgi:262
 msgid "Available keymaps:"
 msgstr "Claviers disponibles:"
 
-#: settings.cgi:296
+#: settings.cgi:269
 msgid "Panel configuration"
 msgstr "Configuration du panneau"
 
-#: settings.cgi:299
+#: settings.cgi:272
 msgid "Style:"
 msgstr "Style:"
 
-#: settings.cgi:308
+#: settings.cgi:281
 msgid "Panel password:"
 msgstr "Mot de passe:"
 
-#: settings.cgi:314
+#: settings.cgi:287
 msgid "Configuration files: "
 msgstr "Fichiers de configuration"
 
-#: settings.cgi:316
+#: settings.cgi:289
 msgid "Panel"
 msgstr "Panneau"
 
-#: settings.cgi:318
+#: settings.cgi:291
 msgid "Server"
 msgstr "Serveur"
 
-#: settings.cgi:321
+#: settings.cgi:294
 msgid "TazPanel provides a debuging mode and page:"
 msgstr "TazPanel fournit un mode et une page debuging"
 
@@ -1115,15 +1110,15 @@ msgstr "Adresse IP"
 msgid "Scan ports"
 msgstr "Scan de ports"
 
-#: lib/libtazpanel:179
+#: lib/libtazpanel:204
 msgid "Disk"
 msgstr "Disque"
 
-#: lib/libtazpanel:181
+#: lib/libtazpanel:206
 msgid "Available"
 msgstr "Disponible"
 
-#: lib/libtazpanel:183
+#: lib/libtazpanel:208
 msgid "Mount point"
 msgstr "Point de montage"
 
