@@ -2,7 +2,7 @@
 #
 # Network configuration CGI interface
 #
-# Copyright (C) 2011 SliTaz GNU/Linux - BSD License
+# Copyright (C) 2012 SliTaz GNU/Linux - BSD License
 #
 
 # Common functions from libtazpanel
@@ -205,7 +205,6 @@ EOT
 			WIFI_KEY_TYPE=none
 			[ -n "$(GET key)" ] && WIFI_KEY="$(GET key)"
 			[ -n "$(GET keytype)" ] && WIFI_KEY_TYPE="$(GET keytype)"
-			/etc/init.d/network.sh stop | log
 			sed -i \
 				-e s'/^DHCP=.*/DHCP="yes"/' \
 				-e s'/^STATIC=.*/STATIC="no"/' \
@@ -214,11 +213,11 @@ EOT
 				-e s"/^WIFI_KEY=.*/WIFI_KEY=\"$WIFI_KEY\"/" \
 				-e s"/^WIFI_KEY_TYPE=.*/WIFI_KEY_TYPE=\"$WIFI_KEY_TYPE\"/" \
 				/etc/network.conf
-			# BUG: It dont scan and connect. Just configure, user must then press
-			# start on top.
+			# BUGGY
 			#/etc/init.d/network stop | log
-			#sleep 2
-			#/etc/init.d/network start | log
+			# sleep 2
+			/etc/init.d/network start | log
+			sleep 2
 			. /etc/network.conf
 		fi
 		# ESSID names are clickable
