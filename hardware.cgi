@@ -19,6 +19,22 @@ TITLE="- Hardware"
 case " $(GET) " in
 	*\ print\ *)
 		echo "TODO" ;;
+	*\ detect\ *)
+		# Front end for Tazhw
+		# TODO: Add button to detect webcam, etc. Like in tazhw box.
+		xhtml_header
+				cat << EOT
+<div id="wrapper">
+	<h2>$(gettext "Detect hardware")</h2>
+	<p>$(gettext "Detect PCI and USB hardware")</p>
+</div>
+EOT
+		echo '<pre>'
+		tazhw detect-pci
+		echo '</pre>'
+		echo '<pre>'
+		tazhw detect-usb
+		echo '</pre>' ;;
 	*\ modules\ *|*\ modinfo\ *)
 		xhtml_header
 		cat << EOT
@@ -30,7 +46,7 @@ case " $(GET) " in
 		<input type="text" name="search" />
 	</form>
 </div>
-	<p>`gettext "Manage, search or get information about the Linux kernel modules`</p>
+	<p>$(gettext "Manage, search or get information about the Linux kernel modules")</p>
 </div>
 EOT
 		# Request may be modinfo output that we want in the page itself
@@ -100,6 +116,8 @@ EOT
 <div>
 	<a class="button" href="$SCRIPT_NAME?modules">
 		<img src="$IMAGES/tux.png" />Kernel modules</a>
+	<a class="button" href="$SCRIPT_NAME?detect">
+		<img src="$IMAGES/monitor.png" />Detect Harware</a>
 </div>
 
 <div id="wrapper">
