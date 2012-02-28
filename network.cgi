@@ -54,7 +54,7 @@ EOT
 				status="---"
 			fi
 			echo '<tr>'
-			echo "<td><img src='$IMAGES/wireless.png' />$ESSID</td>"
+			echo "<td><a href=\"$SCRIPT_NAME?wifi\"><img src='$IMAGES/wireless.png' />$ESSID</a></td>"
 			echo "<td>$QUALITY</td><td>$ENCRYPTION</td><td>$status $ip</td>"
 			echo '</tr>'
 		done
@@ -183,11 +183,30 @@ EOT
 		;;
 	*\ wifi\ *)
 		# Wireless connections settings
+		#ifconfig $WIFI_INTERFACE up
 		xhtml_header
 		LOADING_MSG=$(gettext "Scanning wireless interface...")
 		loading_msg
+		if [ "$(GET essid)" ]; then
+			WIFI_KEY=""
+			WIFI_KEY_TYPE=none
+			[ -n "$(GET key)" ] && WIFI_KEY="$(GET key)"
+			[ -n "$(GET keytype)" ] && WIFI_KEY_TYPE="$(GET keytype)"
+			sed -i \
+				-e s'/^DHCP=.*/DHCP="yes"/' \
+				-e s'/^STATIC=.*/STATIC="no"/' \
+				-e s'/^WIFI=.*/WIFI="yes"/' \
+				-e s"/^WIFI_ESSID=.*/WIFI_ESSID=\"$(GET essid)\""/ \
+				-e s"/^WIFI_KEY=.*/WIFI_KEY=\"$WIFI_KEY\"/" \
+				-e s"/^WIFI_KEY_TYPE=.*/WIFI_KEY_TYPE=\"$WIFI_KEY_TYPE\"/" \
+				/etc/network.conf
+			/etc/init.d/network stop | log
+			sleep 2
+			/etc/init.d/network start | log
+		fi
+		. /etc/network.conf
 		cat << EOT
-<h2>`gettext "Wireless connection"`</h2>
+<h2>$(gettext "Wireless connection")</h2>
 <div id="actions">
 	<a class="button" href="$SCRIPT_NAME?wifi&start-wifi=start-wifi">
 		<img src="$IMAGES/start.png" />$(gettext "Start")</a>
@@ -199,6 +218,32 @@ EOT
 $(detect_wifi_networks)
 EOT
 	cat << EOT
+<h3>$(gettext "Connection")</h3>
+<form method="get" action="$SCRIPT_NAME">
+	<input type="hidden" name="wifi" />
+	$(table_start)
+	<thead>
+		<tr>
+			<td>$(gettext "Name")</td>
+			<td>$(gettext "Value")</td>
+		</tr>
+	</thead>
+	<tr>
+		<td>$(gettext "Wifi name (ESSID)")</td>
+		<td><input type="text" name="essid" size="30" value="$WIFI_ESSID" /></td>
+	</tr>
+	<tr>
+		<td>$(gettext "Password (Wifi key)")</td>
+		<td><input type="text" name="key" size="30" value="$WIFI_KEY" /></td>
+	</tr>
+	<tr>
+		<td>$(gettext "Encryption type")</td>
+		<td><input type="text" name="keytype" size="30" value="$WIFI_KEY_TYPE" /></td>
+	</tr>
+	$(table_end)
+		<input type="submit" name="wifi" value="$(gettext "Connect")" />
+</form>
+
 <h3>$(gettext "Configuration file")</h3>
 <p>
 $(gettext "These values are the wifi settings in the main
