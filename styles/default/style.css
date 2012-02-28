@@ -287,11 +287,11 @@ ul.dropdownmenu li {
 	padding:0;
 }
 ul.dropdownmenu li.current {
-	background:#f1f1f1;
+	background:#f1efeb;
 }
 
 ul.dropdownmenu li:hover {
-	background:#f1f1f1;
+	background:#f1efeb;
 } 
 
 
@@ -355,5 +355,5 @@ ul.dropdownmenu li ul li a {
 
 /* drop down menu hover styles */
 ul.dropdownmenu li:hover ul * {
-	background:#f1f1f1;
+	background: #f1efeb;
 }
