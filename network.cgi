@@ -79,13 +79,6 @@ case " $(GET) " in
 			-e s'/^STATIC=.*/STATIC="no"/'/etc/network.conf
 		/etc/init.d/network.sh start | log
 		sleep 2 ;;
-	*\ select\ *)
-			WIFI_KEY_TYPE="$(GET keytype)"
-			[ "$WIFI_KEY_TYPE" == "on" ] && WIFI_KEY_TYPE=""
-			sed -i \
-				-e s"/^WIFI_ESSID=.*/WIFI_ESSID=\"$(GET select)\""/ \
-				-e s"/^WIFI_KEY_TYPE=.*/WIFI_KEY_TYPE=\"$WIFI_KEY_TYPE\"/" \
-				/etc/network.conf ;;
 	*\ hostname\ *)
 		echo $(gettext "Changed hostname:") $(GET hostname) | log
 		echo "$(GET hostname)" > /etc/hostname ;;
@@ -106,7 +99,7 @@ case " $(GET) " in
 		LOADING_MSG=$(gettext "Scanning open ports...")
 		loading_msg
 		cat << EOT
-<h2>`gettext "Port scanning for"` $scan</h2>
+<h2>$(gettext "Port scanning for") $scan</h2>
 <pre>
 $(pscan -b $scan)
 </pre>
@@ -133,10 +126,10 @@ EOT
 			/etc/init.d/network stop | log
 			sleep 2
 			/etc/init.d/network start | log
+			. /etc/network.conf
 		fi
-		. /etc/network.conf
 		cat << EOT
-<h2>`gettext "Ethernet connection"`</h2>
+<h2>$(gettext "Ethernet connection")</h2>
 <p>
 $(gettext "Here you can configure a wired connection using DHCP to
 automatically get a random IP or configure a static/fixed IP")
@@ -191,27 +184,9 @@ EOT
 		;;
 	*\ wifi\ *)
 		# Wireless connections settings
-		#ifconfig $WIFI_INTERFACE up
 		xhtml_header
 		LOADING_MSG=$(gettext "Scanning wireless interface...")
 		loading_msg
-		if [ "$(GET essid)" ]; then
-			WIFI_KEY=""
-			WIFI_KEY_TYPE=none
-			[ -n "$(GET key)" ] && WIFI_KEY="$(GET key)"
-			[ -n "$(GET keytype)" ] && WIFI_KEY_TYPE="$(GET keytype)"
-			sed -i \
-				-e s'/^DHCP=.*/DHCP="yes"/' \
-				-e s'/^STATIC=.*/STATIC="no"/' \
-				-e s'/^WIFI=.*/WIFI="yes"/' \
-				-e s"/^WIFI_ESSID=.*/WIFI_ESSID=\"$(GET essid)\""/ \
-				-e s"/^WIFI_KEY=.*/WIFI_KEY=\"$WIFI_KEY\"/" \
-				-e s"/^WIFI_KEY_TYPE=.*/WIFI_KEY_TYPE=\"$WIFI_KEY_TYPE\"/" \
-				/etc/network.conf
-			/etc/init.d/network stop | log
-			sleep 2
-			/etc/init.d/network start | log
-		fi
 		. /etc/network.conf
 		cat << EOT
 <h2>$(gettext "Wireless connection")</h2>
@@ -225,10 +200,39 @@ EOT
 </div>
 $(detect_wifi_networks)
 EOT
+		if [ "$(GET essid)" ]; then
+			WIFI_KEY=""
+			WIFI_KEY_TYPE=none
+			[ -n "$(GET key)" ] && WIFI_KEY="$(GET key)"
+			[ -n "$(GET keytype)" ] && WIFI_KEY_TYPE="$(GET keytype)"
+			/etc/init.d/network.sh stop | log
+			sed -i \
+				-e s'/^DHCP=.*/DHCP="yes"/' \
+				-e s'/^STATIC=.*/STATIC="no"/' \
+				-e s'/^WIFI=.*/WIFI="yes"/' \
+				-e s"/^WIFI_ESSID=.*/WIFI_ESSID=\"$(GET essid)\""/ \
+				-e s"/^WIFI_KEY=.*/WIFI_KEY=\"$WIFI_KEY\"/" \
+				-e s"/^WIFI_KEY_TYPE=.*/WIFI_KEY_TYPE=\"$WIFI_KEY_TYPE\"/" \
+				/etc/network.conf
+			# BUG: It dont scan and connect. Just configure, user must then press
+			# start on top.
+			#/etc/init.d/network stop | log
+			#sleep 2
+			#/etc/init.d/network start | log
+			. /etc/network.conf
+		fi
+		# ESSID names are clickable
+		if [ "$(GET select)" ]; then
+			if [ "$(GET select)" != "$WIFI_ESSID" ]; then
+				WIFI_KEY=""
+			fi
+			WIFI_ESSID="$(GET select)"
+			WIFI_KEY_TYPE="$(GET keytype)"
+		fi
 	cat << EOT
 <h3>$(gettext "Connection")</h3>
 <form method="get" action="$SCRIPT_NAME">
-	<input type="hidden" name="wifi" />
+	<input type="hidden" name="connect-wifi" />
 	$(table_start)
 	<thead>
 		<tr>
@@ -242,14 +246,14 @@ EOT
 	</tr>
 	<tr>
 		<td>$(gettext "Password (Wifi key)")</td>
-		<td><input type="text" name="key" size="30" value="$WIFI_KEY" /></td>
+		<td><input type="password" name="key" size="30" value="$WIFI_KEY" /></td>
 	</tr>
 	<tr>
 		<td>$(gettext "Encryption type")</td>
 		<td><input type="text" name="keytype" size="30" value="$WIFI_KEY_TYPE" /></td>
 	</tr>
 	$(table_end)
-		<input type="submit" name="wifi" value="$(gettext "Connect")" />
+		<input type="submit" name="wifi" value="$(gettext "Configure")" />
 </form>
 
 <h3>$(gettext "Configuration file")</h3>
