@@ -117,7 +117,7 @@ EOT
 	<a class="button" href="$SCRIPT_NAME?modules">
 		<img src="$IMAGES/tux.png" />Kernel modules</a>
 	<a class="button" href="$SCRIPT_NAME?detect">
-		<img src="$IMAGES/monitor.png" />Detect Harware</a>
+		<img src="$IMAGES/monitor.png" />Detect PCI/USB</a>
 </div>
 
 <div id="wrapper">

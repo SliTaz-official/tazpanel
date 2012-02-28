@@ -17,7 +17,7 @@ search_form() {
 	<form method="get" action="$SCRIPT_NAME">
 		<p>
 			<input type="text" name="manual" size="20">
-			<input type="submit" value="`gettext "Manual"`">
+			<input type="submit" class="radius" value="$(gettext "Manual")">
 		</p>
 	</form>
 </div>
