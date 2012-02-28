@@ -29,21 +29,21 @@ detect_wifi_networks()
 EOT
 	if [ -d /sys/class/net/$WIFI_INTERFACE/wireless ]; then
 		ifconfig $WIFI_INTERFACE up
-		for i in `iwlist $WIFI_INTERFACE scan | sed s/"Cell "/Cell-/ | grep "Cell-" | awk '{print $1}'`
+		for i in $(iwlist $WIFI_INTERFACE scan | sed s/"Cell "/Cell-/ | grep "Cell-" | awk '{print $1}')
 		do
-			SCAN=`iwlist $WIFI_INTERFACE scan last | \
-				awk '/(Cell|ESS|Qual|Encry|IE: WPA)/ {print}' | \
-				sed s/"Cell "/Cell-/ | grep -A 5 "$i"`
-			ESSID=`echo $SCAN | cut -d '"' -f 2`
+			SCAN=$(iwlist $WIFI_INTERFACE scan last | \
+				awk '/(Cell|ESS|Qual|Encry|IE: WPA|WPA2)/ {print}' | \
+				sed s/"Cell "/Cell-/ | grep -A 5 "$i")
+			ESSID=$(echo $SCAN | cut -d '"' -f 2)
 			if echo "$SCAN" | grep -q Quality; then
-				QUALITY=`echo $SCAN | sed 's/.*Quality=\([^ ]*\).*/\1/' | sed 's/.*Quality:\([^ ]*\).*/\1/'`
+				QUALITY=$(echo $SCAN | sed 's/.*Quality=\([^ ]*\).*/\1/' | sed 's/.*Quality:\([^ ]*\).*/\1/')
 			else
 				QUALITY="-"
 			fi
-			ENCRYPTION=`echo $SCAN | sed 's/.*key:\([^ ]*\).*/\1/'`
+			ENCRYPTION=$(echo $SCAN | sed 's/.*key:\([^ ]*\).*/\1/')
 			# Check encryption type
-			if echo "$SCAN" | grep -q WPA; then
-				ENCRYPTION="${ENCRYPTION} (WPA)"
+			if echo "$SCAN" | grep -q WPA*; then
+				ENCRYPTION="WPA"
 			fi
 			# Connected or not connected...
 			if ifconfig | grep -A 1 $WIFI_INTERFACE | \
@@ -54,7 +54,8 @@ EOT
 				status="---"
 			fi
 			echo '<tr>'
-			echo "<td><a href=\"$SCRIPT_NAME?wifi\"><img src='$IMAGES/wireless.png' />$ESSID</a></td>"
+			echo "<td><a href=\"$SCRIPT_NAME?wifi&select=$ESSID&keytype=$ENCRYPTION\">
+				<img src='$IMAGES/wireless.png' />$ESSID</a></td>"
 			echo "<td>$QUALITY</td><td>$ENCRYPTION</td><td>$status $ip</td>"
 			echo '</tr>'
 		done
@@ -78,6 +79,13 @@ case " $(GET) " in
 			-e s'/^STATIC=.*/STATIC="no"/'/etc/network.conf
 		/etc/init.d/network.sh start | log
 		sleep 2 ;;
+	*\ select\ *)
+			WIFI_KEY_TYPE="$(GET keytype)"
+			[ "$WIFI_KEY_TYPE" == "on" ] && WIFI_KEY_TYPE=""
+			sed -i \
+				-e s"/^WIFI_ESSID=.*/WIFI_ESSID=\"$(GET select)\""/ \
+				-e s"/^WIFI_KEY_TYPE=.*/WIFI_KEY_TYPE=\"$WIFI_KEY_TYPE\"/" \
+				/etc/network.conf ;;
 	*\ hostname\ *)
 		echo $(gettext "Changed hostname:") $(GET hostname) | log
 		echo "$(GET hostname)" > /etc/hostname ;;
