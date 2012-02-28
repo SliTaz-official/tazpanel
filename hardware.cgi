@@ -112,8 +112,9 @@ EOT
 				remain=$(sed '/remaining capacity/!d;s/[^0-9]*\([0-9]*\).*/\1/' < $dev/state)
 				rate=$(sed '/present rate/!d;s/[^0-9]*\([0-9]*\).*/\1/' < $dev/state)
 				full=$(sed '/last full capacity/!d;s/[^0-9]*\([0-9]*\).*/\1/' < $dev/info)
-				remtime=$(( ($remain * 60) / $rate ))
-				rempct=$(( ($remain * 100) / $full ))
+				# FIXME
+				#remtime=$(( ($remain * 60) / $rate ))
+				#rempct=$(( ($remain * 100) / $full ))
 				cat << EOT
 <tr>
 	<td><img src="$IMAGES/battery.png" />
