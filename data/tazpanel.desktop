@@ -2,5 +2,5 @@
 Type=Application
 Name=SliTaz Panel
 Icon=tazpanel
-Exec=tazweb http://tazpanel:82/
+Exec=browser http://tazpanel:82/
 Categories=System;
