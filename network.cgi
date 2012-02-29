@@ -63,6 +63,18 @@ EOT
 	table_end
 }
 
+# Start a wifi connection
+start_wifi() {
+	sed -i \
+		-e s'/^DHCP=.*/DHCP="yes"/' \
+		-e s'/^WIFI=.*/WIFI="yes"/' \
+		-e s'/^STATIC=.*/STATIC="no"/'/etc/network.conf
+	ifconfig $WIFI_INTERFACE up
+	iwconfig $WIFI_INTERFACE txpower auto
+	/etc/init.d/network.sh start | log
+	sleep 2
+}
+
 # Actions commands before page is displayed
 case " $(GET) " in
 	*\ start\ *)
@@ -72,13 +84,7 @@ case " $(GET) " in
 		sleep 2 ;;
 	*\ stop\ *)
 		/etc/init.d/network.sh stop | log ;;
-	*\ start-wifi\ *)
-		sed -i \
-			-e s'/^DHCP=.*/DHCP="yes"/' \
-			-e s'/^WIFI=.*/WIFI="yes"/' \
-			-e s'/^STATIC=.*/STATIC="no"/'/etc/network.conf
-		/etc/init.d/network.sh start | log
-		sleep 2 ;;
+	*\ start-wifi\ *) start_wifi ;;
 	*\ hostname\ *)
 		echo $(gettext "Changed hostname:") $(GET hostname) | log
 		echo "$(GET hostname)" > /etc/hostname ;;
@@ -205,20 +211,14 @@ EOT
 			WIFI_KEY_TYPE=none
 			[ -n "$(GET key)" ] && WIFI_KEY="$(GET key)"
 			[ -n "$(GET keytype)" ] && WIFI_KEY_TYPE="$(GET keytype)"
+			/etc/init.d/network.sh stop | log
 			sed -i \
-				-e s'/^DHCP=.*/DHCP="yes"/' \
-				-e s'/^STATIC=.*/STATIC="no"/' \
-				-e s'/^WIFI=.*/WIFI="yes"/' \
 				-e s"/^WIFI_ESSID=.*/WIFI_ESSID=\"$(GET essid)\""/ \
 				-e s"/^WIFI_KEY=.*/WIFI_KEY=\"$WIFI_KEY\"/" \
 				-e s"/^WIFI_KEY_TYPE=.*/WIFI_KEY_TYPE=\"$WIFI_KEY_TYPE\"/" \
 				/etc/network.conf
-			# BUGGY
-			#/etc/init.d/network stop | log
-			# sleep 2
-			/etc/init.d/network start | log
-			sleep 2
 			. /etc/network.conf
+			start_wifi
 		fi
 		# ESSID names are clickable
 		if [ "$(GET select)" ]; then
