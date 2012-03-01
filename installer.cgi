@@ -129,7 +129,7 @@ select_gparted()
 <p>
 	$(gettext "Before installation, you may need to resize partitions
 	on your hard disk drive in order to make space for SliTaz GNU/Linux.
-	You can graphically manage your partions with Gparted")
+	You can graphically manage your partitions with Gparted")
 </p>
 </div>
 <a class="button" href="$SCRIPT_NAME?page=gparted">Execute Gparted</a>
