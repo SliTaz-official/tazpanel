@@ -2,9 +2,10 @@
 #
 # Main CGI interface for Tazinst, the SliTaz installer.
 #
-# Copyright (C) 2011 SliTaz GNU/Linux - BSD License
+# Copyright (C) 2012 SliTaz GNU/Linux - BSD License
 #
 # Authors : Dominique Corbex <domcox@slitaz.org>
+#           Christophe Lincoln <pankso@slitaz.org>
 #
 
 VERSION=0.22
@@ -123,58 +124,50 @@ EOT
 select_gparted()
 {
 	cat <<EOT
-<table>
-<tr>
-	<td><h4>$(gettext "About")</h4></td>
-</tr>
-<tr>
-	<td>$(gettext "Before installation, you may need to resize partitions
-on your hard disk drive in order to make space for SliTaz GNU/Linux.")</td>
-</tr>
-</table>
+<div class="box">
+	<h4>$(gettext "About")</h4>
+<p>
+	$(gettext "Before installation, you may need to resize partitions
+	on your hard disk drive in order to make space for SliTaz GNU/Linux.
+	You can graphically manage your partions with Gparted")
+</p>
+</div>
+<a class="button" href="$SCRIPT_NAME?page=gparted">Execute Gparted</a>
 EOT
 }
 
 select_install()
 {
 	cat <<EOT
-</table>
-<form method="get" action="$SCRIPT_NAME">
-<table>
-<tr>
-	<td><h4>$(gettext "Install")</h4></td>
-</tr>
-<tr>
-	<td>$(gettext "Install SliTaz on a partition of your hard disk drive. If
+<div class="box">
+	<h4>$(gettext "Install")</h4>
+<p>
+	$(gettext "Install SliTaz on a partition of your hard disk drive. If
 	you decide to format your HDD, all data will be lost. If you do not 
 	format, all data except for any existing /home directory will be removed, 
-	the home directory will be kept as is.")</td>
-</tr>
-<tr>
-	<td><a class="button" href="$SCRIPT_NAME?page=install">$(gettext "Install SliTaz")</a></td>
-</tr>
-</table>
+	the home directory will be kept as is.")
+</p>
+</div>
+<p>
+<a class="button" href="$SCRIPT_NAME?page=install">$(gettext "Install SliTaz")</a>
 EOT
 }
 
 select_upgrade()
 {
 	cat <<EOT
-<table>
-<tr>
-	<td><h4>$(gettext "Upgrade")</h4></td>
-</tr>
-<tr>
-	<td>$(gettext "Upgrade an already installed SliTaz system on your hard disk
+<div class="box">
+	<h4>$(gettext "Upgrade")</h4>
+<p>
+	$(gettext "Upgrade an already installed SliTaz system on your hard disk
 	drive. Your /home /etc /var/www directories will be kept, all other directories
 	will be removed. Any additional packages added to your old Slitaz system
-	will be updated as long you have an active internet connection.")</td>
-</tr>
-<tr>
-	<td><a class="button" href="$SCRIPT_NAME?page=upgrade">$(gettext "Upgrade SliTaz")</a></td>
-</tr>
-</table>
-</form>
+	will be updated as long you have an active internet connection.")
+</p>
+</div>
+<p>
+	<a class="button" href="$SCRIPT_NAME?page=upgrade">$(gettext "Upgrade SliTaz")</a>
+</p>
 EOT
 }
 
