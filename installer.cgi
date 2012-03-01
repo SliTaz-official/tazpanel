@@ -574,7 +574,9 @@ case "$(GET page)" in
 		xhtml_header
 		form_start
 		display_action install
-		check_setup
+		# The config file is generic and will be created now.
+		# Should be done after: moveto_page home write ?
+		#check_setup
 		select_source
 		select_partition
 		select_home
