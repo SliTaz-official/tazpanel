@@ -5,10 +5,9 @@
 # Copyright (C) 2012 SliTaz GNU/Linux - BSD License
 #
 # Authors : Dominique Corbex <domcox@slitaz.org>
-#           Christophe Lincoln <pankso@slitaz.org>
 #
 
-VERSION=0.22
+VERSION=0.25
 
 # Common functions from libtazpanel
 . lib/libtazpanel
@@ -30,10 +29,6 @@ TAZINST_REQUIRED_VERSION="3.3"
 # Tazinst setup file
 INSTFILE=/var/lib/tazinst.conf
 
-read_setup()
-{
-	[ -e "$INSTFILE" ] && . $INSTFILE  || gettext "Tazinst setup file not found!"
-}
 
 write_setup()
 {
@@ -55,9 +50,9 @@ write_setup()
 		TGT_PARTITION=$(echo "$(GET TGT_PARTITION)" | sed 's/\//\\\//'g)
 		[ -n "$(GET MAIN_FMT)" ] && TGT_FS=$(GET MAIN_FS) || TGT_FS=""
 		# Home Partition
-		if [ -n "$(GET HOME_SPLIT)" ] ; then
-			TGT_HOME=$(echo "$(GET HOME_PART)" | sed 's/\//\\\//'g)
-			[ -n "$(GET HOME_FMT)" ] && TGT_HOME_FS=$(GET HOME_FS)
+		if [ -n "$(GET HOME_SELECT)" ] ; then
+			TGT_HOME=$(echo "$(GET TGT_HOME)" | sed 's/\//\\\//'g)
+			[ -n "$(GET HOME_FS)" ] && TGT_HOME_FS=$(GET HOME_FS)
 		else
 			TGT_HOME=""
 			TGT_HOME_FS=""
@@ -92,21 +87,43 @@ write_setup()
 	fi
 }
 
-check_setup()
+read_setup()
 {
-	local ret
-	IFS=$'\n'
-	for line in $(tazinst check $INSTFILE; ret=$?)  
-	do
-		line=$(echo $line | sed 's/\[1m//g')
-		line=$(echo $line | sed 's/\[0m//g')
-		line=$(echo $line | sed 's/\s/\&nbsp;/g')
-		line=$(echo $line | sed 's/</\&lt;/g')
-		line=$(echo $line | sed 's/>/\&gt;/g')
-		echo "<font color=\"red\">$line<br /></font>"
-	done  
-	unset IFS
-	return $ret
+	# various checks on setup file
+	if [ -e "$INSTFILE" ]; then
+		# validity check + reformat output
+		IFS=$'\n'
+		for line in $(tazinst check $INSTFILE)  
+		do
+			line=$(echo $line | sed 's/\[1m//g')
+			line=$(echo $line | sed 's/\[0m//g')
+			line=$(echo $line | sed 's/\s/\&nbsp;/g')
+			line=$(echo $line | sed 's/</\&lt;/g')
+			line=$(echo $line | sed 's/>/\&gt;/g')
+			echo "<font color=\"red\">$line<br /></font>"
+		done  
+		unset IFS
+	else
+		# no setup file found: creating
+		gettext "Creating setup file $INSTFILE."
+		tazinst new $INSTFILE
+		if [ ! -e "$INSTFILE" ]; then
+			cat <<EOT
+<font color="red">$(gettext "Setup File Error")<br />
+$(gettext "The setup file <strong>$INSTFILE</strong> doesn't exist.")</font><br />
+EOT
+		else
+			if [ ! -r $INSTFILE ]; then
+				cat <<EOT
+<font color="red">$(gettext "Setup File Error")<br />
+$(gettext "The setup file <strong>$INSTFILE</strong> is not readable. 
+Check permissions and ownership.")</font><br />
+EOT
+			fi	
+		fi
+	fi
+	# read setup file
+	. $INSTFILE
 }
 
 select_action()
@@ -132,7 +149,7 @@ select_gparted()
 	You can graphically manage your partitions with Gparted")
 </p>
 </div>
-<a class="button" href="$SCRIPT_NAME?page=gparted">Execute Gparted</a>
+<a class="button" href="$SCRIPT_NAME?page=gparted">$(gettext "Execute Gparted")</a>
 EOT
 }
 
@@ -213,7 +230,7 @@ select_source()
 	</tr>
 	<tr>
 	<td><input type="radio" name="INST_TYPE" value="usb" $([ "$INST_TYPE" == "usb" ] && echo "checked") id="usb" />
-	<label for="usb">$(gettext "LiveUSB"):</label>
+	<label for="usb">$(gettext "LiveUSB"):
 	<select name="SRC_USB">
 EOT
 	# List disks if plugged USB device
@@ -235,7 +252,7 @@ EOT
 		echo "<option value="">$(gettext "Not found")</option>"
 	fi
 	cat << EOT
-	</select>
+	</select></label>
 	</td>
 	</tr>
 	<tr>
@@ -245,20 +262,13 @@ EOT
 	</td>
 	</tr>
 	<tr>
-	<td><input type="radio" name="INST_TYPE" value="web" $([ "$INST_TYPE" == "web" ] && echo "checked" id="web") />
+	<td><input type="radio" name="INST_TYPE" value="web" $([ "$INST_TYPE" == "web" ] && echo "checked") id="web" />
 	<label for="web">$(gettext "Web"):
-	<a class="button" href="$SCRIPT_NAME?page=$(GET page)&SRC_WEB=stable">$(gettext "Stable")</a>
-	<a class="button" href="$SCRIPT_NAME?page=$(GET page)&SRC_WEB=cooking">$(gettext "Cooking")</a>
-	$(gettext "URL:")</label>
-EOT
-	case $(GET SRC_WEB) in
-		stable|cooking)
-			get_SRC_WEB=$(tazinst showurl $(GET SRC_WEB)) ;;
-		*)
-			[ "$INST_TYPE" == "web" ] && get_SRC_WEB=$SRC_FILE ;;
-	esac
-cat <<EOT
-	<input type="url" size="55" name="SRC_WEB" value="$get_SRC_WEB" placeholder="$(gettext "Full url to an ISO image file")" /></td>
+	<a class="button" onclick="document.forms['ConfigForm'].url.value = '$(tazinst showurl stable)'; return true;">$(gettext "Stable")</a>
+	<a class="button" onclick="document.forms['ConfigForm'].url.value = '$(tazinst showurl cooking)'; return true;">$(gettext "Cooking")</a>
+	$(gettext "URL:")
+	<input id="url" type="url" size="55" name="SRC_WEB" value="$get_SRC_WEB" placeholder="$(gettext "Full url to an ISO image file")" /></td>
+	</label>
 	</tr>
 	</table>
 EOT
@@ -276,6 +286,7 @@ cat <<EOT
 EOT
 	# List partitions
 	if fdisk -l | grep -q ^/dev/ ; then
+		echo "<option value="">$(gettext "None")</option>"
 		for i in $(fdisk -l | awk '/^\/dev/ {printf "%s " $1}'); do
 			echo "<option value='$i' $([ "$i" == "$TGT_PARTITION" ] && echo "selected")>$i</option>"
 		done
@@ -313,6 +324,7 @@ cat <<EOT
 EOT
 	# List partitions
 	if fdisk -l | grep -q ^/dev/ ; then
+		echo "<option value="">$(gettext "None")</option>"
 		for i in `blkid | cut -d ":" -f 1`; do
 			echo "<option value='$i' $([ "$i" == "$TGT_PARTITION" ] && echo "selected")>$i</option>"
 		done
@@ -331,12 +343,13 @@ select_home()
 	cat <<EOT
 <a name="home"></a>
 <h4>$(gettext "Home partition")</h4>
-<input type="checkbox" name="HOME_SPLIT" value="yes" $([ -n "$TGT_HOME" ] && echo "checked") id="homepart" />
+<input type="checkbox" name="HOME_SELECT" value="yes" $([ -n "$TGT_HOME" ] && echo "checked") id="homepart" />
 	<label for="homepart">$(gettext "Use a separate partition for /home:")</label>
-	<select name="HOME_PART">
+	<select name="TGT_HOME">
 EOT
 	# List disk if plugged USB device
 	if fdisk -l | grep -q ^/dev/ ; then
+		echo "<option value="">$(gettext "None")</option>"
 		for i in $(fdisk -l | awk '/^\/dev/ {printf "%s " $1}'); do
 			echo "<option value='$i' $([ "$i" == "$TGT_HOME" ] && echo "selected")>$i</option>"
 		done
@@ -481,27 +494,6 @@ use tazinst in a xterm or reinstall the slitaz-tools package:")</p>
 EOT
 			code=1
 		fi
-		# Check setup file
-		if [ !  -e "$INSTFILE" ]; then
-			gettext "Creating setup file $INSTFILE."
-			tazinst new $INSTFILE
-		fi
-		if [ ! -e "$INSTFILE" ]; then
-			cat <<EOT
-<h3>$(gettext "Setup File Error")</h3>
-<p>$(gettext "The setup file <strong>$INSTFILE</strong> doesn't exist.")</p>
-EOT
-			code=1
-		else
-			if [ ! -r $INSTFILE ]; then
-				cat <<EOT
-<h3>$(gettext "Setup File Error")</h3>
-<p>$(gettext "The setup file <strong>$INSTFILE</strong> is not readable. 
-Check permissions and ownership.")</p>
-EOT
-				code=1
-			fi
-		fi
 	fi
 	return $code
 }
@@ -563,13 +555,10 @@ case "$(GET page)" in
 		page_redirection home
 		;;
 	install)
-		read_setup
 		xhtml_header
 		form_start
 		display_action install
-		# The config file is generic and will be created now.
-		# Should be done after: moveto_page home write ?
-		#check_setup
+		read_setup
 		select_source
 		select_partition
 		select_home
@@ -581,11 +570,10 @@ case "$(GET page)" in
 		form_end
 		;;
 	upgrade)
-		read_setup
 		xhtml_header
 		form_start
 		display_action upgrade
-		check_setup
+		read_setup
 		select_source
 		select_old_slitaz
 		select_grub
@@ -625,16 +613,13 @@ case "$(GET page)" in
 	menu_install)
 		xhtml_header
 		if check_ressources; then
-			select_action
-			select_gparted
-			select_install
+			page_redirection install
 		fi
 		;;
 	menu_upgrade)
 		xhtml_header
 		if check_ressources; then
-			select_action
-			select_upgrade
+			page_redirection upgrade
 		fi
 		;;
 	*)
