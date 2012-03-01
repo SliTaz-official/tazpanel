@@ -68,7 +68,7 @@ start_wifi() {
 	sed -i \
 		-e s'/^DHCP=.*/DHCP="yes"/' \
 		-e s'/^WIFI=.*/WIFI="yes"/' \
-		-e s'/^STATIC=.*/STATIC="no"/'/etc/network.conf
+		-e s'/^STATIC=.*/STATIC="no"/' /etc/network.conf
 	ifconfig $WIFI_INTERFACE up
 	iwconfig $WIFI_INTERFACE txpower auto
 	/etc/init.d/network.sh start | log
