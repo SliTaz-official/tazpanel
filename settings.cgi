@@ -37,7 +37,7 @@ case " $(GET) " in
 				Delete*)	deluser $user ;;
 				Lock*)		passwd -l $user | log ;;
 				Unlock*)	passwd -u $user | log ;;
-				Change*)	echo "$user:$(GET password)" | chpasswd | log ;;
+				Change*)	echo "$user:$(GET password)" | chpasswd -m | log ;;
 				esac
 			done
 		done ;;
@@ -49,7 +49,7 @@ case " $(GET) " in
 		passwd=$(GET passwd)
 		if [ -n "$user" ]; then
 			adduser -D -s /bin/sh -g "SliTaz User" -G users -h /home/$user $user
-			echo "$user:$passwd" | chpasswd | log
+			echo "$user:$passwd" | chpasswd -m | log
 			for g in audio cdrom floppy video tty
 			do
 				addgroup $user $g
