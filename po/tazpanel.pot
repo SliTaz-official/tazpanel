@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-28 14:27+0100\n"
+"POT-Creation-Date: 2012-03-01 15:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,7 +193,7 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: pkgs.cgi:115 network.cgi:23 network.cgi:143 network.cgi:238 boot.cgi:84
+#: pkgs.cgi:115 network.cgi:23 network.cgi:149 network.cgi:238 boot.cgi:84
 #: settings.cgi:104 lib/libtazpanel:86
 msgid "Name"
 msgstr ""
@@ -534,103 +534,103 @@ msgstr ""
 msgid "Connected"
 msgstr ""
 
-#: network.cgi:83
+#: network.cgi:89
 msgid "Changed hostname:"
 msgstr ""
 
-#: network.cgi:99
+#: network.cgi:105
 msgid "Scanning open ports..."
 msgstr ""
 
-#: network.cgi:102
+#: network.cgi:108
 msgid "Port scanning for"
 msgstr ""
 
-#: network.cgi:116
+#: network.cgi:122
 msgid "Setting up IP..."
 msgstr ""
 
-#: network.cgi:132
+#: network.cgi:138
 msgid "Ethernet connection"
 msgstr ""
 
-#: network.cgi:134
+#: network.cgi:140
 msgid ""
 "Here you can configure a wired connection using DHCP to\n"
 "automatically get a random IP or configure a static/fixed IP"
 msgstr ""
 
-#: network.cgi:137
+#: network.cgi:143
 msgid "Configuration"
 msgstr ""
 
-#: network.cgi:144 network.cgi:239
+#: network.cgi:150 network.cgi:239
 msgid "Value"
 msgstr ""
 
-#: network.cgi:148 lib/libtazpanel:85
+#: network.cgi:154 lib/libtazpanel:85
 msgid "Interface"
 msgstr ""
 
-#: network.cgi:152
+#: network.cgi:158
 msgid "IP address"
 msgstr ""
 
-#: network.cgi:156
+#: network.cgi:162
 msgid "Netmask"
 msgstr ""
 
-#: network.cgi:160
+#: network.cgi:166
 msgid "Gateway"
 msgstr ""
 
-#: network.cgi:164
+#: network.cgi:170
 msgid "DNS server"
 msgstr ""
 
-#: network.cgi:168
+#: network.cgi:174
 msgid "Activate (static)"
 msgstr ""
 
-#: network.cgi:169
+#: network.cgi:175
 msgid "Activate (DHCP)"
 msgstr ""
 
-#: network.cgi:170
+#: network.cgi:176
 msgid "Disable"
 msgstr ""
 
-#: network.cgi:173 network.cgi:258
+#: network.cgi:179 network.cgi:258
 msgid "Configuration file"
 msgstr ""
 
-#: network.cgi:175
+#: network.cgi:181
 msgid ""
 "These values are the ethernet settings in the main\n"
 "/etc/network.conf configuration file"
 msgstr ""
 
-#: network.cgi:182 network.cgi:267
+#: network.cgi:188 network.cgi:267
 msgid "Manual Edit"
 msgstr ""
 
-#: network.cgi:188
+#: network.cgi:194
 msgid "Scanning wireless interface..."
 msgstr ""
 
-#: network.cgi:192
+#: network.cgi:198
 msgid "Wireless connection"
 msgstr ""
 
-#: network.cgi:195 network.cgi:288
+#: network.cgi:201 network.cgi:288
 msgid "Start"
 msgstr ""
 
-#: network.cgi:197 network.cgi:290
+#: network.cgi:203 network.cgi:290
 msgid "Stop"
 msgstr ""
 
-#: network.cgi:199
+#: network.cgi:205
 msgid "Scan"
 msgstr ""
 
