@@ -223,15 +223,13 @@ select_source()
 	cat <<EOT
 <a name="source"></a>
 <h4>$(gettext "Source")</h4>
-	<table>
-	<tr>
-	<td><input type="radio" name="INST_TYPE" value="cdrom" $([ "$INST_TYPE" == "cdrom" ] && echo "checked") id="cdrom" />
-	<label for="cdrom">$(gettext "LiveCD")</td></label>
-	</tr>
-	<tr>
-	<td><input type="radio" name="INST_TYPE" value="usb" $([ "$INST_TYPE" == "usb" ] && echo "checked") id="usb" />
-	<label for="usb">$(gettext "LiveUSB"):
-	<select name="SRC_USB">
+<div class="box">
+<input type="radio" name="INST_TYPE" value="cdrom" $([ "$INST_TYPE" == "cdrom" ] && echo "checked") id="cdrom" />
+<label for="cdrom">$(gettext "LiveCD")</td></label>
+<br />
+<input type="radio" name="INST_TYPE" value="usb" $([ "$INST_TYPE" == "usb" ] && echo "checked") id="usb" />
+<label for="usb">$(gettext "LiveUSB"):
+<select name="SRC_USB">
 EOT
 	# List disks if plugged USB device
 	usb=0
@@ -252,37 +250,32 @@ EOT
 		echo "<option value="">$(gettext "Not found")</option>"
 	fi
 	cat << EOT
-	</select></label>
-	</td>
-	</tr>
-	<tr>
-	<td><input type="radio" name="INST_TYPE" value="iso" $([ "$INST_TYPE" == "iso" ] && echo "checked") id="iso" />
-	<label for="iso">$(gettext "ISO file"):</label>
-	<input type="url" size="50" name="SRC_ISO" $([ "$INST_TYPE" == "iso" ] && echo -e "value=\"$SRC_FILE\"") placeholder="$(gettext "Full path to the ISO image file")" />
-	</td>
-	</tr>
-	<tr>
-	<td><input type="radio" name="INST_TYPE" value="web" $([ "$INST_TYPE" == "web" ] && echo "checked") id="web" />
-	<label for="web">$(gettext "Web"):
-	<a class="button" onclick="document.forms['ConfigForm'].url.value = '$(tazinst showurl stable)'; return true;">$(gettext "Stable")</a>
-	<a class="button" onclick="document.forms['ConfigForm'].url.value = '$(tazinst showurl cooking)'; return true;">$(gettext "Cooking")</a>
-	$(gettext "URL:")
-	<input id="url" type="url" size="55" name="SRC_WEB" value="$get_SRC_WEB" placeholder="$(gettext "Full url to an ISO image file")" /></td>
-	</label>
-	</tr>
-	</table>
+</select>
+</label>
+<br />
+<input type="radio" name="INST_TYPE" value="iso" $([ "$INST_TYPE" == "iso" ] && echo "checked") id="iso" />
+<label for="iso">$(gettext "ISO file"):</label>
+<input type="url" size="50" name="SRC_ISO" $([ "$INST_TYPE" == "iso" ] && echo -e "value=\"$SRC_FILE\"") placeholder="$(gettext "Full path to the ISO image file")" />
+<br />
+<input type="radio" name="INST_TYPE" value="web" $([ "$INST_TYPE" == "web" ] && echo "checked") id="web" />
+<label for="web">$(gettext "Web"):
+<a class="button" onclick="document.forms['ConfigForm'].url.value = '$(tazinst showurl stable)'; return true;">$(gettext "Stable")</a>
+<a class="button" onclick="document.forms['ConfigForm'].url.value = '$(tazinst showurl cooking)'; return true;">$(gettext "Cooking")</a>
+$(gettext "URL:")
+<input id="url" type="url" size="55" name="SRC_WEB" value="$get_SRC_WEB" placeholder="$(gettext "Full url to an ISO image file")" />
+</label>
+</div>
 EOT
 }
 
 select_partition()
 {
-cat <<EOT
+	cat <<EOT
 <a name="partition"></a>
 <h4></span>$(gettext "Main Partition")</h4>
-<table>
-<tr><td>
-	$(gettext "Partition to use:")
-	<select name="TGT_PARTITION">
+<div class="box">
+$(gettext "Partition to use:")
+<select name="TGT_PARTITION">
 EOT
 	# List partitions
 	if fdisk -l | grep -q ^/dev/ ; then
@@ -294,11 +287,11 @@ EOT
 		echo "<option value="">$(gettext "Not found")</option>"
 	fi
 	cat << EOT
-	</select>
-	<br />
-	<input type="checkbox" name="MAIN_FMT" value="yes" $([ -n "$TGT_FS" ] && echo "checked") id="mainfs" />
-	<label for="mainfs">$(gettext "Format partition as"):</label>
-	<select name="MAIN_FS">
+</select>
+<br />
+<input type="checkbox" name="MAIN_FMT" value="yes" $([ -n "$TGT_FS" ] && echo "checked") id="mainfs" />
+<label for="mainfs">$(gettext "Format partition as"):</label>
+<select name="MAIN_FS">
 EOT
 	scan_mkfs
 	for i in $FS
@@ -307,20 +300,18 @@ EOT
 	done
 	cat <<EOT
 </select>
-</td></tr>
-</table>
+</div>
 EOT
 }
 
 select_old_slitaz()
 {
-cat <<EOT
+	cat <<EOT
 <a name="partition"></a>
 <h4></span>$(gettext "Existing SliTaz Partition")</h4>
-<table>
-<tr><td>
-	$(gettext "Partition in use:")
-	<select name="TGT_PARTITION">
+<div class="box">
+$(gettext "Partition in use:")
+<select name="TGT_PARTITION">
 EOT
 	# List partitions
 	if fdisk -l | grep -q ^/dev/ ; then
@@ -333,8 +324,7 @@ EOT
 	fi
 	cat <<EOT
 </select>
-</td></tr>
-</table>
+</div>
 EOT
 }
 
@@ -344,8 +334,8 @@ select_home()
 <a name="home"></a>
 <h4>$(gettext "Home partition")</h4>
 <input type="checkbox" name="HOME_SELECT" value="yes" $([ -n "$TGT_HOME" ] && echo "checked") id="homepart" />
-	<label for="homepart">$(gettext "Use a separate partition for /home:")</label>
-	<select name="TGT_HOME">
+<label for="homepart">$(gettext "Use a separate partition for /home:")</label>
+<select name="TGT_HOME">
 EOT
 	# List disk if plugged USB device
 	if fdisk -l | grep -q ^/dev/ ; then
@@ -357,11 +347,11 @@ EOT
 		echo "<option value="">$(gettext "Not found")</option>"
 	fi
 cat <<EOT
-	</select>
+</select>
 	
-	<input type="checkbox" name="HOME_FMT" value="yes" $([ -n "$TGT_HOME_FS" ] && echo "checked") id="homefs" />
-	<label for="homefs">$(gettext "Format partition as:")</label>
-	<select name="HOME_FS">"
+<input type="checkbox" name="HOME_FMT" value="yes" $([ -n "$TGT_HOME_FS" ] && echo "checked") id="homefs" />
+<label for="homefs">$(gettext "Format partition as:")</label>
+<select name="HOME_FS">"
 EOT
 	for i in $FS
 	do
@@ -373,32 +363,167 @@ EOT
 select_hostname()
 {
 cat << EOT
+<script type="text/javascript">
+    function checkHostname(){
+		var host = document.getElementById('h1');
+		var msg = document.getElementById('hostAlert');
+		var enoughRegex = new RegExp("(?=.{3,}).*", "g");
+		var incharRegex = new RegExp("^[A-Za-z0-9_]{3,20}$");
+		if (false == enoughRegex.test(host.value)) {
+			msg.style.color = "tomato";
+			msg.innerHTML ="&#x2716; Too short";
+			return false;
+		} else if (false == incharRegex.test(host.value)) {
+				msg.style.color = "tomato";
+				msg.innerHTML ="&#x2716; Invalid chars";
+				return false;
+		} else {
+			msg.style.color = "limegreen";
+			msg.innerHTML = "&#x2714;";
+		}
+	}
+</script>
 <a name="hostname"></a>
 <h4>$(gettext "Host")</h4>
 $(gettext "Hostname:")
-<input type="text" name="TGT_HOSTNAME" value="$TGT_HOSTNAME" placeholder="$(gettext "Name of your system")" />
+<input type="text" id="h1" name="TGT_HOSTNAME" value="$TGT_HOSTNAME" placeholder="$(gettext "Name of your system")" onkeyup="checkHostname(); return false;" />
+<span id="hostAlert"></span>
 EOT
 }
 
 select_root()
 {
 cat << EOT
+<script type="text/javascript">
+	function checkRootPwd(){
+		var pwd1 = document.getElementById('p1');
+		var pwd2 = document.getElementById('p2');
+		var msg = document.getElementById('rootPwdAlert');
+		if(pwd1.value == pwd2.value){
+			// passwords match. 
+			pwd2.style.backgroundColor = "white";
+			// various checks
+			var enoughRegex = new RegExp("(?=.{4,}).*", "g");
+			var incharRegex = new RegExp("^[A-Za-z0-9!@#$%^&*()_]{4,20}$");
+			var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+			var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+			if (pwd1.value.length==0) {
+				msg.style.color = "tomato";
+				msg.innerHTML = "&#x2716; Missing Password";
+				return false;
+			} else if (false == enoughRegex.test(pwd1.value)) {
+				msg.style.color = "tomato";
+				msg.innerHTML ="&#x2716; Too short";
+				return false;
+			} else if (false == incharRegex.test(pwd1.value)) {
+				msg.style.color = "tomato";
+				msg.innerHTML ="&#x2716; Invalid chars";
+				return false;
+			} else if (strongRegex.test(pwd1.value)) {
+				msg.style.color = "limegreen";
+				msg.innerHTML = "&#x2714; Strong!";
+			} else if (mediumRegex.test(pwd1.value)) {
+				msg.style.color = "limegreen";
+				msg.innerHTML = "&#x2714; Medium!";
+			} else {
+				msg.style.color = "orange";
+				msg.innerHTML = "&#x2714; Weak";
+			}
+		}else{
+			// passwords do not match.
+			pwd2.style.backgroundColor = "lightsalmon";
+			msg.style.color = "tomato";
+			msg.innerHTML = "&#x2716; Do Not Match!"
+			return false;
+		}
+	}  
+</script>
+
 <a name="root"></a>
 <h4>$(gettext "Root")</h4>
 $(gettext "Root passwd:")
-<input type="text" name="TGT_ROOT_PWD" value="$TGT_ROOT_PWD" placeholder="$(gettext "Password of root")" />
+<input type="password" id="p1" name="TGT_ROOT_PWD" value="$TGT_ROOT_PWD" placeholder="$(gettext "Password of root")" onkeyup="checkRootPwd(); return false;" />
+$(gettext "Confirm password:")
+<input type="password" id="p2" value="$TGT_ROOT_PWD" placeholder="$(gettext "Password of root")" onkeyup="checkRootPwd(); return false;" />
+<span id="rootPwdAlert"></span>
 EOT
 }
 
 select_user()
 {
 cat << EOT
+<script type="text/javascript">
+    function checkUserLogin(){
+		var user = document.getElementById('u1');
+		var msg = document.getElementById('userLoginAlert');
+		var enoughRegex = new RegExp("(?=.{3,}).*", "g");
+		var incharRegex = new RegExp("^[A-Za-z0-9_]{3,20}$");
+		if (false == enoughRegex.test(user.value)) {
+			msg.style.color = "tomato";
+			msg.innerHTML ="&#x2716; Too short";
+			return false;
+		} else if (false == incharRegex.test(user.value)) {
+				msg.style.color = "tomato";
+				msg.innerHTML ="&#x2716; Invalid chars";
+				return false;		
+		} else {
+			msg.style.color = "limegreen";
+			msg.innerHTML = "&#x2714;";
+		}
+	}
+	function checkUserPwd(){
+		var pwd1 = document.getElementById('p3');
+		var pwd2 = document.getElementById('p4');
+		var msg = document.getElementById('userPwdAlert');
+		if(pwd1.value == pwd2.value){
+			// passwords match. 
+			pwd2.style.backgroundColor = "white";
+			// various checks
+			var enoughRegex = new RegExp("(?=.{3,}).*", "g");
+			var incharRegex = new RegExp("^[A-Za-z0-9!@#$%^&*()_]{3,20}$");
+			var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+			var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+			if (pwd1.value.length==0) {
+				msg.style.color = "orange";
+				msg.innerHTML = "&#x2714; No Password";
+			} else if (false == enoughRegex.test(pwd1.value)) {
+				msg.style.color = "tomato";
+				msg.innerHTML ="&#x2716; Too short";
+				return false;
+			} else if (false == incharRegex.test(pwd1.value)) {
+				msg.style.color = "tomato";
+				msg.innerHTML ="&#x2716; Invalid chars";
+				return false;
+			} else if (strongRegex.test(pwd1.value)) {
+				msg.style.color = "limegreen";
+				msg.innerHTML = "&#x2714; Strong!";
+			} else if (mediumRegex.test(pwd1.value)) {
+				msg.style.color = "limegreen";
+				msg.innerHTML = "&#x2714; Medium!";
+			} else {
+				msg.style.color = "orange";
+				msg.innerHTML = "&#x2714; Weak";
+			}
+		}else{
+			// passwords do not match.
+			pwd2.style.backgroundColor = "lightsalmon";
+			msg.style.color = "tomato";
+			msg.innerHTML = "&#x2716; Do Not Match!"
+			return false;
+		}
+	}  
+</script>
 <a name="user"></a>
 <h4>$(gettext "User")</h4>
 $(gettext "User login:")
-<input type="text" name="TGT_USER" value="$TGT_USER" placeholder="$(gettext "Name of the first user")" />
+<input type="text" id="u1" name="TGT_USER" value="$TGT_USER" placeholder="$(gettext "Name of the first user")" onkeyup="checkUserLogin(); return false;" />
+<span id="userLoginAlert"></span>
+<br /><br />
 $(gettext "User passwd:")
-<input type="text" name="TGT_USER_PWD" value="$TGT_USER_PWD" placeholder="$(gettext "Password of the first user")" />
+<input type="password" id="p3" name="TGT_USER_PWD" value="$TGT_USER_PWD" placeholder="$(gettext "Password of the first user")" onkeyup="checkUserPwd(); return false;" />
+$(gettext "Confirm password:")
+<input type="password" id="p4" value="$TGT_USER_PWD" placeholder="$(gettext "Password of the first user")" onkeyup="checkUserPwd(); return false;" />
+<span id="userPwdAlert"></span>
 EOT
 }
 
@@ -435,10 +560,20 @@ moveto_page()
 	cat <<EOT
 <script type="text/javascript">
 	function SubmitForm() {
-		var r=confirm("$(gettext "Do you really want to continue?")");
-		if (r==true)
-		{
-			document.ConfigForm.submit();
+		if (false == checkHostname()) {
+			alert("Hostname error");
+		} else if (false == checkRootPwd()) {
+			alert("Root password error");
+		} else if (false == checkUserLogin()) {
+			alert("User login error");
+		} else if (false == checkUserPwd()) {
+			alert("User password error");
+		} else {
+			var r=confirm("$(gettext "Do you really want to continue?")");
+			if (r==true)
+			{
+				document.ConfigForm.submit();
+			}
 		}
 	}
 </script>
