@@ -7,7 +7,7 @@
 # Authors : Dominique Corbex <domcox@slitaz.org>
 #
 
-VERSION=0.25
+VERSION=0.26
 
 # Common functions from libtazpanel
 . lib/libtazpanel
@@ -539,25 +539,11 @@ cat << EOT
 EOT
 }
 
-moveto_page()
+validate()
 {
 	case $1 in
-		*)
-			page=home
-			title1=$(gettext "Back to Installer Start Page") ;;
-	esac
-	case $2 in
-		write|run)
-			title2=$(gettext "Proceed to SliTaz installation") ;;
-		reboot)
-			title2=$(gettext "Installation complete. You can now restart (reboot)") ;;
-		failed)
-			title2=$(gettext "Installation failed. See log") ;;
-		*)
-			page=home
-			title2=$(gettext "Back to Installer Start Page") ;;
-	esac
-	cat <<EOT
+		install)
+			cat << EOT
 <script type="text/javascript">
 	function SubmitForm() {
 		if (false == checkHostname()) {
@@ -577,6 +563,43 @@ moveto_page()
 		}
 	}
 </script>
+EOT
+		;;
+		upgrade)
+			cat << EOT
+<script>
+	function SubmitForm() {
+		var r=confirm("$(gettext "Do you really want to continue?")");
+		if (r==true)
+		{
+			document.ConfigForm.submit();
+		}
+	}
+</script>
+EOT
+		;;
+	esac
+}
+
+moveto_page()
+{
+	case $1 in
+		*)
+			page=home
+			title1=$(gettext "Back to Installer Start Page") ;;
+	esac
+	case $2 in
+		write|run)
+			title2=$(gettext "Proceed to SliTaz installation") ;;
+		reboot)
+			title2=$(gettext "Installation complete. You can now restart (reboot)") ;;
+		failed)
+			title2=$(gettext "Installation failed. See log") ;;
+		*)
+			page=home
+			title2=$(gettext "Back to Installer Start Page") ;;
+	esac
+	cat <<EOT
 <hr />
 <input type="hidden" name="page" value="$2" />
 <a class="button" value="$1"  href="$SCRIPT_NAME?page=$1" >$title1</a>
@@ -693,6 +716,7 @@ case "$(GET page)" in
 		xhtml_header
 		form_start
 		display_action install
+		validate install
 		read_setup
 		select_source
 		select_partition
@@ -708,6 +732,7 @@ case "$(GET page)" in
 		xhtml_header
 		form_start
 		display_action upgrade
+		validate upgrade
 		read_setup
 		select_source
 		select_old_slitaz
