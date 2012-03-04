@@ -102,7 +102,7 @@ EOT
 		table_end ;;
 	*)
 		[ -n "$(GET brightness)" ] &&
-		echo -n $(GET brightness) > /proc/acpi/video/$(GET dev)/LCD/brightness
+		echo -n $(GET brightness) > /sys/devices/virtual/backlight/$(GET dev)/brightness
 		
 		#
 		# Default to summary with mounted filesystem, loaded modules
@@ -154,37 +154,29 @@ EOT
 			done
 			echo "</table>"
 		fi
-		if [ -n "$(ls /proc/acpi/thermal_zone/*/temperature 2> /dev/null)" ]; then
+		if [ -n "$(ls /sys/devices/virtual/thermal/*/temp 2> /dev/null)" ]; then
 			echo "Temperature: "
-			for temp in /proc/acpi/thermal_zone/*/temperature; do
-				sed 's/.*://' < $temp
+			for temp in /sys/devices/virtual/thermal/*/temp; do
+				awk '{ print $1/1000 }' < $temp
 			done
 		fi
-		if [ -n "$(ls /proc/acpi/video/*/LCD/brightness 2> /dev/null)" ]; then
+		if [ -n "$(ls /sys/devices/virtual/backlight/*/brightness 2> /dev/null)" ]; then
 			cat <<EOT
 <form method="get" action="$SCRIPT_NAME">
 EOT
-			for dev in /proc/acpi/video/*/LCD/brightness ; do
-				name=$(echo $dev | sed 's|.*/video/||;s|/LCD/.*||')
+			for dev in /sys/devices/virtual/backlight/*/brightness ; do
+				name=$(echo $dev | sed 's|.*/backlight/\([^/]*\).*|\1|')
 				cat <<EOT
 <input type="hidden" name="dev" value="$name" />
-$(gettext "LCD brightness") $name: <select name="brightness" onchange="submit();">
+$(gettext "Brightness") ${name#acpi_}: <select name="brightness" onchange="submit();">
 EOT
-				awk '{
-					if ($1 == "levels:")
-					for (i = 2; i <= NF; i++) level[$i] = i
-					if ($1 == "current:") current=$2
-				}
-				END {
-					for (i in level) {
-						s="<option value=\"" i "\""
-						if (current == i) s=s " selected=\"selected\""
-						s=s ">" i "%</option>"
-						if (i == 100) last=s
-						else print s
-					}
-					print last
-				}' < $dev
+				max=$(cat /sys/devices/virtual/backlight/$name/max_brightness)
+				for i in $(seq 0 $max); do
+					echo -n "<option value=\"$i\""
+					[ $i -eq $(cat /sys/devices/virtual/backlight/$name/actual_brightness) ] &&
+					echo -n " selected=\"selected\""
+					echo "> $(( (($i + 1) * 100) / ($max + 1) ))% </option>"
+				done
 				cat <<EOT
 </select>
 EOT
