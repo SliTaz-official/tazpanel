@@ -2,9 +2,9 @@
 #
 # Tiny Tazpanel cmdline interface
 #
-# Copyright (C) 2011 SliTaz GNU/Linux - BSD License
+# Copyright (C) 2012 SliTaz GNU/Linux - BSD License
 #
-VERSION=1.0
+VERSION=1.4.3
 
 # Get the configuration file and functions
 CONFIG="/etc/slitaz/tazpanel.conf"
