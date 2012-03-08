@@ -18,7 +18,7 @@ pot:
 		--package-version="$(VERSION)" \
 		./tazpanel ./index.cgi ./pkgs.cgi ./live.cgi \
 		./network.cgi ./boot.cgi ./hardware.cgi \
-		./settings.cgi ./lib/libtazpanel
+		./settings.cgi ./lib/libtazpanel ./installer.cgi
 
 msgmerge:
 	@for l in $(LINGUAS); do \

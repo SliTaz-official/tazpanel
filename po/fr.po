@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-06 13:31+0100\n"
-"PO-Revision-Date: 2012-02-29 21:11+0100\n"
+"POT-Creation-Date: 2012-03-08 15:30+0100\n"
+"PO-Revision-Date: 2012-03-08 21:04+0100\n"
 "Last-Translator: Christophe Lincoln <pankso@slitaz.org>\n"
 "Language-Team: French\n"
 "Language: \n"
@@ -159,7 +159,7 @@ msgstr "Noyau Linux:"
 msgid "Network status"
 msgstr "État du réseau"
 
-#: index.cgi:320 hardware.cgi:199
+#: index.cgi:320 hardware.cgi:193
 msgid "Filesystem usage statistics"
 msgstr "Statistiques d'utilisation du système de fichiers"
 
@@ -208,7 +208,7 @@ msgstr "Version"
 msgid "Description"
 msgstr "Description"
 
-#: pkgs.cgi:118
+#: pkgs.cgi:118 installer.cgi:261
 msgid "Web"
 msgstr "Internet"
 
@@ -288,7 +288,7 @@ msgstr "Supprimer"
 msgid "Getting package info..."
 msgstr "Obtention de l'information sur le paquet..."
 
-#: pkgs.cgi:530
+#: pkgs.cgi:530 installer.cgi:160
 msgid "Install"
 msgstr "Installer"
 
@@ -440,7 +440,8 @@ msgstr ""
 msgid "USB Media to use:"
 msgstr "Média USB à utiliser:"
 
-#: live.cgi:117
+#: live.cgi:117 installer.cgi:250 installer.cgi:287 installer.cgi:323
+#: installer.cgi:347
 msgid "Not found"
 msgstr "Non trouvé"
 
@@ -925,10 +926,10 @@ msgid "Manage your computer hardware"
 msgstr "Gérer le matériel de l'ordinateur"
 
 #: hardware.cgi:171
-msgid "LCD brightness"
+msgid "Brightness"
 msgstr "Luminosité d'écran"
 
-#: hardware.cgi:223
+#: hardware.cgi:217
 msgid "System memory"
 msgstr "Mémoire système"
 
@@ -976,7 +977,7 @@ msgstr "Changer le mot de passe"
 msgid "Add a new user"
 msgstr "Ajouter un utilisateur"
 
-#: settings.cgi:147
+#: settings.cgi:147 installer.cgi:392
 msgid "User login:"
 msgstr "Nom de login:"
 
@@ -1116,6 +1117,262 @@ msgstr "Disponible"
 #: lib/libtazpanel:208
 msgid "Mount point"
 msgstr "Point de montage"
+
+#: installer.cgi:112 installer.cgi:118
+msgid "Setup File Error"
+msgstr "Erreur dans le fichier de paramètrage"
+
+#: installer.cgi:133
+msgid "SliTaz Installer"
+msgstr "Installateur SliTaz"
+
+#: installer.cgi:134
+msgid ""
+"The SliTaz Installer installs or upgrades SliTaz to a hard disk \n"
+"\t\tdrive from a device like a Live-CD or LiveUSB key, from a SliTaz ISO "
+"file, or \n"
+"\t\tfrom the web by downloading an ISO file."
+msgstr "L'installateur de SliTaz installe ou met à jour Slitaz sur un disque dur depuis un périphérique tel qu'un LiveCD ou une clé USB, depuis une image ISO de SliTaz, ou depuis le Web en téléchargeant une image ISO."
+
+#: installer.cgi:145
+msgid "About"
+msgstr "À propos"
+
+#: installer.cgi:147
+msgid ""
+"Before installation, you may need to resize partitions\n"
+"\ton your hard disk drive in order to make space for SliTaz GNU/Linux.\n"
+"\tYou can graphically manage your partitions with Gparted"
+msgstr "Avant de commencer l'installation, il est peut-être nécessaire de redimensionner les partitions du disque dur de façon à laisser un espace utile à SliTaz. Il est possible de le faire graphiquement avec Gparted."
+
+#: installer.cgi:152
+msgid "Execute Gparted"
+msgstr "Démarrer Gparted"
+
+#: installer.cgi:162
+msgid ""
+"Install SliTaz on a partition of your hard disk drive. If\n"
+"\tyou decide to format your HDD, all data will be lost. If you do not \n"
+"\tformat, all data except for any existing /home directory will be "
+"removed, \n"
+"\tthe home directory will be kept as is."
+msgstr "Installer SliTaz sur une partition du disque dur. Si vous décidez de formatter la partition, toutes les données seront perdues. Si vous ne la formattez pas, toutes les données à l'exeception de celles présentes dans un répertoire existant /home seront détruites, le répertoire /home sera conservé tel quel."
+
+#: installer.cgi:169 installer.cgi:197
+msgid "Install SliTaz"
+msgstr "Installer SliTaz"
+
+#: installer.cgi:177
+msgid "Upgrade"
+msgstr "Mettre à jour"
+
+#: installer.cgi:179
+msgid ""
+"Upgrade an already installed SliTaz system on your hard disk\n"
+"\tdrive. Your /home /etc /var/www directories will be kept, all other "
+"directories\n"
+"\twill be removed. Any additional packages added to your old Slitaz system\n"
+"\twill be updated as long you have an active internet connection."
+msgstr "Mettre à jour un système SliTaz déjà présent sur le disque dur. Les répertoires /home et /var/www seront conservés, tous les autres répertoires seront supprimés. Tous les paquets additionnels ajoutés à ce système SliTaz seront mis à jour à condition d'avoir une connexion Internet active."
+
+#: installer.cgi:186 installer.cgi:209
+msgid "Upgrade SliTaz"
+msgstr "Mettre à jour SliTaz"
+
+#: installer.cgi:198
+msgid ""
+"You're going to install SliTaz on a partition of your hard disk drive. If\n"
+"\tyou decide to format your HDD, all data will be lost. If you do not \n"
+"\tformat, all data except for any existing /home directory will be "
+"removed, \n"
+"\tthe home directory will be kept as is."
+msgstr "Vous allez installer SliTaz sur une partition de votre disque dur. Si vous décidez de formatter la partition, toutes les données seront perdues. Si vous ne la formattez pas, toutes les données à l'exeception de celles présentes dans un répertoire existant /home seront détruites."
+
+#: installer.cgi:210
+msgid ""
+"You're going to upgrade an already installed SliTaz system on your hard "
+"disk\n"
+"\tdrive. Your /home /etc /var/www directories will be kept, all other "
+"directories\n"
+"\twill be removed. Any additional packages added to your old Slitaz system\n"
+"\twill be updated as long you have an active internet connection."
+msgstr "Vous allez mettre à jour un système SliTaz existant déjà sur une partition de votre disque dur. Les répertoires /home et /var/www seront conservés, tous les autres répertoires seront supprimés. Tous les paquets additionnels ajoutés à ce système SliTaz seront mis à jour à condition d'avoir une connexion Internet active."
+
+#: installer.cgi:225
+msgid "Source"
+msgstr "Source"
+
+#: installer.cgi:228
+msgid "LiveCD"
+msgstr "Live CD"
+
+#: installer.cgi:231
+msgid "LiveUSB"
+msgstr "LiveUSB"
+
+#: installer.cgi:257
+msgid "ISO file"
+msgstr "Fichier ISO"
+
+#: installer.cgi:258
+msgid "Full path to the ISO image file"
+msgstr "Chemin complet vers le fichier de l'image ISO"
+
+#: installer.cgi:262
+msgid "Stable"
+msgstr "Stable"
+
+#: installer.cgi:263
+msgid "Cooking"
+msgstr "Cooking"
+
+#: installer.cgi:264
+msgid "URL:"
+msgstr "URL:"
+
+#: installer.cgi:265
+msgid "Full url to an ISO image file"
+msgstr "URL complète de l'image ISO"
+
+#: installer.cgi:275
+msgid "Main Partition"
+msgstr "Partition principale"
+
+#: installer.cgi:277
+msgid "Partition to use:"
+msgstr "Partition à utiliser :"
+
+#: installer.cgi:282 installer.cgi:318 installer.cgi:342
+msgid "None"
+msgstr "<Aucun>"
+
+#: installer.cgi:293
+msgid "Format partition as"
+msgstr "Formatter la partition en"
+
+#: installer.cgi:311
+msgid "Existing SliTaz Partition"
+msgstr "Partition SliTaz existante"
+
+#: installer.cgi:313
+msgid "Partition in use:"
+msgstr "Partition à utiliser :"
+
+#: installer.cgi:335
+msgid "Home partition"
+msgstr "Partition home"
+
+#: installer.cgi:337
+msgid "Use a separate partition for /home:"
+msgstr "Utiliser une autre partition pour /home"
+
+#: installer.cgi:353
+msgid "Format partition as:"
+msgstr "Formatter la partition en"
+
+#: installer.cgi:367
+msgid "Host"
+msgstr "Hôte"
+
+#: installer.cgi:368
+msgid "Hostname:"
+msgstr "Nom d'hôte"
+
+#: installer.cgi:369
+msgid "Name of your system"
+msgstr "Nom du système"
+
+#: installer.cgi:378
+msgid "Root"
+msgstr "Root"
+
+#: installer.cgi:379
+msgid "Root passwd:"
+msgstr "Mot de passe de root:"
+
+#: installer.cgi:380 installer.cgi:382
+msgid "Password of root"
+msgstr "Mot de passe de root"
+
+#: installer.cgi:381 installer.cgi:398
+msgid "Confirm password:"
+msgstr "Confirmer :"
+
+#: installer.cgi:391
+msgid "User"
+msgstr "Utilisateur"
+
+#: installer.cgi:393
+msgid "Name of the first user"
+msgstr "Nom du premier compte d'utilisateur"
+
+#: installer.cgi:396
+msgid "User passwd:"
+msgstr "Mot de passe utilisateur :"
+
+#: installer.cgi:397 installer.cgi:399
+msgid "Password of the first user"
+msgstr "Mot de passe de l'utilisateur"
+
+#: installer.cgi:408
+msgid "Grub"
+msgstr "Grub"
+
+#: installer.cgi:410
+msgid "Install Grub bootloader"
+msgstr "Installer le chargeur d'amorçage Grub"
+
+#: installer.cgi:412
+msgid "Enable Windows Dual-Boot"
+msgstr "Autoriser le double-boot avec Windows"
+
+#: installer.cgi:437 installer.cgi:451
+msgid "Do you really want to continue?"
+msgstr "Désirez-vous vraiment continuer?"
+
+#: installer.cgi:468 installer.cgi:479
+msgid "Back to Installer Start Page"
+msgstr "Retour au départ"
+
+#: installer.cgi:472
+msgid "Proceed to SliTaz installation"
+msgstr "Procéder à l'installation de SliTaz"
+
+#: installer.cgi:474
+msgid "Installation complete. You can now restart (reboot)"
+msgstr "Installation terminée. Vous pouvez redémarrer."
+
+#: installer.cgi:476
+msgid "Installation failed. See log"
+msgstr "L'installation n'a pas aboutie. Voir le fichier journal"
+
+#: installer.cgi:494
+msgid "A web page that points a browser to a different page after 2 seconds"
+msgstr "Vous allez être redirigés vers une autre page dans 2 secondes"
+
+#: installer.cgi:499
+msgid ""
+"If your browser doesn't automatically redirect within a few seconds, \n"
+"you may want to go there manually"
+msgstr "Si votre navigateur ne vous redirige pas automatiquement dans quelques secondes, vous devrez le faire manuellement"
+
+#: installer.cgi:514 installer.cgi:527
+msgid "Tazinst Error"
+msgstr "Erreur de Tazinst"
+
+#: installer.cgi:515
+msgid ""
+"the lightweight SliTaz HDD installer\n"
+"is missing. Any installation can not be done without tazinst."
+msgstr "L'installateur léger de SliTaz n'a pas été trouvé. Aucune installation ne peut être entreprise sans tazinst."
+
+#: installer.cgi:517
+msgid "Check tazinst' permissions, or reinstall the slitaz-tools package:"
+msgstr "Vérifiez les permissions de tazinst, ou réinstallez le paquet slitaz-tools :"
+
+#: installer.cgi:540
+msgid "Proceeding: ()"
+msgstr "Procédure en cours :"
 
 #~ msgid "Filesystem"
 #~ msgstr "Système de fichier"

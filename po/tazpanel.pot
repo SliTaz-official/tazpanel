@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-06 13:39+0100\n"
+"POT-Creation-Date: 2012-03-08 15:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -157,7 +157,7 @@ msgstr ""
 msgid "Network status"
 msgstr ""
 
-#: index.cgi:320 hardware.cgi:199
+#: index.cgi:320 hardware.cgi:193
 msgid "Filesystem usage statistics"
 msgstr ""
 
@@ -206,7 +206,7 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: pkgs.cgi:118
+#: pkgs.cgi:118 installer.cgi:261
 msgid "Web"
 msgstr ""
 
@@ -284,7 +284,7 @@ msgstr ""
 msgid "Getting package info..."
 msgstr ""
 
-#: pkgs.cgi:530
+#: pkgs.cgi:530 installer.cgi:160
 msgid "Install"
 msgstr ""
 
@@ -429,7 +429,8 @@ msgstr ""
 msgid "USB Media to use:"
 msgstr ""
 
-#: live.cgi:117
+#: live.cgi:117 installer.cgi:250 installer.cgi:287 installer.cgi:323
+#: installer.cgi:347
 msgid "Not found"
 msgstr ""
 
@@ -893,10 +894,10 @@ msgid "Manage your computer hardware"
 msgstr ""
 
 #: hardware.cgi:171
-msgid "LCD brightness"
+msgid "Brightness"
 msgstr ""
 
-#: hardware.cgi:223
+#: hardware.cgi:217
 msgid "System memory"
 msgstr ""
 
@@ -944,7 +945,7 @@ msgstr ""
 msgid "Add a new user"
 msgstr ""
 
-#: settings.cgi:147
+#: settings.cgi:147 installer.cgi:392
 msgid "User login:"
 msgstr ""
 
@@ -1081,4 +1082,260 @@ msgstr ""
 
 #: lib/libtazpanel:208
 msgid "Mount point"
+msgstr ""
+
+#: installer.cgi:112 installer.cgi:118
+msgid "Setup File Error"
+msgstr ""
+
+#: installer.cgi:133
+msgid "SliTaz Installer"
+msgstr ""
+
+#: installer.cgi:134
+msgid ""
+"The SliTaz Installer installs or upgrades SliTaz to a hard disk \n"
+"\t\tdrive from a device like a Live-CD or LiveUSB key, from a SliTaz ISO "
+"file, or \n"
+"\t\tfrom the web by downloading an ISO file."
+msgstr ""
+
+#: installer.cgi:145
+msgid "About"
+msgstr ""
+
+#: installer.cgi:147
+msgid ""
+"Before installation, you may need to resize partitions\n"
+"\ton your hard disk drive in order to make space for SliTaz GNU/Linux.\n"
+"\tYou can graphically manage your partitions with Gparted"
+msgstr ""
+
+#: installer.cgi:152
+msgid "Execute Gparted"
+msgstr ""
+
+#: installer.cgi:162
+msgid ""
+"Install SliTaz on a partition of your hard disk drive. If\n"
+"\tyou decide to format your HDD, all data will be lost. If you do not \n"
+"\tformat, all data except for any existing /home directory will be "
+"removed, \n"
+"\tthe home directory will be kept as is."
+msgstr ""
+
+#: installer.cgi:169 installer.cgi:197
+msgid "Install SliTaz"
+msgstr ""
+
+#: installer.cgi:177
+msgid "Upgrade"
+msgstr ""
+
+#: installer.cgi:179
+msgid ""
+"Upgrade an already installed SliTaz system on your hard disk\n"
+"\tdrive. Your /home /etc /var/www directories will be kept, all other "
+"directories\n"
+"\twill be removed. Any additional packages added to your old Slitaz system\n"
+"\twill be updated as long you have an active internet connection."
+msgstr ""
+
+#: installer.cgi:186 installer.cgi:209
+msgid "Upgrade SliTaz"
+msgstr ""
+
+#: installer.cgi:198
+msgid ""
+"You're going to install SliTaz on a partition of your hard disk drive. If\n"
+"\tyou decide to format your HDD, all data will be lost. If you do not \n"
+"\tformat, all data except for any existing /home directory will be "
+"removed, \n"
+"\tthe home directory will be kept as is."
+msgstr ""
+
+#: installer.cgi:210
+msgid ""
+"You're going to upgrade an already installed SliTaz system on your hard "
+"disk\n"
+"\tdrive. Your /home /etc /var/www directories will be kept, all other "
+"directories\n"
+"\twill be removed. Any additional packages added to your old Slitaz system\n"
+"\twill be updated as long you have an active internet connection."
+msgstr ""
+
+#: installer.cgi:225
+msgid "Source"
+msgstr ""
+
+#: installer.cgi:228
+msgid "LiveCD"
+msgstr ""
+
+#: installer.cgi:231
+msgid "LiveUSB"
+msgstr ""
+
+#: installer.cgi:257
+msgid "ISO file"
+msgstr ""
+
+#: installer.cgi:258
+msgid "Full path to the ISO image file"
+msgstr ""
+
+#: installer.cgi:262
+msgid "Stable"
+msgstr ""
+
+#: installer.cgi:263
+msgid "Cooking"
+msgstr ""
+
+#: installer.cgi:264
+msgid "URL:"
+msgstr ""
+
+#: installer.cgi:265
+msgid "Full url to an ISO image file"
+msgstr ""
+
+#: installer.cgi:275
+msgid "Main Partition"
+msgstr ""
+
+#: installer.cgi:277
+msgid "Partition to use:"
+msgstr ""
+
+#: installer.cgi:282 installer.cgi:318 installer.cgi:342
+msgid "None"
+msgstr ""
+
+#: installer.cgi:293
+msgid "Format partition as"
+msgstr ""
+
+#: installer.cgi:311
+msgid "Existing SliTaz Partition"
+msgstr ""
+
+#: installer.cgi:313
+msgid "Partition in use:"
+msgstr ""
+
+#: installer.cgi:335
+msgid "Home partition"
+msgstr ""
+
+#: installer.cgi:337
+msgid "Use a separate partition for /home:"
+msgstr ""
+
+#: installer.cgi:353
+msgid "Format partition as:"
+msgstr ""
+
+#: installer.cgi:367
+msgid "Host"
+msgstr ""
+
+#: installer.cgi:368
+msgid "Hostname:"
+msgstr ""
+
+#: installer.cgi:369
+msgid "Name of your system"
+msgstr ""
+
+#: installer.cgi:378
+msgid "Root"
+msgstr ""
+
+#: installer.cgi:379
+msgid "Root passwd:"
+msgstr ""
+
+#: installer.cgi:380 installer.cgi:382
+msgid "Password of root"
+msgstr ""
+
+#: installer.cgi:381 installer.cgi:398
+msgid "Confirm password:"
+msgstr ""
+
+#: installer.cgi:391
+msgid "User"
+msgstr ""
+
+#: installer.cgi:393
+msgid "Name of the first user"
+msgstr ""
+
+#: installer.cgi:396
+msgid "User passwd:"
+msgstr ""
+
+#: installer.cgi:397 installer.cgi:399
+msgid "Password of the first user"
+msgstr ""
+
+#: installer.cgi:408
+msgid "Grub"
+msgstr ""
+
+#: installer.cgi:410
+msgid "Install Grub bootloader"
+msgstr ""
+
+#: installer.cgi:412
+msgid "Enable Windows Dual-Boot"
+msgstr ""
+
+#: installer.cgi:437 installer.cgi:451
+msgid "Do you really want to continue?"
+msgstr ""
+
+#: installer.cgi:468 installer.cgi:479
+msgid "Back to Installer Start Page"
+msgstr ""
+
+#: installer.cgi:472
+msgid "Proceed to SliTaz installation"
+msgstr ""
+
+#: installer.cgi:474
+msgid "Installation complete. You can now restart (reboot)"
+msgstr ""
+
+#: installer.cgi:476
+msgid "Installation failed. See log"
+msgstr ""
+
+#: installer.cgi:494
+msgid "A web page that points a browser to a different page after 2 seconds"
+msgstr ""
+
+#: installer.cgi:499
+msgid ""
+"If your browser doesn't automatically redirect within a few seconds, \n"
+"you may want to go there manually"
+msgstr ""
+
+#: installer.cgi:514 installer.cgi:527
+msgid "Tazinst Error"
+msgstr ""
+
+#: installer.cgi:515
+msgid ""
+"the lightweight SliTaz HDD installer\n"
+"is missing. Any installation can not be done without tazinst."
+msgstr ""
+
+#: installer.cgi:517
+msgid "Check tazinst' permissions, or reinstall the slitaz-tools package:"
+msgstr ""
+
+#: installer.cgi:540
+msgid "Proceeding: ()"
 msgstr ""

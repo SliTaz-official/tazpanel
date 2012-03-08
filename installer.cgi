@@ -92,17 +92,25 @@ read_setup()
 	# various checks on setup file
 	if [ -e "$INSTFILE" ]; then
 		# validity check + reformat output
-		IFS=$'\n'
-		for line in $(tazinst check $INSTFILE)  
-		do
-			line=$(echo $line | sed 's/\[1m//g')
-			line=$(echo $line | sed 's/\[0m//g')
-			line=$(echo $line | sed 's/\s/\&nbsp;/g')
-			line=$(echo $line | sed 's/</\&lt;/g')
-			line=$(echo $line | sed 's/>/\&gt;/g')
-			echo "<span class=\"msg-nok\">$line<br /></span>"
-		done  
-		unset IFS
+		tazinst check $INSTFILE | awk '
+BEGIN{
+	fmt1="<span class=\"msg-nok\">"
+	fmt2="<br /></span>"
+	OFS=""
+	}
+{
+	# make html compliant
+	str=$0
+	gsub(/\[1m/,"",str)
+	gsub(/\[0m/,"",str)
+	gsub(/\s/,"\\&nbsp;",str)
+	gsub(/</,"\\&lt",str)
+	gsub(/>/,"\\&gt",str)
+	a[i++]=str
+} END {
+	{print fmt1,a[i-1],fmt2}
+	{for (j=0; j<i-1;) print fmt1,substr(a[j++],3),fmt2}
+}'
 	else
 		# no setup file found: creating
 		gettext "Creating setup file $INSTFILE."
@@ -444,7 +452,7 @@ validate()
 </script>
 EOT
 		;;
-		upgrade)
+		*)
 			cat << EOT
 <script>
 	function SubmitForm() {
