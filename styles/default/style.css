@@ -253,6 +253,10 @@ span.diff-add { color: green; }
 span.diff-at { color: blue;  }
 span.top { color: #00c800; font-weight: bold; font-size: 95%; }
 
+/* alert messages */
+span.msg-ok { color: limegreen; }
+span.msg-nok { color: tomato; }
+
 /* Misc */
 
 pre, .pre-main { 

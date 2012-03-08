@@ -7,7 +7,7 @@
 # Authors : Dominique Corbex <domcox@slitaz.org>
 #
 
-VERSION=0.26
+VERSION=0.27
 
 # Common functions from libtazpanel
 . lib/libtazpanel
@@ -100,7 +100,7 @@ read_setup()
 			line=$(echo $line | sed 's/\s/\&nbsp;/g')
 			line=$(echo $line | sed 's/</\&lt;/g')
 			line=$(echo $line | sed 's/>/\&gt;/g')
-			echo "<font color=\"red\">$line<br /></font>"
+			echo "<span class=\"msg-nok\">$line<br /></span>"
 		done  
 		unset IFS
 	else
@@ -109,15 +109,15 @@ read_setup()
 		tazinst new $INSTFILE
 		if [ ! -e "$INSTFILE" ]; then
 			cat <<EOT
-<font color="red">$(gettext "Setup File Error")<br />
-$(gettext "The setup file <strong>$INSTFILE</strong> doesn't exist.")</font><br />
+<span class="msg-nok">$(gettext "Setup File Error")<br />
+$(gettext "The setup file <strong>$INSTFILE</strong> doesn't exist.")</span><br />
 EOT
 		else
 			if [ ! -r $INSTFILE ]; then
 				cat <<EOT
-<font color="red">$(gettext "Setup File Error")<br />
+<span class="msg-nok">$(gettext "Setup File Error")<br />
 $(gettext "The setup file <strong>$INSTFILE</strong> is not readable. 
-Check permissions and ownership.")</font><br />
+Check permissions and ownership.")</span><br />
 EOT
 			fi	
 		fi
@@ -363,167 +363,41 @@ EOT
 select_hostname()
 {
 cat << EOT
-<script type="text/javascript">
-    function checkHostname(){
-		var host = document.getElementById('h1');
-		var msg = document.getElementById('hostAlert');
-		var enoughRegex = new RegExp("(?=.{3,}).*", "g");
-		var incharRegex = new RegExp("^[A-Za-z0-9_]{3,20}$");
-		if (false == enoughRegex.test(host.value)) {
-			msg.style.color = "tomato";
-			msg.innerHTML ="&#x2716; Too short";
-			return false;
-		} else if (false == incharRegex.test(host.value)) {
-				msg.style.color = "tomato";
-				msg.innerHTML ="&#x2716; Invalid chars";
-				return false;
-		} else {
-			msg.style.color = "limegreen";
-			msg.innerHTML = "&#x2714;";
-		}
-	}
-</script>
 <a name="hostname"></a>
 <h4>$(gettext "Host")</h4>
 $(gettext "Hostname:")
-<input type="text" id="h1" name="TGT_HOSTNAME" value="$TGT_HOSTNAME" placeholder="$(gettext "Name of your system")" onkeyup="checkHostname(); return false;" />
-<span id="hostAlert"></span>
+<input type="text" id="hostname" name="TGT_HOSTNAME" value="$TGT_HOSTNAME" placeholder="$(gettext "Name of your system")" onkeyup="checkLogin('hostname','msgHostname'); return false;" />
+<span id="msgHostname"></span>
 EOT
 }
 
 select_root()
 {
 cat << EOT
-<script type="text/javascript">
-	function checkRootPwd(){
-		var pwd1 = document.getElementById('p1');
-		var pwd2 = document.getElementById('p2');
-		var msg = document.getElementById('rootPwdAlert');
-		if(pwd1.value == pwd2.value){
-			// passwords match. 
-			pwd2.style.backgroundColor = "white";
-			// various checks
-			var enoughRegex = new RegExp("(?=.{4,}).*", "g");
-			var incharRegex = new RegExp("^[A-Za-z0-9!@#$%^&*()_]{4,20}$");
-			var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
-			var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
-			if (pwd1.value.length==0) {
-				msg.style.color = "tomato";
-				msg.innerHTML = "&#x2716; Missing Password";
-				return false;
-			} else if (false == enoughRegex.test(pwd1.value)) {
-				msg.style.color = "tomato";
-				msg.innerHTML ="&#x2716; Too short";
-				return false;
-			} else if (false == incharRegex.test(pwd1.value)) {
-				msg.style.color = "tomato";
-				msg.innerHTML ="&#x2716; Invalid chars";
-				return false;
-			} else if (strongRegex.test(pwd1.value)) {
-				msg.style.color = "limegreen";
-				msg.innerHTML = "&#x2714; Strong!";
-			} else if (mediumRegex.test(pwd1.value)) {
-				msg.style.color = "limegreen";
-				msg.innerHTML = "&#x2714; Medium!";
-			} else {
-				msg.style.color = "orange";
-				msg.innerHTML = "&#x2714; Weak";
-			}
-		}else{
-			// passwords do not match.
-			pwd2.style.backgroundColor = "lightsalmon";
-			msg.style.color = "tomato";
-			msg.innerHTML = "&#x2716; Do Not Match!"
-			return false;
-		}
-	}  
-</script>
-
 <a name="root"></a>
 <h4>$(gettext "Root")</h4>
 $(gettext "Root passwd:")
-<input type="password" id="p1" name="TGT_ROOT_PWD" value="$TGT_ROOT_PWD" placeholder="$(gettext "Password of root")" onkeyup="checkRootPwd(); return false;" />
+<input type="password" id="rootPwd1" name="TGT_ROOT_PWD" value="$TGT_ROOT_PWD" placeholder="$(gettext "Password of root")" onkeyup="checkPwd('rootPwd1','rootPwd2','msgRootPwd'); return false;" />
 $(gettext "Confirm password:")
-<input type="password" id="p2" value="$TGT_ROOT_PWD" placeholder="$(gettext "Password of root")" onkeyup="checkRootPwd(); return false;" />
-<span id="rootPwdAlert"></span>
+<input type="password" id="rootPwd2" value="$TGT_ROOT_PWD" placeholder="$(gettext "Password of root")" onkeyup="checkPwd('rootPwd1','rootPwd2','msgRootPwd'); return false;" />
+<span id="msgRootPwd"></span>
 EOT
 }
 
 select_user()
 {
 cat << EOT
-<script type="text/javascript">
-    function checkUserLogin(){
-		var user = document.getElementById('u1');
-		var msg = document.getElementById('userLoginAlert');
-		var enoughRegex = new RegExp("(?=.{3,}).*", "g");
-		var incharRegex = new RegExp("^[A-Za-z0-9_]{3,20}$");
-		if (false == enoughRegex.test(user.value)) {
-			msg.style.color = "tomato";
-			msg.innerHTML ="&#x2716; Too short";
-			return false;
-		} else if (false == incharRegex.test(user.value)) {
-				msg.style.color = "tomato";
-				msg.innerHTML ="&#x2716; Invalid chars";
-				return false;		
-		} else {
-			msg.style.color = "limegreen";
-			msg.innerHTML = "&#x2714;";
-		}
-	}
-	function checkUserPwd(){
-		var pwd1 = document.getElementById('p3');
-		var pwd2 = document.getElementById('p4');
-		var msg = document.getElementById('userPwdAlert');
-		if(pwd1.value == pwd2.value){
-			// passwords match. 
-			pwd2.style.backgroundColor = "white";
-			// various checks
-			var enoughRegex = new RegExp("(?=.{3,}).*", "g");
-			var incharRegex = new RegExp("^[A-Za-z0-9!@#$%^&*()_]{3,20}$");
-			var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
-			var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
-			if (pwd1.value.length==0) {
-				msg.style.color = "orange";
-				msg.innerHTML = "&#x2714; No Password";
-			} else if (false == enoughRegex.test(pwd1.value)) {
-				msg.style.color = "tomato";
-				msg.innerHTML ="&#x2716; Too short";
-				return false;
-			} else if (false == incharRegex.test(pwd1.value)) {
-				msg.style.color = "tomato";
-				msg.innerHTML ="&#x2716; Invalid chars";
-				return false;
-			} else if (strongRegex.test(pwd1.value)) {
-				msg.style.color = "limegreen";
-				msg.innerHTML = "&#x2714; Strong!";
-			} else if (mediumRegex.test(pwd1.value)) {
-				msg.style.color = "limegreen";
-				msg.innerHTML = "&#x2714; Medium!";
-			} else {
-				msg.style.color = "orange";
-				msg.innerHTML = "&#x2714; Weak";
-			}
-		}else{
-			// passwords do not match.
-			pwd2.style.backgroundColor = "lightsalmon";
-			msg.style.color = "tomato";
-			msg.innerHTML = "&#x2716; Do Not Match!"
-			return false;
-		}
-	}  
-</script>
 <a name="user"></a>
 <h4>$(gettext "User")</h4>
 $(gettext "User login:")
-<input type="text" id="u1" name="TGT_USER" value="$TGT_USER" placeholder="$(gettext "Name of the first user")" onkeyup="checkUserLogin(); return false;" />
-<span id="userLoginAlert"></span>
+<input type="text" id="user" name="TGT_USER" value="$TGT_USER" placeholder="$(gettext "Name of the first user")" onkeyup="checkLogin('user','msgUser'); return false;" />
+<span id="msgUser"></span>
 <br /><br />
 $(gettext "User passwd:")
-<input type="password" id="p3" name="TGT_USER_PWD" value="$TGT_USER_PWD" placeholder="$(gettext "Password of the first user")" onkeyup="checkUserPwd(); return false;" />
+<input type="password" id="userPwd1" name="TGT_USER_PWD" value="$TGT_USER_PWD" placeholder="$(gettext "Password of the first user")" onkeyup="checkPwd('userPwd1','userPwd2','msgUserPwd'); return false;" />
 $(gettext "Confirm password:")
-<input type="password" id="p4" value="$TGT_USER_PWD" placeholder="$(gettext "Password of the first user")" onkeyup="checkUserPwd(); return false;" />
-<span id="userPwdAlert"></span>
+<input class="confirm" type="password" id="userPwd2" value="$TGT_USER_PWD" placeholder="$(gettext "Password of the first user")" onkeyup="checkPwd('userPwd1','userPwd2','msgUserPwd'); return false;" />
+<span id="msgUserPwd"></span>
 EOT
 }
 
@@ -544,15 +418,20 @@ validate()
 	case $1 in
 		install)
 			cat << EOT
+<script src="lib/user.js"></script>
 <script type="text/javascript">
 	function SubmitForm() {
-		if (false == checkHostname()) {
+		// hostname
+		if (false == checkLogin('hostname','msgHostname')) {
 			alert("Hostname error");
-		} else if (false == checkRootPwd()) {
+		// root pwd
+		} else if (false == checkPwd('rootPwd1','rootPwd2','msgRootPwd')) {
 			alert("Root password error");
-		} else if (false == checkUserLogin()) {
+		// user
+		} else if (false == checkLogin('user','msgUser')) {
 			alert("User login error");
-		} else if (false == checkUserPwd()) {
+		// user pwd
+		} else if (false == checkPwd('userPwd1','userPwd2','msgUserPwd')) {
 			alert("User password error");
 		} else {
 			var r=confirm("$(gettext "Do you really want to continue?")");
@@ -664,6 +543,7 @@ run_tazinst()
 	tazinst $(GET INST_ACTION) $INSTFILE | \
 		awk '{print "<tr><td><tt>" $0 "</tt></td></tr>"}'
 	table_end
+	gettext "Completed."
 	return $(grep -c "cancelled on error" $INSTFILE)
 }
 
