@@ -70,8 +70,15 @@ list_mirrors() {
 	while read line
 	do
 		cat << EOT
-<li><a href="$SCRIPT_NAME?admin=rm-mirror=$line&amp;file=$(httpd -e $1)"><img
-	src="$IMAGES/clear.png" /></a><a href="$line">$line</a></li>
+<li>
+	<a href="$SCRIPT_NAME?admin=rm-mirror=$line&amp;file=$(httpd -e $1)">
+		<img src="$IMAGES/clear.png" />
+	</a>
+	<a href="$SCRIPT_NAME?admin=select-mirror&amp;mirror=$line">
+		<img src="$IMAGES/start.png" />
+	</a>
+	<a href="$line">$line</a>
+</li>
 EOT
 	done < $1
 }
@@ -625,6 +632,11 @@ EOT
 			rm-mirror=http://*|rm-mirror=ftp://*)
 				mirror=${cmd#rm-mirror=}
 				sed -i -e "s@$mirror@@" -e '/^$/d' $(GET file) ;;
+			select-mirror*)
+				release=`cat /etc/slitaz-release`
+				mirror="$(GET mirror)packages/$release/"
+				tazpkg setup-mirror $mirror | log
+				;;
 			add-repo)
 				# Decode url
 				mirror=$(GET mirror)
@@ -709,7 +721,8 @@ EOT
 		</p>
 	</form>
 </div>
-
+<h3>`gettext "Default mirror"`</h3>
+	`cat /var/lib/tazpkg/mirror`
 <h3>`gettext "Current mirror list"`</h3>
 EOT
 		for i in $LOCALSTATE/mirrors $LOCALSTATE/undigest/*/mirrors; do
