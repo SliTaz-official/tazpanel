@@ -148,7 +148,7 @@ EOT
 	*\ top\ *)
 		TITLE="- $(gettext "Process activity")"
 		xhtml_header
-		echo 'Refresh: ' $(GET refresh)
+		echo `gettext "Refresh: "` $(GET refresh)
 		echo '<br/>
 <form method="get">
 	<input type="hidden" name="top"/>
