@@ -148,6 +148,18 @@ EOT
 	*\ top\ *)
 		TITLE="- $(gettext "Process activity")"
 		xhtml_header
+		echo 'Refresh: ' $(GET refresh)
+		echo '<br/>
+<form method="get">
+	<input type="hidden" name="top"/>
+	<input type="submit" name="refresh" value="1s"/>
+	<input type="submit" name="refresh" value="5s"/>
+	<input type="submit" name="refresh" value="10s"/>
+	<input type="submit" value="none"/>
+</form>	'
+		[ -n $(GET refresh) ] && 
+		echo '<meta http-equiv="refresh" content="' $(GET refresh) '">' | sed "s/s //"
+
 		echo '<pre>'
 		top -n1 -b | sed \
 			-e s"#^[A-Z].*:\([^']\)#<span class='sh-comment'>\0</span>#"g \
