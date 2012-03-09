@@ -84,6 +84,8 @@ case " $(GET) " in
 		sleep 2 ;;
 	*\ stop\ *)
 		/etc/init.d/network.sh stop | log ;;
+	*\ restart\ *)
+		/etc/init.d/network.sh restart | log ;;
 	*\ start-wifi\ *) start_wifi ;;
 	*\ hostname\ *)
 		echo $(gettext "Changed hostname:") $(GET hostname) | log
@@ -288,6 +290,8 @@ EOT
 			<img src="$IMAGES/start.png" />$(gettext "Start")</a>
 		<a class="button" href="$SCRIPT_NAME?stop">
 			<img src="$IMAGES/stop.png" />$(gettext "Stop")</a>
+		<a class="button" href="$SCRIPT_NAME?restart">
+			<img src="$IMAGES/recharge.png" />$(gettext "Restart")</a>
 	</div>
 	<div class="float-right">
 		`gettext "Configuration:"`
