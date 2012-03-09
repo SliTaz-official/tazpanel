@@ -74,9 +74,11 @@ case " $(GET) " in
 	<img src="$IMAGES/help.png" />`gettext "Differences"`</a>
 <textarea name="content" rows="30" style="width: 100%;">
 $(cat $file)
-</textarea>
+ </textarea>
 </form>
 EOT
+#The space before textarea gets muddled when the form is submitted.
+#It prevents anything else from getting messed up
 		elif [ "$(GET action)" == "diff" ]; then
 			echo '<pre id="diff">'
 			file_is_modified $file diff | syntax_highlighter diff
