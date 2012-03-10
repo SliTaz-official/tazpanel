@@ -7,7 +7,7 @@
 # Authors : Dominique Corbex <domcox@slitaz.org>
 #
 
-VERSION=0.27
+VERSION=0.28
 
 # Common functions from libtazpanel
 . lib/libtazpanel
@@ -596,7 +596,7 @@ form_end()
 
 case "$(GET page)" in
 	gparted)
-		/usr/sbin/gparted
+		su - -c "exec env DISPLAY=':0.0' XAUTHORITY='/var/run/slim.auth' /usr/sbin/gparted"
  		xhtml_header
 		page_redirection home
 		;;
