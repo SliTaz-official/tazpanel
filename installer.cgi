@@ -278,6 +278,7 @@ EOT
 
 select_partition()
 {
+	has_partitions=1
 	cat <<EOT
 <a name="partition"></a>
 <h4></span>$(gettext "Main Partition")</h4>
@@ -292,10 +293,15 @@ EOT
 			echo "<option value='$i' $([ "$i" == "$TGT_PARTITION" ] && echo "selected")>$i</option>"
 		done
 	else
+		has_partitions=0
 		echo "<option value="">$(gettext "Not found")</option>"
 	fi
+	echo "</select>"
+
+	if [ has_partitions == 0 ]; then
+		echo "<a class="button" href="$SCRIPT_NAME?page=gparted">$(gettext "Gparted")</a>"
+	fi
 	cat << EOT
-</select>
 <br />
 <input type="checkbox" name="MAIN_FMT" value="yes" $([ -n "$TGT_FS" ] && echo "checked") id="mainfs" />
 <label for="mainfs">$(gettext "Format partition as"):</label>
