@@ -7,7 +7,7 @@
 # Authors : Dominique Corbex <domcox@slitaz.org>
 #
 
-VERSION=0.28
+VERSION=0.29
 
 # Common functions from libtazpanel
 . lib/libtazpanel
@@ -139,25 +139,12 @@ select_action()
 	cat <<EOT
 <div id="wrapper">
 	<h2>$(gettext "SliTaz Installer")</h2>
-	<p>$(gettext "The SliTaz Installer installs or upgrades SliTaz to a hard disk 
-		drive from a device like a Live-CD or LiveUSB key, from a SliTaz ISO file, or 
-		from the web by downloading an ISO file.")<p>
-</div>
-EOT
-}
-
-select_gparted()
-{
-	cat <<EOT
-<div class="box">
-	<h4>$(gettext "About")</h4>
 <p>
-	$(gettext "Before installation, you may need to resize partitions
-	on your hard disk drive in order to make space for SliTaz GNU/Linux.
-	You can graphically manage your partitions with Gparted")
-</p>
+	$(gettext "The SliTaz Installer installs or upgrades SliTaz to a hard disk
+	drive from a device like a Live-CD or LiveUSB key, from a SliTaz ISO file,
+	or from the web by downloading an ISO file.")
+<p>
 </div>
-<a class="button" href="$SCRIPT_NAME?page=gparted">$(gettext "Execute Gparted")</a>
 EOT
 }
 
@@ -168,13 +155,18 @@ select_install()
 	<h4>$(gettext "Install")</h4>
 <p>
 	$(gettext "Install SliTaz on a partition of your hard disk drive. If
-	you decide to format your HDD, all data will be lost. If you do not 
+	you decide to format your partition, all data will be lost. If you do not
 	format, all data except for any existing /home directory will be removed, 
 	the home directory will be kept as is.")
 </p>
+<p>
+	$(gettext "Before installation, you may need to create or resize partitions
+	on your hard disk drive in order to make space for SliTaz GNU/Linux.
+	You can graphically manage your partitions with Gparted")
+</p>
 </div>
 <p>
-<a class="button" href="$SCRIPT_NAME?page=install">$(gettext "Install SliTaz")</a>
+<a class="button" href="$SCRIPT_NAME?page=partitioning">$(gettext "Install SliTaz")</a>
 EOT
 }
 
@@ -193,6 +185,58 @@ select_upgrade()
 <p>
 	<a class="button" href="$SCRIPT_NAME?page=upgrade">$(gettext "Upgrade SliTaz")</a>
 </p>
+EOT
+}
+
+select_gparted()
+{
+	cat <<EOT
+<h4>$(gettext "Partitioning")</h4>
+<div class="box">
+<p>
+	$(gettext "On most used systems, the hard drive is already dedicated to 
+	partitions for Windows<sup>&copy;</sup>, or Linux, or another operating 
+	system. You'll need to resize these partitions in order to make space for
+	SliTaz GNU/Linux. SliTaz will co-exist with other operating systems already
+	installed on your hard drive.") 
+</p>
+<p>
+	$(gettext "The amount of space needed depends on how much software you 
+	plan to install	and how much space you require for users. It's conceivable
+	that you could run a minimal SliTaz system in 300 megs or less, but 2 gigs
+	is indeed more comfy.")
+<p>
+	$(gettext "A separate home partition, and a partition that will be used 
+	as Linux swap space may be created if needed. Slitaz detects and uses swap
+	partitions automatically.")
+</p>
+</p>
+</div>
+<div class="box">
+<p>
+	$(gettext "You can graphically manage your partitions with Gparted. GParted
+	is a partition editor for graphically managing your disk partitions. Gparted
+	allows you to create, destroy, resize and copy partitions without data
+	loss.")
+</p>
+<p>
+	$(gettext "Gparted supports ext2, ext3, ext4, linux swap, ntfs and fat32
+	filesystems right out of the box. Support for xjs, jfs, hfs and other
+	filesystems is available as well but you first need to add drivers for 
+	these filesystems by installing the related packages xfsprogs, jfsutils,
+	linux-hfs and so on.")
+</p>
+</div>
+<a class="button" href="$SCRIPT_NAME?page=gparted">$(gettext "Execute Gparted")</a>
+<h5>$(gettext "Continue installation")</h5>
+	$(gettext "Once you've made room for SliTaz on your drive,	you
+	should be able to continue installation.")
+
+<hr />
+<a class="button" value="$1" href="$SCRIPT_NAME?page=home" >
+	$(gettext "Back to Installer Start Page")</a>
+<a class="button" value="$2" href="$SCRIPT_NAME?page=install">
+	$(gettext "Continue Installation")</a>
 EOT
 }
 
@@ -230,7 +274,7 @@ select_source()
 {
 	cat <<EOT
 <a name="source"></a>
-<h4>$(gettext "Source")</h4>
+<h4>$(gettext "Slitaz source media")</h4>
 <div class="box">
 <input type="radio" name="INST_TYPE" value="cdrom" $([ "$INST_TYPE" == "cdrom" ] && echo "checked") id="cdrom" />
 <label for="cdrom">$(gettext "LiveCD")</td></label>
@@ -276,14 +320,20 @@ $(gettext "URL:")
 EOT
 }
 
+select_hdd()
+{
+cat <<EOT
+	<a name="hdd"></a>
+	<h4></span>$(gettext "Hard Disk Drive")</h4>
+EOT
+}
+
 select_partition()
 {
-	has_partitions=1
 	cat <<EOT
-<a name="partition"></a>
-<h4></span>$(gettext "Main Partition")</h4>
 <div class="box">
-$(gettext "Partition to use:")
+<a name="partition"></a>
+$(gettext "Install Slitaz to partition:")
 <select name="TGT_PARTITION">
 EOT
 	# List partitions
@@ -293,15 +343,10 @@ EOT
 			echo "<option value='$i' $([ "$i" == "$TGT_PARTITION" ] && echo "selected")>$i</option>"
 		done
 	else
-		has_partitions=0
 		echo "<option value="">$(gettext "Not found")</option>"
 	fi
-	echo "</select>"
-
-	if [ has_partitions == 0 ]; then
-		echo "<a class="button" href="$SCRIPT_NAME?page=gparted">$(gettext "Gparted")</a>"
-	fi
 	cat << EOT
+</select>
 <br />
 <input type="checkbox" name="MAIN_FMT" value="yes" $([ -n "$TGT_FS" ] && echo "checked") id="mainfs" />
 <label for="mainfs">$(gettext "Format partition as"):</label>
@@ -321,10 +366,9 @@ EOT
 select_old_slitaz()
 {
 	cat <<EOT
-<a name="partition"></a>
-<h4></span>$(gettext "Existing SliTaz Partition")</h4>
 <div class="box">
-$(gettext "Partition in use:")
+<a name="partition"></a>
+$(gettext "Existing SliTaz partition to upgrade:")
 <select name="TGT_PARTITION">
 EOT
 	# List partitions
@@ -342,11 +386,20 @@ EOT
 EOT
 }
 
+select_options()
+{
+	cat <<EOT
+<a name="options"></a>
+<h4></span>$(gettext "Options")</h4>
+EOT
+}
+
 select_home()
 {
 	cat <<EOT
+<div>
 <a name="home"></a>
-<h4>$(gettext "Home partition")</h4>
+<h5>$(gettext "home partition")</h5>
 <input type="checkbox" name="HOME_SELECT" value="yes" $([ -n "$TGT_HOME" ] && echo "checked") id="homepart" />
 <label for="homepart">$(gettext "Use a separate partition for /home:")</label>
 <select name="TGT_HOME">
@@ -371,38 +424,46 @@ EOT
 	do
 		echo  "<option value='$i' $([ "$i" == "$TGT_HOME_FS" ] && echo "selected")>$i</option>"
 	done
-	echo "</select>"
+	cat <<EOT
+</select>
+</div>
+EOT
 }
 
 select_hostname()
 {
 cat << EOT
+<div>
 <a name="hostname"></a>
-<h4>$(gettext "Host")</h4>
-$(gettext "Hostname:")
+<h5>$(gettext "Hostname")</h5>
+$(gettext "Set Hostname to:")
 <input type="text" id="hostname" name="TGT_HOSTNAME" value="$TGT_HOSTNAME" placeholder="$(gettext "Name of your system")" onkeyup="checkLogin('hostname','msgHostname'); return false;" />
 <span id="msgHostname"></span>
+</div>
 EOT
 }
 
 select_root()
 {
 cat << EOT
+<div class="box2">
 <a name="root"></a>
-<h4>$(gettext "Root")</h4>
+<h5>$(gettext "Root")</h5>
 $(gettext "Root passwd:")
 <input type="password" id="rootPwd1" name="TGT_ROOT_PWD" value="$TGT_ROOT_PWD" placeholder="$(gettext "Password of root")" onkeyup="checkPwd('rootPwd1','rootPwd2','msgRootPwd'); return false;" />
 $(gettext "Confirm password:")
 <input type="password" id="rootPwd2" value="$TGT_ROOT_PWD" placeholder="$(gettext "Password of root")" onkeyup="checkPwd('rootPwd1','rootPwd2','msgRootPwd'); return false;" />
 <span id="msgRootPwd"></span>
+</div>
 EOT
 }
 
 select_user()
 {
 cat << EOT
+<div class="box2">
 <a name="user"></a>
-<h4>$(gettext "User")</h4>
+<h5>$(gettext "User")</h5>
 $(gettext "User login:")
 <input type="text" id="user" name="TGT_USER" value="$TGT_USER" placeholder="$(gettext "Name of the first user")" onkeyup="checkLogin('user','msgUser'); return false;" />
 <span id="msgUser"></span>
@@ -412,71 +473,29 @@ $(gettext "User passwd:")
 $(gettext "Confirm password:")
 <input class="confirm" type="password" id="userPwd2" value="$TGT_USER_PWD" placeholder="$(gettext "Password of the first user")" onkeyup="checkPwd('userPwd1','userPwd2','msgUserPwd'); return false;" />
 <span id="msgUserPwd"></span>
+</div>
 EOT
 }
 
 select_grub()
 {
 cat << EOT
+<div>
 <a name="grub"></a>
-<h4>$(gettext "Grub")</h4>
+<h5>$(gettext "Grub")</h5>
 <input type="checkbox" name="TGT_GRUB" value="yes" $([ "$TGT_GRUB" == "yes" ] && echo "checked") id="grub" />
-<label for="grub">$(gettext "Install Grub bootloader")<br /></label>
+<label for="grub">$(gettext "Install Grub bootloader. Usually you should answer yes, unless you want to install grub by hand yourself.")<br /></label>
 <input type="checkbox" name="TGT_WINBOOT" value="auto" $([ -n "$TGT_WINBOOT" ] && echo "checked") id="dualboot" />
-<label for="dualboot">$(gettext "Enable Windows Dual-Boot")</label>
+<label for="dualboot">$(gettext "Enable Windows Dual-Boot.")</label>
+</div>
 EOT
-}
-
-validate()
-{
-	case $1 in
-		install)
-			cat << EOT
-<script src="lib/user.js"></script>
-<script type="text/javascript">
-	function SubmitForm() {
-		// hostname
-		if (false == checkLogin('hostname','msgHostname')) {
-			alert("Hostname error");
-		// root pwd
-		} else if (false == checkPwd('rootPwd1','rootPwd2','msgRootPwd')) {
-			alert("Root password error");
-		// user
-		} else if (false == checkLogin('user','msgUser')) {
-			alert("User login error");
-		// user pwd
-		} else if (false == checkPwd('userPwd1','userPwd2','msgUserPwd')) {
-			alert("User password error");
-		} else {
-			var r=confirm("$(gettext "Do you really want to continue?")");
-			if (r==true)
-			{
-				document.ConfigForm.submit();
-			}
-		}
-	}
-</script>
-EOT
-		;;
-		*)
-			cat << EOT
-<script>
-	function SubmitForm() {
-		var r=confirm("$(gettext "Do you really want to continue?")");
-		if (r==true)
-		{
-			document.ConfigForm.submit();
-		}
-	}
-</script>
-EOT
-		;;
-	esac
 }
 
 moveto_page()
 {
 	case $1 in
+		partitioning)
+			title1=$(gettext "Back to partitioning") ;;
 		*)
 			page=home
 			title1=$(gettext "Back to Installer Start Page") ;;
@@ -496,7 +515,7 @@ moveto_page()
 <hr />
 <input type="hidden" name="page" value="$2" />
 <a class="button" value="$1"  href="$SCRIPT_NAME?page=$1" >$title1</a>
-<a class="button" value="$2" onclick="SubmitForm()">$title2</a>
+<input type="submit" value="$title2">
 EOT
 }
 
@@ -587,7 +606,49 @@ scan_mkfs()
 form_start()
 {
 	cat <<EOT
-<form name="ConfigForm" method="get" action="$SCRIPT_NAME">
+<script src="lib/user.js"></script>
+<script type="text/javascript">
+	function Validate(page) {
+		if (page == "install") {
+			// hostname
+			if (false == checkLogin('hostname','msgHostname')) {
+				alert("Hostname error");
+				return false;
+			// root pwd
+			} else if (false == checkPwd('rootPwd1','rootPwd2','msgRootPwd')) {
+				alert("Root password error");
+				return false;
+			// user
+			} else if (false == checkLogin('user','msgUser')) {
+				alert("User login error");
+				return false;
+			// user pwd
+			} else if (false == checkPwd('userPwd1','userPwd2','msgUserPwd')) {
+				alert("User password error");
+				return false;
+			} else {
+				var r=confirm("$(gettext "Do you really want to continue?")");
+				if (r==true)
+				{
+					document.ConfigForm.submit();
+				} else {
+					return false;
+				}
+			}
+		} else if (page == "write") {
+			return true;
+		} else {
+			var r=confirm("$(gettext "Do you really want to continue?")");
+			if (r==true)
+			{
+				document.ConfigForm.submit();
+			} else {
+				return false;
+			}
+		}
+	}
+</script>
+<form name="ConfigForm" method="get" onsubmit="return Validate('$1')" action="$SCRIPT_NAME">
 EOT
 }
 
@@ -601,35 +662,48 @@ form_end()
 #
 
 case "$(GET page)" in
+	home)
+		xhtml_header
+		select_action
+		select_install
+		select_upgrade
+		;;
+	partitioning)
+		xhtml_header
+		display_action install
+		select_gparted
+		;;
 	gparted)
 		su - -c "exec env DISPLAY=':0.0' XAUTHORITY='/var/run/slim.auth' /usr/sbin/gparted"
  		xhtml_header
-		page_redirection home
+		page_redirection partitioning
 		;;
 	install)
 		xhtml_header
-		form_start
+		form_start install
 		display_action install
-		validate install
 		read_setup
 		select_source
+		select_hdd
 		select_partition
+		select_options
 		select_home
 		select_hostname
 		select_root
 		select_user
 		select_grub
-		moveto_page home write
+		moveto_page partitioning write
 		form_end
 		;;
 	upgrade)
 		xhtml_header
-		form_start
+		form_start upgrade
 		display_action upgrade
-		validate upgrade
 		read_setup
 		select_source
+		select_hdd
 		select_old_slitaz
+		select_options
 		select_grub
 		moveto_page home write
 		form_end
@@ -641,7 +715,7 @@ case "$(GET page)" in
 			page_redirection $(GET INST_ACTION)
 		else
 			read_setup
-			form_start
+			form_start write
 			display_action $(GET INST_ACTION)
 			if run_tazinst; then
 				moveto_page home reboot
@@ -653,13 +727,6 @@ case "$(GET page)" in
 		;;
 	reboot)
 		reboot ;;
-	home)
-		xhtml_header
-		select_action
-		select_gparted
-		select_install
-		select_upgrade
-		;;
 	failed)
 		xhtml_header
 		display_log
@@ -667,7 +734,7 @@ case "$(GET page)" in
 	menu_install)
 		xhtml_header
 		if check_ressources; then
-			page_redirection install
+			page_redirection partitioning
 		fi
 		;;
 	menu_upgrade)
