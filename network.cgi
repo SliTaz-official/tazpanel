@@ -71,7 +71,7 @@ start_wifi() {
 		-e s'/^STATIC=.*/STATIC="no"/' /etc/network.conf
 	ifconfig $WIFI_INTERFACE up
 	iwconfig $WIFI_INTERFACE txpower auto
-	/etc/init.d/network.sh start | log
+	/etc/init.d/network.sh restart | log
 	sleep 2
 }
 
