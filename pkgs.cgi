@@ -535,14 +535,22 @@ EOT
 			CATEGORY="$(echo $4)"
 			WEB_SITE="$(echo $5)"
 			action=$(gettext "Install")
+			temp="$(echo $pkg | sed 's/get-//g')"
 		fi
 		cat << EOT
 <h2>`gettext "Package"` $PACKAGE</h2>
 <div id="actions">
 	<div class="float-left">
 		<p>
-			<a class="button" href='$SCRIPT_NAME?do=$action&$pkg'>$action</a>
 EOT
+		if [ "$temp" != "$pkg" -a "$action" == $(gettext "Install") ]; then
+			temp="$(echo $pkg | sed 's/get-//g')"
+			echo "<a class='button' href='$SCRIPT_NAME?do=$action&$temp'>$action (Non Free)</a>"
+		else
+			
+			echo "<a class='button' href='$SCRIPT_NAME?do=$action&$pkg'>$action</a>"
+		fi
+
 		if [ -d $INSTALLED/$pkg ]; then
 			if grep -qs "^$pkg$" $LOCALSTATE/blocked-packages.list; then
 				block=$(gettext "Unblock")
