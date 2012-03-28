@@ -17,6 +17,10 @@ header
 TITLE="- Packages"
 xhtml_header | sed 's/id="content"/id="content-sidebar"/'
 
+pkg_info_link()
+{
+	echo "$SCRIPT_NAME?info=$1" | sed 's/+/%2B/g'
+}
 
 # We need packages information for list and search
 parse_packages_desc() {
@@ -26,11 +30,11 @@ parse_packages_desc() {
 		echo '<tr>'
 		if [ -d $INSTALLED/${PACKAGE% } ]; then
 			echo -e "<td><input type='checkbox' name='pkg' value='$PACKAGE'>\n
-				<a href='$SCRIPT_NAME?info=$PACKAGE'>
+				<a href='$(pkg_info_link $PACKAGE)'>
 				<img src='$IMAGES/tazpkg-installed.png'/>$PACKAGE</a></td>"
 		else
 			echo -e "<td><input type='checkbox' name='pkg' value='$PACKAGE'>\n
-				<a href='$SCRIPT_NAME?info=$PACKAGE'>
+				<a href='$(pkg_info_link $PACKAGE)'>
 				<img src='$IMAGES/tazpkg.png'/>$PACKAGE</a></td>"
 		fi
 		echo "<td>$VERSION</td>"
@@ -232,7 +236,7 @@ EOT
 				colorpkg="<span style='color: red;'>$pkg</span>"
 			echo "<td class='pkg'>
 				<input type='checkbox' name='pkg' value=\"$pkg\" />
-				<a href='$SCRIPT_NAME?info=$pkg'><img
+				<a href='$(pkg_info_link $pkg)'><img
 					src='$IMAGES/tazpkg-installed.png'/>$colorpkg</a></td>"
 			echo "<td>$VERSION</td>"
 			echo "<td class='desc'>$SHORT_DESC</td>"
@@ -275,7 +279,7 @@ EOT
 			echo '<tr>'
 			echo "<td class='pkg'>
 				<input type='checkbox' name='pkg' value=\"$pkg\" />
-				<a href='$SCRIPT_NAME?info=$pkg'><img
+				<a href='$(pkg_info_link $pkg)'><img
 					src='$IMAGES/tazpkg.png'/>$pkg</a></td>"
 			echo "<td>$VERSION</td>"
 			echo "<td class='desc'>$SHORT_DESC</td>"
@@ -375,7 +379,7 @@ EOT
 		  	[ -d $INSTALLED/$PACKAGE ] || image=tazpkg.png
 		  	echo "<tr>
 	<td><input type='checkbox' name='pkg' value='$PACKAGE'>
-	    <a href='$SCRIPT_NAME?info=$PACKAGE'><img src='$IMAGES/$image' />$PACKAGE</a></td>
+	    <a href='$(pkg_info_link $PACKAGE)'><img src='$IMAGES/$image' />$PACKAGE</a></td>
 	<td>$FILE</td>
 </tr>"
 		 done)
@@ -587,14 +591,14 @@ EOT
 			if [ -n "$DEPENDS" ]; then
 				echo -n "Depends     : "
 				for i in $DEPENDS; do 
-					echo -n "<a href="$SCRIPT_NAME?info=$i">$i</a> "
+					echo -n "<a href="$(pkg_info_link $i)">$i</a> "
 				done
 				echo ""
 			fi
 			if [ -n "$SUGGESTED" ]; then
 				echo -n "Suggested   : "
 				for i in $SUGGESTED; do 
-					echo -n "<a href="$SCRIPT_NAME?info=$i">$i</a> "
+					echo -n "<a href="$(pkg_info_link $i)">$i</a> "
 				done
 				echo ""
 			fi
