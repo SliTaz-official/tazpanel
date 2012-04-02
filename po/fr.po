@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-12 20:23+0100\n"
+"POT-Creation-Date: 2012-04-02 10:12+0200\n"
 "PO-Revision-Date: 2012-03-12 21:18+0100\n"
 "Last-Translator: Christophe Lincoln <pankso@slitaz.org>\n"
 "Language-Team: French\n"
@@ -143,7 +143,7 @@ msgstr "Panneau de Configuration et d'Administration de SliTaz"
 msgid "Create a report"
 msgstr "Créer un rapport"
 
-#: index.cgi:320 pkgs.cgi:843
+#: index.cgi:320 pkgs.cgi:855
 msgid "Summary"
 msgstr "Résumé"
 
@@ -171,220 +171,220 @@ msgstr "Statistiques d'utilisation du système de fichiers"
 msgid "Panel Activity"
 msgstr "Activité du panneau"
 
-#: pkgs.cgi:46
+#: pkgs.cgi:50
 msgid "Last recharge        : "
 msgstr "Dernière recharge :"
 
-#: pkgs.cgi:56
+#: pkgs.cgi:60
 msgid "Installed packages   : "
 msgstr "Paquets installés      : "
 
-#: pkgs.cgi:58
+#: pkgs.cgi:62
 msgid "Mirrored packages    : "
 msgstr "Paquets du miroir      :"
 
-#: pkgs.cgi:60
+#: pkgs.cgi:64
 msgid "Upgradeable packages : "
 msgstr "Mises à jour disponibles :"
 
-#: pkgs.cgi:64
+#: pkgs.cgi:68
 msgid "Blocked packages     : "
 msgstr "Paquets bloqués       : "
 
-#: pkgs.cgi:109
+#: pkgs.cgi:113
 msgid "Search"
 msgstr "Rechercher"
 
-#: pkgs.cgi:111
+#: pkgs.cgi:115
 msgid "Files"
 msgstr "Fichiers"
 
-#: pkgs.cgi:122 network.cgi:23 network.cgi:151 network.cgi:240 boot.cgi:84
-#: settings.cgi:104 lib/libtazpanel:86
+#: pkgs.cgi:126 network.cgi:23 network.cgi:151 network.cgi:240 boot.cgi:84
+#: settings.cgi:104 lib/libtazpanel:87
 msgid "Name"
 msgstr "Nom"
 
-#: pkgs.cgi:123
+#: pkgs.cgi:127
 msgid "Version"
 msgstr "Version"
 
-#: pkgs.cgi:124 boot.cgi:85
+#: pkgs.cgi:128 boot.cgi:85
 msgid "Description"
 msgstr "Description"
 
-#: pkgs.cgi:125 installer.cgi:313
+#: pkgs.cgi:129 installer.cgi:313
 msgid "Web"
 msgstr "Internet"
 
-#: pkgs.cgi:208 pkgs.cgi:317 pkgs.cgi:358 pkgs.cgi:412 pkgs.cgi:450
-#: pkgs.cgi:499 pkgs.cgi:563 pkgs.cgi:846
+#: pkgs.cgi:212 pkgs.cgi:321 pkgs.cgi:362 pkgs.cgi:416 pkgs.cgi:454
+#: pkgs.cgi:503 pkgs.cgi:575 pkgs.cgi:858
 msgid "My packages"
 msgstr "Mes paquets"
 
-#: pkgs.cgi:212 pkgs.cgi:258 pkgs.cgi:307 pkgs.cgi:348 pkgs.cgi:441
+#: pkgs.cgi:216 pkgs.cgi:262 pkgs.cgi:311 pkgs.cgi:352 pkgs.cgi:445
 #: settings.cgi:92
 msgid "Selection:"
 msgstr "Sélection:"
 
-#: pkgs.cgi:216 pkgs.cgi:262 pkgs.cgi:313 pkgs.cgi:354 pkgs.cgi:447
+#: pkgs.cgi:220 pkgs.cgi:266 pkgs.cgi:317 pkgs.cgi:358 pkgs.cgi:451
 msgid "List:"
 msgstr "Liste:"
 
-#: pkgs.cgi:254 pkgs.cgi:852
+#: pkgs.cgi:258 pkgs.cgi:864
 msgid "Linkable packages"
 msgstr "Paquets liables"
 
-#: pkgs.cgi:303
+#: pkgs.cgi:307
 msgid "Category:"
 msgstr "Catégorie:"
 
-#: pkgs.cgi:344
+#: pkgs.cgi:348
 msgid "Search packages"
 msgstr "Recherche de paquets"
 
-#: pkgs.cgi:351 pkgs.cgi:444
+#: pkgs.cgi:355 pkgs.cgi:448
 msgid "Toogle all"
 msgstr "Tout séléctionner"
 
-#: pkgs.cgi:367 pkgs.cgi:540
+#: pkgs.cgi:371 pkgs.cgi:545
 msgid "Package"
 msgstr "Paquet"
 
-#: pkgs.cgi:368
+#: pkgs.cgi:372
 msgid "File"
 msgstr "Fichier"
 
-#: pkgs.cgi:399
+#: pkgs.cgi:403
 msgid "Recharge"
 msgstr "Recharger"
 
-#: pkgs.cgi:404
+#: pkgs.cgi:408
 msgid "Recharge checks for new or updated packages"
 msgstr "Recharge vérifie les nouveaux paquets ou mise à jour"
 
-#: pkgs.cgi:410 pkgs.cgi:858
+#: pkgs.cgi:414 pkgs.cgi:870
 msgid "Check upgrades"
 msgstr "Mettre à jour"
 
-#: pkgs.cgi:418
+#: pkgs.cgi:422
 msgid "Recharging packages list"
 msgstr "Recharge des listes de paquets"
 
-#: pkgs.cgi:423
+#: pkgs.cgi:427
 msgid "Packages lists are up-to-date. You should check for upgrades now."
 msgstr ""
 "Les listes de paquets ont été actualisées. Vous devriez rechercher des mises "
 "à jour maintenant."
 
-#: pkgs.cgi:437
+#: pkgs.cgi:441
 msgid "Up packages"
 msgstr "Mettre à jour"
 
-#: pkgs.cgi:493
+#: pkgs.cgi:497
 msgid "Performing tasks on packages"
 msgstr "Opérations sur les paquets"
 
-#: pkgs.cgi:523
+#: pkgs.cgi:527
 msgid "Remove"
 msgstr "Supprimer"
 
-#: pkgs.cgi:526
+#: pkgs.cgi:530
 msgid "Getting package info..."
 msgstr "Obtention de l'information sur le paquet..."
 
-#: pkgs.cgi:537 installer.cgi:155
+#: pkgs.cgi:541 pkgs.cgi:550 installer.cgi:155
 msgid "Install"
 msgstr "Installer"
 
-#: pkgs.cgi:548
+#: pkgs.cgi:560
 msgid "Unblock"
 msgstr "Débloquer"
 
-#: pkgs.cgi:550
+#: pkgs.cgi:562
 msgid "Block"
 msgstr "Bloquer"
 
-#: pkgs.cgi:597 pkgs.cgi:609
+#: pkgs.cgi:609 pkgs.cgi:621
 msgid "Installed files:"
 msgstr "Fichiers installés:"
 
-#: pkgs.cgi:654 pkgs.cgi:778
+#: pkgs.cgi:666 pkgs.cgi:790
 msgid "Set link"
 msgstr "Créer un lien"
 
-#: pkgs.cgi:657 pkgs.cgi:779
+#: pkgs.cgi:669 pkgs.cgi:791
 msgid "Remove link"
 msgstr "Supprimer le lien"
 
-#: pkgs.cgi:663 pkgs.cgi:860
+#: pkgs.cgi:675 pkgs.cgi:872
 msgid "Administration"
 msgstr "Administration"
 
-#: pkgs.cgi:665
+#: pkgs.cgi:677
 msgid "Tazpkg administration and settings"
 msgstr "Administration et réglages de Tazpkg"
 
-#: pkgs.cgi:669
+#: pkgs.cgi:681
 msgid "Save configuration"
 msgstr "Enregistrer la configuration"
 
-#: pkgs.cgi:671
+#: pkgs.cgi:683
 msgid "List configuration files"
 msgstr "Lister les fichiers de configuration"
 
-#: pkgs.cgi:673
+#: pkgs.cgi:685
 msgid "Quick check"
 msgstr "Contrôle rapide"
 
-#: pkgs.cgi:675
+#: pkgs.cgi:687
 msgid "Full check"
 msgstr "Vérifier tout"
 
-#: pkgs.cgi:680
+#: pkgs.cgi:692
 msgid "Creating the package..."
 msgstr "Création du paquet..."
 
-#: pkgs.cgi:685
+#: pkgs.cgi:697
 msgid "Path : "
 msgstr "Chemin:"
 
-#: pkgs.cgi:688 boot.cgi:248
+#: pkgs.cgi:700 boot.cgi:248
 msgid "Configuration files"
 msgstr "Fichiers de configuration"
 
-#: pkgs.cgi:701
+#: pkgs.cgi:713
 msgid "Checking packages consistency..."
 msgstr "Vérification de la cohérence des paquets..."
 
-#: pkgs.cgi:707
+#: pkgs.cgi:719
 msgid "Full packages check..."
 msgstr "Vérifier tous les paquets..."
 
-#: pkgs.cgi:714
+#: pkgs.cgi:726
 msgid "Packages cache"
 msgstr "Cache des paquets"
 
-#: pkgs.cgi:718
+#: pkgs.cgi:730
 msgid "Packages in the cache:"
 msgstr "Paquets dans le cache:"
 
-#: pkgs.cgi:724
+#: pkgs.cgi:736
 msgid "Default mirror"
 msgstr "Miroir par défaut"
 
-#: pkgs.cgi:726
+#: pkgs.cgi:738
 msgid "Current mirror list"
 msgstr "Liste des miroirs actuels"
 
-#: pkgs.cgi:749
+#: pkgs.cgi:761
 msgid "Private repositories"
 msgstr "Dépôts privés"
 
-#: pkgs.cgi:768
+#: pkgs.cgi:780
 msgid "Link to another SliTaz installation"
 msgstr "Lien vers une autre installation de SliTaz"
 
-#: pkgs.cgi:770
+#: pkgs.cgi:782
 msgid ""
 "This link points to the root of another SliTaz installation. You will be "
 "able to install packages using soft links to it."
@@ -393,27 +393,27 @@ msgstr ""
 "en mesure d'installer des paquets en utilisant des liens symboliques vers "
 "elle."
 
-#: pkgs.cgi:787
+#: pkgs.cgi:799
 msgid "SliTaz packages DVD"
 msgstr "DVD des paquets SliTaz"
 
-#: pkgs.cgi:799
+#: pkgs.cgi:811
 msgid "Download DVD image"
 msgstr "Télécharger l'image DVD"
 
-#: pkgs.cgi:801
+#: pkgs.cgi:813
 msgid "Install from DVD/USB key"
 msgstr "Installer à partir de DVD / clé USB"
 
-#: pkgs.cgi:804
+#: pkgs.cgi:816
 msgid "Install from ISO image: "
 msgstr "Installer à partir d'une image ISO:"
 
-#: pkgs.cgi:856
+#: pkgs.cgi:868
 msgid "Recharge list"
 msgstr "Recharger la liste"
 
-#: pkgs.cgi:866
+#: pkgs.cgi:878
 msgid "Latest log entries"
 msgstr "Dernières entrées de journal"
 
@@ -558,7 +558,7 @@ msgstr "Qualité"
 msgid "Encryption"
 msgstr "Chiffrement"
 
-#: network.cgi:26 boot.cgi:86 lib/libtazpanel:87
+#: network.cgi:26 boot.cgi:86 lib/libtazpanel:88
 msgid "Status"
 msgstr "État"
 
@@ -604,7 +604,7 @@ msgstr "Configuration"
 msgid "Value"
 msgstr "Valeur"
 
-#: network.cgi:156 lib/libtazpanel:85
+#: network.cgi:156 lib/libtazpanel:86
 msgid "Interface"
 msgstr "Interface"
 
@@ -917,11 +917,11 @@ msgstr "Résultats correspondants pour : "
 msgid "Module"
 msgstr "Module"
 
-#: hardware.cgi:85 lib/libtazpanel:205
+#: hardware.cgi:85 lib/libtazpanel:206
 msgid "Size"
 msgstr "Taille"
 
-#: hardware.cgi:86 lib/libtazpanel:207
+#: hardware.cgi:86 lib/libtazpanel:208
 msgid "Used"
 msgstr "Utilisé"
 
@@ -1110,23 +1110,23 @@ msgstr "Serveur"
 msgid "TazPanel provides a debuging mode and page:"
 msgstr "TazPanel fournit un mode et une page debuging"
 
-#: lib/libtazpanel:88
+#: lib/libtazpanel:89
 msgid "IP Address"
 msgstr "Adresse IP"
 
-#: lib/libtazpanel:89
+#: lib/libtazpanel:90
 msgid "Scan ports"
 msgstr "Scan de ports"
 
-#: lib/libtazpanel:204
+#: lib/libtazpanel:205
 msgid "Disk"
 msgstr "Disque"
 
-#: lib/libtazpanel:206
+#: lib/libtazpanel:207
 msgid "Available"
 msgstr "Disponible"
 
-#: lib/libtazpanel:208
+#: lib/libtazpanel:209
 msgid "Mount point"
 msgstr "Point de montage"
 
@@ -1156,14 +1156,22 @@ msgid ""
 "\tformat, all data except for any existing /home directory will be "
 "removed, \n"
 "\tthe home directory will be kept as is."
-msgstr "Installe SliTaz sur une partition du disque dur. Si vous décidez de formatter la partition, toutes les données seront perdues. Si vous ne la formattez pas, toutes les données à l'exception de celles présentes dans un répertoire /home existant seront détruites, le répertoire /home sera conservé tel quel."
+msgstr ""
+"Installe SliTaz sur une partition du disque dur. Si vous décidez de "
+"formatter la partition, toutes les données seront perdues. Si vous ne la "
+"formattez pas, toutes les données à l'exception de celles présentes dans un "
+"répertoire /home existant seront détruites, le répertoire /home sera "
+"conservé tel quel."
 
 #: installer.cgi:163
 msgid ""
 "Before installation, you may need to create or resize partitions\n"
 "\ton your hard disk drive in order to make space for SliTaz GNU/Linux.\n"
 "\tYou can graphically manage your partitions with Gparted"
-msgstr "Avant de commencer l'installation, il est peut-être nécessaire de créer ou redimensionner des partitions du disque dur de façon à laisser un espace utile à SliTaz. Il est possible de le faire graphiquement avec Gparted."
+msgstr ""
+"Avant de commencer l'installation, il est peut-être nécessaire de créer ou "
+"redimensionner des partitions du disque dur de façon à laisser un espace "
+"utile à SliTaz. Il est possible de le faire graphiquement avec Gparted."
 
 #: installer.cgi:169 installer.cgi:249
 msgid "Install SliTaz"
@@ -1202,7 +1210,12 @@ msgid ""
 "\tSliTaz GNU/Linux. SliTaz will co-exist with other operating systems "
 "already\n"
 "\tinstalled on your hard drive."
-msgstr "Sur la plupart des systèmes, le disque dur a déjà des partitions dédiées à Windows, ou Linux ou un autre système d'exploitation. Il est nécessaire de modifier la taille des partitions de façon à laisser une place à Slitaz GNU/Linux. Slitaz co-existera avec les autres systèmes d'exploitation déjà installés sur le disque dur."
+msgstr ""
+"Sur la plupart des systèmes, le disque dur a déjà des partitions dédiées à "
+"Windows, ou Linux ou un autre système d'exploitation. Il est nécessaire de "
+"modifier la taille des partitions de façon à laisser une place à Slitaz GNU/"
+"Linux. Slitaz co-existera avec les autres systèmes d'exploitation déjà "
+"installés sur le disque dur."
 
 #: installer.cgi:204
 msgid ""
@@ -1212,7 +1225,11 @@ msgid ""
 "\tthat you could run a minimal SliTaz system in 300 megs or less, but 2 "
 "gigs\n"
 "\tis indeed more comfy."
-msgstr "La taille de l'espace nécessaire dépend du nombre de paquets destiné à être installé et de l'espace requis réservé aux utilisateurs. Il est tout à fait concevable d'installer un système minilal de SLitaz dans moins de 300 Mo, mais 2 Go seront très confortables. "
+msgstr ""
+"La taille de l'espace nécessaire dépend du nombre de paquets destiné à être "
+"installé et de l'espace requis réservé aux utilisateurs. Il est tout à fait "
+"concevable d'installer un système minilal de SLitaz dans moins de 300 Mo, "
+"mais 2 Go seront très confortables. "
 
 #: installer.cgi:209
 msgid ""
@@ -1220,7 +1237,10 @@ msgid ""
 "\tas Linux swap space may be created if needed. Slitaz detects and uses "
 "swap\n"
 "\tpartitions automatically."
-msgstr "Une partition séparée pour /home, et une partition d'échange (swap) peuvent être crées si nécessaire. Slitaz détecte et utilise automatiquement les partitions swap."
+msgstr ""
+"Une partition séparée pour /home, et une partition d'échange (swap) peuvent "
+"être crées si nécessaire. Slitaz détecte et utilise automatiquement les "
+"partitions swap."
 
 #: installer.cgi:217
 msgid ""
@@ -1229,7 +1249,11 @@ msgid ""
 "Gparted\n"
 "\tallows you to create, destroy, resize and copy partitions without data\n"
 "\tloss."
-msgstr "Gérez graphiquement vos partitions avec Gparted. Gparted est un éditeur de partitions permettant de gérer graphiquement vos partitions. Gparted permet de créer, supprimer, redimensionner et recopier vos partitions sans perte de données."
+msgstr ""
+"Gérez graphiquement vos partitions avec Gparted. Gparted est un éditeur de "
+"partitions permettant de gérer graphiquement vos partitions. Gparted permet "
+"de créer, supprimer, redimensionner et recopier vos partitions sans perte de "
+"données."
 
 #: installer.cgi:223
 msgid ""
@@ -1238,7 +1262,12 @@ msgid ""
 "\tfilesystems is available as well but you first need to add drivers for \n"
 "\tthese filesystems by installing the related packages xfsprogs, jfsutils,\n"
 "\tlinux-hfs and so on."
-msgstr "Gparted supporte en standard les systèmes de fichiers Linux ext2, ext3, ext4, swap, Windows ntfs et fat32. Les systèmes de fichiers xfs, jfs, hfs ou autres sont également disponibles mais il est nécessaire d'ajouter au préalables les drivers nécessaires en installant les paquets correspondants xfsprogs, jfsutils, linux-hfs etc.\""
+msgstr ""
+"Gparted supporte en standard les systèmes de fichiers Linux ext2, ext3, "
+"ext4, swap, Windows ntfs et fat32. Les systèmes de fichiers xfs, jfs, hfs ou "
+"autres sont également disponibles mais il est nécessaire d'ajouter au "
+"préalables les drivers nécessaires en installant les paquets correspondants "
+"xfsprogs, jfsutils, linux-hfs etc.\""
 
 #: installer.cgi:230
 msgid "Execute Gparted"
@@ -1252,7 +1281,9 @@ msgstr "Continuer l'installation"
 msgid ""
 "Once you've made room for SliTaz on your drive,\tyou\n"
 "\tshould be able to continue installation."
-msgstr "Une fois que la place nécessaire à Slitaz sur le disque dur a été faite, il est possible de continuer l'installation."
+msgstr ""
+"Une fois que la place nécessaire à Slitaz sur le disque dur a été faite, il "
+"est possible de continuer l'installation."
 
 #: installer.cgi:237 installer.cgi:501 installer.cgi:512
 msgid "Back to Installer Start Page"
@@ -1410,7 +1441,9 @@ msgstr "Grub"
 msgid ""
 "Install Grub bootloader. Usually you should answer yes, unless you want to "
 "install grub by hand yourself."
-msgstr "Installer le chargeur Grub. Généralement à valider à moins de vouloir installer Grub à la main."
+msgstr ""
+"Installer le chargeur Grub. Généralement à valider à moins de vouloir "
+"installer Grub à la main."
 
 #: installer.cgi:489
 msgid "Enable Windows Dual-Boot."

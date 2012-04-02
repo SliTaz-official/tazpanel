@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-12 20:23+0100\n"
+"POT-Creation-Date: 2012-04-02 10:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -141,7 +141,7 @@ msgstr ""
 msgid "Create a report"
 msgstr ""
 
-#: index.cgi:320 pkgs.cgi:843
+#: index.cgi:320 pkgs.cgi:855
 msgid "Summary"
 msgstr ""
 
@@ -169,244 +169,244 @@ msgstr ""
 msgid "Panel Activity"
 msgstr ""
 
-#: pkgs.cgi:46
+#: pkgs.cgi:50
 msgid "Last recharge        : "
 msgstr ""
 
-#: pkgs.cgi:56
+#: pkgs.cgi:60
 msgid "Installed packages   : "
 msgstr ""
 
-#: pkgs.cgi:58
+#: pkgs.cgi:62
 msgid "Mirrored packages    : "
 msgstr ""
 
-#: pkgs.cgi:60
+#: pkgs.cgi:64
 msgid "Upgradeable packages : "
 msgstr ""
 
-#: pkgs.cgi:64
+#: pkgs.cgi:68
 msgid "Blocked packages     : "
 msgstr ""
 
-#: pkgs.cgi:109
+#: pkgs.cgi:113
 msgid "Search"
 msgstr ""
 
-#: pkgs.cgi:111
+#: pkgs.cgi:115
 msgid "Files"
 msgstr ""
 
-#: pkgs.cgi:122 network.cgi:23 network.cgi:151 network.cgi:240 boot.cgi:84
-#: settings.cgi:104 lib/libtazpanel:86
+#: pkgs.cgi:126 network.cgi:23 network.cgi:151 network.cgi:240 boot.cgi:84
+#: settings.cgi:104 lib/libtazpanel:87
 msgid "Name"
 msgstr ""
 
-#: pkgs.cgi:123
+#: pkgs.cgi:127
 msgid "Version"
 msgstr ""
 
-#: pkgs.cgi:124 boot.cgi:85
+#: pkgs.cgi:128 boot.cgi:85
 msgid "Description"
 msgstr ""
 
-#: pkgs.cgi:125 installer.cgi:313
+#: pkgs.cgi:129 installer.cgi:313
 msgid "Web"
 msgstr ""
 
-#: pkgs.cgi:208 pkgs.cgi:317 pkgs.cgi:358 pkgs.cgi:412 pkgs.cgi:450
-#: pkgs.cgi:499 pkgs.cgi:563 pkgs.cgi:846
+#: pkgs.cgi:212 pkgs.cgi:321 pkgs.cgi:362 pkgs.cgi:416 pkgs.cgi:454
+#: pkgs.cgi:503 pkgs.cgi:575 pkgs.cgi:858
 msgid "My packages"
 msgstr ""
 
-#: pkgs.cgi:212 pkgs.cgi:258 pkgs.cgi:307 pkgs.cgi:348 pkgs.cgi:441
+#: pkgs.cgi:216 pkgs.cgi:262 pkgs.cgi:311 pkgs.cgi:352 pkgs.cgi:445
 #: settings.cgi:92
 msgid "Selection:"
 msgstr ""
 
-#: pkgs.cgi:216 pkgs.cgi:262 pkgs.cgi:313 pkgs.cgi:354 pkgs.cgi:447
+#: pkgs.cgi:220 pkgs.cgi:266 pkgs.cgi:317 pkgs.cgi:358 pkgs.cgi:451
 msgid "List:"
 msgstr ""
 
-#: pkgs.cgi:254 pkgs.cgi:852
+#: pkgs.cgi:258 pkgs.cgi:864
 msgid "Linkable packages"
 msgstr ""
 
-#: pkgs.cgi:303
+#: pkgs.cgi:307
 msgid "Category:"
 msgstr ""
 
-#: pkgs.cgi:344
+#: pkgs.cgi:348
 msgid "Search packages"
 msgstr ""
 
-#: pkgs.cgi:351 pkgs.cgi:444
+#: pkgs.cgi:355 pkgs.cgi:448
 msgid "Toogle all"
 msgstr ""
 
-#: pkgs.cgi:367 pkgs.cgi:540
+#: pkgs.cgi:371 pkgs.cgi:545
 msgid "Package"
 msgstr ""
 
-#: pkgs.cgi:368
+#: pkgs.cgi:372
 msgid "File"
 msgstr ""
 
-#: pkgs.cgi:399
+#: pkgs.cgi:403
 msgid "Recharge"
 msgstr ""
 
-#: pkgs.cgi:404
+#: pkgs.cgi:408
 msgid "Recharge checks for new or updated packages"
 msgstr ""
 
-#: pkgs.cgi:410 pkgs.cgi:858
+#: pkgs.cgi:414 pkgs.cgi:870
 msgid "Check upgrades"
 msgstr ""
 
-#: pkgs.cgi:418
+#: pkgs.cgi:422
 msgid "Recharging packages list"
 msgstr ""
 
-#: pkgs.cgi:423
+#: pkgs.cgi:427
 msgid "Packages lists are up-to-date. You should check for upgrades now."
 msgstr ""
 
-#: pkgs.cgi:437
+#: pkgs.cgi:441
 msgid "Up packages"
 msgstr ""
 
-#: pkgs.cgi:493
+#: pkgs.cgi:497
 msgid "Performing tasks on packages"
 msgstr ""
 
-#: pkgs.cgi:523
+#: pkgs.cgi:527
 msgid "Remove"
 msgstr ""
 
-#: pkgs.cgi:526
+#: pkgs.cgi:530
 msgid "Getting package info..."
 msgstr ""
 
-#: pkgs.cgi:537 installer.cgi:155
+#: pkgs.cgi:541 pkgs.cgi:550 installer.cgi:155
 msgid "Install"
 msgstr ""
 
-#: pkgs.cgi:548
+#: pkgs.cgi:560
 msgid "Unblock"
 msgstr ""
 
-#: pkgs.cgi:550
+#: pkgs.cgi:562
 msgid "Block"
 msgstr ""
 
-#: pkgs.cgi:597 pkgs.cgi:609
+#: pkgs.cgi:609 pkgs.cgi:621
 msgid "Installed files:"
 msgstr ""
 
-#: pkgs.cgi:654 pkgs.cgi:778
+#: pkgs.cgi:666 pkgs.cgi:790
 msgid "Set link"
 msgstr ""
 
-#: pkgs.cgi:657 pkgs.cgi:779
+#: pkgs.cgi:669 pkgs.cgi:791
 msgid "Remove link"
 msgstr ""
 
-#: pkgs.cgi:663 pkgs.cgi:860
+#: pkgs.cgi:675 pkgs.cgi:872
 msgid "Administration"
 msgstr ""
 
-#: pkgs.cgi:665
+#: pkgs.cgi:677
 msgid "Tazpkg administration and settings"
 msgstr ""
 
-#: pkgs.cgi:669
+#: pkgs.cgi:681
 msgid "Save configuration"
 msgstr ""
 
-#: pkgs.cgi:671
+#: pkgs.cgi:683
 msgid "List configuration files"
 msgstr ""
 
-#: pkgs.cgi:673
+#: pkgs.cgi:685
 msgid "Quick check"
 msgstr ""
 
-#: pkgs.cgi:675
+#: pkgs.cgi:687
 msgid "Full check"
 msgstr ""
 
-#: pkgs.cgi:680
+#: pkgs.cgi:692
 msgid "Creating the package..."
 msgstr ""
 
-#: pkgs.cgi:685
+#: pkgs.cgi:697
 msgid "Path : "
 msgstr ""
 
-#: pkgs.cgi:688 boot.cgi:248
+#: pkgs.cgi:700 boot.cgi:248
 msgid "Configuration files"
 msgstr ""
 
-#: pkgs.cgi:701
+#: pkgs.cgi:713
 msgid "Checking packages consistency..."
 msgstr ""
 
-#: pkgs.cgi:707
+#: pkgs.cgi:719
 msgid "Full packages check..."
 msgstr ""
 
-#: pkgs.cgi:714
+#: pkgs.cgi:726
 msgid "Packages cache"
 msgstr ""
 
-#: pkgs.cgi:718
+#: pkgs.cgi:730
 msgid "Packages in the cache:"
 msgstr ""
 
-#: pkgs.cgi:724
+#: pkgs.cgi:736
 msgid "Default mirror"
 msgstr ""
 
-#: pkgs.cgi:726
+#: pkgs.cgi:738
 msgid "Current mirror list"
 msgstr ""
 
-#: pkgs.cgi:749
+#: pkgs.cgi:761
 msgid "Private repositories"
 msgstr ""
 
-#: pkgs.cgi:768
+#: pkgs.cgi:780
 msgid "Link to another SliTaz installation"
 msgstr ""
 
-#: pkgs.cgi:770
+#: pkgs.cgi:782
 msgid ""
 "This link points to the root of another SliTaz installation. You will be "
 "able to install packages using soft links to it."
 msgstr ""
 
-#: pkgs.cgi:787
+#: pkgs.cgi:799
 msgid "SliTaz packages DVD"
 msgstr ""
 
-#: pkgs.cgi:799
+#: pkgs.cgi:811
 msgid "Download DVD image"
 msgstr ""
 
-#: pkgs.cgi:801
+#: pkgs.cgi:813
 msgid "Install from DVD/USB key"
 msgstr ""
 
-#: pkgs.cgi:804
+#: pkgs.cgi:816
 msgid "Install from ISO image: "
 msgstr ""
 
-#: pkgs.cgi:856
+#: pkgs.cgi:868
 msgid "Recharge list"
 msgstr ""
 
-#: pkgs.cgi:866
+#: pkgs.cgi:878
 msgid "Latest log entries"
 msgstr ""
 
@@ -535,7 +535,7 @@ msgstr ""
 msgid "Encryption"
 msgstr ""
 
-#: network.cgi:26 boot.cgi:86 lib/libtazpanel:87
+#: network.cgi:26 boot.cgi:86 lib/libtazpanel:88
 msgid "Status"
 msgstr ""
 
@@ -577,7 +577,7 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: network.cgi:156 lib/libtazpanel:85
+#: network.cgi:156 lib/libtazpanel:86
 msgid "Interface"
 msgstr ""
 
@@ -885,11 +885,11 @@ msgstr ""
 msgid "Module"
 msgstr ""
 
-#: hardware.cgi:85 lib/libtazpanel:205
+#: hardware.cgi:85 lib/libtazpanel:206
 msgid "Size"
 msgstr ""
 
-#: hardware.cgi:86 lib/libtazpanel:207
+#: hardware.cgi:86 lib/libtazpanel:208
 msgid "Used"
 msgstr ""
 
@@ -1076,23 +1076,23 @@ msgstr ""
 msgid "TazPanel provides a debuging mode and page:"
 msgstr ""
 
-#: lib/libtazpanel:88
+#: lib/libtazpanel:89
 msgid "IP Address"
 msgstr ""
 
-#: lib/libtazpanel:89
+#: lib/libtazpanel:90
 msgid "Scan ports"
 msgstr ""
 
-#: lib/libtazpanel:204
+#: lib/libtazpanel:205
 msgid "Disk"
 msgstr ""
 
-#: lib/libtazpanel:206
+#: lib/libtazpanel:207
 msgid "Available"
 msgstr ""
 
-#: lib/libtazpanel:208
+#: lib/libtazpanel:209
 msgid "Mount point"
 msgstr ""
 
