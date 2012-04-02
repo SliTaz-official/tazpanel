@@ -7,9 +7,10 @@
 . /usr/bin/httpd_helper.sh
 
 # I18n
+. /etc/locale.conf
 . /usr/bin/gettext.sh
 TEXTDOMAIN='tazpanel'
-export TEXTDOMAIN
+export TEXTDOMAIN LANG LC_ALL
 
 # We need a config file first
 get_config() {
