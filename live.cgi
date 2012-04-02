@@ -56,11 +56,6 @@ case " $(GET) " in
 		$TERMINAL $TERM_OPTS \
 			-T "write-iso" \
 			-e "tazlito writeiso $(GET write_iso)" & ;;
-	*\ gen_liveusb\ *)
-		$TERMINAL $TERM_OPTS \
-			-T "Tazusb gen-liveusb" \
-			-e "tazusb gen-liveusb $(GET gen_liveusb); \
-				gettext \"ENTER to quit\"; read i" & ;;
 	*\ loramoutput\ *)
 		$TERMINAL $TERM_OPTS \
 			-T "build loram iso" \
@@ -86,27 +81,23 @@ case " $(GET) " in
 		# Step by step interface and store files in cache.
 		#
 		gettext "TODO" ;;
-	*)
-		#
-		# Default xHTML content
-		#
+	*\ liveusb\ *)
 		xhtml_header
 		cat << EOT
 <div id="wrapper">
-	<h2>`gettext "SliTaz Live Systems"`</h2>
-	<p>`gettext "Create and manage Live CD or USB SliTaz systems"`<p>
+	<h2>$(gettext "SliTaz LiveUSB")</h2>
+	<p>$(gettext "Create Live USB SliTaz systems")<p>
 </div>
 
-<a name="liveusb"></a>
-<h3>`gettext "Live USB"`</h3>
 <p>
-	`gettext "Generate SliTaz LiveUSB media and boot in RAM! Insert a
+	$(gettext "Generate SliTaz LiveUSB media and boot in RAM! Insert a
 	LiveCD into the cdrom drive, select the correct device and press
-	Generate."`
+	Generate.")
 </p>
 <form method="get" action="$SCRIPT_NAME">
-	`gettext "USB Media to use:"`
-	<select name="gen_liveusb">
+	<input type="hidden" name="liveusb" />
+	$(gettext "USB Media to use:")
+	<select name="gen">
 EOT
 		# List disk if there is a plugged USB device
 		if [ -d /proc/scsi/usb-storage ]; then
@@ -120,6 +111,29 @@ EOT
 	</select>
 	<input type="submit" value="`gettext "Generate"`" />
 </form>
+EOT
+		if [ "$(GET gen)" ]; then
+			echo "<h3>tazusb gen-liveusb $(GET gen)</h3>"
+			echo '<pre>'
+			# No pipe here so output is displayed in realtime
+			tazusb gen-liveusb $(GET gen)
+			echo '</pre>'
+		fi ;;
+	*)
+		#
+		# Default xHTML content
+		#
+		xhtml_header
+		cat << EOT
+<div id="wrapper">
+	<h2>`gettext "SliTaz Live Systems"`</h2>
+	<p>`gettext "Create and manage Live CD or USB SliTaz systems"`<p>
+</div>
+
+<div id="actions">
+	<a class="button" href="$SCRIPT_NAME?liveusb">
+		<img src="$IMAGES/harddisk.png" />$(gettext "Create LiveUSB")</a>
+</div>
 
 <a name="livecd"></a>
 <h3>`gettext "Write a Live CD"`</h3>

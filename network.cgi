@@ -285,7 +285,6 @@ EOT
 </p>
 <div id="actions">
 	<div class="float-left">
-		`gettext "Connection:"`
 		<a class="button" href="$SCRIPT_NAME?start">
 			<img src="$IMAGES/start.png" />$(gettext "Start")</a>
 		<a class="button" href="$SCRIPT_NAME?stop">
