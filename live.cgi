@@ -116,7 +116,7 @@ EOT
 			echo "<h3>tazusb gen-liveusb $(GET gen)</h3>"
 			echo '<pre>'
 			# No pipe here so output is displayed in realtime
-			tazusb gen-liveusb $(GET gen)
+			yes | tazusb gen-liveusb $(GET gen)
 			echo '</pre>'
 		fi ;;
 	*)
@@ -135,7 +135,7 @@ EOT
 		<img src="$IMAGES/harddisk.png" />$(gettext "Create LiveUSB")</a>
 </div>
 
-<a name="livecd"></a>
+<!--<a name="livecd"></a>
 <h3>`gettext "Write a Live CD"`</h3>
 <p>
 	`gettext "The command writeiso will generate an ISO image of the
@@ -151,7 +151,7 @@ EOT
 		<option value="none">none</option>
 	</select>
 	<input type="submit" value="`gettext "Write ISO"`" />
-</form>
+</form> -->
 
 <h3>`gettext "Live CD tools"`</h3>
 <a name="loram"></a>
