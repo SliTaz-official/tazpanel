@@ -10,7 +10,7 @@
 get_config
 header
 
-TITLE="- Network"
+TITLE=$(gettext 'TazPanel - Network')
 
 # Catch ESSIDs and format output for GTK tree. We get the list of
 # networks by Cell and without spaces.

@@ -25,7 +25,7 @@ EOT
 }
 
 # Cat translated help content
-TITLE="- Help \&amp; Doc"
+TITLE=$(gettext 'TazPanel - Help \&amp; Doc')
 
 xhtml_header
 search_form

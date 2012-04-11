@@ -18,7 +18,8 @@ pot:
 		--package-version="$(VERSION)" \
 		./tazpanel ./index.cgi ./pkgs.cgi ./live.cgi \
 		./network.cgi ./boot.cgi ./hardware.cgi \
-		./settings.cgi ./lib/libtazpanel ./installer.cgi
+		./settings.cgi ./lib/libtazpanel ./installer.cgi \
+		./styles/default/header.sh ./styles/default/footer.sh
 
 msgmerge:
 	@for l in $(LINGUAS); do \
@@ -45,7 +46,7 @@ install:
 		$(DESTDIR)/var/log
 	cp -a tazpanel $(DESTDIR)$(PREFIX)/bin
 	cp -a data/*.conf $(DESTDIR)$(SYSCONFDIR)
-	cp -a *.cgi lib/ styles/ doc/ README $(DESTDIR)$(PANEL)	
+	cp -a *.cgi lib/ styles/ doc/ README $(DESTDIR)$(PANEL)
 	cp -a po/mo/* $(DESTDIR)$(PREFIX)/share/locale
 	cp -a data/*.desktop $(DESTDIR)$(PREFIX)/share/applications
 	cp -a data/*.png $(DESTDIR)$(PREFIX)/share/pixmaps

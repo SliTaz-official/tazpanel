@@ -149,7 +149,7 @@ EOT
 }
 
 xhtml_header() {
-	cat ${PANEL}$HEADER | sed s/'- %TITLE%'/"$TITLE"/
+	. ${PANEL}$HEADER
 	if [ $DEBUG == "1" ]; then
 		local i
 		local j
@@ -180,7 +180,7 @@ EOT
 }
 
 xhtml_footer() {
-	cat ${PANEL}$FOOTER
+	. ${PANEL}$FOOTER
 }
 
 table_start() {
@@ -195,7 +195,7 @@ table_end() {
 	</tbody>
 </table>
 EOT
-	
+
 }
 
 df_thead() {

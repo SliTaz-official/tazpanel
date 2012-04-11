@@ -4,7 +4,7 @@
 # command so we are faster and do not load unneeded functions. If necessary
 # you can use the lib/ dir to handle external resources.
 #
-# Copyright (C) 2011 SliTaz GNU/Linux - BSD License
+# Copyright (C) 2011-2012 SliTaz GNU/Linux - BSD License
 #
 
 # Common functions from libtazpanel
@@ -12,11 +12,13 @@
 get_config
 header
 
+TITLE="TazPanel"
+
 # Check whether a configuration file has been modified after installation
 file_is_modified()
 {
 	grep -l "  $1$" $INSTALLED/*/md5sum | while read file; do
-	
+
 		# Found, but can we do diff ?
 		[ "$(grep -h "  $1$" $file)" != "$(md5sum $1)" ] || break
 		org=$(dirname $file)/volatile.cpio.gz
@@ -61,7 +63,7 @@ case " $(GET) " in
 			*.html)
 				cat $file && exit 0 ;;
 			*)
-				TITLE="- File"
+				TITLE=$(gettext 'TazPanel - File')
 				xhtml_header
 				echo "<h2>$file</h2>" ;;
 		esac
@@ -84,7 +86,7 @@ EOT
 			file_is_modified $file diff | syntax_highlighter diff
 			echo '</pre>'
 		else
-			[ -n "$(POST content)" ] && 
+			[ -n "$(POST content)" ] &&
 				sed "s/`echo -en '\r'` /\n/g" > $file <<EOT
 $(POST content)
 EOT
@@ -110,7 +112,7 @@ EOT
 		# Cmdline terminal.
 		commands='cat du help ls ping pwd who wget'
 		cmd=$(GET cmd)
-		TITLE="- $(gettext "Terminal")"
+		TITLE=$(gettext 'TazPanel - Terminal')
 		xhtml_header
 		cat << EOT
 <form method="get" action="$SCRIPT_NAME">
@@ -146,7 +148,7 @@ EOT
 	esac
 	echo '</pre>' ;;
 	*\ top\ *)
-		TITLE="- $(gettext "Process activity")"
+		TITLE=$(gettext 'TazPanel - Process activity')
 		xhtml_header
 		echo `gettext "Refresh: "` $(GET refresh)
 		echo '<br/>
@@ -157,7 +159,7 @@ EOT
 	<input type="submit" name="refresh" value="10s"/>
 	<input type="submit" value="none"/>
 </form>	'
-		[ -n $(GET refresh) ] && 
+		[ -n $(GET refresh) ] &&
 		echo '<meta http-equiv="refresh" content="' $(GET refresh) '">' | sed "s/s //"
 
 		echo '<pre>'
@@ -166,14 +168,14 @@ EOT
 			-e s"#PID.*\([^']\)#<span class='top'>\0</span>#"g
 		echo '</pre>' ;;
 	*\ debug\ *)
-		TITLE="- Debug"
+		TITLE=$(gettext 'TazPanel - Debug')
 		xhtml_header
 		echo '<h2>HTTP Environment</h2>'
 		echo '<pre>'
 		httpinfo
 		echo '</pre>' ;;
 	*\ report\ *)
-		TITLE="- $(gettext "System report")"
+		TITLE=$(gettext 'TazPanel - System report')
 		[ -d /var/cache/slitaz ] || mkdir -p /var/cache/slitaz
 		output=/var/cache/slitaz/sys-report.html
 		xhtml_header

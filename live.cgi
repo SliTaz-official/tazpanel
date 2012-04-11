@@ -22,7 +22,7 @@ fi
 get_config
 header
 
-TITLE="- Live"
+TITLE=$(gettext 'TazPanel - Live')
 
 # Build arguments to create a meta iso using 'tazlito merge' command
 merge_args()
@@ -209,7 +209,7 @@ EOT
 		done
 		metaoutput="$(GET metaoutput)"
 		[ -n "$metaoutput" ] || metaoutput="/root/meta.iso"
-		
+
 		cat << EOT
 	<tr>
 	<td>`gettext "ISO to add"`

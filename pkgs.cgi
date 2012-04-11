@@ -14,7 +14,7 @@ get_config
 header
 
 # xHTML 5 header with special side bar for categories.
-TITLE="- Packages"
+TITLE=$(gettext 'TazPanel - Packages')
 xhtml_header | sed 's/id="content"/id="content-sidebar"/'
 
 pkg_info_link()
@@ -152,7 +152,7 @@ sidebar() {
 	<a class="active_non-free" href="$SCRIPT_NAME?cat=non-free&repo=$repo">Non free</a>
 	<a class="active_all" href="$SCRIPT_NAME?cat=all&repo=$repo">All</a>
 EOT
-	
+
 	if [ -d $LOCALSTATE/undigest ]; then
 		[ -n "$category" ] || category="base-system"
 		cat << EOT
@@ -472,7 +472,7 @@ EOT
 		#
 		opt=""
 		pkgs=""
-		cmdline=$(echo ${QUERY_STRING#do=} | sed s'/&/ /g')	
+		cmdline=$(echo ${QUERY_STRING#do=} | sed s'/&/ /g')
 		cmd=$(echo ${cmdline} | awk '{print $1}')
 		cmdline=${cmdline#*repo=* }
 		pkgs=$(echo $cmdline | sed -e s'/+/ /g' -e s'/pkg=//g' -e s/$cmd//)
@@ -551,7 +551,7 @@ EOT
 			temp="$(echo $pkg | sed 's/get-//g')"
 			echo "<a class='button' href='$SCRIPT_NAME?do=$action&$temp'>$action (Non Free)</a>"
 		else
-			
+
 			echo "<a class='button' href='$SCRIPT_NAME?do=$action&$pkg'>$action</a>"
 		fi
 
@@ -590,14 +590,14 @@ Sizes       : $PACKED_SIZE/$UNPACKED_SIZE
 EOT
 			if [ -n "$DEPENDS" ]; then
 				echo -n "Depends     : "
-				for i in $DEPENDS; do 
+				for i in $DEPENDS; do
 					echo -n "<a href="$(pkg_info_link $i)">$i</a> "
 				done
 				echo ""
 			fi
 			if [ -n "$SUGGESTED" ]; then
 				echo -n "Suggested   : "
-				for i in $SUGGESTED; do 
+				for i in $SUGGESTED; do
 					echo -n "<a href="$(pkg_info_link $i)">$i</a> "
 				done
 				echo ""
@@ -785,7 +785,7 @@ You will be able to install packages using soft links to it.")
 <form method="get" action="$SCRIPT_NAME">
 <p>
 	<input type="hidden" name="admin" value="add-link" />
-	<input type="text" name="link" 
+	<input type="text" name="link"
 	 value="$(readlink $LOCALSTATE/fslink 2> /dev/null)" size="50">
 	<input type="submit" name="admin" value="$(gettext "Set link")" />
 	<input type="submit" name="admin" value="$(gettext "Remove link")" />
@@ -869,7 +869,7 @@ EOT
 	<a class="button" href='$SCRIPT_NAME?up'>
 		<img src="$IMAGES/update.png" />`gettext "Check upgrades"`</a>
 	<a class="button" href='$SCRIPT_NAME?admin'>
-		<img src="$IMAGES/edit.png" />`gettext "Administration"`</a>	
+		<img src="$IMAGES/edit.png" />`gettext "Administration"`</a>
 </div>
 <pre class="pre-main">
 `packages_summary`

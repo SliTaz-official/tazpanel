@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-02 10:12+0200\n"
+"POT-Creation-Date: 2012-04-11 20:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,132 +41,152 @@ msgstr ""
 msgid "Usage:"
 msgstr ""
 
-#: index.cgi:36 index.cgi:74
+#: index.cgi:38 index.cgi:76
 msgid "Differences"
 msgstr ""
 
-#: index.cgi:72
+#: index.cgi:66
+msgid "TazPanel - File"
+msgstr ""
+
+#: index.cgi:74
 msgid "Save"
 msgstr ""
 
-#: index.cgi:94 settings.cgi:256
+#: index.cgi:96 settings.cgi:256
 msgid "Edit"
 msgstr ""
 
-#: index.cgi:113 index.cgi:313
-msgid "Terminal"
+#: index.cgi:115
+msgid "TazPanel - Terminal"
 msgstr ""
 
-#: index.cgi:126
+#: index.cgi:128
 msgid "Small terminal emulator, commands options are supported."
 msgstr ""
 
-#: index.cgi:128 index.cgi:145
+#: index.cgi:130 index.cgi:147
 msgid "Commands:"
 msgstr ""
 
-#: index.cgi:132
+#: index.cgi:134
 msgid "Downloading to:"
 msgstr ""
 
-#: index.cgi:149 index.cgi:315
-msgid "Process activity"
+#: index.cgi:151
+msgid "TazPanel - Process activity"
 msgstr ""
 
-#: index.cgi:151
+#: index.cgi:153
 msgid "Refresh: "
 msgstr ""
 
-#: index.cgi:176
-msgid "System report"
+#: index.cgi:171
+msgid "TazPanel - Debug"
 msgstr ""
 
-#: index.cgi:180
-msgid "Reporting to:"
+#: index.cgi:178
+msgid "TazPanel - System report"
 msgstr ""
 
 #: index.cgi:182
+msgid "Reporting to:"
+msgstr ""
+
+#: index.cgi:184
 msgid "Creating report header...  "
 msgstr ""
 
-#: index.cgi:199
+#: index.cgi:201
 msgid "Creating system summary... "
 msgstr ""
 
-#: index.cgi:212
+#: index.cgi:214
 msgid "Getting hardware info...   "
 msgstr ""
 
-#: index.cgi:236
+#: index.cgi:238
 msgid "Getting networking info... "
 msgstr ""
 
-#: index.cgi:252
+#: index.cgi:254
 msgid "Getting filesystems info..."
 msgstr ""
 
-#: index.cgi:276
+#: index.cgi:278
 msgid "Getting boot logs...       "
 msgstr ""
 
-#: index.cgi:278 boot.cgi:29 boot.cgi:34
+#: index.cgi:280 boot.cgi:29 boot.cgi:34
 msgid "Kernel messages"
 msgstr ""
 
-#: index.cgi:282 boot.cgi:30 boot.cgi:39
+#: index.cgi:284 boot.cgi:30 boot.cgi:39
 msgid "Boot scripts"
 msgstr ""
 
-#: index.cgi:288
+#: index.cgi:290
 msgid "Creating report footer...  "
 msgstr ""
 
-#: index.cgi:296
+#: index.cgi:298
 msgid "View report"
 msgstr ""
 
-#: index.cgi:297
+#: index.cgi:299
 msgid "This report can be attached with a bug report on: "
 msgstr ""
 
-#: index.cgi:308
+#: index.cgi:310
 msgid "Host:"
 msgstr ""
 
-#: index.cgi:309
+#: index.cgi:311
 msgid "SliTaz administration and configuration Panel"
 msgstr ""
 
+#: index.cgi:315 styles/default/header.sh:27
+msgid "Terminal"
+msgstr ""
+
 #: index.cgi:317
+msgid "Process activity"
+msgstr ""
+
+#: index.cgi:319
 msgid "Create a report"
 msgstr ""
 
-#: index.cgi:320 pkgs.cgi:855
+#: index.cgi:322 pkgs.cgi:855
 msgid "Summary"
 msgstr ""
 
-#: index.cgi:323
+#: index.cgi:325
 msgid "Uptime       :"
 msgstr ""
 
-#: index.cgi:324
+#: index.cgi:326
 msgid "Memory in Mb :"
 msgstr ""
 
-#: index.cgi:326
+#: index.cgi:328
 msgid "Linux kernel :"
 msgstr ""
 
-#: index.cgi:331
+#: index.cgi:333
 msgid "Network status"
 msgstr ""
 
-#: index.cgi:334 hardware.cgi:193
+#: index.cgi:336 hardware.cgi:193
 msgid "Filesystem usage statistics"
 msgstr ""
 
-#: index.cgi:355
+#: index.cgi:357
 msgid "Panel Activity"
+msgstr ""
+
+#: pkgs.cgi:17
+msgid "TazPanel - Packages"
 msgstr ""
 
 #: pkgs.cgi:50
@@ -215,7 +235,7 @@ msgid "Web"
 msgstr ""
 
 #: pkgs.cgi:212 pkgs.cgi:321 pkgs.cgi:362 pkgs.cgi:416 pkgs.cgi:454
-#: pkgs.cgi:503 pkgs.cgi:575 pkgs.cgi:858
+#: pkgs.cgi:503 pkgs.cgi:575 pkgs.cgi:858 styles/default/header.sh:37
 msgid "My packages"
 msgstr ""
 
@@ -288,7 +308,7 @@ msgstr ""
 msgid "Getting package info..."
 msgstr ""
 
-#: pkgs.cgi:541 pkgs.cgi:550 installer.cgi:155
+#: pkgs.cgi:541 pkgs.cgi:550 installer.cgi:155 styles/default/header.sh:88
 msgid "Install"
 msgstr ""
 
@@ -312,7 +332,7 @@ msgstr ""
 msgid "Remove link"
 msgstr ""
 
-#: pkgs.cgi:675 pkgs.cgi:872
+#: pkgs.cgi:675 pkgs.cgi:872 styles/default/header.sh:43
 msgid "Administration"
 msgstr ""
 
@@ -402,7 +422,7 @@ msgstr ""
 msgid "Install from ISO image: "
 msgstr ""
 
-#: pkgs.cgi:868
+#: pkgs.cgi:868 styles/default/header.sh:39
 msgid "Recharge list"
 msgstr ""
 
@@ -410,47 +430,59 @@ msgstr ""
 msgid "Latest log entries"
 msgstr ""
 
-#: live.cgi:88
+#: live.cgi:25
+msgid "TazPanel - Live"
+msgstr ""
+
+#: live.cgi:83
 msgid "TODO"
 msgstr ""
 
-#: live.cgi:96
-msgid "SliTaz Live Systems"
+#: live.cgi:88
+msgid "SliTaz LiveUSB"
 msgstr ""
 
-#: live.cgi:97
-msgid "Create and manage Live CD or USB SliTaz systems"
+#: live.cgi:89
+msgid "Create Live USB SliTaz systems"
 msgstr ""
 
-#: live.cgi:101
-msgid "Live USB"
-msgstr ""
-
-#: live.cgi:103
+#: live.cgi:93
 msgid ""
 "Generate SliTaz LiveUSB media and boot in RAM! Insert a\n"
 "\tLiveCD into the cdrom drive, select the correct device and press\n"
 "\tGenerate."
 msgstr ""
 
-#: live.cgi:108
+#: live.cgi:99
 msgid "USB Media to use:"
 msgstr ""
 
-#: live.cgi:117 installer.cgi:302 installer.cgi:346 installer.cgi:381
+#: live.cgi:108 installer.cgi:302 installer.cgi:346 installer.cgi:381
 #: installer.cgi:414
 msgid "Not found"
 msgstr ""
 
-#: live.cgi:121
+#: live.cgi:112
 msgid "Generate"
 msgstr ""
 
-#: live.cgi:125
+#: live.cgi:129
+msgid "SliTaz Live Systems"
+msgstr ""
+
+#: live.cgi:130
+msgid "Create and manage Live CD or USB SliTaz systems"
+msgstr ""
+
+#: live.cgi:135
+msgid "Create LiveUSB"
+msgstr ""
+
+#: live.cgi:139
 msgid "Write a Live CD"
 msgstr ""
 
-#: live.cgi:127
+#: live.cgi:141
 msgid ""
 "The command writeiso will generate an ISO image of the\n"
 "\tcurrent filesystem as is, including all files in the /home directory.\n"
@@ -458,73 +490,77 @@ msgid ""
 "\tto: boot, modify, writeiso."
 msgstr ""
 
-#: live.cgi:133
+#: live.cgi:147
 msgid "Compression type:"
 msgstr ""
 
-#: live.cgi:139
+#: live.cgi:153
 msgid "Write ISO"
 msgstr ""
 
-#: live.cgi:142
+#: live.cgi:156
 msgid "Live CD tools"
 msgstr ""
 
-#: live.cgi:144 live.cgi:169
+#: live.cgi:158 live.cgi:183 styles/default/header.sh:84
 msgid "Convert ISO to loram"
 msgstr ""
 
-#: live.cgi:146
+#: live.cgi:160
 msgid ""
 "This command will convert an ISO image of a SliTaz Live CD\n"
 "\tto a new ISO image requiring less RAM to run."
 msgstr ""
 
-#: live.cgi:152
+#: live.cgi:166
 msgid "ISO to convert"
 msgstr ""
 
-#: live.cgi:156
+#: live.cgi:170
 msgid "The filesystem is always in RAM"
 msgstr ""
 
-#: live.cgi:159
+#: live.cgi:173
 msgid "The filesystem may be on a small CDROM"
 msgstr ""
 
-#: live.cgi:162
+#: live.cgi:176
 msgid "The filesystem may be on a large CDROM"
 msgstr ""
 
-#: live.cgi:165 live.cgi:208
+#: live.cgi:179 live.cgi:222
 msgid "ISO to create"
 msgstr ""
 
-#: live.cgi:173 live.cgi:212
+#: live.cgi:187 live.cgi:226 styles/default/header.sh:85
 msgid "Build a meta ISO"
 msgstr ""
 
-#: live.cgi:175
+#: live.cgi:189
 msgid ""
 "Combines several ISO flavors like nested Russian dolls.\n"
 "\tThe amount of RAM available at startup will be used to select the\n"
 "\tutmost one."
 msgstr ""
 
-#: live.cgi:188
+#: live.cgi:202
 msgid "ISO number"
 msgstr ""
 
-#: live.cgi:190 live.cgi:203
+#: live.cgi:204 live.cgi:217
 msgid "Minimum RAM"
 msgstr ""
 
-#: live.cgi:201
+#: live.cgi:215
 msgid "ISO to add"
 msgstr ""
 
-#: live.cgi:205
+#: live.cgi:219
 msgid "Add to the list"
+msgstr ""
+
+#: network.cgi:13
+msgid "TazPanel - Network"
 msgstr ""
 
 #: network.cgi:24
@@ -631,11 +667,11 @@ msgstr ""
 msgid "Wireless connection"
 msgstr ""
 
-#: network.cgi:203 network.cgi:290
+#: network.cgi:203 network.cgi:289
 msgid "Start"
 msgstr ""
 
-#: network.cgi:205 network.cgi:292
+#: network.cgi:205 network.cgi:291
 msgid "Stop"
 msgstr ""
 
@@ -681,52 +717,52 @@ msgstr ""
 msgid "Manage network connections and services"
 msgstr ""
 
-#: network.cgi:288
-msgid "Connection:"
-msgstr ""
-
-#: network.cgi:294
+#: network.cgi:293
 msgid "Restart"
 msgstr ""
 
-#: network.cgi:297
+#: network.cgi:296
 msgid "Configuration:"
 msgstr ""
 
-#: network.cgi:307
+#: network.cgi:306
 msgid "Hosts"
 msgstr ""
 
-#: network.cgi:312
+#: network.cgi:311
 msgid "Edit hosts"
 msgstr ""
 
-#: network.cgi:314 installer.cgi:438
+#: network.cgi:313 installer.cgi:438
 msgid "Hostname"
 msgstr ""
 
-#: network.cgi:317
+#: network.cgi:316
 msgid "Change hostname"
 msgstr ""
 
-#: network.cgi:322
+#: network.cgi:321
 msgid "Output of "
 msgstr ""
 
-#: network.cgi:328
+#: network.cgi:327
 msgid "Routing table"
 msgstr ""
 
-#: network.cgi:334
+#: network.cgi:333
 msgid "Domain name resolution"
 msgstr ""
 
-#: network.cgi:340
+#: network.cgi:339
 msgid "ARP table"
 msgstr ""
 
-#: network.cgi:346
+#: network.cgi:345
 msgid "IP Connections"
+msgstr ""
+
+#: boot.cgi:14
+msgid "TazPanel - Boot"
 msgstr ""
 
 #: boot.cgi:25
@@ -737,7 +773,7 @@ msgstr ""
 msgid "X server"
 msgstr ""
 
-#: boot.cgi:61 boot.cgi:244
+#: boot.cgi:61 boot.cgi:244 styles/default/header.sh:67
 msgid "Manage daemons"
 msgstr ""
 
@@ -829,11 +865,11 @@ msgstr ""
 msgid "Everything that happens before user login"
 msgstr ""
 
-#: boot.cgi:242
+#: boot.cgi:242 styles/default/header.sh:65
 msgid "Boot logs"
 msgstr ""
 
-#: boot.cgi:245
+#: boot.cgi:245 styles/default/header.sh:69
 msgid "Boot loader"
 msgstr ""
 
@@ -857,6 +893,10 @@ msgstr ""
 msgid "Edit script"
 msgstr ""
 
+#: hardware.cgi:13
+msgid "TazPanel - Hardware"
+msgstr ""
+
 #: hardware.cgi:28
 msgid "Detect hardware"
 msgstr ""
@@ -865,7 +905,7 @@ msgstr ""
 msgid "Detect PCI and USB hardware"
 msgstr ""
 
-#: hardware.cgi:42
+#: hardware.cgi:42 styles/default/header.sh:75
 msgid "Kernel modules"
 msgstr ""
 
@@ -911,6 +951,10 @@ msgstr ""
 
 #: hardware.cgi:217
 msgid "System memory"
+msgstr ""
+
+#: settings.cgi:15
+msgid "TazPanel - Settings"
 msgstr ""
 
 #: settings.cgi:88 settings.cgi:176
@@ -1064,7 +1108,7 @@ msgstr ""
 msgid "Configuration files: "
 msgstr ""
 
-#: settings.cgi:289
+#: settings.cgi:289 styles/default/header.sh:24
 msgid "Panel"
 msgstr ""
 
@@ -1096,6 +1140,10 @@ msgstr ""
 msgid "Mount point"
 msgstr ""
 
+#: installer.cgi:24
+msgid "TazPanel - Installer"
+msgstr ""
+
 #: installer.cgi:120 installer.cgi:126
 msgid "Setup File Error"
 msgstr ""
@@ -1116,8 +1164,7 @@ msgstr ""
 msgid ""
 "Install SliTaz on a partition of your hard disk drive. If\n"
 "\tyou decide to format your partition, all data will be lost. If you do not\n"
-"\tformat, all data except for any existing /home directory will be "
-"removed, \n"
+"\tformat, all data except for any existing /home directory will be removed,\n"
 "\tthe home directory will be kept as is."
 msgstr ""
 
@@ -1128,7 +1175,7 @@ msgid ""
 "\tYou can graphically manage your partitions with Gparted"
 msgstr ""
 
-#: installer.cgi:169 installer.cgi:249
+#: installer.cgi:169 installer.cgi:249 styles/default/header.sh:90
 msgid "Install SliTaz"
 msgstr ""
 
@@ -1155,8 +1202,8 @@ msgstr ""
 
 #: installer.cgi:197
 msgid ""
-"On most used systems, the hard drive is already dedicated to \n"
-"\tpartitions for Windows<sup>&copy;</sup>, or Linux, or another operating \n"
+"On most used systems, the hard drive is already dedicated to\n"
+"\tpartitions for Windows<sup>&copy;</sup>, or Linux, or another operating\n"
 "\tsystem. You'll need to resize these partitions in order to make space for\n"
 "\tSliTaz GNU/Linux. SliTaz will co-exist with other operating systems "
 "already\n"
@@ -1165,7 +1212,7 @@ msgstr ""
 
 #: installer.cgi:204
 msgid ""
-"The amount of space needed depends on how much software you \n"
+"The amount of space needed depends on how much software you\n"
 "\tplan to install\tand how much space you require for users. It's "
 "conceivable\n"
 "\tthat you could run a minimal SliTaz system in 300 megs or less, but 2 "
@@ -1175,7 +1222,7 @@ msgstr ""
 
 #: installer.cgi:209
 msgid ""
-"A separate home partition, and a partition that will be used \n"
+"A separate home partition, and a partition that will be used\n"
 "\tas Linux swap space may be created if needed. Slitaz detects and uses "
 "swap\n"
 "\tpartitions automatically."
@@ -1194,7 +1241,7 @@ msgstr ""
 msgid ""
 "Gparted supports ext2, ext3, ext4, linux swap, ntfs and fat32\n"
 "\tfilesystems right out of the box. Support for xjs, jfs, hfs and other\n"
-"\tfilesystems is available as well but you first need to add drivers for \n"
+"\tfilesystems is available as well but you first need to add drivers for\n"
 "\tthese filesystems by installing the related packages xfsprogs, jfsutils,\n"
 "\tlinux-hfs and so on."
 msgstr ""
@@ -1224,9 +1271,8 @@ msgstr ""
 #: installer.cgi:250
 msgid ""
 "You're going to install SliTaz on a partition of your hard disk drive. If\n"
-"\tyou decide to format your HDD, all data will be lost. If you do not \n"
-"\tformat, all data except for any existing /home directory will be "
-"removed, \n"
+"\tyou decide to format your HDD, all data will be lost. If you do not\n"
+"\tformat, all data except for any existing /home directory will be removed,\n"
 "\tthe home directory will be kept as is."
 msgstr ""
 
@@ -1388,7 +1434,7 @@ msgstr ""
 
 #: installer.cgi:532
 msgid ""
-"If your browser doesn't automatically redirect within a few seconds, \n"
+"If your browser doesn't automatically redirect within a few seconds,\n"
 "you may want to go there manually"
 msgstr ""
 
@@ -1412,4 +1458,80 @@ msgstr ""
 
 #: installer.cgi:630 installer.cgi:641
 msgid "Do you really want to continue?"
+msgstr ""
+
+#: styles/default/header.sh:29
+msgid "Processes"
+msgstr ""
+
+#: styles/default/header.sh:31
+msgid "Create Report"
+msgstr ""
+
+#: styles/default/header.sh:34
+msgid "Packages"
+msgstr ""
+
+#: styles/default/header.sh:41
+msgid "Check updates"
+msgstr ""
+
+#: styles/default/header.sh:46
+msgid "Network"
+msgstr ""
+
+#: styles/default/header.sh:49
+msgid "Ethernet"
+msgstr ""
+
+#: styles/default/header.sh:51
+msgid "Wireless"
+msgstr ""
+
+#: styles/default/header.sh:53
+msgid "Config file"
+msgstr ""
+
+#: styles/default/header.sh:56
+msgid "Settings"
+msgstr ""
+
+#: styles/default/header.sh:59
+msgid "Users"
+msgstr ""
+
+#: styles/default/header.sh:62
+msgid "Boot"
+msgstr ""
+
+#: styles/default/header.sh:72
+msgid "Hardware"
+msgstr ""
+
+#: styles/default/header.sh:77
+msgid "Detect PCI/USB"
+msgstr ""
+
+#: styles/default/header.sh:80
+msgid "Live"
+msgstr ""
+
+#: styles/default/header.sh:82
+msgid "Create a live USB key"
+msgstr ""
+
+#: styles/default/header.sh:83
+msgid "Create a live CD-ROM"
+msgstr ""
+
+#: styles/default/header.sh:91
+msgid "Upgrade system"
+msgstr ""
+
+#: styles/default/footer.sh:6
+msgid "Copyright"
+msgstr ""
+
+#: styles/default/footer.sh:8
+msgid "BSD License"
 msgstr ""

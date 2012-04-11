@@ -10,7 +10,7 @@
 get_config
 header
 
-TITLE="- Hardware"
+TITLE=$(gettext 'TazPanel - Hardware')
 
 #
 # Commands
@@ -61,7 +61,7 @@ EOT
 		if [ -n "$(GET modprobe)" ]; then
 			echo '<pre>'
 			modprobe -v $(GET modprobe)
-			echo '</pre>' 
+			echo '</pre>'
 		fi
 		if [ -n "$(GET rmmod)" ]; then
 			echo "Removing"
@@ -103,7 +103,7 @@ EOT
 	*)
 		[ -n "$(GET brightness)" ] &&
 		echo -n $(GET brightness) > /sys/devices/virtual/backlight/$(GET dev)/brightness
-		
+
 		#
 		# Default to summary with mounted filesystem, loaded modules
 		#

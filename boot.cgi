@@ -11,7 +11,7 @@
 header
 get_config
 
-TITLE="- Boot"
+TITLE=$(gettext 'TazPanel - Boot')
 
 #
 # Commands
@@ -51,16 +51,16 @@ EOT
 		#
 		# Everything until user login
 		#
-		# Start and stop a daemon. I think we don't need a restart since 2 
+		# Start and stop a daemon. I think we don't need a restart since 2
 		# clicks and you are done
 		. /etc/rcS.conf
 		xhtml_header
-		
+
 		cat << EOT
 <div id="wrapper">
 	<h2>`gettext "Manage daemons"`</h2>
 	<p>
-		`gettext "Check, start and stop daemons on SliTaz"` 
+		`gettext "Check, start and stop daemons on SliTaz"`
 	</p>
 </div>
 EOT

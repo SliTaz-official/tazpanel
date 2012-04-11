@@ -12,7 +12,7 @@
 get_config
 header
 
-TITLE="- Settings"
+TITLE=$(gettext 'TazPanel - Settings')
 
 #
 # Commands executed before page loading.
@@ -70,7 +70,7 @@ case " $(GET) " in
 		sed -i s@/:root:.*@/:root:$(GET panel_pass)@ $HTTPD_CONF ;;
 	*\ style*)
 		sed -i s/'^STYLE.*'/"STYLE=\"$(GET style)\""/ $CONFIG
-		. $CONFIG ;;	
+		. $CONFIG ;;
 esac
 
 #
