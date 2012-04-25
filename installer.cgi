@@ -21,7 +21,7 @@ get_config
 TEXTDOMAIN='installer'
 export TEXTDOMAIN
 
-TITLE="- Installer"
+TITLE=$(gettext 'TazPanel - Installer')
 
 # Tazinst required version
 TAZINST_REQUIRED_VERSION="3.3"
