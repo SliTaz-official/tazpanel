@@ -7,7 +7,7 @@
 # Authors : Dominique Corbex <domcox@slitaz.org>
 #
 
-VERSION=0.29
+VERSION=0.30
 
 # Common functions from libtazpanel
 . lib/libtazpanel
@@ -21,7 +21,7 @@ get_config
 TEXTDOMAIN='installer'
 export TEXTDOMAIN
 
-TITLE=$(gettext 'TazPanel - Installer')
+TITLE="- Installer"
 
 # Tazinst required version
 TAZINST_REQUIRED_VERSION="3.3"
@@ -52,7 +52,7 @@ write_setup()
 		# Home Partition
 		if [ -n "$(GET HOME_SELECT)" ] ; then
 			TGT_HOME=$(echo "$(GET TGT_HOME)" | sed 's/\//\\\//'g)
-			[ -n "$(GET HOME_FS)" ] && TGT_HOME_FS=$(GET HOME_FS)
+			[ -n "$(GET HOME_FMT)" ] && TGT_HOME_FS=$(GET HOME_FS) || TGT_HOME_FS=""
 		else
 			TGT_HOME=""
 			TGT_HOME_FS=""
@@ -124,10 +124,10 @@ EOT
 			if [ ! -r $INSTFILE ]; then
 				cat <<EOT
 <span class="msg-nok">$(gettext "Setup File Error")<br />
-$(gettext "The setup file <strong>$INSTFILE</strong> is not readable.
+$(gettext "The setup file <strong>$INSTFILE</strong> is not readable. 
 Check permissions and ownership.")</span><br />
 EOT
-			fi
+			fi	
 		fi
 	fi
 	# read setup file
@@ -156,7 +156,7 @@ select_install()
 <p>
 	$(gettext "Install SliTaz on a partition of your hard disk drive. If
 	you decide to format your partition, all data will be lost. If you do not
-	format, all data except for any existing /home directory will be removed,
+	format, all data except for any existing /home directory will be removed, 
 	the home directory will be kept as is.")
 </p>
 <p>
@@ -194,19 +194,19 @@ select_gparted()
 <h4>$(gettext "Partitioning")</h4>
 <div class="box">
 <p>
-	$(gettext "On most used systems, the hard drive is already dedicated to
-	partitions for Windows<sup>&copy;</sup>, or Linux, or another operating
+	$(gettext "On most used systems, the hard drive is already dedicated to 
+	partitions for Windows<sup>&copy;</sup>, or Linux, or another operating 
 	system. You'll need to resize these partitions in order to make space for
 	SliTaz GNU/Linux. SliTaz will co-exist with other operating systems already
-	installed on your hard drive.")
+	installed on your hard drive.") 
 </p>
 <p>
-	$(gettext "The amount of space needed depends on how much software you
+	$(gettext "The amount of space needed depends on how much software you 
 	plan to install	and how much space you require for users. It's conceivable
 	that you could run a minimal SliTaz system in 300 megs or less, but 2 gigs
 	is indeed more comfy.")
 <p>
-	$(gettext "A separate home partition, and a partition that will be used
+	$(gettext "A separate home partition, and a partition that will be used 
 	as Linux swap space may be created if needed. Slitaz detects and uses swap
 	partitions automatically.")
 </p>
@@ -222,7 +222,7 @@ select_gparted()
 <p>
 	$(gettext "Gparted supports ext2, ext3, ext4, linux swap, ntfs and fat32
 	filesystems right out of the box. Support for xjs, jfs, hfs and other
-	filesystems is available as well but you first need to add drivers for
+	filesystems is available as well but you first need to add drivers for 
 	these filesystems by installing the related packages xfsprogs, jfsutils,
 	linux-hfs and so on.")
 </p>
@@ -248,8 +248,8 @@ display_action()
 <div id="wrapper">
 <h3>$(gettext "Install SliTaz")</h3>
 <p>$(gettext "You're going to install SliTaz on a partition of your hard disk drive. If
-	you decide to format your HDD, all data will be lost. If you do not
-	format, all data except for any existing /home directory will be removed,
+	you decide to format your HDD, all data will be lost. If you do not 
+	format, all data except for any existing /home directory will be removed, 
 	the home directory will be kept as is.")<p>
 </div>
 <input type="hidden" name="INST_ACTION" value="$1">
@@ -314,7 +314,7 @@ EOT
 <a class="button" onclick="document.forms['ConfigForm'].url.value = '$(tazinst showurl stable)'; return true;">$(gettext "Stable")</a>
 <a class="button" onclick="document.forms['ConfigForm'].url.value = '$(tazinst showurl cooking)'; return true;">$(gettext "Cooking")</a>
 $(gettext "URL:")
-<input id="url" type="url" size="55" name="SRC_WEB" value="$get_SRC_WEB" placeholder="$(gettext "Full url to an ISO image file")" />
+<input id="url" type="url" size="55" name="SRC_WEB" $([ "$INST_TYPE" == "web" ] && echo -e "value=\"$SRC_FILE\"") placeholder="$(gettext "Full url to an ISO image file")" />
 </label>
 </div>
 EOT
@@ -415,7 +415,7 @@ EOT
 	fi
 cat <<EOT
 </select>
-
+	
 <input type="checkbox" name="HOME_FMT" value="yes" $([ -n "$TGT_HOME_FS" ] && echo "checked") id="homefs" />
 <label for="homefs">$(gettext "Format partition as:")</label>
 <select name="HOME_FS">"
@@ -529,9 +529,9 @@ page_redirection()
 <meta name="keywords" content="automatic redirection">
 </head>
 <body>
-$(gettext "If your browser doesn't automatically redirect within a few seconds,
+$(gettext "If your browser doesn't automatically redirect within a few seconds, 
 you may want to go there manually")
-<a href="$SCRIPT_NAME?page=$1">$1</a>
+<a href="$SCRIPT_NAME?page=$1">$1</a> 
 </body>
 </html>
 EOT
@@ -539,7 +539,7 @@ EOT
 
 check_ressources()
 {
-	local code
+	local code 
 	code=0
 	# Check tazinst
 	if ! tazinst usage | grep -q Usage: ; then
