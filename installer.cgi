@@ -542,7 +542,7 @@ check_ressources()
 	local code 
 	code=0
 	# Check tazinst
-	if ! tazinst usage | grep -q Usage: ; then
+	if ! [ -x /usr/sbin/tazinst ] ; then
 		cat <<EOT
 <h3>$(gettext "Tazinst Error")</h3>
 <p><strong>tazinst</strong>, $(gettext "the lightweight SliTaz HDD installer
