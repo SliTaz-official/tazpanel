@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Tazpanel - %TITLE%</title>
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" href="/styles/default/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="/styles/default/style.css" />
+	<!-- Function to hide the loading message when page is generated. -->
+	<script type="text/javascript">
+		function showLoading(){
+			document.getElementById("loading").style.display='none';
+		}
+	</script>
+</head>
+<body onload="showLoading()"> 
+
+<div id="toolbar">
+	<div id="icons">
+		<a href="/help.cgi">
+			<img src="/styles/default/images/help.png" /></a>
+	</div>
+	<ul id="menu">
+		<li><a href="/">Panel</a>
+			<ul>
+				<li><a href="/index.cgi?terminal"><img
+					src="/styles/default/images/terminal.png" />Terminal</a></li>
+				<li><a href="/index.cgi?top"><img
+					src="/styles/default/images/monitor.png" />Processes</a></li>
+				<li><a href="/index.cgi?report"><img
+					src="/styles/default/images/text.png" />Create Report</a></li>
+			</ul>
+		</li>
+		<li><a href="/pkgs.cgi">Packages</a>
+			<ul>
+				<li><a href="/pkgs.cgi?list"><img
+					src="/styles/default/images/tazpkg.png" />My packages</a></li>
+				<li><a href="/pkgs.cgi?recharge"><img
+					src="/styles/default/images/update.png" />Recharge list</a></li>
+				<li><a href="/pkgs.cgi?up"><img
+					src="/styles/default/images/update.png" />Check updates</a></li>
+				<li><a href="/pkgs.cgi?admin"><img
+					src="/styles/default/images/edit.png" />Administration</a></li>
+			</ul>
+		</li>
+		<li><a href="/network.cgi">Network</a>
+			<ul>
+				<li><a href="/network.cgi?eth"><img
+					src="/styles/default/images/ethernet.png" />Ethernet</a></li>
+				<li><a href="/network.cgi?wifi"><img
+					src="/styles/default/images/wireless.png" />Wireless</a></li>
+				<li><a href="/index.cgi?file=/etc/network.conf"><img
+					src="/styles/default/images/edit.png" />Config file</a></li>
+			</ul>
+		</li>
+		<li><a href="/settings.cgi">Settings</a>
+			<ul>
+				<li><a href="/settings.cgi?users"><img
+					src="/styles/default/images/users.png" />Users</a></li>
+			</ul>
+		</li>
+		<li><a href="/boot.cgi">Boot</a>
+			<ul>
+				<li><a href="/boot.cgi?log"><img
+					src="/styles/default/images/text.png" />Boot logs</a></li>
+				<li><a href="/boot.cgi?daemons"><img
+					src="/styles/default/images/recharge.png" />Manage daemons</a></li>
+				<li><a href="/boot.cgi?grub"><img
+					src="/styles/default/images/tux.png" />Boot loader</a></li>
+			</ul>
+		</li>
+		<li><a href="/hardware.cgi">Hardware</a>
+			<ul>
+				<li><a href="/hardware.cgi?modules"><img
+					src="/styles/default/images/tux.png" />Kernel modules</a></li>
+				<li><a href="/hardware.cgi?detect"><img
+					src="/styles/default/images/monitor.png" />Detect PCI/USB</a></li>
+			</ul>
+		</li>
+		<li><a href="/live.cgi">Live</a>
+			<ul>
+				<li><a href="/live.cgi?liveusb">Create a live USB key</a></li>
+				<li><a href="/live.cgi#liveiso">Create a live CD-ROM</a></li>
+				<li><a href="/live.cgi#loram">Convert ISO to loram</a></li>
+				<li><a href="/live.cgi#meta">Build a meta ISO</a></li>
+			</ul>
+		</li>
+		<li><a href="/installer.cgi">Install</a>
+			<ul>
+				<li><a href="/installer.cgi?page=menu_install">Install SliTaz</a></li>
+				<li><a href="/installer.cgi?page=menu_upgrade">Upgrade system</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div id="header">
+	<h1>TazPanel - %TITLE%</h1>
+</div>
+
+<!-- Page content -->
+<div id="content">
