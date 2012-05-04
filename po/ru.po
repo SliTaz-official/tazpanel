@@ -1,0 +1,1939 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: TazPanel 1.4.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-04 02:44+0000\n"
+"PO-Revision-Date: 2012-05-04 12:45+0300\n"
+"Last-Translator: Aleksej Bobylev <al.bobylev@gmail.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: tazpanel:35
+#, sh-format
+msgid "Starting TazPanel web server on port $HTTPD_PORT..."
+msgstr "Веб-сервер TazPanel запускается на порту $HTTPD_PORT..."
+
+#: tazpanel:37
+msgid "TazPanel Authentication - Default: root:root"
+msgstr "Аутентификация TazPanel (по умолчанию root:root)"
+
+#: tazpanel:42
+msgid "Stopping TazPanel web server..."
+msgstr "Остановка веб-сервера TazPanel…"
+
+#: tazpanel:46
+msgid "Changing password for TazPanel"
+msgstr "Изменение пароля TazPanel"
+
+#: tazpanel:47
+msgid "New password: "
+msgstr "Новый пароль: "
+
+#: tazpanel:49
+msgid "Password changed successfully"
+msgstr "Пароль успешно изменен"
+
+#: tazpanel:54
+#, sh-format
+msgid "Usage: $program_name [start|stop|passwd]"
+msgstr "Использование: $program_name [start|stop|passwd]"
+
+#: index.cgi:38
+#: index.cgi:83
+msgid "Differences"
+msgstr "Различия"
+
+#: index.cgi:72
+msgid "TazPanel - File"
+msgstr "Файл | TazPanel"
+
+#: index.cgi:81
+msgid "Save"
+msgstr "Сохранить"
+
+#: index.cgi:103
+#: settings.cgi:261
+msgid "Edit"
+msgstr "Правка"
+
+#: index.cgi:126
+msgid "TazPanel - Terminal"
+msgstr "Терминал | TazPanel"
+
+#: index.cgi:139
+msgid "Small terminal emulator, commands options are supported."
+msgstr "Маленький эмулятор терминала, поддерживаются параметры команд."
+
+#: index.cgi:141
+#: index.cgi:158
+#, sh-format
+msgid "Commands: $commands"
+msgstr "Команды: $commands"
+
+#: index.cgi:146
+#, sh-format
+msgid "Downloading to: $dl"
+msgstr "Загрузка в: $dl"
+
+#: index.cgi:153
+#, sh-format
+msgid "$cmd needs an argument"
+msgstr "Команда $cmd требует аргумент"
+
+#: index.cgi:157
+#, sh-format
+msgid "Unknown command: $cmd"
+msgstr "Неизвестная команда: $cmd"
+
+#: index.cgi:162
+msgid "TazPanel - Process activity"
+msgstr "Активность процессов | TazPanel"
+
+#: index.cgi:164
+msgid "Refresh:"
+msgstr "Обновить:"
+
+#: index.cgi:169
+msgid "1s"
+msgstr "1 с"
+
+#: index.cgi:170
+msgid "5s"
+msgstr "5 с"
+
+#: index.cgi:171
+msgid "10s"
+msgstr "10 с"
+
+#: index.cgi:172
+#: live.cgi:152
+msgid "none"
+msgstr "нет"
+
+#: index.cgi:188
+msgid "TazPanel - Debug"
+msgstr "Отладка | TazPanel"
+
+#: index.cgi:191
+msgid "HTTP Environment"
+msgstr "Переменные окружения HTTP"
+
+#: index.cgi:198
+msgid "TazPanel - System report"
+msgstr "Системный отчет | TazPanel"
+
+#: index.cgi:203
+#, sh-format
+msgid "Reporting to: $output"
+msgstr "Файл отчета: $output"
+
+#: index.cgi:206
+msgid "Creating report header..."
+msgstr "Создание заголовка отчета…"
+
+#: index.cgi:213
+#: index.cgi:230
+msgid "SliTaz system report"
+msgstr "Системный отчет SliTaz"
+
+#: index.cgi:227
+msgid "Creating system summary..."
+msgstr "Получение сводки о системе…"
+
+#: index.cgi:231
+msgid "Date:"
+msgstr "Дата:"
+
+#: index.cgi:242
+msgid "Getting hardware info..."
+msgstr "Получение информации об оборудовании…"
+
+#: index.cgi:260
+msgid "Getting networking info..."
+msgstr "Получение информации о сетях…"
+
+#: index.cgi:274
+msgid "Getting filesystems info..."
+msgstr "Получение информации о файловых системах…"
+
+#: index.cgi:294
+msgid "Getting boot logs..."
+msgstr "Получение журналов загрузки…"
+
+#: index.cgi:297
+#: boot.cgi:29
+#: boot.cgi:34
+msgid "Kernel messages"
+msgstr "Сообщения ядра"
+
+#: index.cgi:300
+#: boot.cgi:30
+#: boot.cgi:38
+msgid "Boot scripts"
+msgstr "Загрузочные скрипты"
+
+#: index.cgi:305
+msgid "Creating report footer..."
+msgstr "Завершение создание отчета…"
+
+#: index.cgi:317
+msgid "View report"
+msgstr "Просмотреть отчет"
+
+#: index.cgi:318
+msgid "This report can be attached with a bug report on:"
+msgstr "Этот отчет можно прикрепить к баг-репорту здесь:"
+
+#: index.cgi:332
+#, sh-format
+msgid "Host: $hostname"
+msgstr "Хост: $hostname"
+
+#: index.cgi:333
+msgid "SliTaz administration and configuration Panel"
+msgstr "Панель администрирования и настройки SliTaz"
+
+#: index.cgi:337
+#: styles/default/header.sh:27
+msgid "Terminal"
+msgstr "Терминал"
+
+#: index.cgi:339
+msgid "Process activity"
+msgstr "Активность процессов"
+
+#: index.cgi:341
+msgid "Create a report"
+msgstr "Создать отчет"
+
+#: index.cgi:344
+#: pkgs.cgi:948
+msgid "Summary"
+msgstr "Сводка"
+
+#: index.cgi:347
+msgid "Uptime:"
+msgstr "Время работы:"
+
+#: index.cgi:350
+msgid "Memory in Mb:"
+msgstr "Память в МБ:"
+
+#: index.cgi:355
+#, sh-format
+msgid "Total: $memtotal, Used: $memused, Free: $memfree"
+msgstr "Всего: $memtotal, занято: $memused, свободно: $memfree"
+
+#: index.cgi:360
+msgid "Linux kernel:"
+msgstr "Ядро Linux:"
+
+#: index.cgi:367
+msgid "Network status"
+msgstr "Состояние сети"
+
+#: index.cgi:370
+#: hardware.cgi:202
+msgid "Filesystem usage statistics"
+msgstr "Статистика использования файловых систем"
+
+#: index.cgi:403
+msgid "Panel Activity"
+msgstr "Действия панели"
+
+#: pkgs.cgi:17
+msgid "TazPanel - Packages"
+msgstr "Пакеты | TazPanel"
+
+#: pkgs.cgi:51
+msgid "Last recharge:"
+msgstr "Последнее обновление:"
+
+#: pkgs.cgi:58
+msgid "(Older than 10 days)"
+msgstr "(старше, чем 10 дней)"
+
+#: pkgs.cgi:60
+msgid "(Not older than 10 days)"
+msgstr "(не старше, чем 10 дней)"
+
+#: pkgs.cgi:64
+msgid "Installed packages:"
+msgstr "Установленные пакеты:"
+
+#: pkgs.cgi:66
+msgid "Mirrored packages:"
+msgstr "Пакетов на зеркале:"
+
+#: pkgs.cgi:68
+msgid "Upgradeable packages:"
+msgstr "Обновляемых пакетов:"
+
+#: pkgs.cgi:70
+#: pkgs.cgi:707
+msgid "Installed files:"
+msgstr "Установленные файлы:"
+
+#: pkgs.cgi:72
+msgid "Blocked packages:"
+msgstr "Заблокированных пакетов:"
+
+#: pkgs.cgi:86
+msgid "Delete"
+msgstr "Удалить"
+
+#: pkgs.cgi:89
+msgid "Use as default"
+msgstr "Использовать по умолчанию"
+
+#: pkgs.cgi:120
+msgid "Search"
+msgstr "Поиск"
+
+#: pkgs.cgi:122
+msgid "Files"
+msgstr "Файлы"
+
+#: pkgs.cgi:134
+#: pkgs.cgi:867
+#: network.cgi:23
+#: network.cgi:156
+#: network.cgi:246
+#: boot.cgi:82
+#: settings.cgi:104
+#: lib/libtazpanel:98
+msgid "Name"
+msgstr "Название"
+
+#: pkgs.cgi:135
+msgid "Version"
+msgstr "Версия"
+
+#: pkgs.cgi:136
+#: boot.cgi:83
+msgid "Description"
+msgstr "Описание"
+
+#: pkgs.cgi:137
+msgid "Web"
+msgstr "Сайт"
+
+#: pkgs.cgi:147
+msgid "Categories"
+msgstr "Категории"
+
+#: pkgs.cgi:148
+msgid "Base-system"
+msgstr "Базовые"
+
+#: pkgs.cgi:149
+msgid "X window"
+msgstr "Окна X"
+
+#: pkgs.cgi:150
+msgid "Utilities"
+msgstr "Утилиты"
+
+#: pkgs.cgi:151
+#: styles/default/header.sh:46
+msgid "Network"
+msgstr "Сети"
+
+#: pkgs.cgi:152
+msgid "Games"
+msgstr "Игры"
+
+#: pkgs.cgi:153
+msgid "Graphics"
+msgstr "Графика"
+
+#: pkgs.cgi:154
+msgid "Office"
+msgstr "Офис"
+
+#: pkgs.cgi:155
+msgid "Multimedia"
+msgstr "Мультимедиа"
+
+#: pkgs.cgi:156
+msgid "Development"
+msgstr "Разработка"
+
+#: pkgs.cgi:157
+msgid "System tools"
+msgstr "Утилиты"
+
+#: pkgs.cgi:158
+msgid "Security"
+msgstr "Безопасность"
+
+#: pkgs.cgi:159
+msgid "Misc"
+msgstr "Прочее"
+
+#: pkgs.cgi:160
+msgid "Meta"
+msgstr "Мета"
+
+#: pkgs.cgi:161
+msgid "Non free"
+msgstr "Несвободные"
+
+#: pkgs.cgi:162
+msgid "All"
+msgstr "Все"
+
+#: pkgs.cgi:168
+msgid "Repositories"
+msgstr "Репозитории"
+
+#: pkgs.cgi:169
+msgid "Public"
+msgstr "Общественный"
+
+#: pkgs.cgi:177
+msgid "Any"
+msgstr "Любой"
+
+#: pkgs.cgi:217
+#: pkgs.cgi:339
+msgid "Listing packages..."
+msgstr "Список пакетов…"
+
+#: pkgs.cgi:220
+#: pkgs.cgi:358
+#: pkgs.cgi:412
+#: pkgs.cgi:479
+#: pkgs.cgi:520
+#: pkgs.cgi:580
+#: pkgs.cgi:659
+#: pkgs.cgi:952
+#: styles/default/header.sh:37
+msgid "My packages"
+msgstr "Мои пакеты"
+
+#: pkgs.cgi:225
+#: pkgs.cgi:284
+#: pkgs.cgi:347
+#: pkgs.cgi:401
+#: pkgs.cgi:511
+#: settings.cgi:92
+msgid "Selection:"
+msgstr "Отмеченное:"
+
+#: pkgs.cgi:226
+#: pkgs.cgi:607
+msgid "Remove"
+msgstr "Удалить"
+
+#: pkgs.cgi:230
+#: pkgs.cgi:289
+#: pkgs.cgi:354
+#: pkgs.cgi:408
+#: pkgs.cgi:518
+#: pkgs.cgi:962
+#: styles/default/header.sh:39
+msgid "Recharge list"
+msgstr "Обновить список"
+
+#: pkgs.cgi:232
+#: pkgs.cgi:291
+#: pkgs.cgi:356
+#: pkgs.cgi:410
+#: pkgs.cgi:477
+#: pkgs.cgi:964
+msgid "Check upgrades"
+msgstr "Проверить обновления"
+
+#: pkgs.cgi:275
+msgid "Listing linkable packages..."
+msgstr "Список ссылающихся пакетов…"
+
+#: pkgs.cgi:278
+#: pkgs.cgi:958
+msgid "Linkable packages"
+msgstr "Присоединенные пакеты"
+
+#: pkgs.cgi:285
+msgid "Link"
+msgstr "Ссылка"
+
+#: pkgs.cgi:342
+#, sh-format
+msgid "Category: $category"
+msgstr "Категория: $category"
+
+#: pkgs.cgi:366
+#: pkgs.cgi:838
+#, sh-format
+msgid "Repository: $Repo_Name"
+msgstr "Репозитарий: $Repo_Name"
+
+#: pkgs.cgi:394
+msgid "Searching packages..."
+msgstr "Поиск пакетов…"
+
+#: pkgs.cgi:397
+msgid "Search packages"
+msgstr "Поиск пакетов"
+
+#: pkgs.cgi:404
+#: pkgs.cgi:514
+msgid "Toogle all"
+msgstr "Переключить все"
+
+#: pkgs.cgi:423
+msgid "Package"
+msgstr "Пакет"
+
+#: pkgs.cgi:424
+msgid "File"
+msgstr "Файл"
+
+#: pkgs.cgi:465
+msgid "Recharging lists..."
+msgstr "Обновление списка…"
+
+#: pkgs.cgi:468
+msgid "Recharge"
+msgstr "Обновить"
+
+#: pkgs.cgi:473
+msgid "Recharge checks for new or updated packages"
+msgstr "Обновление ищет новые и обновленные пакеты"
+
+#: pkgs.cgi:485
+msgid "Recharging packages list"
+msgstr "Обновить список пакетов"
+
+#: pkgs.cgi:490
+msgid "Packages lists are up-to-date. You should check for upgrades now."
+msgstr "Список пакетов обновлен до актуального состояния. Теперь вы можете проверить обновления."
+
+#: pkgs.cgi:503
+msgid "Checking for upgrades..."
+msgstr "Проверка обновлений…"
+
+#: pkgs.cgi:506
+msgid "Up packages"
+msgstr "Обновить пакеты"
+
+#: pkgs.cgi:575
+msgid "Performing tasks on packages"
+msgstr "Выполнение задач над пакетами"
+
+#: pkgs.cgi:585
+#, sh-format
+msgid "Executing $cmd for: $pkgs"
+msgstr "Выполняется $cmd для: $pkgs"
+
+#: pkgs.cgi:610
+msgid "Getting package info..."
+msgstr "Получение информации о пакете…"
+
+#: pkgs.cgi:622
+#: installer.cgi:155
+#: styles/default/header.sh:88
+msgid "Install"
+msgstr "Установить"
+
+#: pkgs.cgi:626
+#, sh-format
+msgid "Package $PACKAGE"
+msgstr "Пакет $PACKAGE"
+
+#: pkgs.cgi:634
+msgid "Install (Non Free)"
+msgstr "Установить (несвободные)"
+
+#: pkgs.cgi:642
+msgid "Unblock"
+msgstr "Разблокировать"
+
+#: pkgs.cgi:646
+msgid "Block"
+msgstr "Заблокировать"
+
+#: pkgs.cgi:650
+msgid "Repack"
+msgstr "Перепаковать"
+
+#: pkgs.cgi:665
+msgid "Name:"
+msgstr "Название:"
+
+#: pkgs.cgi:666
+msgid "Version:"
+msgstr "Версия:"
+
+#: pkgs.cgi:667
+msgid "Description:"
+msgstr "Описание:"
+
+#: pkgs.cgi:668
+msgid "Category:"
+msgstr "Категория:"
+
+#: pkgs.cgi:672
+msgid "Maintainer:"
+msgstr "Мэйнтейнер:"
+
+#: pkgs.cgi:673
+#: pkgs.cgi:702
+msgid "Website:"
+msgstr "Сайт:"
+
+#: pkgs.cgi:674
+#: pkgs.cgi:703
+msgid "Sizes:"
+msgstr "Размер:"
+
+#: pkgs.cgi:677
+msgid "Depends:"
+msgstr "Зависимости:"
+
+#: pkgs.cgi:684
+msgid "Suggested:"
+msgstr "Предлагает:"
+
+#: pkgs.cgi:690
+msgid "Tags:"
+msgstr "Теги:"
+
+#: pkgs.cgi:696
+#, sh-format
+msgid "Installed files: $I_FILES"
+msgstr "Установленные файлы: $I_FILES"
+
+#: pkgs.cgi:755
+#: pkgs.cgi:884
+msgid "Set link"
+msgstr "Установить ссылку"
+
+#: pkgs.cgi:758
+#: pkgs.cgi:885
+msgid "Remove link"
+msgstr "Удалить ссылку"
+
+#: pkgs.cgi:764
+#: pkgs.cgi:966
+#: styles/default/header.sh:43
+msgid "Administration"
+msgstr "Администрирование"
+
+#: pkgs.cgi:766
+msgid "Tazpkg administration and settings"
+msgstr "Администрирование и настройка TazPKG"
+
+#: pkgs.cgi:770
+msgid "Save configuration"
+msgstr "Сохранить настройки"
+
+#: pkgs.cgi:772
+msgid "List configuration files"
+msgstr "Список файлов настроек"
+
+#: pkgs.cgi:774
+msgid "Quick check"
+msgstr "Быстрая проверка"
+
+#: pkgs.cgi:776
+msgid "Full check"
+msgstr "Полная проверка"
+
+#: pkgs.cgi:781
+msgid "Creating the package..."
+msgstr "Создание пакета…"
+
+#: pkgs.cgi:786
+msgid "Path:"
+msgstr "Путь:"
+
+#: pkgs.cgi:789
+#: boot.cgi:256
+msgid "Configuration files"
+msgstr "Файлы настроек"
+
+#: pkgs.cgi:802
+msgid "Checking packages consistency..."
+msgstr "Проверка целостности пакетов…"
+
+#: pkgs.cgi:808
+msgid "Full packages check..."
+msgstr "Полная проверка пакетов…"
+
+#: pkgs.cgi:815
+msgid "Packages cache"
+msgstr "Кеш пакетов"
+
+#: pkgs.cgi:820
+#, sh-format
+msgid "Packages in the cache: $cache_files ($cache_size)"
+msgstr "Пакетов в кеше: $cache_files ($cache_size)"
+
+#: pkgs.cgi:827
+msgid "Default mirror"
+msgstr "Зеркало по умолчанию"
+
+#: pkgs.cgi:831
+msgid "Current mirror list"
+msgstr "Список текущих зеркал"
+
+#: pkgs.cgi:855
+msgid "Private repositories"
+msgstr "Частные репозитории"
+
+#: pkgs.cgi:868
+msgid "mirror"
+msgstr "зеркало"
+
+#: pkgs.cgi:874
+msgid "Link to another SliTaz installation"
+msgstr "Ссылка на другой установленный SliTaz"
+
+#: pkgs.cgi:876
+msgid "This link points to the root of another SliTaz installation. You will be able to install packages using soft links to it."
+msgstr "Эта ссылка указывает на корень файловой системы другого установленного SliTaz. Вы сможете устанавливать пакеты, используя символьные ссылки на них."
+
+#: pkgs.cgi:892
+msgid "SliTaz packages DVD"
+msgstr "DVD с пакетами SliTaz"
+
+#: pkgs.cgi:894
+#, sh-format
+msgid "A bootable DVD image of all available packages for the $version version is generated every day. It also contains a copy of the website and can be used without an internet connection. This image can be installed on a DVD or an USB key."
+msgstr "Образ загрузочного DVD со всеми доступными пакетами для версии $version генерируется каждый день. Он также содержит копию сайта и может быть использован при отсутствии соединения с интернетом. Этот образ можно записать на DVD или установить на USB-флеш."
+
+#: pkgs.cgi:904
+msgid "Download DVD image"
+msgstr "Загрузить образ DVD"
+
+#: pkgs.cgi:906
+msgid "Install from DVD/USB key"
+msgstr "Установить с DVD или USB-флеш"
+
+#: pkgs.cgi:909
+msgid "Install from ISO image:"
+msgstr "Установить из образа ISO:"
+
+#: pkgs.cgi:972
+msgid "Latest log entries"
+msgstr "Недавние пункты журнала"
+
+#: live.cgi:25
+msgid "TazPanel - Live"
+msgstr "«Живые» системы | TazPanel"
+
+#: live.cgi:83
+msgid "TODO"
+msgstr "БУДЕТ СДЕЛАНО"
+
+#: live.cgi:88
+msgid "SliTaz LiveUSB"
+msgstr "LiveUSB SliTaz"
+
+#: live.cgi:89
+msgid "Create Live USB SliTaz systems"
+msgstr "Создать систему LiveUSB SliTaz"
+
+#: live.cgi:92
+msgid "Generate SliTaz LiveUSB media and boot in RAM! Insert a LiveCD into the cdrom drive, select the correct device and press Generate."
+msgstr "Здесь можно создать SliTaz LiveUSB и загрузиться в ОЗУ! Вставьте LiveCD в привод CD-ROM, выберите необходимое устройство и нажмите «Создать»."
+
+#: live.cgi:97
+msgid "USB Media to use:"
+msgstr "Использовать носитель USB:"
+
+#: live.cgi:106
+#: installer.cgi:299
+#: installer.cgi:343
+#: installer.cgi:378
+#: installer.cgi:410
+msgid "Not found"
+msgstr "Не найден"
+
+#: live.cgi:110
+msgid "Generate"
+msgstr "Создать"
+
+#: live.cgi:129
+msgid "SliTaz Live Systems"
+msgstr "«Живые» системы SliTaz"
+
+#: live.cgi:130
+msgid "Create and manage Live CD or USB SliTaz systems"
+msgstr "Создание и управление системами LiveCD (LiveUSB) SliTaz"
+
+#: live.cgi:135
+msgid "Create LiveUSB"
+msgstr "Создать LiveUSB"
+
+#: live.cgi:140
+msgid "Write a Live CD"
+msgstr "Записать LiveCD"
+
+#: live.cgi:142
+msgid "The command writeiso will generate an ISO image of the current filesystem as is, including all files in the /home directory. It is an easy way to remaster a SliTaz Live system, you just have to: boot, modify, writeiso."
+msgstr "Команда writeiso создаст полный ISO-образ текущей системы, включая все файлы в папке /home. Простой путь пересборки «живой» системы SliTaz: загрузиться, модифицировать, writeiso."
+
+#: live.cgi:148
+msgid "Compression type:"
+msgstr "Тип сжатия:"
+
+#: live.cgi:154
+msgid "Write ISO"
+msgstr "Записать ISO"
+
+#: live.cgi:158
+msgid "Live CD tools"
+msgstr "Утилиты LiveCD"
+
+#: live.cgi:160
+#: live.cgi:192
+#: styles/default/header.sh:84
+msgid "Convert ISO to loram"
+msgstr "Преобразовать ISO в LoRAM"
+
+#: live.cgi:162
+msgid "This command will convert an ISO image of a SliTaz Live CD to a new ISO image requiring less RAM to run."
+msgstr "Эта команда преобразует образ ISO, содержащий SliTaz LiveCD в новый образ ISO, требующий меньше ОЗУ для запуска."
+
+#: live.cgi:168
+msgid "ISO to convert"
+msgstr "Исходный ISO"
+
+#: live.cgi:173
+msgid "The filesystem is always in RAM"
+msgstr "Файловая система всегда находится в ОЗУ"
+
+#: live.cgi:178
+msgid "The filesystem may be on a small CDROM"
+msgstr "Файловая система может находиться на небольшом CD-ROM"
+
+#: live.cgi:183
+msgid "The filesystem may be on a large CDROM"
+msgstr "Файловая система может находиться на большом CD-ROM"
+
+#: live.cgi:187
+#: live.cgi:234
+msgid "ISO to create"
+msgstr "Создать ISO"
+
+#: live.cgi:196
+#: live.cgi:239
+#: styles/default/header.sh:85
+msgid "Build a meta ISO"
+msgstr "Создать мета ISO"
+
+#: live.cgi:198
+msgid "Combines several ISO flavors like nested Russian dolls. The amount of RAM available at startup will be used to select the utmost one."
+msgstr "Комбинирование нескольких редакций ISO по принципу матрёшки. Размер доступного ОЗУ, определенный при запуске системы, влияет на выбор редакции."
+
+#: live.cgi:210
+msgid "ISO number"
+msgstr "Количество ISO"
+
+#: live.cgi:213
+#: live.cgi:228
+msgid "Minimum RAM"
+msgstr "Минимум ОЗУ"
+
+#: live.cgi:225
+msgid "ISO to add"
+msgstr "Добавить ISO"
+
+#: live.cgi:230
+msgid "Add to the list"
+msgstr "Добавить в список"
+
+#: network.cgi:13
+msgid "TazPanel - Network"
+msgstr "Сети | TazPanel"
+
+#: network.cgi:24
+msgid "Quality"
+msgstr "Уровень сигнала"
+
+#: network.cgi:25
+msgid "Encryption"
+msgstr "Шифрование"
+
+#: network.cgi:26
+#: boot.cgi:84
+#: lib/libtazpanel:99
+msgid "Status"
+msgstr "Состояние"
+
+#: network.cgi:53
+msgid "Connected"
+msgstr "Соединено"
+
+#: network.cgi:96
+#, sh-format
+msgid "Changed hostname: $get_hostname"
+msgstr "Измененное название хоста: $get_hostname"
+
+#: network.cgi:112
+msgid "Scanning open ports..."
+msgstr "Сканируются открытые порты…"
+
+#: network.cgi:115
+#, sh-format
+msgid "Port scanning for $scan"
+msgstr "Сканирование портов адреса $scan"
+
+#: network.cgi:129
+msgid "Setting up IP..."
+msgstr "Устанавливается IP…"
+
+#: network.cgi:145
+msgid "Ethernet connection"
+msgstr "Соединение Ethernet"
+
+#: network.cgi:147
+msgid "Here you can configure a wired connection using DHCP to automatically get a random IP or configure a static/fixed IP"
+msgstr "Здесь вы можете настроить проводное соединение, использующее DHCP для автоматического получения случайного IP, или указать статический (фиксированный) IP"
+
+#: network.cgi:150
+msgid "Configuration"
+msgstr "Настройки"
+
+#: network.cgi:157
+#: network.cgi:247
+msgid "Value"
+msgstr "Значение"
+
+#: network.cgi:162
+#: lib/libtazpanel:97
+msgid "Interface"
+msgstr "Интерфейс"
+
+#: network.cgi:166
+msgid "IP address"
+msgstr "Адрес IP"
+
+#: network.cgi:170
+msgid "Netmask"
+msgstr "Маска сети"
+
+#: network.cgi:174
+msgid "Gateway"
+msgstr "Шлюз"
+
+#: network.cgi:178
+msgid "DNS server"
+msgstr "Сервер DNS"
+
+#: network.cgi:183
+msgid "Activate (static)"
+msgstr "Активировать (статически)"
+
+#: network.cgi:184
+msgid "Activate (DHCP)"
+msgstr "Активировать (DHCP)"
+
+#: network.cgi:185
+msgid "Disable"
+msgstr "Запретить"
+
+#: network.cgi:188
+#: network.cgi:266
+msgid "Configuration file"
+msgstr "Файл настроек"
+
+#: network.cgi:190
+msgid "These values are the ethernet settings in the main /etc/network.conf configuration file"
+msgstr "Эти значения — параметры Ethernet из главного настроечного файла /etc/network.conf"
+
+#: network.cgi:196
+#: network.cgi:274
+msgid "Manual Edit"
+msgstr "Ручная правка"
+
+#: network.cgi:202
+msgid "Scanning wireless interface..."
+msgstr "Сканирование беспроводного интерфейса…"
+
+#: network.cgi:206
+msgid "Wireless connection"
+msgstr "Беспроводное соединение"
+
+#: network.cgi:209
+#: network.cgi:293
+#: boot.cgi:167
+msgid "Start"
+msgstr "Запустить"
+
+#: network.cgi:211
+#: network.cgi:295
+#: boot.cgi:155
+msgid "Stop"
+msgstr "Остановить"
+
+#: network.cgi:213
+msgid "Scan"
+msgstr "Сканировать"
+
+#: network.cgi:240
+msgid "Connection"
+msgstr "Соединение"
+
+#: network.cgi:251
+msgid "Wifi name (ESSID)"
+msgstr "Название WiFi (ESSID)"
+
+#: network.cgi:255
+msgid "Password (Wifi key)"
+msgstr "Пароль (ключ WiFi)"
+
+#: network.cgi:259
+msgid "Encryption type"
+msgstr "Тип шифрования"
+
+#: network.cgi:263
+msgid "Configure"
+msgstr "Настроить"
+
+#: network.cgi:268
+msgid "These values are the wifi settings in the main /etc/network.conf configuration file"
+msgstr "Эти значения — параметры WiFi из главного настроечного файла /etc/network.conf"
+
+#: network.cgi:276
+msgid "Output of iwconfig"
+msgstr "Вывод команды iwconfig"
+
+#: network.cgi:286
+msgid "Networking"
+msgstr "Сети"
+
+#: network.cgi:288
+msgid "Manage network connections and services"
+msgstr "Управление сетевыми соединениями и услугами"
+
+#: network.cgi:297
+msgid "Restart"
+msgstr "Перезапуск"
+
+#: network.cgi:300
+msgid "Configuration:"
+msgstr "Настройки:"
+
+#: network.cgi:309
+msgid "Hosts"
+msgstr "Хосты"
+
+#: network.cgi:314
+msgid "Edit hosts"
+msgstr "Править хосты"
+
+#: network.cgi:316
+#: installer.cgi:433
+msgid "Hostname"
+msgstr "Имя хоста"
+
+#: network.cgi:320
+msgid "Change hostname"
+msgstr "Изменить имя хоста"
+
+#: network.cgi:324
+msgid "Output of ifconfig"
+msgstr "Вывод команды ifconfig"
+
+#: network.cgi:328
+msgid "Routing table"
+msgstr "Таблица маршрутизации"
+
+#: network.cgi:332
+msgid "Domain name resolution"
+msgstr "Разрешение имени домена"
+
+#: network.cgi:336
+msgid "ARP table"
+msgstr "Таблица ARP"
+
+#: network.cgi:340
+msgid "IP Connections"
+msgstr "Соединения IP"
+
+#: boot.cgi:14
+msgid "TazPanel - Boot"
+msgstr "Загрузка | TazPanel"
+
+#: boot.cgi:25
+msgid "Boot log files"
+msgstr "Файлы журнала загрузки"
+
+#: boot.cgi:31
+#: boot.cgi:42
+msgid "X server"
+msgstr "X-сервер"
+
+#: boot.cgi:46
+msgid "Show more..."
+msgstr "Смотреть еще…"
+
+#: boot.cgi:61
+#: boot.cgi:252
+#: styles/default/header.sh:67
+msgid "Manage daemons"
+msgstr "Управление демонами"
+
+#: boot.cgi:62
+msgid "Check, start and stop daemons on SliTaz"
+msgstr "Проверка, запуск и остановка демонов в SliTaz"
+
+#: boot.cgi:85
+msgid "Action"
+msgstr "Действие"
+
+#: boot.cgi:86
+msgid "PID"
+msgstr "PID"
+
+#: boot.cgi:108
+msgid "SliTaz Firewall with iptable rules"
+msgstr "Файрвол SliTaz с правилами iptable"
+
+#: boot.cgi:110
+msgid "Small and fast web server with CGI support"
+msgstr "Маленький и быстрый веб-сервер с поддержкой CGI"
+
+#: boot.cgi:112
+msgid "Network time protocol daemon"
+msgstr "Демон протокола сетевого времени"
+
+#: boot.cgi:114
+msgid "Anonymous FTP server"
+msgstr "Анонимный сервер FTP"
+
+#: boot.cgi:116
+msgid "Busybox DHCP server"
+msgstr "Сервер DHCP из Busybox"
+
+#: boot.cgi:118
+msgid "Linux Kernel log daemon"
+msgstr "Демон журнала ядра Linux"
+
+#: boot.cgi:120
+msgid "Execute scheduled commands"
+msgstr "Выполнить запланированные команды"
+
+#: boot.cgi:122
+msgid "Small static DNS server daemon"
+msgstr "Демон маленького статического сервера DNS"
+
+#: boot.cgi:124
+msgid "Transfer a file on tftp request"
+msgstr "Передать файлы по запросу TFTP"
+
+#: boot.cgi:126
+msgid "Listen for network connections and launch programs"
+msgstr "Слушать сетевые соединения и запускать программы"
+
+#: boot.cgi:128
+msgid "Manage a ZeroConf IPv4 link-local address"
+msgstr "Управлять присоединенным-локальным адресом ZeroConf IPv4"
+
+#: boot.cgi:153
+msgid "Started"
+msgstr "Запущен"
+
+#: boot.cgi:165
+msgid "Stopped"
+msgstr "Остановлен"
+
+#: boot.cgi:193
+msgid "GRUB Boot loader"
+msgstr "Загрузчик GRUB"
+
+#: boot.cgi:195
+msgid "The first application started when the computer powers on"
+msgstr "Первое приложение, запускаемое при включении питания"
+
+#: boot.cgi:201
+msgid "Default entry:"
+msgstr "Пункт по умолчанию:"
+
+#: boot.cgi:203
+msgid "Timeout:"
+msgstr "Таймаут:"
+
+#: boot.cgi:205
+msgid "Splash image:"
+msgstr "Загрузочная картинка:"
+
+#: boot.cgi:208
+#: settings.cgi:289
+msgid "Change"
+msgstr "Изменить"
+
+#: boot.cgi:210
+msgid "View or edit menu.lst"
+msgstr "Просмотр и правка menu.lst"
+
+#: boot.cgi:213
+msgid "Boot entries"
+msgstr "Загрузочные пункты"
+
+#: boot.cgi:219
+msgid "Entry"
+msgstr "Пункт"
+
+#: boot.cgi:235
+msgid "Web boot is available with gPXE"
+msgstr "Доступна веб-загрузка с gPXE"
+
+#: boot.cgi:245
+msgid "Boot &amp; Start services"
+msgstr "Загрузка и запуск служб"
+
+#: boot.cgi:246
+msgid "Everything that happens before user login"
+msgstr "Всё, что происходит перед входом пользователя в систему"
+
+#: boot.cgi:250
+#: styles/default/header.sh:65
+msgid "Boot logs"
+msgstr "Журналы загрузки"
+
+#: boot.cgi:253
+#: styles/default/header.sh:69
+msgid "Boot loader"
+msgstr "Загрузчик"
+
+#: boot.cgi:258
+msgid "Main configuration file:"
+msgstr "Главный файл настроек:"
+
+#: boot.cgi:260
+msgid "Login manager settings:"
+msgstr "Установки менеджера входа в систему:"
+
+#: boot.cgi:264
+msgid "Kernel cmdline"
+msgstr "Командная строка ядра"
+
+#: boot.cgi:268
+msgid "Local startup commands"
+msgstr "Локальные команды запуска"
+
+#: boot.cgi:273
+msgid "Edit script"
+msgstr "Править скрипт"
+
+#: hardware.cgi:13
+msgid "TazPanel - Hardware"
+msgstr "Оборудование | TazPanel"
+
+#: hardware.cgi:29
+msgid "Detect hardware"
+msgstr "Определить оборудование"
+
+#: hardware.cgi:30
+msgid "Detect PCI and USB hardware"
+msgstr "Определить оборудование PCI и USB"
+
+#: hardware.cgi:42
+#: hardware.cgi:117
+#: styles/default/header.sh:75
+msgid "Kernel modules"
+msgstr "Модули ядра"
+
+#: hardware.cgi:46
+msgid "Modules search"
+msgstr "Поиск модулей"
+
+#: hardware.cgi:49
+msgid "Manage, search or get information about the Linux kernel modules"
+msgstr "Управлять, искать и получать информацию о модулях ядра Linux"
+
+#: hardware.cgi:56
+#, sh-format
+msgid "Detailed information for module: $get_modinfo"
+msgstr "Подробности о модуле $get_modinfo"
+
+#: hardware.cgi:70
+#, sh-format
+msgid "Matching result(s) for: $get_search"
+msgstr "Результаты поиска $get_search"
+
+#: hardware.cgi:76
+msgid "Module:"
+msgstr "Модуль:"
+
+#: hardware.cgi:83
+msgid "Module"
+msgstr "Модуль"
+
+#: hardware.cgi:84
+#: lib/libtazpanel:217
+msgid "Size"
+msgstr "Размер"
+
+#: hardware.cgi:85
+#: lib/libtazpanel:219
+msgid "Used"
+msgstr "Используется"
+
+#: hardware.cgi:86
+msgid "by"
+msgstr "кем"
+
+#: hardware.cgi:112
+msgid "Drivers &amp; Devices"
+msgstr "Драйверы и устройства"
+
+#: hardware.cgi:113
+msgid "Manage your computer hardware"
+msgstr "Управление вашим компьютерным оборудованием"
+
+#: hardware.cgi:119
+#: styles/default/header.sh:77
+msgid "Detect PCI/USB"
+msgstr "Определить PCI/USB"
+
+#: hardware.cgi:140
+msgid "Battery"
+msgstr "Батарея"
+
+#: hardware.cgi:142
+msgid "health"
+msgstr "здоровье"
+
+#: hardware.cgi:151
+#, sh-format
+msgid "Discharging $rempct% - $remtimef"
+msgstr "Разряжается: $rempct % — осталось $remtimef"
+
+#: hardware.cgi:155
+#, sh-format
+msgid "Charging $rempct% - $remtimef"
+msgstr "Заряжается: $rempct % — осталось $remtimef"
+
+#: hardware.cgi:157
+msgid "Charged 100%"
+msgstr "Полностью заряжена"
+
+#: hardware.cgi:165
+msgid "Temperature:"
+msgstr "Температура:"
+
+#: hardware.cgi:180
+msgid "Brightness"
+msgstr "Яркость"
+
+#: hardware.cgi:242
+msgid "System memory"
+msgstr "Системная память"
+
+#: settings.cgi:15
+msgid "TazPanel - Settings"
+msgstr "Параметры | TazPanel"
+
+#: settings.cgi:87
+#: settings.cgi:183
+msgid "Manage users"
+msgstr "Управление пользователями"
+
+#: settings.cgi:93
+msgid "Delete user"
+msgstr "Удалить пользователя"
+
+#: settings.cgi:94
+msgid "Lock user"
+msgstr "Заблокировать пользователя"
+
+#: settings.cgi:95
+msgid "Unlock user"
+msgstr "Разблокировать пользователя"
+
+#: settings.cgi:102
+msgid "Login"
+msgstr "Логин"
+
+#: settings.cgi:103
+msgid "User ID"
+msgstr "ID пользователя"
+
+#: settings.cgi:105
+msgid "Home"
+msgstr "Домашняя папка"
+
+#: settings.cgi:106
+msgid "Shell"
+msgstr "Оболочка"
+
+#: settings.cgi:143
+msgid "Password:"
+msgstr "Пароль:"
+
+#: settings.cgi:145
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: settings.cgi:149
+msgid "Add a new user"
+msgstr "Добавить нового пользователя"
+
+#: settings.cgi:154
+#: installer.cgi:465
+msgid "User login:"
+msgstr "Логин пользователя:"
+
+#: settings.cgi:156
+msgid "User password:"
+msgstr "Пароль пользователя:"
+
+#: settings.cgi:159
+msgid "Create user"
+msgstr "Создать пользователя"
+
+#: settings.cgi:163
+msgid "Current user sessions"
+msgstr "Текущие сессии пользователя"
+
+#: settings.cgi:167
+msgid "Last user sessions"
+msgstr "Последние сессии пользователя"
+
+#: settings.cgi:178
+msgid "System settings"
+msgstr "Параметры системы"
+
+#: settings.cgi:179
+msgid "Manage system time, users or language settings"
+msgstr "Управление системным временем, пользователями и языками"
+
+#: settings.cgi:186
+msgid "System time"
+msgstr "Системное время"
+
+#: settings.cgi:189
+msgid "Time zome:"
+msgstr "Часовой пояс:"
+
+#: settings.cgi:190
+msgid "System time:"
+msgstr "Системное время:"
+
+#: settings.cgi:191
+msgid "Hardware clock:"
+msgstr "Часы оборудования:"
+
+#: settings.cgi:193
+msgid "Sync online"
+msgstr "Синхронизировать онлайн"
+
+#: settings.cgi:194
+msgid "Set hardware clock"
+msgstr "Установить часы оборудования"
+
+#: settings.cgi:200
+msgid "System language"
+msgstr "Язык системы"
+
+#: settings.cgi:211
+#, sh-format
+msgid "You must logout and login again to your current session to use $new_locale locale."
+msgstr "Вам необходимо выйти из системы и войти повторно, чтобы использовать локализацию «$new_locale»."
+
+#: settings.cgi:214
+msgid "Current system locales:"
+msgstr "Текущие системные локализации:"
+
+#: settings.cgi:220
+msgid "Available locales:"
+msgstr "Доступные локализации:"
+
+#: settings.cgi:225
+#: settings.cgi:271
+#: settings.cgi:282
+msgid "Activate"
+msgstr "Активировать"
+
+#: settings.cgi:228
+msgid "Console keymap"
+msgstr "Консольная раскладка"
+
+#: settings.cgi:241
+#, sh-format
+msgid "Current console keymap: $keymap"
+msgstr "Текущая консольная раскладка: $keymap"
+
+#: settings.cgi:258
+msgid "Suggested keymap for Xorg:"
+msgstr "Предлагаемая раскладка клавиатуры для XOrg"
+
+#: settings.cgi:267
+msgid "Available keymaps:"
+msgstr "Доступные раскладки:"
+
+#: settings.cgi:274
+msgid "Panel configuration"
+msgstr "Настройка панели"
+
+#: settings.cgi:278
+msgid "Style:"
+msgstr "Стиль:"
+
+#: settings.cgi:287
+msgid "Panel password:"
+msgstr "Пароль панели:"
+
+#: settings.cgi:293
+msgid "Configuration files:"
+msgstr "Файлы настроек:"
+
+#: settings.cgi:295
+#: styles/default/header.sh:24
+msgid "Panel"
+msgstr "Панель"
+
+#: settings.cgi:297
+msgid "Server"
+msgstr "Сервер"
+
+#: settings.cgi:300
+msgid "TazPanel provides a debuging mode and page:"
+msgstr "TazPanel поддерживает отладочный режим и страницу:"
+
+#: lib/libtazpanel:83
+msgid "connected"
+msgstr "соединен"
+
+#: lib/libtazpanel:100
+msgid "IP Address"
+msgstr "Адрес IP"
+
+#: lib/libtazpanel:101
+msgid "Scan ports"
+msgstr "Сканировать порты"
+
+#: lib/libtazpanel:214
+msgid "Disk"
+msgstr "Диск"
+
+#: lib/libtazpanel:215
+msgid "Label"
+msgstr "Метка"
+
+#: lib/libtazpanel:216
+msgid "Type"
+msgstr "Тип"
+
+#: lib/libtazpanel:218
+msgid "Available"
+msgstr "Доступно"
+
+#: lib/libtazpanel:220
+msgid "Mount point"
+msgstr "Точка монтирования"
+
+#: installer.cgi:24
+msgid "TazPanel - Installer"
+msgstr "Установщик | TazPanel"
+
+#: installer.cgi:116
+#, sh-format
+msgid "Creating setup file $INSTFILE."
+msgstr "Создание установочного файла $INSTFILE."
+
+#: installer.cgi:120
+#: installer.cgi:127
+msgid "Setup File Error"
+msgstr "Ошибка файла установок"
+
+#: installer.cgi:121
+#, sh-format
+msgid "The setup file <strong>$INSTFILE</strong> doesn't exist."
+msgstr "Установочный файл <strong>$INSTFILE</strong> отсутствует."
+
+#: installer.cgi:142
+msgid "SliTaz Installer"
+msgstr "Установщик SliTaz"
+
+#: installer.cgi:144
+msgid "The SliTaz Installer installs or upgrades SliTaz to a hard disk drive from a device like a Live-CD or LiveUSB key, from a SliTaz ISO file, or from the web by downloading an ISO file."
+msgstr "Установщик SliTaz предназначен для установки SliTaz на жесткий диск с LiveCD, LiveUSB, файла ISO или из интернета (путём загрузки файла ISO) и для обновления существующей системы."
+
+#: installer.cgi:157
+msgid "Install SliTaz on a partition of your hard disk drive. If you decide to format your partition, all data will be lost. If you do not format, all data except for any existing /home directory will be removed, the home directory will be kept as is."
+msgstr "Установить SliTaz на раздел жесткого диска. Если вы решите форматировать раздел, то вся информация будет утеряна. Если вы не будете форматировать, то вся информация, кроме существующей папки /home, будет удалена, а домашняя папка останется нетронутой."
+
+#: installer.cgi:162
+msgid "Before installation, you may need to create or resize partitions on your hard disk drive in order to make space for SliTaz GNU/Linux. You can graphically manage your partitions with Gparted"
+msgstr "Возможно, перед установкой вам будет необходимо создать или изменить размер разделов вашего жесткого диска, чтобы выделить место для SliTaz GNU/Linux. При помощи GPartEd вы можете управлять разделами в графической оболочке."
+
+#: installer.cgi:166
+#: installer.cgi:244
+#: styles/default/header.sh:90
+msgid "Install SliTaz"
+msgstr "Установить SliTaz"
+
+#: installer.cgi:175
+msgid "Upgrade"
+msgstr "Обновить"
+
+#: installer.cgi:177
+msgid "Upgrade an already installed SliTaz system on your hard disk drive. Your /home /etc /var/www directories will be kept, all other directories will be removed. Any additional packages added to your old Slitaz system will be updated as long you have an active internet connection."
+msgstr "Обновить систему SliTaz, установленную на жестком диске. Папки «/home», «/etc» и «/var/www» останутся нетронутыми, а все прочие папки будут удалены. При наличии активного соединения с интернетом, все дополнительные пакеты, которые были добавлены в систему SliTaz, будут обновлены."
+
+#: installer.cgi:182
+#: installer.cgi:257
+msgid "Upgrade SliTaz"
+msgstr "Обновить SliTaz"
+
+#: installer.cgi:190
+msgid "Partitioning"
+msgstr "Работа с разделами"
+
+#: installer.cgi:193
+msgid "On most used systems, the hard drive is already dedicated to partitions for Windows<sup>&trade;</sup>, or Linux, or another operating system. You'll need to resize these partitions in order to make space for SliTaz GNU/Linux. SliTaz will co-exist with other operating systems already installed on your hard drive."
+msgstr "На большинстве существующих систем жесткий диск уже разбит на разделы для операционной системы Windows™, Linux или какой-либо другой. Вам будет необходимо изменить размер этих разделов, чтобы выделить место для SliTaz GNU/Linux. SliTaz будет сосуществовать с прочими системами, установленными на вашем жестком диске."
+
+#: installer.cgi:199
+msgid "The amount of space needed depends on how much software you plan to install and how much space you require for users. It's conceivable that you could run a minimal SliTaz system in 300 megs or less, but 2 gigs is indeed more comfy."
+msgstr "Размер необходимого дискового пространства зависит от количества программ, которые вы планируете установить, а также от требуемого свободного пространства для пользователей. Возможно, вы захотите запустить минимальную систему SliTaz, размером не более 300 МБ, но с 2 ГБ на самом деле будет удобнее."
+
+#: installer.cgi:204
+msgid "A separate home partition, and a partition that will be used as Linux swap space may be created if needed. Slitaz detects and uses swap partitions automatically."
+msgstr "При необходимости будет создан отдельный раздел для домашних папок, а также раздел, который будет использоваться для подкачки. SliTaz находит и использует разделы swap автоматически."
+
+#: installer.cgi:212
+msgid "You can graphically manage your partitions with Gparted. GParted is a partition editor for graphically managing your disk partitions. Gparted allows you to create, destroy, resize and copy partitions without data loss."
+msgstr "При помощи редактора разделов GPartEd вы можете управлять вашими разделами в графической оболочке. GPartEd позволяет вам создавать, удалять, изменять размер и копировать разделы без потери данных."
+
+#: installer.cgi:216
+msgid "Gparted supports ext2, ext3, ext4, linux swap, ntfs and fat32 filesystems right out of the box. Support for xjs, jfs, hfs and other filesystems is available as well but you first need to add drivers for these filesystems by installing the related packages xfsprogs, jfsutils, linux-hfs and so on."
+msgstr "GPartEd поддерживает «из коробки» файловые системы ext2, ext3, ext4, linux swap, ntfs и fat32. Также возможна поддержка xjs, jfs, hfs и других файловых систем, но сначала вам нужно установить драйверы для этих файловых систем, установив соответствующие пакеты xfsprogs, jfsutils, linux-hfs и т.п."
+
+#: installer.cgi:223
+msgid "Execute Gparted"
+msgstr "Запустить GPartEd"
+
+#: installer.cgi:225
+msgid "Continue installation"
+msgstr "Продолжить установку"
+
+#: installer.cgi:227
+msgid "Once you've made room for SliTaz on your drive, you should be able to continue installation."
+msgstr "Вы сможете продолжить установку, как только выделите место для SliTaz на вашем приводе."
+
+#: installer.cgi:232
+#: installer.cgi:502
+#: installer.cgi:513
+msgid "Back to Installer Start Page"
+msgstr "Назад к начальной странице установщика"
+
+#: installer.cgi:234
+msgid "Continue Installation"
+msgstr "Продолжить установку"
+
+#: installer.cgi:246
+msgid "You're going to install SliTaz on a partition of your hard disk drive. If you decide to format your HDD, all data will be lost. If you do not format, all data except for any existing /home directory will be removed, the home directory will be kept as is."
+msgstr "Вы собираетесь установить SliTaz на раздел вашего жесткого диска. Если вы решите форматировать ваш жесткий диск, то вся информация на нём будет утеряна. Если вы не будете форматировать, то вся информация, кроме существующей папки /home, будет удалена, а домашняя папка останется нетронутой."
+
+#: installer.cgi:259
+msgid "You're going to upgrade an already installed SliTaz system on your hard disk drive. Your /home /etc /var/www directories will be kept, all other directories will be removed. Any additional packages added to your old Slitaz system will be updated as long you have an active internet connection."
+msgstr "Вы собираетесь обновить систему SliTaz, уже установленную на вашем жестком диске. Папки «/home», «/etc» и «/var/www» останутся нетронутыми, а все прочие папки будут удалены. При наличии соединения с интернетом, все дополнительные пакеты, которые вы установили, будут обновлены."
+
+#: installer.cgi:273
+msgid "Slitaz source media"
+msgstr "Источник SliTaz"
+
+#: installer.cgi:277
+msgid "LiveCD"
+msgstr "LiveCD"
+
+#: installer.cgi:280
+msgid "LiveUSB:"
+msgstr "LiveUSB:"
+
+#: installer.cgi:306
+msgid "ISO file:"
+msgstr "Файл ISO:"
+
+#: installer.cgi:307
+msgid "Full path to the ISO image file"
+msgstr "Полный путь к образу ISO"
+
+#: installer.cgi:310
+msgid "Web:"
+msgstr "Веб:"
+
+#: installer.cgi:311
+msgid "Stable"
+msgstr "стабильная"
+
+#: installer.cgi:312
+msgid "Cooking"
+msgstr "нестабильная"
+
+#: installer.cgi:314
+msgid "URL:"
+msgstr "Адрес:"
+
+#: installer.cgi:315
+msgid "Full url to an ISO image file"
+msgstr "Полный URL-путь к образу ISO"
+
+#: installer.cgi:324
+msgid "Hard Disk Drive"
+msgstr "Жесткий диск"
+
+#: installer.cgi:333
+msgid "Install Slitaz to partition:"
+msgstr "Установить SliTaz в раздел:"
+
+#: installer.cgi:338
+#: installer.cgi:373
+#: installer.cgi:405
+msgid "None"
+msgstr "нет"
+
+#: installer.cgi:349
+#: installer.cgi:416
+msgid "Format partition as:"
+msgstr "Форматировать раздел как:"
+
+#: installer.cgi:368
+msgid "Existing SliTaz partition to upgrade:"
+msgstr "Существующий радел SliTaz для обновления:"
+
+#: installer.cgi:389
+msgid "Options"
+msgstr "Параметры"
+
+#: installer.cgi:397
+msgid "home partition"
+msgstr "домашняя папка"
+
+#: installer.cgi:400
+msgid "Use a separate partition for /home:"
+msgstr "Использовать отдельный раздел для /home:"
+
+#: installer.cgi:435
+msgid "Set Hostname to:"
+msgstr "Установить имя хоста:"
+
+#: installer.cgi:436
+msgid "Name of your system"
+msgstr "Название вашей системы"
+
+#: installer.cgi:446
+msgid "Root"
+msgstr "Root"
+
+#: installer.cgi:448
+msgid "Root passwd:"
+msgstr "Пароль root:"
+
+#: installer.cgi:449
+#: installer.cgi:452
+msgid "Password of root"
+msgstr "Пароль root"
+
+#: installer.cgi:451
+#: installer.cgi:473
+msgid "Confirm password:"
+msgstr "Подтвердите пароль:"
+
+#: installer.cgi:463
+msgid "User"
+msgstr "Пользователь"
+
+#: installer.cgi:466
+msgid "Name of the first user"
+msgstr "Имя первого пользователя"
+
+#: installer.cgi:470
+msgid "User passwd:"
+msgstr "Пароль пользователя:"
+
+#: installer.cgi:471
+#: installer.cgi:474
+msgid "Password of the first user"
+msgstr "Пароль первого пользователя"
+
+#: installer.cgi:484
+msgid "Grub"
+msgstr "GRUB"
+
+#: installer.cgi:487
+msgid "Install Grub bootloader. Usually you should answer yes, unless you want to install grub by hand yourself."
+msgstr "Установить загрузчик GRUB. Отвечайте «да», за исключением случая, когда вы хотите установить GRUB вручную."
+
+#: installer.cgi:490
+msgid "Enable Windows Dual-Boot."
+msgstr "Включить двойную загрузку с Windows."
+
+#: installer.cgi:499
+msgid "Back to partitioning"
+msgstr "Назад к работе с разделами"
+
+#: installer.cgi:506
+msgid "Proceed to SliTaz installation"
+msgstr "Перейти к установке SliTaz"
+
+#: installer.cgi:508
+msgid "Installation complete. You can now restart (reboot)"
+msgstr "Установка завершена. Теперь вы можете перезагрузить систему"
+
+#: installer.cgi:510
+msgid "Installation failed. See log"
+msgstr "Установка не удалась. Смотрите журнал"
+
+#: installer.cgi:530
+msgid "A web page that points a browser to a different page after 2 seconds"
+msgstr "Страница переадресации (подождите 2 секунды)"
+
+#: installer.cgi:536
+msgid "If your browser doesn't automatically redirect within a few seconds, you may want to go there manually"
+msgstr "Если через несколько секунд ваш браузер не перейдет дальше автоматически, сделайте это вручную"
+
+#: installer.cgi:551
+#: installer.cgi:566
+msgid "Tazinst Error"
+msgstr "Ошибка TazInst"
+
+#: installer.cgi:552
+msgid "<strong>tazinst</strong>, the lightweight SliTaz HDD installer is missing. Any installation can not be done without tazinst."
+msgstr "Отсутствует <strong>tazinst</strong>, легковесный установщик SliTaz на жесткий диск. Без tazinst ничего не удастся установить."
+
+#: installer.cgi:555
+msgid "Check tazinst' permissions, or reinstall the slitaz-tools package:"
+msgstr "Проверьте права доступа tazinst, либо переустановите пакет slitaz-tools:"
+
+#: installer.cgi:581
+msgid "Proceeding: ()"
+msgstr "Выполнение: ()"
+
+#: installer.cgi:582
+msgid "Please wait until processing is complete"
+msgstr "Дождитесь завершения обработки"
+
+#: installer.cgi:588
+msgid "Completed."
+msgstr "Завершено."
+
+#: installer.cgi:622
+msgid "Hostname error"
+msgstr "Ошибка имени хоста"
+
+#: installer.cgi:626
+msgid "Root password error"
+msgstr "Ошибка пароля root"
+
+#: installer.cgi:630
+msgid "User login error"
+msgstr "Ошибка логина пользователя"
+
+#: installer.cgi:634
+msgid "User password error"
+msgstr "Ошибка пароля пользователя"
+
+#: installer.cgi:637
+#: installer.cgi:648
+msgid "Do you really want to continue?"
+msgstr "Вы действительно хотите продолжить?"
+
+#: help.cgi:20
+msgid "Manual"
+msgstr "Руководство"
+
+#: help.cgi:28
+msgid "TazPanel - Help &amp; Doc"
+msgstr "Справка и документация | TazPanel"
+
+#: styles/default/header.sh:29
+msgid "Processes"
+msgstr "Процессы"
+
+#: styles/default/header.sh:31
+msgid "Create Report"
+msgstr "Создать отчет"
+
+#: styles/default/header.sh:34
+msgid "Packages"
+msgstr "Пакеты"
+
+#: styles/default/header.sh:41
+msgid "Check updates"
+msgstr "Проверить обновления"
+
+#: styles/default/header.sh:49
+msgid "Ethernet"
+msgstr "Ethernet"
+
+#: styles/default/header.sh:51
+msgid "Wireless"
+msgstr "Беспроводные"
+
+#: styles/default/header.sh:53
+msgid "Config file"
+msgstr "Файл настроек"
+
+#: styles/default/header.sh:56
+msgid "Settings"
+msgstr "Настройки"
+
+#: styles/default/header.sh:59
+msgid "Users"
+msgstr "Пользователи"
+
+#: styles/default/header.sh:62
+msgid "Boot"
+msgstr "Загрузка"
+
+#: styles/default/header.sh:72
+msgid "Hardware"
+msgstr "Оборудование"
+
+#: styles/default/header.sh:80
+msgid "Live"
+msgstr "«Живые»"
+
+#: styles/default/header.sh:82
+msgid "Create a live USB key"
+msgstr "Создать «живую» USB-флешку"
+
+#: styles/default/header.sh:83
+msgid "Create a live CD-ROM"
+msgstr "Создать «живой» CD-ROM"
+
+#: styles/default/header.sh:91
+msgid "Upgrade system"
+msgstr "Обновить систему"
+
+#: styles/default/footer.sh:6
+msgid "Copyright"
+msgstr "Авторское право"
+
+#: styles/default/footer.sh:8
+msgid "BSD License"
+msgstr "Лицензия BSD"
+
+#~ msgid ""
+#~ "The setup file <strong>$INSTFILE</strong> is not readable. Check "
+#~ "permissions and ownership."
+#~ msgstr ""
+#~ "Установочный файл <strong>$INSTFILE</strong> невозможно прочитать. "
+#~ "Проверьте права доступа и владельца."
+#~ msgid ""
+#~ "<strong>tazinst</strong> ($v) is not at the required version ($r), use "
+#~ "tazinst in a xterm or reinstall the slitaz-tools package:"
+#~ msgstr ""
+#~ "Версия <strong>tazinst</strong> ($v) не соответствует требуемой версии "
+#~ "($r), запустите tazinst в xterm, либо переустановите пакет slitaz-tools:"

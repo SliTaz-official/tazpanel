@@ -18,8 +18,8 @@ get_config
 . /usr/bin/gettext.sh
 
 # Export package name for gettext.
-TEXTDOMAIN='installer'
-export TEXTDOMAIN
+#TEXTDOMAIN='installer'
+#export TEXTDOMAIN
 
 TITLE=$(gettext 'TazPanel - Installer')
 
@@ -113,21 +113,22 @@ BEGIN{
 }'
 	else
 		# no setup file found: creating
-		gettext "Creating setup file $INSTFILE."
+		eval_gettext 'Creating setup file $INSTFILE.'
 		tazinst new $INSTFILE
 		if [ ! -e "$INSTFILE" ]; then
 			cat <<EOT
-<span class="msg-nok">$(gettext "Setup File Error")<br />
-$(gettext "The setup file <strong>$INSTFILE</strong> doesn't exist.")</span><br />
+<span class="msg-nok">$(gettext 'Setup File Error')<br />
+$(eval_gettext "The setup file <strong>\$INSTFILE</strong> doesn't \
+exist.")</span><br />
 EOT
 		else
 			if [ ! -r $INSTFILE ]; then
 				cat <<EOT
-<span class="msg-nok">$(gettext "Setup File Error")<br />
-$(gettext "The setup file <strong>$INSTFILE</strong> is not readable. 
+<span class="msg-nok">$(gettext 'Setup File Error')<br />
+$(eval_gettext "The setup file <strong>$INSTFILE</strong> is not readable. \
 Check permissions and ownership.")</span><br />
 EOT
-			fi	
+			fi
 		fi
 	fi
 	# read setup file
@@ -138,12 +139,11 @@ select_action()
 {
 	cat <<EOT
 <div id="wrapper">
-	<h2>$(gettext "SliTaz Installer")</h2>
-<p>
-	$(gettext "The SliTaz Installer installs or upgrades SliTaz to a hard disk
-	drive from a device like a Live-CD or LiveUSB key, from a SliTaz ISO file,
-	or from the web by downloading an ISO file.")
-<p>
+	<h2>$(gettext 'SliTaz Installer')</h2>
+
+<p>$(gettext "The SliTaz Installer installs or upgrades SliTaz to a hard disk \
+drive from a device like a Live-CD or LiveUSB key, from a SliTaz ISO file, or \
+from the web by downloading an ISO file.")</p>
 </div>
 EOT
 }
@@ -152,21 +152,19 @@ select_install()
 {
 	cat <<EOT
 <div class="box">
-	<h4>$(gettext "Install")</h4>
-<p>
-	$(gettext "Install SliTaz on a partition of your hard disk drive. If
-	you decide to format your partition, all data will be lost. If you do not
-	format, all data except for any existing /home directory will be removed, 
-	the home directory will be kept as is.")
-</p>
-<p>
-	$(gettext "Before installation, you may need to create or resize partitions
-	on your hard disk drive in order to make space for SliTaz GNU/Linux.
-	You can graphically manage your partitions with Gparted")
-</p>
+	<h4>$(gettext 'Install')</h4>
+
+<p>$(gettext "Install SliTaz on a partition of your hard disk drive. If you \
+decide to format your partition, all data will be lost. If you do not format, \
+all data except for any existing /home directory will be removed, the home \
+directory will be kept as is.")</p>
+
+<p>$(gettext "Before installation, you may need to create or resize partitions \
+on your hard disk drive in order to make space for SliTaz GNU/Linux. You can \
+graphically manage your partitions with Gparted")</p>
 </div>
-<p>
-<a class="button" href="$SCRIPT_NAME?page=partitioning">$(gettext "Install SliTaz")</a>
+<p><a class="button" href="$SCRIPT_NAME?page=partitioning">$(gettext "Install \
+SliTaz")</a>
 EOT
 }
 
@@ -174,69 +172,66 @@ select_upgrade()
 {
 	cat <<EOT
 <div class="box">
-	<h4>$(gettext "Upgrade")</h4>
-<p>
-	$(gettext "Upgrade an already installed SliTaz system on your hard disk
-	drive. Your /home /etc /var/www directories will be kept, all other directories
-	will be removed. Any additional packages added to your old Slitaz system
-	will be updated as long you have an active internet connection.")
-</p>
+	<h4>$(gettext 'Upgrade')</h4>
+
+<p>$(gettext "Upgrade an already installed SliTaz system on your hard disk \
+drive. Your /home /etc /var/www directories will be kept, all other \
+directories will be removed. Any additional packages added to your old Slitaz \
+system will be updated as long you have an active internet connection.")</p>
 </div>
-<p>
-	<a class="button" href="$SCRIPT_NAME?page=upgrade">$(gettext "Upgrade SliTaz")</a>
-</p>
+<p><a class="button" href="$SCRIPT_NAME?page=upgrade">$(gettext "Upgrade \
+SliTaz")</a></p>
 EOT
 }
 
 select_gparted()
 {
 	cat <<EOT
-<h4>$(gettext "Partitioning")</h4>
+<h4>$(gettext 'Partitioning')</h4>
 <div class="box">
-<p>
-	$(gettext "On most used systems, the hard drive is already dedicated to 
-	partitions for Windows<sup>&copy;</sup>, or Linux, or another operating 
-	system. You'll need to resize these partitions in order to make space for
-	SliTaz GNU/Linux. SliTaz will co-exist with other operating systems already
-	installed on your hard drive.") 
-</p>
-<p>
-	$(gettext "The amount of space needed depends on how much software you 
-	plan to install	and how much space you require for users. It's conceivable
-	that you could run a minimal SliTaz system in 300 megs or less, but 2 gigs
-	is indeed more comfy.")
-<p>
-	$(gettext "A separate home partition, and a partition that will be used 
-	as Linux swap space may be created if needed. Slitaz detects and uses swap
-	partitions automatically.")
-</p>
-</p>
+
+<p>$(gettext "On most used systems, the hard drive is already dedicated to \
+partitions for Windows<sup>&trade;</sup>, or Linux, or another operating \
+system. You'll need to resize these partitions in order to make space for \
+SliTaz GNU/Linux. SliTaz will co-exist with other operating systems already \
+installed on your hard drive.")</p>
+
+<p>$(gettext "The amount of space needed depends on how much software you plan \
+to install and how much space you require for users. It's conceivable that you \
+could run a minimal SliTaz system in 300 megs or less, but 2 gigs is indeed \
+more comfy.")</p>
+
+<p>$(gettext "A separate home partition, and a partition that will be used as \
+Linux swap space may be created if needed. Slitaz detects and uses swap \
+partitions automatically.")</p>
+
 </div>
+
 <div class="box">
-<p>
-	$(gettext "You can graphically manage your partitions with Gparted. GParted
-	is a partition editor for graphically managing your disk partitions. Gparted
-	allows you to create, destroy, resize and copy partitions without data
-	loss.")
-</p>
-<p>
-	$(gettext "Gparted supports ext2, ext3, ext4, linux swap, ntfs and fat32
-	filesystems right out of the box. Support for xjs, jfs, hfs and other
-	filesystems is available as well but you first need to add drivers for 
-	these filesystems by installing the related packages xfsprogs, jfsutils,
-	linux-hfs and so on.")
-</p>
+
+<p>$(gettext "You can graphically manage your partitions with Gparted. GParted \
+is a partition editor for graphically managing your disk partitions. Gparted \
+allows you to create, destroy, resize and copy partitions without data loss.")</p>
+
+<p>$(gettext "Gparted supports ext2, ext3, ext4, linux swap, ntfs and fat32 \
+filesystems right out of the box. Support for xjs, jfs, hfs and other \
+filesystems is available as well but you first need to add drivers for these \
+filesystems by installing the related packages xfsprogs, jfsutils, linux-hfs \
+and so on.")</p>
 </div>
-<a class="button" href="$SCRIPT_NAME?page=gparted">$(gettext "Execute Gparted")</a>
-<h5>$(gettext "Continue installation")</h5>
-	$(gettext "Once you've made room for SliTaz on your drive,	you
-	should be able to continue installation.")
+
+<a class="button" href="$SCRIPT_NAME?page=gparted">$(gettext 'Execute Gparted')</a>
+
+<h5>$(gettext 'Continue installation')</h5>
+
+<p>$(gettext "Once you've made room for SliTaz on your drive, you should be \
+able to continue installation.")
 
 <hr />
 <a class="button" value="$1" href="$SCRIPT_NAME?page=home" >
-	$(gettext "Back to Installer Start Page")</a>
+	$(gettext 'Back to Installer Start Page')</a>
 <a class="button" value="$2" href="$SCRIPT_NAME?page=install">
-	$(gettext "Continue Installation")</a>
+	$(gettext 'Continue Installation')</a>
 EOT
 }
 
@@ -246,11 +241,12 @@ display_action()
 		install)
 			cat << EOT
 <div id="wrapper">
-<h3>$(gettext "Install SliTaz")</h3>
-<p>$(gettext "You're going to install SliTaz on a partition of your hard disk drive. If
-	you decide to format your HDD, all data will be lost. If you do not 
-	format, all data except for any existing /home directory will be removed, 
-	the home directory will be kept as is.")<p>
+<h3>$(gettext 'Install SliTaz')</h3>
+
+<p>$(gettext "You're going to install SliTaz on a partition of your hard disk \
+drive. If you decide to format your HDD, all data will be lost. If you do not \
+format, all data except for any existing /home directory will be removed, the \
+home directory will be kept as is.")<p>
 </div>
 <input type="hidden" name="INST_ACTION" value="$1">
 EOT
@@ -258,11 +254,12 @@ EOT
 		upgrade)
 			cat << EOT
 <div id="wrapper">
-<h2>$(gettext "Upgrade SliTaz")</h2>
-<p>$(gettext "You're going to upgrade an already installed SliTaz system on your hard disk
-	drive. Your /home /etc /var/www directories will be kept, all other directories
-	will be removed. Any additional packages added to your old Slitaz system
-	will be updated as long you have an active internet connection.")<p>
+<h2>$(gettext 'Upgrade SliTaz')</h2>
+
+<p>$(gettext "You're going to upgrade an already installed SliTaz system on \
+your hard disk drive. Your /home /etc /var/www directories will be kept, all \
+other directories will be removed. Any additional packages added to your old \
+Slitaz system will be updated as long you have an active internet connection.")<p>
 </div>
 <input type="hidden" name="INST_ACTION" value="$1">
 EOT
@@ -273,14 +270,14 @@ EOT
 select_source()
 {
 	cat <<EOT
-<a name="source"></a>
-<h4>$(gettext "Slitaz source media")</h4>
+<h4 id="source">$(gettext 'Slitaz source media')</h4>
+
 <div class="box">
 <input type="radio" name="INST_TYPE" value="cdrom" $([ "$INST_TYPE" == "cdrom" ] && echo "checked") id="cdrom" />
-<label for="cdrom">$(gettext "LiveCD")</td></label>
+<label for="cdrom">$(gettext 'LiveCD')</label>
 <br />
 <input type="radio" name="INST_TYPE" value="usb" $([ "$INST_TYPE" == "usb" ] && echo "checked") id="usb" />
-<label for="usb">$(gettext "LiveUSB"):
+<label for="usb">$(gettext 'LiveUSB:')
 <select name="SRC_USB">
 EOT
 	# List disks if plugged USB device
@@ -291,7 +288,7 @@ EOT
 				DEV=$(basename $DEV)
 				if [ -d /sys/block/${DEV}/${DEV}1 ]; then
 					for i in $(fdisk -l /dev/$DEV | awk '/^\/dev/ {printf "%s ", $1}') ; do
-						echo "<option value='$i' $([ "$i" == "$SRC_FILE" ] && echo "selected") >$i</option>"
+						echo "<option value='$i' $([ "$i" == "$SRC_FILE" ] && echo 'selected') >$i</option>"
 						usb=$usb+1
 					done
 				fi
@@ -299,22 +296,23 @@ EOT
 		done
 	fi
 	if [ $usb -lt 1 ]; then
-		echo "<option value="">$(gettext "Not found")</option>"
+		echo "<option value="">$(gettext 'Not found')</option>"
 	fi
 	cat << EOT
 </select>
 </label>
 <br />
 <input type="radio" name="INST_TYPE" value="iso" $([ "$INST_TYPE" == "iso" ] && echo "checked") id="iso" />
-<label for="iso">$(gettext "ISO file"):</label>
-<input type="url" size="50" name="SRC_ISO" $([ "$INST_TYPE" == "iso" ] && echo -e "value=\"$SRC_FILE\"") placeholder="$(gettext "Full path to the ISO image file")" />
+<label for="iso">$(gettext 'ISO file:')</label>
+<input type="url" size="50" name="SRC_ISO" $([ "$INST_TYPE" == "iso" ] && echo -e "value=\"$SRC_FILE\"") placeholder="$(gettext 'Full path to the ISO image file')" />
 <br />
 <input type="radio" name="INST_TYPE" value="web" $([ "$INST_TYPE" == "web" ] && echo "checked") id="web" />
-<label for="web">$(gettext "Web"):
-<a class="button" onclick="document.forms['ConfigForm'].url.value = '$(tazinst showurl stable)'; return true;">$(gettext "Stable")</a>
-<a class="button" onclick="document.forms['ConfigForm'].url.value = '$(tazinst showurl cooking)'; return true;">$(gettext "Cooking")</a>
-$(gettext "URL:")
-<input id="url" type="url" size="55" name="SRC_WEB" $([ "$INST_TYPE" == "web" ] && echo -e "value=\"$SRC_FILE\"") placeholder="$(gettext "Full url to an ISO image file")" />
+<label for="web">$(gettext 'Web:')
+	<a class="button" onclick="document.forms['ConfigForm'].url.value = '$(tazinst showurl stable)'; return true;">$(gettext 'Stable')</a>
+	<a class="button" onclick="document.forms['ConfigForm'].url.value = '$(tazinst showurl cooking)'; return true;">$(gettext 'Cooking')</a>
+
+	$(gettext 'URL:')
+	<input id="url" type="url" size="55" name="SRC_WEB" $([ "$INST_TYPE" == "web" ] && echo -e "value=\"$SRC_FILE\"") placeholder="$(gettext 'Full url to an ISO image file')" />
 </label>
 </div>
 EOT
@@ -323,8 +321,7 @@ EOT
 select_hdd()
 {
 cat <<EOT
-	<a name="hdd"></a>
-	<h4></span>$(gettext "Hard Disk Drive")</h4>
+	<h4 id="hdd">$(gettext 'Hard Disk Drive')</h4>
 EOT
 }
 
@@ -333,29 +330,29 @@ select_partition()
 	cat <<EOT
 <div class="box">
 <a name="partition"></a>
-$(gettext "Install Slitaz to partition:")
+$(gettext 'Install Slitaz to partition:')
 <select name="TGT_PARTITION">
 EOT
 	# List partitions
 	if fdisk -l | grep -q ^/dev/ ; then
-		echo "<option value="">$(gettext "None")</option>"
+		echo "<option value="">$(gettext 'None')</option>"
 		for i in $(fdisk -l | awk '/^\/dev/ {printf "%s " $1}'); do
-			echo "<option value='$i' $([ "$i" == "$TGT_PARTITION" ] && echo "selected")>$i</option>"
+			echo "<option value='$i' $([ "$i" == "$TGT_PARTITION" ] && echo 'selected')>$i</option>"
 		done
 	else
-		echo "<option value="">$(gettext "Not found")</option>"
+		echo "<option value="">$(gettext 'Not found')</option>"
 	fi
 	cat << EOT
 </select>
 <br />
 <input type="checkbox" name="MAIN_FMT" value="yes" $([ -n "$TGT_FS" ] && echo "checked") id="mainfs" />
-<label for="mainfs">$(gettext "Format partition as"):</label>
+<label for="mainfs">$(gettext 'Format partition as:')</label>
 <select name="MAIN_FS">
 EOT
 	scan_mkfs
 	for i in $FS
 	do
-		echo  "<option value='$i' $([ "$i" == "$TGT_FS" ] && echo "selected")>$i</option>"
+		echo "<option value='$i' $([ "$i" == "$TGT_FS" ] && echo 'selected')>$i</option>"
 	done
 	cat <<EOT
 </select>
@@ -368,17 +365,17 @@ select_old_slitaz()
 	cat <<EOT
 <div class="box">
 <a name="partition"></a>
-$(gettext "Existing SliTaz partition to upgrade:")
+$(gettext 'Existing SliTaz partition to upgrade:')
 <select name="TGT_PARTITION">
 EOT
 	# List partitions
 	if fdisk -l | grep -q ^/dev/ ; then
-		echo "<option value="">$(gettext "None")</option>"
-		for i in `blkid | cut -d ":" -f 1`; do
-			echo "<option value='$i' $([ "$i" == "$TGT_PARTITION" ] && echo "selected")>$i</option>"
+		echo "<option value="">$(gettext 'None')</option>"
+		for i in $(blkid | cut -d ":" -f 1); do
+			echo "<option value='$i' $([ "$i" == "$TGT_PARTITION" ] && echo 'selected')>$i</option>"
 		done
 	else
-		echo "<option value="">$(gettext "Not found")</option>"
+		echo "<option value="">$(gettext 'Not found')</option>"
 	fi
 	cat <<EOT
 </select>
@@ -389,8 +386,7 @@ EOT
 select_options()
 {
 	cat <<EOT
-<a name="options"></a>
-<h4></span>$(gettext "Options")</h4>
+<h4 id="options">$(gettext 'Options')</h4>
 EOT
 }
 
@@ -398,31 +394,31 @@ select_home()
 {
 	cat <<EOT
 <div>
-<a name="home"></a>
-<h5>$(gettext "home partition")</h5>
+<h5 id="home">$(gettext 'home partition')</h5>
+
 <input type="checkbox" name="HOME_SELECT" value="yes" $([ -n "$TGT_HOME" ] && echo "checked") id="homepart" />
-<label for="homepart">$(gettext "Use a separate partition for /home:")</label>
+<label for="homepart">$(gettext 'Use a separate partition for /home:')</label>
 <select name="TGT_HOME">
 EOT
 	# List disk if plugged USB device
 	if fdisk -l | grep -q ^/dev/ ; then
-		echo "<option value="">$(gettext "None")</option>"
+		echo "<option value="">$(gettext 'None')</option>"
 		for i in $(fdisk -l | awk '/^\/dev/ {printf "%s " $1}'); do
-			echo "<option value='$i' $([ "$i" == "$TGT_HOME" ] && echo "selected")>$i</option>"
+			echo "<option value='$i' $([ "$i" == "$TGT_HOME" ] && echo 'selected')>$i</option>"
 		done
 	else
-		echo "<option value="">$(gettext "Not found")</option>"
+		echo "<option value="">$(gettext 'Not found')</option>"
 	fi
 cat <<EOT
 </select>
-	
+
 <input type="checkbox" name="HOME_FMT" value="yes" $([ -n "$TGT_HOME_FS" ] && echo "checked") id="homefs" />
-<label for="homefs">$(gettext "Format partition as:")</label>
+<label for="homefs">$(gettext 'Format partition as:')</label>
 <select name="HOME_FS">"
 EOT
 	for i in $FS
 	do
-		echo  "<option value='$i' $([ "$i" == "$TGT_HOME_FS" ] && echo "selected")>$i</option>"
+		echo  "<option value='$i' $([ "$i" == "$TGT_HOME_FS" ] && echo 'selected')>$i</option>"
 	done
 	cat <<EOT
 </select>
@@ -434,11 +430,11 @@ select_hostname()
 {
 cat << EOT
 <div>
-<a name="hostname"></a>
-<h5>$(gettext "Hostname")</h5>
-$(gettext "Set Hostname to:")
-<input type="text" id="hostname" name="TGT_HOSTNAME" value="$TGT_HOSTNAME" placeholder="$(gettext "Name of your system")" onkeyup="checkLogin('hostname','msgHostname'); return false;" />
-<span id="msgHostname"></span>
+	<h5 id="hostname">$(gettext 'Hostname')</h5>
+
+	$(gettext 'Set Hostname to:')
+	<input type="text" id="hostname" name="TGT_HOSTNAME" value="$TGT_HOSTNAME" placeholder="$(gettext 'Name of your system')" onkeyup="checkLogin('hostname','msgHostname'); return false;" />
+	<span id="msgHostname"></span>
 </div>
 EOT
 }
@@ -447,13 +443,15 @@ select_root()
 {
 cat << EOT
 <div class="box2">
-<a name="root"></a>
-<h5>$(gettext "Root")</h5>
-$(gettext "Root passwd:")
-<input type="password" id="rootPwd1" name="TGT_ROOT_PWD" value="$TGT_ROOT_PWD" placeholder="$(gettext "Password of root")" onkeyup="checkPwd('rootPwd1','rootPwd2','msgRootPwd'); return false;" />
-$(gettext "Confirm password:")
-<input type="password" id="rootPwd2" value="$TGT_ROOT_PWD" placeholder="$(gettext "Password of root")" onkeyup="checkPwd('rootPwd1','rootPwd2','msgRootPwd'); return false;" />
-<span id="msgRootPwd"></span>
+	<h5 id="root">$(gettext 'Root')</h5>
+
+	$(gettext 'Root passwd:')
+	<input type="password" id="rootPwd1" name="TGT_ROOT_PWD" value="$TGT_ROOT_PWD" placeholder="$(gettext 'Password of root')" onkeyup="checkPwd('rootPwd1','rootPwd2','msgRootPwd'); return false;" />
+
+	$(gettext 'Confirm password:')
+	<input type="password" id="rootPwd2" value="$TGT_ROOT_PWD" placeholder="$(gettext 'Password of root')" onkeyup="checkPwd('rootPwd1','rootPwd2','msgRootPwd'); return false;" />
+
+	<span id="msgRootPwd"></span>
 </div>
 EOT
 }
@@ -462,17 +460,19 @@ select_user()
 {
 cat << EOT
 <div class="box2">
-<a name="user"></a>
-<h5>$(gettext "User")</h5>
-$(gettext "User login:")
-<input type="text" id="user" name="TGT_USER" value="$TGT_USER" placeholder="$(gettext "Name of the first user")" onkeyup="checkLogin('user','msgUser'); return false;" />
-<span id="msgUser"></span>
-<br /><br />
-$(gettext "User passwd:")
-<input type="password" id="userPwd1" name="TGT_USER_PWD" value="$TGT_USER_PWD" placeholder="$(gettext "Password of the first user")" onkeyup="checkPwd('userPwd1','userPwd2','msgUserPwd'); return false;" />
-$(gettext "Confirm password:")
-<input class="confirm" type="password" id="userPwd2" value="$TGT_USER_PWD" placeholder="$(gettext "Password of the first user")" onkeyup="checkPwd('userPwd1','userPwd2','msgUserPwd'); return false;" />
-<span id="msgUserPwd"></span>
+	<h5 id="user">$(gettext 'User')</h5>
+
+	$(gettext 'User login:')
+	<input type="text" id="user" name="TGT_USER" value="$TGT_USER" placeholder="$(gettext 'Name of the first user')" onkeyup="checkLogin('user','msgUser'); return false;" />
+	<span id="msgUser"></span>
+	<br /><br />
+
+	$(gettext 'User passwd:')
+	<input type="password" id="userPwd1" name="TGT_USER_PWD" value="$TGT_USER_PWD" placeholder="$(gettext 'Password of the first user')" onkeyup="checkPwd('userPwd1','userPwd2','msgUserPwd'); return false;" />
+
+	$(gettext 'Confirm password:')
+	<input class="confirm" type="password" id="userPwd2" value="$TGT_USER_PWD" placeholder="$(gettext 'Password of the first user')" onkeyup="checkPwd('userPwd1','userPwd2','msgUserPwd'); return false;" />
+	<span id="msgUserPwd"></span>
 </div>
 EOT
 }
@@ -481,12 +481,13 @@ select_grub()
 {
 cat << EOT
 <div>
-<a name="grub"></a>
-<h5>$(gettext "Grub")</h5>
-<input type="checkbox" name="TGT_GRUB" value="yes" $([ "$TGT_GRUB" == "yes" ] && echo "checked") id="grub" />
-<label for="grub">$(gettext "Install Grub bootloader. Usually you should answer yes, unless you want to install grub by hand yourself.")<br /></label>
-<input type="checkbox" name="TGT_WINBOOT" value="auto" $([ -n "$TGT_WINBOOT" ] && echo "checked") id="dualboot" />
-<label for="dualboot">$(gettext "Enable Windows Dual-Boot.")</label>
+	<h5 id="grub">$(gettext 'Grub')</h5>
+
+	<input type="checkbox" name="TGT_GRUB" value="yes" $([ "$TGT_GRUB" == "yes" ] && echo "checked") id="grub" />
+	<label for="grub">$(gettext "Install Grub bootloader. Usually you should \
+answer yes, unless you want to install grub by hand yourself.")<br /></label>
+	<input type="checkbox" name="TGT_WINBOOT" value="auto" $([ -n "$TGT_WINBOOT" ] && echo "checked") id="dualboot" />
+	<label for="dualboot">$(gettext 'Enable Windows Dual-Boot.')</label>
 </div>
 EOT
 }
@@ -495,21 +496,21 @@ moveto_page()
 {
 	case $1 in
 		partitioning)
-			title1=$(gettext "Back to partitioning") ;;
+			title1=$(gettext 'Back to partitioning') ;;
 		*)
 			page=home
-			title1=$(gettext "Back to Installer Start Page") ;;
+			title1=$(gettext 'Back to Installer Start Page') ;;
 	esac
 	case $2 in
 		write|run)
-			title2=$(gettext "Proceed to SliTaz installation") ;;
+			title2=$(gettext 'Proceed to SliTaz installation') ;;
 		reboot)
-			title2=$(gettext "Installation complete. You can now restart (reboot)") ;;
+			title2=$(gettext 'Installation complete. You can now restart (reboot)') ;;
 		failed)
-			title2=$(gettext "Installation failed. See log") ;;
+			title2=$(gettext 'Installation failed. See log') ;;
 		*)
 			page=home
-			title2=$(gettext "Back to Installer Start Page") ;;
+			title2=$(gettext 'Back to Installer Start Page') ;;
 	esac
 	cat <<EOT
 <hr />
@@ -522,16 +523,19 @@ EOT
 page_redirection()
 {
 	cat <<EOT
+<!DOCTYPE html>
 <html>
 <head>
-<title>$(gettext "A web page that points a browser to a different page after 2 seconds")</title>
+<meta charset="utf-8">
+<title>$(gettext "A web page that points a browser to a different page after \
+2 seconds")</title>
 <meta http-equiv="refresh" content="0; URL=$SCRIPT_NAME?page=$1">
 <meta name="keywords" content="automatic redirection">
 </head>
 <body>
-$(gettext "If your browser doesn't automatically redirect within a few seconds, 
-you may want to go there manually")
-<a href="$SCRIPT_NAME?page=$1">$1</a> 
+<p>$(gettext "If your browser doesn't automatically redirect within a few \
+seconds, you may want to go there manually")</p>
+<p><a href="$SCRIPT_NAME?page=$1">$1</a></p>
 </body>
 </html>
 EOT
@@ -539,15 +543,17 @@ EOT
 
 check_ressources()
 {
-	local code 
+	local code
 	code=0
 	# Check tazinst
 	if ! [ -x /usr/sbin/tazinst ] ; then
 		cat <<EOT
-<h3>$(gettext "Tazinst Error")</h3>
-<p><strong>tazinst</strong>, $(gettext "the lightweight SliTaz HDD installer
+<h3>$(gettext 'Tazinst Error')</h3>
+<p>$(gettext "<strong>tazinst</strong>, the lightweight SliTaz HDD installer \
 is missing. Any installation can not be done without tazinst.")</p>
-<p>$(gettext "Check tazinst' permissions, or reinstall the slitaz-tools package:")</p>
+
+<p>$(gettext "Check tazinst' permissions, or reinstall the slitaz-tools \
+package:")</p>
 <code># tazpkg get-install slitaz-tools --forced</code>
 EOT
 		code=1
@@ -557,9 +563,10 @@ EOT
 		r=$TAZINST_REQUIRED_VERSION
 		if ! (echo "$v" | awk -v r=$r '{v=$v+0}{ if (v < r) exit 1}') ; then
 			cat <<EOT
-<h3>$(gettext "Tazinst Error")</h3>
-<p><strong>tazinst</strong> ($v) $(gettext "is not at the required version ($r),
-use tazinst in a xterm or reinstall the slitaz-tools package:")</p>
+<h3>$(gettext 'Tazinst Error')</h3>
+
+<p>$(eval_gettext "<strong>tazinst</strong> ($v) is not at the required \
+version ($r), use tazinst in a xterm or reinstall the slitaz-tools package:")</p>
 <code># tazpkg get-install slitaz-tools --forced</code>
 EOT
 			code=1
@@ -570,21 +577,21 @@ EOT
 
 run_tazinst()
 {
-	echo "<h4>$(gettext "Proceeding: ()")</h4>"
-	gettext "Please wait until processing is complete"
+	cat << EOT
+<h4>$(gettext 'Proceeding: ()')</h4>
+<p>$(gettext 'Please wait until processing is complete')</p>
+EOT
 	table_start
 	tazinst $(GET INST_ACTION) $INSTFILE | \
 		awk '{print "<tr><td><tt>" $0 "</tt></td></tr>"}'
 	table_end
-	gettext "Completed."
+	echo "<p>$(gettext 'Completed.')</p>"
 	return $(grep -c "cancelled on error" $INSTFILE)
 }
 
 tazinst_log()
 {
-	echo "<pre>"
-	tazinst log
-	echo "</pre>"
+	echo "<pre>$(tazinst log)</pre>"
 }
 
 scan_mkfs()
@@ -612,22 +619,22 @@ form_start()
 		if (page == "install") {
 			// hostname
 			if (false == checkLogin('hostname','msgHostname')) {
-				alert("Hostname error");
+				alert("$(gettext 'Hostname error')");
 				return false;
 			// root pwd
 			} else if (false == checkPwd('rootPwd1','rootPwd2','msgRootPwd')) {
-				alert("Root password error");
+				alert("$(gettext 'Root password error')");
 				return false;
 			// user
 			} else if (false == checkLogin('user','msgUser')) {
-				alert("User login error");
+				alert("$(gettext 'User login error')");
 				return false;
 			// user pwd
 			} else if (false == checkPwd('userPwd1','userPwd2','msgUserPwd')) {
-				alert("User password error");
+				alert("$(gettext 'User password error')");
 				return false;
 			} else {
-				var r=confirm("$(gettext "Do you really want to continue?")");
+				var r=confirm("$(gettext 'Do you really want to continue?')");
 				if (r==true)
 				{
 					document.ConfigForm.submit();
@@ -638,7 +645,7 @@ form_start()
 		} else if (page == "write") {
 			return true;
 		} else {
-			var r=confirm("$(gettext "Do you really want to continue?")");
+			var r=confirm("$(gettext 'Do you really want to continue?')");
 			if (r==true)
 			{
 				document.ConfigForm.submit();

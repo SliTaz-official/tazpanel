@@ -31,7 +31,7 @@ case " $(GET) " in
 		unset IFS
 		for cmd in "Delete user" "Lock user" "Unlock user" \
 			   "Change password" ; do
-			[ "$(GET do)" == "$(gettext "$cmd")" ] || continue
+			[ "$(GET do)" == "$(gettext "$cmd")" ] || continue			# BUGGY
 			for user in $users ; do
 				case "$cmd" in
 				Delete*)	deluser $user ;;
@@ -84,27 +84,29 @@ case " $(GET) " in
 		# Users management
 		#
 		cat <<EOT
-<a name="users"></a>
-<h3>`gettext "Manage users"`</h3>
+<h3 id="users">$(gettext 'Manage users')</h3>
+
 <form method="get" action="$SCRIPT_NAME">
 <div id="actions">
 	<div class="float-left">
-		$(gettext "Selection:")
-		<input type="submit" name="do" value="`gettext "Delete user"`" />
-		<input type="submit" name="do" value="`gettext "Lock user"`" />
-		<input type="submit" name="do" value="`gettext "Unlock user"`" />
+		$(gettext 'Selection:')
+		<input type="submit" name="do" value="$(gettext 'Delete user')" />
+		<input type="submit" name="do" value="$(gettext 'Lock user')" />
+		<input type="submit" name="do" value="$(gettext 'Unlock user')" />
 	</div>
 </div>
-EOT
-		table_start
-		cat << EOT
+
+<table class="zebra">
+<thead>
 <tr class="thead">
-	<td>`gettext "Login"`</td>
-	<td>`gettext "User ID"`</td>
-	<td>`gettext "Name"`</td>
-	<td>`gettext "Home"`</td>
-	<td>`gettext "Shell"`</td>
+	<td>$(gettext 'Login')</td>
+	<td>$(gettext 'User ID')</td>
+	<td>$(gettext 'Name')</td>
+	<td>$(gettext 'Home')</td>
+	<td>$(gettext 'Shell')</td>
 </tr>
+</thead>
+</tbody>
 EOT
 		for login in `cat /etc/passwd | cut -d ":" -f 1`
 		do
@@ -132,34 +134,39 @@ EOT
 EOT
 			fi
 		done
-		table_end
+		cat << EOT
+</tbody>
+</table>
+EOT
 		cat << EOT
 <p>
-	$(gettext "Password":)
+	$(gettext 'Password:')
 	<input type="password" name="password" />
-	<input type="submit" name="do" value="`gettext "Change password"`" />
+	<input type="submit" name="do" value="$(gettext 'Change password')" />
 </p>
 </form>
 
-<h4>`gettext "Add a new user"`</h4>
+<h4>$(gettext 'Add a new user')</h4>
+
 <form method="get" action="$SCRIPT_NAME">
 	<input type="hidden" name="user" />
-	<p>`gettext "User login:"`</p>
-	<p><input type="text" name="adduser" size="30" /></p>
-	<p>`gettext "User password:"`</p>
-	<p><input type="password" name="passwd" size="30" /></p>
-	<input type="submit" value="`gettext "Create user"`" />
+	<table>
+		<tr><td>$(gettext 'User login:')</td>
+			<td><input type="text" name="adduser" size="30" /></td></tr>
+		<tr><td>$(gettext 'User password:')</td>
+			<td><input type="password" name="passwd" size="30" /></td></tr>
+		<tr><td colspan="2">
+			<input type="submit" value="$(gettext 'Create user')" /></td></tr>
+	</table>
 </form>
 
-<h4>`gettext "Current user sessions"`</h4>
-<pre>
-$(who)
-</pre>
+<h4>$(gettext 'Current user sessions')</h4>
 
-<h4>`gettext "Last user sessions"`</h4>
-<pre>
-$(last)
-</pre>
+<pre>$(who)</pre>
+
+<h4>$(gettext 'Last user sessions')</h4>
+
+<pre>$(last)</pre>
 EOT
 		;;
 	*)
@@ -168,29 +175,29 @@ EOT
 		#
 		cat << EOT
 <div id="wrapper">
-	<h2>$(gettext "System settings")</h2>
-	<p>$(gettext "Manage system time, users or language settings")<p>
+	<h2>$(gettext 'System settings')</h2>
+	<p>$(gettext 'Manage system time, users or language settings')<p>
 </div>
 <div id="actions">
 	<a class="button" href="$SCRIPT_NAME?users">
-		<img src="$IMAGES/users.png" />$(gettext "Manage users")</a>
+		<img src="$IMAGES/users.png" />$(gettext 'Manage users')</a>
 </div>
 
-<h3>`gettext "System time"`</h3>
-<pre>
-`gettext "Time zome      :"` `cat /etc/TZ`
-`gettext "System time    :"` `date`
-`gettext "Hardware clock :"` `hwclock -r`
-</pre>
-<a class="button" href="$SCRIPT_NAME?rdate">`gettext "Sync online"`</a>
-<a class="button" href="$SCRIPT_NAME?hwclock">`gettext "Set hardware clock"`</a>
+<h3>$(gettext 'System time')</h3>
+
+<table>
+	<tr><td>$(gettext 'Time zome:')</td><td>$(cat /etc/TZ)</td></tr>
+	<tr><td>$(gettext 'System time:')</td><td>$(date)</td></tr>
+	<tr><td>$(gettext 'Hardware clock:')</td><td>$(hwclock -r)</tr>
+</table>
+<a class="button" href="$SCRIPT_NAME?rdate">$(gettext 'Sync online')</a>
+<a class="button" href="$SCRIPT_NAME?hwclock">$(gettext 'Set hardware clock')</a>
 EOT
 		#
 		# Locale settings
 		#
 		cat << EOT
-<a name="locale"></a>
-<h3>`gettext "System language"`</h3>
+<h3 id="locale">$(gettext 'System language')</h3>
 <p>
 EOT
 		# Check if a new locale was requested
@@ -201,25 +208,24 @@ EOT
 			# System configuration
 			echo "LANG=$new_locale" > /etc/locale.conf
 			echo "LC_ALL=$new_locale" >> /etc/locale.conf
-			eval_gettext "You must logout and login again to your current
-				session to use \$new_locale locale."
+			eval_gettext "You must logout and login again to your current \
+session to use \$new_locale locale."
 		else
-			gettext "Current system locales: "
+			gettext 'Current system locales:'
 			locale -a
 		fi
 		cat << EOT
 </p>
 <form method="get" action="$SCRIPT_NAME">
-	$(gettext "Available locales:")
+	$(gettext 'Available locales:')
 	<select name="gen_locale">
-		<option value="en_US">en_US</options>
+		<option value="en_US">en__US</options>
 		$(list_locales)
 	</select>
-	<input type="submit" value="$(gettext "Activate")" />
+	<input type="submit" value="$(gettext 'Activate')" />
 </form>
 
-<a name="keymap"></a>
-<h3>`gettext "Console keymap"`</h3>
+<h3 id="keymap">$(gettext 'Console keymap')</h3>
 <p>
 EOT
 		# Check if a new keymap was requested
@@ -231,9 +237,8 @@ EOT
 				loadkmap < /usr/share/kmap/$new_keymap.kmap
 			fi
 		fi
-		gettext "Current console keymap: "
 		keymap=$(cat /etc/keymap.conf)
-		echo $keymap
+		eval_gettext 'Current console keymap: $keymap'
 		echo "</p>"
 		if [ -n "$keymap" ]; then
 			case "$keymap" in
@@ -250,49 +255,50 @@ EOT
 			keyboard_config=/etc/X11/xorg.conf.d/40-Keyboard.conf
 			cat << EOT
 <form method="get" action="$SCRIPT_NAME">
-	$(gettext "Suggested keymap for Xorg:")
+	$(gettext 'Suggested keymap for Xorg:')
 	<input type="submit" name "apply_xorg_kbd" value="$keymap" />
 	<a class="button" href="index.cgi?file=$keyboard_config">
-		<img src="$IMAGES/edit.png" />$(gettext "Edit")</a>
+		<img src="$IMAGES/edit.png" />$(gettext 'Edit')</a>
 </form>
 EOT
 		fi
 		cat << EOT
 <form method="get" action="$SCRIPT_NAME">
-	$(gettext "Available keymaps:")
+	$(gettext 'Available keymaps:')
 	<select name="gen_keymap">
 		$(list_keymaps)
 	</select>
-	<input type="submit" value="$(gettext "Activate")" />
+	<input type="submit" value="$(gettext 'Activate')" />
 </form>
 
-<h2>$(gettext "Panel configuration")</h2>
+<h2>$(gettext 'Panel configuration')</h2>
+
 <form method="get" action="$SCRIPT_NAME">
 	<p>
-		$(gettext "Style:")
+		$(gettext 'Style:')
 		<select name="style">
 			$(list_styles)
 		</select>
-		<input type="submit" value="$(gettext "Activate")" />
+		<input type="submit" value="$(gettext 'Activate')" />
 	</p>
 </form>
 <form method="get" action="$SCRIPT_NAME">
 	<p>
-		$(gettext "Panel password:")
+		$(gettext 'Panel password:')
 		<input type="password" name="panel_pass"/>
-		<input type="submit" value="$(gettext "Change")" />
+		<input type="submit" value="$(gettext 'Change')" />
 	</p>
 </form>
 <p>
-	$(gettext "Configuration files: ")
+	$(gettext 'Configuration files:')
 	<a class="button" href="index.cgi?file=$CONFIG">
-		<img src="$IMAGES/edit.png" />$(gettext "Panel")</a>
+		<img src="$IMAGES/edit.png" />$(gettext 'Panel')</a>
 	<a class="button" href="index.cgi?file=$HTTPD_CONF">
-		<img src="$IMAGES/edit.png" />$(gettext "Server")</a>
+		<img src="$IMAGES/edit.png" />$(gettext 'Server')</a>
 </p>
 <p>
-	$(gettext "TazPanel provides a debuging mode and page:")
-	<a href='/index.cgi?debug'>debug</a>
+	$(gettext 'TazPanel provides a debuging mode and page:')
+	<a href="/index.cgi?debug">debug</a>
 </p>
 EOT
 	;;

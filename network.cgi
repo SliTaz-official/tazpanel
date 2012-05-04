@@ -16,16 +16,17 @@ TITLE=$(gettext 'TazPanel - Network')
 # networks by Cell and without spaces.
 detect_wifi_networks()
 {
-	table_start
 	cat << EOT
-<thead>
-	<tr>
-		<td>$(gettext "Name")</td>
-		<td>$(gettext "Quality")</td>
-		<td>$(gettext "Encryption")</td>
-		<td>$(gettext "Status")</td>
-	</tr>
-</thead>
+<table class="zebra">
+	<thead>
+		<tr>
+			<td>$(gettext 'Name')</td>
+			<td>$(gettext 'Quality')</td>
+			<td>$(gettext 'Encryption')</td>
+			<td>$(gettext 'Status')</td>
+		</tr>
+	</thead>
+	<tbody>
 EOT
 	if [ -d /sys/class/net/$WIFI_INTERFACE/wireless ]; then
 		ifconfig $WIFI_INTERFACE up
@@ -49,7 +50,7 @@ EOT
 			if ifconfig | grep -A 1 $WIFI_INTERFACE | \
 				fgrep -q inet && iwconfig $WIFI_INTERFACE | \
 				grep ESSID | fgrep -q -w "$ESSID"; then
-				status=$(gettext "Connected")
+				status=$(gettext 'Connected')
 			else
 				status="---"
 			fi
@@ -60,7 +61,10 @@ EOT
 			echo '</tr>'
 		done
 	fi
-	table_end
+	cat << EOT
+	</tbody>
+</table>
+EOT
 }
 
 # Start a wifi connection
@@ -88,8 +92,9 @@ case " $(GET) " in
 		/etc/init.d/network.sh restart | log ;;
 	*\ start-wifi\ *) start_wifi ;;
 	*\ hostname\ *)
-		echo $(gettext "Changed hostname:") $(GET hostname) | log
-		echo "$(GET hostname)" > /etc/hostname ;;
+		get_hostname="$(GET hostname)"
+		echo $(eval_gettext 'Changed hostname: $get_hostname') | log
+		echo "$get_hostname" > /etc/hostname ;;
 esac
 
 # Get values only now since they could have been modified by actions.
@@ -104,15 +109,15 @@ case " $(GET) " in
 		# Scan open ports
 		scan=$(GET scan)
 		xhtml_header
-		LOADING_MSG=$(gettext "Scanning open ports...")
+		LOADING_MSG=$(gettext 'Scanning open ports...')
 		loading_msg
 		cat << EOT
-<h2>$(gettext "Port scanning for") $scan</h2>
-<pre>
-$(pscan -b $scan)
-</pre>
+<h2>$(eval_gettext 'Port scanning for $scan')</h2>
+
+<pre>$(pscan -b $scan)</pre>
 EOT
 		;;
+
 	*\ eth\ *)
 		# Wired connections settings
 		xhtml_header
@@ -121,7 +126,7 @@ EOT
 			STATIC=no
 			[ -n "$(GET dhcp)" ] && DHCP=yes
 			[ -n "$(GET static)" ] && STATIC=yes
-			LOADING_MSG=$(gettext "Setting up IP...")
+			LOADING_MSG=$(gettext 'Setting up IP...')
 			loading_msg
 			sed -i \
 				-e s"/^INTERFACE=.*/INTERFACE=\"$(GET iface)\""/ \
@@ -137,74 +142,75 @@ EOT
 			. /etc/network.conf
 		fi
 		cat << EOT
-<h2>$(gettext "Ethernet connection")</h2>
-<p>
-$(gettext "Here you can configure a wired connection using DHCP to
-automatically get a random IP or configure a static/fixed IP")
-</p>
-<h3>$(gettext "Configuration")</h3>
+<h2>$(gettext 'Ethernet connection')</h2>
+
+<p>$(gettext "Here you can configure a wired connection using DHCP to \
+automatically get a random IP or configure a static/fixed IP")</p>
+
+<h3>$(gettext 'Configuration')</h3>
 <form method="get" action="$SCRIPT_NAME">
 	<input type="hidden" name="eth" />
-	$(table_start)
+	<table>
 	<thead>
 		<tr>
-			<td>$(gettext "Name")</td>
-			<td>$(gettext "Value")</td>
+			<td>$(gettext 'Name')</td>
+			<td>$(gettext 'Value')</td>
 		</tr>
 	</thead>
+	<tbody>
 	<tr>
-		<td>$(gettext "Interface")</td>
+		<td>$(gettext 'Interface')</td>
 		<td><input type="text" name="iface" size="20" value="$INTERFACE" /></td>
 	</tr>
 	<tr>
-		<td>$(gettext "IP address")</td>
+		<td>$(gettext 'IP address')</td>
 		<td><input type="text" name="ip" size="20" value="$IP" /></td>
 	</tr>
 	<tr>
-		<td>$(gettext "Netmask")</td>
+		<td>$(gettext 'Netmask')</td>
 		<td><input type="text" name="netmask" size="20" value="$NETMASK" /></td>
 	</tr>
 	<tr>
-		<td>$(gettext "Gateway")</td>
+		<td>$(gettext 'Gateway')</td>
 		<td><input type="text" name="gateway" size="20" value="$GATEWAY" /></td>
 	</tr>
 	<tr>
-		<td>$(gettext "DNS server")</td>
+		<td>$(gettext 'DNS server')</td>
 		<td><input type="text" name="dns" size="20" value="$DNS_SERVER" /></td>
 	</tr>
-	$(table_end)
-		<input type="submit" name="static" value="`gettext "Activate (static)"`">
-		<input type="submit" name="dhcp" value="`gettext "Activate (DHCP)"`">
-		<input type="submit" name="disable" value="`gettext "Disable"`">
+	</tbody>
+	</table>
+		<input type="submit" name="static" value="$(gettext 'Activate (static)')">
+		<input type="submit" name="dhcp" value="$(gettext 'Activate (DHCP)')">
+		<input type="submit" name="disable" value="$(gettext 'Disable')">
 </form>
 
-<h3>$(gettext "Configuration file")</h3>
-<p>
-$(gettext "These values are the ethernet settings in the main
-/etc/network.conf configuration file")
-</p>
+<h3>$(gettext 'Configuration file')</h3>
+
+<p>$(gettext "These values are the ethernet settings in the main \
+/etc/network.conf configuration file")</p>
 <pre>
 $(grep ^[A-V] /etc/network.conf | syntax_highlighter conf)
 </pre>
 <a class="button" href="index.cgi?file=/etc/network.conf&action=edit">
-	<img src="$IMAGES/edit.png" />$(gettext "Manual Edit")</a>
+	<img src="$IMAGES/edit.png" />$(gettext 'Manual Edit')</a>
 EOT
 		;;
 	*\ wifi\ *)
 		# Wireless connections settings
 		xhtml_header
-		LOADING_MSG=$(gettext "Scanning wireless interface...")
+		LOADING_MSG=$(gettext 'Scanning wireless interface...')
 		loading_msg
 		. /etc/network.conf
 		cat << EOT
-<h2>$(gettext "Wireless connection")</h2>
+<h2>$(gettext 'Wireless connection')</h2>
 <div id="actions">
 	<a class="button" href="$SCRIPT_NAME?wifi&start-wifi=start-wifi">
-		<img src="$IMAGES/start.png" />$(gettext "Start")</a>
+		<img src="$IMAGES/start.png" />$(gettext 'Start')</a>
 	<a class="button" href="$SCRIPT_NAME?wifi&stop=stop">
-		<img src="$IMAGES/stop.png" />$(gettext "Stop")</a>
+		<img src="$IMAGES/stop.png" />$(gettext 'Stop')</a>
 	<a class="button" href="$SCRIPT_NAME?wifi=scan">
-		<img src="$IMAGES/recharge.png" />$(gettext "Scan")</a>
+		<img src="$IMAGES/recharge.png" />$(gettext 'Scan')</a>
 </div>
 $(detect_wifi_networks)
 EOT
@@ -231,47 +237,45 @@ EOT
 			WIFI_KEY_TYPE="$(GET keytype)"
 		fi
 	cat << EOT
-<h3>$(gettext "Connection")</h3>
+<h3>$(gettext 'Connection')</h3>
 <form method="get" action="$SCRIPT_NAME">
 	<input type="hidden" name="connect-wifi" />
 	$(table_start)
 	<thead>
 		<tr>
-			<td>$(gettext "Name")</td>
-			<td>$(gettext "Value")</td>
+			<td>$(gettext 'Name')</td>
+			<td>$(gettext 'Value')</td>
 		</tr>
 	</thead>
 	<tr>
-		<td>$(gettext "Wifi name (ESSID)")</td>
+		<td>$(gettext 'Wifi name (ESSID)')</td>
 		<td><input type="text" name="essid" size="30" value="$WIFI_ESSID" /></td>
 	</tr>
 	<tr>
-		<td>$(gettext "Password (Wifi key)")</td>
+		<td>$(gettext 'Password (Wifi key)')</td>
 		<td><input type="password" name="key" size="30" value="$WIFI_KEY" /></td>
 	</tr>
 	<tr>
-		<td>$(gettext "Encryption type")</td>
+		<td>$(gettext 'Encryption type')</td>
 		<td><input type="text" name="keytype" size="30" value="$WIFI_KEY_TYPE" /></td>
 	</tr>
 	$(table_end)
-		<input type="submit" name="wifi" value="$(gettext "Configure")" />
+		<input type="submit" name="wifi" value="$(gettext 'Configure')" />
 </form>
 
-<h3>$(gettext "Configuration file")</h3>
-<p>
-$(gettext "These values are the wifi settings in the main
-/etc/network.conf configuration file")
-</p>
-<pre>
-$(grep ^WIFI /etc/network.conf | syntax_highlighter conf)
-</pre>
-<a class="button" href="index.cgi?file=/etc/network.conf&action=edit">
-	<img src="$IMAGES/edit.png" />$(gettext "Manual Edit")</a>
+<h3>$(gettext 'Configuration file')</h3>
 
-<h3>$(gettext "Output of") iwconfig</h3>
-<pre>
-$(iwconfig)
-</pre>
+<p>$(gettext "These values are the wifi settings in the main /etc/network.conf \
+configuration file")</p>
+
+<pre>$(grep ^WIFI /etc/network.conf | syntax_highlighter conf)</pre>
+
+<a class="button" href="index.cgi?file=/etc/network.conf&action=edit">
+	<img src="$IMAGES/edit.png" />$(gettext 'Manual Edit')</a>
+
+<h3>$(gettext 'Output of iwconfig')</h3>
+
+<pre>$(iwconfig)</pre>
 EOT
 		;;
 	*)
@@ -279,21 +283,21 @@ EOT
 		xhtml_header
 		hostname=$(cat /etc/hostname)
 		cat << EOT
-<h2>`gettext "Networking"`</h2>
-<p>
-	`gettext "Manage network connections and services"`
-</p>
+<h2>$(gettext 'Networking')</h2>
+
+<p>$(gettext 'Manage network connections and services')</p>
+
 <div id="actions">
 	<div class="float-left">
 		<a class="button" href="$SCRIPT_NAME?start">
-			<img src="$IMAGES/start.png" />$(gettext "Start")</a>
+			<img src="$IMAGES/start.png" />$(gettext 'Start')</a>
 		<a class="button" href="$SCRIPT_NAME?stop">
-			<img src="$IMAGES/stop.png" />$(gettext "Stop")</a>
+			<img src="$IMAGES/stop.png" />$(gettext 'Stop')</a>
 		<a class="button" href="$SCRIPT_NAME?restart">
-			<img src="$IMAGES/recharge.png" />$(gettext "Restart")</a>
+			<img src="$IMAGES/recharge.png" />$(gettext 'Restart')</a>
 	</div>
 	<div class="float-right">
-		`gettext "Configuration:"`
+		$(gettext 'Configuration:')
 		<a class="button" href="index.cgi?file=/etc/network.conf">network.conf</a>
 		<a class="button" href="$SCRIPT_NAME?eth">Ethernet</a>
 		<a class="button" href="$SCRIPT_NAME?wifi">Wireless</a>
@@ -302,47 +306,39 @@ EOT
 
 $(list_network_interfaces)
 
-<a name="hosts"></a>
-<h3>$(gettext "Hosts")</h3>
-<pre>
-$(cat /etc/hosts)
-</pre>
-<a class="button" href="index.cgi?file=/etc/hosts&action=edit">
-	<img src="$IMAGES/edit.png" />$(gettext "Edit hosts")</a>
+<h3 id="hosts">$(gettext 'Hosts')</h3>
 
-<h3>$(gettext "Hostname")</h3>
-<form method="get" name="$SCRIPT_NAME"
+<pre>$(cat /etc/hosts)</pre>
+
+<a class="button" href="index.cgi?file=/etc/hosts&action=edit">
+	<img src="$IMAGES/edit.png" />$(gettext 'Edit hosts')</a>
+
+<h3>$(gettext 'Hostname')</h3>
+
+<form method="get" name="$SCRIPT_NAME">
 	<input type="text" name="hostname" value="$hostname" />
-	<input type="submit" value="$(gettext "Change hostname")"
+	<input type="submit" value="$(gettext 'Change hostname')" />
 </form>
 
 
-<a name="ifconfig"></a>
-<h3>$(gettext "Output of ") ifconfig</h3>
-<pre>
-$(ifconfig)
-</pre>
+<h3 id="ifconfig">$(gettext 'Output of ifconfig')</h3>
 
-<a name="routing"></a>
-<h3>`gettext "Routing table"`</h3>
-<pre>
-$(route -n)
-</pre>
+<pre>$(ifconfig)</pre>
 
-<a name="dns"></a>
-<h3>`gettext "Domain name resolution"`</h3>
-<pre>
-$(cat /etc/resolv.conf)
-</pre>
+<h3 id="routing">$(gettext 'Routing table')</h3>
 
-<a name="arp"></a>
-<h3>`gettext "ARP table"`</h3>
-<pre>
-$(arp)
-</pre>
+<pre>$(route -n)</pre>
 
-<a name="connections"></a>
-<h3>`gettext "IP Connections"`</h3>
+<h3 id="dns">$(gettext 'Domain name resolution')</h3>
+
+<pre>$(cat /etc/resolv.conf)</pre>
+
+<h3 id="arp">$(gettext 'ARP table')</h3>
+
+<pre>$(arp)</pre>
+
+<h3 id="connections">$(gettext 'IP Connections')</h3>
+
 <pre>
 $(netstat -anp 2> /dev/null | sed -e '/UNIX domain sockets/,$d' \
 -e 's#\([0-9]*\)/#<a href="boot.cgi?daemons=pid=\1">\1</a>/#')

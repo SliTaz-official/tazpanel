@@ -27,46 +27,53 @@ parse_packages_desc() {
 	IFS="|"
 	cut -f 1,2,3,5 -d "|" | while read PACKAGE VERSION SHORT_DESC WEB_SITE
 	do
-		echo '<tr>'
-		if [ -d $INSTALLED/${PACKAGE% } ]; then
-			echo -e "<td><input type='checkbox' name='pkg' value='$PACKAGE'>\n
-				<a href='$(pkg_info_link $PACKAGE)'>
-				<img src='$IMAGES/tazpkg-installed.png'/>$PACKAGE</a></td>"
-		else
-			echo -e "<td><input type='checkbox' name='pkg' value='$PACKAGE'>\n
-				<a href='$(pkg_info_link $PACKAGE)'>
-				<img src='$IMAGES/tazpkg.png'/>$PACKAGE</a></td>"
-		fi
-		echo "<td>$VERSION</td>"
-		echo "<td class='desc'>$SHORT_DESC</td>"
-		echo "<td><a href='$WEB_SITE'><img src='$IMAGES/browser.png'/></a></td>"
-		echo '</tr>'
+		image=tazpkg-installed.png
+		[ -d $INSTALLED/${PACKAGE% } ] || image=tazpkg.png
+		cat << EOT
+<tr>
+<td><input type="checkbox" name="pkg" value="$PACKAGE">
+	<a href="$(pkg_info_link $PACKAGE)"><img
+		src="$IMAGES/$image"/>$PACKAGE</a></td>
+<td>$VERSION</td>
+<td class="desc">$SHORT_DESC</td>
+<td><a href="$WEB_SITE"><img src="$IMAGES/browser.png"/></a></td>
+</tr>
+EOT
 	done
 	unset IFS
 }
 
 # Display a full summary of packages stats
 packages_summary() {
-	gettext "Last recharge        : "
-	stat=`stat -c %y $LOCALSTATE/packages.list | \
-		sed 's/\(:..\):.*/\1/' | awk '{print $1}'`
-	mtime=`find $LOCALSTATE/packages.list -mtime +10`
-	echo -n "$stat "
+	cat << EOT
+<table class="zebra">
+<tbody>
+<tr><td>$(gettext 'Last recharge:')</td>
+EOT
+	stat=$(stat -c %y $LOCALSTATE/packages.list | \
+		sed 's/\(:..\):.*/\1/' | awk '{print $1}')
+	mtime=$(find $LOCALSTATE/packages.list -mtime +10)
+	echo -n "<td>$stat "
 	if [ "$mtime" ]; then
-		echo "(Older than 10 days)"
+		gettext '(Older than 10 days)'; echo
 	else
-		echo "(Not older than 10 days)"
+		gettext '(Not older than 10 days)'; echo
 	fi
-	gettext "Installed packages   : "
-	ls $INSTALLED | wc -l
-	gettext "Mirrored packages    : "
-	cat $LOCALSTATE/packages.list | wc -l
-	gettext "Upgradeable packages : "
-	cat $LOCALSTATE/packages.up | wc -l
-	#gettext "Installed files      : "
-	#cat $INSTALLED/*/files.list | wc -l
-	gettext "Blocked packages     : "
-	cat $LOCALSTATE/blocked-packages.list | wc -l
+	cat << EOT
+</td></tr>
+<tr><td>$(gettext 'Installed packages:')</td>
+	<td>$(ls $INSTALLED | wc -l)</td></tr>
+<tr><td>$(gettext 'Mirrored packages:')</td>
+	<td>$(cat $LOCALSTATE/packages.list | wc -l)</td></tr>
+<tr><td>$(gettext 'Upgradeable packages:')</td>
+	<td>$(cat $LOCALSTATE/packages.up | wc -l)</td></tr>
+<tr><td>$(gettext 'Installed files:')</td>
+	<td>$(cat $INSTALLED/*/files.list | wc -l)</td></tr>
+<tr><td>$(gettext 'Blocked packages:')</td>
+	<td>$(cat $LOCALSTATE/blocked-packages.list | wc -l)</td></tr>
+</tbody>
+</table>
+EOT
 }
 
 # Parse mirrors list to be able to have an icon and remove link
@@ -76,10 +83,10 @@ list_mirrors() {
 		cat << EOT
 <li>
 	<a href="$SCRIPT_NAME?admin=rm-mirror=$line&amp;file=$(httpd -e $1)">
-		<img src="$IMAGES/clear.png" />
+		<img src="$IMAGES/clear.png" title="$(gettext 'Delete')" />
 	</a>
 	<a href="$SCRIPT_NAME?admin=select-mirror&amp;mirror=$line">
-		<img src="$IMAGES/start.png" />
+		<img src="$IMAGES/start.png" title="$(gettext 'Use as default')" />
 	</a>
 	<a href="$line">$line</a>
 </li>
@@ -110,9 +117,9 @@ search_form() {
 	<form method="get" action="$SCRIPT_NAME">
 		<p>
 			<input type="text" name="search" size="20">
-			<input type="submit" value="`gettext "Search"`">
+			<input type="submit" value="$(gettext 'Search')">
 			<input class="radius" type="submit" name="files"
-				value="`gettext "Files"`">
+				value="$(gettext 'Files')">
 			<input type="hidden" name="repo" value="$repo" />
 		</p>
 	</form>
@@ -122,12 +129,14 @@ EOT
 
 table_head() {
 	cat << EOT
-		<tr id="thead">
-			<td>`gettext "Name"`</td>
-			<td>`gettext "Version"`</td>
-			<td>`gettext "Description"`</td>
-			<td>`gettext "Web"`</td>
+		<thead>
+		<tr>
+			<td>$(gettext 'Name')</td>
+			<td>$(gettext 'Version')</td>
+			<td>$(gettext 'Description')</td>
+			<td>$(gettext 'Web')</td>
 		</tr>
+		</thead>
 EOT
 }
 
@@ -135,30 +144,29 @@ sidebar() {
 	[ -n "$repo" ] || repo=Public
 	cat << EOT
 <div id="sidebar">
-	<h4>Categories</h4>
-	<a class="active_base-system" href="$SCRIPT_NAME?cat=base-system&repo=$repo">Base-system</a>
-	<a class="active_x-window" href="$SCRIPT_NAME?cat=x-window&repo=$repo">X window</a>
-	<a class="active_utilities" href="$SCRIPT_NAME?cat=utilities&repo=$repo">Utilities</a>
-	<a class="active_network" href="$SCRIPT_NAME?cat=network&repo=$repo">Network</a>
-	<a class="active_games" href="$SCRIPT_NAME?cat=games&repo=$repo">Games</a>
-	<a class="active_graphics" href="$SCRIPT_NAME?cat=graphics&repo=$repo">Graphics</a>
-	<a class="active_office" href="$SCRIPT_NAME?cat=office&repo=$repo">Office</a>
-	<a class="active_multimedia" href="$SCRIPT_NAME?cat=multimedia&repo=$repo">Multimedia</a>
-	<a class="active_development" href="$SCRIPT_NAME?cat=development&repo=$repo">Development</a>
-	<a class="active_system-tools" href="$SCRIPT_NAME?cat=system-tools&repo=$repo">System tools</a>
-	<a class="active_security" href="$SCRIPT_NAME?cat=security&repo=$repo">Security</a>
-	<a class="active_misc" href="$SCRIPT_NAME?cat=misc&repo=$repo">Misc</a>
-	<a class="active_meta" href="$SCRIPT_NAME?cat=meta&repo=$repo">Meta</a>
-	<a class="active_non-free" href="$SCRIPT_NAME?cat=non-free&repo=$repo">Non free</a>
-	<a class="active_all" href="$SCRIPT_NAME?cat=all&repo=$repo">All</a>
+	<h4>$(gettext 'Categories')</h4>
+	<a class="active_base-system" href="$SCRIPT_NAME?cat=base-system&repo=$repo">$(gettext 'Base-system')</a>
+	<a class="active_x-window" href="$SCRIPT_NAME?cat=x-window&repo=$repo">$(gettext 'X window')</a>
+	<a class="active_utilities" href="$SCRIPT_NAME?cat=utilities&repo=$repo">$(gettext 'Utilities')</a>
+	<a class="active_network" href="$SCRIPT_NAME?cat=network&repo=$repo">$(gettext 'Network')</a>
+	<a class="active_games" href="$SCRIPT_NAME?cat=games&repo=$repo">$(gettext 'Games')</a>
+	<a class="active_graphics" href="$SCRIPT_NAME?cat=graphics&repo=$repo">$(gettext 'Graphics')</a>
+	<a class="active_office" href="$SCRIPT_NAME?cat=office&repo=$repo">$(gettext 'Office')</a>
+	<a class="active_multimedia" href="$SCRIPT_NAME?cat=multimedia&repo=$repo">$(gettext 'Multimedia')</a>
+	<a class="active_development" href="$SCRIPT_NAME?cat=development&repo=$repo">$(gettext 'Development')</a>
+	<a class="active_system-tools" href="$SCRIPT_NAME?cat=system-tools&repo=$repo">$(gettext 'System tools')</a>
+	<a class="active_security" href="$SCRIPT_NAME?cat=security&repo=$repo">$(gettext 'Security')</a>
+	<a class="active_misc" href="$SCRIPT_NAME?cat=misc&repo=$repo">$(gettext 'Misc')</a>
+	<a class="active_meta" href="$SCRIPT_NAME?cat=meta&repo=$repo">$(gettext 'Meta')</a>
+	<a class="active_non-free" href="$SCRIPT_NAME?cat=non-free&repo=$repo">$(gettext 'Non free')</a>
+	<a class="active_all" href="$SCRIPT_NAME?cat=all&repo=$repo">$(gettext 'All')</a>
 EOT
 
 	if [ -d $LOCALSTATE/undigest ]; then
 		[ -n "$category" ] || category="base-system"
 		cat << EOT
-	<p></p>
-	<h4>Repositories</h4>
-	<a class="repo_Public" href="$SCRIPT_NAME?repo=Public&cat=$category">Public</a>
+	<h4>$(gettext 'Repositories')</h4>
+	<a class="repo_Public" href="$SCRIPT_NAME?repo=Public&cat=$category">$(gettext 'Public')</a>
 EOT
 		for i in $(ls $LOCALSTATE/undigest); do
 			cat << EOT
@@ -166,7 +174,7 @@ EOT
 EOT
 		done
 		cat << EOT
-	<a class="repo_Any" href="$SCRIPT_NAME?repo=Any&cat=$category">Any</a>
+	<a class="repo_Any" href="$SCRIPT_NAME?repo=Any&cat=$category">$(gettext 'Any')</a>
 EOT
 	fi
 	echo "</div>"
@@ -206,25 +214,30 @@ case " $(GET) " in
 		cd $INSTALLED
 		search_form
 		sidebar
-		LOADING_MSG="Listing packages..."
+		LOADING_MSG="$(gettext 'Listing packages...')"
 		loading_msg
 		cat << EOT
-<h2>`gettext "My packages"`</h2>
+<h2>$(gettext 'My packages')</h2>
 <form method='get' action='$SCRIPT_NAME'>
+	<input type="hidden" name="do" value="Remove" />
 <div id="actions">
 	<div class="float-left">
-		`gettext "Selection:"`
-		<input type="submit" name="do" value="Remove" />
+		$(gettext 'Selection:')
+		<input type="submit" value="$(gettext 'Remove')" />
 	</div>
 	<div class="float-right">
-		`gettext "List:"`
-		<input type="submit" name="recharge" value="Recharge" />
-		<input type="submit" name="up" value="Upgrade" />
+		<a class="button" href="$SCRIPT_NAME?recharge">
+			<img src="$IMAGES/recharge.png" />$(gettext 'Recharge list')</a>
+		<a class="button" href='$SCRIPT_NAME?up'>
+			<img src="$IMAGES/update.png" />$(gettext 'Check upgrades')</a>
 	</div>
 </div>
 EOT
-		table_start
-		table_head
+		cat << EOT
+<table class="zebra">
+$(table_head)
+<tbody>
+EOT
 		for pkg in *
 		do
 			. $pkg/receipt
@@ -234,17 +247,24 @@ EOT
 			colorpkg=$pkg
 			grep -qs "^$pkg$" $LOCALSTATE/blocked-packages.list &&
 				colorpkg="<span style='color: red;'>$pkg</span>"
-			echo "<td class='pkg'>
-				<input type='checkbox' name='pkg' value=\"$pkg\" />
-				<a href='$(pkg_info_link $pkg)'><img
-					src='$IMAGES/tazpkg-installed.png'/>$colorpkg</a></td>"
-			echo "<td>$VERSION</td>"
-			echo "<td class='desc'>$SHORT_DESC</td>"
-			echo "<td><a href='$WEB_SITE'><img src='$IMAGES/browser.png'/></a></td>"
-			echo '</tr>'
+			cat << EOT
+<td class="pkg">
+	<input type="checkbox" name="pkg" value="$pkg" />
+		<a href="$(pkg_info_link $pkg)"><img
+			src="$IMAGES/tazpkg-installed.png"/>$colorpkg</a></td>
+<td>$VERSION</td>
+<td class="desc">$SHORT_DESC</td>
+<td><a href="$WEB_SITE"><img src="$IMAGES/browser.png"/></a></td>
+</tr>
+EOT
 		done
-		table_end
-		echo '</form>' ;;
+		cat << EOT
+</tbody>
+</table>
+</form>
+EOT
+		;;
+
 	*\ linkable\ *)
 		#
 		# List linkable packages.
@@ -252,42 +272,57 @@ EOT
 		cd $INSTALLED
 		search_form
 		sidebar
-		LOADING_MSG="Listing linkable packages..."
+		LOADING_MSG=$(gettext 'Listing linkable packages...')
 		loading_msg
 		cat << EOT
-<h2>`gettext "Linkable packages"`</h2>
+<h2>$(gettext 'Linkable packages')</h2>
+
 <form method='get' action='$SCRIPT_NAME'>
+	<input type="hidden" name="do" value="Link" />
 <div id="actions">
 	<div class="float-left">
-		`gettext "Selection:"`
-		<input type="submit" name="do" value="Link" />
+		$(gettext 'Selection:')
+		<input type="submit" value="$(gettext 'Link')" />
 	</div>
 	<div class="float-right">
-		`gettext "List:"`
-		<input type="submit" name="recharge" value="Recharge" />
-		<input type="submit" name="up" value="Upgrade" />
+		<a class="button" href="$SCRIPT_NAME?recharge">
+			<img src="$IMAGES/recharge.png" />$(gettext 'Recharge list')</a>
+		<a class="button" href="$SCRIPT_NAME?up">
+			<img src="$IMAGES/update.png" />$(gettext 'Check upgrades')</a>
 	</div>
 </div>
 EOT
-		table_start
-		table_head
+		cat << EOT
+<table class="zebra">
+$(table_head)
+<tbody>
+EOT
 		target=$(readlink $LOCALSTATE/fslink)
 		for pkg in $(ls $target/$INSTALLED)
 		do
 			[ -s $pkg/receipt ] && continue
 			. $target/$INSTALLED/$pkg/receipt
-			echo '<tr>'
-			echo "<td class='pkg'>
-				<input type='checkbox' name='pkg' value=\"$pkg\" />
-				<a href='$(pkg_info_link $pkg)'><img
-					src='$IMAGES/tazpkg.png'/>$pkg</a></td>"
-			echo "<td>$VERSION</td>"
-			echo "<td class='desc'>$SHORT_DESC</td>"
-			echo "<td><a href='$WEB_SITE'><img src='$IMAGES/browser.png'/></a></td>"
-			echo '</tr>'
+			cat << EOT
+<tr>
+	<td class="pkg">
+		<input type="checkbox" name="pkg" value="$pkg" />
+			<a href="$(pkg_info_link $pkg)"><img
+				src="$IMAGES/tazpkg.png"/>$pkg</a>
+	</td>
+	<td>$VERSION</td>
+	<td class="desc">$SHORT_DESC</td>
+	<td><a href="$WEB_SITE"><img src="$IMAGES/browser.png"/></a></td>
+</tr>
+EOT
 		done
-		table_end
-		echo '</form>' ;;
+		cat << EOT
+</tbody>
+</table>
+</form>
+EOT
+		;;
+
+
 	*\ cat\ *)
 		#
 		# List all available packages by category on mirror. Listing all
@@ -301,37 +336,51 @@ EOT
 		[ "$grep_category" == "all" ] && grep_category=".*"
 		search_form
 		sidebar | sed "s/active_$category/active/;s/repo_$repo/active/"
-		LOADING_MSG="Listing packages..."
+		LOADING_MSG="$(gettext 'Listing packages...')"
 		loading_msg
 		cat << EOT
-<h2>`gettext "Category:"` $category</h2>
+<h2>$(eval_gettext 'Category: $category')</h2>
+
 <form method='get' action='$SCRIPT_NAME'>
 <div id="actions">
 <div class="float-left">
-	`gettext "Selection:"`
+	$(gettext 'Selection:')
 	<input type="submit" name="do" value="Install" />
 	<input type="submit" name="do" value="Remove" />
 	<input type="hidden" name="repo" value="$repo" />
 </div>
 <div class="float-right">
-	`gettext "List:"`
-	<input type="submit" name="recharge" value="Recharge" />
-	<input type="submit" name="up" value="Upgrade" />
+	<a class="button" href="$SCRIPT_NAME?recharge">
+		<img src="$IMAGES/recharge.png" />$(gettext 'Recharge list')</a>
+	<a class="button" href="$SCRIPT_NAME?up">
+		<img src="$IMAGES/update.png" />$(gettext 'Check upgrades')</a>
 	<a class="button" href='$SCRIPT_NAME?list'>
-		<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
+		<img src="$IMAGES/tazpkg.png" />$(gettext 'My packages')</a>
 </div>
 </div>
 EOT
 		for i in $(repo_list ""); do
-			[ "$repo" != "Public" ] &&
-				echo "<h3>Repository: $(repo_name $i)</h3>"
-			table_start
-			table_head
+			if [ "$repo" != "Public" ]; then
+				Repo_Name="$(repo_name $i)"
+				cat << EOT
+<h3>$(eval_gettext "Repository: \$Repo_Name")</h3>
+EOT
+			fi
+			cat << EOT
+<table class="zebra">
+$(table_head)
+<tbody>
+EOT
 			grep "| $grep_category |" $i/packages.desc | \
 				parse_packages_desc
-			table_end
+			cat << EOT
+</tbody>
+</table>
+EOT
 		done
 		echo '</form>' ;;
+
+
 	*\ search\ *)
 		#
 		# Search for packages. Here default is to search in packages.desc
@@ -342,92 +391,108 @@ EOT
 		cd  $LOCALSTATE
 		search_form
 		sidebar | sed "s/repo_$repo/active/"
-		LOADING_MSG="Searching packages..."
+		LOADING_MSG="$(gettext 'Searching packages...')"
 		loading_msg
 		cat << EOT
-<h2>`gettext "Search packages"`</h2>
+<h2>$(gettext 'Search packages')</h2>
 <form method="get" action="$SCRIPT_NAME">
 <div id="actions">
 <div class="float-left">
-	`gettext "Selection:"`
+	$(gettext 'Selection:')
 	<input type="submit" name="do" value="Install" />
 	<input type="submit" name="do" value="Remove" />
-	<a href="`cat $PANEL/lib/checkbox.js`">`gettext "Toogle all"`</a>
+	<a href="`cat $PANEL/lib/checkbox.js`">$(gettext 'Toogle all')</a>
 </div>
 <div class="float-right">
-	`gettext "List:"`
-	<input type="submit" name="recharge" value="Recharge" />
-	<input type="submit" name="up" value="Upgrade" />
+	<a class="button" href="$SCRIPT_NAME?recharge">
+		<img src="$IMAGES/recharge.png" />$(gettext 'Recharge list')</a>
+	<a class="button" href="$SCRIPT_NAME?up">
+		<img src="$IMAGES/update.png" />$(gettext 'Check upgrades')</a>
 	<a class="button" href='$SCRIPT_NAME?list'>
-		<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
+		<img src="$IMAGES/tazpkg.png" />$(gettext 'My packages')</a>
 </div>
 </div>
 	<input type="hidden" name="repo" value="$repo" />
+
+	<table class="zebra">
 EOT
-		table_start
 		if [ "$(GET files)" ]; then
 			cat <<EOT
-		<tr id="thead">
-			<td>`gettext "Package"`</td>
-			<td>`gettext "File"`</td>
+	<thead>
+		<tr>
+			<td>$(gettext 'Package')</td>
+			<td>$(gettext 'File')</td>
 		</tr>
-		$(unlzma -c $(repo_list /files.list.lzma) \
-		  | grep -Ei ": .*$(GET search)" | \
-		  while read PACKAGE FILE; do
-		  	PACKAGE=${PACKAGE%:}
-		  	image=tazpkg-installed.png
-		  	[ -d $INSTALLED/$PACKAGE ] || image=tazpkg.png
-		  	echo "<tr>
-	<td><input type='checkbox' name='pkg' value='$PACKAGE'>
-	    <a href='$(pkg_info_link $PACKAGE)'><img src='$IMAGES/$image' />$PACKAGE</a></td>
-	<td>$FILE</td>
-</tr>"
-		 done)
+	<thead>
+	<tbody>
 EOT
+			unlzma -c $(repo_list /files.list.lzma) \
+				| grep -Ei ": .*$(GET search)" | \
+				while read PACKAGE FILE; do
+					PACKAGE=${PACKAGE%:}
+					image=tazpkg-installed.png
+					[ -d $INSTALLED/$PACKAGE ] || image=tazpkg.png
+					cat << EOT
+<tr>
+	<td><input type="checkbox" name="pkg" value="$PACKAGE">
+		<a href="$(pkg_info_link $PACKAGE)"><img src="$IMAGES/$image" />$PACKAGE</a></td>
+	<td>$FILE</td>
+</tr>
+EOT
+				done
 		else
-			table_head
+			cat << EOT
+$(table_head)
+	<tbody>
+EOT
 			grep -ih $pkg $(repo_list /packages.desc) | \
 				parse_packages_desc
 		fi
-		table_end
-		echo '</form>' ;;
+		cat << EOT
+	</tbody>
+	</table>
+</form>
+EOT
+		;;
+
+
 	*\ recharge\ *)
 		#
 		# Lets recharge the packages list
 		#
 		search_form
 		sidebar
-		LOADING_MSG="Recharging lists..."
+		LOADING_MSG="$(gettext 'Recharging lists...')"
 		loading_msg
 		cat << EOT
-<h2>`gettext "Recharge"`</h2>
+<h2>$(gettext 'Recharge')</h2>
+
 <form method='get' action='$SCRIPT_NAME'>
 <div id="actions">
 	<div class="float-left">
-		<p>
-			`gettext "Recharge checks for new or updated packages"`
-		</p>
+		<p>$(gettext 'Recharge checks for new or updated packages')</p>
 	</div>
 	<div class="float-right">
-		<p>
-			<a class="button" href='$SCRIPT_NAME?up'>
-				<img src="$IMAGES/update.png" />`gettext "Check upgrades"`</a>
-			<a class="button" href='$SCRIPT_NAME?list'>
-				<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
-		</p>
+		<a class="button" href='$SCRIPT_NAME?up'>
+			<img src="$IMAGES/update.png" />$(gettext 'Check upgrades')</a>
+		<a class="button" href='$SCRIPT_NAME?list'>
+			<img src="$IMAGES/tazpkg.png" />$(gettext 'My packages')</a>
 	</div>
 </div>
+<div class="wrapper">
 <pre>
 EOT
-		gettext "Recharging packages list" | log
+		echo $(gettext 'Recharging packages list') | log
 		tazpkg recharge | filter_taztools_msgs
 		cat << EOT
 </pre>
-<p>
-	`gettext "Packages lists are up-to-date. You should check for upgrades now."`
-</p>
+</div>
+<p>$(gettext "Packages lists are up-to-date. You should check for upgrades \
+now.")</p>
 EOT
 		;;
+
+
 	*\ up\ *)
 		#
 		# Upgrade packages
@@ -435,37 +500,47 @@ EOT
 		cd $LOCALSTATE
 		search_form
 		sidebar
-		LOADING_MSG="Checking for upgrades..."
+		LOADING_MSG="$(gettext 'Checking for upgrades...')"
 		loading_msg
 		cat << EOT
-<h2>`gettext "Up packages"`</h2>
+<h2>$(gettext 'Up packages')</h2>
+
 <form method="get" action="$SCRIPT_NAME">
 <div id="actions">
 	<div class="float-left">
-		`gettext "Selection:"`
+		$(gettext 'Selection:')
 		<input type="submit" name="do" value="Install" />
 		<input type="submit" name="do" value="Remove" />
-		<a href="`cat $PANEL/lib/checkbox.js`">`gettext "Toogle all"`</a>
+		<a href="$(cat $PANEL/lib/checkbox.js)">$(gettext 'Toogle all')</a>
 	</div>
 	<div class="float-right">
-		`gettext "List:"`
-		<input type="submit" name="recharge" value="Recharge" />
-		<a class="button" href='$SCRIPT_NAME?list'>
-			<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
+		<a class="button" href="$SCRIPT_NAME?recharge">
+			<img src="$IMAGES/recharge.png" />$(gettext 'Recharge list')</a>
+		<a class="button" href="$SCRIPT_NAME?list">
+			<img src="$IMAGES/tazpkg.png" />$(gettext 'My packages')</a>
 	</div>
 </div>
 EOT
 		tazpkg up --check >/dev/null
-		table_start
-		table_head
+		cat << EOT
+<table class="zebra">
+$(table_head)
+<tbody>
+EOT
 		for pkg in `cat packages.up`
 		do
 			grep -hs "^$pkg |" $LOCALSTATE/packages.desc \
 				$LOCALSTATE/undigest/*/packages.desc | \
 				parse_packages_desc
 		done
-		table_end
-		echo '</form>' ;;
+		cat << EOT
+</tbody>
+</table>
+</form>
+EOT
+		;;
+
+
 	*\ do\ *)
 		#
 		# Do an action on one or some packages
@@ -480,40 +555,44 @@ EOT
 		cmd=$(echo $cmd | tr [:upper:] [:lower:])
 		case $cmd in
 			install)
-				cmd=get-install opt=--forced ;;
+				cmd=get-install opt=--forced
+				LOADING_MSG="get-installing packages..."
+				;;
 			link)
-				opt=$(readlink $LOCALSTATE/fslink) ;;
+				opt=$(readlink $LOCALSTATE/fslink)
+				LOADING_MSG="linking packages..."
+				;;
 		esac
 		search_form
 		sidebar
-		LOADING_MSG="${cmd}ing packages..."
 		loading_msg
 		cat << EOT
 <h2>Tazpkg: $cmd</h2>
+
 <form method="get" action="$SCRIPT_NAME">
 <div id="actions">
 	<div class="float-left">
-		<p>
-			`gettext "Performing tasks on packages"`
-		</p>
+		<p>$(gettext 'Performing tasks on packages')</p>
 	</div>
 	<div class="float-right">
 		<p>
-			<a class="button" href='$SCRIPT_NAME?list'>
-				<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
+			<a class="button" href="$SCRIPT_NAME?list">
+				<img src="$IMAGES/tazpkg.png" />$(gettext 'My packages')</a>
 		</p>
 	</div>
 </div>
+<div class="box">
+$(eval_gettext 'Executing $cmd for: $pkgs')
+</div>
 EOT
-		echo '<div class="box">'
-		gettext "Executing $cmd for:$pkgs"
-		echo '</div>'
 		for pkg in $pkgs
 		do
 			echo '<pre>'
 			echo 'y' | tazpkg $cmd $pkg $opt 2>/dev/null | filter_taztools_msgs
 			echo '</pre>'
 		done ;;
+
+
 	*\ info\ *)
 		#
 		# Packages info
@@ -524,10 +603,11 @@ EOT
 		if [ -d $INSTALLED/$pkg ]; then
 			. $INSTALLED/$pkg/receipt
 			files=`cat $INSTALLED/$pkg/files.list | wc -l`
-			action=$(gettext "Remove")
+			action="Remove"
+			action_i18n=$(gettext 'Remove')
 		else
 			cd  $LOCALSTATE
-			LOADING_MSG=$(gettext "Getting package info...")
+			LOADING_MSG=$(gettext 'Getting package info...')
 			loading_msg
 			IFS='|'
 			set -- $(grep -hs "^$pkg |" packages.desc \
@@ -538,32 +618,36 @@ EOT
 			SHORT_DESC="$(echo $3)"
 			CATEGORY="$(echo $4)"
 			WEB_SITE="$(echo $5)"
-			action=$(gettext "Install")
+			action="Install"
+			action_i18n=$(gettext 'Install')
 			temp="$(echo $pkg | sed 's/get-//g')"
 		fi
 		cat << EOT
-<h2>`gettext "Package"` $PACKAGE</h2>
+<h2>$(eval_gettext 'Package $PACKAGE')</h2>
+
 <div id="actions">
 	<div class="float-left">
 		<p>
 EOT
-		if [ "$temp" != "$pkg" -a "$action" == $(gettext "Install") ]; then
+		if [ "$temp" != "$pkg" -a "$action" == "Install" ]; then
 			temp="$(echo $pkg | sed 's/get-//g')"
-			echo "<a class='button' href='$SCRIPT_NAME?do=$action&$temp'>$action (Non Free)</a>"
+			echo "<a class='button' href='$SCRIPT_NAME?do=Install&$temp'>$(gettext 'Install (Non Free)')</a>"
 		else
-
-			echo "<a class='button' href='$SCRIPT_NAME?do=$action&$pkg'>$action</a>"
+			echo "<a class='button' href='$SCRIPT_NAME?do=$action&$pkg'>$action_i18n</a>"
 		fi
 
 		if [ -d $INSTALLED/$pkg ]; then
 			if grep -qs "^$pkg$" $LOCALSTATE/blocked-packages.list; then
-				block=$(gettext "Unblock")
+				cat << EOT
+			<a class="button" href="$SCRIPT_NAME?do=Unblock&$pkg">$(gettext 'Unblock')</a>
+EOT
 			else
-				block=$(gettext "Block")
+				cat << EOT
+			<a class="button" href='$SCRIPT_NAME?do=Block&$pkg'>$(gettext 'Block')</a>
+EOT
 			fi
 			cat << EOT
-			<a class="button" href='$SCRIPT_NAME?do=$block&$pkg'>$block</a>
-			<a class="button" href='$SCRIPT_NAME?do=Repack&$pkg'>Repack</a>
+			<a class="button" href='$SCRIPT_NAME?do=Repack&$pkg'>$(gettext 'Repack')</a>
 EOT
 		fi
 		cat << EOT
@@ -572,53 +656,56 @@ EOT
 	<div class="float-right">
 		<p>
 			<a class="button" href='$SCRIPT_NAME?list'>
-				<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
+				<img src="$IMAGES/tazpkg.png" />$(gettext 'My packages')</a>
 		</p>
 	</div>
 </div>
-<pre>
-Name        : $PACKAGE
-Version     : $VERSION
-Description : $SHORT_DESC
-Category    : $CATEGORY
+<table class="zebra">
+<tbody>
+	<tr><td>$(gettext 'Name:')</td><td>$PACKAGE</td></tr>
+	<tr><td>$(gettext 'Version:')</td><td>$VERSION</td></tr>
+	<tr><td>$(gettext 'Description:')</td><td>$SHORT_DESC</td></tr>
+	<tr><td>$(gettext 'Category:')</td><td>$CATEGORY</td></tr>
 EOT
 		if [ -d $INSTALLED/$pkg ]; then
 			cat << EOT
-Maintainer  : $MAINTAINER
-Website     : <a href="$WEB_SITE">$WEB_SITE</a>
-Sizes       : $PACKED_SIZE/$UNPACKED_SIZE
+	<tr><td>$(gettext 'Maintainer:')</td><td>$MAINTAINER</td></tr>
+	<tr><td>$(gettext 'Website:')</td><td><a href="$WEB_SITE">$WEB_SITE</a></td></tr>
+	<tr><td>$(gettext 'Sizes:')</td><td>$PACKED_SIZE/$UNPACKED_SIZE</td></tr>
 EOT
 			if [ -n "$DEPENDS" ]; then
-				echo -n "Depends     : "
+				echo "<tr><td>$(gettext 'Depends:')</td><td>"
 				for i in $DEPENDS; do
 					echo -n "<a href="$(pkg_info_link $i)">$i</a> "
 				done
-				echo ""
+				echo "</td></tr>"
 			fi
 			if [ -n "$SUGGESTED" ]; then
-				echo -n "Suggested   : "
+				echo "<tr><td>$(gettext 'Suggested:')</td><td>"
 				for i in $SUGGESTED; do
 					echo -n "<a href="$(pkg_info_link $i)">$i</a> "
 				done
-				echo ""
+				echo "</td></tr>"
 			fi
-			[ -n "$TAGS" ] && echo "Tags        : $TAGS"
+			[ -n "$TAGS" ] && echo "<tr><td>$(gettext 'Tags:')</td><td>$TAGS</td></tr>"
+			I_FILES=$(cat $INSTALLED/$pkg/files.list | wc -l)
 			cat << EOT
-</pre>
+</tbody>
+</table>
 
-<p>`gettext "Installed files:"` `cat $INSTALLED/$pkg/files.list | wc -l`</p>
-<pre>
-`cat $INSTALLED/$pkg/files.list`
-</pre>
+<p>$(eval_gettext 'Installed files: $I_FILES')</p>
+
+<pre>$(cat $INSTALLED/$pkg/files.list)</pre>
 EOT
 		else
 			cat << EOT
-Website     : <a href="$WEB_SITE">$WEB_SITE</a>
-Sizes       : `grep -hsA 3 ^$pkg$ packages.txt undigest/*/packages.txt | \
-		tail -n 1 | sed 's/ *//'`
-</pre>
+<tr><td>$(gettext 'Website:')</td><td><a href="$WEB_SITE">$WEB_SITE</a></td></tr>
+<tr><td>$(gettext 'Sizes:')</td><td>$(grep -hsA 3 ^$pkg$ packages.txt undigest/*/packages.txt | \
+		tail -n 1 | sed 's/ *//')</td></tr>
+</table>
 
-<p>`gettext "Installed files:"`</p>
+<p>$(gettext 'Installed files:')</p>
+
 <pre>
 `unlzma -c files.list.lzma undigest/*/files.list.lzma 2> /dev/null | \
  sed "/^$pkg: /!d;s/^$pkg: //"`
@@ -626,6 +713,8 @@ Sizes       : `grep -hsA 3 ^$pkg$ packages.txt undigest/*/packages.txt | \
 EOT
 		fi
 		;;
+
+
 	*\ admin\ * )
 		#
 		# Tazpkg configuration page
@@ -663,41 +752,41 @@ EOT
 				repository=${cmd#rm-repo=}
 				rm -rf $LOCALSTATE/undigest/$repository ;;
 		esac
-		[ "$cmd" == "$(gettext "Set link")" ] &&
+		[ "$cmd" == "$(gettext 'Set link')" ] &&
 			[ -d "$(GET link)/$INSTALLED" ] &&
 			ln -fs $(GET link) $LOCALSTATE/fslink
-		[ "$cmd" == "$(gettext "Remove link")" ] &&
+		[ "$cmd" == "$(gettext 'Remove link')" ] &&
 			rm -f $LOCALSTATE/fslink
 		cache_files=`find /var/cache/tazpkg -name *.tazpkg | wc -l`
 		cache_size=`du -sh /var/cache/tazpkg`
 		sidebar
 		cat << EOT
-<h2>$(gettext "Administration")</h2>
+<h2>$(gettext 'Administration')</h2>
 <div>
-	<p>$(gettext "Tazpkg administration and settings")</p>
+	<p>$(gettext 'Tazpkg administration and settings')</p>
 </div>
 <div id="actions">
 	<a class="button" href='$SCRIPT_NAME?admin=&action=saveconf'>
-		<img src="$IMAGES/tazpkg.png" />`gettext "Save configuration"`</a>
+		<img src="$IMAGES/tazpkg.png" />$(gettext 'Save configuration')</a>
 	<a class="button" href='$SCRIPT_NAME?admin=&action=listconf'>
-		<img src="$IMAGES/edit.png" />`gettext "List configuration files"`</a>
+		<img src="$IMAGES/edit.png" />$(gettext 'List configuration files')</a>
 	<a class="button" href='$SCRIPT_NAME?admin=&action=quickcheck'>
-		<img src="$IMAGES/recharge.png" />`gettext "Quick check"`</a>
+		<img src="$IMAGES/recharge.png" />$(gettext 'Quick check')</a>
 	<a class="button" href='$SCRIPT_NAME?admin=&action=fullcheck'>
-		<img src="$IMAGES/recharge.png" />`gettext "Full check"`</a>
+		<img src="$IMAGES/recharge.png" />$(gettext 'Full check')</a>
 </div>
 EOT
 		case "$(GET action)" in
 				saveconf)
-					LOADING_MSG=$(gettext "Creating the package...")
+					LOADING_MSG=$(gettext 'Creating the package...')
 					loading_msg
 					echo "<pre>"
 					cd $HOME
 					tazpkg repack-config | filter_taztools_msgs
-					gettext "Path : " && ls $HOME/config-*.tazpkg
+					echo -n "$(gettext 'Path:') " && ls $HOME/config-*.tazpkg
 					echo "</pre>" ;;
 				listconf)
-					echo "<h4>`gettext "Configuration files"`</h4>"
+					echo "<h4>$(gettext 'Configuration files')</h4>"
 					echo "<ul>"
 					tazpkg list-config | while read file; do
 						[ "${file:0:1}" == "/" ] || continue
@@ -710,38 +799,44 @@ EOT
 					echo "</ul>"
 					echo "</pre>" ;;
 				quickcheck)
-					LOADING_MSG=$(gettext "Checking packages consistency...")
+					LOADING_MSG=$(gettext 'Checking packages consistency...')
 					loading_msg
 					echo "<pre>"
 					tazpkg check
 					echo "</pre>" ;;
 				fullcheck)
-					LOADING_MSG=$(gettext "Full packages check...")
+					LOADING_MSG=$(gettext 'Full packages check...')
 					loading_msg
 					echo "<pre>"
 					tazpkg check --full
 					echo "</pre>" ;;
 				esac
 		cat << EOT
-<h3>$(gettext "Packages cache")</h3>
+<h3>$(gettext 'Packages cache')</h3>
+
 <div>
 	<form method="get" action="$SCRIPT_NAME">
 		<p>
-			`gettext "Packages in the cache:"` $cache_files ($cache_size)
+			$(eval_gettext 'Packages in the cache: $cache_files ($cache_size)')
 			<input type="hidden" name="admin" value="clean" />
 			<input type="submit" value="Clean" />
 		</p>
 	</form>
 </div>
-<h3>`gettext "Default mirror"`</h3>
-	`cat /var/lib/tazpkg/mirror`
-<h3>`gettext "Current mirror list"`</h3>
+
+<h3>$(gettext 'Default mirror')</h3>
+
+<pre>$(cat /var/lib/tazpkg/mirror)</pre>
+
+<h3>$(gettext 'Current mirror list')</h3>
 EOT
 		for i in $LOCALSTATE/mirrors $LOCALSTATE/undigest/*/mirrors; do
 			[ -s $i ] || continue
 			echo '<div class="box">'
-			[ $i != $LOCALSTATE/mirrors ] &&
-				echo "<h4>Repository: $(repo_name $(dirname $i))</h4>"
+			if [ $i != $LOCALSTATE/mirrors ]; then
+				Repo_Name="$(repo_name $(dirname $i))"
+				echo "<h4>$(eval_gettext 'Repository: $Repo_Name')</h4>"
+			fi
 			echo "<ul>"
 			list_mirrors $i
 			echo "</ul>"
@@ -757,9 +852,7 @@ EOT
 </form>
 EOT
 		done
-		echo "<h3>"
-		gettext "Private repositories"
-		echo "</h3>"
+		echo "<h3>$(gettext 'Private repositories')</h3>"
 		[ -n "$(ls $LOCALSTATE/undigest 2> /dev/null)" ] && cat << EOT
 <div class="box">
 	<ul>
@@ -771,49 +864,49 @@ EOT
 <form method="get" action="$SCRIPT_NAME">
 	<p>
 		<input type="hidden" name="admin" value="add-repo" />
-		Name <input type="text" name="repository" size="10">
-		mirror
+		$(gettext 'Name') <input type="text" name="repository" size="10">
+		$(gettext 'mirror')
 		<input type="text" name="mirror" value="http://" size="50">
 		<input type="submit" value="Add repository" />
 	</p>
 </form>
-<h3>`gettext "Link to another SliTaz installation"`</h3>
-<p>
-$(gettext "This link points to the root of another SliTaz installation. \
-You will be able to install packages using soft links to it.")
-</p>
+
+<h3>$(gettext 'Link to another SliTaz installation')</h3>
+
+<p>$(gettext "This link points to the root of another SliTaz installation. \
+You will be able to install packages using soft links to it.")</p>
+
 <form method="get" action="$SCRIPT_NAME">
 <p>
 	<input type="hidden" name="admin" value="add-link" />
 	<input type="text" name="link"
 	 value="$(readlink $LOCALSTATE/fslink 2> /dev/null)" size="50">
-	<input type="submit" name="admin" value="$(gettext "Set link")" />
-	<input type="submit" name="admin" value="$(gettext "Remove link")" />
+	<input type="submit" name="admin" value="$(gettext 'Set link')" />
+	<input type="submit" name="admin" value="$(gettext 'Remove link')" />
 </p>
 </form>
 EOT
 		version=$(cat /etc/slitaz-release)
 		cat << EOT
 
-<a name="dvd"></a>
-<h3>`gettext "SliTaz packages DVD"`</h3>
-<p>
-$(gettext "A bootable DVD image of all available packages for \
-the $version version is generated every day. It also contains a copy of \
-the website and can be used without an internet connection. This image can be \
-installed on a DVD or an USB key.")
-</p>
+<h3 id="dvd">$(gettext 'SliTaz packages DVD')</h3>
+
+<p>$(eval_gettext "A bootable DVD image of all available packages for the \
+\$version version is generated every day. It also contains a copy of the \
+website and can be used without an internet connection. This image can be \
+installed on a DVD or an USB key.")</p>
+
 <div>
 	<form method="post" action='$SCRIPT_NAME?admin&action=dvdimage#dvd'>
 	<p>
 		<a class="button"
 			href='http://mirror.slitaz.org/iso/$version/packages-$version.iso'>
-			<img src="$IMAGES/tazpkg.png" />$(gettext "Download DVD image")</a>
+			<img src="$IMAGES/tazpkg.png" />$(gettext 'Download DVD image')</a>
 		<a class="button" href='$SCRIPT_NAME?admin&action=dvdusbkey#dvd'>
-			<img src="$IMAGES/tazpkg.png" />$(gettext "Install from DVD/USB key")</a>
+			<img src="$IMAGES/tazpkg.png" />$(gettext 'Install from DVD/USB key')</a>
 	</p>
 	<div class="box">
-		$(gettext "Install from ISO image: ")
+		$(gettext 'Install from ISO image:')
 		<input type="text" name="dvdimage" size="40" value="/root/packages-$version.iso">
 	</div>
 	</form>
@@ -852,30 +945,32 @@ EOT
 		[ -n "$(GET block)" ] && tazpkg block $(GET block)
 		[ -n "$(GET unblock)" ] && tazpkg unblock $(GET unblock)
 		cat << EOT
-<h2>`gettext "Summary"`</h2>
+<h2>$(gettext 'Summary')</h2>
+
 <div id="actions">
-	<a class="button" href='$SCRIPT_NAME?list'>
-		<img src="$IMAGES/tazpkg.png" />`gettext "My packages"`</a>
+	<a class="button" href="$SCRIPT_NAME?list">
+		<img src="$IMAGES/tazpkg.png" />$(gettext 'My packages')</a>
 EOT
 		fslink=$(readlink $LOCALSTATE/fslink)
 		[ -n "$fslink" -a -d "$fslink/$INSTALLED" ] &&
 			cat << EOT
-	<a class="button" href='$SCRIPT_NAME?linkable'>
-		<img src="$IMAGES/tazpkg.png" />`gettext "Linkable packages"`</a>
+	<a class="button" href="$SCRIPT_NAME?linkable">
+		<img src="$IMAGES/tazpkg.png" />$(gettext 'Linkable packages')</a>
 EOT
 		cat << EOT
-	<a class="button" href='$SCRIPT_NAME?recharge'>
-		<img src="$IMAGES/recharge.png" />`gettext "Recharge list"`</a>
-	<a class="button" href='$SCRIPT_NAME?up'>
-		<img src="$IMAGES/update.png" />`gettext "Check upgrades"`</a>
-	<a class="button" href='$SCRIPT_NAME?admin'>
-		<img src="$IMAGES/edit.png" />`gettext "Administration"`</a>
+	<a class="button" href="$SCRIPT_NAME?recharge">
+		<img src="$IMAGES/recharge.png" />$(gettext 'Recharge list')</a>
+	<a class="button" href="$SCRIPT_NAME?up">
+		<img src="$IMAGES/update.png" />$(gettext 'Check upgrades')</a>
+	<a class="button" href="$SCRIPT_NAME?admin">
+		<img src="$IMAGES/edit.png" />$(gettext 'Administration')</a>
 </div>
-<pre class="pre-main">
-`packages_summary`
-</pre>
 
-<h3>`gettext "Latest log entries"`</h3>
+$(packages_summary)
+
+
+<h3>$(gettext 'Latest log entries')</h3>
+
 <pre>
 `tail -n 5 /var/log/tazpkg.log | fgrep "-" | \
 	awk '{print $1, $2, $3, $4, $5, $6, $7}'`

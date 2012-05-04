@@ -35,12 +35,18 @@ file_is_modified()
 		button)
 			cat <<EOT
 	<a class="button" href='$SCRIPT_NAME?file=$1&action=diff'>
-		<img src="$IMAGES/help.png" />`gettext "Differences"`</a>
+		<img src="$IMAGES/help.png" />$(gettext 'Differences')</a>
 EOT
 		esac
 		break
 	done
 }
+# OK status in table
+ok_status_t() {
+	echo "	<td>[<span class='diff-add'> OK </span>]</td></tr>"
+}
+
+
 
 #
 # Things to do before displaying the page
@@ -67,16 +73,17 @@ case " $(GET) " in
 				xhtml_header
 				echo "<h2>$file</h2>" ;;
 		esac
+
 		if [ "$(GET action)" == "edit" ]; then
 			cat <<EOT
 <form method="post" action="$SCRIPT_NAME?file=$file">
-<img src="$IMAGES/edit.png" />
-<input type="submit" value="`gettext "Save"`">
-<a class="button" href='$SCRIPT_NAME?file=$file&action=diff'>
-	<img src="$IMAGES/help.png" />`gettext "Differences"`</a>
-<textarea name="content" rows="30" style="width: 100%;">
-$(cat $file)
- </textarea>
+	<img src="$IMAGES/edit.png" />
+	<input type="submit" value="$(gettext 'Save')">
+		<a class="button" href='$SCRIPT_NAME?file=$file&action=diff'>
+			<img src="$IMAGES/help.png" />$(gettext 'Differences')</a>
+		<textarea name="content" rows="30" style="width: 100%;">
+$(cat $file | htmlize)
+</textarea>
 </form>
 EOT
 #The space before textarea gets muddled when the form is submitted.
@@ -93,10 +100,13 @@ EOT
 			cat <<EOT
 <div id="actions">
 	<a class="button" href='$SCRIPT_NAME?file=$file&action=edit'>
-		<img src="$IMAGES/edit.png" />`gettext "Edit"`</a>
+		<img src="$IMAGES/edit.png" />$(gettext 'Edit')</a>
 EOT
 			file_is_modified $file button
-			echo -e "</div>\n<pre>"
+			cat << EOT
+</div>
+<pre>
+EOT
 			# Handle file type by extension as a Web Server does it.
 			case "$file" in
 				*.conf|*.lst)
@@ -104,10 +114,11 @@ EOT
 				*.sh|*.cgi)
 					syntax_highlighter sh ;;
 				*)
-					cat ;;
+					cat | htmlize ;;
 			esac < $file
 			echo '</pre>'
 		fi ;;
+
 	*\ terminal\ *|*\ cmd\ *)
 		# Cmdline terminal.
 		commands='cat du help ls ping pwd who wget'
@@ -117,7 +128,7 @@ EOT
 		cat << EOT
 <form method="get" action="$SCRIPT_NAME">
 	<div class="box">
-		root@$(hostname):~# <input type="text" name="cmd" style="width: 80%;" />
+		root@$(hostname):~# <input autofocus type="text" name="cmd" style="width: 80%;" />
 	</div>
 </form>
 EOT
@@ -125,70 +136,84 @@ EOT
 	# Allow only a few commands for the moment.
 	case "$cmd" in
 		usage|help)
-			gettext "Small terminal emulator, commands options are supported."
+			gettext 'Small terminal emulator, commands options are supported.'
 			echo ""
-			gettext "Commands:"; echo " $commands" ;;
+			eval_gettext 'Commands: $commands'
+			echo ;;
 		wget*)
 			dl=/var/cache/downloads
 			[ ! -d "$dl" ] && mkdir -p $dl
-			gettext "Downloading to:"; echo " $dl"
+			eval_gettext 'Downloading to: $dl' && echo
 			cd $dl && $cmd ;;
 		du*|ls*|ping*|pwd|who)
 			$cmd ;;
 		cat*)
 			# Cmd must be used with an arg.
 			arg=$(echo $cmd | awk '{print $2}')
-			[ "$arg" == "" ] && echo -n "$cmd " && \
-				gettext "needs an argument $arg" && exit 0
+			[ "$arg" == "" ] && eval_gettext '$cmd needs an argument' && break
 			$cmd ;;
 		*)
 			[ "$cmd" == "" ] || \
-				gettext "Unknown command: $cmd"
-			gettext "Commands:"; echo " $commands" ;;
+				eval_gettext 'Unknown command: $cmd' && echo
+			eval_gettext 'Commands: $commands' ;;
 	esac
 	echo '</pre>' ;;
 	*\ top\ *)
 		TITLE=$(gettext 'TazPanel - Process activity')
 		xhtml_header
-		echo `gettext "Refresh: "` $(GET refresh)
-		echo '<br/>
+		echo $(gettext 'Refresh:') $(GET refresh)
+		cat << EOT
+<br/>
 <form method="get">
 	<input type="hidden" name="top"/>
-	<input type="submit" name="refresh" value="1s"/>
-	<input type="submit" name="refresh" value="5s"/>
-	<input type="submit" name="refresh" value="10s"/>
-	<input type="submit" value="none"/>
-</form>	'
-		[ -n $(GET refresh) ] &&
-		echo '<meta http-equiv="refresh" content="' $(GET refresh) '">' | sed "s/s //"
+	<input type="submit" name="refresh" value="$(gettext '1s')"/>
+	<input type="submit" name="refresh" value="$(gettext '5s')"/>
+	<input type="submit" name="refresh" value="$(gettext '10s')"/>
+	<input type="submit" value="$(gettext 'none')"/>
+</form>
+EOT
+		if [ -n "$(GET refresh)" ]; then
+			echo -n '<meta http-equiv="refresh" content="'
+			echo -n "$(GET refresh)" | sed 's|\([^0-9]*\)\([0-9]\+\).*|\2|'
+			echo '">'
+		fi
 
 		echo '<pre>'
-		top -n1 -b | sed \
+		top -n1 -b | htmlize | sed \
 			-e s"#^[A-Z].*:\([^']\)#<span class='sh-comment'>\0</span>#"g \
 			-e s"#PID.*\([^']\)#<span class='top'>\0</span>#"g
 		echo '</pre>' ;;
+
 	*\ debug\ *)
 		TITLE=$(gettext 'TazPanel - Debug')
 		xhtml_header
-		echo '<h2>HTTP Environment</h2>'
-		echo '<pre>'
-		httpinfo
-		echo '</pre>' ;;
+		cat << EOT
+<h2>$(gettext 'HTTP Environment')</h2>
+
+<pre>$(httpinfo)</pre>
+EOT
+		;;
+
 	*\ report\ *)
 		TITLE=$(gettext 'TazPanel - System report')
 		[ -d /var/cache/slitaz ] || mkdir -p /var/cache/slitaz
 		output=/var/cache/slitaz/sys-report.html
 		xhtml_header
-		echo "<h2>$(gettext "Reporting to:") $output</h2>"
-		echo '<pre>'
-		gettext "Creating report header...  "
+		cat << EOT
+<h2>$(eval_gettext 'Reporting to: $output')</h2>
+<table class="zebra">
+<tbody>
+	<tr><td>$(gettext 'Creating report header...')</td>
+EOT
 		cat > $output << EOT
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>SliTaz system report</title>
+	<meta charset="utf-8" />
+	<title>$(gettext 'SliTaz system report')</title>
 	<style type="text/css">
-		body { padding: 20px 60px; font-size: 13px; } h1, h2 { color: #444; }
+		body { padding: 20px 60px; font-size: 13px; }
+		h1, h2 { color: #444; }
 		pre { background: #f1f1f1; border: 1px solid #ddd;
 			padding: 10px; border-radius: 4px; }
 		span.diff-rm { color: red; }
@@ -197,11 +222,13 @@ EOT
 </head>
 <body>
 EOT
-		ok_status
-		gettext "Creating system summary... "
+		cat << EOT
+	$(ok_status_t)
+	<tr><td>$(gettext 'Creating system summary...')</td>
+EOT
 		cat >> $output << EOT
-<h1>SliTaz system report</h1>
-Date: $(date)
+<h1>$(gettext 'SliTaz system report')</h1>
+$(gettext 'Date:') $(date)
 <pre>
 uptime   : $(uptime)
 cmdline  : $(cat /proc/cmdline)
@@ -210,94 +237,88 @@ packages : $(ls /var/lib/tazpkg/installed | wc -l) installed
 kernel   : $(uname -r)
 </pre>
 EOT
-		ok_status
-		gettext "Getting hardware info...   "
+		cat << EOT
+	$(ok_status_t)
+	<tr><td>$(gettext 'Getting hardware info...')</td>
+EOT
 		cat >> $output << EOT
 <h2>free</h2>
-<pre>
-$(free)
-</pre>
+<pre>$(free)</pre>
 
 <h2>lspci -k</h2>
-<pre>
-$(lspci -k)
-</pre>
+<pre>$(lspci -k)</pre>
 
 <h2>lsusb</h2>
-<pre>
-$(lsusb)
-</pre>
+<pre>$(lsusb)</pre>
 
 <h2>lsmod</h2>
-<pre>
-$(lsmod)
-</pre>
+<pre>$(lsmod)</pre>
 
 EOT
-		ok_status
-		gettext "Getting networking info... "
+		cat << EOT
+	$(ok_status_t)
+	<tr><td>$(gettext 'Getting networking info...')</td>
+EOT
 		cat >> $output << EOT
 <h2>ifconfig -a</h2>
-<pre>
-$(ifconfig -a)
-</pre>
+<pre>$(ifconfig -a)</pre>
+
 <h2>route -n</h2>
-<pre>
-$(route -n)
-</pre>
+<pre>$(route -n)</pre>
+
 <h2>/etc/resolv.conf</h2>
-<pre>
-$(cat /etc/resolv.conf)
-</pre>
+<pre>$(cat /etc/resolv.conf)</pre>
 EOT
-		ok_status
-		gettext "Getting filesystems info..."
+		cat << EOT
+	$(ok_status_t)
+	<tr><td>$(gettext 'Getting filesystems info...')</td>
+EOT
 		cat >> $output << EOT
 <h2>blkid</h2>
-<pre>
-$(blkid)
-</pre>
+<pre>$(blkid)</pre>
+
 <h2>fdisk -l</h2>
-<pre>
-$(fdisk -l)
-</pre>
+<pre>$(fdisk -l)</pre>
+
 <h2>mount</h2>
-<pre>
-$(mount)
-</pre>
+<pre>$(mount)</pre>
+
 <h2>df -h</h2>
-<pre>
-$(df -h)
-</pre>
+<pre>$(df -h)</pre>
+
 <h2>df -i</h2>
-<pre>
-$(df -i)
-</pre>
+<pre>$(df -i)</pre>
 EOT
-		ok_status
-		gettext "Getting boot logs...       "
+		cat << EOT
+	$(ok_status_t)
+	<tr><td>$(gettext 'Getting boot logs...')</td>
+EOT
 		cat >> $output << EOT
-<h2>$(gettext "Kernel messages")</h2>
-<pre>
-$(cat /var/log/dmesg.log)
-</pre>
-<h2>$(gettext "Boot scripts")</h2>
-<pre>
-$(cat /var/log/boot.log | filter_taztools_msgs)
-</pre>
+<h2>$(gettext 'Kernel messages')</h2>
+<pre>$(cat /var/log/dmesg.log)</pre>
+
+<h2>$(gettext 'Boot scripts')</h2>
+<pre>$(cat /var/log/boot.log | filter_taztools_msgs)</pre>
 EOT
-		ok_status
-		gettext "Creating report footer...  "
+		cat << EOT
+	$(ok_status_t)
+	<tr><td>$(gettext 'Creating report footer...')</td>
+EOT
 		cat cat >> $output << EOT
 </body>
 </html>
 EOT
-		ok_status
-		echo '</pre>'
-		echo "<p><a class='button' href='$SCRIPT_NAME?file=$output'>
-			$(gettext "View report")</a>"
-		gettext "This report can be attached with a bug report on: "
-		echo '<a href="http://bugs.slitaz.org/">bugs.slitaz.org</a></p>' ;;
+		cat << EOT
+	$(ok_status_t)
+</tbody>
+</table>
+<p><a class="button" href="$SCRIPT_NAME?file=$output">
+	<img src="/styles/default/images/browser.png" />
+	$(gettext 'View report')</a>
+	$(gettext 'This report can be attached with a bug report on:')
+	<a href="http://bugs.slitaz.org/">bugs.slitaz.org</a></p>
+EOT
+		;;
 	*)
 		#
 		# Default xHTML content
@@ -305,56 +326,81 @@ EOT
 		xhtml_header
 		[ -n "$(GET gen_locale)" ] && new_locale=$(GET gen_locale)
 		[ -n "$(GET rdate)" ] && echo ""
+		hostname=$(hostname)
 		cat << EOT
 <div id="wrapper">
-	<h2>$(gettext "Host:") $(hostname)</h2>
-	<p>$(gettext "SliTaz administration and configuration Panel")<p>
+	<h2>$(eval_gettext 'Host: $hostname')</h2>
+	<p>$(gettext 'SliTaz administration and configuration Panel')<p>
 </div>
 <div id="actions">
 	<a class="button" href="$SCRIPT_NAME?terminal">
-		<img src="$IMAGES/terminal.png" />$(gettext "Terminal")</a>
+		<img src="$IMAGES/terminal.png" />$(gettext 'Terminal')</a>
 	<a class="button" href="$SCRIPT_NAME?top">
-		<img src="$IMAGES/monitor.png" />$(gettext "Process activity")</a>
+		<img src="$IMAGES/monitor.png" />$(gettext 'Process activity')</a>
 	<a class="button" href="$SCRIPT_NAME?report">
-		<img src="$IMAGES/text.png" />$(gettext "Create a report")</a>
+		<img src="$IMAGES/text.png" />$(gettext 'Create a report')</a>
 </div>
 
-<h3>$(gettext "Summary")</h3>
+<h3>$(gettext 'Summary')</h3>
 <div id="summary">
-<pre>
-$(gettext "Uptime       :")$(uptime)
-$(gettext "Memory in Mb :") $(free -m | grep Mem: | awk \
-	'{print "Total:", $2, "Used:", $3, "Free:", $4}')
-$(gettext "Linux kernel :") $(uname -r)
-</pre>
+<table>
+	<tr><td>$(gettext 'Uptime:')</td>
+		<td>$(uptime)</td>
+	</tr>
+	<tr><td>$(gettext 'Memory in Mb:')</td>
+EOT
+		free -m | grep Mem: | awk '{print $2, $3, $4}' | while read memtotal memused memfree
+		do
+			cat << EOT
+		<td>$(eval_gettext 'Total: $memtotal, Used: $memused, Free: $memfree')</td>
+EOT
+		done
+		cat << EOT
+	</tr>
+	<tr><td>$(gettext 'Linux kernel:')</td>
+		<td>$(uname -r)</td>
+	</tr>
+</table>
 <!-- Close summary -->
 </div>
 
-<h4>$(gettext "Network status")</h4>
+<h4>$(gettext 'Network status')</h4>
 $(list_network_interfaces)
 
-<h4>$(gettext "Filesystem usage statistics")</h4>
+<h4>$(gettext 'Filesystem usage statistics')</h4>
 EOT
 		# Disk stats (management is done as hardware.cgi)
-		table_start
+		cat << EOT
+<table class="zebra">
+EOT
 		df_thead
+		echo '<tbody>'
 		df -h | grep ^/dev | while read fs size used av pct mp
 		do
 				cat << EOT
 <tr>
 	<td><a href="hardware.cgi">
 		<img src="$IMAGES/harddisk.png" />${fs#/dev/}</a></td>
+	<td>$(blkid -o value $fs | head -n1)</td>
+	<td>$(blkid -o value $fs | tail -n1)</td>
 	<td>$size</td>
 	<td>$av</td>
-	<td class="pct"><div class="pct"
-		style="width: $pct;">$used - $pct</div></td>
+	<td class="meter"><meter min="0" max="100" value="$(echo $pct | cut -d% -f1)"
+		low="$DU_WARN" high="$DU_CRIT" optimum="10"></meter>
+		<span>$used - $pct</span>
+	</td>
 	<td>$mp</td>
 </tr>
 EOT
 		done
-		table_end
 		cat << EOT
-<h3>$(gettext "Panel Activity")</h3>
+</tbody>
+</table>
+EOT
+
+
+		cat << EOT
+<h3>$(gettext 'Panel Activity')</h3>
 <pre id="panel-activity">
 $(cat $LOG_FILE | tail -n 8 | sort -r | syntax_highlighter activity)
 </pre>

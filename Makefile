@@ -3,7 +3,7 @@
 PREFIX?=/usr
 SYSCONFDIR?=/etc/slitaz
 DESTDIR?=
-LINGUAS?=fr pt_BR
+LINGUAS?=es fr pt_BR ru
 PANEL?=/var/www/tazpanel
 
 VERSION:=$(shell grep ^VERSION tazpanel | cut -d '=' -f 2)
@@ -16,10 +16,9 @@ pot:
 	xgettext -o po/tazpanel.pot -L Shell \
 		--package-name="TazPanel" \
 		--package-version="$(VERSION)" \
-		./tazpanel ./index.cgi ./pkgs.cgi ./live.cgi \
-		./network.cgi ./boot.cgi ./hardware.cgi \
-		./settings.cgi ./lib/libtazpanel ./installer.cgi \
-		./styles/default/header.sh ./styles/default/footer.sh
+		./tazpanel ./index.cgi ./pkgs.cgi ./live.cgi ./network.cgi ./boot.cgi \
+		./hardware.cgi ./settings.cgi ./lib/libtazpanel ./installer.cgi \
+		./help.cgi ./styles/default/header.sh ./styles/default/footer.sh
 
 msgmerge:
 	@for l in $(LINGUAS); do \
@@ -59,3 +58,9 @@ clean:
 	rm -f po/*.mo
 	rm -f po/*.*~
 
+help:
+	@echo "$$ pot          - remake pot"
+	@echo "$$ msgmerge     - update *.po from *.pot"
+	@echo "$$ msgfmt | all - compile *.mo"
+	@echo "# install      - install files to system"
+	@echo "$$ clean        - remove *.mo"

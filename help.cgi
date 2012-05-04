@@ -17,7 +17,7 @@ search_form() {
 	<form method="get" action="$SCRIPT_NAME">
 		<p>
 			<input type="text" name="manual" size="20">
-			<input type="submit" class="radius" value="$(gettext "Manual")">
+			<input type="submit" class="radius" value="$(gettext 'Manual')">
 		</p>
 	</form>
 </div>
@@ -25,7 +25,7 @@ EOT
 }
 
 # Cat translated help content
-TITLE=$(gettext 'TazPanel - Help \&amp; Doc')
+TITLE=$(gettext 'TazPanel - Help &amp; Doc')
 
 xhtml_header
 search_form
@@ -41,10 +41,11 @@ else
 		cat /usr/share/doc/tazpanel/tazpanel.html
 	fi
 
-	echo '<h3>README</h3>'
-	echo '<pre>'
-	cat $PANEL/README
-	echo '</pre>'
+#	cat << EOT
+#<h3>README</h3>
+#<pre>$(cat $PANEL/README)</pre>
+#EOT
+	cat $PANEL/README.html
 
 fi
 

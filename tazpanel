@@ -32,25 +32,26 @@ PIDFILE=/var/run/$NAME.pid
 
 case "$1" in
 	start)
-		gettext "Starting TazPanel web server on port $HTTPD_PORT..."
+		eval_gettext 'Starting TazPanel web server on port $HTTPD_PORT...'
 		httpd -p $HTTPD_PORT -u root -c $HTTPD_CONF \
-			-r "$(gettext "TazPanel Authentication - Default: root:root")" &
+			-r "$(gettext 'TazPanel Authentication - Default: root:root')" &
 		ps | grep "httpd -p $HTTPD_PORT " | grep -v grep | \
 			awk '{ print $1 }' > $PIDFILE
 		status ;;
 	stop)
-		gettext "Stopping TazPanel web server..."
+		gettext 'Stopping TazPanel web server...'
 		kill $(cat $PIDFILE) && status ;;
 	passwd|-p)
 		echo ""
-		gettext "Changing password for TazPanel"
-		gettext "New password: " && read pass
+		gettext 'Changing password for TazPanel'; echo
+		gettext 'New password: ' && read pass
 		sed -i s"/\/:root:.*/\/:root:$pass/" $HTTPD_CONF
-		gettext "Password changed successfully"; echo
+		gettext 'Password changed successfully'; echo
 		echo "" ;;
 	*)
+		program_name="$(basename $0)"
 		echo ""
-		gettext "Usage:" && echo " $(basename $0) [start|stop|passwd]"
+		eval_gettext 'Usage: $program_name [start|stop|passwd]'
 		echo "" ;;
 esac
 

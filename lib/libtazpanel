@@ -22,27 +22,37 @@ get_config() {
 		exit 1
 }
 
+# Display < > &
+htmlize() {
+	sed -e 's|\&|\&amp;|g; s|<|\&lt;|g; s|>|\&gt;|g'
+}
+
 # Syntax highlighting for config file and SHell scripts
-# HTML entities: -e 's|&|\&amp;|g' -e 's|<|\&lt;|g' -e 's|>|\&gt;|g'
 syntax_highlighter() {
 	case $1 in
 		conf)
-			sed -e 's|&|\&amp;|g' -e 's|<|\&lt;|g' -e 's|>|\&gt;|g' \
+			htmlize | sed \
 				-e s"#^\#\([^']*\)#<span class='conf-comment'>\0</span>#"g \
 				-e s"#^[A-Z]\([^']*\)=#<span class='conf-var'>\0</span>#"g \
 				-e s"#^[a-z]\([^']*\)#<span class='conf-var'>\0</span>#"g \
 				-e s"#\"\([^']*\)\"#<span class='conf-val'>\0</span>#"g ;;
 		sh)
-			sed -e 's|&|\&amp;|g' -e 's|<|\&lt;|g' -e 's|>|\&gt;|g' \
+			htmlize | sed \
 				-e s"#^\#\([^']*\)#<span class='sh-comment'>\0</span>#"g \
 				-e s"#\"\([^']*\)\"#<span class='sh-val'>\0</span>#"g ;;
 		diff)
-			sed -e 's|&|\&amp;|g' -e 's|<|\&lt;|g' -e 's|>|\&gt;|g' \
+			htmlize | sed \
 				-e s"#^-\(.*\).#<span class='diff-rm'>\0</span>#"g \
 				-e s"#^+\(.*\).#<span class='diff-add'>\0</span>#"g \
 				-e s"#@@\(.*\)@@#<span class='diff-at'>@@\1@@</span>#"g ;;
 		activity)
-			sed s"#^\([^']*:\)#<span class='activity-log''>\0</span>#"g ;;
+			sed -e s"#^\([^']*:\)#<span class='activity-log'>\0</span>#"g ;;
+		kernel)
+			htmlize | sed \
+				-e "s|\([^0-9]\)\(0x[0-9a-f]\+\)|\1<span class='kernel-hex'>\2</span>|g" \
+				-e "s|^\([^(,\[]\+: \)|<span class='kernel-id'>\0</span>|g" \
+				-e "s|\(\[[^ ]\+\]\)|<span class='kernel-id2'>\0</span>|g" ;;
+
 	esac
 }
 
@@ -70,7 +80,7 @@ interface_status() {
 	if 	ifconfig | grep -A 1 $i | grep -q inet; then
 		ip=`ifconfig | grep -A 1 $i | grep inet | \
 			awk '{ print $2 }' | cut -d ":" -f 2`
-		echo "<td>connected</td><td>$ip</td>"
+		echo "<td>$(gettext 'connected')</td><td>$ip</td>"
 		echo "<td><a href='/network.cgi?scan=$ip'>"
 		echo "<img src='$IMAGES/recharge.png' /></a></td>"
 	else
@@ -80,35 +90,41 @@ interface_status() {
 
 # Catch network interface (used in summary and network main page)
 list_network_interfaces() {
-	table_start
 	cat << EOT
-<tr id="thead">
-	<td>`gettext "Interface"`</td>
-	<td>`gettext "Name"`</td>
-	<td>`gettext "Status"`</td>
-	<td>`gettext "IP Address"`</td>
-	<td>`gettext "Scan ports"`</td>
-</tr>
+<table class="zebra">
+	<thead>
+		<tr>
+			<td>$(gettext 'Interface')</td>
+			<td>$(gettext 'Name')</td>
+			<td>$(gettext 'Status')</td>
+			<td>$(gettext 'IP Address')</td>
+			<td>$(gettext 'Scan ports')</td>
+		</tr>
+	</thead>
+	<tbody>
 EOT
 	for i in `ls /sys/class/net`
 	do
 		case $i in
 			eth*)
-				echo "<tr><td><a href='/network.cgi?eth'>
+				echo "		<tr><td><a href='/network.cgi?eth'>
 					<img src='$IMAGES/ethernet.png' />$i</a></td>
 					<td>Ethernet</td> $(interface_status)</tr>" ;;
 			wlan*|ath*|ra*)
-				echo "<tr><td><a href='/network.cgi?wifi'>
+				echo "		<tr><td><a href='/network.cgi?wifi'>
 					<img src='$IMAGES/wireless.png' />$i</a></td>
 					<td>Wireless</td> $(interface_status)</tr>" ;;
 			lo)
-				echo "<tr><td><img src='$IMAGES/loopback.png' />$i</td>
+				echo "		<tr><td><img src='$IMAGES/loopback.png' />$i</td>
 				<td>Loopback</td> $(interface_status)</tr>" ;;
 			*)
 				continue ;;
 		esac
 	done
-	table_end
+	cat << EOT
+	</tbody>
+</table>
+EOT
 }
 
 # Get the list of panel styles
@@ -184,29 +200,24 @@ xhtml_footer() {
 }
 
 table_start() {
-	cat << EOT
-<table>
-	<tbody>
-EOT
+	echo '<table>'
 }
 
 table_end() {
-	cat << EOT
-	</tbody>
-</table>
-EOT
-
+	echo '</table>'
 }
 
 df_thead() {
 	cat << EOT
 <thead>
 	<tr>
-		<td>$(gettext "Disk")</td>
-		<td>$(gettext "Size")</td>
-		<td>$(gettext "Available")</td>
-		<td>$(gettext "Used")</td>
-		<td>$(gettext "Mount point")</td>
+		<td>$(gettext 'Disk')</td>
+		<td>$(gettext 'Label')</td>
+		<td>$(gettext 'Type')</td>
+		<td>$(gettext 'Size')</td>
+		<td>$(gettext 'Available')</td>
+		<td>$(gettext 'Used')</td>
+		<td>$(gettext 'Mount point')</td>
 	</tr>
 </thead>
 EOT
