@@ -4,7 +4,7 @@
 #
 
 # Get parameters with GET, POST and FILE functions
-. /usr/bin/httpd_helper.sh
+. /usr/lib/slitaz/httpdhelper
 
 # Disk usage warnings in percents
 DU_WARN="70"
