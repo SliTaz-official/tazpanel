@@ -146,6 +146,7 @@ EOT
 </p>
 </form>
 
+<section>
 <h4>$(gettext 'Add a new user')</h4>
 
 <form method="get" action="$SCRIPT_NAME">
@@ -159,14 +160,19 @@ EOT
 			<input type="submit" value="$(gettext 'Create user')" /></td></tr>
 	</table>
 </form>
+</section>
 
+<section>
 <h4>$(gettext 'Current user sessions')</h4>
 
 <pre>$(who)</pre>
+</section>
 
+<section>
 <h4>$(gettext 'Last user sessions')</h4>
 
 <pre>$(last)</pre>
+</section>
 EOT
 		;;
 	*)
@@ -183,6 +189,7 @@ EOT
 		<img src="$IMAGES/users.png" />$(gettext 'Manage users')</a>
 </div>
 
+<section>
 <h3>$(gettext 'System time')</h3>
 
 <table>
@@ -192,11 +199,13 @@ EOT
 </table>
 <a class="button" href="$SCRIPT_NAME?rdate">$(gettext 'Sync online')</a>
 <a class="button" href="$SCRIPT_NAME?hwclock">$(gettext 'Set hardware clock')</a>
+</section>
 EOT
 		#
 		# Locale settings
 		#
 		cat << EOT
+<section>
 <h3 id="locale">$(gettext 'System language')</h3>
 <p>
 EOT
@@ -224,7 +233,9 @@ session to use \$new_locale locale."
 	</select>
 	<input type="submit" value="$(gettext 'Activate')" />
 </form>
+</section>
 
+<section>
 <h3 id="keymap">$(gettext 'Console keymap')</h3>
 <p>
 EOT
@@ -270,7 +281,9 @@ EOT
 	</select>
 	<input type="submit" value="$(gettext 'Activate')" />
 </form>
+</section>
 
+<section>
 <h2>$(gettext 'Panel configuration')</h2>
 
 <form method="get" action="$SCRIPT_NAME">
@@ -300,6 +313,7 @@ EOT
 	$(gettext 'TazPanel provides a debuging mode and page:')
 	<a href="/index.cgi?debug">debug</a>
 </p>
+</section>
 EOT
 	;;
 esac

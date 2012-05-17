@@ -151,7 +151,7 @@ EOT
 select_install()
 {
 	cat <<EOT
-<div class="box">
+<section>
 	<h4>$(gettext 'Install')</h4>
 
 <p>$(gettext "Install SliTaz on a partition of your hard disk drive. If you \
@@ -162,25 +162,27 @@ directory will be kept as is.")</p>
 <p>$(gettext "Before installation, you may need to create or resize partitions \
 on your hard disk drive in order to make space for SliTaz GNU/Linux. You can \
 graphically manage your partitions with Gparted")</p>
-</div>
-<p><a class="button" href="$SCRIPT_NAME?page=partitioning">$(gettext "Install \
+
+<a class="button" href="$SCRIPT_NAME?page=partitioning">$(gettext "Install \
 SliTaz")</a>
+</section>
 EOT
 }
 
 select_upgrade()
 {
 	cat <<EOT
-<div class="box">
+<section>
 	<h4>$(gettext 'Upgrade')</h4>
 
 <p>$(gettext "Upgrade an already installed SliTaz system on your hard disk \
 drive. Your /home /etc /var/www directories will be kept, all other \
 directories will be removed. Any additional packages added to your old Slitaz \
 system will be updated as long you have an active internet connection.")</p>
-</div>
-<p><a class="button" href="$SCRIPT_NAME?page=upgrade">$(gettext "Upgrade \
-SliTaz")</a></p>
+
+<a class="button" href="$SCRIPT_NAME?page=upgrade">$(gettext "Upgrade \
+SliTaz")</a>
+</section>
 EOT
 }
 

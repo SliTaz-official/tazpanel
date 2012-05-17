@@ -144,6 +144,7 @@ a:hover { color: #000; }
 #sidebar h4 { margin: 0 0 2px 12px; }
 #sidebar ul { list-style-type: none; padding: 0; }
 
+
 /* Content */
 
 #content { margin: 20px; }
@@ -220,6 +221,7 @@ a:hover { color: #000; }
 .float-right {
 	float: right;
 }
+
 
 /* Table */
 
@@ -344,9 +346,9 @@ div.scroll table { border: 0px solid #fff; }
 /* Round corner */
 
 #loading, table, pre, input[type=submit], .debug, .box,
-.button, div.scroll, .outbox {
-	/*-moz-border-radius: 4px;
-	-webkit-border-radius: 4px; */
+.button, div.scroll, .outbox, section {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
 	border-radius: 4px;
 }
 
@@ -399,3 +401,17 @@ a.button, input {
 	-ms-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
+
+section {
+	margin: 20pt -0.7em;
+	padding: 0.7em;
+	background-color: #fdfdfd;
+	border: 1px solid #ddd;
+	border-radius: 1em;
+	/*box-shadow: 0 0 3pt 2pt #eee;*/
+}
+section h4 {
+	margin: 0 0 0.5em 0;
+}
+section h3 {
+	margin: 0 0 0.5em 0;

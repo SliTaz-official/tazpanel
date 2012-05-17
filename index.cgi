@@ -41,11 +41,12 @@ EOT
 		break
 	done
 }
+
+
 # OK status in table
 ok_status_t() {
 	echo "	<td>[<span class='diff-add'> OK </span>]</td></tr>"
 }
-
 
 
 #
@@ -119,6 +120,7 @@ EOT
 			echo '</pre>'
 		fi ;;
 
+
 	*\ terminal\ *|*\ cmd\ *)
 		# Cmdline terminal.
 		commands='cat du help ls ping pwd who wget'
@@ -126,6 +128,7 @@ EOT
 		TITLE=$(gettext 'TazPanel - Terminal')
 		xhtml_header
 		cat << EOT
+<section>
 <form method="get" action="$SCRIPT_NAME">
 	<div class="box">
 		root@$(hostname):~# <input autofocus type="text" name="cmd" style="width: 80%;" />
@@ -157,7 +160,10 @@ EOT
 				eval_gettext 'Unknown command: $cmd' && echo
 			eval_gettext 'Commands: $commands' ;;
 	esac
-	echo '</pre>' ;;
+	echo '</pre></section>'
+	;;
+
+
 	*\ top\ *)
 		TITLE=$(gettext 'TazPanel - Process activity')
 		xhtml_header
@@ -184,6 +190,7 @@ EOT
 			-e s"#PID.*\([^']\)#<span class='top'>\0</span>#"g
 		echo '</pre>' ;;
 
+
 	*\ debug\ *)
 		TITLE=$(gettext 'TazPanel - Debug')
 		xhtml_header
@@ -193,6 +200,7 @@ EOT
 <pre>$(httpinfo)</pre>
 EOT
 		;;
+
 
 	*\ report\ *)
 		TITLE=$(gettext 'TazPanel - System report')
@@ -319,6 +327,8 @@ EOT
 	<a href="http://bugs.slitaz.org/">bugs.slitaz.org</a></p>
 EOT
 		;;
+
+
 	*)
 		#
 		# Default xHTML content
@@ -341,6 +351,7 @@ EOT
 		<img src="$IMAGES/text.png" />$(gettext 'Create a report')</a>
 </div>
 
+<section>
 <h3>$(gettext 'Summary')</h3>
 <div id="summary">
 <table>
@@ -363,10 +374,14 @@ EOT
 </table>
 <!-- Close summary -->
 </div>
+</section>
 
+<section>
 <h4>$(gettext 'Network status')</h4>
 $(list_network_interfaces)
+</section>
 
+<section>
 <h4>$(gettext 'Filesystem usage statistics')</h4>
 EOT
 		# Disk stats (management is done as hardware.cgi)
@@ -396,15 +411,14 @@ EOT
 		cat << EOT
 </tbody>
 </table>
-EOT
+</section>
 
-
-		cat << EOT
+<section>
 <h3>$(gettext 'Panel Activity')</h3>
 <pre id="panel-activity">
 $(cat $LOG_FILE | tail -n 8 | sort -r | syntax_highlighter activity)
 </pre>
-
+</section>
 EOT
 		;;
 esac

@@ -147,6 +147,7 @@ EOT
 <p>$(gettext "Here you can configure a wired connection using DHCP to \
 automatically get a random IP or configure a static/fixed IP")</p>
 
+<section>
 <h3>$(gettext 'Configuration')</h3>
 <form method="get" action="$SCRIPT_NAME">
 	<input type="hidden" name="eth" />
@@ -184,7 +185,9 @@ automatically get a random IP or configure a static/fixed IP")</p>
 		<input type="submit" name="dhcp" value="$(gettext 'Activate (DHCP)')">
 		<input type="submit" name="disable" value="$(gettext 'Disable')">
 </form>
+</section>
 
+<section>
 <h3>$(gettext 'Configuration file')</h3>
 
 <p>$(gettext "These values are the ethernet settings in the main \
@@ -194,6 +197,7 @@ $(grep ^[A-V] /etc/network.conf | syntax_highlighter conf)
 </pre>
 <a class="button" href="index.cgi?file=/etc/network.conf&action=edit">
 	<img src="$IMAGES/edit.png" />$(gettext 'Manual Edit')</a>
+</section>
 EOT
 		;;
 	*\ wifi\ *)
@@ -237,6 +241,7 @@ EOT
 			WIFI_KEY_TYPE="$(GET keytype)"
 		fi
 	cat << EOT
+<section>
 <h3>$(gettext 'Connection')</h3>
 <form method="get" action="$SCRIPT_NAME">
 	<input type="hidden" name="connect-wifi" />
@@ -262,7 +267,9 @@ EOT
 	$(table_end)
 		<input type="submit" name="wifi" value="$(gettext 'Configure')" />
 </form>
+</section>
 
+<section>
 <h3>$(gettext 'Configuration file')</h3>
 
 <p>$(gettext "These values are the wifi settings in the main /etc/network.conf \
@@ -272,10 +279,13 @@ configuration file")</p>
 
 <a class="button" href="index.cgi?file=/etc/network.conf&action=edit">
 	<img src="$IMAGES/edit.png" />$(gettext 'Manual Edit')</a>
+</section>
 
+<section>
 <h3>$(gettext 'Output of iwconfig')</h3>
 
 <pre>$(iwconfig)</pre>
+</section>
 EOT
 		;;
 	*)
@@ -287,6 +297,7 @@ EOT
 
 <p>$(gettext 'Manage network connections and services')</p>
 
+<section>
 <div id="actions">
 	<div class="float-left">
 		<a class="button" href="$SCRIPT_NAME?start">
@@ -305,44 +316,58 @@ EOT
 </div>
 
 $(list_network_interfaces)
+</section>
 
+<section>
 <h3 id="hosts">$(gettext 'Hosts')</h3>
 
 <pre>$(cat /etc/hosts)</pre>
 
 <a class="button" href="index.cgi?file=/etc/hosts&action=edit">
 	<img src="$IMAGES/edit.png" />$(gettext 'Edit hosts')</a>
+</section>
 
+<section>
 <h3>$(gettext 'Hostname')</h3>
 
 <form method="get" name="$SCRIPT_NAME">
 	<input type="text" name="hostname" value="$hostname" />
 	<input type="submit" value="$(gettext 'Change hostname')" />
 </form>
+</section>
 
-
+<section>
 <h3 id="ifconfig">$(gettext 'Output of ifconfig')</h3>
 
 <pre>$(ifconfig)</pre>
+</section>
 
+<section>
 <h3 id="routing">$(gettext 'Routing table')</h3>
 
 <pre>$(route -n)</pre>
+</section>
 
+<section>
 <h3 id="dns">$(gettext 'Domain name resolution')</h3>
 
 <pre>$(cat /etc/resolv.conf)</pre>
+</section>
 
+<section>
 <h3 id="arp">$(gettext 'ARP table')</h3>
 
 <pre>$(arp)</pre>
+</section>
 
+<section>
 <h3 id="connections">$(gettext 'IP Connections')</h3>
 
 <pre>
 $(netstat -anp 2> /dev/null | sed -e '/UNIX domain sockets/,$d' \
 -e 's#\([0-9]*\)/#<a href="boot.cgi?daemons=pid=\1">\1</a>/#')
 </pre>
+</section>
 EOT
 		;;
 esac
