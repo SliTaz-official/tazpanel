@@ -175,6 +175,72 @@ EOT
 </section>
 EOT
 		;;
+
+
+	*\ locale*)
+		#
+		# Choose locale
+		#
+		LOADING_MSG="$(gettext 'Please wait...')"
+		loading_msg
+		cur_loc=$(locale | grep LANG | cut -d= -f2)
+		cat <<EOT
+<h3 id="locale">$(gettext 'Choose locale')</h3>
+
+<p>$(gettext 'Current locale settings:')</p>
+<pre>$(locale)</pre>
+
+<p>$(gettext 'Locales that are currently installed on the machine:')</p>
+<pre>$(locale -a)</pre>
+
+<p>$(gettext 'Available locales:')</p>
+
+<form method="get" action="$SCRIPT_NAME">
+	<div class="outbox">
+	<table class="zebra fixed">
+	<thead>
+		<tr><td style="width:9em">$(gettext 'Code')</td>
+			<td style="width:10em">$(gettext 'Language')</td>
+			<td style="width:10em">$(gettext 'Territory')</td>
+			<td>$(gettext 'Description')</td>
+		</tr>
+	</thead>
+	</table>
+
+	<div style="max-height: 16em; overflow:auto">
+	<table class="zebra fixed">
+		<col style="width:9em">
+		<col style="width:10em">
+		<col style="width:10em">
+		<col>
+	<tbody style="max-height:10em; overflow:auto">
+EOT
+	for locale in $(find /usr/share/i18n/locales -type f | sort)
+	do
+		locale_name=$(basename $locale)
+		locale_title=$(grep -m 1 -e '^	*title' $locale | cut -d'"' -f2)
+		if [ -n "$locale_title" ]; then
+			sel=""; [ "$locale_name" == "$cur_loc" ] && sel="checked"
+			cat << EOT
+		<tr><td><input type="radio" name="gen_locale" value="$locale_name" $sel />$locale_name</td>
+			<td>$(gettext -d iso_639 "$(grep -m 1 -e '^	*language' $locale | cut -d '"' -f2)")</td>
+			<td>$(gettext -d iso_3166 "$(grep -m 1 -e '^	*territory' $locale | cut -d '"' -f2)")</td>
+			<td>$locale_title</td>
+		</tr>
+EOT
+		fi
+	done
+	cat << EOT
+	</tbody>
+	</table>
+	</div>
+	</div>
+	<p><input type="submit" value="$(gettext 'Activate')" /></p>
+</form>
+EOT
+		;;
+
+
 	*)
 		#
 		# Defaut system settings page
@@ -193,7 +259,8 @@ EOT
 <h3>$(gettext 'System time')</h3>
 
 <table>
-	<tr><td>$(gettext 'Time zome:')</td><td>$(cat /etc/TZ)</td></tr>
+	<tr><td>$(gettext 'Time zome:')</td><td>$(cat /etc/TZ)
+		<a class="button" href="$SCRIPT_NAME">$(gettext 'Change')</a></td></tr>
 	<tr><td>$(gettext 'System time:')</td><td>$(date)</td></tr>
 	<tr><td>$(gettext 'Hardware clock:')</td><td>$(hwclock -r)</tr>
 </table>
@@ -220,19 +287,11 @@ EOT
 			eval_gettext "You must logout and login again to your current \
 session to use \$new_locale locale."
 		else
-			gettext 'Current system locales:'
-			locale -a
+			gettext 'Current system locale:'; echo -n " <strong>"
+			locale | grep LANG | cut -d= -f2
 		fi
 		cat << EOT
-</p>
-<form method="get" action="$SCRIPT_NAME">
-	$(gettext 'Available locales:')
-	<select name="gen_locale">
-		<option value="en_US">en__US</options>
-		$(list_locales)
-	</select>
-	<input type="submit" value="$(gettext 'Activate')" />
-</form>
+</strong> <a class="button" href="$SCRIPT_NAME?locale">$(gettext 'Change')</a></p>
 </section>
 
 <section>
