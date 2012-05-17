@@ -201,7 +201,7 @@ EOT
 		xhtml_header
 		cat << EOT
 <h2>$(eval_gettext 'Reporting to: $output')</h2>
-<table class="zebra">
+<table class="zebra outbox">
 <tbody>
 	<tr><td>$(gettext 'Creating report header...')</td>
 EOT
@@ -371,7 +371,7 @@ $(list_network_interfaces)
 EOT
 		# Disk stats (management is done as hardware.cgi)
 		cat << EOT
-<table class="zebra">
+<table class="zebra outbox">
 EOT
 		df_thead
 		echo '<tbody>'

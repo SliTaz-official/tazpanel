@@ -17,7 +17,7 @@ TITLE=$(gettext 'TazPanel - Network')
 detect_wifi_networks()
 {
 	cat << EOT
-<table class="zebra">
+<table class="zebra outbox">
 	<thead>
 		<tr>
 			<td>$(gettext 'Name')</td>

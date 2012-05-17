@@ -1,13 +1,12 @@
 /*
- * 	CSS style for TazPanel - (C) 2011 SliTaz GNU/Linux
- * 
+ * CSS style for TazPanel - (C) 2011-12 SliTaz GNU/Linux
 */
 
 /* To always have a scroll bar */
 html {
 	min-height:  102%;
-} 
- 
+}
+
 body {
 	background: #ffffff;
 	color: black;
@@ -72,7 +71,7 @@ a:hover { color: #000; }
 	border-top-left-radius: 3px;
 }
 #menu li ul {
-	display: none; 
+	display: none;
 	min-width: 180px;
 	background-color: #f1efeb;
 	border: 1px solid #c1baad;
@@ -99,19 +98,6 @@ a:hover { color: #000; }
 	color: #ffffff;
 	border-radius: 2px;
 	/* border: 1px solid #c1baad; */
-}
-/* addings
- * 
- */
-#menu > ul {
-	visibility: hidden;
-	opacity: 0;
-	transition: visibility 0s linear 0.5s, opacity 0.5s linear;
-}
-#menu:hover > ul {
-	visibility: visible;
-	opacity: 1;
-	transition-delay: 0s;
 }
 
 
@@ -266,8 +252,7 @@ td.pct, div.pct { border-radius: 2px; }
 table.zebra {
 	border: none;
 	border-collapse: collapse;
-	margin: 16px 0;
-	box-shadow: 0 0 0 2px #fff, 0 0 0 3px #ccc;
+	margin: 0;
 }
 table.zebra tr:nth-child(even) {
 	background-color: rgba(0,0,0,0.05);
@@ -281,7 +266,12 @@ table.zebra thead tr td {
 table.zebra td + td {
 	border-left: 1px solid #ddd;
 }
-
+.outbox {
+	box-shadow: 0 0 0 2px #fff, 0 0 0 3px #ccc;
+}
+.fixed {
+	table-layout: fixed;
+}
 
 /*
  * syntax_highlighter
@@ -306,10 +296,10 @@ span.msg-nok { color: tomato; }
 
 /* Misc */
 
-pre, .pre-main { 
+pre, .pre-main {
 	font: 13px "DejaVu Sans Mono", "Droid Sans Mono", "Liberation Mono", FreeMono, monospace;
-	background-color: #f8f8f8; 
-	border: 1px solid #ddd; 
+	background-color: #f8f8f8;
+	border: 1px solid #ddd;
 	padding: 10px;
 	margin: 10px 0;
 	overflow: auto;
@@ -354,7 +344,7 @@ div.scroll table { border: 0px solid #fff; }
 /* Round corner */
 
 #loading, table, pre, input[type=submit], .debug, .box,
-.button, div.scroll {
+.button, div.scroll, .outbox {
 	/*-moz-border-radius: 4px;
 	-webkit-border-radius: 4px; */
 	border-radius: 4px;

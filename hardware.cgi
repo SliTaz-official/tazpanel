@@ -210,7 +210,7 @@ EOT
 		# Disk stats and management (mount, umount, check)
 		#
 		cat << EOT
-<table class="zebra">
+<table class="zebra outbox">
 EOT
 		df_thead
 		echo '<tbody>'

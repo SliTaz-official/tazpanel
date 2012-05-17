@@ -95,7 +95,7 @@ interface_status() {
 # Catch network interface (used in summary and network main page)
 list_network_interfaces() {
 	cat << EOT
-<table class="zebra">
+<table class="zebra outbox">
 	<thead>
 		<tr>
 			<td>$(gettext 'Interface')</td>

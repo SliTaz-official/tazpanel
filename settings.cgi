@@ -96,7 +96,7 @@ case " $(GET) " in
 	</div>
 </div>
 
-<table class="zebra">
+<table class="zebra outbox">
 <thead>
 <tr class="thead">
 	<td>$(gettext 'Login')</td>

@@ -46,7 +46,7 @@ EOT
 # Display a full summary of packages stats
 packages_summary() {
 	cat << EOT
-<table class="zebra">
+<table class="zebra outbox">
 <tbody>
 <tr><td>$(gettext 'Last recharge:')</td>
 EOT
@@ -234,7 +234,7 @@ case " $(GET) " in
 </div>
 EOT
 		cat << EOT
-<table class="zebra">
+<table class="zebra outbox">
 $(table_head)
 <tbody>
 EOT
@@ -293,7 +293,7 @@ EOT
 </div>
 EOT
 		cat << EOT
-<table class="zebra">
+<table class="zebra outbox">
 $(table_head)
 <tbody>
 EOT
@@ -367,7 +367,7 @@ EOT
 EOT
 			fi
 			cat << EOT
-<table class="zebra">
+<table class="zebra outbox">
 $(table_head)
 <tbody>
 EOT
@@ -414,7 +414,7 @@ EOT
 </div>
 	<input type="hidden" name="repo" value="$repo" />
 
-	<table class="zebra">
+	<table class="zebra outbox">
 EOT
 		if [ "$(GET files)" ]; then
 			cat <<EOT
@@ -523,7 +523,7 @@ EOT
 EOT
 		tazpkg up --check >/dev/null
 		cat << EOT
-<table class="zebra">
+<table class="zebra outbox">
 $(table_head)
 <tbody>
 EOT
@@ -660,7 +660,7 @@ EOT
 		</p>
 	</div>
 </div>
-<table class="zebra">
+<table class="zebra outbox">
 <tbody>
 	<tr><td>$(gettext 'Name:')</td><td>$PACKAGE</td></tr>
 	<tr><td>$(gettext 'Version:')</td><td>$VERSION</td></tr>
