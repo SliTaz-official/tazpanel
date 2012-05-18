@@ -435,8 +435,8 @@ cat << EOT
 	<h5 id="hostname">$(gettext 'Hostname')</h5>
 
 	$(gettext 'Set Hostname to:')
-	<input type="text" id="hostname" name="TGT_HOSTNAME" value="$TGT_HOSTNAME" placeholder="$(gettext 'Name of your system')" onkeyup="checkLogin('hostname','msgHostname'); return false;" />
-	<span id="msgHostname"></span>
+	<input type="text" id="hst" name="TGT_HOSTNAME" value="$TGT_HOSTNAME" placeholder="$(gettext 'Name of your system')" onkeyup="checkLogin('hst','msgHst'); return false;" />
+	<span id="msgHst"></span>
 </div>
 EOT
 }
@@ -444,7 +444,7 @@ EOT
 select_root()
 {
 cat << EOT
-<div class="box2">
+<div>
 	<h5 id="root">$(gettext 'Root')</h5>
 
 	$(gettext 'Root passwd:')
@@ -461,12 +461,12 @@ EOT
 select_user()
 {
 cat << EOT
-<div class="box2">
+<div>
 	<h5 id="user">$(gettext 'User')</h5>
 
 	$(gettext 'User login:')
-	<input type="text" id="user" name="TGT_USER" value="$TGT_USER" placeholder="$(gettext 'Name of the first user')" onkeyup="checkLogin('user','msgUser'); return false;" />
-	<span id="msgUser"></span>
+	<input type="text" id="usr" name="TGT_USER" value="$TGT_USER" placeholder="$(gettext 'Name of the first user')" onkeyup="checkLogin('usr','msgUsr'); return false;" />
+	<span id="msgUsr"></span>
 	<br /><br />
 
 	$(gettext 'User passwd:')
@@ -620,7 +620,7 @@ form_start()
 	function Validate(page) {
 		if (page == "install") {
 			// hostname
-			if (false == checkLogin('hostname','msgHostname')) {
+			if (false == checkLogin('hst','msgHst')) {
 				alert("$(gettext 'Hostname error')");
 				return false;
 			// root pwd
@@ -628,7 +628,7 @@ form_start()
 				alert("$(gettext 'Root password error')");
 				return false;
 			// user
-			} else if (false == checkLogin('user','msgUser')) {
+			} else if (false == checkLogin('usr','msgUsr')) {
 				alert("$(gettext 'User login error')");
 				return false;
 			// user pwd
