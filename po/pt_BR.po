@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-17 15:06+0300\n"
+"POT-Creation-Date: 2012-06-08 03:15+0000\n"
 "PO-Revision-Date: 2011-04-21 21:00+0000\n"
 "Last-Translator: Claudinei Pereira <claudinei@slitaz.org>, 2011\n"
 "Language-Team: Portuguese <i18n@slitaz.org>\n"
@@ -207,7 +207,7 @@ msgstr "Atividade de processos"
 msgid "Create a report"
 msgstr "Criar relatório"
 
-#: index.cgi:355 pkgs.cgi:948
+#: index.cgi:355 pkgs.cgi:950
 msgid "Summary"
 msgstr "Sumário"
 
@@ -274,7 +274,7 @@ msgstr "Pacotes no mirror   : "
 msgid "Upgradeable packages:"
 msgstr "Pacotes atualizáveis: "
 
-#: pkgs.cgi:70 pkgs.cgi:707
+#: pkgs.cgi:70 pkgs.cgi:709
 msgid "Installed files:"
 msgstr "Pacotes instalados:"
 
@@ -300,7 +300,7 @@ msgstr "Buscar"
 msgid "Files"
 msgstr "Arquivos"
 
-#: pkgs.cgi:134 pkgs.cgi:867 network.cgi:23 network.cgi:157 network.cgi:251
+#: pkgs.cgi:134 pkgs.cgi:869 network.cgi:23 network.cgi:157 network.cgi:251
 #: boot.cgi:82 settings.cgi:104 lib/libtazpanel:102
 msgid "Name"
 msgstr "Nome"
@@ -403,7 +403,7 @@ msgid "Listing packages..."
 msgstr "Obtendo informação de pacote..."
 
 #: pkgs.cgi:220 pkgs.cgi:358 pkgs.cgi:412 pkgs.cgi:479 pkgs.cgi:520
-#: pkgs.cgi:580 pkgs.cgi:659 pkgs.cgi:952 styles/default/header.html:37
+#: pkgs.cgi:580 pkgs.cgi:661 pkgs.cgi:954 styles/default/header.html:37
 msgid "My packages"
 msgstr "Meus pacotes"
 
@@ -412,17 +412,17 @@ msgstr "Meus pacotes"
 msgid "Selection:"
 msgstr "Seleção:"
 
-#: pkgs.cgi:226 pkgs.cgi:607
+#: pkgs.cgi:226 pkgs.cgi:609
 msgid "Remove"
 msgstr "Remover"
 
 #: pkgs.cgi:230 pkgs.cgi:289 pkgs.cgi:354 pkgs.cgi:408 pkgs.cgi:518
-#: pkgs.cgi:962 styles/default/header.html:39
+#: pkgs.cgi:964 styles/default/header.html:39
 msgid "Recharge list"
 msgstr "Recarregar lista"
 
 #: pkgs.cgi:232 pkgs.cgi:291 pkgs.cgi:356 pkgs.cgi:410 pkgs.cgi:477
-#: pkgs.cgi:964
+#: pkgs.cgi:966
 msgid "Check upgrades"
 msgstr "Checar atualizações"
 
@@ -431,7 +431,7 @@ msgstr "Checar atualizações"
 msgid "Listing linkable packages..."
 msgstr "Obtendo informação de pacote..."
 
-#: pkgs.cgi:278 pkgs.cgi:958
+#: pkgs.cgi:278 pkgs.cgi:960
 msgid "Linkable packages"
 msgstr "Pacotes ligáveis"
 
@@ -444,7 +444,7 @@ msgstr ""
 msgid "Category: $category"
 msgstr "Categoria: $category"
 
-#: pkgs.cgi:366 pkgs.cgi:838
+#: pkgs.cgi:366 pkgs.cgi:840
 #, sh-format
 msgid "Repository: $Repo_Name"
 msgstr ""
@@ -509,168 +509,168 @@ msgstr "Executando tarefas nos pacotes"
 msgid "Executing $cmd for: $pkgs"
 msgstr ""
 
-#: pkgs.cgi:610
+#: pkgs.cgi:612
 msgid "Getting package info..."
 msgstr "Obtendo informação de pacote..."
 
-#: pkgs.cgi:622 installer.cgi:155 styles/default/header.html:88
+#: pkgs.cgi:624 installer.cgi:155 styles/default/header.html:88
 msgid "Install"
 msgstr "Instalar"
 
-#: pkgs.cgi:626
+#: pkgs.cgi:628
 #, fuzzy, sh-format
 msgid "Package $PACKAGE"
 msgstr "Pacote"
 
-#: pkgs.cgi:634
+#: pkgs.cgi:636
 msgid "Install (Non Free)"
 msgstr ""
 
-#: pkgs.cgi:642
+#: pkgs.cgi:644
 msgid "Unblock"
 msgstr "Desbloquear"
 
-#: pkgs.cgi:646
+#: pkgs.cgi:648
 msgid "Block"
 msgstr "Bloquear"
 
-#: pkgs.cgi:650
+#: pkgs.cgi:652
 msgid "Repack"
 msgstr ""
 
-#: pkgs.cgi:665
+#: pkgs.cgi:667
 #, fuzzy
 msgid "Name:"
 msgstr "Nome"
 
-#: pkgs.cgi:666
+#: pkgs.cgi:668
 #, fuzzy
 msgid "Version:"
 msgstr "Versão"
 
-#: pkgs.cgi:667
+#: pkgs.cgi:669
 #, fuzzy
 msgid "Description:"
 msgstr "Descrição"
 
-#: pkgs.cgi:668
+#: pkgs.cgi:670
 #, fuzzy
 msgid "Category:"
 msgstr "Categoria: $category"
 
-#: pkgs.cgi:672
+#: pkgs.cgi:674
 msgid "Maintainer:"
 msgstr ""
 
-#: pkgs.cgi:673 pkgs.cgi:702
+#: pkgs.cgi:675 pkgs.cgi:704
 msgid "Website:"
 msgstr ""
 
-#: pkgs.cgi:674 pkgs.cgi:703
+#: pkgs.cgi:676 pkgs.cgi:705
 #, fuzzy
 msgid "Sizes:"
 msgstr "Tamanho"
 
-#: pkgs.cgi:677
+#: pkgs.cgi:679
 msgid "Depends:"
 msgstr ""
 
-#: pkgs.cgi:684
+#: pkgs.cgi:686
 msgid "Suggested:"
 msgstr ""
 
-#: pkgs.cgi:690
+#: pkgs.cgi:692
 msgid "Tags:"
 msgstr ""
 
-#: pkgs.cgi:696
+#: pkgs.cgi:698
 #, fuzzy, sh-format
 msgid "Installed files: $I_FILES"
 msgstr "Pacotes instalados:"
 
-#: pkgs.cgi:755 pkgs.cgi:884
+#: pkgs.cgi:757 pkgs.cgi:886
 msgid "Set link"
 msgstr "Configurar ligação"
 
-#: pkgs.cgi:758 pkgs.cgi:885
+#: pkgs.cgi:760 pkgs.cgi:887
 msgid "Remove link"
 msgstr "Remover ligação"
 
-#: pkgs.cgi:764 pkgs.cgi:966 styles/default/header.html:43
+#: pkgs.cgi:766 pkgs.cgi:968 styles/default/header.html:43
 msgid "Administration"
 msgstr "Administração"
 
-#: pkgs.cgi:766
+#: pkgs.cgi:768
 msgid "Tazpkg administration and settings"
 msgstr "Administração e configuração do Tazpkg"
 
-#: pkgs.cgi:770
+#: pkgs.cgi:772
 msgid "Save configuration"
 msgstr "Salvar configuração"
 
-#: pkgs.cgi:772
+#: pkgs.cgi:774
 msgid "List configuration files"
 msgstr "Listar arquivos de configuração"
 
-#: pkgs.cgi:774
+#: pkgs.cgi:776
 msgid "Quick check"
 msgstr "Checagem rápida"
 
-#: pkgs.cgi:776
+#: pkgs.cgi:778
 msgid "Full check"
 msgstr "Checagem completa"
 
-#: pkgs.cgi:781
+#: pkgs.cgi:783
 msgid "Creating the package..."
 msgstr "Criando o pacote..."
 
-#: pkgs.cgi:786
+#: pkgs.cgi:788
 #, fuzzy
 msgid "Path:"
 msgstr "Caminho : "
 
-#: pkgs.cgi:789 boot.cgi:256
+#: pkgs.cgi:791 boot.cgi:256
 msgid "Configuration files"
 msgstr "Arquivos de configuração"
 
-#: pkgs.cgi:802
+#: pkgs.cgi:804
 msgid "Checking packages consistency..."
 msgstr "Checando consistência dos pacotes..."
 
-#: pkgs.cgi:808
+#: pkgs.cgi:810
 msgid "Full packages check..."
 msgstr "Checagem completa de pacotes..."
 
-#: pkgs.cgi:815
+#: pkgs.cgi:817
 msgid "Packages cache"
 msgstr "Cache de pacotes"
 
-#: pkgs.cgi:820
+#: pkgs.cgi:822
 #, fuzzy, sh-format
 msgid "Packages in the cache: $cache_files ($cache_size)"
 msgstr "Pacotes no cache:"
 
-#: pkgs.cgi:827
+#: pkgs.cgi:829
 msgid "Default mirror"
 msgstr ""
 
-#: pkgs.cgi:831
+#: pkgs.cgi:833
 msgid "Current mirror list"
 msgstr "Lista de mirror atual"
 
-#: pkgs.cgi:855
+#: pkgs.cgi:857
 msgid "Private repositories"
 msgstr "Repositórios privados"
 
-#: pkgs.cgi:868
+#: pkgs.cgi:870
 msgid "mirror"
 msgstr ""
 
-#: pkgs.cgi:874
+#: pkgs.cgi:876
 msgid "Link to another SliTaz installation"
 msgstr "Ligação para outra instalação do SliTaz"
 
-#: pkgs.cgi:876
+#: pkgs.cgi:878
 msgid ""
 "This link points to the root of another SliTaz installation. You will be "
 "able to install packages using soft links to it."
@@ -678,11 +678,11 @@ msgstr ""
 "Esta ligação aponta para a raiz de uma outra instalação do SliTaz. Você será "
 "capaz de instalar pacotes utilizando links para ela."
 
-#: pkgs.cgi:892
+#: pkgs.cgi:894
 msgid "SliTaz packages DVD"
 msgstr "DVD de pacotes do SliTaz"
 
-#: pkgs.cgi:894
+#: pkgs.cgi:896
 #, sh-format
 msgid ""
 "A bootable DVD image of all available packages for the $version version is "
@@ -691,20 +691,20 @@ msgid ""
 "USB key."
 msgstr ""
 
-#: pkgs.cgi:904
+#: pkgs.cgi:906
 msgid "Download DVD image"
 msgstr "Baixar imagem de DVD"
 
-#: pkgs.cgi:906
+#: pkgs.cgi:908
 msgid "Install from DVD/USB key"
 msgstr "Instalar do DVD/Mídia USB"
 
-#: pkgs.cgi:909
+#: pkgs.cgi:911
 #, fuzzy
 msgid "Install from ISO image:"
 msgstr "Instalar de imagem ISO: "
 
-#: pkgs.cgi:972
+#: pkgs.cgi:974
 msgid "Latest log entries"
 msgstr "Últimas entradas de log"
 
@@ -1445,6 +1445,10 @@ msgstr "Linguagem do sistema"
 
 #: settings.cgi:204
 msgid "Territory"
+msgstr ""
+
+#: settings.cgi:226 settings.cgi:227
+msgid "-d"
 msgstr ""
 
 #: settings.cgi:238 settings.cgi:341 settings.cgi:354

@@ -3,7 +3,7 @@
 PREFIX?=/usr
 SYSCONFDIR?=/etc/slitaz
 DESTDIR?=
-LINGUAS?=es fr pt_BR ru
+LINGUAS?=el es fr pt_BR ru
 PANEL?=/var/www/tazpanel
 
 VERSION:=$(shell grep ^VERSION tazpanel | cut -d '=' -f 2)
@@ -59,8 +59,4 @@ clean:
 	rm -f po/*.*~
 
 help:
-	@echo "$$ pot          - remake pot"
-	@echo "$$ msgmerge     - update *.po from *.pot"
-	@echo "$$ msgfmt | all - compile *.mo"
-	@echo "# install      - install files to system"
-	@echo "$$ clean        - remove *.mo"
+	@echo "make [ pot | msgmerge | msgfmt|all | install | clean ]"
