@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-08 03:15+0000\n"
-"PO-Revision-Date: 2012-06-07 16:19+0200\n"
+"POT-Creation-Date: 2012-06-11 07:03+0000\n"
+"PO-Revision-Date: 2012-06-10 17:15+0200\n"
 "Last-Translator: Douros Dimitris <dourosdimitris@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -207,7 +207,7 @@ msgstr "Δραστηριότητα διεργασιών"
 msgid "Create a report"
 msgstr "Δημιουργία μιας αναφοράς"
 
-#: index.cgi:355 pkgs.cgi:950
+#: index.cgi:355 pkgs.cgi:948
 msgid "Summary"
 msgstr "Σύνοψη"
 
@@ -268,7 +268,7 @@ msgstr "Καθρεπτιζόμενα πακέτα:"
 msgid "Upgradeable packages:"
 msgstr "Αναβαθμίσιμα πακέτα:"
 
-#: pkgs.cgi:70 pkgs.cgi:709
+#: pkgs.cgi:70 pkgs.cgi:707
 msgid "Installed files:"
 msgstr "Εγκατεστημένα αρχεία:"
 
@@ -292,7 +292,7 @@ msgstr "Αναζήτηση"
 msgid "Files"
 msgstr "Αρχεία"
 
-#: pkgs.cgi:134 pkgs.cgi:869 network.cgi:23 network.cgi:157 network.cgi:251
+#: pkgs.cgi:134 pkgs.cgi:867 network.cgi:23 network.cgi:157 network.cgi:251
 #: boot.cgi:82 settings.cgi:104 lib/libtazpanel:102
 msgid "Name"
 msgstr "Όνομα"
@@ -390,7 +390,7 @@ msgid "Listing packages..."
 msgstr "Καταγραφή πακέτων..."
 
 #: pkgs.cgi:220 pkgs.cgi:358 pkgs.cgi:412 pkgs.cgi:479 pkgs.cgi:520
-#: pkgs.cgi:580 pkgs.cgi:661 pkgs.cgi:954 styles/default/header.html:37
+#: pkgs.cgi:580 pkgs.cgi:659 pkgs.cgi:952 styles/default/header.html:37
 msgid "My packages"
 msgstr "Τα πακέτα μου"
 
@@ -399,17 +399,17 @@ msgstr "Τα πακέτα μου"
 msgid "Selection:"
 msgstr "Επιλογή:"
 
-#: pkgs.cgi:226 pkgs.cgi:609
+#: pkgs.cgi:226 pkgs.cgi:607
 msgid "Remove"
 msgstr "Απομάκρυνση"
 
 #: pkgs.cgi:230 pkgs.cgi:289 pkgs.cgi:354 pkgs.cgi:408 pkgs.cgi:518
-#: pkgs.cgi:964 styles/default/header.html:39
+#: pkgs.cgi:962 styles/default/header.html:39
 msgid "Recharge list"
-msgstr "Λίστα ανανέωσης"
+msgstr "Ανανέωση λίστας"
 
 #: pkgs.cgi:232 pkgs.cgi:291 pkgs.cgi:356 pkgs.cgi:410 pkgs.cgi:477
-#: pkgs.cgi:966
+#: pkgs.cgi:964
 msgid "Check upgrades"
 msgstr "Έλεγχος αναβαθμίσεων"
 
@@ -417,7 +417,7 @@ msgstr "Έλεγχος αναβαθμίσεων"
 msgid "Listing linkable packages..."
 msgstr "Καταγραφή πακέτων με δυνατότητα διασυνδέσης (linkable)..."
 
-#: pkgs.cgi:278 pkgs.cgi:960
+#: pkgs.cgi:278 pkgs.cgi:958
 msgid "Linkable packages"
 msgstr "Πακέτα με δυνατότητα διασυνδέσης (linkable)"
 
@@ -430,7 +430,7 @@ msgstr "Σύνδεσμος"
 msgid "Category: $category"
 msgstr "Κατηγορία: $category"
 
-#: pkgs.cgi:366 pkgs.cgi:840
+#: pkgs.cgi:366 pkgs.cgi:838
 #, sh-format
 msgid "Repository: $Repo_Name"
 msgstr "Αποθετήριο: $Repo_Name"
@@ -494,162 +494,162 @@ msgstr "Εκτέλεση εργασιών στα πακέτα"
 msgid "Executing $cmd for: $pkgs"
 msgstr "Εκτέλεση $cmd για: $pkgs"
 
-#: pkgs.cgi:612
+#: pkgs.cgi:610
 msgid "Getting package info..."
 msgstr "Συγκέντρωση πληροφοριών πακέτων..."
 
-#: pkgs.cgi:624 installer.cgi:155 styles/default/header.html:88
+#: pkgs.cgi:622 installer.cgi:155 styles/default/header.html:88
 msgid "Install"
 msgstr "Εγκατάσταση"
 
-#: pkgs.cgi:628
+#: pkgs.cgi:626
 #, sh-format
 msgid "Package $PACKAGE"
 msgstr "Πακέτο $PACKAGE"
 
-#: pkgs.cgi:636
+#: pkgs.cgi:634
 msgid "Install (Non Free)"
 msgstr "Εγκατάσταση (Μη ελεύθερο)"
 
-#: pkgs.cgi:644
+#: pkgs.cgi:642
 msgid "Unblock"
 msgstr "Ξεμπλοκάρισμα"
 
-#: pkgs.cgi:648
+#: pkgs.cgi:646
 msgid "Block"
 msgstr "Μπλοκάρισμα"
 
-#: pkgs.cgi:652
+#: pkgs.cgi:650
 msgid "Repack"
 msgstr "Επανασυσκευασία"
 
-#: pkgs.cgi:667
+#: pkgs.cgi:665
 msgid "Name:"
 msgstr "Όνομα:"
 
-#: pkgs.cgi:668
+#: pkgs.cgi:666
 msgid "Version:"
 msgstr "Έκδοση:"
 
-#: pkgs.cgi:669
+#: pkgs.cgi:667
 msgid "Description:"
 msgstr "Περιγραφή:"
 
-#: pkgs.cgi:670
+#: pkgs.cgi:668
 msgid "Category:"
 msgstr "Κατηγορία:"
 
-#: pkgs.cgi:674
+#: pkgs.cgi:672
 msgid "Maintainer:"
 msgstr "Συντηρητής:"
 
-#: pkgs.cgi:675 pkgs.cgi:704
+#: pkgs.cgi:673 pkgs.cgi:702
 msgid "Website:"
 msgstr "Ιστοσελίδα:"
 
-#: pkgs.cgi:676 pkgs.cgi:705
+#: pkgs.cgi:674 pkgs.cgi:703
 msgid "Sizes:"
 msgstr "Μέγεθος:"
 
-#: pkgs.cgi:679
+#: pkgs.cgi:677
 msgid "Depends:"
 msgstr "Εξαρτήσεις:"
 
-#: pkgs.cgi:686
+#: pkgs.cgi:684
 msgid "Suggested:"
 msgstr "Προτεινόμενα:"
 
-#: pkgs.cgi:692
+#: pkgs.cgi:690
 msgid "Tags:"
 msgstr "Ετικέτες:"
 
-#: pkgs.cgi:698
+#: pkgs.cgi:696
 #, sh-format
 msgid "Installed files: $I_FILES"
 msgstr "Εγκατεστημένα αρχεία: $I_FILES"
 
-#: pkgs.cgi:757 pkgs.cgi:886
+#: pkgs.cgi:755 pkgs.cgi:884
 msgid "Set link"
 msgstr "Ορισμός συνδέσμου"
 
-#: pkgs.cgi:760 pkgs.cgi:887
+#: pkgs.cgi:758 pkgs.cgi:885
 msgid "Remove link"
 msgstr "Απομάκρυνση συνδέσμου"
 
-#: pkgs.cgi:766 pkgs.cgi:968 styles/default/header.html:43
+#: pkgs.cgi:764 pkgs.cgi:966 styles/default/header.html:43
 msgid "Administration"
 msgstr "Διαχείριση"
 
-#: pkgs.cgi:768
+#: pkgs.cgi:766
 msgid "Tazpkg administration and settings"
 msgstr "Διαχείριση και ρυθμίσεις Tazpkg"
 
-#: pkgs.cgi:772
+#: pkgs.cgi:770
 msgid "Save configuration"
 msgstr "Αποθήκευση διαμόρφωσης"
 
-#: pkgs.cgi:774
+#: pkgs.cgi:772
 msgid "List configuration files"
 msgstr "Εμφάνιση αρχείων διαμόρφωσης"
 
-#: pkgs.cgi:776
+#: pkgs.cgi:774
 msgid "Quick check"
 msgstr "Γρήγορος έλεγχος"
 
-#: pkgs.cgi:778
+#: pkgs.cgi:776
 msgid "Full check"
 msgstr "Ολοκληρωμένος έλεγχος"
 
-#: pkgs.cgi:783
+#: pkgs.cgi:781
 msgid "Creating the package..."
 msgstr "Δημιουργία του πακέτου..."
 
-#: pkgs.cgi:788
+#: pkgs.cgi:786
 msgid "Path:"
 msgstr "Διαδρομή:"
 
-#: pkgs.cgi:791 boot.cgi:256
+#: pkgs.cgi:789 boot.cgi:256
 msgid "Configuration files"
 msgstr "Αρχεία διαμόρφωσης"
 
-#: pkgs.cgi:804
+#: pkgs.cgi:802
 msgid "Checking packages consistency..."
 msgstr "Έλεγχος συνοχής πακέτου..."
 
-#: pkgs.cgi:810
+#: pkgs.cgi:808
 msgid "Full packages check..."
 msgstr "Πλήρης έλεγχος πακέτου..."
 
-#: pkgs.cgi:817
+#: pkgs.cgi:815
 msgid "Packages cache"
 msgstr "Προσωρινή μνήμη πακέτων"
 
-#: pkgs.cgi:822
+#: pkgs.cgi:820
 #, sh-format
 msgid "Packages in the cache: $cache_files ($cache_size)"
 msgstr "Πακέτα στην προσωρινή μνήμη: $cache_files ($cache_size)"
 
-#: pkgs.cgi:829
+#: pkgs.cgi:827
 msgid "Default mirror"
 msgstr "Προεπιλεγμένος καθρέπτης"
 
-#: pkgs.cgi:833
+#: pkgs.cgi:831
 msgid "Current mirror list"
 msgstr "Τρέχουσα λίστα καθρεπτών"
 
-#: pkgs.cgi:857
+#: pkgs.cgi:855
 msgid "Private repositories"
 msgstr "Ιδιωτικά αποθετήρια"
 
-#: pkgs.cgi:870
+#: pkgs.cgi:868
 msgid "mirror"
 msgstr "καθρέπτης"
 
-#: pkgs.cgi:876
+#: pkgs.cgi:874
 msgid "Link to another SliTaz installation"
 msgstr "Σύνδεσμος σε άλλη εγκατάσταση SliTaz"
 
-#: pkgs.cgi:878
+#: pkgs.cgi:876
 msgid ""
 "This link points to the root of another SliTaz installation. You will be "
 "able to install packages using soft links to it."
@@ -657,11 +657,11 @@ msgstr ""
 "Αυτός ο σύνδεσμος δείχνει στη ρίζα μιας άλλης εγκατάστασης του SliTaz. Θα "
 "είστε σε θέση να εγκαταστήσει πακέτα χρησιμοποιόντας soft links σε αυτό."
 
-#: pkgs.cgi:894
+#: pkgs.cgi:892
 msgid "SliTaz packages DVD"
 msgstr "DVD πακέτων SliTaz"
 
-#: pkgs.cgi:896
+#: pkgs.cgi:894
 #, sh-format
 msgid ""
 "A bootable DVD image of all available packages for the $version version is "
@@ -674,19 +674,19 @@ msgstr ""
 "και μπορεί να χρησιμοποιηθεί χωρίς σύνδεση στο internet. Αυτή η εικόνα "
 "μπορεί να εγκατασταθεί σε ένα DVD ή ένα κλειδί USB."
 
-#: pkgs.cgi:906
+#: pkgs.cgi:904
 msgid "Download DVD image"
 msgstr "Κατέβασμα εικόνας DVD"
 
-#: pkgs.cgi:908
+#: pkgs.cgi:906
 msgid "Install from DVD/USB key"
 msgstr "Εγκατάσταση από DVD/USB key"
 
-#: pkgs.cgi:911
+#: pkgs.cgi:909
 msgid "Install from ISO image:"
 msgstr "Εγκατάσταση από εικόνα ISO:"
 
-#: pkgs.cgi:974
+#: pkgs.cgi:972
 msgid "Latest log entries"
 msgstr "Τελευταίες καταχωρήσεις καταγραφής"
 
@@ -1008,7 +1008,7 @@ msgstr ""
 
 #: network.cgi:327
 msgid "Edit hosts"
-msgstr ""
+msgstr "Επεξεργασία hosts"
 
 #: network.cgi:331 installer.cgi:435
 msgid "Hostname"
@@ -1350,7 +1350,7 @@ msgstr "Προσθήκη νέου χρήστη"
 
 #: settings.cgi:155 installer.cgi:467
 msgid "User login:"
-msgstr "Είσοδος χρήστη:"
+msgstr "Όνομα χρήστη:"
 
 #: settings.cgi:157
 msgid "User password:"
@@ -1626,8 +1626,8 @@ msgid ""
 "hard drive."
 msgstr ""
 "Στα περισσότερα συστήματα που χρησιμοποιούνται, ο σκληρός δίσκος είναι ήδη "
-"αφιερωμένος σε διαμερίσματα των Windows<sup>&trade;</sup>, ή Linux, ή κάποιο "
-"άλλο λειτουργικό σύστημα. Θα πρέπει να αλλάξετε το μέγεθος αυτών των "
+"αφιερωμένος σε διαμερίσματα των Windows<sup>&trade;</ sup>, ή Linux, ή "
+"κάποιο άλλο λειτουργικό σύστημα. Θα πρέπει να αλλάξετε το μέγεθος αυτών των "
 "διαμερισμάτων, ώστε να δημιουργηθεί χώρος για το sliTaz GNU/Linux. Το SliTaz "
 "θα συνυπάρχει με άλλα λειτουργικά συστήματα που έχουν ήδη εγκατασταθεί στον "
 "σκληρό σας δίσκο."
@@ -1753,11 +1753,11 @@ msgstr "Ιστός:"
 
 #: installer.cgi:313
 msgid "Stable"
-msgstr ""
+msgstr "Σταθερή έκδοση (stable)"
 
 #: installer.cgi:314
 msgid "Cooking"
-msgstr ""
+msgstr "Υπό ανάπτυξη (cooking)"
 
 #: installer.cgi:316
 msgid "URL:"
@@ -1781,7 +1781,7 @@ msgstr "Κανένα"
 
 #: installer.cgi:351 installer.cgi:418
 msgid "Format partition as:"
-msgstr "Διαμόρφωση διαμερίσματος σε:"
+msgstr "Διαμόρφωση διαμερίσματος ως:"
 
 #: installer.cgi:370
 msgid "Existing SliTaz partition to upgrade:"
@@ -1938,7 +1938,7 @@ msgstr "Θέλετε πραγματικά να συνεχίσετε;"
 
 #: help.cgi:20
 msgid "Manual"
-msgstr ""
+msgstr "Εγχειρίδιο χρήσης"
 
 #: help.cgi:28
 msgid "TazPanel - Help &amp; Doc"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-08 03:15+0000\n"
+"POT-Creation-Date: 2012-06-11 07:03+0000\n"
 "PO-Revision-Date: 2012-05-17 15:16+0300\n"
 "Last-Translator: Aleksej Bobylev <al.bobylev@gmail.com>\n"
 "Language-Team: \n"
@@ -208,7 +208,7 @@ msgstr "Активность процессов"
 msgid "Create a report"
 msgstr "Создать отчет"
 
-#: index.cgi:355 pkgs.cgi:950
+#: index.cgi:355 pkgs.cgi:948
 msgid "Summary"
 msgstr "Сводка"
 
@@ -269,7 +269,7 @@ msgstr "Пакетов на зеркале:"
 msgid "Upgradeable packages:"
 msgstr "Обновляемых пакетов:"
 
-#: pkgs.cgi:70 pkgs.cgi:709
+#: pkgs.cgi:70 pkgs.cgi:707
 msgid "Installed files:"
 msgstr "Установленные файлы:"
 
@@ -293,7 +293,7 @@ msgstr "Поиск"
 msgid "Files"
 msgstr "Файлы"
 
-#: pkgs.cgi:134 pkgs.cgi:869 network.cgi:23 network.cgi:157 network.cgi:251
+#: pkgs.cgi:134 pkgs.cgi:867 network.cgi:23 network.cgi:157 network.cgi:251
 #: boot.cgi:82 settings.cgi:104 lib/libtazpanel:102
 msgid "Name"
 msgstr "Название"
@@ -391,7 +391,7 @@ msgid "Listing packages..."
 msgstr "Список пакетов…"
 
 #: pkgs.cgi:220 pkgs.cgi:358 pkgs.cgi:412 pkgs.cgi:479 pkgs.cgi:520
-#: pkgs.cgi:580 pkgs.cgi:661 pkgs.cgi:954 styles/default/header.html:37
+#: pkgs.cgi:580 pkgs.cgi:659 pkgs.cgi:952 styles/default/header.html:37
 msgid "My packages"
 msgstr "Мои пакеты"
 
@@ -400,17 +400,17 @@ msgstr "Мои пакеты"
 msgid "Selection:"
 msgstr "Отмеченное:"
 
-#: pkgs.cgi:226 pkgs.cgi:609
+#: pkgs.cgi:226 pkgs.cgi:607
 msgid "Remove"
 msgstr "Удалить"
 
 #: pkgs.cgi:230 pkgs.cgi:289 pkgs.cgi:354 pkgs.cgi:408 pkgs.cgi:518
-#: pkgs.cgi:964 styles/default/header.html:39
+#: pkgs.cgi:962 styles/default/header.html:39
 msgid "Recharge list"
 msgstr "Обновить список"
 
 #: pkgs.cgi:232 pkgs.cgi:291 pkgs.cgi:356 pkgs.cgi:410 pkgs.cgi:477
-#: pkgs.cgi:966
+#: pkgs.cgi:964
 msgid "Check upgrades"
 msgstr "Проверить обновления"
 
@@ -418,7 +418,7 @@ msgstr "Проверить обновления"
 msgid "Listing linkable packages..."
 msgstr "Список ссылающихся пакетов…"
 
-#: pkgs.cgi:278 pkgs.cgi:960
+#: pkgs.cgi:278 pkgs.cgi:958
 msgid "Linkable packages"
 msgstr "Присоединенные пакеты"
 
@@ -431,7 +431,7 @@ msgstr "Ссылка"
 msgid "Category: $category"
 msgstr "Категория: $category"
 
-#: pkgs.cgi:366 pkgs.cgi:840
+#: pkgs.cgi:366 pkgs.cgi:838
 #, sh-format
 msgid "Repository: $Repo_Name"
 msgstr "Репозитарий: $Repo_Name"
@@ -495,162 +495,162 @@ msgstr "Выполнение задач над пакетами"
 msgid "Executing $cmd for: $pkgs"
 msgstr "Выполняется $cmd для: $pkgs"
 
-#: pkgs.cgi:612
+#: pkgs.cgi:610
 msgid "Getting package info..."
 msgstr "Получение информации о пакете…"
 
-#: pkgs.cgi:624 installer.cgi:155 styles/default/header.html:88
+#: pkgs.cgi:622 installer.cgi:155 styles/default/header.html:88
 msgid "Install"
 msgstr "Установить"
 
-#: pkgs.cgi:628
+#: pkgs.cgi:626
 #, sh-format
 msgid "Package $PACKAGE"
 msgstr "Пакет $PACKAGE"
 
-#: pkgs.cgi:636
+#: pkgs.cgi:634
 msgid "Install (Non Free)"
 msgstr "Установить (несвободные)"
 
-#: pkgs.cgi:644
+#: pkgs.cgi:642
 msgid "Unblock"
 msgstr "Разблокировать"
 
-#: pkgs.cgi:648
+#: pkgs.cgi:646
 msgid "Block"
 msgstr "Заблокировать"
 
-#: pkgs.cgi:652
+#: pkgs.cgi:650
 msgid "Repack"
 msgstr "Перепаковать"
 
-#: pkgs.cgi:667
+#: pkgs.cgi:665
 msgid "Name:"
 msgstr "Название:"
 
-#: pkgs.cgi:668
+#: pkgs.cgi:666
 msgid "Version:"
 msgstr "Версия:"
 
-#: pkgs.cgi:669
+#: pkgs.cgi:667
 msgid "Description:"
 msgstr "Описание:"
 
-#: pkgs.cgi:670
+#: pkgs.cgi:668
 msgid "Category:"
 msgstr "Категория:"
 
-#: pkgs.cgi:674
+#: pkgs.cgi:672
 msgid "Maintainer:"
 msgstr "Мэйнтейнер:"
 
-#: pkgs.cgi:675 pkgs.cgi:704
+#: pkgs.cgi:673 pkgs.cgi:702
 msgid "Website:"
 msgstr "Сайт:"
 
-#: pkgs.cgi:676 pkgs.cgi:705
+#: pkgs.cgi:674 pkgs.cgi:703
 msgid "Sizes:"
 msgstr "Размер:"
 
-#: pkgs.cgi:679
+#: pkgs.cgi:677
 msgid "Depends:"
 msgstr "Зависимости:"
 
-#: pkgs.cgi:686
+#: pkgs.cgi:684
 msgid "Suggested:"
 msgstr "Предлагает:"
 
-#: pkgs.cgi:692
+#: pkgs.cgi:690
 msgid "Tags:"
 msgstr "Теги:"
 
-#: pkgs.cgi:698
+#: pkgs.cgi:696
 #, sh-format
 msgid "Installed files: $I_FILES"
 msgstr "Установленные файлы: $I_FILES"
 
-#: pkgs.cgi:757 pkgs.cgi:886
+#: pkgs.cgi:755 pkgs.cgi:884
 msgid "Set link"
 msgstr "Установить ссылку"
 
-#: pkgs.cgi:760 pkgs.cgi:887
+#: pkgs.cgi:758 pkgs.cgi:885
 msgid "Remove link"
 msgstr "Удалить ссылку"
 
-#: pkgs.cgi:766 pkgs.cgi:968 styles/default/header.html:43
+#: pkgs.cgi:764 pkgs.cgi:966 styles/default/header.html:43
 msgid "Administration"
 msgstr "Администрирование"
 
-#: pkgs.cgi:768
+#: pkgs.cgi:766
 msgid "Tazpkg administration and settings"
 msgstr "Администрирование и настройка TazPKG"
 
-#: pkgs.cgi:772
+#: pkgs.cgi:770
 msgid "Save configuration"
 msgstr "Сохранить настройки"
 
-#: pkgs.cgi:774
+#: pkgs.cgi:772
 msgid "List configuration files"
 msgstr "Список файлов настроек"
 
-#: pkgs.cgi:776
+#: pkgs.cgi:774
 msgid "Quick check"
 msgstr "Быстрая проверка"
 
-#: pkgs.cgi:778
+#: pkgs.cgi:776
 msgid "Full check"
 msgstr "Полная проверка"
 
-#: pkgs.cgi:783
+#: pkgs.cgi:781
 msgid "Creating the package..."
 msgstr "Создание пакета…"
 
-#: pkgs.cgi:788
+#: pkgs.cgi:786
 msgid "Path:"
 msgstr "Путь:"
 
-#: pkgs.cgi:791 boot.cgi:256
+#: pkgs.cgi:789 boot.cgi:256
 msgid "Configuration files"
 msgstr "Файлы настроек"
 
-#: pkgs.cgi:804
+#: pkgs.cgi:802
 msgid "Checking packages consistency..."
 msgstr "Проверка целостности пакетов…"
 
-#: pkgs.cgi:810
+#: pkgs.cgi:808
 msgid "Full packages check..."
 msgstr "Полная проверка пакетов…"
 
-#: pkgs.cgi:817
+#: pkgs.cgi:815
 msgid "Packages cache"
 msgstr "Кеш пакетов"
 
-#: pkgs.cgi:822
+#: pkgs.cgi:820
 #, sh-format
 msgid "Packages in the cache: $cache_files ($cache_size)"
 msgstr "Пакетов в кеше: $cache_files ($cache_size)"
 
-#: pkgs.cgi:829
+#: pkgs.cgi:827
 msgid "Default mirror"
 msgstr "Зеркало по умолчанию"
 
-#: pkgs.cgi:833
+#: pkgs.cgi:831
 msgid "Current mirror list"
 msgstr "Список текущих зеркал"
 
-#: pkgs.cgi:857
+#: pkgs.cgi:855
 msgid "Private repositories"
 msgstr "Частные репозитории"
 
-#: pkgs.cgi:870
+#: pkgs.cgi:868
 msgid "mirror"
 msgstr "зеркало"
 
-#: pkgs.cgi:876
+#: pkgs.cgi:874
 msgid "Link to another SliTaz installation"
 msgstr "Ссылка на другой установленный SliTaz"
 
-#: pkgs.cgi:878
+#: pkgs.cgi:876
 msgid ""
 "This link points to the root of another SliTaz installation. You will be "
 "able to install packages using soft links to it."
@@ -658,11 +658,11 @@ msgstr ""
 "Эта ссылка указывает на корень файловой системы другого установленного "
 "SliTaz. Вы сможете устанавливать пакеты, используя символьные ссылки на них."
 
-#: pkgs.cgi:894
+#: pkgs.cgi:892
 msgid "SliTaz packages DVD"
 msgstr "DVD с пакетами SliTaz"
 
-#: pkgs.cgi:896
+#: pkgs.cgi:894
 #, sh-format
 msgid ""
 "A bootable DVD image of all available packages for the $version version is "
@@ -675,19 +675,19 @@ msgstr ""
 "использован при отсутствии соединения с интернетом. Этот образ можно "
 "записать на DVD или установить на USB-флеш."
 
-#: pkgs.cgi:906
+#: pkgs.cgi:904
 msgid "Download DVD image"
 msgstr "Загрузить образ DVD"
 
-#: pkgs.cgi:908
+#: pkgs.cgi:906
 msgid "Install from DVD/USB key"
 msgstr "Установить с DVD или USB-флеш"
 
-#: pkgs.cgi:911
+#: pkgs.cgi:909
 msgid "Install from ISO image:"
 msgstr "Установить из образа ISO:"
 
-#: pkgs.cgi:974
+#: pkgs.cgi:972
 msgid "Latest log entries"
 msgstr "Недавние пункты журнала"
 
