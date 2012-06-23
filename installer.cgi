@@ -164,7 +164,7 @@ on your hard disk drive in order to make space for SliTaz GNU/Linux. You can \
 graphically manage your partitions with Gparted")</p>
 
 <a class="button" href="$SCRIPT_NAME?page=partitioning">$(gettext "Install \
-SliTaz")</a>
+SliTaz") <img src="$IMAGES/go-next.png" /></a>
 </section>
 EOT
 }
@@ -181,7 +181,7 @@ directories will be removed. Any additional packages added to your old Slitaz \
 system will be updated as long you have an active internet connection.")</p>
 
 <a class="button" href="$SCRIPT_NAME?page=upgrade">$(gettext "Upgrade \
-SliTaz")</a>
+SliTaz") <img src="$IMAGES/go-next.png" /></a>
 </section>
 EOT
 }
@@ -231,9 +231,9 @@ able to continue installation.")
 
 <hr />
 <a class="button" value="$1" href="$SCRIPT_NAME?page=home" >
-	$(gettext 'Back to Installer Start Page')</a>
+	<img src="$IMAGES/go-first.png"/> $(gettext 'Back to Installer Start Page')</a>
 <a class="button" value="$2" href="$SCRIPT_NAME?page=install">
-	$(gettext 'Continue Installation')</a>
+	$(gettext 'Continue Installation') <img src="$IMAGES/go-next.png" /></a>
 EOT
 }
 
@@ -498,33 +498,32 @@ moveto_page()
 {
 	case $1 in
 		partitioning)
-			title1=$(gettext 'Back to partitioning') ;;
+			title1="<img src=\"$IMAGES/go-previous.png\" /> $(gettext 'Back to partitioning')" ;;
 		*)
 			page=home
-			title1=$(gettext 'Back to Installer Start Page') ;;
+			title1="<img src=\"$IMAGES/go-first.png\" /> $(gettext 'Back to Installer Start Page')" ;;
 	esac
 	case $2 in
 		write|run)
-			title2=$(gettext 'Proceed to SliTaz installation') ;;
+			title2="$(gettext 'Proceed to SliTaz installation') <img src=\"$IMAGES/go-next.png\" />" ;;
 		reboot)
 			title2=$(gettext 'Installation complete. You can now restart (reboot)') ;;
 		failed)
 			title2=$(gettext 'Installation failed. See log') ;;
 		*)
 			page=home
-			title2=$(gettext 'Back to Installer Start Page') ;;
+			title2="<img src=\"$IMAGES/go-first.png\" /> $(gettext 'Back to Installer Start Page')" ;;
 	esac
 	cat <<EOT
 <hr />
-<input type="hidden" name="page" value="$2" />
 <a class="button" value="$1"  href="$SCRIPT_NAME?page=$1" >$title1</a>
-<input type="submit" value="$title2">
+<a class="button" value="$2"  href="$SCRIPT_NAME?page=$2" >$title2</a>
 EOT
 }
 
 page_redirection()
 {
-	cat <<EOT
+	cat << EOT
 <!DOCTYPE html>
 <html>
 <head>
@@ -548,7 +547,7 @@ check_ressources()
 	local code
 	code=0
 	# Check tazinst
-	if ! [ -x /usr/sbin/tazinst ] ; then
+	if ! [ -x /usr/sbin/tazinst2 ] ; then
 		cat <<EOT
 <h3>$(gettext 'Tazinst Error')</h3>
 <p>$(gettext "<strong>tazinst</strong>, the lightweight SliTaz HDD installer \

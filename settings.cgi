@@ -184,7 +184,7 @@ EOT
 		LOADING_MSG="$(gettext 'Please wait...')"
 		loading_msg
 		cur_loc=$(locale | grep LANG | cut -d= -f2)
-		cat <<EOT
+		cat << EOT
 <h3 id="locale">$(gettext 'Choose locale')</h3>
 
 <p>$(gettext 'Current locale settings:')</p>
@@ -194,7 +194,16 @@ EOT
 <pre>$(locale -a)</pre>
 
 <p>$(gettext 'Available locales:')</p>
+EOT
 
+		is_installed "glibc-locale"
+		[ $? = 1 ] &&
+			msg tip $(gettext \
+			"Don't see your language?<br/>You can \
+<a href='/pkgs.cgi?do=Install&glibc-locale'>install glibc-locale</a> \
+to see huge list of available locales.")
+
+		cat << EOT
 <form method="get" action="$SCRIPT_NAME">
 	<div class="outbox">
 	<table class="zebra fixed">
@@ -284,8 +293,8 @@ EOT
 			# System configuration
 			echo "LANG=$new_locale" > /etc/locale.conf
 			echo "LC_ALL=$new_locale" >> /etc/locale.conf
-			eval_gettext "You must logout and login again to your current \
-session to use \$new_locale locale."
+			msg warn "$(eval_gettext \
+			'You must logout and login again to your current session to use $new_locale locale.')"
 		else
 			gettext 'Current system locale:'; echo -n " <strong>"
 			locale | grep LANG | cut -d= -f2

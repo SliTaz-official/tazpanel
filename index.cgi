@@ -323,8 +323,8 @@ EOT
 <p><a class="button" href="$SCRIPT_NAME?file=$output">
 	<img src="/styles/default/images/browser.png" />
 	$(gettext 'View report')</a>
-	$(gettext 'This report can be attached with a bug report on:')
-	<a href="http://bugs.slitaz.org/">bugs.slitaz.org</a></p>
+	$(msg tip "$(gettext 'This report can be attached with a bug report on:')
+	<a href="http://bugs.slitaz.org/">bugs.slitaz.org</a></p>")
 EOT
 		;;
 

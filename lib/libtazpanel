@@ -226,3 +226,24 @@ df_thead() {
 </thead>
 EOT
 }
+
+msg() {
+	msgtype="$1"; shift
+	case "$msgtype" in
+		tip)			MSG_ICON="$IMAGES/msg-tip.png" ;;
+		warn|warning)	MSG_ICON="$IMAGES/msg-warn.png" ;;
+		err|error)		MSG_ICON="$IMAGES/msg-err.png" ;;
+		up)				MSG_ICON="$IMAGES/msg-up.png" ;;
+		*)				MSG_ICON="$IMAGES/msg.png" ;;
+	esac
+	cat << EOT
+	<section class="box" style="width:50%;margin:0.5em auto;">
+		<image src="$MSG_ICON" alt="$msgtype" class="float-left" />
+		$@
+	</section>
+EOT
+}
+
+is_installed() {
+	[ -d "$INSTALLED/$1" ]
+}
