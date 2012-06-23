@@ -199,9 +199,9 @@ EOT
 		is_installed "glibc-locale"
 		[ $? = 1 ] &&
 			msg tip $(gettext \
-			"Don't see your language?<br/>You can \
+			"Can't see your language?<br/>You can \
 <a href='/pkgs.cgi?do=Install&glibc-locale'>install glibc-locale</a> \
-to see huge list of available locales.")
+to see a larger list of available locales.")
 
 		cat << EOT
 <form method="get" action="$SCRIPT_NAME">

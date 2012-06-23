@@ -156,12 +156,12 @@ select_install()
 
 <p>$(gettext "Install SliTaz on a partition of your hard disk drive. If you \
 decide to format your partition, all data will be lost. If you do not format, \
-all data except for any existing /home directory will be removed, the home \
-directory will be kept as is.")</p>
+all data except for any existing /home directory will be removed (note the home \
+directory contents will be kept as is).")</p>
 
 <p>$(gettext "Before installation, you may need to create or resize partitions \
 on your hard disk drive in order to make space for SliTaz GNU/Linux. You can \
-graphically manage your partitions with Gparted")</p>
+graphically manage your partitions with Gparted.")</p>
 
 <a class="button" href="$SCRIPT_NAME?page=partitioning">$(gettext "Install \
 SliTaz") <img src="$IMAGES/go-next.png" /></a>
