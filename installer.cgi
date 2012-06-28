@@ -247,8 +247,8 @@ display_action()
 
 <p>$(gettext "You're going to install SliTaz on a partition of your hard disk \
 drive. If you decide to format your HDD, all data will be lost. If you do not \
-format, all data except for any existing /home directory will be removed, the \
-home directory will be kept as is.")<p>
+format, all data except for any existing /home directory will be removed (note the \
+home directory contents will be kept as is)."<p>
 </div>
 <input type="hidden" name="INST_ACTION" value="$1">
 EOT
@@ -551,7 +551,7 @@ check_ressources()
 		cat <<EOT
 <h3>$(gettext 'Tazinst Error')</h3>
 <p>$(gettext "<strong>tazinst</strong>, the lightweight SliTaz HDD installer \
-is missing. Any installation can not be done without tazinst.")</p>
+is missing. Any installation cannot be done without tazinst.")</p>
 
 <p>$(gettext "Check tazinst' permissions, or reinstall the slitaz-tools \
 package:")</p>
