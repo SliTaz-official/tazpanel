@@ -30,18 +30,16 @@ detect_wifi_networks()
 EOT
 	if [ -d /sys/class/net/$WIFI_INTERFACE/wireless ]; then
 		ifconfig $WIFI_INTERFACE up
-		for i in $(iwlist $WIFI_INTERFACE scan | sed s/"Cell "/Cell-/ | grep "Cell-" | awk '{print $1}')
+		for i in $(iwlist $WIFI_INTERFACE scan | sed '/Cell /!d;s/.*Cell \([^ ]*\).*/Cell.\1/')
 		do
-			SCAN=$(iwlist $WIFI_INTERFACE scan last | \
-				awk '/(Cell|ESS|Qual|Encry|IE: WPA|WPA2)/ {print}' | \
-				sed s/"Cell "/Cell-/ | grep -A 5 "$i")
-			ESSID=$(echo $SCAN | cut -d '"' -f 2)
+			SCAN=$(iwlist $WIFI_INTERFACE scan last | sed "/$i/,/Cell/!d" | sed '$d')
+			ESSID=$(echo $SCAN | sed '/ESSID/!d;s/.*ESSID:"\(.*\)"$/\1/')
 			if echo "$SCAN" | grep -q Quality; then
-				QUALITY=$(echo $SCAN | sed 's/.*Quality=\([^ ]*\).*/\1/' | sed 's/.*Quality:\([^ ]*\).*/\1/')
+				QUALITY=$(echo $SCAN | sed '/Quality/!d;s/.*Quality:\([^ ]*\).*/\1/')
 			else
 				QUALITY="-"
 			fi
-			ENCRYPTION=$(echo $SCAN | sed 's/.*key:\([^ ]*\).*/\1/')
+			ENCRYPTION=$(echo $SCAN | sed '/key:/!d;s/.*key:\([^ ]*\).*/\1/')
 			# Check encryption type
 			if echo "$SCAN" | grep -q WPA*; then
 				ENCRYPTION="WPA"
@@ -218,11 +216,12 @@ EOT
 </div>
 $(detect_wifi_networks)
 EOT
+		WIFI_KEY="$(GET key)"
+		case "$(GET keytype)" in
+		''|off)	WIFI_KEY_TYPE=none ;;
+		*	WIFI_KEY_TYPE=any  ;;
+		esac
 		if [ "$(GET essid)" ]; then
-			WIFI_KEY=""
-			WIFI_KEY_TYPE=none
-			[ -n "$(GET key)" ] && WIFI_KEY="$(GET key)"
-			[ -n "$(GET keytype)" ] && WIFI_KEY_TYPE="$(GET keytype)"
 			/etc/init.d/network.sh stop | log
 			sed -i \
 				-e s"/^WIFI_ESSID=.*/WIFI_ESSID=\"$(GET essid)\""/ \
@@ -238,7 +237,6 @@ EOT
 				WIFI_KEY=""
 			fi
 			WIFI_ESSID="$(GET select)"
-			WIFI_KEY_TYPE="$(GET keytype)"
 		fi
 	cat << EOT
 <section>
