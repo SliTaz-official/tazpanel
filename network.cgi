@@ -33,16 +33,21 @@ EOT
 		for i in $(iwlist $WIFI_INTERFACE scan | sed '/Cell /!d;s/.*Cell \([^ ]*\).*/Cell.\1/')
 		do
 			SCAN=$(iwlist $WIFI_INTERFACE scan last | sed "/$i/,/Cell/!d" | sed '$d')
-			ESSID=$(echo $SCAN | sed '/ESSID/!d;s/.*ESSID:"\(.*\)"$/\1/')
+			ESSID=$(echo $SCAN | sed 's/.*ESSID:"\([^"]*\).*/\1/')
 			if echo "$SCAN" | grep -q Quality; then
-				QUALITY=$(echo $SCAN | sed '/Quality/!d;s/.*Quality:\([^ ]*\).*/\1/')
+				QUALITY=$(echo $SCAN | sed 's/.*Quality:\([^ ]*\).*/\1/')
 			else
 				QUALITY="-"
 			fi
-			ENCRYPTION=$(echo $SCAN | sed '/key:/!d;s/.*key:\([^ ]*\).*/\1/')
+			ENCRYPTION=$(echo $SCAN | sed 's/.*key:\([^ ]*\).*/\1/')
 			# Check encryption type
 			if echo "$SCAN" | grep -q WPA*; then
 				ENCRYPTION="WPA"
+			fi
+			if echo $SCAN | grep -q 'Mode:Managed'; then
+				AP="&ap=$(echo $SCAN | sed 's/.*Address: \([^ ]*\).*/\1/')"
+			else
+				AP=""
 			fi
 			# Connected or not connected...
 			if ifconfig | grep -A 1 $WIFI_INTERFACE | \
@@ -53,7 +58,7 @@ EOT
 				status="---"
 			fi
 			echo '<tr>'
-			echo "<td><a href=\"$SCRIPT_NAME?wifi&select=$ESSID&keytype=$ENCRYPTION\">
+			echo "<td><a href=\"$SCRIPT_NAME?wifi&select=$ESSID&keytype=$ENCRYPTION&$AP\">
 				<img src='$IMAGES/wireless.png' />$ESSID</a></td>"
 			echo "<td>$QUALITY</td><td>$ENCRYPTION</td><td>$status $ip</td>"
 			echo '</tr>'
@@ -216,10 +221,11 @@ EOT
 </div>
 $(detect_wifi_networks)
 EOT
+		WIFI_AP="$(GET ap)"
 		WIFI_KEY="$(GET key)"
 		case "$(GET keytype)" in
 		''|off)	WIFI_KEY_TYPE=none ;;
-		*	WIFI_KEY_TYPE=any  ;;
+		*)	WIFI_KEY_TYPE=any  ;;
 		esac
 		if [ "$(GET essid)" ]; then
 			/etc/init.d/network.sh stop | log
@@ -227,6 +233,7 @@ EOT
 				-e s"/^WIFI_ESSID=.*/WIFI_ESSID=\"$(GET essid)\""/ \
 				-e s"/^WIFI_KEY=.*/WIFI_KEY=\"$WIFI_KEY\"/" \
 				-e s"/^WIFI_KEY_TYPE=.*/WIFI_KEY_TYPE=\"$WIFI_KEY_TYPE\"/" \
+				-e s"/^WIFI_AP=.*/WIFI_AP=\"$WIFI_AP\"/" \
 				/etc/network.conf
 			. /etc/network.conf
 			start_wifi
@@ -261,6 +268,10 @@ EOT
 	<tr>
 		<td>$(gettext 'Encryption type')</td>
 		<td><input type="text" name="keytype" size="30" value="$WIFI_KEY_TYPE" /></td>
+	</tr>
+	<tr>
+		<td>$(gettext 'Access point')</td>
+		<td><input type="text" name="ap" size="30" value="$WIFI_AP" /></td>
 	</tr>
 	$(table_end)
 		<input type="submit" name="wifi" value="$(gettext 'Configure')" />
