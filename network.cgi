@@ -52,7 +52,7 @@ EOT
 			# Connected or not connected...
 			if ifconfig | grep -A 1 $WIFI_INTERFACE | \
 				fgrep -q inet && iwconfig $WIFI_INTERFACE | \
-				grep ESSID | fgrep -q -w "$ESSID"; then
+				fgrep -q "ESSID:\"$ESSID\""; then
 				status=$(gettext 'Connected')
 			else
 				status="---"
