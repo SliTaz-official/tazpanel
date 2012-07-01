@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-11 07:03+0000\n"
+"POT-Creation-Date: 2012-07-01 22:37+0000\n"
 "PO-Revision-Date: 2012-03-12 21:18+0100\n"
 "Last-Translator: Christophe Lincoln <pankso@slitaz.org>\n"
 "Language-Team: French\n"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "Save"
 msgstr "Enregistrer"
 
-#: index.cgi:104 settings.cgi:331
+#: index.cgi:104 settings.cgi:340
 msgid "Edit"
 msgstr "Éditer"
 
@@ -298,7 +298,7 @@ msgstr "Rechercher"
 msgid "Files"
 msgstr "Fichiers"
 
-#: pkgs.cgi:134 pkgs.cgi:867 network.cgi:23 network.cgi:157 network.cgi:251
+#: pkgs.cgi:134 pkgs.cgi:867 network.cgi:23 network.cgi:160 network.cgi:256
 #: boot.cgi:82 settings.cgi:104 lib/libtazpanel:102
 msgid "Name"
 msgstr "Nom"
@@ -307,7 +307,7 @@ msgstr "Nom"
 msgid "Version"
 msgstr "Version"
 
-#: pkgs.cgi:136 boot.cgi:83 settings.cgi:205
+#: pkgs.cgi:136 boot.cgi:83 settings.cgi:214
 msgid "Description"
 msgstr "Description"
 
@@ -871,33 +871,33 @@ msgstr "Chiffrement"
 msgid "Status"
 msgstr "État"
 
-#: network.cgi:53
+#: network.cgi:56
 msgid "Connected"
 msgstr "Connecté"
 
-#: network.cgi:96
+#: network.cgi:99
 #, fuzzy, sh-format
 msgid "Changed hostname: $get_hostname"
 msgstr "Changer le nom de l'hôte"
 
-#: network.cgi:112
+#: network.cgi:115
 msgid "Scanning open ports..."
 msgstr "Balayer les ports ouverts"
 
-#: network.cgi:115
+#: network.cgi:118
 #, fuzzy, sh-format
 msgid "Port scanning for $scan"
 msgstr "Balayage des ports pour"
 
-#: network.cgi:129
+#: network.cgi:132
 msgid "Setting up IP..."
 msgstr "Configurer l'IP..."
 
-#: network.cgi:145
+#: network.cgi:148
 msgid "Ethernet connection"
 msgstr "Connexion réseau"
 
-#: network.cgi:147
+#: network.cgi:150
 #, fuzzy
 msgid ""
 "Here you can configure a wired connection using DHCP to automatically get a "
@@ -908,51 +908,51 @@ msgstr ""
 "obtenir automatiquement une adresse IP aléatoire ou configurer une adresse "
 "IP statique / fixe"
 
-#: network.cgi:151
+#: network.cgi:154
 msgid "Configuration"
 msgstr "Configuration"
 
-#: network.cgi:158 network.cgi:252
+#: network.cgi:161 network.cgi:257
 msgid "Value"
 msgstr "Valeur"
 
-#: network.cgi:163 lib/libtazpanel:101
+#: network.cgi:166 lib/libtazpanel:101
 msgid "Interface"
 msgstr "Interface"
 
-#: network.cgi:167
+#: network.cgi:170
 msgid "IP address"
 msgstr "Adresse IP"
 
-#: network.cgi:171
+#: network.cgi:174
 msgid "Netmask"
 msgstr "Masque de sous-réseau"
 
-#: network.cgi:175
+#: network.cgi:178
 msgid "Gateway"
 msgstr "Passerelle"
 
-#: network.cgi:179
+#: network.cgi:182
 msgid "DNS server"
 msgstr "Serveur DNS"
 
-#: network.cgi:184
+#: network.cgi:187
 msgid "Activate (static)"
 msgstr "Activer (statique)"
 
-#: network.cgi:185
+#: network.cgi:188
 msgid "Activate (DHCP)"
 msgstr "Activer (Dynamique)"
 
-#: network.cgi:186
+#: network.cgi:189
 msgid "Disable"
 msgstr "Désactiver"
 
-#: network.cgi:191 network.cgi:273
+#: network.cgi:194 network.cgi:282
 msgid "Configuration file"
 msgstr "Fichier de configuration"
 
-#: network.cgi:193
+#: network.cgi:196
 #, fuzzy
 msgid ""
 "These values are the ethernet settings in the main /etc/network.conf "
@@ -961,51 +961,55 @@ msgstr ""
 "Ces valeurs sont celles des paramètres Ethernet dans le fichier\n"
 "de configuration principal /etc/network.conf"
 
-#: network.cgi:199 network.cgi:281
+#: network.cgi:202 network.cgi:290
 msgid "Manual Edit"
 msgstr "Édition manuelle"
 
-#: network.cgi:206
+#: network.cgi:209
 msgid "Scanning wireless interface..."
 msgstr "Scan des interfaces wireless..."
 
-#: network.cgi:210
+#: network.cgi:213
 msgid "Wireless connection"
 msgstr "Connection sans fil"
 
-#: network.cgi:213 network.cgi:304 boot.cgi:167
+#: network.cgi:216 network.cgi:313 boot.cgi:167
 msgid "Start"
 msgstr "Démarrer"
 
-#: network.cgi:215 network.cgi:306 boot.cgi:155
+#: network.cgi:218 network.cgi:315 boot.cgi:155
 msgid "Stop"
 msgstr "Arrêter"
 
-#: network.cgi:217
+#: network.cgi:220
 msgid "Scan"
 msgstr "Scanner"
 
-#: network.cgi:245
+#: network.cgi:250
 msgid "Connection"
 msgstr "Connexion"
 
-#: network.cgi:256
+#: network.cgi:261
 msgid "Wifi name (ESSID)"
 msgstr "Nom du réseau (EESID)"
 
-#: network.cgi:260
+#: network.cgi:265
 msgid "Password (Wifi key)"
 msgstr "Mot de passe (Clé Wifi)"
 
-#: network.cgi:264
+#: network.cgi:269
 msgid "Encryption type"
 msgstr "Type de chiffrement"
 
-#: network.cgi:268
+#: network.cgi:273
+msgid "Access point"
+msgstr ""
+
+#: network.cgi:277
 msgid "Configure"
 msgstr "Configurer"
 
-#: network.cgi:275
+#: network.cgi:284
 #, fuzzy
 msgid ""
 "These values are the wifi settings in the main /etc/network.conf "
@@ -1014,61 +1018,61 @@ msgstr ""
 "Ces valeurs sont celles des paramètres wifi dans le fichier\n"
 "de configuration principal /etc/network.conf"
 
-#: network.cgi:285
+#: network.cgi:294
 #, fuzzy
 msgid "Output of iwconfig"
 msgstr "Sortie de "
 
-#: network.cgi:296
+#: network.cgi:305
 msgid "Networking"
 msgstr "Gestion de réseau"
 
-#: network.cgi:298
+#: network.cgi:307
 msgid "Manage network connections and services"
 msgstr "Gérer les connexions réseau et les services"
 
-#: network.cgi:308
+#: network.cgi:317
 msgid "Restart"
 msgstr "Redémarrer"
 
-#: network.cgi:311
+#: network.cgi:320
 msgid "Configuration:"
 msgstr "Configuration:"
 
-#: network.cgi:322
+#: network.cgi:331
 msgid "Hosts"
 msgstr "Hôtes"
 
-#: network.cgi:327
+#: network.cgi:336
 msgid "Edit hosts"
 msgstr "Editer les hôtes"
 
-#: network.cgi:331 installer.cgi:435
+#: network.cgi:340 installer.cgi:435
 msgid "Hostname"
 msgstr "Nom d'hôte"
 
-#: network.cgi:335
+#: network.cgi:344
 msgid "Change hostname"
 msgstr "Changer le nom d'hôte"
 
-#: network.cgi:340
+#: network.cgi:349
 #, fuzzy
 msgid "Output of ifconfig"
 msgstr "Sortie de "
 
-#: network.cgi:346
+#: network.cgi:355
 msgid "Routing table"
 msgstr "Table de routage"
 
-#: network.cgi:352
+#: network.cgi:361
 msgid "Domain name resolution"
 msgstr "Résolution de noms de domaines"
 
-#: network.cgi:358
+#: network.cgi:367
 msgid "ARP table"
 msgstr "Table ARP"
 
-#: network.cgi:364
+#: network.cgi:373
 msgid "IP Connections"
 msgstr "Connexions IP"
 
@@ -1179,7 +1183,7 @@ msgstr ""
 msgid "Splash image:"
 msgstr ""
 
-#: boot.cgi:208 settings.cgi:263 settings.cgi:294 settings.cgi:361
+#: boot.cgi:208 settings.cgi:272 settings.cgi:303 settings.cgi:370
 msgid "Change"
 msgstr "Changer"
 
@@ -1342,7 +1346,7 @@ msgstr "Mémoire système"
 msgid "TazPanel - Settings"
 msgstr ""
 
-#: settings.cgi:87 settings.cgi:255
+#: settings.cgi:87 settings.cgi:264
 msgid "Manage users"
 msgstr "Gérer les utilisateurs"
 
@@ -1428,66 +1432,68 @@ msgid "Available locales:"
 msgstr "Langues disponibles:"
 
 #: settings.cgi:202
+msgid ""
+"Can't see your language?<br/>You can <a href='/pkgs.cgi?do=Install&glibc-"
+"locale'>install glibc-locale</a> to see a larger list of available locales."
+msgstr ""
+
+#: settings.cgi:211
 msgid "Code"
 msgstr ""
 
-#: settings.cgi:203
+#: settings.cgi:212
 #, fuzzy
 msgid "Language"
 msgstr "Langue du système"
 
-#: settings.cgi:204
+#: settings.cgi:213
 msgid "Territory"
 msgstr ""
 
-#: settings.cgi:226 settings.cgi:227
-msgid "-d"
-msgstr ""
-
-#: settings.cgi:238 settings.cgi:341 settings.cgi:354
+#: settings.cgi:247 settings.cgi:350 settings.cgi:363
 msgid "Activate"
 msgstr "Activer"
 
-#: settings.cgi:250
+#: settings.cgi:259
 msgid "System settings"
 msgstr "Réglages système"
 
-#: settings.cgi:251
+#: settings.cgi:260
 msgid "Manage system time, users or language settings"
 msgstr "Gérer l'horloge, les utilisateurs ou les paramètres de langue"
 
-#: settings.cgi:259
+#: settings.cgi:268
 msgid "System time"
 msgstr "Heure système"
 
-#: settings.cgi:262
+#: settings.cgi:271
 #, fuzzy
 msgid "Time zome:"
 msgstr "Zone horaire  :"
 
-#: settings.cgi:264
+#: settings.cgi:273
 #, fuzzy
 msgid "System time:"
 msgstr "Heure système"
 
-#: settings.cgi:265
+#: settings.cgi:274
 #, fuzzy
 msgid "Hardware clock:"
 msgstr "Horloge système:"
 
-#: settings.cgi:267
+#: settings.cgi:276
 msgid "Sync online"
 msgstr "Synchroniser en ligne"
 
-#: settings.cgi:268
+#: settings.cgi:277
 msgid "Set hardware clock"
 msgstr "Configurer l'horloge système"
 
-#: settings.cgi:276
+#: settings.cgi:285
 msgid "System language"
 msgstr "Langue du système"
 
-#: settings.cgi:287
+#: settings.cgi:297
 #, fuzzy, sh-format
 msgid ""
 "You must logout and login again to your current session to use $new_locale "
@@ -1496,54 +1502,54 @@ msgstr ""
 "Vous devez vous déconnecter et vous reconnecter à votre session\n"
 "\t\t\t\tcourante pour utiliser la locale $new_locale"
 
-#: settings.cgi:290
+#: settings.cgi:299
 #, fuzzy
 msgid "Current system locale:"
 msgstr "Locales système courantes : "
 
-#: settings.cgi:298
+#: settings.cgi:307
 msgid "Console keymap"
 msgstr "keymap de la console"
 
-#: settings.cgi:311
+#: settings.cgi:320
 #, fuzzy, sh-format
 msgid "Current console keymap: $keymap"
 msgstr "keymap de la console courante : "
 
-#: settings.cgi:328
+#: settings.cgi:337
 msgid "Suggested keymap for Xorg:"
 msgstr "keymap suggéré pour Xorg : "
 
-#: settings.cgi:337
+#: settings.cgi:346
 msgid "Available keymaps:"
 msgstr "Claviers disponibles:"
 
-#: settings.cgi:346
+#: settings.cgi:355
 msgid "Panel configuration"
 msgstr "Configuration du panneau"
 
-#: settings.cgi:350
+#: settings.cgi:359
 msgid "Style:"
 msgstr "Style:"
 
-#: settings.cgi:359
+#: settings.cgi:368
 msgid "Panel password:"
 msgstr "Mot de passe:"
 
-#: settings.cgi:365
+#: settings.cgi:374
 #, fuzzy
 msgid "Configuration files:"
 msgstr "Fichiers de configuration"
 
-#: settings.cgi:367 styles/default/header.html:24
+#: settings.cgi:376 styles/default/header.html:24
 msgid "Panel"
 msgstr "Panneau"
 
-#: settings.cgi:369
+#: settings.cgi:378
 msgid "Server"
 msgstr "Serveur"
 
-#: settings.cgi:372
+#: settings.cgi:381
 msgid "TazPanel provides a debuging mode and page:"
 msgstr "TazPanel fournit un mode et une page debuging"
 
@@ -1612,11 +1618,12 @@ msgstr ""
 "de SliTaz, ou depuis le Web en téléchargeant une image ISO."
 
 #: installer.cgi:157
+#, fuzzy
 msgid ""
 "Install SliTaz on a partition of your hard disk drive. If you decide to "
 "format your partition, all data will be lost. If you do not format, all data "
-"except for any existing /home directory will be removed, the home directory "
-"will be kept as is."
+"except for any existing /home directory will be removed (note the home "
+"directory contents will be kept as is)."
 msgstr ""
 "Installe SliTaz sur une partition du disque dur. Si vous décidez de "
 "formatter la partition, toutes les données seront perdues. Si vous ne la "
@@ -1625,10 +1632,11 @@ msgstr ""
 "conservé tel quel."
 
 #: installer.cgi:162
+#, fuzzy
 msgid ""
 "Before installation, you may need to create or resize partitions on your "
 "hard disk drive in order to make space for SliTaz GNU/Linux. You can "
-"graphically manage your partitions with Gparted"
+"graphically manage your partitions with Gparted."
 msgstr ""
 "Avant de commencer l'installation, il est peut-être nécessaire de créer ou "
 "redimensionner des partitions du disque dur de façon à laisser un espace "
@@ -1749,11 +1757,12 @@ msgid "Continue Installation"
 msgstr "Continuer l'installation"
 
 #: installer.cgi:248
+#, fuzzy
 msgid ""
 "You're going to install SliTaz on a partition of your hard disk drive. If "
 "you decide to format your HDD, all data will be lost. If you do not format, "
-"all data except for any existing /home directory will be removed, the home "
-"directory will be kept as is."
+"all data except for any existing /home directory will be removed (note the "
+"home directory contents will be kept as is)."
 msgstr ""
 "Vous allez installer SliTaz sur une partition de votre disque dur. Si vous "
 "décidez de formatter la partition, toutes les données seront perdues. Si "
@@ -1921,11 +1930,11 @@ msgstr "Installation terminée. Vous pouvez redémarrer."
 msgid "Installation failed. See log"
 msgstr "L'installation n'a pas aboutie. Voir le fichier journal"
 
-#: installer.cgi:532
+#: installer.cgi:531
 msgid "A web page that points a browser to a different page after 2 seconds"
 msgstr "Vous allez être redirigés vers une autre page dans 2 secondes"
 
-#: installer.cgi:538
+#: installer.cgi:537
 msgid ""
 "If your browser doesn't automatically redirect within a few seconds, you may "
 "want to go there manually"
@@ -1933,57 +1942,57 @@ msgstr ""
 "Si votre navigateur ne vous redirige pas automatiquement dans quelques "
 "secondes, vous devrez le faire manuellement"
 
-#: installer.cgi:553 installer.cgi:568
+#: installer.cgi:552 installer.cgi:567
 msgid "Tazinst Error"
 msgstr "Erreur de Tazinst"
 
-#: installer.cgi:554
+#: installer.cgi:553
 #, fuzzy
 msgid ""
 "<strong>tazinst</strong>, the lightweight SliTaz HDD installer is missing. "
-"Any installation can not be done without tazinst."
+"Any installation cannot be done without tazinst."
 msgstr ""
 "L'installateur léger de SliTaz n'a pas été trouvé. Aucune installation ne "
 "peut être entreprise sans tazinst."
 
-#: installer.cgi:557
+#: installer.cgi:556
 msgid "Check tazinst' permissions, or reinstall the slitaz-tools package:"
 msgstr ""
 "Vérifiez les permissions de tazinst, ou réinstallez le paquet slitaz-tools :"
 
-#: installer.cgi:583
+#: installer.cgi:582
 msgid "Proceeding: ()"
 msgstr "Procédure en cours :"
 
-#: installer.cgi:584
+#: installer.cgi:583
 msgid "Please wait until processing is complete"
 msgstr ""
 
-#: installer.cgi:590
+#: installer.cgi:589
 msgid "Completed."
 msgstr ""
 
-#: installer.cgi:624
+#: installer.cgi:623
 #, fuzzy
 msgid "Hostname error"
 msgstr "Nom d'hôte"
 
-#: installer.cgi:628
+#: installer.cgi:627
 #, fuzzy
 msgid "Root password error"
 msgstr "Mot de passe de root:"
 
-#: installer.cgi:632
+#: installer.cgi:631
 #, fuzzy
 msgid "User login error"
 msgstr "Nom de login:"
 
-#: installer.cgi:636
+#: installer.cgi:635
 #, fuzzy
 msgid "User password error"
 msgstr "Mot de passe:"
 
-#: installer.cgi:639 installer.cgi:650
+#: installer.cgi:638 installer.cgi:649
 msgid "Do you really want to continue?"
 msgstr "Désirez-vous vraiment continuer?"
 

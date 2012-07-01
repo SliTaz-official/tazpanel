@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-11 07:03+0000\n"
+"POT-Creation-Date: 2012-07-01 22:37+0000\n"
 "PO-Revision-Date: 2012-06-10 17:15+0200\n"
 "Last-Translator: Douros Dimitris <dourosdimitris@gmail.com>\n"
 "Language-Team: \n"
@@ -60,7 +60,7 @@ msgstr "TazPanel - Αρχείο"
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: index.cgi:104 settings.cgi:331
+#: index.cgi:104 settings.cgi:340
 msgid "Edit"
 msgstr "Επεξεργασία"
 
@@ -292,7 +292,7 @@ msgstr "Αναζήτηση"
 msgid "Files"
 msgstr "Αρχεία"
 
-#: pkgs.cgi:134 pkgs.cgi:867 network.cgi:23 network.cgi:157 network.cgi:251
+#: pkgs.cgi:134 pkgs.cgi:867 network.cgi:23 network.cgi:160 network.cgi:256
 #: boot.cgi:82 settings.cgi:104 lib/libtazpanel:102
 msgid "Name"
 msgstr "Όνομα"
@@ -301,7 +301,7 @@ msgstr "Όνομα"
 msgid "Version"
 msgstr "Έκδοση"
 
-#: pkgs.cgi:136 boot.cgi:83 settings.cgi:205
+#: pkgs.cgi:136 boot.cgi:83 settings.cgi:214
 msgid "Description"
 msgstr "Περιγραφή"
 
@@ -844,33 +844,33 @@ msgstr "Κρυπτογράφιση"
 msgid "Status"
 msgstr "Κατάσταση"
 
-#: network.cgi:53
+#: network.cgi:56
 msgid "Connected"
 msgstr "Συνδεδεμένο"
 
-#: network.cgi:96
+#: network.cgi:99
 #, sh-format
 msgid "Changed hostname: $get_hostname"
 msgstr "Αλλαγμένο όνομα υπολογιστή: $get_hostname"
 
-#: network.cgi:112
+#: network.cgi:115
 msgid "Scanning open ports..."
 msgstr "Σάρωση ανοιχτών θυρών..."
 
-#: network.cgi:115
+#: network.cgi:118
 #, sh-format
 msgid "Port scanning for $scan"
 msgstr "Σάρωση θύρας για $scan"
 
-#: network.cgi:129
+#: network.cgi:132
 msgid "Setting up IP..."
 msgstr "Ρύθμιση IP..."
 
-#: network.cgi:145
+#: network.cgi:148
 msgid "Ethernet connection"
 msgstr "Ενσύρματη σύνδεση"
 
-#: network.cgi:147
+#: network.cgi:150
 msgid ""
 "Here you can configure a wired connection using DHCP to automatically get a "
 "random IP or configure a static/fixed IP"
@@ -878,51 +878,51 @@ msgstr ""
 "Εδώ μπορείτε να διαμορφώσετε μια ενσύρματη σύνδεση με χρήση του DHCP για να "
 "πάρει αυτόματα μια τυχαία IP ή να ρυθμίσετε μια στατική/σταθερή IP"
 
-#: network.cgi:151
+#: network.cgi:154
 msgid "Configuration"
 msgstr "Διαμόρφωση"
 
-#: network.cgi:158 network.cgi:252
+#: network.cgi:161 network.cgi:257
 msgid "Value"
 msgstr "Τιμή"
 
-#: network.cgi:163 lib/libtazpanel:101
+#: network.cgi:166 lib/libtazpanel:101
 msgid "Interface"
 msgstr "Διεπαφή"
 
-#: network.cgi:167
+#: network.cgi:170
 msgid "IP address"
 msgstr "Διεύθυνση IP"
 
-#: network.cgi:171
+#: network.cgi:174
 msgid "Netmask"
 msgstr "Μάσκα δικτύου"
 
-#: network.cgi:175
+#: network.cgi:178
 msgid "Gateway"
 msgstr "Πύλη"
 
-#: network.cgi:179
+#: network.cgi:182
 msgid "DNS server"
 msgstr "Εξυπηρετητής DNS"
 
-#: network.cgi:184
+#: network.cgi:187
 msgid "Activate (static)"
 msgstr "Ενεργοποίηση (στατικής)"
 
-#: network.cgi:185
+#: network.cgi:188
 msgid "Activate (DHCP)"
 msgstr "Ενεργοποίηση (DHCP)"
 
-#: network.cgi:186
+#: network.cgi:189
 msgid "Disable"
 msgstr "Απενεργοποίηση"
 
-#: network.cgi:191 network.cgi:273
+#: network.cgi:194 network.cgi:282
 msgid "Configuration file"
 msgstr "Αρχείο διαμόρφωσης"
 
-#: network.cgi:193
+#: network.cgi:196
 msgid ""
 "These values are the ethernet settings in the main /etc/network.conf "
 "configuration file"
@@ -930,51 +930,55 @@ msgstr ""
 "Οι τιμές αυτές είναι οι ρυθμίσεις του ethernet στο κύριο αρχείο διαμόρφωσης /"
 "etc/network.conf"
 
-#: network.cgi:199 network.cgi:281
+#: network.cgi:202 network.cgi:290
 msgid "Manual Edit"
 msgstr "Χειροκίνητη επεξεργασία"
 
-#: network.cgi:206
+#: network.cgi:209
 msgid "Scanning wireless interface..."
 msgstr "Σάρωση ασύρματης διεπαφής..."
 
-#: network.cgi:210
+#: network.cgi:213
 msgid "Wireless connection"
 msgstr "Ασύρματη σύνδεση"
 
-#: network.cgi:213 network.cgi:304 boot.cgi:167
+#: network.cgi:216 network.cgi:313 boot.cgi:167
 msgid "Start"
 msgstr "Εκκίνηση"
 
-#: network.cgi:215 network.cgi:306 boot.cgi:155
+#: network.cgi:218 network.cgi:315 boot.cgi:155
 msgid "Stop"
 msgstr "Σταμάτημα"
 
-#: network.cgi:217
+#: network.cgi:220
 msgid "Scan"
 msgstr "Σάρωση"
 
-#: network.cgi:245
+#: network.cgi:250
 msgid "Connection"
 msgstr "Σύνδεση"
 
-#: network.cgi:256
+#: network.cgi:261
 msgid "Wifi name (ESSID)"
 msgstr "Όνομα wifi (ESSID)"
 
-#: network.cgi:260
+#: network.cgi:265
 msgid "Password (Wifi key)"
 msgstr "Κωδικός (Wifi key)"
 
-#: network.cgi:264
+#: network.cgi:269
 msgid "Encryption type"
 msgstr "Τύπος κρυπτογράφησης"
 
-#: network.cgi:268
+#: network.cgi:273
+msgid "Access point"
+msgstr ""
+
+#: network.cgi:277
 msgid "Configure"
 msgstr "Διαμόρφωση"
 
-#: network.cgi:275
+#: network.cgi:284
 msgid ""
 "These values are the wifi settings in the main /etc/network.conf "
 "configuration file"
@@ -982,59 +986,59 @@ msgstr ""
 "Αυτές οι τιμές είναι οι ρυθμίσεις του wifi στο κύριο αρχείο ρυθμίσεων /etc/"
 "network.conf"
 
-#: network.cgi:285
+#: network.cgi:294
 msgid "Output of iwconfig"
 msgstr "Έξοδος του iwconfig"
 
-#: network.cgi:296
+#: network.cgi:305
 msgid "Networking"
 msgstr "Δικτύωση"
 
-#: network.cgi:298
+#: network.cgi:307
 msgid "Manage network connections and services"
 msgstr "Διαχείριση συνδέσεων δυκτίου και υπηρεσιών"
 
-#: network.cgi:308
+#: network.cgi:317
 msgid "Restart"
 msgstr "Επανεκκίνηση"
 
-#: network.cgi:311
+#: network.cgi:320
 msgid "Configuration:"
 msgstr "Διαμόρφωση:"
 
-#: network.cgi:322
+#: network.cgi:331
 msgid "Hosts"
 msgstr ""
 
-#: network.cgi:327
+#: network.cgi:336
 msgid "Edit hosts"
 msgstr "Επεξεργασία hosts"
 
-#: network.cgi:331 installer.cgi:435
+#: network.cgi:340 installer.cgi:435
 msgid "Hostname"
 msgstr "Όνομα υπολογιστή (Hostname)"
 
-#: network.cgi:335
+#: network.cgi:344
 msgid "Change hostname"
 msgstr "Αλλαγή ονόματος υπολογιστή (Hostname)"
 
-#: network.cgi:340
+#: network.cgi:349
 msgid "Output of ifconfig"
 msgstr "Έξοδος του ifconfig"
 
-#: network.cgi:346
+#: network.cgi:355
 msgid "Routing table"
 msgstr "Πίνακας δρομολόγησης"
 
-#: network.cgi:352
+#: network.cgi:361
 msgid "Domain name resolution"
 msgstr "Επίλυση ονομάτων τομέα"
 
-#: network.cgi:358
+#: network.cgi:367
 msgid "ARP table"
 msgstr "Πίνακας ARP"
 
-#: network.cgi:364
+#: network.cgi:373
 msgid "IP Connections"
 msgstr "Συνδέσεις IP"
 
@@ -1142,7 +1146,7 @@ msgstr "Χρονικό όριο:"
 msgid "Splash image:"
 msgstr "Εικόνα εκκίνησης (splash):"
 
-#: boot.cgi:208 settings.cgi:263 settings.cgi:294 settings.cgi:361
+#: boot.cgi:208 settings.cgi:272 settings.cgi:303 settings.cgi:370
 msgid "Change"
 msgstr "Αλλαγή"
 
@@ -1304,7 +1308,7 @@ msgstr "Μνήμη συστήματος"
 msgid "TazPanel - Settings"
 msgstr "TazPanel - Ρυθμίσεις"
 
-#: settings.cgi:87 settings.cgi:255
+#: settings.cgi:87 settings.cgi:264
 msgid "Manage users"
 msgstr "Διαχείριση χρηστών"
 
@@ -1389,62 +1393,64 @@ msgid "Available locales:"
 msgstr "Διαθέσιμες ρυθμίσες εντοπιότητας:"
 
 #: settings.cgi:202
+msgid ""
+"Can't see your language?<br/>You can <a href='/pkgs.cgi?do=Install&glibc-"
+"locale'>install glibc-locale</a> to see a larger list of available locales."
+msgstr ""
+
+#: settings.cgi:211
 msgid "Code"
 msgstr "Κωδικός"
 
-#: settings.cgi:203
+#: settings.cgi:212
 msgid "Language"
 msgstr "Γλώσσα"
 
-#: settings.cgi:204
+#: settings.cgi:213
 msgid "Territory"
 msgstr "Περιοχή"
 
-#: settings.cgi:226 settings.cgi:227
-msgid "-d"
-msgstr ""
-
-#: settings.cgi:238 settings.cgi:341 settings.cgi:354
+#: settings.cgi:247 settings.cgi:350 settings.cgi:363
 msgid "Activate"
 msgstr "Ενεργοποίηση"
 
-#: settings.cgi:250
+#: settings.cgi:259
 msgid "System settings"
 msgstr "Ρυθμίσεις συστήματος"
 
-#: settings.cgi:251
+#: settings.cgi:260
 msgid "Manage system time, users or language settings"
 msgstr "Διαχείριση ώρας συστήματος, χρηστών και γλωσσικών ρυθμίσεων"
 
-#: settings.cgi:259
+#: settings.cgi:268
 msgid "System time"
 msgstr "Ώρα συστήματος"
 
-#: settings.cgi:262
+#: settings.cgi:271
 msgid "Time zome:"
 msgstr "Ζώνη ώρας:"
 
-#: settings.cgi:264
+#: settings.cgi:273
 msgid "System time:"
 msgstr "Ώρα συστήματος:"
 
-#: settings.cgi:265
+#: settings.cgi:274
 msgid "Hardware clock:"
 msgstr "Ρολόι υπολογιστή:"
 
-#: settings.cgi:267
+#: settings.cgi:276
 msgid "Sync online"
 msgstr "Συγχρονισμός μέσω δικτύου"
 
-#: settings.cgi:268
+#: settings.cgi:277
 msgid "Set hardware clock"
 msgstr "Ορισμός ρολογιού υπολογιστή"
 
-#: settings.cgi:276
+#: settings.cgi:285
 msgid "System language"
 msgstr "Γλώσσα συστήματος"
 
-#: settings.cgi:287
+#: settings.cgi:297
 #, sh-format
 msgid ""
 "You must logout and login again to your current session to use $new_locale "
@@ -1453,52 +1459,52 @@ msgstr ""
 "Πρέπει να αποσυνδεθείτε και να συνδεθείτε πάλι στην τρέχουσα συνεδρία σας "
 "για να χρησιμοποιήσετε τα $new_locale locale."
 
-#: settings.cgi:290
+#: settings.cgi:299
 msgid "Current system locale:"
 msgstr "Τρέχουσα εντοπιότητα συστήματος:"
 
-#: settings.cgi:298
+#: settings.cgi:307
 msgid "Console keymap"
 msgstr "Διάταξη πληκτρολογίου κονσόλας"
 
-#: settings.cgi:311
+#: settings.cgi:320
 #, sh-format
 msgid "Current console keymap: $keymap"
 msgstr "Τρέχουσα διάταξη πληκτρολογίου κονσόλας: $keymap"
 
-#: settings.cgi:328
+#: settings.cgi:337
 msgid "Suggested keymap for Xorg:"
 msgstr "Προτεινόμενη διάταξη πληκτρολογίου για το Xorg:"
 
-#: settings.cgi:337
+#: settings.cgi:346
 msgid "Available keymaps:"
 msgstr "Διαθέσιμες διατάξεις πληκτρολογίου:"
 
-#: settings.cgi:346
+#: settings.cgi:355
 msgid "Panel configuration"
 msgstr "Διαμόρφωση πίνακα"
 
-#: settings.cgi:350
+#: settings.cgi:359
 msgid "Style:"
 msgstr "Στύλ:"
 
-#: settings.cgi:359
+#: settings.cgi:368
 msgid "Panel password:"
 msgstr "Κωδικός πίνακα:"
 
-#: settings.cgi:365
+#: settings.cgi:374
 msgid "Configuration files:"
 msgstr "Αρχεία διαμόρφωσης:"
 
-#: settings.cgi:367 styles/default/header.html:24
+#: settings.cgi:376 styles/default/header.html:24
 msgid "Panel"
 msgstr "Πίνακας"
 
-#: settings.cgi:369
+#: settings.cgi:378
 msgid "Server"
 msgstr "Εξυπηρετητής"
 
-#: settings.cgi:372
+#: settings.cgi:381
 msgid "TazPanel provides a debuging mode and page:"
 msgstr "Το TazPanel παρέχει κατάσταση αποσφαλμάτωσης και σελίδα:"
 
@@ -1567,11 +1573,12 @@ msgstr ""
 "ISO, ή από το διαδίκτυο κατεβάζοντας ένα αρχείο ISO."
 
 #: installer.cgi:157
+#, fuzzy
 msgid ""
 "Install SliTaz on a partition of your hard disk drive. If you decide to "
 "format your partition, all data will be lost. If you do not format, all data "
-"except for any existing /home directory will be removed, the home directory "
-"will be kept as is."
+"except for any existing /home directory will be removed (note the home "
+"directory contents will be kept as is)."
 msgstr ""
 "Εγκαταστήστε το SliTaz σε ένα διαμέρισμα του σκληρού δίσκου σας. Αν "
 "αποφασίσετε να διαμορφώσετε το διαμέρισμα σας, όλα τα δεδομένα θα χαθούν. Αν "
@@ -1579,10 +1586,11 @@ msgstr ""
 "κατάλογο θα αφαιρεθούν, ο κατάλογος /home θα διατηρηθεί ως έχει."
 
 #: installer.cgi:162
+#, fuzzy
 msgid ""
 "Before installation, you may need to create or resize partitions on your "
 "hard disk drive in order to make space for SliTaz GNU/Linux. You can "
-"graphically manage your partitions with Gparted"
+"graphically manage your partitions with Gparted."
 msgstr ""
 "Πριν από την εγκατάσταση, ίσως χρειαστεί να δημιουργήσετε ή να αλλάξετε το "
 "μέγεθος στα διαμερίσματα στο σκληρό σας δίσκο, ώστε να δημιουργηθεί χώρος "
@@ -1704,11 +1712,12 @@ msgid "Continue Installation"
 msgstr "Συνέχιση εγκατάστασης"
 
 #: installer.cgi:248
+#, fuzzy
 msgid ""
 "You're going to install SliTaz on a partition of your hard disk drive. If "
 "you decide to format your HDD, all data will be lost. If you do not format, "
-"all data except for any existing /home directory will be removed, the home "
-"directory will be kept as is."
+"all data except for any existing /home directory will be removed (note the "
+"home directory contents will be kept as is)."
 msgstr ""
 "Πρόκειται να εγκαταστήσετε το SliTaz σε ένα διαμέρισμα του σκληρού δίσκου "
 "σας. Αν αποφασίσετε να διαμορφώσετε το σκληρό δίσκο σας, όλα τα δεδομένα θα "
@@ -1872,13 +1881,13 @@ msgstr ""
 msgid "Installation failed. See log"
 msgstr "Η εγκατάσταση απέτυχε. Δες το αρχείο καταγραφής (log)"
 
-#: installer.cgi:532
+#: installer.cgi:531
 msgid "A web page that points a browser to a different page after 2 seconds"
 msgstr ""
 "Μια ιστοσελίδα που δείχνει στο πρόγραμμα περιήγησης σε μια διαφορετική "
 "σελίδα μετά από 2 δευτερόλεπτα"
 
-#: installer.cgi:538
+#: installer.cgi:537
 msgid ""
 "If your browser doesn't automatically redirect within a few seconds, you may "
 "want to go there manually"
@@ -1886,53 +1895,54 @@ msgstr ""
 "Αν το πρόγραμμα περιήγησής σας δεν ανακατευθυνθεί αυτόματα μέσα σε λίγα "
 "δευτερόλεπτα, μπορεί να θέλετε να πάτε εκεί χειροκίνητα"
 
-#: installer.cgi:553 installer.cgi:568
+#: installer.cgi:552 installer.cgi:567
 msgid "Tazinst Error"
 msgstr "Σφάλμα Tazinst"
 
-#: installer.cgi:554
+#: installer.cgi:553
+#, fuzzy
 msgid ""
 "<strong>tazinst</strong>, the lightweight SliTaz HDD installer is missing. "
-"Any installation can not be done without tazinst."
+"Any installation cannot be done without tazinst."
 msgstr ""
 "<strong>tazinst</strong>, Λείπει το ελαφρύ πρόγραμμα εγκατάστασης του SliTaz "
 "σε σκληρό δίσκο. Δεν μπορούν να πραγματοποιηθούν εγκαταστάσεις χωρίς το "
 "tazinst."
 
-#: installer.cgi:557
+#: installer.cgi:556
 msgid "Check tazinst' permissions, or reinstall the slitaz-tools package:"
 msgstr ""
 "Ελέγξτε τα δικαιώματα του tazinst ή επανεγκαταστήστε το πακέτο slitaz-tools:"
 
-#: installer.cgi:583
+#: installer.cgi:582
 msgid "Proceeding: ()"
 msgstr "Πρόοδος: ()"
 
-#: installer.cgi:584
+#: installer.cgi:583
 msgid "Please wait until processing is complete"
 msgstr "Παρακαλώ περιμένετε μέχρι να ολοκληρωθεί η διαδικασία"
 
-#: installer.cgi:590
+#: installer.cgi:589
 msgid "Completed."
 msgstr "Ολοκληρώθηκε."
 
-#: installer.cgi:624
+#: installer.cgi:623
 msgid "Hostname error"
 msgstr "Σφάλμα ονόματος υπολογιστή (Hostname)"
 
-#: installer.cgi:628
+#: installer.cgi:627
 msgid "Root password error"
 msgstr "Σφάλμα κωδικού διαχειριστή (root)"
 
-#: installer.cgi:632
+#: installer.cgi:631
 msgid "User login error"
 msgstr "Σφάλμα εισόδου χρήστη"
 
-#: installer.cgi:636
+#: installer.cgi:635
 msgid "User password error"
 msgstr "Σφάλμα κωδικού χρήστη"
 
-#: installer.cgi:639 installer.cgi:650
+#: installer.cgi:638 installer.cgi:649
 msgid "Do you really want to continue?"
 msgstr "Θέλετε πραγματικά να συνεχίσετε;"
 
