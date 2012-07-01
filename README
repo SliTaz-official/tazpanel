@@ -39,9 +39,9 @@ If you develop an official SliTaz GUI for TazPanel, please follow the default
 style. If you need more CSS markup and you are not a coder, please ask an 
 official developer for the best way to implement your idea. TazPanel is fully 
 themable and more than one theme can be installed, this will allow us to make 
-packages in a TazPanel style! All the GUI is done with xHTML 5 and CSS 3, some
+packages in a TazPanel style! All the GUI is done with xHTML 5 and CSS 3; some
 javascript can be used, but with precautions... one more time, it's better
-to check with a main contributor before adding too much stuff, the goal is,
+to check with a main contributor before adding too much stuff; the goal is,
 as for all the SliTaz projects: KISS
 
 
@@ -63,7 +63,7 @@ links, but please to talk to the AUTHORS beforehand.
 	* hardware.cgi  Devices drivers, firmware, printing
 	* help.cgi      Cat the html doc and this README file
 
-For common functions have a look to lib/libtazpanel, you may found functions
+For common functions have a look at lib/libtazpanel, where you may find functions
 you need already coded such as a xhtml_header to get the style header.html
 in your CGI script. For the loading message you can use loading_msg. When
 cat is used: `gettext "Text to translate"`
