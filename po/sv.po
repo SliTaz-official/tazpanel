@@ -1627,7 +1627,7 @@ msgstr ""
 "partitioner för Windows<sup>&trade;</sup>, eller Linux eller ett annat "
 "operativ system. Du kommer att måsta ändra storleken på dessa partitioner så "
 "att det finns plats för SliTaz GNU/Linux. SliTaz kommer att finnas brevid de "
-operativ system du redan har på din hårddisk."
+"operativ system du redan har på din hårddisk."
 
 #: installer.cgi:201
 msgid ""
