@@ -9,10 +9,9 @@ msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-01 22:37+0000\n"
-"PO-Revision-Date: 2012-03-12 21:18+0100\n"
+"PO-Revision-Date: 2012-11-26 14:06-0500\n"
 "Last-Translator: Christophe Lincoln <pankso@slitaz.org>\n"
 "Language-Team: French\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -103,19 +102,19 @@ msgstr "Rafraîchir"
 
 #: index.cgi:175
 msgid "1s"
-msgstr ""
+msgstr "1s"
 
 #: index.cgi:176
 msgid "5s"
-msgstr ""
+msgstr "5s"
 
 #: index.cgi:177
 msgid "10s"
-msgstr ""
+msgstr "10s"
 
 #: index.cgi:178 live.cgi:152
 msgid "none"
-msgstr ""
+msgstr "aucun"
 
 #: index.cgi:195
 msgid "TazPanel - Debug"
@@ -123,7 +122,7 @@ msgstr ""
 
 #: index.cgi:198
 msgid "HTTP Environment"
-msgstr ""
+msgstr "Environment HTTP"
 
 #: index.cgi:206
 msgid "TazPanel - System report"
@@ -148,7 +147,7 @@ msgstr "Création du résumé du système..."
 
 #: index.cgi:239
 msgid "Date:"
-msgstr ""
+msgstr "Date:"
 
 #: index.cgi:250
 msgid "Getting hardware info..."
@@ -435,7 +434,7 @@ msgstr "Paquets liables"
 
 #: pkgs.cgi:285
 msgid "Link"
-msgstr ""
+msgstr "Lien"
 
 #: pkgs.cgi:342
 #, sh-format
@@ -508,6 +507,10 @@ msgstr "Opérations sur les paquets"
 #, sh-format
 msgid "Executing $cmd for: $pkgs"
 msgstr ""
+
+#: pkgs.cgi:591
+msgid "y"
+msgstr "o"
 
 #: pkgs.cgi:610
 msgid "Getting package info..."
@@ -1439,7 +1442,7 @@ msgstr ""
 
 #: settings.cgi:211
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: settings.cgi:212
 #, fuzzy
@@ -1575,7 +1578,7 @@ msgstr ""
 
 #: lib/libtazpanel:220
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: lib/libtazpanel:222
 msgid "Available"
@@ -1806,7 +1809,7 @@ msgstr "Chemin complet vers le fichier de l'image ISO"
 
 #: installer.cgi:312
 msgid "Web:"
-msgstr ""
+msgstr "Web:"
 
 #: installer.cgi:313
 msgid "Stable"
@@ -2078,11 +2081,11 @@ msgstr "Mettre à jour"
 
 #: styles/default/footer.html:6
 msgid "Copyright"
-msgstr ""
+msgstr "Licence d'utilisation"
 
 #: styles/default/footer.html:8
 msgid "BSD License"
-msgstr ""
+msgstr " License BSD"
 
 #~ msgid "List:"
 #~ msgstr "Liste:"

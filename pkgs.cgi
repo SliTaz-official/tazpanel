@@ -588,7 +588,7 @@ EOT
 		for pkg in $pkgs
 		do
 			echo '<pre>'
-			echo 'y' | tazpkg $cmd $pkg $opt 2>/dev/null | filter_taztools_msgs
+			    echo $(gettext 'y') | tazpkg $cmd $pkg $opt 2>/dev/null | filter_taztools_msgs
 			echo '</pre>'
 		done ;;
 

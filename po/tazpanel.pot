@@ -490,6 +490,11 @@ msgstr ""
 msgid "Executing $cmd for: $pkgs"
 msgstr ""
 
+#: pkgs.cgi:591
+#, answer y for yes to tazpkg -r *foo*
+msgid "y"
+msgstr ""
+
 #: pkgs.cgi:610
 msgid "Getting package info..."
 msgstr ""
