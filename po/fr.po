@@ -973,7 +973,7 @@ msgstr "Édition manuelle"
 
 #: network.cgi:209
 msgid "Scanning wireless interface..."
-msgstr "Scan des interfaces wireless..."
+msgstr "Scan des interfaces sans-fil..."
 
 #: network.cgi:213
 msgid "Wireless connection"
