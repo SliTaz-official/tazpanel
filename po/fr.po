@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-01 22:37+0000\n"
-"PO-Revision-Date: 2012-11-26 14:06-0500\n"
-"Last-Translator: Christophe Lincoln <pankso@slitaz.org>\n"
+"PO-Revision-Date: 2012-12-20 10:15+0100\n"
+"Last-Translator: Stanislas Leduc <shann@slitaz.org>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,7 @@ msgstr "Mot de passe changé avec succès"
 #: tazpanel:54
 #, sh-format
 msgid "Usage: $program_name [start|stop|passwd]"
-msgstr ""
+msgstr "Usage: $programme [start|stop|passwd]"
 
 #: index.cgi:38 index.cgi:84
 msgid "Differences"
@@ -65,7 +65,7 @@ msgstr "Éditer"
 
 #: index.cgi:128
 msgid "TazPanel - Terminal"
-msgstr ""
+msgstr "TazPanel - Terminal"
 
 #: index.cgi:142
 msgid "Small terminal emulator, commands options are supported."
@@ -118,7 +118,7 @@ msgstr "aucun"
 
 #: index.cgi:195
 msgid "TazPanel - Debug"
-msgstr ""
+msgstr "TazPanel - Debuguage"
 
 #: index.cgi:198
 msgid "HTTP Environment"
@@ -346,7 +346,7 @@ msgstr "Graphiques"
 
 #: pkgs.cgi:154
 msgid "Office"
-msgstr ""
+msgstr "Bureautique"
 
 #: pkgs.cgi:155
 msgid "Multimedia"
@@ -354,7 +354,7 @@ msgstr "Multimédia"
 
 #: pkgs.cgi:156
 msgid "Development"
-msgstr "Developpement"
+msgstr "Développement"
 
 #: pkgs.cgi:157
 #, fuzzy
@@ -388,7 +388,7 @@ msgstr "Dépôts privés"
 
 #: pkgs.cgi:169
 msgid "Public"
-msgstr ""
+msgstr "Public"
 
 #: pkgs.cgi:177
 msgid "Any"
@@ -493,7 +493,7 @@ msgstr ""
 #: pkgs.cgi:503
 #, fuzzy
 msgid "Checking for upgrades..."
-msgstr "Mettre à niveau"
+msgstr "Vérification des mises à jours..."
 
 #: pkgs.cgi:506
 msgid "Up packages"
@@ -718,7 +718,7 @@ msgstr "Dernières entrées de journal"
 
 #: live.cgi:25
 msgid "TazPanel - Live"
-msgstr ""
+msgstr "TazPanel - Live"
 
 #: live.cgi:83
 msgid "TODO"
@@ -888,7 +888,7 @@ msgstr "Changer le nom de l'hôte"
 
 #: network.cgi:115
 msgid "Scanning open ports..."
-msgstr "Balayer les ports ouverts"
+msgstr "Balayage des ports ouverts..."
 
 #: network.cgi:118
 #, fuzzy, sh-format
@@ -897,7 +897,7 @@ msgstr "Balayage des ports pour"
 
 #: network.cgi:132
 msgid "Setting up IP..."
-msgstr "Configurer l'IP..."
+msgstr "Configuration de l'adresse IP..."
 
 #: network.cgi:148
 msgid "Ethernet connection"
