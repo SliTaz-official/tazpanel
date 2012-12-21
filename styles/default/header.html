@@ -11,6 +11,13 @@ cat << EOT
 		function showLoading(){
 			document.getElementById("loading").style.display='none';
 		}
+
+		//Ask confirmation on close window during load time
+		window.onbeforeunload =  confirmExit;
+		function confirmExit()
+		{
+			return 1;
+		}
 	</script>
 </head>
 <body onload="showLoading()">
