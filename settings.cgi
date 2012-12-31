@@ -14,6 +14,19 @@ header
 
 TITLE=$(gettext 'TazPanel - Settings')
 
+# Get system database. LDAP compatible.
+getdb()
+{
+	getent $1 2>/dev/null || cat /etc/$1
+}
+
+listdb()
+{
+	for item in $(getdb $1 | cut -d ":" -f 1); do
+		echo "<option>$item</option>\n"
+	done
+}
+
 #
 # Commands executed before page loading.
 #
@@ -22,13 +35,23 @@ case " $(GET) " in
 	*\ do\ *)
 		# Assume no array support in httpd_helper.sh ;^)
 		users=""
+		groups=""
 		IFS="&"
 		for i in $QUERY_STRING ; do
 			case "$i" in
-			user=*)	users="$users ${i#user=}" ;;
+			user=*)	 users="$users ${i#user=}" ;;
+			group=*) groups="$groups ${i#group=}" ;;
 			esac
 		done
 		unset IFS
+		for cmd in "Delete group" ; do
+			[ "$(GET do)" == "$(gettext "$cmd")" ] || continue
+			for group in $groups ; do
+				case "$cmd" in
+				Delete*)	delgroup $group ;;
+				esac
+			done
+		done
 		for cmd in "Delete user" "Lock user" "Unlock user" \
 			   "Change password" ; do
 			[ "$(GET do)" == "$(gettext "$cmd")" ] || continue			# BUGGY
@@ -41,6 +64,12 @@ case " $(GET) " in
 				esac
 			done
 		done ;;
+	*\ addmember\ *)
+		addgroup $(GET member) $(GET group) ;;
+	*\ delmember\ *)
+		delgroup $(GET member) $(GET group) ;;
+	*\ addgroup\ *)
+		addgroup $(GET addgroup) ;;
 	*\ adduser\ *)
 		#
 		# Manage system user accounts
@@ -79,6 +108,90 @@ esac
 xhtml_header
 
 case " $(GET) " in
+	*\ group*)
+		#
+		# Groups management
+		#
+		cat <<EOT
+<h3 id="groups">$(gettext 'Manage groups')</h3>
+
+<form method="get" action="$SCRIPT_NAME">
+	<input type="hidden" name="groups" />
+<div id="actions">
+	<div class="float-left">
+		$(gettext 'Selection:')
+		<input type="submit" name="do" value="$(gettext 'Delete group')" />
+	</div>
+</div>
+
+<table class="zebra outbox">
+<thead>
+<tr class="thead">
+	<td>$(gettext 'Group')</td>
+	<td>$(gettext 'Group ID')</td>
+	<td>$(gettext 'Members')</td>
+</tr>
+</thead>
+</tbody>
+EOT
+		for group in `getdb group | cut -d ":" -f 1`
+		do
+			IFS=':'
+			set -- $(getdb group | grep "^$group:")
+			unset IFS
+			gid=$3
+			members=$4
+			cat <<EOT
+<tr>
+	<td><input type='checkbox' name='group' value='$group' />
+		<img src='$IMAGES/users.png' />$group</td>
+	<td>$gid</td>
+	<td>${members//,/, }</td>
+</tr>
+EOT
+		done
+		cat << EOT
+</tbody>
+</table>
+</form>
+
+<section>
+<h4>$(gettext 'Add a new group')</h4>
+
+<form method="get" action="$SCRIPT_NAME">
+	<input type="hidden" name="groups" />
+	<table>
+		<tr><td>$(gettext 'Group name:')</td>
+			<td><input type="text" name="addgroup" size="30" /></td>
+		<td>
+			<input type="submit" value="$(gettext 'Create group')" /></td></tr>
+	</table>
+</form>
+</section>
+
+<section>
+<h4>$(gettext 'Manage group membership')</h4>
+
+<form method="get" action="$SCRIPT_NAME">
+	<input type="hidden" name="groups" />
+	<table>
+		<tr><td>$(gettext 'Group name:')</td>
+		    <td><select name="group">
+		    	$(listdb group)
+		    </select></td>
+		<td>$(gettext 'User name:')</td>
+		    <td><select name="member">
+		    	$(listdb passwd)
+		    </select></td></tr>
+		<tr><td colspan="4"><input type="submit" name="addmember" value="$(gettext 'Add user')" />
+			<input type="submit" name="delmember" value="$(gettext 'Remove user')" /></td></tr>
+	</table>
+</form>
+</section>
+
+EOT
+		;;
+
 	*\ user*)
 		#
 		# Users management
@@ -108,14 +221,14 @@ case " $(GET) " in
 </thead>
 </tbody>
 EOT
-		for login in `cat /etc/passwd | cut -d ":" -f 1`
+		for login in `getdb passwd | cut -d ":" -f 1`
 		do
 			if [ -d /home/$login ]; then
 				colorlogin=$login
 				grep -qs "^$login:!" /etc/shadow &&
 					colorlogin="<span style='color: red;'>$login</span>"
 				IFS=':'
-				set -- $(grep "^$login:" /etc/passwd)
+				set -- $(getdb passwd | grep "^$login:")
 				unset IFS
 				uid=$3
 				gid=$4
@@ -261,7 +374,9 @@ EOT
 </div>
 <div id="actions">
 	<a class="button" href="$SCRIPT_NAME?users">
-		<img src="$IMAGES/users.png" />$(gettext 'Manage users')</a>
+		<img src="$IMAGES/user.png" />$(gettext 'Manage users')</a>
+	<a class="button" href="$SCRIPT_NAME?groups">
+		<img src="$IMAGES/users.png" />$(gettext 'Manage groups')</a>
 </div>
 
 <section>
