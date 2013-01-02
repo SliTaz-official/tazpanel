@@ -102,6 +102,8 @@ case " $(GET) " in
 	*\ style*)
 		sed -i s/'^STYLE.*'/"STYLE=\"$(GET style)\""/ $CONFIG
 		. $CONFIG ;;
+	*\ settz\ *)
+		GET tz > /etc/TZ ;;
 esac
 
 #
@@ -384,13 +386,25 @@ EOT
 <section>
 <h3>$(gettext 'System time')</h3>
 
+<form method="get" action="$SCRIPT_NAME">
 <table>
-	<tr><td>$(gettext 'Time zome:')</td><td>$(cat /etc/TZ)
-		<a class="button" href="$SCRIPT_NAME">$(gettext 'Change')</a></td></tr>
+	<tr><td>$(gettext 'Time zome:')</td><td>
+		<select name="tz">
+		$(cd  /usr/share/zoneinfo ; find * -type f | while read tz; do
+			if [ "$(cat /etc/TZ)" == "$tz" ]; then
+				echo "<option selected>$tz</option>"
+			else
+				echo "<option>$tz</option>"
+			fi
+		done)
+		</select>
+		<input type="submit" name="settz" value="$(gettext 'Change')" /></td></tr>
 	<tr><td>$(gettext 'System time:')</td><td>$(date)</td></tr>
 	<tr><td>$(gettext 'Hardware clock:')</td><td>$(hwclock -r)</tr>
 </table>
+</form>
 <form method="get" action="$SCRIPT_NAME">
+<input type="submit" name="date" value="$(gettext 'Set date')" />
 <select name="day">
 $(for i in $(seq 1 31); do echo "<option>$i</option>"; done)
 </select>
@@ -412,7 +426,6 @@ $(for i in $(seq 0 59); do printf "<option>%02d</option>" $i; done)
 : <select name="sec">
 $(for i in $(seq 0 59); do printf "<option>%02d</option>" $i; done)
 </select>
-<input type="submit" name="date" value="$(gettext 'Set date')" />
 </form>
 <a class="button" href="$SCRIPT_NAME?rdate">$(gettext 'Sync online')</a>
 <a class="button" href="$SCRIPT_NAME?hwclock">$(gettext 'Set hardware clock')</a>
