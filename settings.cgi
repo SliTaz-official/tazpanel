@@ -91,6 +91,8 @@ case " $(GET) " in
 	*\ apply_xorg_kbd\ *)
 		sed -i "s/XkbLayout.*/XkbLayout \" \"$(GET apply_xorg_kbd)\"/" \
 			/etc/X11/xorg.conf.d/40-Keyboard.conf ;;
+	*\ date\ *)
+		date $(GET month)$(GET day)$(GET hour)$(GET min)$(GET year).$(GET sec) ;;
 	*\ rdate\ *)
 		rdate -s tick.greyware.com ;;
 	*\ hwclock\ *)
@@ -388,6 +390,30 @@ EOT
 	<tr><td>$(gettext 'System time:')</td><td>$(date)</td></tr>
 	<tr><td>$(gettext 'Hardware clock:')</td><td>$(hwclock -r)</tr>
 </table>
+<form method="get" action="$SCRIPT_NAME">
+<select name="day">
+$(for i in $(seq 1 31); do echo "<option>$i</option>"; done)
+</select>
+<select name="month">
+$(for i in 01 02 03 04 05 06 07 08 09 10 11 12; do
+  date -d ${i}010101 '+%m %B' | \
+  sed 's|\(.*\) \(.*\)|<option value="\1">\2</option>|'
+done)
+</select>
+<select name="year">
+$(for i in $(seq 2010 2030); do echo "<option>$i</option>"; done)
+</select>
+- <select name="hour">
+$(for i in $(seq 0 23); do printf "<option>%02d</option>" $i; done)
+</select>
+: <select name="min">
+$(for i in $(seq 0 59); do printf "<option>%02d</option>" $i; done)
+</select>
+: <select name="sec">
+$(for i in $(seq 0 59); do printf "<option>%02d</option>" $i; done)
+</select>
+<input type="submit" name="date" value="$(gettext 'Set date')" />
+</form>
 <a class="button" href="$SCRIPT_NAME?rdate">$(gettext 'Sync online')</a>
 <a class="button" href="$SCRIPT_NAME?hwclock">$(gettext 'Set hardware clock')</a>
 </section>
