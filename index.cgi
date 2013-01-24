@@ -94,8 +94,9 @@ EOT
 			file_is_modified $file diff | syntax_highlighter diff
 			echo '</pre>'
 		else
+			R=$(echo -en '\r')
 			[ -n "$(POST content)" ] &&
-				sed "s/`echo -en '\r'` /\n/g" > $file <<EOT
+				sed "s/$R /\n/g;s/$R%0//g" > $file <<EOT
 $(POST content)
 EOT
 			cat <<EOT
