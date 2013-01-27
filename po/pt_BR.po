@@ -214,7 +214,6 @@ msgid "Uptime:"
 msgstr "Uptime:"
 
 #: index.cgi:361
-#, fuzzy
 msgid "Memory in Mb:"
 msgstr "Memória em MB"
 
@@ -325,7 +324,6 @@ msgid "Utilities"
 msgstr "Utilitários"
 
 #: pkgs.cgi:151 styles/default/header.html:46
-#, fuzzy
 msgid "Network"
 msgstr "Rede"
 
@@ -476,9 +474,8 @@ msgid "Packages lists are up-to-date. You should check for upgrades now."
 msgstr "A lista de pacotes está atualizada. Cheque as atualizações."
 
 #: pkgs.cgi:503
-#, fuzzy
 msgid "Checking for upgrades..."
-msgstr "Checar atualizações"
+msgstr "Checando atualizações"
 
 #: pkgs.cgi:506
 msgid "Up packages"
@@ -2023,7 +2020,6 @@ msgstr "BSD License"
 #~ msgid "Host:"
 #~ msgstr "Host:"
 
-#, fuzzy
 #~ msgid "Uptime       :"
 #~ msgstr "Uptime       :"
 
@@ -2033,6 +2029,5 @@ msgstr "BSD License"
 #~ msgid "Connection:"
 #~ msgstr "Conexão"
 
-#, fuzzy
 #~ msgid "Host"
-j~ msgstr "Host:"
+#~ msgstr "Host:"
