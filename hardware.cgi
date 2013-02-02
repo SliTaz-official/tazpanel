@@ -219,6 +219,7 @@ EOT
 		cat << EOT
 </div>
 
+<a name="disk">
 <h3>$(gettext 'Filesystem usage statistics')</h3>
 <pre>
 EOT
