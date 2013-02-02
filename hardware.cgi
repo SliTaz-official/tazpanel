@@ -300,6 +300,12 @@ EOT
 <input type="submit" value="mount / umount" /> -
 new mount point <input type=text" name="mountpoint" value="/media/usbdisk" />
 </form>
+<h3>$(gettext 'Filesystems table')</h3>
+<pre>
+$(grep -v ^# /etc/fstab | syntax_highlighter conf)
+</pre>
+<a class="button" href="index.cgi?file=/etc/fstab&action=edit">
+	<img src="$IMAGES/edit.png" />$(gettext 'Manual Edit')</a>
 EOT
 
 
