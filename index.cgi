@@ -397,8 +397,8 @@ EOT
 <tr>
 	<td><a href="hardware.cgi">
 		<img src="$IMAGES/harddisk.png" />${fs#/dev/}</a></td>
-	<td>$(blkid -o value $fs | head -n1)</td>
-	<td>$(blkid -o value $fs | tail -n1)</td>
+	<td>$(blkid $fs | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/\1/')</td>
+	<td>$(blkid $fs | sed '/TYPE=/!d;s/.*TYPE="\([^"]*\).*/\1/')</td>
 	<td>$size</td>
 	<td>$av</td>
 	<td class="meter"><meter min="0" max="100" value="$(echo $pct | cut -d% -f1)"
@@ -406,6 +406,7 @@ EOT
 		<span>$used - $pct</span>
 	</td>
 	<td>$mp</td>
+	<td>$(blkid $fs | sed '/UUID=/!d;s/.*UUID="\([^"]*\).*/\1/')</td>
 </tr>
 EOT
 		done

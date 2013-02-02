@@ -222,6 +222,7 @@ df_thead() {
 		<td>$(gettext 'Available')</td>
 		<td>$(gettext 'Used')</td>
 		<td>$(gettext 'Mount point')</td>
+		<td>UUID</td>
 	</tr>
 </thead>
 EOT

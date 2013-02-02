@@ -214,19 +214,37 @@ EOT
 EOT
 		df_thead
 		echo '<tbody>'
-		df -h | grep ^/dev | while read fs size used av pct mp
+		blkid | sort | while read dev misc
 		do
-				cat << EOT
+			fs=${dev%:}
+			set --
+			df | grep -q "^$fs " && set -- $(df -h | grep "^$fs ")
+			size=$2
+			used=$3
+			av=$4
+			pct=$5
+			mp=$6
+			cat << EOT
 <tr>
 	<td><img src="$IMAGES/harddisk.png" />${fs#/dev/}</td>
-	<td>$(blkid -o value $fs | head -n1)</td>
-	<td>$(blkid -o value $fs | tail -n1)</td>
+	<td>$(blkid $fs | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/\1/')</td>
+	<td>$(blkid $fs | sed '/TYPE=/!d;s/.*TYPE="\([^"]*\).*/\1/')</td>
 	<td>$size</td>
 	<td>$av</td>
+EOT
+		if [ -n "$pct" ]; then
+			cat << EOT
 	<td class="meter"><meter min="0" max="100" value="${pct%%%}" low="70"
 	high="90" optimum="10"></meter>
 		<span>$used - $pct</span>
 	</td>
+EOT
+		else
+			cat << EOT
+	<td></td>
+EOT
+		fi
+		cat << EOT
 	<td>$mp</td>
 </tr>
 EOT
