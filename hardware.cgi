@@ -12,6 +12,26 @@ header
 
 TITLE=$(gettext 'TazPanel - Hardware')
 
+ktoh()
+{
+	k=$1
+	if [ $k -lt 1024 ]; then
+		echo ${k}K
+		return
+	fi
+	k=$((($k+512)/1024))
+	if [ $k -lt 1024 ]; then
+		echo ${k}M
+		return
+	fi
+	k=$((($k+512)/1024))
+	if [ $k -lt 1024 ]; then
+		echo ${k}G
+		return
+	fi
+	k=$((($k+512)/1024))
+	echo ${k}T
+}
 #
 # Commands
 #
@@ -209,7 +229,17 @@ EOT
 		#
 		# Disk stats and management (mount, umount, check)
 		#
+		device=$(GET device)
+		case "$device" in
+		*[\;\`\&\|\$]*) ;;
+		mount\ *)
+			$device $(GET mountpoint);;
+		umount\ *|swapon\ *|swapoff\ *)
+			$device ;;
+		esac
 		cat << EOT
+<a name="mount">
+<form method="get" action="$SCRIPT_NAME#mount">
 <table class="zebra outbox">
 EOT
 		df_thead
@@ -224,11 +254,25 @@ EOT
 			av=$4
 			pct=$5
 			mp=$6
+			action="mount"
+			[ -n "$mp" ] && action="umount"
+			type=$(blkid $fs | sed '/TYPE=/!d;s/.*TYPE="\([^"]*\).*/\1/')
+			[ "$type" == "swap" ] && action="swapon"
+			if grep -q "^$fs " /proc/swaps; then
+				action="swapoff"
+				set -- $(grep "^$fs " /proc/swaps)
+				size=$(ktoh $3)
+				used=$(ktoh $4)
+				av=$(ktoh $(($3-$4)))
+				pct=$(((100*$4)/$3))%
+				mp=swap
+			fi
 			cat << EOT
 <tr>
-	<td><img src="$IMAGES/harddisk.png" />${fs#/dev/}</td>
+	<td><input type="radio" name="device" value="$action $fs" />
+	    <img src="$IMAGES/harddisk.png" />${fs#/dev/}</td>
 	<td>$(blkid $fs | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/\1/')</td>
-	<td>$(blkid $fs | sed '/TYPE=/!d;s/.*TYPE="\([^"]*\).*/\1/')</td>
+	<td>$type</td>
 	<td>$size</td>
 	<td>$av</td>
 EOT
@@ -246,13 +290,16 @@ EOT
 		fi
 		cat << EOT
 	<td>$mp</td>
+	<td>$(blkid $fs | sed '/UUID=/!d;s/.*UUID="\([^"]*\).*/\1/')</td>
 </tr>
 EOT
 		done
 		cat << EOT
 </tbody>
 </table>
-
+<input type="submit" value="mount / umount" /> -
+new mount point <input type=text" name="mountpoint" value="/media/usbdisk" />
+</form>
 EOT
 
 
