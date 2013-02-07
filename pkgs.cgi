@@ -22,6 +22,14 @@ pkg_info_link()
 	echo "$SCRIPT_NAME?info=$1" | sed 's/+/%2B/g'
 }
 
+i18n_desc() {
+	# Display localized short description
+	if [ -e "$LOCALSTATE/packages-desc.$LANG" ]; then
+		LOCDESC=$(grep -e "^$pkg	" $LOCALSTATE/packages-desc.$LANG | cut -d'	' -f2)
+	[ "x$LOCDESC" != "x" ] && SHORT_DESC="$LOCDESC"
+	fi
+}
+
 # We need packages information for list and search
 parse_packages_desc() {
 	IFS="|"
@@ -29,6 +37,7 @@ parse_packages_desc() {
 	do
 		image=tazpkg-installed.png
 		[ -d $INSTALLED/${PACKAGE% } ] || image=tazpkg.png
+		i18n_desc
 		cat << EOT
 <tr>
 <td><input type="checkbox" name="pkg" value="$PACKAGE">
@@ -247,6 +256,7 @@ EOT
 			colorpkg=$pkg
 			grep -qs "^$pkg$" $LOCALSTATE/blocked-packages.list &&
 				colorpkg="<span style='color: red;'>$pkg</span>"
+			i18n_desc
 			cat << EOT
 <td class="pkg">
 	<input type="checkbox" name="pkg" value="$pkg" />
@@ -302,6 +312,7 @@ EOT
 		do
 			[ -s $pkg/receipt ] && continue
 			. $target/$INSTALLED/$pkg/receipt
+			i18n_desc
 			cat << EOT
 <tr>
 	<td class="pkg">
@@ -650,6 +661,7 @@ EOT
 			<a class="button" href='$SCRIPT_NAME?do=Repack&$pkg'>$(gettext 'Repack')</a>
 EOT
 		fi
+		i18n_desc
 		cat << EOT
 		</p>
 	</div>
