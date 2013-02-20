@@ -292,10 +292,6 @@ span.kernel-hex { color: #18A423; }
 span.kernel-id { color: #287FC7; }
 span.kernel-id2 { color: #843523; }
 
-/* alert messages */
-span.msg-ok { color: limegreen; }
-span.msg-nok { color: tomato; }
-
 /* Misc */
 
 pre, .pre-main {
