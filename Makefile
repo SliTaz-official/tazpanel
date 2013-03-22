@@ -41,7 +41,7 @@ install:
 		$(DESTDIR)$(PREFIX)/share/applications \
 		$(DESTDIR)$(PREFIX)/share/pixmaps \
 		$(DESTDIR)$(SYSCONFDIR) \
-		$(DESTDIR)$(PANEL) \
+		$(DESTDIR)$(PANEL)/menu.d \
 		$(DESTDIR)/var/log
 	cp -a tazpanel $(DESTDIR)$(PREFIX)/bin
 	cp -a data/*.conf $(DESTDIR)$(SYSCONFDIR)
