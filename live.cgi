@@ -68,6 +68,10 @@ case " $(GET) " in
 			-e "tazlito merge $(merge_args $tmp); \
 				gettext 'ENTER to quit'; read i; \
 				$cleanup" & ;;
+	*\ hybrid\ *)
+		$TERMINAL $TERM_OPTS \
+			-T "build hybrid iso" \
+			-e "iso2exe $(GET input)" & ;;
 esac
 
 #
@@ -192,6 +196,23 @@ new ISO image requiring less RAM to run.")</p>
 	<input type="submit" value="$(gettext 'Convert ISO to loram')" />
 </form>
 
+
+<h4 id="hybrid">$(gettext 'Build a hybrid ISO')</h4>
+
+<p>$(gettext "Add a master boot sector and a EXE header to the ISO image. \
+")</p>
+
+<form method="get" action="$SCRIPT_NAME#hybrid">
+	<table>
+	<tr>
+	<td>
+	$(gettext 'ISO to convert')
+	<input type="text" name="input" value="/root/" />
+	</td>
+	</tr>
+	</table>
+	<input type="submit" name="hybrid" value="$(gettext 'Build a hybrid ISO')" />
+</form>
 
 <h4 id="meta">$(gettext 'Build a meta ISO')</h4>
 
