@@ -388,7 +388,7 @@ EOT
 
 <form method="get" action="$SCRIPT_NAME">
 <table>
-	<tr><td>$(gettext 'Time zome:')</td><td>
+	<tr><td>$(gettext 'Time zone:')</td><td>
 		<select name="tz">
 		$(cd  /usr/share/zoneinfo ; find * -type f | while read tz; do
 			if [ "$(cat /etc/TZ)" == "$tz" ]; then
