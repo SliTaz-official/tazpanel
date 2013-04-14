@@ -40,7 +40,7 @@ case "$1" in
 		status ;;
 	stop)
 		gettext 'Stopping TazPanel web server...'
-		kill $(cat $PIDFILE) && status ;;
+		kill $(pgrep -f TazPanel) && status ;;
 	passwd|-p)
 		echo ""
 		gettext 'Changing password for TazPanel'; echo
