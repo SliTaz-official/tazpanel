@@ -31,16 +31,26 @@ DAEMON=/usr/sbin/httpd
 PIDFILE=/var/run/$NAME.pid
 
 case "$1" in
-	start)
+	start)  
+	        if [ -f $PIDFILE ]; then
+	        gettext 'TazPanel is already running.'; echo
+	        exit 1
+	        fi
 		eval_gettext 'Starting TazPanel web server on port $HTTPD_PORT...'
 		httpd -p $HTTPD_PORT -u root -c $HTTPD_CONF \
 			-r "$(gettext 'TazPanel Authentication - Default: root:root')" &
 		ps | grep "httpd -p $HTTPD_PORT " | grep -v grep | \
 			awk '{ print $1 }' > $PIDFILE
 		status ;;
-	stop)
+	stop)   
+	        if [ ! -f $PIDFILE ]; then
+	        gettext 'TazPanel is not running.'; echo
+	        exit 1
+	        fi
 		gettext 'Stopping TazPanel web server...'
-		kill $(pgrep -f TazPanel) && status ;;
+		kill $(pgrep -f TazPanel) 
+		rm -f $PIDFILE
+		status ;;
 	passwd|-p)
 		echo ""
 		gettext 'Changing password for TazPanel'; echo
