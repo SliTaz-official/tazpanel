@@ -35,7 +35,7 @@ EOT
 			SCAN=$(iwlist $WIFI_INTERFACE scan last | sed "/$i/,/Cell/!d" | sed '$d')
 			ESSID=$(echo $SCAN | sed 's/.*ESSID:"\([^"]*\).*/\1/')
 			if echo "$SCAN" | grep -q Quality; then
-				QUALITY=$(echo $SCAN | sed 's/.*Quality:\([^ ]*\).*/\1/')
+				QUALITY=$(echo $SCAN | sed '/ *Quality/s/.*Quality[:=]\([^ ]*\).*/\1/')
 			else
 				QUALITY="-"
 			fi
