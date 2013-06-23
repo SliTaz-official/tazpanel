@@ -16,22 +16,52 @@ ktoh()
 {
 	k=$1
 	if [ $k -lt 1024 ]; then
-		echo ${k}K
+		eval_gettext '${k}K'
 		return
 	fi
 	k=$((($k+512)/1024))
 	if [ $k -lt 1024 ]; then
-		echo ${k}M
+		eval_gettext '${k}M'
 		return
 	fi
 	k=$((($k+512)/1024))
 	if [ $k -lt 1024 ]; then
-		echo ${k}G
+		eval_gettext '${k}G'
 		return
 	fi
 	k=$((($k+512)/1024))
-	echo ${k}T
+	eval_gettext '${k}T'
 }
+
+lsusb_table()
+{
+	cat << EOT
+<table class="zebra outbox">
+<thead><tr><td>Bus</td><td>Device</td><td>ID</td><td>Name</td></thead>
+<tbody>
+EOT
+	lsusb | sed 's|^Bus \([0-9]*\)|<tr><td>\1</td>|;
+			s|</td> Device \([0-9]*\):|</td><td>\1</td>|;
+			s|</td> ID \([^:]*:[^ ]*\)|</td><td><a href="?lsusb=\1">\1</a></td>|;
+			s| |<td>|2;
+			s|.*$|\0</td></tr>|'
+	echo "</tbody></table>"
+}
+
+lspci_table()
+{
+	cat << EOT
+<table class="zebra outbox">
+<thead><tr><td>Slot</td><td>Device</td><td>Name</td></thead>
+<tbody>
+EOT
+	lspci | sed 's| |</td><td>|;
+			s|: |</td><td>|;
+			s|^\([^<]*\)|<a href="?lspci=\1">\1</a>|;
+			s|^.*$|<tr><td>\0</td></tr>|'
+	echo "</tbody></table>"
+}
+
 #
 # Commands
 #
@@ -119,6 +149,34 @@ EOT
 EOT
 		done
 		table_end ;;
+	*\ lsusb\ *)
+		xhtml_header
+		vidpid="$(GET lsusb)"
+		cat << EOT
+<div id="wrapper">
+	<h2>$(eval_gettext 'Information for USB Device $vidpid')</h2>
+	<p>$(gettext 'Detailed information about specified device.')</p>
+EOT
+		lsusb_table
+		cat << EOT
+</div>
+<pre>$(lsusb -vd $vidpid | syntax_highlighter lsusb)</pre>
+EOT
+		;;
+	*\ lspci\ *)
+		xhtml_header
+		slot="$(GET lspci)"
+		cat << EOT
+<div id="wrapper">
+	<h2>$(eval_gettext 'Information for PCI Device $slot')</h2>
+	<p>$(gettext 'Detailed information about specified device.')</p>
+EOT
+		lspci_table
+		cat << EOT
+</div>
+<pre>$(lspci -vs $slot | syntax_highlighter lspci)</pre>
+EOT
+		;;
 	*)
 		[ -n "$(GET brightness)" ] &&
 		echo -n $(GET brightness) > /sys/devices/virtual/backlight/$(GET dev)/brightness
@@ -139,7 +197,6 @@ EOT
 		<img src="$IMAGES/monitor.png" />$(gettext 'Detect PCI/USB')</a>
 </div>
 
-<div id="wrapper">
 EOT
 		if [ -n "$(ls /proc/acpi/battery/*/info 2> /dev/null)" ]; then
 			echo "<table>"
@@ -217,14 +274,14 @@ EOT
 EOT
 		fi
 		cat << EOT
-</div>
 
-<a name="disk">
-<h3>$(gettext 'Filesystem usage statistics')</h3>
+
+<h3 id="disk">$(gettext 'Filesystem usage statistics')</h3>
+
 <pre>
+$(fdisk -l | fgrep Disk)
+</pre>
 EOT
-		fdisk -l | fgrep Disk
-		echo '</pre>'
 
 
 		#
@@ -239,9 +296,8 @@ EOT
 			$device ;;
 		esac
 		cat << EOT
-<a name="mount">
 <form method="get" action="$SCRIPT_NAME#mount">
-<table class="zebra outbox">
+<table id="mount" class="zebra outbox nowrap">
 EOT
 		df_thead
 		echo '<tbody>'
@@ -286,7 +342,7 @@ EOT
 EOT
 		else
 			cat << EOT
-	<td></td>
+	<td> </td>
 EOT
 		fi
 		cat << EOT
@@ -301,38 +357,43 @@ EOT
 <input type="submit" value="mount / umount" /> -
 new mount point <input type=text" name="mountpoint" value="/media/usbdisk" />
 </form>
+
+
 <h3>$(gettext 'Filesystems table')</h3>
-<pre>
-$(grep -v ^# /etc/fstab | syntax_highlighter conf)
-</pre>
+EOT
+
+grep -v '^#' /etc/fstab | awk 'BEGIN{print "<table class=\"zebra outbox\">\
+	<thead><tr><td>spec</td><td>file</td><td>vfstype</td><td>mntops</td><td>\
+	freq</td><td>passno</td></thead><tbody>"}{print "<tr><td>"$1"</td><td>"$2\
+	"</td><td>"$3"</td><td>"$4"</td><td>"$5"</td><td>"$6"</td></tr>"}
+	END{print "</tbody></table>"}'
+
+		cat << EOT
 <a class="button" href="index.cgi?file=/etc/fstab&action=edit">
 	<img src="$IMAGES/edit.png" />$(gettext 'Manual Edit')</a>
-EOT
 
 
-		cat << EOT
 <h3>$(gettext 'System memory')</h3>
-<pre>
 EOT
-		free -m | sed \
-			-e s"#total.*\([^']\)#<span class='top'>\0</span>#"g \
-			-e s"#^[A-Z-].*:\([^']\)#<span class='sh-comment'>\0</span>#"g
-		cat << EOT
-</pre>
 
-<h3>lspci</h3>
-<pre>
-EOT
-			lspci -k | sed \
-			 -e s"#^[0-9].*\([^']\)#<span class='diff-at'>\0</span>#" \
-			 -e s"#use: \(.*\)#use: <span class='diff-rm'>\1</span>#"
+echo "<table class=\"zebra outbox\"><thead><tr><td>&nbsp;</td><td>total</td>\
+<td>used</td><td>free</td><td>shared</td><td>buffers</td></tr></thead><tbody>"
+freem=$(free -m)
+echo "$freem" | grep Mem: | awk '{print "<tr><td>"$1"</td><td>"$2"</td><td>"$3\
+	"</td><td>"$4"</td><td>"$5"</td><td>"$6"</td></tr>"}'
+echo "$freem" | grep buffers: | awk '{print "<tr><td>"$1 $2"</td><td>&nbsp;</td>\
+	<td>"$3"</td><td>"$4"</td><td>&nbsp;</td><td>&nbsp;</td></tr>"}'
+echo "$freem" | grep Swap: | awk '{print "<tr><td>"$1"</td><td>"$2"</td><td>"$3\
+	"</td><td>"$4"</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>"}'
+
 		cat << EOT
-</pre>
+<h3>lspci</h3>
+$(lspci_table)
 
 <h3>lsusb</h3>
-<pre>$(lsusb)</pre>
+$(lsusb_table)
 EOT
-		;;
+			;;
 esac
 
 xhtml_footer

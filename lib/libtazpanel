@@ -56,6 +56,14 @@ syntax_highlighter() {
 				-e "s|\([^0-9]\)\(0x[0-9a-f]\+\)|\1<span class='kernel-hex'>\2</span>|g" \
 				-e "s|^\([^(,\[]\+: \)|<span class='kernel-id'>\0</span>|g" \
 				-e "s|\(\[[^ ]\+\]\)|<span class='kernel-id2'>\0</span>|g" ;;
+		lsusb)
+			htmlize | sed \
+				-e 's|^[^:]*:[ x0-9a-f^:]*$|<span class="lsusb-t">\0</span>|g' \
+				-e 's|^Bus.*$|<span class="lsusb-h">\0</span>|g' ;;
+		lspci)
+			htmlize | sed \
+				-e 's|^[0-9a-f].*$|<span class="lspci-t">\0</span>|g' \
+				-e 's|^	\([^:]*:\)|	<span class="lspci-h">\1</span>|g' ;;
 
 	esac
 }

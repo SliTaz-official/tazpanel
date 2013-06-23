@@ -291,6 +291,8 @@ span.top { color: #00c800; font-weight: normal; }
 span.kernel-hex { color: #18A423; }
 span.kernel-id { color: #287FC7; }
 span.kernel-id2 { color: #843523; }
+span.lsusb-h, span.lspci-h { color: #800; font-weight: bold; }
+span.lsusb-t, span.lspci-t { color: #448; font-weight: bold; }
 
 /* Misc */
 
