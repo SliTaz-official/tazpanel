@@ -81,7 +81,7 @@ EOT
 	<tr>
 		<td>$(gettext 'Name')</td>
 		<td>$(gettext 'Description')</td>
-		<td></td>
+		<td>$(gettext 'Configuration')</td>
 		<td>$(gettext 'Status')</td>
 		<td>$(gettext 'Action')</td>
 		<td>$(gettext 'PID')</td>
@@ -145,7 +145,7 @@ EOT
 						unset SHORT_DESC TAZPANEL_DAEMON
 						. $LOCALSTATE/installed/$pkg/receipt
 						echo -n "$SHORT_DESC"
-						cfg="${TAZPANEL_DAEMON:-$cfg}"
+						cfg="${TAZPANEL_DAEMON:-$cfg|web::$WEB_SITE}"
 					else
 						echo -n "----"
 					fi ;;
@@ -191,7 +191,7 @@ EOT
 						;;
 					web)	cat <<EOT
 <a href="${i#$1:$2:}">
-<img title="${2:-$name Web} $(gettext "${i#$1:$2:}")" src="$IMAGES/browser.png" /></a>
+<img title="${2:-$name website:} ${i#$1:$2:}" src="$IMAGES/browser.png" /></a>
 EOT
 						;;
 					esac
