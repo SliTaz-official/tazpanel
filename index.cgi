@@ -61,6 +61,17 @@ ok_status_t() {
 #
 
 case " $(GET) " in
+	*\ exec\ *)
+		exec="$(GET exec)"
+		TITLE=$(gettext 'TazPanel - exec')
+		xhtml_header
+		cat << EOT
+<h2>$exec</h2>
+<pre>
+$($exec 2>&1 | htmlize)
+</pre>
+EOT
+		;;
 	*\ file\ *)
 		#
 		# Handle files
@@ -89,16 +100,32 @@ $(cat $file | htmlize)
 EOT
 #The space before textarea gets muddled when the form is submitted.
 #It prevents anything else from getting messed up
+		elif [ "$(GET action)" == "setvar" ]; then
+			data="$(. $(GET file) ;eval echo \$$(GET var))"
+			cat <<EOT
+<form method="post" action="$SCRIPT_NAME?file=$file">
+	<img src="$IMAGES/edit.png" />
+	<input type="submit" value="$(gettext 'Save')">
+	$(GET var) : 
+	<input type="hidden" name="var" value="$(GET var)">
+	<input type="text" name="content" value="${data:-$(GET default)}">
+</form>
+EOT
 		elif [ "$(GET action)" == "diff" ]; then
 			echo '<pre id="diff">'
 			file_is_modified $file diff | syntax_highlighter diff
 			echo '</pre>'
 		else
 			R=$(echo -en '\r')
-			[ -n "$(POST content)" ] &&
-				sed "s/$R /\n/g;s/$R%0//g" > $file <<EOT
+			if [ -n "$(POST content)" ]; then
+				if [ -n "$(POST var)" ]; then
+					sed -i "s|^\\($(POST var)=\\).*|\1\"$(POST content)\"|" $file
+				else
+					sed "s/$R /\n/g;s/$R%0//g" > $file <<EOT
 $(POST content)
 EOT
+				fi
+			fi
 			cat <<EOT
 <div id="actions">
 	<a class="button" href='$SCRIPT_NAME?file=$file&action=edit'>

@@ -12,27 +12,6 @@ header
 
 TITLE=$(gettext 'TazPanel - Hardware')
 
-ktoh()
-{
-	k=$1
-	if [ $k -lt 1024 ]; then
-		eval_gettext '${k}K'
-		return
-	fi
-	k=$((($k+512)/1024))
-	if [ $k -lt 1024 ]; then
-		eval_gettext '${k}M'
-		return
-	fi
-	k=$((($k+512)/1024))
-	if [ $k -lt 1024 ]; then
-		eval_gettext '${k}G'
-		return
-	fi
-	k=$((($k+512)/1024))
-	eval_gettext '${k}T'
-}
-
 lsusb_table()
 {
 	cat << EOT
@@ -318,12 +297,14 @@ EOT
 			if grep -q "^$fs " /proc/swaps; then
 				action="swapoff"
 				set -- $(grep "^$fs " /proc/swaps)
-				size=$(ktoh $3)
-				used=$(ktoh $4)
-				av=$(ktoh $(($3-$4)))
+				size=$(blk2h $(($3*2)))
+				used=$(blk2h $(($4*2)))
+				av=$(blk2h $((2*($3-$4))))
 				pct=$(((100*$4)/$3))%
 				mp=swap
 			fi
+			[ -z "$size" ] &&
+			size="$(blk2h $(cat /sys/block/${fs#/dev/}/size /sys/block/*/${fs#/dev/}/size))"
 			cat << EOT
 <tr>
 	<td><input type="radio" name="device" value="$action $fs" />

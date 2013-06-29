@@ -256,3 +256,15 @@ EOT
 is_installed() {
 	[ -d "$INSTALLED/$1" ]
 }
+
+blk2h() {
+	echo $1 | awk '{
+	n = $0/2
+	for (i = 1; n > 1024; i++)
+		n /= 1024
+	f = "%1.0f%c"
+	if (n < 1000)
+		f = "%1.1f%c"
+	printf f,n,substr("KMGT", i, 1)
+}'
+}

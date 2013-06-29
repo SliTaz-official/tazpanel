@@ -59,6 +59,7 @@ cat << EOT
 					src="/styles/default/images/wireless.png" />$(gettext 'Wireless')</a></li>
 				<li><a href="/index.cgi?file=/etc/network.conf"><img
 					src="/styles/default/images/edit.png" />$(gettext 'Config file')</a></li>
+				$(for i in menu.d/network/* ; do [ -f $i ] && . $i menu $i ; done)
 			</ul>
 		</li>
 		<li><a href="/settings.cgi">$(gettext 'Settings')</a>

@@ -81,6 +81,7 @@ EOT
 	<tr>
 		<td>$(gettext 'Name')</td>
 		<td>$(gettext 'Description')</td>
+		<td></td>
 		<td>$(gettext 'Status')</td>
 		<td>$(gettext 'Action')</td>
 		<td>$(gettext 'PID')</td>
@@ -103,6 +104,10 @@ EOT
 			[ echo "RUN_DAEMONS" | fgrep $name ] && boot="on boot"
 			# Standard SliTaz busybox daemons and firewall
 			echo -n "<td>"
+			cfg=""
+			grep -qi "^${name}_OPTIONS=" /etc/daemons.conf && cfg="options|$cfg"
+			[ -s /etc/$name.conf ] && cfg="edit|$cfg"
+			[ -n "$(which $name)" ] && cfg="man|help|$cfg"
 			case "$name" in
 				firewall)
 					gettext 'SliTaz Firewall with iptable rules' ;;
@@ -111,20 +116,25 @@ EOT
 				ntpd)
 					gettext 'Network time protocol daemon' ;;
 				ftpd)
+					cfg="man|help|edit::/etc/inetd.conf"
 					gettext 'Anonymous FTP server' ;;
 				udhcpd)
 					gettext 'Busybox DHCP server' ;;
 				syslogd|klogd)
 					gettext 'Linux Kernel log daemon' ;;
 				crond)
+					# FIXME crontab
 					gettext 'Execute scheduled commands' ;;
 				dnsd)
+					cfg="man|help|edit|options::-d"
 					gettext 'Small static DNS server daemon' ;;
 				tftpd)
+					cfg="man|help|edit::/etc/inetd.conf"
 					gettext 'Transfer a file on tftp request' ;;
 				inetd)
 					gettext 'Listen for network connections and launch programs' ;;
 				zcip)
+					cfg="man|help|edit:Script:/etc/zcip.script|options::eth0 /etc/zcip.script"
 					gettext 'Manage a ZeroConf IPv4 link-local address' ;;
 				*)
 					# Description from receipt
@@ -132,8 +142,10 @@ EOT
 					[ -d "$LOCALSTATE/installed/${name%d}" ] && pkg=${name%d}
 					[ -d "$LOCALSTATE/installed/${name}-pam" ] && pkg=${name}-pam
 					if [ "$pkg" ]; then
+						unset SHORT_DESC TAZPANEL_DAEMON
 						. $LOCALSTATE/installed/$pkg/receipt
 						echo -n "$SHORT_DESC"
+						cfg="${TAZPANEL_DAEMON:-$cfg}"
 					else
 						echo -n "----"
 					fi ;;
@@ -148,6 +160,44 @@ EOT
 			[ "$name" = "apache" ] && pid=$(cat /var/run/$name/httpd.pid)
 			# Pidof works for many daemons
 			[ "$pid" ] || pid=$(pidof $name)
+			echo -n "<td>"
+			if [ "$cfg" ]; then
+				IFS="|"
+				for i in $cfg ; do
+					IFS=":"
+					set -- $i
+					case "$1" in
+					edit)	cat <<EOT
+<a href="index.cgi?file=${3:-/etc/$name.conf}&action=edit">
+<img title="${2:-$name Configuration}" src="$IMAGES/edit.png" /></a>
+EOT
+						;;
+					options)
+						key=$(echo $name | tr [a-z] [A-Z])_OPTIONS
+						cat <<EOT
+<a href="index.cgi?file=/etc/daemons.conf&action=setvar&var=$key&default=$3">
+<img title="${2:-$key}" src="$IMAGES/tux.png" /></a>
+EOT
+						;;
+					man)	cat <<EOT
+<a href="index.cgi?exec=man ${3:-$name}">
+<img title="${2:-$name Manual}" src="$IMAGES/text.png" /></a>
+EOT
+						;;
+					help)	cat <<EOT
+<a href="index.cgi?exec=$(which ${3:-$name}) --help">
+<img title="${2:-$name Help}" src="$IMAGES/help.png" /></a>
+EOT
+						;;
+					web)	cat <<EOT
+<a href="${i#$1:$2:}">
+<img title="${2:-$name Web} $(gettext "${i#$1:$2:}")" src="$IMAGES/browser.png" /></a>
+EOT
+						;;
+					esac
+				done
+			fi
+			echo "</td>"
 			if [ "$pid" ]; then
 				cat << EOT
 <td><img src="$IMAGES/started.png" alt="Started" title="$(gettext 'Started')" /></td>
