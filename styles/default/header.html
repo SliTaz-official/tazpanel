@@ -39,18 +39,6 @@ cat << EOT
 				$(for i in menu.d/panel/* ; do [ -f $i ] && . $i menu $i ; done)
 			</ul>
 		</li>
-		<li><a href="/pkgs.cgi">$(gettext 'Packages')</a>
-			<ul>
-				<li><a href="/pkgs.cgi?list"><img
-					src="/styles/default/images/tazpkg.png" />$(gettext 'My packages')</a></li>
-				<li><a href="/pkgs.cgi?recharge"><img
-					src="/styles/default/images/update.png" />$(gettext 'Recharge list')</a></li>
-				<li><a href="/pkgs.cgi?up"><img
-					src="/styles/default/images/update.png" />$(gettext 'Check updates')</a></li>
-				<li><a href="/pkgs.cgi?admin"><img
-					src="/styles/default/images/edit.png" />$(gettext 'Administration')</a></li>
-			</ul>
-		</li>
 		<li><a href="/network.cgi">$(gettext 'Network')</a>
 			<ul>
 				<li><a href="/network.cgi?eth"><img
@@ -91,15 +79,6 @@ cat << EOT
 				<li><a href="/hardware.cgi#disk"><img
 					src="/styles/default/images/harddisk.png" />$(gettext 'Disks')</a></li>
 				$(for i in menu.d/hardware/* ; do [ -f $i ] && . $i menu $i ; done)
-			</ul>
-		</li>
-		<li><a href="/live.cgi">$(gettext 'Live')</a>
-			<ul>
-				<li><a href="/live.cgi?liveusb">$(gettext 'Create a live USB key')</a></li>
-				<li><a href="/live.cgi#liveiso">$(gettext 'Create a live CD-ROM')</a></li>
-				<li><a href="/live.cgi#hybrid">$(gettext 'Create a hybrid ISO')</a></li>
-				<li><a href="/live.cgi#loram">$(gettext 'Convert ISO to loram')</a></li>
-				<li><a href="/live.cgi#meta">$(gettext 'Build a meta ISO')</a></li>
 			</ul>
 		</li>
 		$(for i in menu.d/* ; do [ -f $i ] && . $i menu $i ; done)
