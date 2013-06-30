@@ -87,6 +87,7 @@ a:hover { color: #000; }
 }
 #menu li:hover li {
 	float: none;
+	position: relative;
 }
 #menu li:hover li a {
 	background-color: #f1efeb;
@@ -100,6 +101,16 @@ a:hover { color: #000; }
 	/* border: 1px solid #c1baad; */
 }
 
+/* submenus */
+#menu li:hover li ul {
+	display: none;
+	position: absolute;
+	left: 180px;
+	top: 0px;
+}
+#menu li:hover li:hover ul {
+	display: block;
+}
 
 #icons { margin: 3px 8px; float: right; }
 #icons img { padding: 0; }
