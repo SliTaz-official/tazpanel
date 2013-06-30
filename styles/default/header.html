@@ -41,12 +41,12 @@ cat << EOT
 		</li>
 		<li><a href="/network.cgi">$(gettext 'Network')</a>
 			<ul>
+				<li><a href="/index.cgi?file=/etc/network.conf"><img
+					src="/styles/default/images/edit.png" />$(gettext 'Config file')</a></li>
 				<li><a href="/network.cgi?eth"><img
 					src="/styles/default/images/ethernet.png" />$(gettext 'Ethernet')</a></li>
 				<li><a href="/network.cgi?wifi"><img
 					src="/styles/default/images/wireless.png" />$(gettext 'Wireless')</a></li>
-				<li><a href="/index.cgi?file=/etc/network.conf"><img
-					src="/styles/default/images/edit.png" />$(gettext 'Config file')</a></li>
 				$(for i in menu.d/network/* ; do [ -f $i ] && . $i menu $i ; done)
 			</ul>
 		</li>
@@ -61,12 +61,12 @@ cat << EOT
 		</li>
 		<li><a href="/boot.cgi">$(gettext 'Boot')</a>
 			<ul>
+				<li><a href="/boot.cgi?grub"><img
+					src="/styles/default/images/tux.png" />$(gettext 'Boot loader')</a></li>
 				<li><a href="/boot.cgi?log"><img
 					src="/styles/default/images/text.png" />$(gettext 'Boot logs')</a></li>
 				<li><a href="/boot.cgi?daemons"><img
 					src="/styles/default/images/recharge.png" />$(gettext 'Manage daemons')</a></li>
-				<li><a href="/boot.cgi?grub"><img
-					src="/styles/default/images/tux.png" />$(gettext 'Boot loader')</a></li>
 				$(for i in menu.d/boot/* ; do [ -f $i ] && . $i menu $i ; done)
 			</ul>
 		</li>

@@ -107,6 +107,7 @@ EOT
 			cfg=""
 			grep -qi "^${name}_OPTIONS=" /etc/daemons.conf && cfg="options|$cfg"
 			[ -s /etc/$name.conf ] && cfg="edit|$cfg"
+			[ -s /etc/$name/$name.conf ] && cfg="edit::/etc/$name/$name.conf|$cfg"
 			[ -n "$(which $name)" ] && cfg="man|help|$cfg"
 			case "$name" in
 				firewall)
