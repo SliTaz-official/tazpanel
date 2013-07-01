@@ -236,7 +236,7 @@ EOT
 		output=/var/cache/slitaz/sys-report.html
 		xhtml_header
 		cat << EOT
-<h2>$(eval_gettext "Reporting to: $output")</h2>
+<h2>$(eval_gettext 'Reporting to: $output')</h2>
 <table class="zebra outbox">
 <tbody>
 	<tr><td>$(gettext 'Creating report header...')</td>
@@ -367,7 +367,7 @@ EOT
 		hostname=$(hostname)
 		cat << EOT
 <div id="wrapper">
-	<h2>$(eval_gettext "Host: $hostname")</h2>
+	<h2>$(eval_gettext 'Host: $hostname')</h2>
 	<p>$(gettext 'SliTaz administration and configuration Panel')<p>
 </div>
 <div id="actions">
@@ -391,7 +391,7 @@ EOT
 		free -m | grep Mem: | awk '{print $2, $3, $4}' | while read memtotal memused memfree
 		do
 			cat << EOT
-		<td>$(eval_gettext "Total: $memtotal, Used: $memused, Free: $memfree")</td>
+		<td>$(eval_gettext 'Total: $memtotal, Used: $memused, Free: $memfree')</td>
 EOT
 		done
 		cat << EOT
