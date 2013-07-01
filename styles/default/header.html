@@ -64,7 +64,13 @@ cat << EOT
 				<li><a href="/boot.cgi?grub"><img
 					src="/styles/default/images/tux.png" />$(gettext 'Boot loader')</a></li>
 				<li><a href="/boot.cgi?log"><img
-					src="/styles/default/images/text.png" />$(gettext 'Boot logs')</a></li>
+					src="/styles/default/images/text.png" />$(gettext 'Boot logs')</a>
+					<ul>
+						<li><a href="/boot.cgi?log#kernel">$(gettext 'Kernel messages')</a>
+						<li><a href="/boot.cgi?log#boot">$(gettext 'Boot scripts')</a>
+						<li><a href="/boot.cgi?log#slim">$(gettext 'X server')</a>
+					</ul>
+				</li>
 				<li><a href="/boot.cgi?daemons"><img
 					src="/styles/default/images/recharge.png" />$(gettext 'Manage daemons')</a></li>
 				$(for i in menu.d/boot/* ; do [ -f $i ] && . $i menu $i ; done)

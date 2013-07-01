@@ -236,7 +236,7 @@ EOT
 		output=/var/cache/slitaz/sys-report.html
 		xhtml_header
 		cat << EOT
-<h2>$(eval_gettext 'Reporting to: $output')</h2>
+<h2>$(eval_gettext "Reporting to: $output")</h2>
 <table class="zebra outbox">
 <tbody>
 	<tr><td>$(gettext 'Creating report header...')</td>
