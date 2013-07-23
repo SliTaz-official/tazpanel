@@ -6,10 +6,6 @@
 # Get parameters with GET, POST and FILE functions
 . /usr/lib/slitaz/httphelper
 
-# Disk usage warnings in percents
-DU_WARN="70"
-DU_CRIT="90"
-
 # I18n
 . /etc/locale.conf
 . /usr/bin/gettext.sh

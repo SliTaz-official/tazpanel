@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Package Manager
-Icon=tazpkg
-Exec=tazweb http://tazpanel:82/pkgs.cgi
-Categories=System;

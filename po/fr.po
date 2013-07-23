@@ -1,5 +1,5 @@
-# French translations for PACKAGE package
-# Traductions françaises du paquet PACKAGE.
+# French translations for TazPanel package
+# Traductions françaises du paquet TazPanel.
 # Copyright (C) 2012 SliTaz
 # This file is distributed under the same license as the TazPanel package.
 # Linux User <erjo@slitaz.org>, 2011.
@@ -8,862 +8,258 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-01 22:37+0000\n"
+"POT-Creation-Date: 2013-07-23 00:41+0300\n"
 "PO-Revision-Date: 2012-12-20 10:15+0100\n"
 "Last-Translator: Stanislas Leduc <shann@slitaz.org>\n"
 "Language-Team: French\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: tazpanel:35
-#, fuzzy, sh-format
+#: tazpanel:36
+msgid "TazPanel is already running."
+msgstr ""
+
+#: tazpanel:39
+#, sh-format
 msgid "Starting TazPanel web server on port $HTTPD_PORT..."
-msgstr "Démarrage du serveur web TazPanel..."
+msgstr ""
 
-#: tazpanel:37
+#: tazpanel:41
 msgid "TazPanel Authentication - Default: root:root"
-msgstr "TazPanel Authentification - Defaut: root:root"
+msgstr "TazPanel Authentification - Defaut : root:root"
 
-#: tazpanel:42
+#: tazpanel:47
+msgid "TazPanel is not running."
+msgstr ""
+
+#: tazpanel:50
 msgid "Stopping TazPanel web server..."
 msgstr "Arrêt du serveur web TazPanel..."
 
-#: tazpanel:46
+#: tazpanel:56
 msgid "Changing password for TazPanel"
 msgstr "Changement du mot de passe pour TazPanel"
 
-#: tazpanel:47
+#: tazpanel:57
 msgid "New password: "
-msgstr "Nouveau mot de passe:"
+msgstr "Nouveau mot de passe : "
 
-#: tazpanel:49
+#: tazpanel:59
 msgid "Password changed successfully"
 msgstr "Mot de passe changé avec succès"
 
-#: tazpanel:54
+#: tazpanel:64
 #, sh-format
 msgid "Usage: $program_name [start|stop|passwd]"
-msgstr "Usage: $programme [start|stop|passwd]"
+msgstr "Usage : $program_name [start|stop|passwd]"
 
-#: index.cgi:38 index.cgi:84
+#: index.cgi:38 index.cgi:95
 msgid "Differences"
 msgstr "Différences"
 
-#: index.cgi:73
+#: index.cgi:66
+msgid "TazPanel - exec"
+msgstr ""
+
+#: index.cgi:84
 msgid "TazPanel - File"
 msgstr "TazPanel - Fichier"
 
-#: index.cgi:82
+#: index.cgi:93 index.cgi:108
 msgid "Save"
 msgstr "Enregistrer"
 
-#: index.cgi:104 settings.cgi:340
+#: index.cgi:132 settings.cgi:494
 msgid "Edit"
 msgstr "Éditer"
 
-#: index.cgi:128
+#: index.cgi:156
 msgid "TazPanel - Terminal"
 msgstr "TazPanel - Terminal"
 
-#: index.cgi:142
+#: index.cgi:170
 msgid "Small terminal emulator, commands options are supported."
 msgstr ""
 "Petit émulateur de terminal, les options des commandes sont supportées."
 
-#: index.cgi:144 index.cgi:161
+#: index.cgi:172 index.cgi:189
 #, sh-format
 msgid "Commands: $commands"
-msgstr "Commandes: $commands"
+msgstr "Commandes : $commands"
 
-#: index.cgi:149
+#: index.cgi:177
 #, sh-format
 msgid "Downloading to: $dl"
-msgstr "Téléchargement dans: $dl"
+msgstr "Téléchargement dans : $dl"
 
-#: index.cgi:156
+#: index.cgi:184
 #, sh-format
 msgid "$cmd needs an argument"
 msgstr "La commande $cmd recquière un argument"
 
-#: index.cgi:160
+#: index.cgi:188
 #, sh-format
 msgid "Unknown command: $cmd"
-msgstr "Commande inconnu: $cmd"
+msgstr "Commande inconnu : $cmd"
 
-#: index.cgi:168
+#: index.cgi:196
 msgid "TazPanel - Process activity"
 msgstr "TazPanel - Activité des processus"
 
-#: index.cgi:170
+#: index.cgi:198
 msgid "Refresh:"
-msgstr "Rafraîchir"
+msgstr "Rafraîchir :"
 
-#: index.cgi:175
+#: index.cgi:203
 msgid "1s"
 msgstr "1s"
 
-#: index.cgi:176
+#: index.cgi:204
 msgid "5s"
 msgstr "5s"
 
-#: index.cgi:177
+#: index.cgi:205
 msgid "10s"
 msgstr "10s"
 
-#: index.cgi:178 live.cgi:152
+#: index.cgi:206
 msgid "none"
 msgstr "aucun"
 
-#: index.cgi:195
+#: index.cgi:223
 msgid "TazPanel - Debug"
 msgstr "TazPanel - Debuguage"
 
-#: index.cgi:198
+#: index.cgi:226
 msgid "HTTP Environment"
 msgstr "Environnement HTTP"
 
-#: index.cgi:206
+#: index.cgi:234
 msgid "TazPanel - System report"
 msgstr "TazPanel - Rapport système"
 
-#: index.cgi:211
+#: index.cgi:239
 #, sh-format
 msgid "Reporting to: $output"
-msgstr "Création du rapport vers: $output"
+msgstr "Création du rapport vers : $output"
 
-#: index.cgi:214
+#: index.cgi:242
 msgid "Creating report header..."
 msgstr "Création de l'en-tête du rapport..."
 
-#: index.cgi:221 index.cgi:238
+#: index.cgi:249 index.cgi:266
 msgid "SliTaz system report"
 msgstr "Rapport système"
 
-#: index.cgi:235
+#: index.cgi:263
 msgid "Creating system summary..."
 msgstr "Création du résumé du système..."
 
-#: index.cgi:239
+#: index.cgi:267
 msgid "Date:"
-msgstr "Date:"
+msgstr "Date :"
 
-#: index.cgi:250
+#: index.cgi:278
 msgid "Getting hardware info..."
 msgstr "Obtention d'informations sur le matériel..."
 
-#: index.cgi:268
+#: index.cgi:296
 msgid "Getting networking info..."
 msgstr "Obtention d'informations sur le réseau..."
 
-#: index.cgi:282
+#: index.cgi:310
 msgid "Getting filesystems info..."
 msgstr "Obtention d'informations sur les systèmes de fichiers..."
 
-#: index.cgi:302
+#: index.cgi:330
 msgid "Getting boot logs..."
 msgstr "Obtention des journaux de démarrage..."
 
-#: index.cgi:305 boot.cgi:29 boot.cgi:34
+#: index.cgi:333 boot.cgi:29 boot.cgi:34 styles/default/header.html:69
 msgid "Kernel messages"
 msgstr "Messages du noyau"
 
-#: index.cgi:308 boot.cgi:30 boot.cgi:38
+#: index.cgi:336 boot.cgi:30 boot.cgi:38 styles/default/header.html:70
 msgid "Boot scripts"
 msgstr "Scripts de démarrage"
 
-#: index.cgi:313
+#: index.cgi:341
 msgid "Creating report footer..."
 msgstr "Création du pied de page du rapport..."
 
-#: index.cgi:325
+#: index.cgi:353
 msgid "View report"
 msgstr "Voir le rapport"
 
-#: index.cgi:326
+#: index.cgi:354
 msgid "This report can be attached with a bug report on:"
-msgstr "Ce rapport peut être attaché avec un rapport de bogue sur:"
+msgstr "Ce rapport peut être attaché avec un rapport de bogue sur :"
 
-#: index.cgi:342
+#: index.cgi:370
 #, sh-format
 msgid "Host: $hostname"
-msgstr "Nom d'hôte: $hostname"
+msgstr "Nom d'hôte : $hostname"
 
-#: index.cgi:343
+#: index.cgi:371
 msgid "SliTaz administration and configuration Panel"
 msgstr "Panneau de Configuration et d'Administration de SliTaz"
 
-#: index.cgi:347 styles/default/header.html:27
+#: index.cgi:375 styles/default/header.html:34
 msgid "Terminal"
 msgstr "Terminal"
 
-#: index.cgi:349
+#: index.cgi:377
 msgid "Process activity"
 msgstr "Activité des processus"
 
-#: index.cgi:351
+#: index.cgi:379
 msgid "Create a report"
 msgstr "Créer un rapport"
 
-#: index.cgi:355 pkgs.cgi:948
+#: index.cgi:383
 msgid "Summary"
 msgstr "Résumé"
 
-#: index.cgi:358
+#: index.cgi:386
 msgid "Uptime:"
-msgstr "Allumé depuis:"
+msgstr "Allumé depuis :"
 
-#: index.cgi:361
+#: index.cgi:389
 msgid "Memory in Mb:"
 msgstr "Mémoire en Mb :"
 
-#: index.cgi:366
+#: index.cgi:394
 #, sh-format
 msgid "Total: $memtotal, Used: $memused, Free: $memfree"
-msgstr "Total: $memtotal, Utilisé: $memused, Disponible: $memfree"
+msgstr "Total : $memtotal, Utilisé : $memused, Disponible : $memfree"
 
-#: index.cgi:371
+#: index.cgi:399
 msgid "Linux kernel:"
-msgstr "Noyau Linux:"
+msgstr "Noyau Linux :"
 
-#: index.cgi:380
+#: index.cgi:408
 msgid "Network status"
 msgstr "État du réseau"
 
-#: index.cgi:385 hardware.cgi:202
+#: index.cgi:413 hardware.cgi:258
 msgid "Filesystem usage statistics"
 msgstr "Statistiques d'utilisation du système de fichiers"
 
-#: index.cgi:417
+#: index.cgi:446
 msgid "Panel Activity"
 msgstr "Panneau d'activités"
-
-#: pkgs.cgi:17
-msgid "TazPanel - Packages"
-msgstr "TazPanel - Paquets"
-
-#: pkgs.cgi:51
-#, fuzzy
-msgid "Last recharge:"
-msgstr "Dernier rafraichissement :"
-
-#: pkgs.cgi:58
-msgid "(Older than 10 days)"
-msgstr "(Ancien de plus de 10 jours)"
-
-#: pkgs.cgi:60
-msgid "(Not older than 10 days)"
-msgstr "Ancien de 10 jours"
-
-#: pkgs.cgi:64
-#, fuzzy
-msgid "Installed packages:"
-msgstr "Paquets installés      : "
-
-#: pkgs.cgi:66
-#, fuzzy
-msgid "Mirrored packages:"
-msgstr "Paquets du miroir      :"
-
-#: pkgs.cgi:68
-#, fuzzy
-msgid "Upgradeable packages:"
-msgstr "Mises à jour disponibles :"
-
-#: pkgs.cgi:70 pkgs.cgi:707
-msgid "Installed files:"
-msgstr "Fichiers installés:"
-
-#: pkgs.cgi:72
-#, fuzzy
-msgid "Blocked packages:"
-msgstr "Paquets bloqués       : "
-
-#: pkgs.cgi:86
-#, fuzzy
-msgid "Delete"
-msgstr "Supprimer l'utilisateur"
-
-#: pkgs.cgi:89
-msgid "Use as default"
-msgstr "Utilisé par défaut"
-
-#: pkgs.cgi:120
-msgid "Search"
-msgstr "Rechercher"
-
-#: pkgs.cgi:122
-msgid "Files"
-msgstr "Fichiers"
-
-#: pkgs.cgi:134 pkgs.cgi:867 network.cgi:23 network.cgi:160 network.cgi:256
-#: boot.cgi:82 settings.cgi:104 lib/libtazpanel:102
-msgid "Name"
-msgstr "Nom"
-
-#: pkgs.cgi:135
-msgid "Version"
-msgstr "Version"
-
-#: pkgs.cgi:136 boot.cgi:83 settings.cgi:214
-msgid "Description"
-msgstr "Description"
-
-#: pkgs.cgi:137
-msgid "Web"
-msgstr "Internet"
-
-#: pkgs.cgi:147
-msgid "Categories"
-msgstr "Catégories"
-
-#: pkgs.cgi:148
-#, fuzzy
-msgid "Base-system"
-msgstr "Système de base"
-
-#: pkgs.cgi:149
-msgid "X window"
-msgstr "Serveur graphique"
-
-#: pkgs.cgi:150
-msgid "Utilities"
-msgstr "utilitaires"
-
-#: pkgs.cgi:151 styles/default/header.html:46
-#, fuzzy
-msgid "Network"
-msgstr "Gestion de réseau"
-
-#: pkgs.cgi:152
-msgid "Games"
-msgstr "Jeux"
-
-#: pkgs.cgi:153
-msgid "Graphics"
-msgstr "Graphiques"
-
-#: pkgs.cgi:154
-msgid "Office"
-msgstr "Bureautique"
-
-#: pkgs.cgi:155
-msgid "Multimedia"
-msgstr "Multimédia"
-
-#: pkgs.cgi:156
-msgid "Development"
-msgstr "Développement"
-
-#: pkgs.cgi:157
-#, fuzzy
-msgid "System tools"
-msgstr "Outils Système"
-
-#: pkgs.cgi:158
-msgid "Security"
-msgstr "Sécurité"
-
-#: pkgs.cgi:159
-msgid "Misc"
-msgstr "non classé"
-
-#: pkgs.cgi:160
-msgid "Meta"
-msgstr "Méta"
-
-#: pkgs.cgi:161
-msgid "Non free"
-msgstr "non-libre"
-
-#: pkgs.cgi:162
-msgid "All"
-msgstr "Tous"
-
-#: pkgs.cgi:168
-#, fuzzy
-msgid "Repositories"
-msgstr "Dépôts privés"
-
-#: pkgs.cgi:169
-msgid "Public"
-msgstr "Public"
-
-#: pkgs.cgi:177
-msgid "Any"
-msgstr "Tout"
-
-#: pkgs.cgi:217 pkgs.cgi:339
-#, fuzzy
-msgid "Listing packages..."
-msgstr "Obtention d'informations sur le paquet..."
-
-#: pkgs.cgi:220 pkgs.cgi:358 pkgs.cgi:412 pkgs.cgi:479 pkgs.cgi:520
-#: pkgs.cgi:580 pkgs.cgi:659 pkgs.cgi:952 styles/default/header.html:37
-msgid "My packages"
-msgstr "Mes paquets"
-
-#: pkgs.cgi:225 pkgs.cgi:284 pkgs.cgi:347 pkgs.cgi:401 pkgs.cgi:511
-#: settings.cgi:92
-msgid "Selection:"
-msgstr "Sélection:"
-
-#: pkgs.cgi:226 pkgs.cgi:607
-msgid "Remove"
-msgstr "Supprimer"
-
-#: pkgs.cgi:230 pkgs.cgi:289 pkgs.cgi:354 pkgs.cgi:408 pkgs.cgi:518
-#: pkgs.cgi:962 styles/default/header.html:39
-msgid "Recharge list"
-msgstr "Recharger la liste"
-
-#: pkgs.cgi:232 pkgs.cgi:291 pkgs.cgi:356 pkgs.cgi:410 pkgs.cgi:477
-#: pkgs.cgi:964
-msgid "Check upgrades"
-msgstr "Vérifier la mise à niveau"
-
-#: pkgs.cgi:275
-#, fuzzy
-msgid "Listing linkable packages..."
-msgstr "Listage des paquets liables..."
-
-#: pkgs.cgi:278 pkgs.cgi:958
-msgid "Linkable packages"
-msgstr "Paquets liables"
-
-#: pkgs.cgi:285
-msgid "Link"
-msgstr "Lien"
-
-#: pkgs.cgi:342
-#, sh-format
-msgid "Category: $category"
-msgstr "Catégorie: $category"
-
-#: pkgs.cgi:366 pkgs.cgi:838
-#, sh-format
-msgid "Repository: $Repo_Name"
-msgstr "Dépôt: $Repo_Name"
-
-#: pkgs.cgi:394
-#, fuzzy
-msgid "Searching packages..."
-msgstr "Recherche de paquets..."
-
-#: pkgs.cgi:397
-msgid "Search packages"
-msgstr "Recherche de paquets"
-
-#: pkgs.cgi:404 pkgs.cgi:514
-msgid "Toogle all"
-msgstr "Tout séléctionner"
-
-#: pkgs.cgi:423
-msgid "Package"
-msgstr "Paquet"
-
-#: pkgs.cgi:424
-msgid "File"
-msgstr "Fichier"
-
-#: pkgs.cgi:465
-#, fuzzy
-msgid "Recharging lists..."
-msgstr "Rechargement de la liste..."
-
-#: pkgs.cgi:468
-msgid "Recharge"
-msgstr "Recharger"
-
-#: pkgs.cgi:473
-msgid "Recharge checks for new or updated packages"
-msgstr "Relancer la vérification de nouveaux ou mise à jours de paquets"
-
-#: pkgs.cgi:485
-msgid "Recharging packages list"
-msgstr "Rechargement de la liste de paquets"
-
-#: pkgs.cgi:490
-msgid "Packages lists are up-to-date. You should check for upgrades now."
-msgstr ""
-"Les listes de paquets ont été actualisées. Vous devriez rechercher des mises "
-"à jour maintenant."
-
-#: pkgs.cgi:503
-#, fuzzy
-msgid "Checking for upgrades..."
-msgstr "Vérification des mises à jours..."
-
-#: pkgs.cgi:506
-msgid "Up packages"
-msgstr "Mettre à jour"
-
-#: pkgs.cgi:575
-msgid "Performing tasks on packages"
-msgstr "Opérations en cours sur les paquets"
-
-#: pkgs.cgi:585
-#, sh-format
-msgid "Executing $cmd for: $pkgs"
-msgstr "Execution de la commande $cmd pour: $pkgs"
-
-#: pkgs.cgi:591
-msgid "y"
-msgstr "o"
-
-#: pkgs.cgi:610
-msgid "Getting package info..."
-msgstr "Obtention d'informations sur le paquet..."
-
-#: pkgs.cgi:622 installer.cgi:155 styles/default/header.html:88
-msgid "Install"
-msgstr "Installer"
-
-#: pkgs.cgi:626
-#, fuzzy, sh-format
-msgid "Package $PACKAGE"
-msgstr "Paquet $PACKAGE"
-
-#: pkgs.cgi:634
-msgid "Install (Non Free)"
-msgstr "Installer (non-libre)"
-
-#: pkgs.cgi:642
-msgid "Unblock"
-msgstr "Débloquer"
-
-#: pkgs.cgi:646
-msgid "Block"
-msgstr "Bloquer"
-
-#: pkgs.cgi:650
-msgid "Repack"
-msgstr "Réempaqueter"
-
-#: pkgs.cgi:665
-#, fuzzy
-msgid "Name:"
-msgstr "Nom"
-
-#: pkgs.cgi:666
-#, fuzzy
-msgid "Version:"
-msgstr "Version"
-
-#: pkgs.cgi:667
-#, fuzzy
-msgid "Description:"
-msgstr "Description"
-
-#: pkgs.cgi:668
-#, fuzzy
-msgid "Category:"
-msgstr "Catégorie: $category"
-
-#: pkgs.cgi:672
-msgid "Maintainer:"
-msgstr "Mainteneur:"
-
-#: pkgs.cgi:673 pkgs.cgi:702
-msgid "Website:"
-msgstr "Site Web:"
-
-#: pkgs.cgi:674 pkgs.cgi:703
-#, fuzzy
-msgid "Sizes:"
-msgstr "Taille"
-
-#: pkgs.cgi:677
-msgid "Depends:"
-msgstr "Dépendances:"
-
-#: pkgs.cgi:684
-msgid "Suggested:"
-msgstr "Suggéré:"
-
-#: pkgs.cgi:690
-msgid "Tags:"
-msgstr "Drapeaux:"
-
-#: pkgs.cgi:696
-#, fuzzy, sh-format
-msgid "Installed files: $I_FILES"
-msgstr "Fichiers installés: $I_FILES"
-
-#: pkgs.cgi:755 pkgs.cgi:884
-msgid "Set link"
-msgstr "Créer un lien"
-
-#: pkgs.cgi:758 pkgs.cgi:885
-msgid "Remove link"
-msgstr "Supprimer le lien"
-
-#: pkgs.cgi:764 pkgs.cgi:966 styles/default/header.html:43
-msgid "Administration"
-msgstr "Administration"
-
-#: pkgs.cgi:766
-msgid "Tazpkg administration and settings"
-msgstr "Administration et paramètres de Tazpkg"
-
-#: pkgs.cgi:770
-msgid "Save configuration"
-msgstr "Enregistrer la configuration"
-
-#: pkgs.cgi:772
-msgid "List configuration files"
-msgstr "Lister les fichiers de configuration"
-
-#: pkgs.cgi:774
-msgid "Quick check"
-msgstr "Contrôle rapide"
-
-#: pkgs.cgi:776
-msgid "Full check"
-msgstr "Vérifier tout"
-
-#: pkgs.cgi:781
-msgid "Creating the package..."
-msgstr "Création du paquet..."
-
-#: pkgs.cgi:786
-#, fuzzy
-msgid "Path:"
-msgstr "Chemin:"
-
-#: pkgs.cgi:789 boot.cgi:256
-msgid "Configuration files"
-msgstr "Fichiers de configuration"
-
-#: pkgs.cgi:802
-msgid "Checking packages consistency..."
-msgstr "Vérification de la cohérence des paquets..."
-
-#: pkgs.cgi:808
-msgid "Full packages check..."
-msgstr "Vérifier tous les paquets..."
-
-#: pkgs.cgi:815
-msgid "Packages cache"
-msgstr "Cache des paquets"
-
-#: pkgs.cgi:820
-#, fuzzy, sh-format
-msgid "Packages in the cache: $cache_files ($cache_size)"
-msgstr "Paquets dans le cache:"
-
-#: pkgs.cgi:827
-msgid "Default mirror"
-msgstr "Miroir par défaut"
-
-#: pkgs.cgi:831
-msgid "Current mirror list"
-msgstr "Liste des miroirs actuels"
-
-#: pkgs.cgi:855
-msgid "Private repositories"
-msgstr "Dépôts privés"
-
-#: pkgs.cgi:868
-#, fuzzy
-msgid "mirror"
-msgstr "Miroir par défaut"
-
-#: pkgs.cgi:874
-msgid "Link to another SliTaz installation"
-msgstr "Lien vers une autre installation de SliTaz"
-
-#: pkgs.cgi:876
-msgid ""
-"This link points to the root of another SliTaz installation. You will be "
-"able to install packages using soft links to it."
-msgstr ""
-"Ce lien pointe vers la racine d'une autre installation de SliTaz. Vous serez "
-"en mesure d'installer des paquets en utilisant des liens symboliques vers "
-"elle."
-
-#: pkgs.cgi:892
-msgid "SliTaz packages DVD"
-msgstr "DVD des paquets SliTaz"
-
-#: pkgs.cgi:894
-#, sh-format
-msgid ""
-"A bootable DVD image of all available packages for the $version version is "
-"generated every day. It also contains a copy of the website and can be used "
-"without an internet connection. This image can be installed on a DVD or an "
-"USB key."
-msgstr ""
-"Une image DVD bootable contenant tout les paquets disponible pour la version $version "
-"générée tout les jours. Elle contient également une copie du site web et peut être utilisé "
-"sans connection Internet. Cette image peut être gravé sur un DVD ou utilisé sur une clé USB"
-
-#: pkgs.cgi:904
-msgid "Download DVD image"
-msgstr "Télécharger l'image DVD"
-
-#: pkgs.cgi:906
-msgid "Install from DVD/USB key"
-msgstr "Installer à partir d'un(e) DVD / clé USB"
-
-#: pkgs.cgi:909
-#, fuzzy
-msgid "Install from ISO image:"
-msgstr "Installer à partir d'une image ISO:"
-
-#: pkgs.cgi:972
-msgid "Latest log entries"
-msgstr "Dernières entrées de journal"
-
-#: live.cgi:25
-msgid "TazPanel - Live"
-msgstr "TazPanel - Live"
-
-#: live.cgi:83
-msgid "TODO"
-msgstr "À Faire"
-
-#: live.cgi:88
-msgid "SliTaz LiveUSB"
-msgstr "Systèmes Live SliTaz"
-
-#: live.cgi:89
-msgid "Create Live USB SliTaz systems"
-msgstr "Créer et gérer des systèmes SliTaz Live CD ou USB"
-
-#: live.cgi:92
-#, fuzzy
-msgid ""
-"Generate SliTaz LiveUSB media and boot in RAM! Insert a LiveCD into the "
-"cdrom drive, select the correct device and press Generate."
-msgstr ""
-"Générez un média SliTaz LiveUSB et démarrez en mémoire vive! Insérez un\n"
-"LiveCD dans le lecteur de cdrom, sélectionnez le bon périphérique et appuyez "
-"sur\n"
-"Generer."
-
-#: live.cgi:97
-msgid "USB Media to use:"
-msgstr "Média USB à utiliser:"
-
-#: live.cgi:106 installer.cgi:301 installer.cgi:345 installer.cgi:380
-#: installer.cgi:412
-msgid "Not found"
-msgstr "Non trouvé"
-
-#: live.cgi:110
-msgid "Generate"
-msgstr "Générer"
-
-#: live.cgi:129
-msgid "SliTaz Live Systems"
-msgstr "Systèmes Live SliTaz"
-
-#: live.cgi:130
-msgid "Create and manage Live CD or USB SliTaz systems"
-msgstr "Créer et gérer des systèmes SliTaz Live CD ou USB"
-
-#: live.cgi:135
-msgid "Create LiveUSB"
-msgstr "Créer un LiveUSB"
-
-#: live.cgi:140
-msgid "Write a Live CD"
-msgstr "Écrire un LiveCD"
-
-#: live.cgi:142
-#, fuzzy
-msgid ""
-"The command writeiso will generate an ISO image of the current filesystem as "
-"is, including all files in the /home directory. It is an easy way to "
-"remaster a SliTaz Live system, you just have to: boot, modify, writeiso."
-msgstr ""
-"La commande writeiso va générer une image ISO du\n"
-"système de fichiers courant, y compris tous les fichiers du répertoire /"
-"home.\n"
-"C'est un moyen facile de remasteriser un système SliTaz Live, vous avez "
-"juste\n"
-"à: démarrer, modifier, writeiso."
-
-#: live.cgi:148
-msgid "Compression type:"
-msgstr "Type de compression:"
-
-#: live.cgi:154
-msgid "Write ISO"
-msgstr "Écrire une ISO"
-
-#: live.cgi:158
-msgid "Live CD tools"
-msgstr "Outils pour Live CD"
-
-#: live.cgi:160 live.cgi:192 styles/default/header.html:84
-msgid "Convert ISO to loram"
-msgstr "Convertir une ISO en loram"
-
-#: live.cgi:162
-#, fuzzy
-msgid ""
-"This command will convert an ISO image of a SliTaz Live CD to a new ISO "
-"image requiring less RAM to run."
-msgstr ""
-"Cette commande permet de convertir une image ISO d'un Live CD SliTaz\n"
-"en une nouvelle image ISO nécessitant moins de RAM pour fonctionner."
-
-#: live.cgi:168
-msgid "ISO to convert"
-msgstr "ISO à convertir"
-
-#: live.cgi:173
-msgid "The filesystem is always in RAM"
-msgstr "Le système de fichiers est toujours en RAM"
-
-#: live.cgi:178
-msgid "The filesystem may be on a small CDROM"
-msgstr "Le système de fichiers peut être sur un petit CDROM"
-
-#: live.cgi:183
-msgid "The filesystem may be on a large CDROM"
-msgstr "Le système de fichiers peut être sur un grand CDROM"
-
-#: live.cgi:187 live.cgi:234
-msgid "ISO to create"
-msgstr "ISO à créer"
-
-#: live.cgi:196 live.cgi:239 styles/default/header.html:85
-msgid "Build a meta ISO"
-msgstr "Construire une méta ISO"
-
-#: live.cgi:198
-#, fuzzy
-msgid ""
-"Combines several ISO flavors like nested Russian dolls. The amount of RAM "
-"available at startup will be used to select the utmost one."
-msgstr ""
-"Combine plusieurs saveurs ISO comme des poupées russes emboîtées.\n"
-"La taille de RAM disponible au démarrage sera utilisé pour sélectionner la\n"
-"version la plus adaptée."
-
-#: live.cgi:210
-msgid "ISO number"
-msgstr "Numéro d'ISO"
-
-#: live.cgi:213 live.cgi:228
-msgid "Minimum RAM"
-msgstr "RAM minimum"
-
-#: live.cgi:225
-msgid "ISO to add"
-msgstr "ISO à ajouter"
-
-#: live.cgi:230
-msgid "Add to the list"
-msgstr "Ajouter à la liste"
 
 #: network.cgi:13
 msgid "TazPanel - Network"
 msgstr "TazPanel - Réseau"
+
+#: network.cgi:23 network.cgi:160 network.cgi:256 boot.cgi:82 settings.cgi:221
+#: lib/libtazpanel:110
+msgid "Name"
+msgstr "Nom"
 
 #: network.cgi:24
 msgid "Quality"
@@ -873,7 +269,7 @@ msgstr "Qualité"
 msgid "Encryption"
 msgstr "Chiffrement"
 
-#: network.cgi:26 boot.cgi:84 lib/libtazpanel:103
+#: network.cgi:26 boot.cgi:85 lib/libtazpanel:111
 msgid "Status"
 msgstr "État"
 
@@ -882,18 +278,18 @@ msgid "Connected"
 msgstr "Connecté"
 
 #: network.cgi:99
-#, fuzzy, sh-format
+#, sh-format
 msgid "Changed hostname: $get_hostname"
-msgstr "Changer le nom de l'hôte"
+msgstr ""
 
 #: network.cgi:115
 msgid "Scanning open ports..."
 msgstr "Balayage des ports ouverts..."
 
 #: network.cgi:118
-#, fuzzy, sh-format
+#, sh-format
 msgid "Port scanning for $scan"
-msgstr "Balayage des ports pour"
+msgstr ""
 
 #: network.cgi:132
 msgid "Setting up IP..."
@@ -910,11 +306,10 @@ msgid ""
 "random IP or configure a static/fixed IP"
 msgstr ""
 "Ici vous pouvez configurer une connexion filaire en utilisant le protocole "
-"DHCP pour\n"
-"obtenir automatiquement une adresse IP aléatoire ou configurer une adresse "
-"IP statique / fixe"
+"DHCP pour obtenir automatiquement une adresse IP aléatoire ou configurer une "
+"adresse IP statique / fixe"
 
-#: network.cgi:154
+#: network.cgi:154 boot.cgi:84
 msgid "Configuration"
 msgstr "Configuration"
 
@@ -922,7 +317,7 @@ msgstr "Configuration"
 msgid "Value"
 msgstr "Valeur"
 
-#: network.cgi:166 lib/libtazpanel:101
+#: network.cgi:166 lib/libtazpanel:109
 msgid "Interface"
 msgstr "Interface"
 
@@ -964,10 +359,10 @@ msgid ""
 "These values are the ethernet settings in the main /etc/network.conf "
 "configuration file"
 msgstr ""
-"Ces valeurs sont celles des paramètres Ethernet dans le fichier\n"
-"de configuration principal /etc/network.conf"
+"Ces valeurs sont celles des paramètres Ethernet dans le fichier de "
+"configuration principal /etc/network.conf"
 
-#: network.cgi:202 network.cgi:290
+#: network.cgi:202 network.cgi:290 hardware.cgi:354
 msgid "Manual Edit"
 msgstr "Édition manuelle"
 
@@ -979,11 +374,11 @@ msgstr "Scan des interfaces sans-fil..."
 msgid "Wireless connection"
 msgstr "Connection sans fil"
 
-#: network.cgi:216 network.cgi:313 boot.cgi:167
+#: network.cgi:216 network.cgi:313 boot.cgi:218
 msgid "Start"
 msgstr "Démarrer"
 
-#: network.cgi:218 network.cgi:315 boot.cgi:155
+#: network.cgi:218 network.cgi:315 boot.cgi:206
 msgid "Stop"
 msgstr "Arrêter"
 
@@ -997,7 +392,7 @@ msgstr "Connexion"
 
 #: network.cgi:261
 msgid "Wifi name (ESSID)"
-msgstr "Nom du réseau (EESID)"
+msgstr "Nom du réseau (ESSID)"
 
 #: network.cgi:265
 msgid "Password (Wifi key)"
@@ -1021,8 +416,8 @@ msgid ""
 "These values are the wifi settings in the main /etc/network.conf "
 "configuration file"
 msgstr ""
-"Ces valeurs sont celles des paramètres wifi dans le fichier\n"
-"de configuration principal /etc/network.conf"
+"Ces valeurs sont celles des paramètres wifi dans le fichier de configuration "
+"principal /etc/network.conf"
 
 #: network.cgi:294
 #, fuzzy
@@ -1043,7 +438,7 @@ msgstr "Redémarrer"
 
 #: network.cgi:320
 msgid "Configuration:"
-msgstr "Configuration:"
+msgstr "Configuration :"
 
 #: network.cgi:331
 msgid "Hosts"
@@ -1053,7 +448,7 @@ msgstr "Hôtes"
 msgid "Edit hosts"
 msgstr "Editer les hôtes"
 
-#: network.cgi:340 installer.cgi:435
+#: network.cgi:340
 msgid "Hostname"
 msgstr "Nom d'hôte"
 
@@ -1090,7 +485,7 @@ msgstr "TazPanel - Démarrage"
 msgid "Boot log files"
 msgstr "Journaux de démarrage"
 
-#: boot.cgi:31 boot.cgi:42
+#: boot.cgi:31 boot.cgi:42 styles/default/header.html:71
 msgid "X server"
 msgstr "Serveur x"
 
@@ -1098,7 +493,7 @@ msgstr "Serveur x"
 msgid "Show more..."
 msgstr "Voir plus..."
 
-#: boot.cgi:61 boot.cgi:252 styles/default/header.html:67
+#: boot.cgi:61 boot.cgi:303 styles/default/header.html:75
 msgid "Manage daemons"
 msgstr "Gérer les démons"
 
@@ -1106,142 +501,150 @@ msgstr "Gérer les démons"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Vérifier, démarrer et arrêter les démons sur SliTaz"
 
-#: boot.cgi:85
+#: boot.cgi:83 settings.cgi:331
+msgid "Description"
+msgstr "Description"
+
+#: boot.cgi:86
 msgid "Action"
 msgstr "Action"
 
-#: boot.cgi:86
+#: boot.cgi:87
 msgid "PID"
 msgstr "PID"
 
-#: boot.cgi:108
+#: boot.cgi:114
 msgid "SliTaz Firewall with iptable rules"
 msgstr "Pare-feu SliTaz avec les règles iptables"
 
-#: boot.cgi:110
+#: boot.cgi:116
 msgid "Small and fast web server with CGI support"
 msgstr "Serveur web léger et rapide avec support de CGI"
 
-#: boot.cgi:112
+#: boot.cgi:118
 msgid "Network time protocol daemon"
 msgstr "Démon Network Time Protocol"
 
-#: boot.cgi:114
+#: boot.cgi:121
 msgid "Anonymous FTP server"
 msgstr "Serveur anonyme FTP"
 
-#: boot.cgi:116
+#: boot.cgi:123
 msgid "Busybox DHCP server"
 msgstr "Serveur DHCP Busybox"
 
-#: boot.cgi:118
+#: boot.cgi:125
 msgid "Linux Kernel log daemon"
 msgstr "Démon Linux Kernel log"
 
-#: boot.cgi:120
+#: boot.cgi:128
 msgid "Execute scheduled commands"
 msgstr "Exécuter des commandes planifiées"
 
-#: boot.cgi:122
+#: boot.cgi:131
 msgid "Small static DNS server daemon"
 msgstr "Démon du petit serveur DNS statique"
 
-#: boot.cgi:124
+#: boot.cgi:134
 msgid "Transfer a file on tftp request"
 msgstr "Transférer un fichier à travers une requête TFTP"
 
-#: boot.cgi:126
+#: boot.cgi:136
 msgid "Listen for network connections and launch programs"
 msgstr "Écoute des connexions réseau et lancement de programmes"
 
-#: boot.cgi:128
+#: boot.cgi:139
 msgid "Manage a ZeroConf IPv4 link-local address"
 msgstr "Gestion d'une adresse ZeroConf IPv4 link-local"
 
-#: boot.cgi:153
+#: boot.cgi:204
 #, fuzzy
 msgid "Started"
 msgstr "Démarrer"
 
-#: boot.cgi:165
+#: boot.cgi:216
 #, fuzzy
 msgid "Stopped"
 msgstr "Arrêter"
 
-#: boot.cgi:193
+#: boot.cgi:244
 msgid "GRUB Boot loader"
 msgstr "Gestionnaire de démarrage GRUB"
 
-#: boot.cgi:195
+#: boot.cgi:246
 msgid "The first application started when the computer powers on"
-msgstr "La première application démarrée au lancement du système."
+msgstr "La première application démarrée au lancement du système"
 
-#: boot.cgi:201
+#: boot.cgi:252
 #, fuzzy
 msgid "Default entry:"
-msgstr "Miroir par défaut"
+msgstr "Miroir par défaut :"
 
-#: boot.cgi:203
+#: boot.cgi:254
 msgid "Timeout:"
-msgstr "Temps d'attente:"
+msgstr "Temps d'attente :"
 
-#: boot.cgi:205
+#: boot.cgi:256
 msgid "Splash image:"
-msgstr "Image a afficher pendant le démarrage:"
+msgstr "Image a afficher pendant le démarrage :"
 
-#: boot.cgi:208 settings.cgi:272 settings.cgi:303 settings.cgi:370
+#: boot.cgi:259 settings.cgi:401 settings.cgi:457 settings.cgi:524
 msgid "Change"
 msgstr "Changer"
 
-#: boot.cgi:210
+#: boot.cgi:261
 msgid "View or edit menu.lst"
 msgstr "Voir ou éditer le fichier menu.lst"
 
-#: boot.cgi:213
+#: boot.cgi:264
 msgid "Boot entries"
 msgstr "Entrées de Grub"
 
-#: boot.cgi:219
+#: boot.cgi:270
 msgid "Entry"
 msgstr "Entrée"
 
-#: boot.cgi:235
+#: boot.cgi:286
 msgid "Web boot is available with gPXE"
 msgstr "Le démarrage réseau est disponible avec gPXE"
 
-#: boot.cgi:245
+#: boot.cgi:296
 msgid "Boot &amp; Start services"
 msgstr "Démarrage &amp; lancement des services"
 
-#: boot.cgi:246
+#: boot.cgi:297
 msgid "Everything that happens before user login"
 msgstr "Tout ce qui se produit avant le login de l'utilisateur"
 
-#: boot.cgi:250 styles/default/header.html:65
+#: boot.cgi:301 styles/default/header.html:67
 msgid "Boot logs"
 msgstr "Journaux de démarrage"
 
-#: boot.cgi:253 styles/default/header.html:69
+#: boot.cgi:304 styles/default/header.html:65
 msgid "Boot loader"
-msgstr "Chargeur d'amorçage "
+msgstr "Chargeur d'amorçage"
 
-#: boot.cgi:258
+#: boot.cgi:307
+msgid "Configuration files"
+msgstr "Fichiers de configuration"
+
+#: boot.cgi:309
 msgid "Main configuration file:"
-msgstr "Fichier de configuration principal:"
+msgstr "Fichier de configuration principal :"
 
-#: boot.cgi:260
+#: boot.cgi:311
 msgid "Login manager settings:"
-msgstr "Réglages du gestionnaire de session:"
+msgstr "Réglages du gestionnaire de session :"
 
-#: boot.cgi:264
+#: boot.cgi:315
 msgid "Kernel cmdline"
 msgstr "Ligne de commande passée au noyau"
 
-#: boot.cgi:268
+#: boot.cgi:319
 msgid "Local startup commands"
 msgstr "Commandes locales exécutées au démarrage"
 
-#: boot.cgi:273
+#: boot.cgi:324
 msgid "Edit script"
 msgstr "Éditer le script"
 
@@ -1249,102 +652,119 @@ msgstr "Éditer le script"
 msgid "TazPanel - Hardware"
 msgstr "TazPanel - Matériel"
 
-#: hardware.cgi:29
+#: hardware.cgi:58
 msgid "Detect hardware"
 msgstr "Detecter le matériel"
 
-#: hardware.cgi:30
+#: hardware.cgi:59
 msgid "Detect PCI and USB hardware"
 msgstr "Détecter le matériel PCI/USB"
 
-#: hardware.cgi:42 hardware.cgi:117 styles/default/header.html:75
+#: hardware.cgi:71 hardware.cgi:174 styles/default/header.html:82
 msgid "Kernel modules"
 msgstr "Modules du noyau"
 
-#: hardware.cgi:46
+#: hardware.cgi:75
 #, fuzzy
 msgid "Modules search"
 msgstr "Recherche de modules"
 
-#: hardware.cgi:49
+#: hardware.cgi:78
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr ""
 "Gérer, rechercher ou obtenir des informations sur les modules du noyau Linux"
 
-#: hardware.cgi:56
+#: hardware.cgi:85
 #, sh-format
 msgid "Detailed information for module: $get_modinfo"
 msgstr "Les informations détaillées pour le module : $get_modinfo"
 
-#: hardware.cgi:70
+#: hardware.cgi:99
 #, sh-format
 msgid "Matching result(s) for: $get_search"
 msgstr "Résultats correspondants pour : $get_search"
 
-#: hardware.cgi:76
-#, fuzzy
+#: hardware.cgi:105
 msgid "Module:"
-msgstr "Module"
+msgstr "Module :"
 
-#: hardware.cgi:83
+#: hardware.cgi:112
 msgid "Module"
 msgstr "Module"
 
-#: hardware.cgi:84 lib/libtazpanel:221
+#: hardware.cgi:113 lib/libtazpanel:229
 msgid "Size"
 msgstr "Taille"
 
-#: hardware.cgi:85 lib/libtazpanel:223
+#: hardware.cgi:114 lib/libtazpanel:231
 msgid "Used"
 msgstr "Utilisé"
 
-#: hardware.cgi:86
+#: hardware.cgi:115
 msgid "by"
 msgstr "par"
 
-#: hardware.cgi:112
+#: hardware.cgi:136
+#, sh-format
+msgid "Information for USB Device $vidpid"
+msgstr ""
+
+#: hardware.cgi:137 hardware.cgi:151
+msgid "Detailed information about specified device."
+msgstr ""
+
+#: hardware.cgi:150
+#, sh-format
+msgid "Information for PCI Device $slot"
+msgstr ""
+
+#: hardware.cgi:169
 msgid "Drivers &amp; Devices"
 msgstr "Pilotes &amp; périphériques"
 
-#: hardware.cgi:113
+#: hardware.cgi:170
 msgid "Manage your computer hardware"
 msgstr "Gérer le matériel de l'ordinateur"
 
-#: hardware.cgi:119 styles/default/header.html:77
+#: hardware.cgi:176 styles/default/header.html:84
 msgid "Detect PCI/USB"
 msgstr "Détecter le matériel PCI/USB"
 
-#: hardware.cgi:140
+#: hardware.cgi:196
 msgid "Battery"
 msgstr "Batterie"
 
-#: hardware.cgi:142
+#: hardware.cgi:198
 msgid "health"
 msgstr "santé"
 
-#: hardware.cgi:151
+#: hardware.cgi:207
 #, sh-format
 msgid "Discharging $rempct% - $remtimef"
 msgstr "Déchargement $rempct% - $remtimef"
 
-#: hardware.cgi:155
+#: hardware.cgi:211
 #, sh-format
 msgid "Charging $rempct% - $remtimef"
 msgstr "Chargement $rempct% - $remtimef"
 
-#: hardware.cgi:157
+#: hardware.cgi:213
 msgid "Charged 100%"
 msgstr "Chargée à 100%"
 
-#: hardware.cgi:165
+#: hardware.cgi:221
 msgid "Temperature:"
-msgstr "Température:"
+msgstr "Température :"
 
-#: hardware.cgi:180
+#: hardware.cgi:236
 msgid "Brightness"
 msgstr "Luminosité d'écran"
 
-#: hardware.cgi:242
+#: hardware.cgi:343
+msgid "Filesystems table"
+msgstr ""
+
+#: hardware.cgi:357
 msgid "System memory"
 msgstr "Mémoire système"
 
@@ -1352,735 +772,365 @@ msgstr "Mémoire système"
 msgid "TazPanel - Settings"
 msgstr "TazPanel - Paramètres"
 
-#: settings.cgi:87 settings.cgi:264
-msgid "Manage users"
+#: settings.cgi:120 settings.cgi:383
+msgid "Manage groups"
+msgstr ""
+
+#: settings.cgi:126 settings.cgi:209
+msgid "Selection:"
+msgstr "Sélection :"
+
+#: settings.cgi:127
+msgid "Delete group"
+msgstr ""
+
+#: settings.cgi:134
+msgid "Group"
+msgstr ""
+
+#: settings.cgi:135
+msgid "Group ID"
+msgstr ""
+
+#: settings.cgi:136
+msgid "Members"
+msgstr ""
+
+#: settings.cgi:163
+msgid "Add a new group"
+msgstr ""
+
+#: settings.cgi:168 settings.cgi:182
+msgid "Group name:"
+msgstr ""
+
+#: settings.cgi:171
+msgid "Create group"
+msgstr ""
+
+#: settings.cgi:177
+#, fuzzy
+msgid "Manage group membership"
 msgstr "Gérer les utilisateurs"
 
-#: settings.cgi:93
-msgid "Delete user"
-msgstr "Supprimer l'utilisateur"
-
-#: settings.cgi:94
-msgid "Lock user"
-msgstr "Bloquer l'utilisateur"
-
-#: settings.cgi:95
-msgid "Unlock user"
-msgstr "Débloquer l'utilisateur"
-
-#: settings.cgi:102
-msgid "Login"
-msgstr "Identifiant"
-
-#: settings.cgi:103
-msgid "User ID"
-msgstr "Id utilisateur"
-
-#: settings.cgi:105
-msgid "Home"
-msgstr "Répertoire personnel"
-
-#: settings.cgi:106
-msgid "Shell"
-msgstr "Shell"
-
-#: settings.cgi:143
-msgid "Password:"
-msgstr "Mot de passe:"
-
-#: settings.cgi:145
-msgid "Change password"
-msgstr "Changer le mot de passe"
-
-#: settings.cgi:150
-msgid "Add a new user"
-msgstr "Ajouter un utilisateur"
-
-#: settings.cgi:155 installer.cgi:467
-msgid "User login:"
-msgstr "Identifiant de l'utilisateur:"
-
-#: settings.cgi:157
-msgid "User password:"
-msgstr "Mot de passe de l'utilisateur:"
-
-#: settings.cgi:160
-msgid "Create user"
-msgstr "Créer un utilisateur"
-
-#: settings.cgi:166
-msgid "Current user sessions"
-msgstr "Sessions utilisateur courantes"
-
-#: settings.cgi:172
-msgid "Last user sessions"
-msgstr "Dernières sessions utilisateur"
-
-#: settings.cgi:184
-msgid "Please wait..."
-msgstr "merci de patientier..."
-
-#: settings.cgi:188
-msgid "Choose locale"
-msgstr "Choisissez votre langue"
+#: settings.cgi:186
+#, fuzzy
+msgid "User name:"
+msgstr "Identifiant de l'utilisateur :"
 
 #: settings.cgi:190
 #, fuzzy
+msgid "Add user"
+msgstr "Ajouter un utilisateur"
+
+#: settings.cgi:191
+msgid "Remove user"
+msgstr ""
+
+#: settings.cgi:204 settings.cgi:381
+msgid "Manage users"
+msgstr "Gérer les utilisateurs"
+
+#: settings.cgi:210
+msgid "Delete user"
+msgstr "Supprimer l'utilisateur"
+
+#: settings.cgi:211
+msgid "Lock user"
+msgstr "Bloquer l'utilisateur"
+
+#: settings.cgi:212
+msgid "Unlock user"
+msgstr "Débloquer l'utilisateur"
+
+#: settings.cgi:219
+msgid "Login"
+msgstr "Identifiant"
+
+#: settings.cgi:220
+msgid "User ID"
+msgstr "Id utilisateur"
+
+#: settings.cgi:222
+msgid "Home"
+msgstr "Répertoire personnel"
+
+#: settings.cgi:223
+msgid "Shell"
+msgstr "Shell"
+
+#: settings.cgi:260
+msgid "Password:"
+msgstr "Mot de passe :"
+
+#: settings.cgi:262
+msgid "Change password"
+msgstr "Changer le mot de passe"
+
+#: settings.cgi:267
+msgid "Add a new user"
+msgstr "Ajouter un utilisateur"
+
+#: settings.cgi:272
+msgid "User login:"
+msgstr "Identifiant de l'utilisateur :"
+
+#: settings.cgi:274
+msgid "User password:"
+msgstr "Mot de passe de l'utilisateur :"
+
+#: settings.cgi:277
+msgid "Create user"
+msgstr "Créer un utilisateur"
+
+#: settings.cgi:283
+msgid "Current user sessions"
+msgstr "Sessions utilisateur courantes"
+
+#: settings.cgi:289
+msgid "Last user sessions"
+msgstr "Dernières sessions utilisateur"
+
+#: settings.cgi:301
+msgid "Please wait..."
+msgstr "merci de patientier..."
+
+#: settings.cgi:305
+msgid "Choose locale"
+msgstr "Choisissez votre langue"
+
+#: settings.cgi:307
+#, fuzzy
 msgid "Current locale settings:"
-msgstr "Locales système courantes : "
+msgstr "Locales système courantes :"
 
-#: settings.cgi:193
+#: settings.cgi:310
 msgid "Locales that are currently installed on the machine:"
-msgstr "Ses locales sont actuellement installées sur cette machine:"
+msgstr "Ses locales sont actuellement installées sur cette machine :"
 
-#: settings.cgi:196
+#: settings.cgi:313
 msgid "Available locales:"
-msgstr "Langues disponibles:"
+msgstr "Langues disponibles :"
 
-#: settings.cgi:202
+#: settings.cgi:319
 msgid ""
 "Can't see your language?<br/>You can <a href='/pkgs.cgi?do=Install&glibc-"
 "locale'>install glibc-locale</a> to see a larger list of available locales."
 msgstr ""
 
-#: settings.cgi:211
+#: settings.cgi:328
 msgid "Code"
 msgstr "Code"
 
-#: settings.cgi:212
+#: settings.cgi:329
 #, fuzzy
 msgid "Language"
 msgstr "Langue du système"
 
-#: settings.cgi:213
+#: settings.cgi:330
 msgid "Territory"
 msgstr "Territoire"
 
-#: settings.cgi:247 settings.cgi:350 settings.cgi:363
+#: settings.cgi:352 settings.cgi:353
+msgid "-d"
+msgstr "-d"
+
+#: settings.cgi:364 settings.cgi:504 settings.cgi:517
 msgid "Activate"
 msgstr "Activer"
 
-#: settings.cgi:259
+#: settings.cgi:376
 msgid "System settings"
 msgstr "Réglages système"
 
-#: settings.cgi:260
+#: settings.cgi:377
 msgid "Manage system time, users or language settings"
 msgstr "Gérer l'horloge, les utilisateurs ou les paramètres de langue"
 
-#: settings.cgi:268
+#: settings.cgi:387
 msgid "System time"
 msgstr "Heure système"
 
-#: settings.cgi:271
-#, fuzzy
-msgid "Time zome:"
-msgstr "Zone horaire  :"
+#: settings.cgi:391
+msgid "Time zone:"
+msgstr "Zone horaire :"
 
-#: settings.cgi:273
+#: settings.cgi:402
 #, fuzzy
 msgid "System time:"
-msgstr "Heure système"
+msgstr "Heure système :"
 
-#: settings.cgi:274
+#: settings.cgi:403
 #, fuzzy
 msgid "Hardware clock:"
-msgstr "Horloge système:"
+msgstr "Horloge système :"
 
-#: settings.cgi:276
+#: settings.cgi:407
+msgid "Set date"
+msgstr ""
+
+#: settings.cgi:430
 msgid "Sync online"
 msgstr "Synchroniser en ligne"
 
-#: settings.cgi:277
+#: settings.cgi:431
 msgid "Set hardware clock"
 msgstr "Configurer l'horloge système"
 
-#: settings.cgi:285
+#: settings.cgi:439
 msgid "System language"
 msgstr "Langue du système"
 
-#: settings.cgi:297
+#: settings.cgi:451
 #, fuzzy, sh-format
 msgid ""
 "You must logout and login again to your current session to use $new_locale "
 "locale."
 msgstr ""
-"Vous devez vous déconnecter et vous reconnecter à votre session\n"
-"\t\t\t\tcourante pour utiliser la locale $new_locale"
+"Vous devez vous déconnecter et vous reconnecter à votre session courante "
+"pour utiliser la locale $new_locale"
 
-#: settings.cgi:299
+#: settings.cgi:453
 #, fuzzy
 msgid "Current system locale:"
-msgstr "Locales système courantes : "
+msgstr "Locales système courantes :"
 
-#: settings.cgi:307
+#: settings.cgi:461
 msgid "Console keymap"
 msgstr "Type de clavier de la console"
 
-#: settings.cgi:320
-#, fuzzy, sh-format
+#: settings.cgi:474
+#, sh-format
 msgid "Current console keymap: $keymap"
-msgstr "Type de clavier de la console courante : "
+msgstr ""
 
-#: settings.cgi:337
+#: settings.cgi:491
 msgid "Suggested keymap for Xorg:"
-msgstr "Type de claviers suggéré pour Xorg : "
+msgstr "Type de claviers suggéré pour Xorg :"
 
-#: settings.cgi:346
+#: settings.cgi:500
 msgid "Available keymaps:"
-msgstr "Claviers disponibles:"
+msgstr "Claviers disponibles :"
 
-#: settings.cgi:355
+#: settings.cgi:509
 msgid "Panel configuration"
 msgstr "Configuration du panneau"
 
-#: settings.cgi:359
+#: settings.cgi:513
 msgid "Style:"
-msgstr "Style:"
+msgstr "Style :"
 
-#: settings.cgi:368
+#: settings.cgi:522
 msgid "Panel password:"
-msgstr "Mot de passe:"
+msgstr "Mot de passe :"
 
-#: settings.cgi:374
+#: settings.cgi:528
 #, fuzzy
 msgid "Configuration files:"
-msgstr "Fichiers de configuration"
+msgstr "Fichiers de configuration :"
 
-#: settings.cgi:376 styles/default/header.html:24
+#: settings.cgi:530 styles/default/header.html:31
 msgid "Panel"
 msgstr "Panneau"
 
-#: settings.cgi:378
+#: settings.cgi:532
 msgid "Server"
 msgstr "Serveur"
 
-#: settings.cgi:381
+#: settings.cgi:535
 msgid "TazPanel provides a debuging mode and page:"
-msgstr "TazPanel fournit un mode et une page debuging"
+msgstr "TazPanel fournit un mode et une page debuging :"
 
-#: lib/libtazpanel:87
+#: lib/libtazpanel:95
 msgid "connected"
 msgstr "Connecté"
 
-#: lib/libtazpanel:104
+#: lib/libtazpanel:112
 msgid "IP Address"
 msgstr "Adresse IP"
 
-#: lib/libtazpanel:105
+#: lib/libtazpanel:113
 msgid "Scan ports"
 msgstr "Scan de ports"
 
-#: lib/libtazpanel:218
+#: lib/libtazpanel:226
 msgid "Disk"
 msgstr "Disque"
 
-#: lib/libtazpanel:219
+#: lib/libtazpanel:227
 msgid "Label"
 msgstr "Libellé"
 
-#: lib/libtazpanel:220
+#: lib/libtazpanel:228
 msgid "Type"
 msgstr "Type"
 
-#: lib/libtazpanel:222
+#: lib/libtazpanel:230
 msgid "Available"
 msgstr "Disponible"
 
-#: lib/libtazpanel:224
+#: lib/libtazpanel:232
 msgid "Mount point"
 msgstr "Point de montage"
 
-#: installer.cgi:24
-msgid "TazPanel - Installer"
-msgstr "TazPanel - Installateur SliTaz"
-
-#: installer.cgi:116
-#, sh-format
-msgid "Creating setup file $INSTFILE."
-msgstr "Création du fichier d'installation $INSTFILE"
-
-#: installer.cgi:120 installer.cgi:127
-msgid "Setup File Error"
-msgstr "Erreur dans le fichier de paramètrage"
-
-#: installer.cgi:121
-#, sh-format
-msgid "The setup file <strong>$INSTFILE</strong> doesn't exist."
-msgstr "Le fichier d'installation <strong>$INSTFILE</strong> n'existe pas"
-
-#: installer.cgi:142
-msgid "SliTaz Installer"
-msgstr "Installateur SliTaz"
-
-#: installer.cgi:144
-msgid ""
-"The SliTaz Installer installs or upgrades SliTaz to a hard disk drive from a "
-"device like a Live-CD or LiveUSB key, from a SliTaz ISO file, or from the "
-"web by downloading an ISO file."
-msgstr ""
-"L'installateur de SliTaz installe ou met à jour Slitaz sur un disque dur "
-"depuis un périphérique tel qu'un LiveCD ou une clé USB, depuis une image ISO "
-"de SliTaz, ou depuis le Web en téléchargeant une image ISO."
-
-#: installer.cgi:157
-#, fuzzy
-msgid ""
-"Install SliTaz on a partition of your hard disk drive. If you decide to "
-"format your partition, all data will be lost. If you do not format, all data "
-"except for any existing /home directory will be removed (note the home "
-"directory contents will be kept as is)."
-msgstr ""
-"Installe SliTaz sur une partition du disque dur. Si vous décidez de "
-"formatter la partition, toutes les données seront perdues. Si vous ne la "
-"formattez pas, toutes les données à l'exception de celles présentes dans un "
-"répertoire /home existant seront détruites, le répertoire /home sera "
-"conservé tel quel."
-
-#: installer.cgi:162
-#, fuzzy
-msgid ""
-"Before installation, you may need to create or resize partitions on your "
-"hard disk drive in order to make space for SliTaz GNU/Linux. You can "
-"graphically manage your partitions with Gparted."
-msgstr ""
-"Avant de commencer l'installation, il est peut-être nécessaire de créer ou "
-"redimensionner des partitions du disque dur de façon à laisser un espace "
-"utile à SliTaz. Il est possible de le faire graphiquement avec Gparted."
-
-#: installer.cgi:166 installer.cgi:246 styles/default/header.html:90
-msgid "Install SliTaz"
-msgstr "Installer SliTaz"
-
-#: installer.cgi:176
-msgid "Upgrade"
-msgstr "Mettre à jour"
-
-#: installer.cgi:178
-msgid ""
-"Upgrade an already installed SliTaz system on your hard disk drive. Your /"
-"home /etc /var/www directories will be kept, all other directories will be "
-"removed. Any additional packages added to your old Slitaz system will be "
-"updated as long you have an active internet connection."
-msgstr ""
-"Mettre à jour un système SliTaz déjà présent sur le disque dur. Les "
-"répertoires /home et /var/www seront conservés, tous les autres répertoires "
-"seront supprimés. Tous les paquets additionnels ajoutés à ce système SliTaz "
-"seront mis à jour à condition d'avoir une connexion Internet active."
-
-#: installer.cgi:183 installer.cgi:259
-msgid "Upgrade SliTaz"
-msgstr "Mettre à jour SliTaz"
-
-#: installer.cgi:192
-msgid "Partitioning"
-msgstr "Partitionner"
-
-#: installer.cgi:195
-#, fuzzy
-msgid ""
-"On most used systems, the hard drive is already dedicated to partitions for "
-"Windows<sup>&trade;</sup>, or Linux, or another operating system. You'll "
-"need to resize these partitions in order to make space for SliTaz GNU/Linux. "
-"SliTaz will co-exist with other operating systems already installed on your "
-"hard drive."
-msgstr ""
-"Sur la plupart des systèmes, le disque dur a déjà des partitions dédiées à "
-"Windows, ou Linux ou un autre système d'exploitation. Il est nécessaire de "
-"modifier la taille des partitions de façon à laisser une place à Slitaz GNU/"
-"Linux. Slitaz co-existera avec les autres systèmes d'exploitation déjà "
-"installés sur le disque dur."
-
-#: installer.cgi:201
-msgid ""
-"The amount of space needed depends on how much software you plan to install "
-"and how much space you require for users. It's conceivable that you could "
-"run a minimal SliTaz system in 300 megs or less, but 2 gigs is indeed more "
-"comfy."
-msgstr ""
-"La taille de l'espace nécessaire dépend du nombre de paquets destiné à être "
-"installé et de l'espace requis réservé aux utilisateurs. Il est tout à fait "
-"concevable d'installer un système minilal de SLitaz dans moins de 300 Mo, "
-"mais 2 Go seront très confortables. "
-
-#: installer.cgi:206
-msgid ""
-"A separate home partition, and a partition that will be used as Linux swap "
-"space may be created if needed. Slitaz detects and uses swap partitions "
-"automatically."
-msgstr ""
-"Une partition séparée pour /home, et une partition d'échange (swap) peuvent "
-"être crées si nécessaire. Slitaz détecte et utilise automatiquement les "
-"partitions swap."
-
-#: installer.cgi:214
-msgid ""
-"You can graphically manage your partitions with Gparted. GParted is a "
-"partition editor for graphically managing your disk partitions. Gparted "
-"allows you to create, destroy, resize and copy partitions without data loss."
-msgstr ""
-"Gérez graphiquement vos partitions avec Gparted. Gparted est un éditeur de "
-"partitions permettant de gérer graphiquement vos partitions. Gparted permet "
-"de créer, supprimer, redimensionner et recopier vos partitions sans perte de "
-"données."
-
-#: installer.cgi:218
-#, fuzzy
-msgid ""
-"Gparted supports ext2, ext3, ext4, linux swap, ntfs and fat32 filesystems "
-"right out of the box. Support for xjs, jfs, hfs and other filesystems is "
-"available as well but you first need to add drivers for these filesystems by "
-"installing the related packages xfsprogs, jfsutils, linux-hfs and so on."
-msgstr ""
-"Gparted supporte en standard les systèmes de fichiers Linux ext2, ext3, "
-"ext4, swap, Windows ntfs et fat32. Les systèmes de fichiers xfs, jfs, hfs ou "
-"autres sont également disponibles mais il est nécessaire d'ajouter au "
-"préalables les drivers nécessaires en installant les paquets correspondants "
-"xfsprogs, jfsutils, linux-hfs etc.\""
-
-#: installer.cgi:225
-msgid "Execute Gparted"
-msgstr "Démarrer Gparted"
-
-#: installer.cgi:227
-msgid "Continue installation"
-msgstr "Continuer l'installation"
-
-#: installer.cgi:229
-msgid ""
-"Once you've made room for SliTaz on your drive, you should be able to "
-"continue installation."
-msgstr ""
-"Une fois que la place nécessaire à Slitaz sur le disque dur a été faite, il "
-"est possible de continuer l'installation."
-
-#: installer.cgi:234 installer.cgi:504 installer.cgi:515
-msgid "Back to Installer Start Page"
-msgstr "Retourner au début de l'installation"
-
-#: installer.cgi:236
-msgid "Continue Installation"
-msgstr "Continuer l'installation"
-
-#: installer.cgi:248
-#, fuzzy
-msgid ""
-"You're going to install SliTaz on a partition of your hard disk drive. If "
-"you decide to format your HDD, all data will be lost. If you do not format, "
-"all data except for any existing /home directory will be removed (note the "
-"home directory contents will be kept as is)."
-msgstr ""
-"Vous allez installer SliTaz sur une partition de votre disque dur. Si vous "
-"décidez de formatter la partition, toutes les données seront perdues. Si "
-"vous ne la formattez pas, toutes les données à l'exeception de celles "
-"présentes dans un répertoire existant /home seront détruites."
-
-#: installer.cgi:261
-msgid ""
-"You're going to upgrade an already installed SliTaz system on your hard disk "
-"drive. Your /home /etc /var/www directories will be kept, all other "
-"directories will be removed. Any additional packages added to your old "
-"Slitaz system will be updated as long you have an active internet connection."
-msgstr ""
-"Vous allez mettre à jour un système SliTaz existant déjà sur une partition "
-"de votre disque dur. Les répertoires /home et /var/www seront conservés, "
-"tous les autres répertoires seront supprimés. Tous les paquets additionnels "
-"ajoutés à ce système SliTaz seront mis à jour à condition d'avoir une "
-"connexion Internet active."
-
-#: installer.cgi:275
-msgid "Slitaz source media"
-msgstr "Média source de Slitaz"
-
-#: installer.cgi:279
-msgid "LiveCD"
-msgstr "Live CD"
-
-#: installer.cgi:282
-#, fuzzy
-msgid "LiveUSB:"
-msgstr "LiveUSB"
-
-#: installer.cgi:308
-#, fuzzy
-msgid "ISO file:"
-msgstr "Fichier ISO"
-
-#: installer.cgi:309
-msgid "Full path to the ISO image file"
-msgstr "Chemin complet vers le fichier de l'image ISO"
-
-#: installer.cgi:312
-msgid "Web:"
-msgstr "Web:"
-
-#: installer.cgi:313
-msgid "Stable"
-msgstr "Stable"
-
-#: installer.cgi:314
-msgid "Cooking"
-msgstr "Cooking"
-
-#: installer.cgi:316
-msgid "URL:"
-msgstr "URL:"
-
-#: installer.cgi:317
-msgid "Full url to an ISO image file"
-msgstr "URL complète de l'image ISO"
-
-#: installer.cgi:326
-msgid "Hard Disk Drive"
-msgstr "Disque dur"
-
-#: installer.cgi:335
-msgid "Install Slitaz to partition:"
-msgstr "Installer Slitaz sur la partition :"
-
-#: installer.cgi:340 installer.cgi:375 installer.cgi:407
-msgid "None"
-msgstr "*"
-
-#: installer.cgi:351 installer.cgi:418
-msgid "Format partition as:"
-msgstr "Formatter la partition en"
-
-#: installer.cgi:370
-msgid "Existing SliTaz partition to upgrade:"
-msgstr "Partition SliTaz existante à mettre à jour :"
-
-#: installer.cgi:391
-msgid "Options"
-msgstr "Options"
-
-#: installer.cgi:399
-msgid "home partition"
-msgstr "Partition /home"
-
-#: installer.cgi:402
-msgid "Use a separate partition for /home:"
-msgstr "Utiliser une autre partition pour /home"
-
-#: installer.cgi:437
-msgid "Set Hostname to:"
-msgstr "Définir le nom du système :"
-
-#: installer.cgi:438
-msgid "Name of your system"
-msgstr "Nom du système"
-
-#: installer.cgi:448
-msgid "Root"
-msgstr "Root"
-
-#: installer.cgi:450
-#, fuzzy
-msgid "Root passwd:"
-msgstr "Mot de passe de root:"
-
-#: installer.cgi:451 installer.cgi:454
-msgid "Password of root"
-msgstr "Mot de passe de root"
-
-#: installer.cgi:453 installer.cgi:475
-msgid "Confirm password:"
-msgstr "Confirmer :"
-
-#: installer.cgi:465
-#, fuzzy
-msgid "User"
-msgstr "Utilisateur"
-
-#: installer.cgi:468
-msgid "Name of the first user"
-msgstr "Nom du premier compte d'utilisateur"
-
-#: installer.cgi:472
-msgid "User passwd:"
-msgstr "Mot de passe utilisateur :"
-
-#: installer.cgi:473 installer.cgi:476
-msgid "Password of the first user"
-msgstr "Mot de passe de l'utilisateur"
-
-#: installer.cgi:486
-msgid "Grub"
-msgstr "Grub"
-
-#: installer.cgi:489
-msgid ""
-"Install Grub bootloader. Usually you should answer yes, unless you want to "
-"install grub by hand yourself."
-msgstr ""
-"Installer le chargeur Grub. Généralement à valider à moins de vouloir "
-"installer Grub à la main."
-
-#: installer.cgi:492
-msgid "Enable Windows Dual-Boot."
-msgstr "Autoriser le double-boot avec Windows."
-
-#: installer.cgi:501
-msgid "Back to partitioning"
-msgstr "Retour au partitionnement"
-
-#: installer.cgi:508
-msgid "Proceed to SliTaz installation"
-msgstr "Procéder à l'installation de SliTaz"
-
-#: installer.cgi:510
-msgid "Installation complete. You can now restart (reboot)"
-msgstr "Installation terminée. Vous pouvez redémarrer."
-
-#: installer.cgi:512
-msgid "Installation failed. See log"
-msgstr "L'installation n'a pas aboutie. Voir le fichier journal"
-
-#: installer.cgi:531
-msgid "A web page that points a browser to a different page after 2 seconds"
-msgstr "Vous allez être redirigés vers une autre page dans 2 secondes"
-
-#: installer.cgi:537
-msgid ""
-"If your browser doesn't automatically redirect within a few seconds, you may "
-"want to go there manually"
-msgstr ""
-"Si votre navigateur ne vous redirige pas automatiquement dans quelques "
-"secondes, vous devrez le faire manuellement"
-
-#: installer.cgi:552 installer.cgi:567
-msgid "Tazinst Error"
-msgstr "Erreur de Tazinst"
-
-#: installer.cgi:553
-#, fuzzy
-msgid ""
-"<strong>tazinst</strong>, the lightweight SliTaz HDD installer is missing. "
-"Any installation cannot be done without tazinst."
-msgstr ""
-"L'installateur léger de SliTaz n'a pas été trouvé. Aucune installation ne "
-"peut être entreprise sans tazinst."
-
-#: installer.cgi:556
-msgid "Check tazinst' permissions, or reinstall the slitaz-tools package:"
-msgstr ""
-"Vérifiez les permissions de tazinst, ou réinstallez le paquet slitaz-tools :"
-
-#: installer.cgi:582
-msgid "Proceeding: ()"
-msgstr "Procédure en cours :"
-
-#: installer.cgi:583
-msgid "Please wait until processing is complete"
-msgstr "Merci de patienter, en attendant que la procédure se termine"
-
-#: installer.cgi:589
-msgid "Completed."
-msgstr "Terminé"
-
-#: installer.cgi:623
-#, fuzzy
-msgid "Hostname error"
-msgstr "Nom d'hôte"
-
-#: installer.cgi:627
-#, fuzzy
-msgid "Root password error"
-msgstr "Mot de passe de root:"
-
-#: installer.cgi:631
-#, fuzzy
-msgid "User login error"
-msgstr "Nom de login:"
-
-#: installer.cgi:635
-#, fuzzy
-msgid "User password error"
-msgstr "Mot de passe:"
-
-#: installer.cgi:638 installer.cgi:649
-msgid "Do you really want to continue?"
-msgstr "Désirez-vous vraiment continuer?"
-
 #: help.cgi:20
-#, fuzzy
 msgid "Manual"
-msgstr "Édition manuelle"
+msgstr ""
 
 #: help.cgi:28
 msgid "TazPanel - Help &amp; Doc"
 msgstr "TazPanel - Aide &am; Support"
 
-#: styles/default/header.html:29
+#: styles/default/header.html:36
 msgid "Processes"
 msgstr "Processus"
 
-#: styles/default/header.html:31
+#: styles/default/header.html:38
 #, fuzzy
 msgid "Create Report"
 msgstr "Créer un rapport"
 
-#: styles/default/header.html:34
+#: styles/default/header.html:42
 #, fuzzy
-msgid "Packages"
-msgstr "Paquets"
+msgid "Network"
+msgstr "Gestion de réseau"
 
-#: styles/default/header.html:41
-#, fuzzy
-msgid "Check updates"
-msgstr "Mettre à jour"
-
-#: styles/default/header.html:49
-msgid "Ethernet"
-msgstr "Réseau filaire"
-
-#: styles/default/header.html:51
-msgid "Wireless"
-msgstr "Réseau sans fil"
-
-#: styles/default/header.html:53
+#: styles/default/header.html:45
 #, fuzzy
 msgid "Config file"
 msgstr "Fichier de configuration"
 
-#: styles/default/header.html:56
-#, fuzzy
-msgid "Settings"
-msgstr "Réglages système"
+#: styles/default/header.html:47
+msgid "Ethernet"
+msgstr "Réseau filaire"
 
-#: styles/default/header.html:59
-#, fuzzy
+#: styles/default/header.html:49
+msgid "Wireless"
+msgstr "Réseau sans fil"
+
+#: styles/default/header.html:53
+msgid "Settings"
+msgstr ""
+
+#: styles/default/header.html:56
 msgid "Users"
-msgstr "Utilisateur"
+msgstr ""
+
+#: styles/default/header.html:58
+msgid "Groups"
+msgstr ""
 
 #: styles/default/header.html:62
-#, fuzzy
 msgid "Boot"
-msgstr "Journaux de démarrage"
+msgstr ""
 
-#: styles/default/header.html:72
-#, fuzzy
+#: styles/default/header.html:79
 msgid "Hardware"
-msgstr "Horloge système:"
+msgstr ""
 
-#: styles/default/header.html:80
-#, fuzzy
-msgid "Live"
-msgstr "Live CD"
-
-#: styles/default/header.html:82
-msgid "Create a live USB key"
-msgstr "Créer une clé USB Live"
-
-#: styles/default/header.html:83
-#, fuzzy
-msgid "Create a live CD-ROM"
-msgstr "Écrire un LiveCD"
-
-#: styles/default/header.html:91
-#, fuzzy
-msgid "Upgrade system"
-msgstr "Mettre à jour"
+#: styles/default/header.html:86
+msgid "Disks"
+msgstr ""
 
 #: styles/default/footer.html:6
 msgid "Copyright"
@@ -2089,45 +1139,3 @@ msgstr "Licence d'utilisation"
 #: styles/default/footer.html:8
 msgid "BSD License"
 msgstr " License BSD"
-
-#~ msgid "List:"
-#~ msgstr "Liste:"
-
-#~ msgid "System time    :"
-#~ msgstr "Heure du système:"
-
-#~ msgid "Usage:"
-#~ msgstr "Utilisation:"
-
-#~ msgid "Output of"
-#~ msgstr "Résultat de"
-
-#~ msgid "Host:"
-#~ msgstr "Hôte:"
-
-#~ msgid "Live USB"
-#~ msgstr "Live USB"
-
-#~ msgid "Connection:"
-#~ msgstr "Connexion:"
-
-#~ msgid "Format partition as"
-#~ msgstr "Formatter la partition en"
-
-#~ msgid "About"
-#~ msgstr "À propos"
-
-#~ msgid "Source"
-#~ msgstr "Source"
-
-#~ msgid "Main Partition"
-#~ msgstr "Partition principale"
-
-#~ msgid "Partition to use:"
-#~ msgstr "Partition à utiliser :"
-
-#~ msgid "Host"
-#~ msgstr "Hôte"
-
-#~ msgid "Install Grub bootloader"
-#~ msgstr "Installer le chargeur d'amorçage Grub"

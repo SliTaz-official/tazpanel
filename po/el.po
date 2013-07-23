@@ -1,836 +1,265 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Greek translations for TazPanel package.
+# Copyright (C) 2013 SliTaz
+# This file is distributed under the same license as the TazPanel package.
+# Douros Dimitris <dourosdimitris@gmail.com>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-01 22:37+0000\n"
+"POT-Creation-Date: 2013-07-23 00:41+0300\n"
 "PO-Revision-Date: 2012-06-10 17:15+0200\n"
 "Last-Translator: Douros Dimitris <dourosdimitris@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Greek\n"
 "X-Poedit-Country: GREECE\n"
 
-#: tazpanel:35
+#: tazpanel:36
+msgid "TazPanel is already running."
+msgstr ""
+
+#: tazpanel:39
 #, sh-format
 msgid "Starting TazPanel web server on port $HTTPD_PORT..."
 msgstr "Εκκίνηση εξυπηρετητή ιστού TazPanel στη θύρα $HTTPD_PORT..."
 
-#: tazpanel:37
+#: tazpanel:41
 msgid "TazPanel Authentication - Default: root:root"
 msgstr "Πιστοποίηση TazPanel - Προεπιλογή: root:root"
 
-#: tazpanel:42
+#: tazpanel:47
+msgid "TazPanel is not running."
+msgstr ""
+
+#: tazpanel:50
 msgid "Stopping TazPanel web server..."
 msgstr "Σταμάτημα εξυπηρετητή ιστού TazPanel..."
 
-#: tazpanel:46
+#: tazpanel:56
 msgid "Changing password for TazPanel"
 msgstr "Αλλαγή κωδικού για TazPanel"
 
-#: tazpanel:47
+#: tazpanel:57
 msgid "New password: "
 msgstr "Νέος κωδικός: "
 
-#: tazpanel:49
+#: tazpanel:59
 msgid "Password changed successfully"
 msgstr "Ο κωδικός άλλαξε επιτυχώς"
 
-#: tazpanel:54
+#: tazpanel:64
 #, sh-format
 msgid "Usage: $program_name [start|stop|passwd]"
 msgstr "Χρήση: $program_name [start|stop|passwd]"
 
-#: index.cgi:38 index.cgi:84
+#: index.cgi:38 index.cgi:95
 msgid "Differences"
 msgstr "Διαφορές"
 
-#: index.cgi:73
+#: index.cgi:66
+msgid "TazPanel - exec"
+msgstr ""
+
+#: index.cgi:84
 msgid "TazPanel - File"
 msgstr "TazPanel - Αρχείο"
 
-#: index.cgi:82
+#: index.cgi:93 index.cgi:108
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: index.cgi:104 settings.cgi:340
+#: index.cgi:132 settings.cgi:494
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: index.cgi:128
+#: index.cgi:156
 msgid "TazPanel - Terminal"
 msgstr "TazPanel - Τερματικό"
 
-#: index.cgi:142
+#: index.cgi:170
 msgid "Small terminal emulator, commands options are supported."
 msgstr "Μικρός προσομοιωτής τερματικού, υποστηρίζονται επιλογές εντολών"
 
-#: index.cgi:144 index.cgi:161
+#: index.cgi:172 index.cgi:189
 #, sh-format
 msgid "Commands: $commands"
 msgstr "Εντολές: $commands"
 
-#: index.cgi:149
+#: index.cgi:177
 #, sh-format
 msgid "Downloading to: $dl"
 msgstr "Κατέβασμα στο: $dl"
 
-#: index.cgi:156
+#: index.cgi:184
 #, sh-format
 msgid "$cmd needs an argument"
 msgstr "$cmd χρειάζεται όρισμα"
 
-#: index.cgi:160
+#: index.cgi:188
 #, sh-format
 msgid "Unknown command: $cmd"
 msgstr "Άγνωστη εντολή: $cmd"
 
-#: index.cgi:168
+#: index.cgi:196
 msgid "TazPanel - Process activity"
 msgstr "TazPanel - Δραστηριότητα διεργασιών"
 
-#: index.cgi:170
+#: index.cgi:198
 msgid "Refresh:"
 msgstr "Ανανέωση:"
 
-#: index.cgi:175
+#: index.cgi:203
 msgid "1s"
 msgstr "1 δευτ."
 
-#: index.cgi:176
+#: index.cgi:204
 msgid "5s"
 msgstr "5 δευτ."
 
-#: index.cgi:177
+#: index.cgi:205
 msgid "10s"
 msgstr "10 δευτ."
 
-#: index.cgi:178 live.cgi:152
+#: index.cgi:206
 msgid "none"
 msgstr "Ποτέ"
 
-#: index.cgi:195
+#: index.cgi:223
 msgid "TazPanel - Debug"
 msgstr "TazPanel - Αποσφαλμάτωση"
 
-#: index.cgi:198
+#: index.cgi:226
 msgid "HTTP Environment"
 msgstr "Περιβάλλον HTTP"
 
-#: index.cgi:206
+#: index.cgi:234
 msgid "TazPanel - System report"
 msgstr "TazPanel - Αναφορά συστήματος"
 
-#: index.cgi:211
+#: index.cgi:239
 #, sh-format
 msgid "Reporting to: $output"
 msgstr "Αναφορά σε: $output"
 
-#: index.cgi:214
+#: index.cgi:242
 msgid "Creating report header..."
 msgstr "Δημιουργία κεφαλίδας αναφοράς..."
 
-#: index.cgi:221 index.cgi:238
+#: index.cgi:249 index.cgi:266
 msgid "SliTaz system report"
 msgstr "Αναφορά συστήματος SliTaz"
 
-#: index.cgi:235
+#: index.cgi:263
 msgid "Creating system summary..."
 msgstr "Δημιουργία συνοψης του συστήματος..."
 
-#: index.cgi:239
+#: index.cgi:267
 msgid "Date:"
 msgstr "Ημερομηνία:"
 
-#: index.cgi:250
+#: index.cgi:278
 msgid "Getting hardware info..."
 msgstr "Συγκέντρωση πληροφοριών υλικού..."
 
-#: index.cgi:268
+#: index.cgi:296
 msgid "Getting networking info..."
 msgstr "Συγκέντρωση πληροφοριών δικτύου..."
 
-#: index.cgi:282
+#: index.cgi:310
 msgid "Getting filesystems info..."
 msgstr "Συγκέντρωση πληροφοριών συστημάτων αρχείων..."
 
-#: index.cgi:302
+#: index.cgi:330
 msgid "Getting boot logs..."
 msgstr "Συγκέντρωση καταγραφών εκκίνησης..."
 
-#: index.cgi:305 boot.cgi:29 boot.cgi:34
+#: index.cgi:333 boot.cgi:29 boot.cgi:34 styles/default/header.html:69
 msgid "Kernel messages"
 msgstr "Μυνήματα πυρήνα"
 
-#: index.cgi:308 boot.cgi:30 boot.cgi:38
+#: index.cgi:336 boot.cgi:30 boot.cgi:38 styles/default/header.html:70
 msgid "Boot scripts"
 msgstr "Δέσμες ενεργειών εκκίνησης"
 
-#: index.cgi:313
+#: index.cgi:341
 msgid "Creating report footer..."
 msgstr "Δημιουργία υποσέλιδου αναφοράς..."
 
-#: index.cgi:325
+#: index.cgi:353
 msgid "View report"
 msgstr "Προβολή αναφοράς"
 
-#: index.cgi:326
+#: index.cgi:354
 msgid "This report can be attached with a bug report on:"
 msgstr ""
 "Αυτή η αναφορά μπορεί να επισυναφθεί μαζί με μια αναφορά σφάλματος στο:"
 
-#: index.cgi:342
+#: index.cgi:370
 #, sh-format
 msgid "Host: $hostname"
 msgstr "Τοπικός υπολογιστής (Host): $hostname"
 
-#: index.cgi:343
+#: index.cgi:371
 msgid "SliTaz administration and configuration Panel"
 msgstr "Πίνακας διαχείρισης και ρύθμισης παραμέτρων SliTaz"
 
-#: index.cgi:347 styles/default/header.html:27
+#: index.cgi:375 styles/default/header.html:34
 msgid "Terminal"
 msgstr "Τερματικό"
 
-#: index.cgi:349
+#: index.cgi:377
 msgid "Process activity"
 msgstr "Δραστηριότητα διεργασιών"
 
-#: index.cgi:351
+#: index.cgi:379
 msgid "Create a report"
 msgstr "Δημιουργία μιας αναφοράς"
 
-#: index.cgi:355 pkgs.cgi:948
+#: index.cgi:383
 msgid "Summary"
 msgstr "Σύνοψη"
 
-#: index.cgi:358
+#: index.cgi:386
 msgid "Uptime:"
 msgstr "Χρόνος απρόσκοπτης λειτουργίας:"
 
-#: index.cgi:361
+#: index.cgi:389
 msgid "Memory in Mb:"
 msgstr "Μνήμη σε Mb:"
 
-#: index.cgi:366
+#: index.cgi:394
 #, sh-format
 msgid "Total: $memtotal, Used: $memused, Free: $memfree"
 msgstr "Σύνολο: $memtotal, Σε χρήση: $memused, Ελεύθερα: $memfree"
 
-#: index.cgi:371
+#: index.cgi:399
 msgid "Linux kernel:"
 msgstr "Πυρήνας Linux:"
 
-#: index.cgi:380
+#: index.cgi:408
 msgid "Network status"
 msgstr "Κατάσταση δικτύου"
 
-#: index.cgi:385 hardware.cgi:202
+#: index.cgi:413 hardware.cgi:258
 msgid "Filesystem usage statistics"
 msgstr "Στατιστικά χρήσης συστήματος αρχείων"
 
-#: index.cgi:417
+#: index.cgi:446
 msgid "Panel Activity"
 msgstr "Δραστηριότητα Πίνακα"
-
-#: pkgs.cgi:17
-msgid "TazPanel - Packages"
-msgstr "TazPanel - Πακέτα"
-
-#: pkgs.cgi:51
-msgid "Last recharge:"
-msgstr "Τελευταία ανανέωση:"
-
-#: pkgs.cgi:58
-msgid "(Older than 10 days)"
-msgstr "(Παλαιότερη από 10 ημέρες)"
-
-#: pkgs.cgi:60
-msgid "(Not older than 10 days)"
-msgstr "(Όχι παλαιότερη από 10 ημέρες)"
-
-#: pkgs.cgi:64
-msgid "Installed packages:"
-msgstr "Εγκατεστημένα πακέτα:"
-
-#: pkgs.cgi:66
-msgid "Mirrored packages:"
-msgstr "Καθρεπτιζόμενα πακέτα:"
-
-#: pkgs.cgi:68
-msgid "Upgradeable packages:"
-msgstr "Αναβαθμίσιμα πακέτα:"
-
-#: pkgs.cgi:70 pkgs.cgi:707
-msgid "Installed files:"
-msgstr "Εγκατεστημένα αρχεία:"
-
-#: pkgs.cgi:72
-msgid "Blocked packages:"
-msgstr "Μπλοκαρισμένα πακέτα:"
-
-#: pkgs.cgi:86
-msgid "Delete"
-msgstr "Διαγραφή"
-
-#: pkgs.cgi:89
-msgid "Use as default"
-msgstr "Χρήση ως προεπιλογή"
-
-#: pkgs.cgi:120
-msgid "Search"
-msgstr "Αναζήτηση"
-
-#: pkgs.cgi:122
-msgid "Files"
-msgstr "Αρχεία"
-
-#: pkgs.cgi:134 pkgs.cgi:867 network.cgi:23 network.cgi:160 network.cgi:256
-#: boot.cgi:82 settings.cgi:104 lib/libtazpanel:102
-msgid "Name"
-msgstr "Όνομα"
-
-#: pkgs.cgi:135
-msgid "Version"
-msgstr "Έκδοση"
-
-#: pkgs.cgi:136 boot.cgi:83 settings.cgi:214
-msgid "Description"
-msgstr "Περιγραφή"
-
-#: pkgs.cgi:137
-msgid "Web"
-msgstr "Ιστός"
-
-#: pkgs.cgi:147
-msgid "Categories"
-msgstr "Κατηγορίες"
-
-#: pkgs.cgi:148
-msgid "Base-system"
-msgstr "Βασικό σύστημα"
-
-#: pkgs.cgi:149
-msgid "X window"
-msgstr "Σύστημα παραθύρων X"
-
-#: pkgs.cgi:150
-msgid "Utilities"
-msgstr "Βοηθήματα"
-
-#: pkgs.cgi:151 styles/default/header.html:46
-msgid "Network"
-msgstr "Δίκτυο"
-
-#: pkgs.cgi:152
-msgid "Games"
-msgstr "Παιχνίδια"
-
-#: pkgs.cgi:153
-msgid "Graphics"
-msgstr "Γραφικά"
-
-#: pkgs.cgi:154
-msgid "Office"
-msgstr "Γραφείο"
-
-#: pkgs.cgi:155
-msgid "Multimedia"
-msgstr "Πολυμέσα"
-
-#: pkgs.cgi:156
-msgid "Development"
-msgstr "Ανάπτυξη"
-
-#: pkgs.cgi:157
-msgid "System tools"
-msgstr "Εργαλεία συστήματος"
-
-#: pkgs.cgi:158
-msgid "Security"
-msgstr "Ασφάλεια"
-
-#: pkgs.cgi:159
-msgid "Misc"
-msgstr "Διάφορα"
-
-#: pkgs.cgi:160
-msgid "Meta"
-msgstr "Μέτα"
-
-#: pkgs.cgi:161
-msgid "Non free"
-msgstr "Μη ελεύθερα"
-
-#: pkgs.cgi:162
-msgid "All"
-msgstr "Όλα"
-
-#: pkgs.cgi:168
-msgid "Repositories"
-msgstr "Αποθετήρια"
-
-#: pkgs.cgi:169
-msgid "Public"
-msgstr "Δημόσια"
-
-#: pkgs.cgi:177
-msgid "Any"
-msgstr "Οποιοδήποτε"
-
-#: pkgs.cgi:217 pkgs.cgi:339
-msgid "Listing packages..."
-msgstr "Καταγραφή πακέτων..."
-
-#: pkgs.cgi:220 pkgs.cgi:358 pkgs.cgi:412 pkgs.cgi:479 pkgs.cgi:520
-#: pkgs.cgi:580 pkgs.cgi:659 pkgs.cgi:952 styles/default/header.html:37
-msgid "My packages"
-msgstr "Τα πακέτα μου"
-
-#: pkgs.cgi:225 pkgs.cgi:284 pkgs.cgi:347 pkgs.cgi:401 pkgs.cgi:511
-#: settings.cgi:92
-msgid "Selection:"
-msgstr "Επιλογή:"
-
-#: pkgs.cgi:226 pkgs.cgi:607
-msgid "Remove"
-msgstr "Απομάκρυνση"
-
-#: pkgs.cgi:230 pkgs.cgi:289 pkgs.cgi:354 pkgs.cgi:408 pkgs.cgi:518
-#: pkgs.cgi:962 styles/default/header.html:39
-msgid "Recharge list"
-msgstr "Ανανέωση λίστας"
-
-#: pkgs.cgi:232 pkgs.cgi:291 pkgs.cgi:356 pkgs.cgi:410 pkgs.cgi:477
-#: pkgs.cgi:964
-msgid "Check upgrades"
-msgstr "Έλεγχος αναβαθμίσεων"
-
-#: pkgs.cgi:275
-msgid "Listing linkable packages..."
-msgstr "Καταγραφή πακέτων με δυνατότητα διασυνδέσης (linkable)..."
-
-#: pkgs.cgi:278 pkgs.cgi:958
-msgid "Linkable packages"
-msgstr "Πακέτα με δυνατότητα διασυνδέσης (linkable)"
-
-#: pkgs.cgi:285
-msgid "Link"
-msgstr "Σύνδεσμος"
-
-#: pkgs.cgi:342
-#, sh-format
-msgid "Category: $category"
-msgstr "Κατηγορία: $category"
-
-#: pkgs.cgi:366 pkgs.cgi:838
-#, sh-format
-msgid "Repository: $Repo_Name"
-msgstr "Αποθετήριο: $Repo_Name"
-
-#: pkgs.cgi:394
-msgid "Searching packages..."
-msgstr "Αναζήτηση πακέτων..."
-
-#: pkgs.cgi:397
-msgid "Search packages"
-msgstr "Αναζήτηση πακέτων"
-
-#: pkgs.cgi:404 pkgs.cgi:514
-msgid "Toogle all"
-msgstr "Εναλλαγή όλων"
-
-#: pkgs.cgi:423
-msgid "Package"
-msgstr "Πακέτο"
-
-#: pkgs.cgi:424
-msgid "File"
-msgstr "Αρχείο"
-
-#: pkgs.cgi:465
-msgid "Recharging lists..."
-msgstr "Ανανέωση λιστών..."
-
-#: pkgs.cgi:468
-msgid "Recharge"
-msgstr "Ανανέωση"
-
-#: pkgs.cgi:473
-msgid "Recharge checks for new or updated packages"
-msgstr "Η ανανέωση ελέγχει για νέα ή αναβαθμισμένα πακέτα"
-
-#: pkgs.cgi:485
-msgid "Recharging packages list"
-msgstr "Ανανέωση λίστας πακέτων"
-
-#: pkgs.cgi:490
-msgid "Packages lists are up-to-date. You should check for upgrades now."
-msgstr ""
-"Οι λίστες πακέτων είναι ενημερωμένες. Τώρα θα πρέπει να ελέγξετε για "
-"αναβαθμίσεις."
-
-#: pkgs.cgi:503
-msgid "Checking for upgrades..."
-msgstr "Έλεγχος για αναβαθμίσεις..."
-
-#: pkgs.cgi:506
-msgid "Up packages"
-msgstr "Αναβαθμίσιμα πακέτα"
-
-#: pkgs.cgi:575
-msgid "Performing tasks on packages"
-msgstr "Εκτέλεση εργασιών στα πακέτα"
-
-#: pkgs.cgi:585
-#, sh-format
-msgid "Executing $cmd for: $pkgs"
-msgstr "Εκτέλεση $cmd για: $pkgs"
-
-#: pkgs.cgi:610
-msgid "Getting package info..."
-msgstr "Συγκέντρωση πληροφοριών πακέτων..."
-
-#: pkgs.cgi:622 installer.cgi:155 styles/default/header.html:88
-msgid "Install"
-msgstr "Εγκατάσταση"
-
-#: pkgs.cgi:626
-#, sh-format
-msgid "Package $PACKAGE"
-msgstr "Πακέτο $PACKAGE"
-
-#: pkgs.cgi:634
-msgid "Install (Non Free)"
-msgstr "Εγκατάσταση (Μη ελεύθερο)"
-
-#: pkgs.cgi:642
-msgid "Unblock"
-msgstr "Ξεμπλοκάρισμα"
-
-#: pkgs.cgi:646
-msgid "Block"
-msgstr "Μπλοκάρισμα"
-
-#: pkgs.cgi:650
-msgid "Repack"
-msgstr "Επανασυσκευασία"
-
-#: pkgs.cgi:665
-msgid "Name:"
-msgstr "Όνομα:"
-
-#: pkgs.cgi:666
-msgid "Version:"
-msgstr "Έκδοση:"
-
-#: pkgs.cgi:667
-msgid "Description:"
-msgstr "Περιγραφή:"
-
-#: pkgs.cgi:668
-msgid "Category:"
-msgstr "Κατηγορία:"
-
-#: pkgs.cgi:672
-msgid "Maintainer:"
-msgstr "Συντηρητής:"
-
-#: pkgs.cgi:673 pkgs.cgi:702
-msgid "Website:"
-msgstr "Ιστοσελίδα:"
-
-#: pkgs.cgi:674 pkgs.cgi:703
-msgid "Sizes:"
-msgstr "Μέγεθος:"
-
-#: pkgs.cgi:677
-msgid "Depends:"
-msgstr "Εξαρτήσεις:"
-
-#: pkgs.cgi:684
-msgid "Suggested:"
-msgstr "Προτεινόμενα:"
-
-#: pkgs.cgi:690
-msgid "Tags:"
-msgstr "Ετικέτες:"
-
-#: pkgs.cgi:696
-#, sh-format
-msgid "Installed files: $I_FILES"
-msgstr "Εγκατεστημένα αρχεία: $I_FILES"
-
-#: pkgs.cgi:755 pkgs.cgi:884
-msgid "Set link"
-msgstr "Ορισμός συνδέσμου"
-
-#: pkgs.cgi:758 pkgs.cgi:885
-msgid "Remove link"
-msgstr "Απομάκρυνση συνδέσμου"
-
-#: pkgs.cgi:764 pkgs.cgi:966 styles/default/header.html:43
-msgid "Administration"
-msgstr "Διαχείριση"
-
-#: pkgs.cgi:766
-msgid "Tazpkg administration and settings"
-msgstr "Διαχείριση και ρυθμίσεις Tazpkg"
-
-#: pkgs.cgi:770
-msgid "Save configuration"
-msgstr "Αποθήκευση διαμόρφωσης"
-
-#: pkgs.cgi:772
-msgid "List configuration files"
-msgstr "Εμφάνιση αρχείων διαμόρφωσης"
-
-#: pkgs.cgi:774
-msgid "Quick check"
-msgstr "Γρήγορος έλεγχος"
-
-#: pkgs.cgi:776
-msgid "Full check"
-msgstr "Ολοκληρωμένος έλεγχος"
-
-#: pkgs.cgi:781
-msgid "Creating the package..."
-msgstr "Δημιουργία του πακέτου..."
-
-#: pkgs.cgi:786
-msgid "Path:"
-msgstr "Διαδρομή:"
-
-#: pkgs.cgi:789 boot.cgi:256
-msgid "Configuration files"
-msgstr "Αρχεία διαμόρφωσης"
-
-#: pkgs.cgi:802
-msgid "Checking packages consistency..."
-msgstr "Έλεγχος συνοχής πακέτου..."
-
-#: pkgs.cgi:808
-msgid "Full packages check..."
-msgstr "Πλήρης έλεγχος πακέτου..."
-
-#: pkgs.cgi:815
-msgid "Packages cache"
-msgstr "Προσωρινή μνήμη πακέτων"
-
-#: pkgs.cgi:820
-#, sh-format
-msgid "Packages in the cache: $cache_files ($cache_size)"
-msgstr "Πακέτα στην προσωρινή μνήμη: $cache_files ($cache_size)"
-
-#: pkgs.cgi:827
-msgid "Default mirror"
-msgstr "Προεπιλεγμένος καθρέπτης"
-
-#: pkgs.cgi:831
-msgid "Current mirror list"
-msgstr "Τρέχουσα λίστα καθρεπτών"
-
-#: pkgs.cgi:855
-msgid "Private repositories"
-msgstr "Ιδιωτικά αποθετήρια"
-
-#: pkgs.cgi:868
-msgid "mirror"
-msgstr "καθρέπτης"
-
-#: pkgs.cgi:874
-msgid "Link to another SliTaz installation"
-msgstr "Σύνδεσμος σε άλλη εγκατάσταση SliTaz"
-
-#: pkgs.cgi:876
-msgid ""
-"This link points to the root of another SliTaz installation. You will be "
-"able to install packages using soft links to it."
-msgstr ""
-"Αυτός ο σύνδεσμος δείχνει στη ρίζα μιας άλλης εγκατάστασης του SliTaz. Θα "
-"είστε σε θέση να εγκαταστήσει πακέτα χρησιμοποιόντας soft links σε αυτό."
-
-#: pkgs.cgi:892
-msgid "SliTaz packages DVD"
-msgstr "DVD πακέτων SliTaz"
-
-#: pkgs.cgi:894
-#, sh-format
-msgid ""
-"A bootable DVD image of all available packages for the $version version is "
-"generated every day. It also contains a copy of the website and can be used "
-"without an internet connection. This image can be installed on a DVD or an "
-"USB key."
-msgstr ""
-"Μία εκκινήσιμη εικόνα DVD όλων των διαθέσιμων πακέτων για την έκδοση "
-"$version παράγεται κάθε μέρα. Περιέχει επίσης ένα αντίγραφο της ιστοσελίδας "
-"και μπορεί να χρησιμοποιηθεί χωρίς σύνδεση στο internet. Αυτή η εικόνα "
-"μπορεί να εγκατασταθεί σε ένα DVD ή ένα κλειδί USB."
-
-#: pkgs.cgi:904
-msgid "Download DVD image"
-msgstr "Κατέβασμα εικόνας DVD"
-
-#: pkgs.cgi:906
-msgid "Install from DVD/USB key"
-msgstr "Εγκατάσταση από DVD/USB key"
-
-#: pkgs.cgi:909
-msgid "Install from ISO image:"
-msgstr "Εγκατάσταση από εικόνα ISO:"
-
-#: pkgs.cgi:972
-msgid "Latest log entries"
-msgstr "Τελευταίες καταχωρήσεις καταγραφής"
-
-#: live.cgi:25
-msgid "TazPanel - Live"
-msgstr "TazPanel - Ζωντανά μέσα"
-
-#: live.cgi:83
-msgid "TODO"
-msgstr "ΠΡΟΣ ΥΛΟΠΟΙΗΣΗ"
-
-#: live.cgi:88
-msgid "SliTaz LiveUSB"
-msgstr "Ζωντανό USB SliTaz"
-
-#: live.cgi:89
-msgid "Create Live USB SliTaz systems"
-msgstr "Δημιουργία Ζωντανών USB SliTaz συστημάτων"
-
-#: live.cgi:92
-msgid ""
-"Generate SliTaz LiveUSB media and boot in RAM! Insert a LiveCD into the "
-"cdrom drive, select the correct device and press Generate."
-msgstr ""
-"Δημιουργήστε Ζωντανά USB SliTaz μέσα και εκκινήστε από τη μνήμη RAM! "
-"Τοποθετήστε ένα Ζωντανό CD στη μονάδα CD-ROM, επιλέξτε τη σωστή συσκευή και "
-"πατήστε Δημιουργία."
-
-#: live.cgi:97
-msgid "USB Media to use:"
-msgstr "Μέσο USB για χρήση:"
-
-#: live.cgi:106 installer.cgi:301 installer.cgi:345 installer.cgi:380
-#: installer.cgi:412
-msgid "Not found"
-msgstr "Δεν βρέθηκε"
-
-#: live.cgi:110
-msgid "Generate"
-msgstr "Δημιουργία"
-
-#: live.cgi:129
-msgid "SliTaz Live Systems"
-msgstr "Ζωντανά συστήματα SliTaz"
-
-#: live.cgi:130
-msgid "Create and manage Live CD or USB SliTaz systems"
-msgstr "Δημιουργία και διαχείριση Ζωντανών CD ή USB συστημάτων SliTaz"
-
-#: live.cgi:135
-msgid "Create LiveUSB"
-msgstr "Δημιουργία Ζωντανού USB"
-
-#: live.cgi:140
-msgid "Write a Live CD"
-msgstr "Εγγραφή ενός Ζωντανού CD"
-
-#: live.cgi:142
-msgid ""
-"The command writeiso will generate an ISO image of the current filesystem as "
-"is, including all files in the /home directory. It is an easy way to "
-"remaster a SliTaz Live system, you just have to: boot, modify, writeiso."
-msgstr ""
-"Η writeiso εντολή θα δημιουργήσει μια εικόνα ISO του τρέχοντος συστήματος "
-"αρχείων, όπως είναι, συμπεριλαμβανομένων όλων των αρχείων στον κατάλογο /"
-"home. Είναι ένας εύκολος τρόπος να επανεκδώσετε ένα ζωντανό σύστημα SliTaz, "
-"σε τρία απλά βήματα: εκκίνηση, τροποποιήση, writeiso."
-
-#: live.cgi:148
-msgid "Compression type:"
-msgstr "Τύπος συμπίεσης:"
-
-#: live.cgi:154
-msgid "Write ISO"
-msgstr "Εγγραφή ISO"
-
-#: live.cgi:158
-msgid "Live CD tools"
-msgstr "Εργαλεία Ζωντανού CD"
-
-#: live.cgi:160 live.cgi:192 styles/default/header.html:84
-msgid "Convert ISO to loram"
-msgstr "Μετατροπή ISO σε loram"
-
-#: live.cgi:162
-msgid ""
-"This command will convert an ISO image of a SliTaz Live CD to a new ISO "
-"image requiring less RAM to run."
-msgstr ""
-"Αυτή η εντολή θα μετατρέψει μια εικόνα ISO ενός Ζωντανού CD SliTaz σε μια "
-"νέα εικόνα ISO που απαιτεί λιγότερη μνήμη RAM για να τρέξει."
-
-#: live.cgi:168
-msgid "ISO to convert"
-msgstr "ISO προς μετατροπή"
-
-#: live.cgi:173
-msgid "The filesystem is always in RAM"
-msgstr "Το σύστημα αρχείων είναι πάντα στη μνήμη RAM"
-
-#: live.cgi:178
-msgid "The filesystem may be on a small CDROM"
-msgstr "Το σύστημα αρχείων μπορεί να είναι σε ένα μικρό CDROM"
-
-#: live.cgi:183
-msgid "The filesystem may be on a large CDROM"
-msgstr "Το σύστημα αρχείων μπορεί να είναι σε ένα μεγάλο CDROM"
-
-#: live.cgi:187 live.cgi:234
-msgid "ISO to create"
-msgstr "ISO που θα δημιουργηθεί"
-
-#: live.cgi:196 live.cgi:239 styles/default/header.html:85
-msgid "Build a meta ISO"
-msgstr "Φτιάξτε ένα μέτα-ISO"
-
-#: live.cgi:198
-msgid ""
-"Combines several ISO flavors like nested Russian dolls. The amount of RAM "
-"available at startup will be used to select the utmost one."
-msgstr ""
-"Συνδυάζει διάφορα ISO flavors, όπως η ρώσικη Μπάπμουσκα. Το ποσό της μνήμης "
-"RAM που είναι διαθέσιμη κατά την εκκίνηση θα καθορίσει την επιλογή του "
-"μεγαλύτερου (βέλτιστου) ISO."
-
-#: live.cgi:210
-msgid "ISO number"
-msgstr "Αριθμός ISO"
-
-#: live.cgi:213 live.cgi:228
-msgid "Minimum RAM"
-msgstr "Ελάχιστη RAM"
-
-#: live.cgi:225
-msgid "ISO to add"
-msgstr "ISO για προσθήκη"
-
-#: live.cgi:230
-msgid "Add to the list"
-msgstr "Προσθήκη στη λίστα"
 
 #: network.cgi:13
 msgid "TazPanel - Network"
 msgstr "TazPanel - Δίκτυο"
+
+#: network.cgi:23 network.cgi:160 network.cgi:256 boot.cgi:82 settings.cgi:221
+#: lib/libtazpanel:110
+msgid "Name"
+msgstr "Όνομα"
 
 #: network.cgi:24
 msgid "Quality"
@@ -840,7 +269,7 @@ msgstr "Ποιότητα"
 msgid "Encryption"
 msgstr "Κρυπτογράφιση"
 
-#: network.cgi:26 boot.cgi:84 lib/libtazpanel:103
+#: network.cgi:26 boot.cgi:85 lib/libtazpanel:111
 msgid "Status"
 msgstr "Κατάσταση"
 
@@ -878,7 +307,7 @@ msgstr ""
 "Εδώ μπορείτε να διαμορφώσετε μια ενσύρματη σύνδεση με χρήση του DHCP για να "
 "πάρει αυτόματα μια τυχαία IP ή να ρυθμίσετε μια στατική/σταθερή IP"
 
-#: network.cgi:154
+#: network.cgi:154 boot.cgi:84
 msgid "Configuration"
 msgstr "Διαμόρφωση"
 
@@ -886,7 +315,7 @@ msgstr "Διαμόρφωση"
 msgid "Value"
 msgstr "Τιμή"
 
-#: network.cgi:166 lib/libtazpanel:101
+#: network.cgi:166 lib/libtazpanel:109
 msgid "Interface"
 msgstr "Διεπαφή"
 
@@ -930,7 +359,7 @@ msgstr ""
 "Οι τιμές αυτές είναι οι ρυθμίσεις του ethernet στο κύριο αρχείο διαμόρφωσης /"
 "etc/network.conf"
 
-#: network.cgi:202 network.cgi:290
+#: network.cgi:202 network.cgi:290 hardware.cgi:354
 msgid "Manual Edit"
 msgstr "Χειροκίνητη επεξεργασία"
 
@@ -942,11 +371,11 @@ msgstr "Σάρωση ασύρματης διεπαφής..."
 msgid "Wireless connection"
 msgstr "Ασύρματη σύνδεση"
 
-#: network.cgi:216 network.cgi:313 boot.cgi:167
+#: network.cgi:216 network.cgi:313 boot.cgi:218
 msgid "Start"
 msgstr "Εκκίνηση"
 
-#: network.cgi:218 network.cgi:315 boot.cgi:155
+#: network.cgi:218 network.cgi:315 boot.cgi:206
 msgid "Stop"
 msgstr "Σταμάτημα"
 
@@ -1014,7 +443,7 @@ msgstr ""
 msgid "Edit hosts"
 msgstr "Επεξεργασία hosts"
 
-#: network.cgi:340 installer.cgi:435
+#: network.cgi:340
 msgid "Hostname"
 msgstr "Όνομα υπολογιστή (Hostname)"
 
@@ -1050,7 +479,7 @@ msgstr "TazPanel - Εκκίνηση"
 msgid "Boot log files"
 msgstr "Αρχεία καταγραφών εκκίνησης"
 
-#: boot.cgi:31 boot.cgi:42
+#: boot.cgi:31 boot.cgi:42 styles/default/header.html:71
 msgid "X server"
 msgstr "Εξυπηρετητής Χ"
 
@@ -1058,7 +487,7 @@ msgstr "Εξυπηρετητής Χ"
 msgid "Show more..."
 msgstr "Εμφάνισε περισσότερα..."
 
-#: boot.cgi:61 boot.cgi:252 styles/default/header.html:67
+#: boot.cgi:61 boot.cgi:303 styles/default/header.html:75
 msgid "Manage daemons"
 msgstr "Διαχείριση δαιμόνων (daemons)"
 
@@ -1066,139 +495,147 @@ msgstr "Διαχείριση δαιμόνων (daemons)"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Έλεγχος, εκκίνηση και σταμάτημα δαιμόνων στο SliTaz"
 
-#: boot.cgi:85
+#: boot.cgi:83 settings.cgi:331
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: boot.cgi:86
 msgid "Action"
 msgstr "Ενέργεια"
 
-#: boot.cgi:86
+#: boot.cgi:87
 msgid "PID"
 msgstr ""
 
-#: boot.cgi:108
+#: boot.cgi:114
 msgid "SliTaz Firewall with iptable rules"
 msgstr "Τοίχος προστασίας SliTaz με κανόνες πίνακα IP"
 
-#: boot.cgi:110
+#: boot.cgi:116
 msgid "Small and fast web server with CGI support"
 msgstr "Μικρός και γρήγορος εξυπηρετητής ιστού με υποστήριξη CGI"
 
-#: boot.cgi:112
+#: boot.cgi:118
 msgid "Network time protocol daemon"
 msgstr "Δαίμονας πρωτοκόλλου ώρας δικτύου"
 
-#: boot.cgi:114
+#: boot.cgi:121
 msgid "Anonymous FTP server"
 msgstr "Ανώνυμος εξυπηρετητής FTP"
 
-#: boot.cgi:116
+#: boot.cgi:123
 msgid "Busybox DHCP server"
 msgstr "Εξυπηρετητής DHCP Busybox"
 
-#: boot.cgi:118
+#: boot.cgi:125
 msgid "Linux Kernel log daemon"
 msgstr "Δαίμονας καταγραφής πυρήνα Linux"
 
-#: boot.cgi:120
+#: boot.cgi:128
 msgid "Execute scheduled commands"
 msgstr "Εκτέλεση προγραμματισμένων εντολών"
 
-#: boot.cgi:122
+#: boot.cgi:131
 msgid "Small static DNS server daemon"
 msgstr "Δαίμονας μικρού στατικού DNS εξυπηρετητή"
 
-#: boot.cgi:124
+#: boot.cgi:134
 msgid "Transfer a file on tftp request"
 msgstr "Μεταφορά ενός αρχείου κατόπιν αιτήματος tftp"
 
-#: boot.cgi:126
+#: boot.cgi:136
 msgid "Listen for network connections and launch programs"
 msgstr "Αναμονή για συνδέσεις δικτύου και έναρξη προγραμμάτων"
 
-#: boot.cgi:128
+#: boot.cgi:139
 msgid "Manage a ZeroConf IPv4 link-local address"
 msgstr "Διαχείριση μίας ZeroConf IPv4 link-local διεύθυνσης"
 
-#: boot.cgi:153
+#: boot.cgi:204
 msgid "Started"
 msgstr "Ξεκίνησε"
 
-#: boot.cgi:165
+#: boot.cgi:216
 msgid "Stopped"
 msgstr "Σταμάτησε"
 
-#: boot.cgi:193
+#: boot.cgi:244
 msgid "GRUB Boot loader"
 msgstr "Φορτωτής εκκίνησης GRUB"
 
-#: boot.cgi:195
+#: boot.cgi:246
 msgid "The first application started when the computer powers on"
 msgstr "Η πρώτη εφαρμογή που ξεκινά όταν ο υπολογιστής ανοίγει"
 
-#: boot.cgi:201
+#: boot.cgi:252
 msgid "Default entry:"
 msgstr "Προεπιλεγμένη καταχώρηση:"
 
-#: boot.cgi:203
+#: boot.cgi:254
 msgid "Timeout:"
 msgstr "Χρονικό όριο:"
 
-#: boot.cgi:205
+#: boot.cgi:256
 msgid "Splash image:"
 msgstr "Εικόνα εκκίνησης (splash):"
 
-#: boot.cgi:208 settings.cgi:272 settings.cgi:303 settings.cgi:370
+#: boot.cgi:259 settings.cgi:401 settings.cgi:457 settings.cgi:524
 msgid "Change"
 msgstr "Αλλαγή"
 
-#: boot.cgi:210
+#: boot.cgi:261
 msgid "View or edit menu.lst"
 msgstr "Προβολή ή επεξεργασία menu.lst"
 
-#: boot.cgi:213
+#: boot.cgi:264
 msgid "Boot entries"
 msgstr "Καταχωρήσεις εκκίνησης"
 
-#: boot.cgi:219
+#: boot.cgi:270
 msgid "Entry"
 msgstr "Καταχώρηση"
 
-#: boot.cgi:235
+#: boot.cgi:286
 msgid "Web boot is available with gPXE"
 msgstr "Η εκκίνηση μέσω δικτύου είναι διαθέσιμη με gPXE"
 
-#: boot.cgi:245
+#: boot.cgi:296
 msgid "Boot &amp; Start services"
 msgstr "Εκκίνηση &amp; Έναρξη υπηρεσιών"
 
-#: boot.cgi:246
+#: boot.cgi:297
 msgid "Everything that happens before user login"
 msgstr "Όλα όσα συμβαίνουν πρίν τη σύνδεση του χρήστη"
 
-#: boot.cgi:250 styles/default/header.html:65
+#: boot.cgi:301 styles/default/header.html:67
 msgid "Boot logs"
 msgstr "Καταγραφές εκκίνησης"
 
-#: boot.cgi:253 styles/default/header.html:69
+#: boot.cgi:304 styles/default/header.html:65
 msgid "Boot loader"
 msgstr "Φορτωτής εκκίνησης (boot loader)"
 
-#: boot.cgi:258
+#: boot.cgi:307
+msgid "Configuration files"
+msgstr "Αρχεία διαμόρφωσης"
+
+#: boot.cgi:309
 msgid "Main configuration file:"
 msgstr "Κύριο αρχείο διαμόρφωσης:"
 
-#: boot.cgi:260
+#: boot.cgi:311
 msgid "Login manager settings:"
 msgstr "Ρυθμίσεις διαχειριστή εισόδου:"
 
-#: boot.cgi:264
+#: boot.cgi:315
 msgid "Kernel cmdline"
 msgstr "Γραμμή εντολών Πυρήνα"
 
-#: boot.cgi:268
+#: boot.cgi:319
 msgid "Local startup commands"
 msgstr "Τοπικές εντολές κατά την εκκίνηση"
 
-#: boot.cgi:273
+#: boot.cgi:324
 msgid "Edit script"
 msgstr "Επεξεργασία δέσμης ενεργειών"
 
@@ -1206,101 +643,119 @@ msgstr "Επεξεργασία δέσμης ενεργειών"
 msgid "TazPanel - Hardware"
 msgstr "TazPanel - Υλικό"
 
-#: hardware.cgi:29
+#: hardware.cgi:58
 msgid "Detect hardware"
 msgstr "Ανίχνευση υλικού"
 
-#: hardware.cgi:30
+#: hardware.cgi:59
 msgid "Detect PCI and USB hardware"
 msgstr "Ανίχνευση υλικού PCI και USB"
 
-#: hardware.cgi:42 hardware.cgi:117 styles/default/header.html:75
+#: hardware.cgi:71 hardware.cgi:174 styles/default/header.html:82
 msgid "Kernel modules"
 msgstr "Αρθρώματα (modules) πυρήνα"
 
-#: hardware.cgi:46
+#: hardware.cgi:75
 msgid "Modules search"
 msgstr "Αναζήτηση αρθρωμάτων"
 
-#: hardware.cgi:49
+#: hardware.cgi:78
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr ""
 "Διαχείριση, αναζήτηση ή συλλογή πληροφοριών σχετικά με τα αρθρώματα του "
 "πυρήνα Linux"
 
-#: hardware.cgi:56
+#: hardware.cgi:85
 #, sh-format
 msgid "Detailed information for module: $get_modinfo"
 msgstr "Λεπτομερείς πληροφορίες για το άρθρωμα: $get_modinfo"
 
-#: hardware.cgi:70
+#: hardware.cgi:99
 #, sh-format
 msgid "Matching result(s) for: $get_search"
 msgstr "Ταίριασμα αποτελέσματος(-ατων) για: $get_search"
 
-#: hardware.cgi:76
+#: hardware.cgi:105
 msgid "Module:"
 msgstr "Άρθρωμα:"
 
-#: hardware.cgi:83
+#: hardware.cgi:112
 msgid "Module"
 msgstr "Άρθρωμα"
 
-#: hardware.cgi:84 lib/libtazpanel:221
+#: hardware.cgi:113 lib/libtazpanel:229
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: hardware.cgi:85 lib/libtazpanel:223
+#: hardware.cgi:114 lib/libtazpanel:231
 msgid "Used"
 msgstr "Σε χρήση"
 
-#: hardware.cgi:86
+#: hardware.cgi:115
 msgid "by"
 msgstr "από"
 
-#: hardware.cgi:112
+#: hardware.cgi:136
+#, sh-format
+msgid "Information for USB Device $vidpid"
+msgstr ""
+
+#: hardware.cgi:137 hardware.cgi:151
+msgid "Detailed information about specified device."
+msgstr ""
+
+#: hardware.cgi:150
+#, sh-format
+msgid "Information for PCI Device $slot"
+msgstr ""
+
+#: hardware.cgi:169
 msgid "Drivers &amp; Devices"
 msgstr "Οδηγοί &amp; Συσκευές"
 
-#: hardware.cgi:113
+#: hardware.cgi:170
 msgid "Manage your computer hardware"
 msgstr "Διαχείριση του υλικού του υπολογιστή σας"
 
-#: hardware.cgi:119 styles/default/header.html:77
+#: hardware.cgi:176 styles/default/header.html:84
 msgid "Detect PCI/USB"
 msgstr "Ανίχνευση PCI/USB"
 
-#: hardware.cgi:140
+#: hardware.cgi:196
 msgid "Battery"
 msgstr "Μπαταρία"
 
-#: hardware.cgi:142
+#: hardware.cgi:198
 msgid "health"
 msgstr "Υγεία"
 
-#: hardware.cgi:151
+#: hardware.cgi:207
 #, sh-format
 msgid "Discharging $rempct% - $remtimef"
 msgstr "Αποφορτίζεται $rempct% - $remtimef"
 
-#: hardware.cgi:155
+#: hardware.cgi:211
 #, sh-format
 msgid "Charging $rempct% - $remtimef"
 msgstr "Φορτίζεται $rempct% - $remtimef"
 
-#: hardware.cgi:157
+#: hardware.cgi:213
 msgid "Charged 100%"
 msgstr "Φορτίστηκε 100%"
 
-#: hardware.cgi:165
+#: hardware.cgi:221
 msgid "Temperature:"
 msgstr "Θερμοκρασία:"
 
-#: hardware.cgi:180
+#: hardware.cgi:236
 msgid "Brightness"
 msgstr "Φωτεινότητα"
 
-#: hardware.cgi:242
+#: hardware.cgi:343
+msgid "Filesystems table"
+msgstr ""
+
+#: hardware.cgi:357
 msgid "System memory"
 msgstr "Μνήμη συστήματος"
 
@@ -1308,149 +763,209 @@ msgstr "Μνήμη συστήματος"
 msgid "TazPanel - Settings"
 msgstr "TazPanel - Ρυθμίσεις"
 
-#: settings.cgi:87 settings.cgi:264
+#: settings.cgi:120 settings.cgi:383
+msgid "Manage groups"
+msgstr ""
+
+#: settings.cgi:126 settings.cgi:209
+msgid "Selection:"
+msgstr "Επιλογή:"
+
+#: settings.cgi:127
+msgid "Delete group"
+msgstr ""
+
+#: settings.cgi:134
+msgid "Group"
+msgstr ""
+
+#: settings.cgi:135
+msgid "Group ID"
+msgstr ""
+
+#: settings.cgi:136
+msgid "Members"
+msgstr ""
+
+#: settings.cgi:163
+msgid "Add a new group"
+msgstr ""
+
+#: settings.cgi:168 settings.cgi:182
+msgid "Group name:"
+msgstr ""
+
+#: settings.cgi:171
+msgid "Create group"
+msgstr ""
+
+#: settings.cgi:177
+msgid "Manage group membership"
+msgstr ""
+
+#: settings.cgi:186
+msgid "User name:"
+msgstr ""
+
+#: settings.cgi:190
+msgid "Add user"
+msgstr ""
+
+#: settings.cgi:191
+msgid "Remove user"
+msgstr ""
+
+#: settings.cgi:204 settings.cgi:381
 msgid "Manage users"
 msgstr "Διαχείριση χρηστών"
 
-#: settings.cgi:93
+#: settings.cgi:210
 msgid "Delete user"
 msgstr "Διαγραφή χρήστη"
 
-#: settings.cgi:94
+#: settings.cgi:211
 msgid "Lock user"
 msgstr "Κλείδωμα χρήστη"
 
-#: settings.cgi:95
+#: settings.cgi:212
 msgid "Unlock user"
 msgstr "Ξεκλείδωμα χρήστη"
 
-#: settings.cgi:102
+#: settings.cgi:219
 msgid "Login"
 msgstr "Είσοδος"
 
-#: settings.cgi:103
+#: settings.cgi:220
 msgid "User ID"
 msgstr "ID χρήστη"
 
-#: settings.cgi:105
+#: settings.cgi:222
 msgid "Home"
 msgstr "Σπίτι"
 
-#: settings.cgi:106
+#: settings.cgi:223
 msgid "Shell"
 msgstr "Κέλυφος"
 
-#: settings.cgi:143
+#: settings.cgi:260
 msgid "Password:"
 msgstr "Κωδικός:"
 
-#: settings.cgi:145
+#: settings.cgi:262
 msgid "Change password"
 msgstr "Αλλαγή κωδικού"
 
-#: settings.cgi:150
+#: settings.cgi:267
 msgid "Add a new user"
 msgstr "Προσθήκη νέου χρήστη"
 
-#: settings.cgi:155 installer.cgi:467
+#: settings.cgi:272
 msgid "User login:"
 msgstr "Όνομα χρήστη:"
 
-#: settings.cgi:157
+#: settings.cgi:274
 msgid "User password:"
 msgstr "Κωδικός χρήστη:"
 
-#: settings.cgi:160
+#: settings.cgi:277
 msgid "Create user"
 msgstr "Δημιουργία χρήστη"
 
-#: settings.cgi:166
+#: settings.cgi:283
 msgid "Current user sessions"
 msgstr "Συνεδρίες τρέχοντος χρήστη"
 
-#: settings.cgi:172
+#: settings.cgi:289
 msgid "Last user sessions"
 msgstr "Συνεδρίες προηγούμενου χρήστη"
 
-#: settings.cgi:184
+#: settings.cgi:301
 msgid "Please wait..."
 msgstr "Παρακαλώ περιμένετε..."
 
-#: settings.cgi:188
+#: settings.cgi:305
 msgid "Choose locale"
 msgstr "Επιλογή εντοπιότητας"
 
-#: settings.cgi:190
+#: settings.cgi:307
 msgid "Current locale settings:"
 msgstr "Τρέχουσες ρυθμίσεις εντοπιότητας:"
 
-#: settings.cgi:193
+#: settings.cgi:310
 msgid "Locales that are currently installed on the machine:"
 msgstr "Ρυθμίσεις εντοπιότητας που είναι εγκατεστημένες στο σύστημα:"
 
-#: settings.cgi:196
+#: settings.cgi:313
 msgid "Available locales:"
 msgstr "Διαθέσιμες ρυθμίσες εντοπιότητας:"
 
-#: settings.cgi:202
+#: settings.cgi:319
 msgid ""
 "Can't see your language?<br/>You can <a href='/pkgs.cgi?do=Install&glibc-"
 "locale'>install glibc-locale</a> to see a larger list of available locales."
 msgstr ""
 
-#: settings.cgi:211
+#: settings.cgi:328
 msgid "Code"
 msgstr "Κωδικός"
 
-#: settings.cgi:212
+#: settings.cgi:329
 msgid "Language"
 msgstr "Γλώσσα"
 
-#: settings.cgi:213
+#: settings.cgi:330
 msgid "Territory"
 msgstr "Περιοχή"
 
-#: settings.cgi:247 settings.cgi:350 settings.cgi:363
+#: settings.cgi:352 settings.cgi:353
+msgid "-d"
+msgstr "-d"
+
+#: settings.cgi:364 settings.cgi:504 settings.cgi:517
 msgid "Activate"
 msgstr "Ενεργοποίηση"
 
-#: settings.cgi:259
+#: settings.cgi:376
 msgid "System settings"
 msgstr "Ρυθμίσεις συστήματος"
 
-#: settings.cgi:260
+#: settings.cgi:377
 msgid "Manage system time, users or language settings"
 msgstr "Διαχείριση ώρας συστήματος, χρηστών και γλωσσικών ρυθμίσεων"
 
-#: settings.cgi:268
+#: settings.cgi:387
 msgid "System time"
 msgstr "Ώρα συστήματος"
 
-#: settings.cgi:271
-msgid "Time zome:"
+#: settings.cgi:391
+msgid "Time zone:"
 msgstr "Ζώνη ώρας:"
 
-#: settings.cgi:273
+#: settings.cgi:402
 msgid "System time:"
 msgstr "Ώρα συστήματος:"
 
-#: settings.cgi:274
+#: settings.cgi:403
 msgid "Hardware clock:"
 msgstr "Ρολόι υπολογιστή:"
 
-#: settings.cgi:276
+#: settings.cgi:407
+msgid "Set date"
+msgstr ""
+
+#: settings.cgi:430
 msgid "Sync online"
 msgstr "Συγχρονισμός μέσω δικτύου"
 
-#: settings.cgi:277
+#: settings.cgi:431
 msgid "Set hardware clock"
 msgstr "Ορισμός ρολογιού υπολογιστή"
 
-#: settings.cgi:285
+#: settings.cgi:439
 msgid "System language"
 msgstr "Γλώσσα συστήματος"
 
-#: settings.cgi:297
+#: settings.cgi:451
 #, sh-format
 msgid ""
 "You must logout and login again to your current session to use $new_locale "
@@ -1459,492 +974,86 @@ msgstr ""
 "Πρέπει να αποσυνδεθείτε και να συνδεθείτε πάλι στην τρέχουσα συνεδρία σας "
 "για να χρησιμοποιήσετε τα $new_locale locale."
 
-#: settings.cgi:299
+#: settings.cgi:453
 msgid "Current system locale:"
 msgstr "Τρέχουσα εντοπιότητα συστήματος:"
 
-#: settings.cgi:307
+#: settings.cgi:461
 msgid "Console keymap"
 msgstr "Διάταξη πληκτρολογίου κονσόλας"
 
-#: settings.cgi:320
+#: settings.cgi:474
 #, sh-format
 msgid "Current console keymap: $keymap"
 msgstr "Τρέχουσα διάταξη πληκτρολογίου κονσόλας: $keymap"
 
-#: settings.cgi:337
+#: settings.cgi:491
 msgid "Suggested keymap for Xorg:"
 msgstr "Προτεινόμενη διάταξη πληκτρολογίου για το Xorg:"
 
-#: settings.cgi:346
+#: settings.cgi:500
 msgid "Available keymaps:"
 msgstr "Διαθέσιμες διατάξεις πληκτρολογίου:"
 
-#: settings.cgi:355
+#: settings.cgi:509
 msgid "Panel configuration"
 msgstr "Διαμόρφωση πίνακα"
 
-#: settings.cgi:359
+#: settings.cgi:513
 msgid "Style:"
 msgstr "Στύλ:"
 
-#: settings.cgi:368
+#: settings.cgi:522
 msgid "Panel password:"
 msgstr "Κωδικός πίνακα:"
 
-#: settings.cgi:374
+#: settings.cgi:528
 msgid "Configuration files:"
 msgstr "Αρχεία διαμόρφωσης:"
 
-#: settings.cgi:376 styles/default/header.html:24
+#: settings.cgi:530 styles/default/header.html:31
 msgid "Panel"
 msgstr "Πίνακας"
 
-#: settings.cgi:378
+#: settings.cgi:532
 msgid "Server"
 msgstr "Εξυπηρετητής"
 
-#: settings.cgi:381
+#: settings.cgi:535
 msgid "TazPanel provides a debuging mode and page:"
 msgstr "Το TazPanel παρέχει κατάσταση αποσφαλμάτωσης και σελίδα:"
 
-#: lib/libtazpanel:87
+#: lib/libtazpanel:95
 msgid "connected"
 msgstr "συνδεδεμένο"
 
-#: lib/libtazpanel:104
+#: lib/libtazpanel:112
 msgid "IP Address"
 msgstr "Διεύθυνση IP"
 
-#: lib/libtazpanel:105
+#: lib/libtazpanel:113
 msgid "Scan ports"
 msgstr "Σάρωση θυρών"
 
-#: lib/libtazpanel:218
+#: lib/libtazpanel:226
 msgid "Disk"
 msgstr "Δίσκος"
 
-#: lib/libtazpanel:219
+#: lib/libtazpanel:227
 msgid "Label"
 msgstr "Ετικέτα"
 
-#: lib/libtazpanel:220
+#: lib/libtazpanel:228
 msgid "Type"
 msgstr "Τύπος"
 
-#: lib/libtazpanel:222
+#: lib/libtazpanel:230
 msgid "Available"
 msgstr "Διαθέσιμο"
 
-#: lib/libtazpanel:224
+#: lib/libtazpanel:232
 msgid "Mount point"
 msgstr "Σημείο προσάρτησης"
-
-#: installer.cgi:24
-msgid "TazPanel - Installer"
-msgstr "TazPanel - Εγκαταστάτης"
-
-#: installer.cgi:116
-#, sh-format
-msgid "Creating setup file $INSTFILE."
-msgstr "Δημιουργία αρχείου εγκατάστασης $INSTFILE."
-
-#: installer.cgi:120 installer.cgi:127
-msgid "Setup File Error"
-msgstr "Σφάλμα αρχείου εγκατάστασης"
-
-#: installer.cgi:121
-#, sh-format
-msgid "The setup file <strong>$INSTFILE</strong> doesn't exist."
-msgstr "Το αρχείο εγκατάστασης <strong>$INSTFILE</strong> δεν υπάρχει."
-
-#: installer.cgi:142
-msgid "SliTaz Installer"
-msgstr "Εγκαταστάτης SliTaz"
-
-#: installer.cgi:144
-msgid ""
-"The SliTaz Installer installs or upgrades SliTaz to a hard disk drive from a "
-"device like a Live-CD or LiveUSB key, from a SliTaz ISO file, or from the "
-"web by downloading an ISO file."
-msgstr ""
-"Ο εγκαταστάτης SliTaz εγκαθιστά ή αναβαθμίζει το SliTaz σε έναν σκληρό δίσκο "
-"από μια συσκευή όπως ένα Ζωντανό CD ή Ζωντανό USB key, από ένα αρχείο SliTaz "
-"ISO, ή από το διαδίκτυο κατεβάζοντας ένα αρχείο ISO."
-
-#: installer.cgi:157
-#, fuzzy
-msgid ""
-"Install SliTaz on a partition of your hard disk drive. If you decide to "
-"format your partition, all data will be lost. If you do not format, all data "
-"except for any existing /home directory will be removed (note the home "
-"directory contents will be kept as is)."
-msgstr ""
-"Εγκαταστήστε το SliTaz σε ένα διαμέρισμα του σκληρού δίσκου σας. Αν "
-"αποφασίσετε να διαμορφώσετε το διαμέρισμα σας, όλα τα δεδομένα θα χαθούν. Αν "
-"δεν το διαμορφώσετε, όλα τα στοιχεία εκτός από οποιοδήποτε υπάρχον /home "
-"κατάλογο θα αφαιρεθούν, ο κατάλογος /home θα διατηρηθεί ως έχει."
-
-#: installer.cgi:162
-#, fuzzy
-msgid ""
-"Before installation, you may need to create or resize partitions on your "
-"hard disk drive in order to make space for SliTaz GNU/Linux. You can "
-"graphically manage your partitions with Gparted."
-msgstr ""
-"Πριν από την εγκατάσταση, ίσως χρειαστεί να δημιουργήσετε ή να αλλάξετε το "
-"μέγεθος στα διαμερίσματα στο σκληρό σας δίσκο, ώστε να δημιουργηθεί χώρος "
-"για το SliTaz GNU/Linux. Μπορείτε να διαχειριστείτε γραφικά τις κατατμήσεις "
-"σας με το Gparted"
-
-#: installer.cgi:166 installer.cgi:246 styles/default/header.html:90
-msgid "Install SliTaz"
-msgstr "Εγκατάσταση SliTaz"
-
-#: installer.cgi:176
-msgid "Upgrade"
-msgstr "Αναβάθμιση"
-
-#: installer.cgi:178
-msgid ""
-"Upgrade an already installed SliTaz system on your hard disk drive. Your /"
-"home /etc /var/www directories will be kept, all other directories will be "
-"removed. Any additional packages added to your old Slitaz system will be "
-"updated as long you have an active internet connection."
-msgstr ""
-"Αναβαθμίστε ένα ήδη εγκατεστημένο σύστημα SliTaz στον σκληρό σας δίσκο. Οι "
-"κατάλογοι /home /etc /var/www θα διατηρηθούν, όλοι οι άλλοι κατάλογοι θα "
-"αφαιρεθούν. Τυχόν πρόσθετα πακέτα που είχαν προστεθεί στο παλιό σας σύστημα "
-"SliTaz θα ενημερωθούν εφόσον έχετε μια ενεργή σύνδεση στο Internet."
-
-#: installer.cgi:183 installer.cgi:259
-msgid "Upgrade SliTaz"
-msgstr "Αναβάθμιση SliTaz"
-
-#: installer.cgi:192
-msgid "Partitioning"
-msgstr "Κατάτμηση"
-
-#: installer.cgi:195
-msgid ""
-"On most used systems, the hard drive is already dedicated to partitions for "
-"Windows<sup>&trade;</sup>, or Linux, or another operating system. You'll "
-"need to resize these partitions in order to make space for SliTaz GNU/Linux. "
-"SliTaz will co-exist with other operating systems already installed on your "
-"hard drive."
-msgstr ""
-"Στα περισσότερα συστήματα που χρησιμοποιούνται, ο σκληρός δίσκος είναι ήδη "
-"αφιερωμένος σε διαμερίσματα των Windows<sup>&trade;</ sup>, ή Linux, ή "
-"κάποιο άλλο λειτουργικό σύστημα. Θα πρέπει να αλλάξετε το μέγεθος αυτών των "
-"διαμερισμάτων, ώστε να δημιουργηθεί χώρος για το sliTaz GNU/Linux. Το SliTaz "
-"θα συνυπάρχει με άλλα λειτουργικά συστήματα που έχουν ήδη εγκατασταθεί στον "
-"σκληρό σας δίσκο."
-
-#: installer.cgi:201
-msgid ""
-"The amount of space needed depends on how much software you plan to install "
-"and how much space you require for users. It's conceivable that you could "
-"run a minimal SliTaz system in 300 megs or less, but 2 gigs is indeed more "
-"comfy."
-msgstr ""
-"Το μέγεθος του χώρου που χρειάζεται εξαρτάται από το πόσο λογισμικό "
-"σχεδιάζετε να εγκαταστήσετε και πόσο χώρο χρειάζεστε για τους χρήστες. Είναι "
-"αντιληπτό ότι θα μπορούσατε να τρέξετε ένα ελάχιστο σύστημα sliTaz σε 300MB "
-"ή λιγότερο, αλλά 2GB είναι πράγματι πιο άνετα."
-
-#: installer.cgi:206
-msgid ""
-"A separate home partition, and a partition that will be used as Linux swap "
-"space may be created if needed. Slitaz detects and uses swap partitions "
-"automatically."
-msgstr ""
-"Ένα ξεχωριστό διαμέρισμα /home, και ένα διαμέρισμα που θα χρησιμοποιηθεί ως "
-"χώρος Linux swap μπορεί να δημιουργηθεί αν χρειαστεί. Το SliTaz εντοπίζει "
-"και χρησιμοποιεί αυτόματα κατατμήσεις swap."
-
-#: installer.cgi:214
-msgid ""
-"You can graphically manage your partitions with Gparted. GParted is a "
-"partition editor for graphically managing your disk partitions. Gparted "
-"allows you to create, destroy, resize and copy partitions without data loss."
-msgstr ""
-"Μπορείτε να διαχειρίζεστε γραφικά τις κατατμήσεις σας με το Gparted. Το "
-"GParted είναι ένας επεξεργαστής κατατμήσεων για γραφική διαχείριση των "
-"διαμερισμάτων στο δίσκο σας. Το Gparted σας επιτρέπει τη δημιουργία, "
-"καταστροφή, αντιγραφή, αλλαγή μεγέθους των κατατμήσεων σας χωρίς απώλεια "
-"δεδομένων."
-
-#: installer.cgi:218
-msgid ""
-"Gparted supports ext2, ext3, ext4, linux swap, ntfs and fat32 filesystems "
-"right out of the box. Support for xjs, jfs, hfs and other filesystems is "
-"available as well but you first need to add drivers for these filesystems by "
-"installing the related packages xfsprogs, jfsutils, linux-hfs and so on."
-msgstr ""
-"Το Gparted υποστηρίζει ext2, ext3, ext4, Linux swap, NTFS και FAT32 "
-"συστήματα αρχείων. Υποστήριξη για XJS, JFS, HFS και άλλα συστήματα αρχείων "
-"είναι επίσης διαθέσιμη, αλλά πρέπει πρώτα να προσθέσετε οδηγούς για αυτά τα "
-"συστήματα αρχείων με την εγκατάσταση των σχετικών πακέτων xfsprogs, "
-"jfsutils, linux-hfs και ούτω καθεξής."
-
-#: installer.cgi:225
-msgid "Execute Gparted"
-msgstr "Εκτέλεση Gparted"
-
-#: installer.cgi:227
-msgid "Continue installation"
-msgstr "Συνέχιση εγκατάστασης"
-
-#: installer.cgi:229
-msgid ""
-"Once you've made room for SliTaz on your drive, you should be able to "
-"continue installation."
-msgstr ""
-"Αφού έχετε κάνει χώρο για το SliTaz στη μονάδα δίσκου σας, θα μπορείτε να "
-"συνεχίσετε την εγκατάσταση."
-
-#: installer.cgi:234 installer.cgi:504 installer.cgi:515
-msgid "Back to Installer Start Page"
-msgstr "Πίσω στην αρχίκη σελίδα της εγκατάστασης"
-
-#: installer.cgi:236
-msgid "Continue Installation"
-msgstr "Συνέχιση εγκατάστασης"
-
-#: installer.cgi:248
-#, fuzzy
-msgid ""
-"You're going to install SliTaz on a partition of your hard disk drive. If "
-"you decide to format your HDD, all data will be lost. If you do not format, "
-"all data except for any existing /home directory will be removed (note the "
-"home directory contents will be kept as is)."
-msgstr ""
-"Πρόκειται να εγκαταστήσετε το SliTaz σε ένα διαμέρισμα του σκληρού δίσκου "
-"σας. Αν αποφασίσετε να διαμορφώσετε το σκληρό δίσκο σας, όλα τα δεδομένα θα "
-"χαθούν. Αν δεν τον διαμορφώσετε, όλα τα δεδομένα θα αφαιρεθούν, εκτός από "
-"οποιονδήποτε υπάρχον κατάλογο /home, ο κατάλογος /home θα διατηρηθεί ως έχει."
-
-#: installer.cgi:261
-msgid ""
-"You're going to upgrade an already installed SliTaz system on your hard disk "
-"drive. Your /home /etc /var/www directories will be kept, all other "
-"directories will be removed. Any additional packages added to your old "
-"Slitaz system will be updated as long you have an active internet connection."
-msgstr ""
-"Πρόκειται να αναβαθμισετε ένα ήδη εγκατεστημένο σύστημα sliTaz στον σκληρό "
-"σας δίσκο. Οι κατάλογοι /home /etc /var/www θα διατηρηθούν, όλοι οι άλλοι "
-"κατάλογοι θα αφαιρεθούν. Τυχόν πρόσθετα πακέτα που είχαν προστεθεί στο παλιό "
-"σύστημα σας sliTaz, θα ενημερωθούν αν έχετε μια ενεργή σύνδεση στο Internet."
-
-#: installer.cgi:275
-msgid "Slitaz source media"
-msgstr "Πηγή προέλευσης SliTaz"
-
-#: installer.cgi:279
-msgid "LiveCD"
-msgstr "Ζωντανό CD"
-
-#: installer.cgi:282
-msgid "LiveUSB:"
-msgstr "Ζωντανό USB"
-
-#: installer.cgi:308
-msgid "ISO file:"
-msgstr "Αρχείο ISO:"
-
-#: installer.cgi:309
-msgid "Full path to the ISO image file"
-msgstr "Πλήρης διαδρομή σε ένα αρχείο εικόνας ISO"
-
-#: installer.cgi:312
-msgid "Web:"
-msgstr "Ιστός:"
-
-#: installer.cgi:313
-msgid "Stable"
-msgstr "Σταθερή έκδοση (stable)"
-
-#: installer.cgi:314
-msgid "Cooking"
-msgstr "Υπό ανάπτυξη (cooking)"
-
-#: installer.cgi:316
-msgid "URL:"
-msgstr ""
-
-#: installer.cgi:317
-msgid "Full url to an ISO image file"
-msgstr "Πλήρης διεύθυνση (url) σε ένα αρχείο εικόνας ISO"
-
-#: installer.cgi:326
-msgid "Hard Disk Drive"
-msgstr "Σκληρός Δίσκος"
-
-#: installer.cgi:335
-msgid "Install Slitaz to partition:"
-msgstr "Εγκατάσταση SliTaz στο διαμέρισμα:"
-
-#: installer.cgi:340 installer.cgi:375 installer.cgi:407
-msgid "None"
-msgstr "Κανένα"
-
-#: installer.cgi:351 installer.cgi:418
-msgid "Format partition as:"
-msgstr "Διαμόρφωση διαμερίσματος ως:"
-
-#: installer.cgi:370
-msgid "Existing SliTaz partition to upgrade:"
-msgstr "Υπάρχον διαμέρισμα SliTaz για αναβάθμιση:"
-
-#: installer.cgi:391
-msgid "Options"
-msgstr "Επιλογές"
-
-#: installer.cgi:399
-msgid "home partition"
-msgstr "Διαμέρισμα home"
-
-#: installer.cgi:402
-msgid "Use a separate partition for /home:"
-msgstr "Χρησιμοποιήστε ξεχωριστό διαμέρισμα για το /home:"
-
-#: installer.cgi:437
-msgid "Set Hostname to:"
-msgstr "Ορισμός ονόματος υπολογιστή (Hostname) σε:"
-
-#: installer.cgi:438
-msgid "Name of your system"
-msgstr "Το όνομα του συστήματός σας"
-
-#: installer.cgi:448
-msgid "Root"
-msgstr "Διαχειριστής (Root):"
-
-#: installer.cgi:450
-msgid "Root passwd:"
-msgstr "Κωδικός διαχειριστή:"
-
-#: installer.cgi:451 installer.cgi:454
-msgid "Password of root"
-msgstr "Κωδικός του διαχειριστή"
-
-#: installer.cgi:453 installer.cgi:475
-msgid "Confirm password:"
-msgstr "Επιβεβαίωση κωδικού:"
-
-#: installer.cgi:465
-msgid "User"
-msgstr "Χρήστης"
-
-#: installer.cgi:468
-msgid "Name of the first user"
-msgstr "Όνομα του πρώτου χρήστη"
-
-#: installer.cgi:472
-msgid "User passwd:"
-msgstr "Κωδικός χρήστη:"
-
-#: installer.cgi:473 installer.cgi:476
-msgid "Password of the first user"
-msgstr "Κωδικός του πρώτου χρήστη"
-
-#: installer.cgi:486
-msgid "Grub"
-msgstr ""
-
-#: installer.cgi:489
-msgid ""
-"Install Grub bootloader. Usually you should answer yes, unless you want to "
-"install grub by hand yourself."
-msgstr ""
-"Εγκατάσταση του προγράμματος εκκίνησης Grub. Συνήθως θα πρέπει να απαντήσετε "
-"ναι, εκτός αν θέλετε να εγκαταστήσετε το grub με το χέρι, μόνος σας."
-
-#: installer.cgi:492
-msgid "Enable Windows Dual-Boot."
-msgstr "Ενεργοποίηση διπλής εκκίνησης με Windows (dual-boot)"
-
-#: installer.cgi:501
-msgid "Back to partitioning"
-msgstr "Πίσω στην κατάτμηση"
-
-#: installer.cgi:508
-msgid "Proceed to SliTaz installation"
-msgstr "Προχωρήστε στην εγκατάσταση του SliTaz"
-
-#: installer.cgi:510
-msgid "Installation complete. You can now restart (reboot)"
-msgstr ""
-"Η εγκατάσταση ολοκληρώθηκε. Τώρα μπορείτε να επανεκκινήσετε τον υπολογιστή"
-
-#: installer.cgi:512
-msgid "Installation failed. See log"
-msgstr "Η εγκατάσταση απέτυχε. Δες το αρχείο καταγραφής (log)"
-
-#: installer.cgi:531
-msgid "A web page that points a browser to a different page after 2 seconds"
-msgstr ""
-"Μια ιστοσελίδα που δείχνει στο πρόγραμμα περιήγησης σε μια διαφορετική "
-"σελίδα μετά από 2 δευτερόλεπτα"
-
-#: installer.cgi:537
-msgid ""
-"If your browser doesn't automatically redirect within a few seconds, you may "
-"want to go there manually"
-msgstr ""
-"Αν το πρόγραμμα περιήγησής σας δεν ανακατευθυνθεί αυτόματα μέσα σε λίγα "
-"δευτερόλεπτα, μπορεί να θέλετε να πάτε εκεί χειροκίνητα"
-
-#: installer.cgi:552 installer.cgi:567
-msgid "Tazinst Error"
-msgstr "Σφάλμα Tazinst"
-
-#: installer.cgi:553
-#, fuzzy
-msgid ""
-"<strong>tazinst</strong>, the lightweight SliTaz HDD installer is missing. "
-"Any installation cannot be done without tazinst."
-msgstr ""
-"<strong>tazinst</strong>, Λείπει το ελαφρύ πρόγραμμα εγκατάστασης του SliTaz "
-"σε σκληρό δίσκο. Δεν μπορούν να πραγματοποιηθούν εγκαταστάσεις χωρίς το "
-"tazinst."
-
-#: installer.cgi:556
-msgid "Check tazinst' permissions, or reinstall the slitaz-tools package:"
-msgstr ""
-"Ελέγξτε τα δικαιώματα του tazinst ή επανεγκαταστήστε το πακέτο slitaz-tools:"
-
-#: installer.cgi:582
-msgid "Proceeding: ()"
-msgstr "Πρόοδος: ()"
-
-#: installer.cgi:583
-msgid "Please wait until processing is complete"
-msgstr "Παρακαλώ περιμένετε μέχρι να ολοκληρωθεί η διαδικασία"
-
-#: installer.cgi:589
-msgid "Completed."
-msgstr "Ολοκληρώθηκε."
-
-#: installer.cgi:623
-msgid "Hostname error"
-msgstr "Σφάλμα ονόματος υπολογιστή (Hostname)"
-
-#: installer.cgi:627
-msgid "Root password error"
-msgstr "Σφάλμα κωδικού διαχειριστή (root)"
-
-#: installer.cgi:631
-msgid "User login error"
-msgstr "Σφάλμα εισόδου χρήστη"
-
-#: installer.cgi:635
-msgid "User password error"
-msgstr "Σφάλμα κωδικού χρήστη"
-
-#: installer.cgi:638 installer.cgi:649
-msgid "Do you really want to continue?"
-msgstr "Θέλετε πραγματικά να συνεχίσετε;"
 
 #: help.cgi:20
 msgid "Manual"
@@ -1954,65 +1063,53 @@ msgstr "Εγχειρίδιο χρήσης"
 msgid "TazPanel - Help &amp; Doc"
 msgstr "TazPanel - Βοήθεια &amp; Doc"
 
-#: styles/default/header.html:29
+#: styles/default/header.html:36
 msgid "Processes"
 msgstr "Διεργασίες"
 
-#: styles/default/header.html:31
+#: styles/default/header.html:38
 msgid "Create Report"
 msgstr "Δημιουργία αναφοράς"
 
-#: styles/default/header.html:34
-msgid "Packages"
-msgstr "Πακέτα"
+#: styles/default/header.html:42
+msgid "Network"
+msgstr "Δίκτυο"
 
-#: styles/default/header.html:41
-msgid "Check updates"
-msgstr "Έλεγχος ενημερώσεων"
+#: styles/default/header.html:45
+msgid "Config file"
+msgstr "Αρχείο ρυθμίσεων"
 
-#: styles/default/header.html:49
+#: styles/default/header.html:47
 msgid "Ethernet"
 msgstr "Ενσύρματη σύνδεση"
 
-#: styles/default/header.html:51
+#: styles/default/header.html:49
 msgid "Wireless"
 msgstr "Ασύρματη σύνδεση"
 
 #: styles/default/header.html:53
-msgid "Config file"
-msgstr "Αρχείο ρυθμίσεων"
-
-#: styles/default/header.html:56
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
-#: styles/default/header.html:59
+#: styles/default/header.html:56
 msgid "Users"
 msgstr "Χρήστες"
+
+#: styles/default/header.html:58
+msgid "Groups"
+msgstr ""
 
 #: styles/default/header.html:62
 msgid "Boot"
 msgstr "Εκκίνηση (Boot)"
 
-#: styles/default/header.html:72
+#: styles/default/header.html:79
 msgid "Hardware"
 msgstr "Υλικό"
 
-#: styles/default/header.html:80
-msgid "Live"
-msgstr "Ζωντανά μέσα"
-
-#: styles/default/header.html:82
-msgid "Create a live USB key"
-msgstr "Δημιουργία live USB key"
-
-#: styles/default/header.html:83
-msgid "Create a live CD-ROM"
-msgstr "Δημιουργία live CD-ROM"
-
-#: styles/default/header.html:91
-msgid "Upgrade system"
-msgstr "Αναβάθμιση συστήματος"
+#: styles/default/header.html:86
+msgid "Disks"
+msgstr ""
 
 #: styles/default/footer.html:6
 msgid "Copyright"

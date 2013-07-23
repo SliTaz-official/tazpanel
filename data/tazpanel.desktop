@@ -1,6 +1,16 @@
 [Desktop Entry]
 Type=Application
 Name=SliTaz Panel
-Icon=tazpanel
+Name[ru]=Панель SliTaz
+Comment=SliTaz administration and configuration Panel
+Comment[el]=Πίνακας διαχείρισης και ρύθμισης παραμέτρων SliTaz
+Comment[es]=SliTaz Administración y configuración del Panel
+Comment[fr]=Panneau de Configuration et d'Administration de SliTaz
+Comment[pl]=Panel administracyjny i konfiguracyjny SliTaz
+Comment[pt_BR]=Painel de configuração e administração do SliTaz
+Comment[ru]=Панель администрирования и настройки SliTaz
+Comment[sv]=SliTaz administration och konfigurations panel
+TryExec=browser
 Exec=browser http://tazpanel:82/
+Icon=tazpanel
 Categories=System;

@@ -3,7 +3,7 @@
 PREFIX?=/usr
 SYSCONFDIR?=/etc/slitaz
 DESTDIR?=
-LINGUAS?=el es fr pt_BR ru sv
+LINGUAS?=el es fr pl pt_BR ru sv
 PANEL?=/var/www/tazpanel
 
 VERSION:=$(shell grep ^VERSION tazpanel | cut -d '=' -f 2)
@@ -16,7 +16,7 @@ pot:
 	xgettext -o po/tazpanel.pot -L Shell \
 		--package-name="TazPanel" \
 		--package-version="$(VERSION)" \
-		./tazpanel ./index.cgi ./pkgs.cgi ./live.cgi ./network.cgi ./boot.cgi \
+		./tazpanel ./index.cgi ./network.cgi ./boot.cgi \
 		./hardware.cgi ./settings.cgi ./lib/libtazpanel ./help.cgi \
 		./styles/default/header.html ./styles/default/footer.html
 
@@ -59,4 +59,4 @@ clean:
 	rm -f po/*.*~
 
 help:
-	@echo "make [ pot | msgmerge | msgfmt|all | install | clean ]"
+	@echo "make [ pot | msgmerge | msgfmt | all | install | clean ]"

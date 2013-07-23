@@ -1,21 +1,25 @@
-# Tazpanel Brazilian Portuguese Translation.
-# Copyright (C) 2011 www.slitaz.org
-# This file is distributed under the same license as the Tazpanel package.
-# Claudinei Pereira <claudinei@slitaz.org>, 2011.
+# Polish translations for TazPanel package.
+# Copyright (C) 2013 SliTaz
+# This file is distributed under the same license as the TazPanel package.
+# Paweł Pyrczak <tkr.tkr.pl@gmail.com>, 2013.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: TazPanel 1.5.7\n"
+"Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-23 00:41+0300\n"
-"PO-Revision-Date: 2013-01-27 01:50-0300\n"
-"Last-Translator: Claudinei Pereira <claudinei@slitaz.org>, 2013\n"
-"Language-Team: Portuguese <i18n@slitaz.org>\n"
-"Language: pt_BR\n"
+"PO-Revision-Date: 2013-07-22 23:17+0300\n"
+"Last-Translator: Paweł Pyrczak <tkr.tkr.pl@gmail.com>\n"
+"Language-Team: \n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-Country: POLAND\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: tazpanel:36
 msgid "TazPanel is already running."
@@ -24,11 +28,11 @@ msgstr ""
 #: tazpanel:39
 #, sh-format
 msgid "Starting TazPanel web server on port $HTTPD_PORT..."
-msgstr "Parando o servidor web do TazPanel na porta $HTTPD_PORT..."
+msgstr "Uruchamianie web serwera TazPanel na porcie $HTTPD_PORT..."
 
 #: tazpanel:41
 msgid "TazPanel Authentication - Default: root:root"
-msgstr "Autenticação do TazPanel - Padrão: root:root"
+msgstr "Autoryzacja dostępu do TazPanel - domyślnie: root:root"
 
 #: tazpanel:47
 msgid "TazPanel is not running."
@@ -36,28 +40,28 @@ msgstr ""
 
 #: tazpanel:50
 msgid "Stopping TazPanel web server..."
-msgstr "Parando o servidor web do TazPanel..."
+msgstr "Zatrzymywanie web serwera TazPanel..."
 
 #: tazpanel:56
 msgid "Changing password for TazPanel"
-msgstr "Mudando a senha para o TazPanel"
+msgstr "Zmienianie hasła do TazPanelu"
 
 #: tazpanel:57
 msgid "New password: "
-msgstr "Nova senha: "
+msgstr "Nowe hasło: "
 
 #: tazpanel:59
 msgid "Password changed successfully"
-msgstr "Senha mudada com sucesso"
+msgstr "Hasło zmienione pomyślnie"
 
 #: tazpanel:64
 #, sh-format
 msgid "Usage: $program_name [start|stop|passwd]"
-msgstr "Utilização: $program_name [start|stop|passwd]"
+msgstr "Użycie: $program_name [start|stop|passwd]"
 
 #: index.cgi:38 index.cgi:95
 msgid "Differences"
-msgstr "Diferenças"
+msgstr "Różnice/Zmiany"
 
 #: index.cgi:66
 msgid "TazPanel - exec"
@@ -65,15 +69,15 @@ msgstr ""
 
 #: index.cgi:84
 msgid "TazPanel - File"
-msgstr "TazPanel - Arquivo"
+msgstr "TazPanel - Plik"
 
 #: index.cgi:93 index.cgi:108
 msgid "Save"
-msgstr "Salvar"
+msgstr "Zapisz"
 
 #: index.cgi:132 settings.cgi:494
 msgid "Edit"
-msgstr "Editar"
+msgstr "Edytuj"
 
 #: index.cgi:156
 msgid "TazPanel - Terminal"
@@ -81,35 +85,35 @@ msgstr "TazPanel - Terminal"
 
 #: index.cgi:170
 msgid "Small terminal emulator, commands options are supported."
-msgstr "Pequeno emulador de terminal, opções de comandos são suportadas."
+msgstr "Niewielki emulator terminala, opcje poleceń są obsługiwane."
 
 #: index.cgi:172 index.cgi:189
 #, sh-format
 msgid "Commands: $commands"
-msgstr "Comandos: $commands"
+msgstr "Polecenia: $commands"
 
 #: index.cgi:177
 #, sh-format
 msgid "Downloading to: $dl"
-msgstr "Baixando para: $dl"
+msgstr "Pobieranie do: $dl"
 
 #: index.cgi:184
 #, sh-format
 msgid "$cmd needs an argument"
-msgstr "$cmd necessida de um argumento"
+msgstr "$cmd wymaga podania argumentu"
 
 #: index.cgi:188
 #, sh-format
 msgid "Unknown command: $cmd"
-msgstr "Comando desconhecido: $cmd"
+msgstr "Nieznane polecenie: $cmd"
 
 #: index.cgi:196
 msgid "TazPanel - Process activity"
-msgstr "TazPanel - Atividade de processos"
+msgstr "TazPanel - Aktywność procesów"
 
 #: index.cgi:198
 msgid "Refresh:"
-msgstr "Recarregar:"
+msgstr "Odświeżanie:"
 
 #: index.cgi:203
 msgid "1s"
@@ -125,36 +129,36 @@ msgstr "10s"
 
 #: index.cgi:206
 msgid "none"
-msgstr "nenhum"
+msgstr "brak"
 
 #: index.cgi:223
 msgid "TazPanel - Debug"
-msgstr "TazPanel - Debug"
+msgstr "TazPanel - Debugowanie"
 
 #: index.cgi:226
 msgid "HTTP Environment"
-msgstr "Ambiente HTTP"
+msgstr "Środowisko HTTP"
 
 #: index.cgi:234
 msgid "TazPanel - System report"
-msgstr "TazPanel - Relatório do sistema"
+msgstr "TazPanel - Raport systemu"
 
 #: index.cgi:239
 #, sh-format
 msgid "Reporting to: $output"
-msgstr "Reportando a: $output"
+msgstr "Zapisywanie raportu do: $output"
 
 #: index.cgi:242
 msgid "Creating report header..."
-msgstr "Criando cabeçalho do relatório..."
+msgstr "Tworzenie nagłówka raportu..."
 
 #: index.cgi:249 index.cgi:266
 msgid "SliTaz system report"
-msgstr "Relatório do sistema"
+msgstr "SliTaz raport systemu"
 
 #: index.cgi:263
 msgid "Creating system summary..."
-msgstr "Criando resumo do sistema..."
+msgstr "Tworzenie podsumowania systemu..."
 
 #: index.cgi:267
 msgid "Date:"
@@ -162,48 +166,48 @@ msgstr "Data:"
 
 #: index.cgi:278
 msgid "Getting hardware info..."
-msgstr "Obtendo informação do sistema..."
+msgstr "Pobieranie informacji o sprzęcie..."
 
 #: index.cgi:296
 msgid "Getting networking info..."
-msgstr "Obtendo informação da rede..."
+msgstr "Pobieranie informacji o sieciach..."
 
 #: index.cgi:310
 msgid "Getting filesystems info..."
-msgstr "Obtendo informação do sistema de arquivos..."
+msgstr "Pobieranie informacji o systemie plików..."
 
 #: index.cgi:330
 msgid "Getting boot logs..."
-msgstr "Gerando logs de boot..."
+msgstr "Pobieranie logów uruchamiania..."
 
 #: index.cgi:333 boot.cgi:29 boot.cgi:34 styles/default/header.html:69
 msgid "Kernel messages"
-msgstr "Mensagens do kernel"
+msgstr "Komunikaty Jadra Linux (Kernel messages)"
 
 #: index.cgi:336 boot.cgi:30 boot.cgi:38 styles/default/header.html:70
 msgid "Boot scripts"
-msgstr "Scripts de boot"
+msgstr "Skrypty uruchamiania"
 
 #: index.cgi:341
 msgid "Creating report footer..."
-msgstr "Criando rodapé do relatório..."
+msgstr "Tworzenie stopki raportu..."
 
 #: index.cgi:353
 msgid "View report"
-msgstr "Ver relatório"
+msgstr "Zobacz raport"
 
 #: index.cgi:354
 msgid "This report can be attached with a bug report on:"
-msgstr "Este relatório pode ser anexado a um aviso de bug em:"
+msgstr "Ten raport może być dołączony do zgłoszenia błędu na:"
 
 #: index.cgi:370
 #, sh-format
 msgid "Host: $hostname"
-msgstr "Nome do host: $hostname"
+msgstr "Host: $hostname"
 
 #: index.cgi:371
 msgid "SliTaz administration and configuration Panel"
-msgstr "Painel de configuração e administração do SliTaz"
+msgstr "Panel administracyjny i konfiguracyjny SliTaz"
 
 #: index.cgi:375 styles/default/header.html:34
 msgid "Terminal"
@@ -211,61 +215,61 @@ msgstr "Terminal"
 
 #: index.cgi:377
 msgid "Process activity"
-msgstr "Atividade de processos"
+msgstr "Aktywność procesów"
 
 #: index.cgi:379
 msgid "Create a report"
-msgstr "Criar relatório"
+msgstr "Utwórz raport"
 
 #: index.cgi:383
 msgid "Summary"
-msgstr "Sumário"
+msgstr "Podsumowanie"
 
 #: index.cgi:386
 msgid "Uptime:"
-msgstr "Uptime:"
+msgstr "Czas pracy (uptime):"
 
 #: index.cgi:389
 msgid "Memory in Mb:"
-msgstr "Memória em MB:"
+msgstr "Pamięć w Mb:"
 
 #: index.cgi:394
 #, sh-format
 msgid "Total: $memtotal, Used: $memused, Free: $memfree"
-msgstr "Total: $memtotal, Usada: $memused, Livre: $memfree"
+msgstr "Całkowita: $memtotal, Użyta: $memused, Wolna: $memfree"
 
 #: index.cgi:399
 msgid "Linux kernel:"
-msgstr "Kernel Linux:"
+msgstr "Jądro Linux:"
 
 #: index.cgi:408
 msgid "Network status"
-msgstr "Status da Rede"
+msgstr "Status sieci"
 
 #: index.cgi:413 hardware.cgi:258
 msgid "Filesystem usage statistics"
-msgstr "Estatísticas de utilização do sistema de arquivos"
+msgstr "Statystyka użycia systemu plików"
 
 #: index.cgi:446
 msgid "Panel Activity"
-msgstr "Atividade do painel"
+msgstr "Aktywność Panelu"
 
 #: network.cgi:13
 msgid "TazPanel - Network"
-msgstr "TazPanel - Rede"
+msgstr "TazPanel - Sieć"
 
 #: network.cgi:23 network.cgi:160 network.cgi:256 boot.cgi:82 settings.cgi:221
 #: lib/libtazpanel:110
 msgid "Name"
-msgstr "Nome"
+msgstr "Nazwa"
 
 #: network.cgi:24
 msgid "Quality"
-msgstr "Qualidade"
+msgstr "Jakość"
 
 #: network.cgi:25
 msgid "Encryption"
-msgstr "Encriptação"
+msgstr "Szyfrowanie"
 
 #: network.cgi:26 boot.cgi:85 lib/libtazpanel:111
 msgid "Status"
@@ -273,233 +277,234 @@ msgstr "Status"
 
 #: network.cgi:56
 msgid "Connected"
-msgstr "Conectado"
+msgstr "Połączony"
 
 #: network.cgi:99
 #, sh-format
 msgid "Changed hostname: $get_hostname"
-msgstr "Nome de host alterado: $get_hostname"
+msgstr "Zmieniona nazwa hosta: $get_hostname"
 
 #: network.cgi:115
 msgid "Scanning open ports..."
-msgstr "Procurando portas abertas..."
+msgstr "Skanowanie otwartych portów..."
 
 #: network.cgi:118
 #, sh-format
 msgid "Port scanning for $scan"
-msgstr "Procura de portas para $scan"
+msgstr "Skanowanie portów dla $scan"
 
 #: network.cgi:132
 msgid "Setting up IP..."
-msgstr "Configurando IP..."
+msgstr "Konfigurowanie IP..."
 
 #: network.cgi:148
 msgid "Ethernet connection"
-msgstr "Conexão ethernet"
+msgstr "Połączenie przewodowe"
 
 #: network.cgi:150
 msgid ""
 "Here you can configure a wired connection using DHCP to automatically get a "
 "random IP or configure a static/fixed IP"
 msgstr ""
-"Aqui você pode configurar conexões cabeadas usando DHCP para obter "
-"automaticamente um IP aleatório ou configurar um IP fixo"
+"Tu możesz skonfigurować połączenie przewodowe do użycia DHCP aby "
+"automatycznie pobierać losowy adres IP, albo skonfigurować dla połączenia "
+"statyczny/stały adres IP"
 
 #: network.cgi:154 boot.cgi:84
 msgid "Configuration"
-msgstr "Configuração"
+msgstr "Konfiguracja"
 
 #: network.cgi:161 network.cgi:257
 msgid "Value"
-msgstr "Valor"
+msgstr "Wartość"
 
 #: network.cgi:166 lib/libtazpanel:109
 msgid "Interface"
-msgstr "Interface"
+msgstr "Interfejs"
 
 #: network.cgi:170
 msgid "IP address"
-msgstr "Endereço IP"
+msgstr "Adres IP"
 
 #: network.cgi:174
 msgid "Netmask"
-msgstr "Máscara de Rede"
+msgstr "Maska sieci"
 
 #: network.cgi:178
 msgid "Gateway"
-msgstr "Gateway"
+msgstr "Brama sieci"
 
 #: network.cgi:182
 msgid "DNS server"
-msgstr "Servidor DNS"
+msgstr "Serwer DNS"
 
 #: network.cgi:187
 msgid "Activate (static)"
-msgstr "Ativar (estático)"
+msgstr "Aktywuj (statyczny)"
 
 #: network.cgi:188
 msgid "Activate (DHCP)"
-msgstr "Ativar (DHCP)"
+msgstr "Aktywuj (DHCP)"
 
 #: network.cgi:189
 msgid "Disable"
-msgstr "Desabilitar"
+msgstr "DeAktywuj"
 
 #: network.cgi:194 network.cgi:282
 msgid "Configuration file"
-msgstr "Arquivo de configuração"
+msgstr "Plik konfiguracyjny"
 
 #: network.cgi:196
 msgid ""
 "These values are the ethernet settings in the main /etc/network.conf "
 "configuration file"
 msgstr ""
-"Esses valores são as configurações da rede ethernet no arquivo de "
-"configuração /etc/network.conf"
+"Poniższe wartości są ustawieniami sieci przewodowej w głównym pliku "
+"konfiguracyjnym /etc/network.conf"
 
 #: network.cgi:202 network.cgi:290 hardware.cgi:354
 msgid "Manual Edit"
-msgstr "Edição manual"
+msgstr "Ręczna Edycja"
 
 #: network.cgi:209
 msgid "Scanning wireless interface..."
-msgstr "Procurando interface sem fio..."
+msgstr "Scanowanie interfejsu sieci bezprzewodowej..."
 
 #: network.cgi:213
 msgid "Wireless connection"
-msgstr "Conexões sem fio"
+msgstr "Połączenie bezprzewodowe"
 
 #: network.cgi:216 network.cgi:313 boot.cgi:218
 msgid "Start"
-msgstr "Iniciar"
+msgstr "Start"
 
 #: network.cgi:218 network.cgi:315 boot.cgi:206
 msgid "Stop"
-msgstr "Parar"
+msgstr "Stop"
 
 #: network.cgi:220
 msgid "Scan"
-msgstr "Procurar"
+msgstr "Skanuj"
 
 #: network.cgi:250
 msgid "Connection"
-msgstr "Conexão"
+msgstr "Połączenie"
 
 #: network.cgi:261
 msgid "Wifi name (ESSID)"
-msgstr "ESSID da rede sem fio"
+msgstr "Nazwa Wifi (ESSID)"
 
 #: network.cgi:265
 msgid "Password (Wifi key)"
-msgstr "Senha/chave da rede sem fio"
+msgstr "Hasło (Klucz Wifi)"
 
 #: network.cgi:269
 msgid "Encryption type"
-msgstr "Tipo de Encriptação"
+msgstr "Typ szyfrowania"
 
 #: network.cgi:273
 msgid "Access point"
-msgstr "Ponto de acesso"
+msgstr "Punkt dostępowy"
 
 #: network.cgi:277
 msgid "Configure"
-msgstr "Configuração"
+msgstr "Konfiguruj"
 
 #: network.cgi:284
 msgid ""
 "These values are the wifi settings in the main /etc/network.conf "
 "configuration file"
 msgstr ""
-"Esses valores são as configurações da rede sem fio no arquivo de "
-"configuração /etc/network.conf"
+"Poniższe wartości są ustawieniami sieci bezprzewodowej w głównym pliku "
+"konfiguracyjnym /etc/network.conf"
 
 #: network.cgi:294
 msgid "Output of iwconfig"
-msgstr "Saída do iwconfig"
+msgstr "Wyjście iwconfig"
 
 #: network.cgi:305
 msgid "Networking"
-msgstr "Rede"
+msgstr "Sieć i połączenia sieciowe"
 
 #: network.cgi:307
 msgid "Manage network connections and services"
-msgstr "Gerenciar serviços e conexões de rede"
+msgstr "Zarządzanie połączeniami i usługami sieciowymi"
 
 #: network.cgi:317
 msgid "Restart"
-msgstr "Reiniciar"
+msgstr "Restartuj"
 
 #: network.cgi:320
 msgid "Configuration:"
-msgstr "Configuração:"
+msgstr "Konfiguracja:"
 
 #: network.cgi:331
 msgid "Hosts"
-msgstr "Hosts"
+msgstr "Hosty"
 
 #: network.cgi:336
 msgid "Edit hosts"
-msgstr "Editar hosts"
+msgstr "Edytuj hosts"
 
 #: network.cgi:340
 msgid "Hostname"
-msgstr "Nome do host"
+msgstr "Nazwa hosta"
 
 #: network.cgi:344
 msgid "Change hostname"
-msgstr "Mudar nome do host"
+msgstr "Zmień nazwę hosta"
 
 #: network.cgi:349
 msgid "Output of ifconfig"
-msgstr "Saída do ifconfig"
+msgstr "Wyjście ifconfig"
 
 #: network.cgi:355
 msgid "Routing table"
-msgstr "Tabela de roteamento"
+msgstr "Tablica Routingu"
 
 #: network.cgi:361
 msgid "Domain name resolution"
-msgstr "Resolução de nome de domínio"
+msgstr "Ustawienia DNS"
 
 #: network.cgi:367
 msgid "ARP table"
-msgstr "Tabela ARP"
+msgstr "Tablica ARP"
 
 #: network.cgi:373
 msgid "IP Connections"
-msgstr "Conexões IP"
+msgstr "Połączenia IP"
 
 #: boot.cgi:14
 msgid "TazPanel - Boot"
-msgstr "TazPanel - Boot"
+msgstr "TazPanel - Uruchamianie"
 
 #: boot.cgi:25
 msgid "Boot log files"
-msgstr "Arquivos de log de boot"
+msgstr "Logi uruchamiania"
 
 #: boot.cgi:31 boot.cgi:42 styles/default/header.html:71
 msgid "X server"
-msgstr "Servidor X"
+msgstr "Serwer X"
 
 #: boot.cgi:46
 msgid "Show more..."
-msgstr "Mostrar mais..."
+msgstr "Pokaż więcej..."
 
 #: boot.cgi:61 boot.cgi:303 styles/default/header.html:75
 msgid "Manage daemons"
-msgstr "Gerenciar daemons"
+msgstr "Zarządzaj usługami (daemons)"
 
 #: boot.cgi:62
 msgid "Check, start and stop daemons on SliTaz"
-msgstr "Checar, iniciar e parar daemons no SliTaz"
+msgstr "Sprawdź, uruchom i wyłącz usługi (daemons) w SliTaz"
 
 #: boot.cgi:83 settings.cgi:331
 msgid "Description"
-msgstr "Descrição"
+msgstr "Opis"
 
 #: boot.cgi:86
 msgid "Action"
-msgstr "Ação"
+msgstr "Akcja"
 
 #: boot.cgi:87
 msgid "PID"
@@ -507,67 +512,67 @@ msgstr "PID"
 
 #: boot.cgi:114
 msgid "SliTaz Firewall with iptable rules"
-msgstr "Firewall do SliTaz com regras do iptables"
+msgstr "Firewall i ustawienia iptables w SliTaz"
 
 #: boot.cgi:116
 msgid "Small and fast web server with CGI support"
-msgstr "Pequeno e rápido servidor web com suporte a CGI"
+msgstr "Niewielki i szybki serwer web z obsługą CGI"
 
 #: boot.cgi:118
 msgid "Network time protocol daemon"
-msgstr "Daemon do protocolo de tempo de rede"
+msgstr "Usługa protokołu czasu sieciowego (NTP)"
 
 #: boot.cgi:121
 msgid "Anonymous FTP server"
-msgstr "Servidor FTP anônimo"
+msgstr "Annimowy serwer FTP"
 
 #: boot.cgi:123
 msgid "Busybox DHCP server"
-msgstr "Servidor DHCP do busybox"
+msgstr "Serwer DHCP Busybox"
 
 #: boot.cgi:125
 msgid "Linux Kernel log daemon"
-msgstr "Daemon de log do kernel Linux"
+msgstr "Usługa logów Jadra Linux"
 
 #: boot.cgi:128
 msgid "Execute scheduled commands"
-msgstr "Executar comandos agendados"
+msgstr "Wykonuje zaplanowane polecenia"
 
 #: boot.cgi:131
 msgid "Small static DNS server daemon"
-msgstr "Daemon do pequeno servidor estático de DNS"
+msgstr "Usługa statycznego, niewielkiego serwera DNS"
 
 #: boot.cgi:134
 msgid "Transfer a file on tftp request"
-msgstr "Transferir um arquivo por requisição tftp"
+msgstr "Przesyła pliki przy pomocy protokołu TFTP (np web boot)"
 
 #: boot.cgi:136
 msgid "Listen for network connections and launch programs"
-msgstr "Esperar por uma conexão de rede e executa programas"
+msgstr "Nasłuchuje połączeń sieciowych i uruchamia odpowiednie usługi"
 
 #: boot.cgi:139
 msgid "Manage a ZeroConf IPv4 link-local address"
-msgstr "Gerencia um endereço IPv4 pelo ZeroConf"
+msgstr "Zarządzaj ZeroConf IPv4 link-local address"
 
 #: boot.cgi:204
 msgid "Started"
-msgstr "Iniciado"
+msgstr "Uruchomiony"
 
 #: boot.cgi:216
 msgid "Stopped"
-msgstr "Parado"
+msgstr "Zatrzymany"
 
 #: boot.cgi:244
 msgid "GRUB Boot loader"
-msgstr "Gerenciador de boot GRUB"
+msgstr "Boot loader GRUB"
 
 #: boot.cgi:246
 msgid "The first application started when the computer powers on"
-msgstr "O primeiro aplicativo iniciado quando o computador é ligado"
+msgstr "Pierwsza aplikacja uruchamiana tuż po włączeniu komputera"
 
 #: boot.cgi:252
 msgid "Default entry:"
-msgstr "Entrada padrão:"
+msgstr "Domyślny wpis:"
 
 #: boot.cgi:254
 msgid "Timeout:"
@@ -575,121 +580,121 @@ msgstr "Timeout:"
 
 #: boot.cgi:256
 msgid "Splash image:"
-msgstr "Splash image:"
+msgstr "Obraz powitalny:"
 
 #: boot.cgi:259 settings.cgi:401 settings.cgi:457 settings.cgi:524
 msgid "Change"
-msgstr "Alterar"
+msgstr "zmień"
 
 #: boot.cgi:261
 msgid "View or edit menu.lst"
-msgstr "Ver ou alterar o menu.lst"
+msgstr "Zobacz albo edytuj menu.lst"
 
 #: boot.cgi:264
 msgid "Boot entries"
-msgstr "Entradas de boot"
+msgstr "Wpisy boot"
 
 #: boot.cgi:270
 msgid "Entry"
-msgstr "Entrada"
+msgstr "Wpis"
 
 #: boot.cgi:286
 msgid "Web boot is available with gPXE"
-msgstr "Boot via web está disponível pelo gPXE"
+msgstr "Uruchamianie przez sieć jest dostępne poprzez gPXE"
 
 #: boot.cgi:296
 msgid "Boot &amp; Start services"
-msgstr "Serviços de Boot &amp; inicialização"
+msgstr "Uruchamianie i Start Usług"
 
 #: boot.cgi:297
 msgid "Everything that happens before user login"
-msgstr "Tudo o que ocorre antes do login de usuário"
+msgstr "Wszystko co się wydarzyło przed zalogowaniem uzytkownika"
 
 #: boot.cgi:301 styles/default/header.html:67
 msgid "Boot logs"
-msgstr "Logs de boot"
+msgstr "Logi uruchamiania (boot)"
 
 #: boot.cgi:304 styles/default/header.html:65
 msgid "Boot loader"
-msgstr "Gerenciador de boot"
+msgstr "Program rozruchowy (boot loader)"
 
 #: boot.cgi:307
 msgid "Configuration files"
-msgstr "Arquivos de configuração"
+msgstr "Pliki konfiguracyjne"
 
 #: boot.cgi:309
 msgid "Main configuration file:"
-msgstr "Arquivo de configuração principal:"
+msgstr "Główny plik konfiguracyjny:"
 
 #: boot.cgi:311
 msgid "Login manager settings:"
-msgstr "Configurações do gerenciador de login:"
+msgstr "Ustawienia menadżera logowania:"
 
 #: boot.cgi:315
 msgid "Kernel cmdline"
-msgstr "Opções de linha de comando do kernel"
+msgstr "Wiersz poleceń jądra"
 
 #: boot.cgi:319
 msgid "Local startup commands"
-msgstr "Comandos de inicialização locais"
+msgstr "Lokalne polecenia podczas uruchamiania"
 
 #: boot.cgi:324
 msgid "Edit script"
-msgstr "Editar script"
+msgstr "Edytuj skrypt"
 
 #: hardware.cgi:13
 msgid "TazPanel - Hardware"
-msgstr "TazPanel - Hardware"
+msgstr "TazPanel - Sprzęt"
 
 #: hardware.cgi:58
 msgid "Detect hardware"
-msgstr "Detectar hardware"
+msgstr "Wykryj urządzenia"
 
 #: hardware.cgi:59
 msgid "Detect PCI and USB hardware"
-msgstr "Detectar hardware PCI e USB"
+msgstr "Wykryj urządzenia PCI i USB"
 
 #: hardware.cgi:71 hardware.cgi:174 styles/default/header.html:82
 msgid "Kernel modules"
-msgstr "Módulos de kernel"
+msgstr "Moduły jądra Linux"
 
 #: hardware.cgi:75
 msgid "Modules search"
-msgstr "Busca de módulos"
+msgstr "Szukaj moduł"
 
 #: hardware.cgi:78
 msgid "Manage, search or get information about the Linux kernel modules"
-msgstr "Gerenciar, buscar e obter informações sobre módulos do kernel linux"
+msgstr "Zarządzaj, szukaj albo pobierz informacje na temat modułów jądra Linux"
 
 #: hardware.cgi:85
 #, sh-format
 msgid "Detailed information for module: $get_modinfo"
-msgstr "Informações detalhadas de módulo: $get_modinfo"
+msgstr "Szczegółowe informacje dla modułu: $get_modinfo"
 
 #: hardware.cgi:99
 #, sh-format
 msgid "Matching result(s) for: $get_search"
-msgstr "Resultado(s) encontrado(s) para: $get_search"
+msgstr "Pasujące rezultat(y) dla: $get_search"
 
 #: hardware.cgi:105
 msgid "Module:"
-msgstr "Módulo:"
+msgstr "Moduł:"
 
 #: hardware.cgi:112
 msgid "Module"
-msgstr "Módulo"
+msgstr "Moduł"
 
 #: hardware.cgi:113 lib/libtazpanel:229
 msgid "Size"
-msgstr "Tamanho"
+msgstr "Rozmiar"
 
 #: hardware.cgi:114 lib/libtazpanel:231
 msgid "Used"
-msgstr "Usado"
+msgstr "Używany"
 
 #: hardware.cgi:115
 msgid "by"
-msgstr "por"
+msgstr "przez"
 
 #: hardware.cgi:136
 #, sh-format
@@ -707,15 +712,15 @@ msgstr ""
 
 #: hardware.cgi:169
 msgid "Drivers &amp; Devices"
-msgstr "Drivers &amp; dispositivos"
+msgstr "Sterowniki i Urządzenia"
 
 #: hardware.cgi:170
 msgid "Manage your computer hardware"
-msgstr "Gerencie o hardware de seu computador"
+msgstr "Zarządzanie sprzętem i urządzeniami w komputerze"
 
 #: hardware.cgi:176 styles/default/header.html:84
 msgid "Detect PCI/USB"
-msgstr "Detectar PCI/USB"
+msgstr "Wykryj urządzenia PCI/USB"
 
 #: hardware.cgi:196
 msgid "Battery"
@@ -723,21 +728,21 @@ msgstr "Bateria"
 
 #: hardware.cgi:198
 msgid "health"
-msgstr "estado"
+msgstr "zużycie"
 
 #: hardware.cgi:207
 #, sh-format
 msgid "Discharging $rempct% - $remtimef"
-msgstr "Descarregando $rempct% - $remtimef"
+msgstr "Rozładowywanie $rempct% - $remtimef"
 
 #: hardware.cgi:211
 #, sh-format
 msgid "Charging $rempct% - $remtimef"
-msgstr "Carregando $rempct% - $remtimef"
+msgstr "Ładowanie $rempct% - $remtimef"
 
 #: hardware.cgi:213
 msgid "Charged 100%"
-msgstr "Carregada 100%"
+msgstr "Naładowana w 100%"
 
 #: hardware.cgi:221
 msgid "Temperature:"
@@ -745,7 +750,7 @@ msgstr "Temperatura:"
 
 #: hardware.cgi:236
 msgid "Brightness"
-msgstr "Brilho"
+msgstr "Jasność ekranu"
 
 #: hardware.cgi:343
 msgid "Filesystems table"
@@ -753,11 +758,11 @@ msgstr ""
 
 #: hardware.cgi:357
 msgid "System memory"
-msgstr "Memória do sistema"
+msgstr "Pamięć systemowa"
 
 #: settings.cgi:15
 msgid "TazPanel - Settings"
-msgstr "TazPanel - Configurações"
+msgstr "TazPanel - Ustawienia"
 
 #: settings.cgi:120 settings.cgi:383
 msgid "Manage groups"
@@ -765,7 +770,7 @@ msgstr ""
 
 #: settings.cgi:126 settings.cgi:209
 msgid "Selection:"
-msgstr "Seleção:"
+msgstr "Zaznaczone:"
 
 #: settings.cgi:127
 msgid "Delete group"
@@ -806,27 +811,28 @@ msgstr ""
 #: settings.cgi:190
 #, fuzzy
 msgid "Add user"
-msgstr "Adicionar um novo usuário"
+msgstr "Dodaj użytkownika"
 
 #: settings.cgi:191
+#, fuzzy
 msgid "Remove user"
-msgstr ""
+msgstr "Usuń użytkownika"
 
 #: settings.cgi:204 settings.cgi:381
 msgid "Manage users"
-msgstr "Gerenciar usuários"
+msgstr "Zarządzaj użytkownikami"
 
 #: settings.cgi:210
 msgid "Delete user"
-msgstr "Deletar usuário"
+msgstr "Usuń uzytkownika"
 
 #: settings.cgi:211
 msgid "Lock user"
-msgstr "Bloquear usuário"
+msgstr "Zablokuj uzytkownika"
 
 #: settings.cgi:212
 msgid "Unlock user"
-msgstr "Desbloquear usuário"
+msgstr "Odblokuj użytkownika"
 
 #: settings.cgi:219
 msgid "Login"
@@ -834,88 +840,88 @@ msgstr "Login"
 
 #: settings.cgi:220
 msgid "User ID"
-msgstr "ID de usuário"
+msgstr "ID użytkownika"
 
 #: settings.cgi:222
 msgid "Home"
-msgstr "Diretório Home"
+msgstr "Katalog domowy"
 
 #: settings.cgi:223
 msgid "Shell"
-msgstr "Shell"
+msgstr "Powłoka"
 
 #: settings.cgi:260
 msgid "Password:"
-msgstr "Senha:"
+msgstr "Hasło:"
 
 #: settings.cgi:262
 msgid "Change password"
-msgstr "Alterar senha"
+msgstr "Zmień hasło"
 
 #: settings.cgi:267
 msgid "Add a new user"
-msgstr "Adicionar um novo usuário"
+msgstr "Dodaj nowego użytkownika"
 
 #: settings.cgi:272
 msgid "User login:"
-msgstr "Login do usuário:"
+msgstr "Login użytkownika:"
 
 #: settings.cgi:274
 msgid "User password:"
-msgstr "Senha do usuário:"
+msgstr "Hasło użytkownika:"
 
 #: settings.cgi:277
 msgid "Create user"
-msgstr "Criar usuário"
+msgstr "Utwórz konto uzytkownika"
 
 #: settings.cgi:283
 msgid "Current user sessions"
-msgstr "Sessões do usuário atual"
+msgstr "Aktualne sesje użytkowników"
 
 #: settings.cgi:289
 msgid "Last user sessions"
-msgstr "Sessões do último usuário"
+msgstr "Ostatnie sesje użytkowników"
 
 #: settings.cgi:301
 msgid "Please wait..."
-msgstr "Favor aguardar..."
+msgstr "Proszę czekać..."
 
 #: settings.cgi:305
 msgid "Choose locale"
-msgstr "Escolher locale"
+msgstr "Wybierz lokalizację"
 
 #: settings.cgi:307
 msgid "Current locale settings:"
-msgstr "Configuração atual de locale:"
+msgstr "Aktualne ustawienia lokalizacji:"
 
 #: settings.cgi:310
 msgid "Locales that are currently installed on the machine:"
-msgstr "Locales instalados na máquina:"
+msgstr "Lokalizacje aktualnie zainstalowane na komputerze:"
 
 #: settings.cgi:313
 msgid "Available locales:"
-msgstr "Locales disponíveis:"
+msgstr "Dostępne lokalizacje:"
 
 #: settings.cgi:319
 msgid ""
 "Can't see your language?<br/>You can <a href='/pkgs.cgi?do=Install&glibc-"
 "locale'>install glibc-locale</a> to see a larger list of available locales."
 msgstr ""
-"Não encontra seu locale?<br />Você pode instalar o pacote <a href='/pkgs.cgi?"
-"do=Install&glibc-locale'>glibc-locale</a> para obter uma listagem maior de "
-"locales."
+"Nie widzisz swojego języka?<br/>Możesz <a href='/pkgs.cgi?do=Install&glibc-"
+"locale'>zainstalować glibc-locale</a> aby zobaczyć obszerniejszą listę "
+"dostępnych lokalizacji."
 
 #: settings.cgi:328
 msgid "Code"
-msgstr "Código"
+msgstr "Kod"
 
 #: settings.cgi:329
 msgid "Language"
-msgstr "Linguagem"
+msgstr "Język"
 
 #: settings.cgi:330
 msgid "Territory"
-msgstr "Território"
+msgstr "Terytorium"
 
 #: settings.cgi:352 settings.cgi:353
 msgid "-d"
@@ -923,31 +929,32 @@ msgstr "-d"
 
 #: settings.cgi:364 settings.cgi:504 settings.cgi:517
 msgid "Activate"
-msgstr "Ativar"
+msgstr "Aktywuj"
 
 #: settings.cgi:376
 msgid "System settings"
-msgstr "Configurações do sistema"
+msgstr "Ustawienia Systemu"
 
 #: settings.cgi:377
 msgid "Manage system time, users or language settings"
-msgstr "Gerencie configurações do tempo do sistema, usuários e linguagem"
+msgstr ""
+"Zarządzaj czasem systemowym, użytkownikami albo ustawieniami językowymi"
 
 #: settings.cgi:387
 msgid "System time"
-msgstr "Tempo do sistema"
+msgstr "Czas systemowy"
 
 #: settings.cgi:391
 msgid "Time zone:"
-msgstr "Zona horária:"
+msgstr "Strefa czasowa:"
 
 #: settings.cgi:402
 msgid "System time:"
-msgstr "Tempo do sistema:"
+msgstr "Czas systemowy:"
 
 #: settings.cgi:403
 msgid "Hardware clock:"
-msgstr "Relógio de hardware:"
+msgstr "Zegar sprzętowy:"
 
 #: settings.cgi:407
 msgid "Set date"
@@ -955,15 +962,15 @@ msgstr ""
 
 #: settings.cgi:430
 msgid "Sync online"
-msgstr "Sincronização online"
+msgstr "Synchronizuj online"
 
 #: settings.cgi:431
 msgid "Set hardware clock"
-msgstr "Configurar relógio do hardware"
+msgstr "Ustaw zegar sprzętowy"
 
 #: settings.cgi:439
 msgid "System language"
-msgstr "Linguagem do sistema"
+msgstr "Język systemu"
 
 #: settings.cgi:451
 #, sh-format
@@ -971,128 +978,129 @@ msgid ""
 "You must logout and login again to your current session to use $new_locale "
 "locale."
 msgstr ""
-"Você deve sair e fazer login novamente para usar o novo locale $new_locale."
+"Należy się wylogować i zalogować ponownie aby używać ustawień lokalizacji "
+"$new_locale."
 
 #: settings.cgi:453
 msgid "Current system locale:"
-msgstr "Locale da sessão atual:"
+msgstr "Aktualna lokalizacja systemu:"
 
 #: settings.cgi:461
 msgid "Console keymap"
-msgstr "Mapa de teclado"
+msgstr "Układ klawiatury konsoli"
 
 #: settings.cgi:474
 #, sh-format
 msgid "Current console keymap: $keymap"
-msgstr "Mapa de teclado do console atual: $keymap"
+msgstr "Aktualny układ klawiatury dla konsoli: $keymap"
 
 #: settings.cgi:491
 msgid "Suggested keymap for Xorg:"
-msgstr "Mapa de teclado sugerido para o Xorg:"
+msgstr "Sugerowany układ klawiatury dla Xorg:"
 
 #: settings.cgi:500
 msgid "Available keymaps:"
-msgstr "Mapa de teclado disponíveis:"
+msgstr "Dostępne układy klawiatury:"
 
 #: settings.cgi:509
 msgid "Panel configuration"
-msgstr "Configuração do Painel"
+msgstr "Konfiguracja Panelu"
 
 #: settings.cgi:513
 msgid "Style:"
-msgstr "Estilo:"
+msgstr "Styl:"
 
 #: settings.cgi:522
 msgid "Panel password:"
-msgstr "Senha do painel:"
+msgstr "Hasło do Panelu:"
 
 #: settings.cgi:528
 msgid "Configuration files:"
-msgstr "Arquivos de configuração:"
+msgstr "Pliki konfiguracyjne:"
 
 #: settings.cgi:530 styles/default/header.html:31
 msgid "Panel"
-msgstr "Painel"
+msgstr "Panel"
 
 #: settings.cgi:532
 msgid "Server"
-msgstr "Servidor"
+msgstr "Serwer"
 
 #: settings.cgi:535
 msgid "TazPanel provides a debuging mode and page:"
-msgstr "O TazPanel oferece um modo de debug:"
+msgstr "TazPanel udostępnia tryb debugowania i stronę:"
 
 #: lib/libtazpanel:95
 msgid "connected"
-msgstr "Conectado"
+msgstr "połączony"
 
 #: lib/libtazpanel:112
 msgid "IP Address"
-msgstr "Endereço IP"
+msgstr "Adres IP"
 
 #: lib/libtazpanel:113
 msgid "Scan ports"
-msgstr "Buscar portas"
+msgstr "Skanuj porty"
 
 #: lib/libtazpanel:226
 msgid "Disk"
-msgstr "Disco"
+msgstr "Dysk"
 
 #: lib/libtazpanel:227
 msgid "Label"
-msgstr "Rótulo"
+msgstr "Etykieta"
 
 #: lib/libtazpanel:228
 msgid "Type"
-msgstr "Tipo"
+msgstr "Typ"
 
 #: lib/libtazpanel:230
 msgid "Available"
-msgstr "Disponível"
+msgstr "Dostepny"
 
 #: lib/libtazpanel:232
 msgid "Mount point"
-msgstr "Ponto de montagem"
+msgstr "Punkt montowania"
 
 #: help.cgi:20
 msgid "Manual"
-msgstr "Manual"
+msgstr "Instrukcja"
 
 #: help.cgi:28
 msgid "TazPanel - Help &amp; Doc"
-msgstr "TazPanel - Ajuda &amp; Doc"
+msgstr "TazPanel - Pomoc i Dokumentacja"
 
 #: styles/default/header.html:36
 msgid "Processes"
-msgstr "Processos"
+msgstr "Procesy"
 
 #: styles/default/header.html:38
 msgid "Create Report"
-msgstr "Criar relatório"
+msgstr "Utwórz raport"
 
 #: styles/default/header.html:42
 msgid "Network"
-msgstr "Rede"
+msgstr "Sieć"
 
 #: styles/default/header.html:45
 msgid "Config file"
-msgstr "Arquivo de configuração"
+msgstr "Plik konfiguracyjny"
 
 #: styles/default/header.html:47
 msgid "Ethernet"
-msgstr "Ethernet"
+msgstr "Sieć przewodowa"
 
 #: styles/default/header.html:49
 msgid "Wireless"
-msgstr "Redes sem fio"
+msgstr "Sieć bezprzewodowa"
 
 #: styles/default/header.html:53
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Ustawienia"
 
 #: styles/default/header.html:56
 msgid "Users"
-msgstr "Usuários"
+msgstr "Użytkownicy"
 
 #: styles/default/header.html:58
 msgid "Groups"
@@ -1100,11 +1108,11 @@ msgstr ""
 
 #: styles/default/header.html:62
 msgid "Boot"
-msgstr "Boot"
+msgstr "Uruchamianie"
 
 #: styles/default/header.html:79
 msgid "Hardware"
-msgstr "Hardware"
+msgstr "Sprzęt"
 
 #: styles/default/header.html:86
 msgid "Disks"
@@ -1116,4 +1124,4 @@ msgstr "Copyright"
 
 #: styles/default/footer.html:8
 msgid "BSD License"
-msgstr "BSD License"
+msgstr "Licencja BSD"
