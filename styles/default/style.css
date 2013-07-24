@@ -107,6 +107,7 @@ a:hover { color: #000; }
 	position: absolute;
 	left: 180px;
 	top: 0px;
+	z-index:1;
 }
 #menu li:hover li:hover ul {
 	display: block;

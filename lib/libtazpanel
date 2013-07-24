@@ -259,7 +259,7 @@ blk2h() {
 	for (i = 1; n > 1024; i++)
 		n /= 1024
 	f = "%1.0f%c"
-	if (n < 1000)
+	if (n < 100)
 		f = "%1.1f%c"
 	printf f,n,substr("KMGT", i, 1)
 }'

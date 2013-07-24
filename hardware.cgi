@@ -12,6 +12,14 @@ header
 
 TITLE=$(gettext 'TazPanel - Hardware')
 
+# Call an optionnal module
+lib()
+{
+	module=lib/$1
+	shift
+	[ -s $module ] && . $module "$@"
+}
+
 lsusb_table()
 {
 	cat << EOT
@@ -267,6 +275,7 @@ EOT
 		# Disk stats and management (mount, umount, check)
 		#
 		device=$(GET device)
+		lib crypto $device
 		case "$device" in
 		*[\;\`\&\|\$]*) ;;
 		mount\ *)
@@ -280,11 +289,9 @@ EOT
 EOT
 		df_thead
 		echo '<tbody>'
-		blkid | sort | while read dev misc
+		for fs in $(blkid | sort | sed 's/:.*//')
 		do
-			fs=${dev%:}
-			set --
-			df | grep -q "^$fs " && set -- $(df -h | grep "^$fs ")
+			set -- $(df -h | grep "^$fs ")
 			size=$2
 			used=$3
 			av=$4
@@ -305,10 +312,20 @@ EOT
 			fi
 			[ -z "$size" ] &&
 			size="$(blk2h $(cat /sys/block/${fs#/dev/}/size /sys/block/*/${fs#/dev/}/size))"
+			img="harddisk.png"
+			case "$(cat /sys/block/${fs#/dev/}/removable 2> /dev/null ||
+				cat /sys/block/${fs:5:3}/removable 2> /dev/null)" in
+			1) img="floppy.png" ;; 
+			esac
+			case "$(cat /sys/block/${fs#/dev/}/ro 2> /dev/null ||
+				cat /sys/block/${fs:5:3}/ro 2> /dev/null)" in
+			1) img="tazlito.png" ;; 
+			esac
+			[ -s ".$IMAGES/$img" ] || img="harddisk.png"
 			cat << EOT
 <tr>
 	<td><input type="radio" name="device" value="$action $fs" />
-	    <img src="$IMAGES/harddisk.png" />${fs#/dev/}</td>
+	    <img src="$IMAGES/$img" />${fs#/dev/}</td>
 	<td>$(blkid $fs | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/\1/')</td>
 	<td>$type</td>
 	<td>$size</td>
@@ -335,6 +352,7 @@ EOT
 		cat << EOT
 </tbody>
 </table>
+$(lib crypto input)
 <input type="submit" value="mount / umount" /> -
 new mount point <input type=text" name="mountpoint" value="/media/usbdisk" />
 </form>
@@ -354,6 +372,57 @@ grep -v '^#' /etc/fstab | awk 'BEGIN{print "<table class=\"zebra outbox\">\
 	<img src="$IMAGES/edit.png" />$(gettext 'Manual Edit')</a>
 
 
+<h3>$(gettext 'Loop devices')</h3>
+EOT
+		#
+		# Loop device management
+		#
+		device=$(GET loopdev)
+		lib crypto $device
+		case "$device" in
+		/dev/loop*)
+			set -- $(losetup | grep ^$device:)
+			[ -n "$3" ] && losetup -d $device
+			ro=""
+			[ -n "$(GET readonly)" ] && ro="-r"
+			file="$(GET backingfile)"
+			[ -n "$file" ] && losetup -o $(GET offset) $ro $device $file
+		esac
+		cat << EOT
+<form method="get" action="$SCRIPT_NAME#loop">
+<table id="loop" class="zebra outbox nowrap">
+<thead>
+<tr><td>Device</td><td>Backing file</td><td>Access</td><td>Offset</td></tr>
+</thead>
+<tbody>
+EOT
+for loop in $(ls /dev/loop[0-9]*); do
+	case "$(cat /sys/block/${loop#/dev/}/ro 2> /dev/null)" in
+	0) ro="read/write" ;;
+	1) ro="read&nbsp;only" ;;
+	*) ro="" ;;
+	esac
+	set -- $(losetup | grep ^$loop:) $ro
+	cat << EOT
+<tr>
+	<td><input type="radio" name="loopdev" value="$loop" />
+	    <img src="$IMAGES/harddisk.png" />${loop#/dev/}</td>
+	<td>$3</td><td align="center">$4</td><td align="right">$2</td>
+</tr>
+EOT
+done
+		cat << EOT
+</tbody>
+</table>
+$(lib crypto input)
+<input type="submit" value="Setup" /> -
+new backing file <input type="file" name="backingfile" /> -
+offset in bytes <input type="text" name="offset" size="8" value="0" /> -
+<input type="checkbox" name "readonly"> read-only
+</form>
+EOT
+
+		cat << EOT
 <h3>$(gettext 'System memory')</h3>
 EOT
 
