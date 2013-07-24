@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-23 00:41+0300\n"
-"PO-Revision-Date: 2013-07-22 23:17+0300\n"
+"PO-Revision-Date: 2013-07-23 12:33+0100\n"
 "Last-Translator: Paweł Pyrczak <tkr.tkr.pl@gmail.com>\n"
 "Language-Team: \n"
 "Language: pl\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: tazpanel:36
 msgid "TazPanel is already running."
-msgstr ""
+msgstr "TazPanel jest już uruchomiony."
 
 #: tazpanel:39
 #, sh-format
@@ -36,7 +36,7 @@ msgstr "Autoryzacja dostępu do TazPanel - domyślnie: root:root"
 
 #: tazpanel:47
 msgid "TazPanel is not running."
-msgstr ""
+msgstr "TazPanel nie jest uruchomiony."
 
 #: tazpanel:50
 msgid "Stopping TazPanel web server..."
@@ -65,7 +65,7 @@ msgstr "Różnice/Zmiany"
 
 #: index.cgi:66
 msgid "TazPanel - exec"
-msgstr ""
+msgstr "TazPanel - exec"
 
 #: index.cgi:84
 msgid "TazPanel - File"
@@ -348,7 +348,7 @@ msgstr "Aktywuj (DHCP)"
 
 #: network.cgi:189
 msgid "Disable"
-msgstr "DeAktywuj"
+msgstr "Deaktywuj"
 
 #: network.cgi:194 network.cgi:282
 msgid "Configuration file"
@@ -584,7 +584,7 @@ msgstr "Obraz powitalny:"
 
 #: boot.cgi:259 settings.cgi:401 settings.cgi:457 settings.cgi:524
 msgid "Change"
-msgstr "zmień"
+msgstr "Zmień"
 
 #: boot.cgi:261
 msgid "View or edit menu.lst"
@@ -660,7 +660,7 @@ msgstr "Moduły jądra Linux"
 
 #: hardware.cgi:75
 msgid "Modules search"
-msgstr "Szukaj moduł"
+msgstr "Szukaj moduły"
 
 #: hardware.cgi:78
 msgid "Manage, search or get information about the Linux kernel modules"
@@ -699,16 +699,16 @@ msgstr "przez"
 #: hardware.cgi:136
 #, sh-format
 msgid "Information for USB Device $vidpid"
-msgstr ""
+msgstr "Informacje i urządzeniu USB $vidpid"
 
 #: hardware.cgi:137 hardware.cgi:151
 msgid "Detailed information about specified device."
-msgstr ""
+msgstr "Szczegółowe informacje o wybranym urządzeniu."
 
 #: hardware.cgi:150
 #, sh-format
 msgid "Information for PCI Device $slot"
-msgstr ""
+msgstr "Informacje o urządzeniu PCI $slot"
 
 #: hardware.cgi:169
 msgid "Drivers &amp; Devices"
@@ -716,7 +716,7 @@ msgstr "Sterowniki i Urządzenia"
 
 #: hardware.cgi:170
 msgid "Manage your computer hardware"
-msgstr "Zarządzanie sprzętem i urządzeniami w komputerze"
+msgstr "Zarządzanie sprzętem i podłączonymi urządzeniami"
 
 #: hardware.cgi:176 styles/default/header.html:84
 msgid "Detect PCI/USB"
@@ -754,7 +754,7 @@ msgstr "Jasność ekranu"
 
 #: hardware.cgi:343
 msgid "Filesystems table"
-msgstr ""
+msgstr "Tabela systemów plików"
 
 #: hardware.cgi:357
 msgid "System memory"
@@ -766,7 +766,7 @@ msgstr "TazPanel - Ustawienia"
 
 #: settings.cgi:120 settings.cgi:383
 msgid "Manage groups"
-msgstr ""
+msgstr "Zarządzaj grupami"
 
 #: settings.cgi:126 settings.cgi:209
 msgid "Selection:"
@@ -774,47 +774,45 @@ msgstr "Zaznaczone:"
 
 #: settings.cgi:127
 msgid "Delete group"
-msgstr ""
+msgstr "Usuń grupę"
 
 #: settings.cgi:134
 msgid "Group"
-msgstr ""
+msgstr "Grupa"
 
 #: settings.cgi:135
 msgid "Group ID"
-msgstr ""
+msgstr "ID Grupy"
 
 #: settings.cgi:136
 msgid "Members"
-msgstr ""
+msgstr "Członkowie"
 
 #: settings.cgi:163
 msgid "Add a new group"
-msgstr ""
+msgstr "Dodaj nową grupę"
 
 #: settings.cgi:168 settings.cgi:182
 msgid "Group name:"
-msgstr ""
+msgstr "Nazwa Grupy:"
 
 #: settings.cgi:171
 msgid "Create group"
-msgstr ""
+msgstr "Utwórz grupę użytkowników"
 
 #: settings.cgi:177
 msgid "Manage group membership"
-msgstr ""
+msgstr "Zarządzaj grupą użytkowników"
 
 #: settings.cgi:186
 msgid "User name:"
-msgstr ""
+msgstr "Nazwa użytkownika:"
 
 #: settings.cgi:190
-#, fuzzy
 msgid "Add user"
 msgstr "Dodaj użytkownika"
 
 #: settings.cgi:191
-#, fuzzy
 msgid "Remove user"
 msgstr "Usuń użytkownika"
 
@@ -872,7 +870,7 @@ msgstr "Hasło użytkownika:"
 
 #: settings.cgi:277
 msgid "Create user"
-msgstr "Utwórz konto uzytkownika"
+msgstr "Utwórz konto użytkownika"
 
 #: settings.cgi:283
 msgid "Current user sessions"
@@ -907,7 +905,7 @@ msgid ""
 "Can't see your language?<br/>You can <a href='/pkgs.cgi?do=Install&glibc-"
 "locale'>install glibc-locale</a> to see a larger list of available locales."
 msgstr ""
-"Nie widzisz swojego języka?<br/>Możesz <a href='/pkgs.cgi?do=Install&glibc-"
+"Nie widzisz swojego języka?</br/>Możesz <a href='/pkgs.cgi?do=Install&glibc-"
 "locale'>zainstalować glibc-locale</a> aby zobaczyć obszerniejszą listę "
 "dostępnych lokalizacji."
 
@@ -954,11 +952,11 @@ msgstr "Czas systemowy:"
 
 #: settings.cgi:403
 msgid "Hardware clock:"
-msgstr "Zegar sprzętowy:"
+msgstr "Zegar sprzętowy RTC:"
 
 #: settings.cgi:407
 msgid "Set date"
-msgstr ""
+msgstr "Ustaw datę"
 
 #: settings.cgi:430
 msgid "Sync online"
@@ -966,7 +964,7 @@ msgstr "Synchronizuj online"
 
 #: settings.cgi:431
 msgid "Set hardware clock"
-msgstr "Ustaw zegar sprzętowy"
+msgstr "Ustaw zegar sprzętowy RTC"
 
 #: settings.cgi:439
 msgid "System language"
@@ -978,12 +976,12 @@ msgid ""
 "You must logout and login again to your current session to use $new_locale "
 "locale."
 msgstr ""
-"Należy się wylogować i zalogować ponownie aby używać ustawień lokalizacji "
+"Należy się wylogować i zalogować ponownie aby używać ustawień regionalnych "
 "$new_locale."
 
 #: settings.cgi:453
 msgid "Current system locale:"
-msgstr "Aktualna lokalizacja systemu:"
+msgstr "Aktualne ustawienia regionalne systemu:"
 
 #: settings.cgi:461
 msgid "Console keymap"
@@ -1072,7 +1070,7 @@ msgstr "TazPanel - Pomoc i Dokumentacja"
 
 #: styles/default/header.html:36
 msgid "Processes"
-msgstr "Procesy"
+msgstr "Uruchomione procesy"
 
 #: styles/default/header.html:38
 msgid "Create Report"
@@ -1104,7 +1102,7 @@ msgstr "Użytkownicy"
 
 #: styles/default/header.html:58
 msgid "Groups"
-msgstr ""
+msgstr "Grupy"
 
 #: styles/default/header.html:62
 msgid "Boot"
@@ -1116,7 +1114,7 @@ msgstr "Sprzęt"
 
 #: styles/default/header.html:86
 msgid "Disks"
-msgstr ""
+msgstr "Dyski"
 
 #: styles/default/footer.html:6
 msgid "Copyright"
