@@ -279,7 +279,9 @@ EOT
 		case "$device" in
 		*[\;\`\&\|\$]*) ;;
 		mount\ *)
-			$device $(GET mountpoint);;
+			ro=""
+			[ -n "$(GET readonly)" ] && ro="-r"
+			$device $ro $(GET mountpoint);;
 		umount\ *|swapon\ *|swapoff\ *)
 			$device ;;
 		esac
@@ -295,6 +297,8 @@ EOT
 			size=$2
 			used=$3
 			av=$4
+			grep "^$fs " /proc/mounts | grep -q "[, ]ro[, ]" &&
+			av="<del>$av</del>"
 			pct=$5
 			mp=$6
 			action="mount"
@@ -354,7 +358,8 @@ EOT
 </table>
 $(lib crypto input)
 <input type="submit" value="mount / umount" /> -
-new mount point <input type=text" name="mountpoint" value="/media/usbdisk" />
+new mount point <input type=text" name="mountpoint" value="/media/usbdisk" /> -
+<input type="checkbox" name="readonly"> read-only
 </form>
 
 
@@ -416,9 +421,9 @@ done
 </table>
 $(lib crypto input)
 <input type="submit" value="Setup" /> -
-new backing file <input type="file" name="backingfile" /> -
+new backing file <input type="text" name="backingfile" /> -
 offset in bytes <input type="text" name="offset" size="8" value="0" /> -
-<input type="checkbox" name "readonly"> read-only
+<input type="checkbox" name="readonly"> read-only
 </form>
 EOT
 
