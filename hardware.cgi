@@ -272,6 +272,20 @@ EOT
 
 
 		#
+		# Loop device management actions
+		#
+		device=$(GET loopdev)
+		lib crypto $device
+		case "$device" in
+		/dev/loop*)
+			set -- $(losetup | grep ^$device:)
+			[ -n "$3" ] && losetup -d $device
+			ro=""
+			[ -n "$(GET readonly)" ] && ro="-r"
+			file="$(GET backingfile)"
+			[ -n "$file" ] && losetup -o $(GET offset) $ro $device $file
+		esac
+		#
 		# Disk stats and management (mount, umount, check)
 		#
 		device=$(GET device)
@@ -291,7 +305,7 @@ EOT
 EOT
 		df_thead
 		echo '<tbody>'
-		for fs in $(blkid | sort | sed 's/:.*//')
+		for fs in $(blkid | sed 's/:.*//')
 		do
 			set -- $(df -h | grep "^$fs ")
 			size=$2
@@ -367,8 +381,10 @@ new mount point <input type=text" name="mountpoint" value="/media/usbdisk" /> -
 EOT
 
 grep -v '^#' /etc/fstab | awk 'BEGIN{print "<table class=\"zebra outbox\">\
-	<thead><tr><td>spec</td><td>file</td><td>vfstype</td><td>mntops</td><td>\
-	freq</td><td>passno</td></thead><tbody>"}{print "<tr><td>"$1"</td><td>"$2\
+	<thead><tr><td>$(gettext 'Disk')</td><td>$(gettext 'Mount point')</td><td>\
+	$(gettext 'Type')</td><td>$(gettext 'Options')</td><td>\
+	$(gettext 'Freq')</td><td>$(gettext 'Pass')</td></thead><tbody>"}\
+	{print "<tr><td>"$1"</td><td>"$2\
 	"</td><td>"$3"</td><td>"$4"</td><td>"$5"</td><td>"$6"</td></tr>"}
 	END{print "</tbody></table>"}'
 
@@ -380,19 +396,8 @@ grep -v '^#' /etc/fstab | awk 'BEGIN{print "<table class=\"zebra outbox\">\
 <h3>$(gettext 'Loop devices')</h3>
 EOT
 		#
-		# Loop device management
+		# Loop device management gui
 		#
-		device=$(GET loopdev)
-		lib crypto $device
-		case "$device" in
-		/dev/loop*)
-			set -- $(losetup | grep ^$device:)
-			[ -n "$3" ] && losetup -d $device
-			ro=""
-			[ -n "$(GET readonly)" ] && ro="-r"
-			file="$(GET backingfile)"
-			[ -n "$file" ] && losetup -o $(GET offset) $ro $device $file
-		esac
 		cat << EOT
 <form method="get" action="$SCRIPT_NAME#loop">
 <table id="loop" class="zebra outbox nowrap">
