@@ -3,7 +3,7 @@
 # Common functions for TazPanel CGI and cmdline interface
 #
 
-[ "$(id -un)" == "$REMOTE_USER" ] || exec su -c "$(realpath $0) $@" $REMOTE_USER
+[ "$(id -un)" == "${REMOTE_USER:-root}" ] || exec su -c "$(realpath $0) $@" $REMOTE_USER
 
 # Get parameters with GET, POST and FILE functions
 . /usr/lib/slitaz/httphelper
