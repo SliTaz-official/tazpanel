@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-23 00:41+0300\n"
+"POT-Creation-Date: 2013-12-21 21:38+0100\n"
 "PO-Revision-Date: 2013-07-23 02:52+0300\n"
 "Last-Translator: Aleksej Bobylev <al.bobylev@gmail.com>\n"
 "Language-Team: \n"
@@ -20,42 +20,42 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: tazpanel:36
+#: tazpanel:35
 msgid "TazPanel is already running."
 msgstr "TazPanel уже запущена."
 
-#: tazpanel:39
+#: tazpanel:38
 #, sh-format
 msgid "Starting TazPanel web server on port $HTTPD_PORT..."
 msgstr "Веб-сервер TazPanel запускается на порту $HTTPD_PORT..."
 
-#: tazpanel:41
+#: tazpanel:40
 msgid "TazPanel Authentication - Default: root:root"
 msgstr "Аутентификация TazPanel (по умолчанию root:root)"
 
-#: tazpanel:47
+#: tazpanel:46
 msgid "TazPanel is not running."
 msgstr "TazPanel не была запущена."
 
-#: tazpanel:50
+#: tazpanel:49
 msgid "Stopping TazPanel web server..."
 msgstr "Остановка веб-сервера TazPanel…"
 
-#: tazpanel:56
+#: tazpanel:55
 msgid "Changing password for TazPanel"
 msgstr "Изменение пароля TazPanel"
 
-#: tazpanel:57
+#: tazpanel:56
 msgid "New password: "
 msgstr "Новый пароль: "
 
-#: tazpanel:59
+#: tazpanel:58
 msgid "Password changed successfully"
 msgstr "Пароль успешно изменён"
 
-#: tazpanel:64
-#, sh-format
-msgid "Usage: $program_name [start|stop|passwd]"
+#: tazpanel:62
+#, fuzzy
+msgid "Usage: tazpanel [start|stop|passwd]"
 msgstr "Использование: $program_name [start|stop|passwd]"
 
 #: index.cgi:38 index.cgi:95
@@ -245,7 +245,7 @@ msgstr "Ядро Linux:"
 msgid "Network status"
 msgstr "Состояние сети"
 
-#: index.cgi:413 hardware.cgi:258
+#: index.cgi:413 hardware.cgi:266
 msgid "Filesystem usage statistics"
 msgstr "Статистика использования файловых систем"
 
@@ -258,7 +258,7 @@ msgid "TazPanel - Network"
 msgstr "Сети | TazPanel"
 
 #: network.cgi:23 network.cgi:160 network.cgi:256 boot.cgi:82 settings.cgi:221
-#: lib/libtazpanel:110
+#: lib/libtazpanel:108
 msgid "Name"
 msgstr "Название"
 
@@ -270,7 +270,7 @@ msgstr "Уровень сигнала"
 msgid "Encryption"
 msgstr "Шифрование"
 
-#: network.cgi:26 boot.cgi:85 lib/libtazpanel:111
+#: network.cgi:26 boot.cgi:85 lib/libtazpanel:109
 msgid "Status"
 msgstr "Состояние"
 
@@ -317,7 +317,7 @@ msgstr "Настройки"
 msgid "Value"
 msgstr "Значение"
 
-#: network.cgi:166 lib/libtazpanel:109
+#: network.cgi:166 lib/libtazpanel:107
 msgid "Interface"
 msgstr "Интерфейс"
 
@@ -358,10 +358,10 @@ msgid ""
 "These values are the ethernet settings in the main /etc/network.conf "
 "configuration file"
 msgstr ""
-"Эти значения — параметры Ethernet из основного конфигурационного файла "
-"/etc/network.conf"
+"Эти значения — параметры Ethernet из основного конфигурационного файла /etc/"
+"network.conf"
 
-#: network.cgi:202 network.cgi:290 hardware.cgi:354
+#: network.cgi:202 network.cgi:290 hardware.cgi:393
 msgid "Manual Edit"
 msgstr "Ручная правка"
 
@@ -373,11 +373,11 @@ msgstr "Сканирование беспроводного интерфейса
 msgid "Wireless connection"
 msgstr "Беспроводное соединение"
 
-#: network.cgi:216 network.cgi:313 boot.cgi:218
+#: network.cgi:216 network.cgi:313 boot.cgi:219
 msgid "Start"
 msgstr "Запустить"
 
-#: network.cgi:218 network.cgi:315 boot.cgi:206
+#: network.cgi:218 network.cgi:315 boot.cgi:207
 msgid "Stop"
 msgstr "Остановить"
 
@@ -414,8 +414,8 @@ msgid ""
 "These values are the wifi settings in the main /etc/network.conf "
 "configuration file"
 msgstr ""
-"Эти значения — параметры Wi-Fi из основного конфигурационного файла "
-"/etc/network.conf"
+"Эти значения — параметры Wi-Fi из основного конфигурационного файла /etc/"
+"network.conf"
 
 #: network.cgi:294
 msgid "Output of iwconfig"
@@ -489,7 +489,7 @@ msgstr "X-сервер"
 msgid "Show more..."
 msgstr "Показать больше…"
 
-#: boot.cgi:61 boot.cgi:303 styles/default/header.html:75
+#: boot.cgi:61 boot.cgi:304 styles/default/header.html:75
 msgid "Manage daemons"
 msgstr "Управление службами"
 
@@ -509,135 +509,135 @@ msgstr "Действие"
 msgid "PID"
 msgstr "PID"
 
-#: boot.cgi:114
+#: boot.cgi:115
 msgid "SliTaz Firewall with iptable rules"
 msgstr "Брандмауэр SliTaz с правилами iptable"
 
-#: boot.cgi:116
+#: boot.cgi:117
 msgid "Small and fast web server with CGI support"
 msgstr "Маленький и быстрый веб-сервер с поддержкой CGI"
 
-#: boot.cgi:118
+#: boot.cgi:119
 msgid "Network time protocol daemon"
 msgstr "Служба протокола сетевого времени"
 
-#: boot.cgi:121
+#: boot.cgi:122
 msgid "Anonymous FTP server"
 msgstr "Анонимный сервер FTP"
 
-#: boot.cgi:123
+#: boot.cgi:124
 msgid "Busybox DHCP server"
 msgstr "Сервер DHCP из Busybox"
 
-#: boot.cgi:125
+#: boot.cgi:126
 msgid "Linux Kernel log daemon"
 msgstr "Служба журнала ядра Linux"
 
-#: boot.cgi:128
+#: boot.cgi:129
 msgid "Execute scheduled commands"
 msgstr "Выполнение запланированных команд"
 
-#: boot.cgi:131
+#: boot.cgi:132
 msgid "Small static DNS server daemon"
 msgstr "Служба маленького статического сервера DNS"
 
-#: boot.cgi:134
+#: boot.cgi:135
 msgid "Transfer a file on tftp request"
 msgstr "Передача файлов по запросу TFTP"
 
-#: boot.cgi:136
+#: boot.cgi:137
 msgid "Listen for network connections and launch programs"
 msgstr "Прослушивание сетевых соединений и запуск программ"
 
-#: boot.cgi:139
+#: boot.cgi:140
 msgid "Manage a ZeroConf IPv4 link-local address"
 msgstr "Управление присоединенным-локальным адресом ZeroConf IPv4"
 
-#: boot.cgi:204
+#: boot.cgi:205
 msgid "Started"
 msgstr "Запущен"
 
-#: boot.cgi:216
+#: boot.cgi:217
 msgid "Stopped"
 msgstr "Остановлен"
 
-#: boot.cgi:244
+#: boot.cgi:245
 msgid "GRUB Boot loader"
 msgstr "Загрузчик GRUB"
 
-#: boot.cgi:246
+#: boot.cgi:247
 msgid "The first application started when the computer powers on"
 msgstr "Первое приложение, запускаемое при включении питания"
 
-#: boot.cgi:252
+#: boot.cgi:253
 msgid "Default entry:"
 msgstr "Пункт по умолчанию:"
 
-#: boot.cgi:254
+#: boot.cgi:255
 msgid "Timeout:"
 msgstr "Таймаут:"
 
-#: boot.cgi:256
+#: boot.cgi:257
 msgid "Splash image:"
 msgstr "Загрузочная картинка:"
 
-#: boot.cgi:259 settings.cgi:401 settings.cgi:457 settings.cgi:524
+#: boot.cgi:260 settings.cgi:401 settings.cgi:457 settings.cgi:524
 msgid "Change"
 msgstr "Изменить"
 
-#: boot.cgi:261
+#: boot.cgi:262
 msgid "View or edit menu.lst"
 msgstr "Просмотр и правка menu.lst"
 
-#: boot.cgi:264
+#: boot.cgi:265
 msgid "Boot entries"
 msgstr "Загрузочные пункты"
 
-#: boot.cgi:270
+#: boot.cgi:271
 msgid "Entry"
 msgstr "Пункт"
 
-#: boot.cgi:286
+#: boot.cgi:287
 msgid "Web boot is available with gPXE"
 msgstr "Доступна веб-загрузка с gPXE"
 
-#: boot.cgi:296
+#: boot.cgi:297
 msgid "Boot &amp; Start services"
 msgstr "Загрузка и запуск служб"
 
-#: boot.cgi:297
+#: boot.cgi:298
 msgid "Everything that happens before user login"
 msgstr "Всё, что происходит перед входом пользователя в систему"
 
-#: boot.cgi:301 styles/default/header.html:67
+#: boot.cgi:302 styles/default/header.html:67
 msgid "Boot logs"
 msgstr "Журналы загрузки"
 
-#: boot.cgi:304 styles/default/header.html:65
+#: boot.cgi:305 styles/default/header.html:65
 msgid "Boot loader"
 msgstr "Загрузчик"
 
-#: boot.cgi:307
+#: boot.cgi:308
 msgid "Configuration files"
 msgstr "Файлы настроек"
 
-#: boot.cgi:309
+#: boot.cgi:310
 msgid "Main configuration file:"
 msgstr "Главный файл настроек:"
 
-#: boot.cgi:311
+#: boot.cgi:312
 msgid "Login manager settings:"
 msgstr "Настройки менеджера входа в систему:"
 
-#: boot.cgi:315
+#: boot.cgi:316
 msgid "Kernel cmdline"
 msgstr "Командная строка ядра"
 
-#: boot.cgi:319
+#: boot.cgi:320
 msgid "Local startup commands"
 msgstr "Локальные команды запуска"
 
-#: boot.cgi:324
+#: boot.cgi:325
 msgid "Edit script"
 msgstr "Править скрипт"
 
@@ -645,117 +645,147 @@ msgstr "Править скрипт"
 msgid "TazPanel - Hardware"
 msgstr "Оборудование | TazPanel"
 
-#: hardware.cgi:58
+#: hardware.cgi:66
 msgid "Detect hardware"
 msgstr "Поиск оборудования"
 
-#: hardware.cgi:59
+#: hardware.cgi:67
 msgid "Detect PCI and USB hardware"
 msgstr "Определение оборудования PCI и USB"
 
-#: hardware.cgi:71 hardware.cgi:174 styles/default/header.html:82
+#: hardware.cgi:79 hardware.cgi:182 styles/default/header.html:82
 msgid "Kernel modules"
 msgstr "Модули ядра"
 
-#: hardware.cgi:75
+#: hardware.cgi:83
 msgid "Modules search"
 msgstr "Поиск модулей"
 
-#: hardware.cgi:78
+#: hardware.cgi:86
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Управление, поиск и сведения о модулях ядра Linux"
 
-#: hardware.cgi:85
+#: hardware.cgi:93
 #, sh-format
 msgid "Detailed information for module: $get_modinfo"
 msgstr "Подробности о модуле $get_modinfo"
 
-#: hardware.cgi:99
+#: hardware.cgi:107
 #, sh-format
 msgid "Matching result(s) for: $get_search"
 msgstr "Результаты поиска $get_search"
 
-#: hardware.cgi:105
+#: hardware.cgi:113
 msgid "Module:"
 msgstr "Модуль:"
 
-#: hardware.cgi:112
+#: hardware.cgi:120
 msgid "Module"
 msgstr "Модуль"
 
-#: hardware.cgi:113 lib/libtazpanel:229
+#: hardware.cgi:121 lib/libtazpanel:227
 msgid "Size"
 msgstr "Размер"
 
-#: hardware.cgi:114 lib/libtazpanel:231
+#: hardware.cgi:122 lib/libtazpanel:229
 msgid "Used"
 msgstr "Используется"
 
-#: hardware.cgi:115
+#: hardware.cgi:123
 msgid "by"
 msgstr "кем"
 
-#: hardware.cgi:136
+#: hardware.cgi:144
 #, sh-format
 msgid "Information for USB Device $vidpid"
 msgstr "Информация о USB-устройстве $vidpid"
 
-#: hardware.cgi:137 hardware.cgi:151
+#: hardware.cgi:145 hardware.cgi:159
 msgid "Detailed information about specified device."
 msgstr "Подробная информация о выбранном устройстве."
 
-#: hardware.cgi:150
+#: hardware.cgi:158
 #, sh-format
 msgid "Information for PCI Device $slot"
 msgstr "Информация о PCI-устройстве $slot"
 
-#: hardware.cgi:169
+#: hardware.cgi:177
 msgid "Drivers &amp; Devices"
 msgstr "Драйверы и устройства"
 
-#: hardware.cgi:170
+#: hardware.cgi:178
 msgid "Manage your computer hardware"
 msgstr "Управление вашим компьютерным оборудованием"
 
-#: hardware.cgi:176 styles/default/header.html:84
+#: hardware.cgi:184 styles/default/header.html:84
 msgid "Detect PCI/USB"
 msgstr "Определить PCI/USB"
 
-#: hardware.cgi:196
+#: hardware.cgi:204
 msgid "Battery"
 msgstr "Батарея"
 
-#: hardware.cgi:198
+#: hardware.cgi:206
 msgid "health"
 msgstr "здоровье"
 
-#: hardware.cgi:207
+#: hardware.cgi:215
 #, sh-format
 msgid "Discharging $rempct% - $remtimef"
 msgstr "Разряжается: $rempct % — осталось $remtimef"
 
-#: hardware.cgi:211
+#: hardware.cgi:219
 #, sh-format
 msgid "Charging $rempct% - $remtimef"
 msgstr "Заряжается: $rempct % — осталось $remtimef"
 
-#: hardware.cgi:213
+#: hardware.cgi:221
 msgid "Charged 100%"
 msgstr "Полностью заряжена"
 
-#: hardware.cgi:221
+#: hardware.cgi:229
 msgid "Temperature:"
 msgstr "Температура:"
 
-#: hardware.cgi:236
+#: hardware.cgi:244
 msgid "Brightness"
 msgstr "Яркость"
 
-#: hardware.cgi:343
+#: hardware.cgi:380
 msgid "Filesystems table"
 msgstr "Таблица файловых систем"
 
-#: hardware.cgi:357
+#: hardware.cgi:384 lib/libtazpanel:224
+msgid "Disk"
+msgstr "Диск"
+
+#: hardware.cgi:384 lib/libtazpanel:230
+msgid "Mount point"
+msgstr "Точка монтирования"
+
+#: hardware.cgi:385 lib/libtazpanel:226
+msgid "Type"
+msgstr "Тип"
+
+#: hardware.cgi:385
+#, fuzzy
+msgid "Options"
+msgstr "Действие"
+
+#: hardware.cgi:386
+msgid "Freq"
+msgstr ""
+
+#: hardware.cgi:386
+#, fuzzy
+msgid "Pass"
+msgstr "Пароль:"
+
+#: hardware.cgi:396
+msgid "Loop devices"
+msgstr ""
+
+#: hardware.cgi:436
 msgid "System memory"
 msgstr "Системная память"
 
@@ -900,8 +930,13 @@ msgid "Available locales:"
 msgstr "Доступные локали:"
 
 #: settings.cgi:319
-msgid "Can't see your language?<br/>You can <a href='/pkgs.cgi?do=Install&glibc-locale'>install glibc-locale</a> to see a larger list of available locales."
-msgstr "Не видите вашего языка?<br/>Вы можете <a href='/pkgs.cgi?do=Install&glibc-locale'>установить glibc-locale</a> для того, чтобы получить большой список доступных локалей."
+msgid ""
+"Can't see your language?<br/>You can <a href='/pkgs.cgi?do=Install&glibc-"
+"locale'>install glibc-locale</a> to see a larger list of available locales."
+msgstr ""
+"Не видите вашего языка?<br/>Вы можете <a href='/pkgs.cgi?do=Install&glibc-"
+"locale'>установить glibc-locale</a> для того, чтобы получить большой список "
+"доступных локалей."
 
 #: settings.cgi:328
 msgid "Code"
@@ -965,8 +1000,12 @@ msgstr "Язык системы"
 
 #: settings.cgi:451
 #, sh-format
-msgid "You must logout and login again to your current session to use $new_locale locale."
-msgstr "Вам необходимо выйти из системы и войти повторно, чтобы использовать локаль «$new_locale»."
+msgid ""
+"You must logout and login again to your current session to use $new_locale "
+"locale."
+msgstr ""
+"Вам необходимо выйти из системы и войти повторно, чтобы использовать локаль "
+"«$new_locale»."
 
 #: settings.cgi:453
 msgid "Current system locale:"
@@ -1017,37 +1056,25 @@ msgstr "Сервер"
 msgid "TazPanel provides a debuging mode and page:"
 msgstr "TazPanel поддерживает отладочный режим и страницу:"
 
-#: lib/libtazpanel:95
+#: lib/libtazpanel:93
 msgid "connected"
 msgstr "соединён"
 
-#: lib/libtazpanel:112
+#: lib/libtazpanel:110
 msgid "IP Address"
 msgstr "Адрес IP"
 
-#: lib/libtazpanel:113
+#: lib/libtazpanel:111
 msgid "Scan ports"
 msgstr "Сканировать порты"
 
-#: lib/libtazpanel:226
-msgid "Disk"
-msgstr "Диск"
-
-#: lib/libtazpanel:227
+#: lib/libtazpanel:225
 msgid "Label"
 msgstr "Метка"
 
 #: lib/libtazpanel:228
-msgid "Type"
-msgstr "Тип"
-
-#: lib/libtazpanel:230
 msgid "Available"
 msgstr "Доступно"
-
-#: lib/libtazpanel:232
-msgid "Mount point"
-msgstr "Точка монтирования"
 
 #: help.cgi:20
 msgid "Manual"

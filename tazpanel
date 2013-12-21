@@ -13,8 +13,7 @@ CONFIG="/etc/slitaz/tazpanel.conf"
 [ ! -f $PANEL/lib/libtazpanel ] && \
 	echo "No config file or libtazpanel found: $CONFIG" && exit 1
 . $PANEL/lib/libtazpanel
-. /usr/lib/slitaz/libtaz
-source_lib commons
+. /lib/libtaz.sh
 
 # I18n
 . /usr/bin/gettext.sh
@@ -59,9 +58,8 @@ case "$1" in
 		gettext 'Password changed successfully'; echo
 		echo "" ;;
 	*)
-		program_name="$(basename $0)"
 		echo ""
-		eval_gettext 'Usage: $program_name [start|stop|passwd]'
+		gettext 'Usage: tazpanel [start|stop|passwd]'; echo
 		echo "" ;;
 esac
 

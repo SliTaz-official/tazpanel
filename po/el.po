@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-23 00:41+0300\n"
+"POT-Creation-Date: 2013-12-21 21:38+0100\n"
 "PO-Revision-Date: 2012-06-10 17:15+0200\n"
 "Last-Translator: Douros Dimitris <dourosdimitris@gmail.com>\n"
 "Language-Team: \n"
@@ -18,42 +18,42 @@ msgstr ""
 "X-Poedit-Language: Greek\n"
 "X-Poedit-Country: GREECE\n"
 
-#: tazpanel:36
+#: tazpanel:35
 msgid "TazPanel is already running."
 msgstr ""
 
-#: tazpanel:39
+#: tazpanel:38
 #, sh-format
 msgid "Starting TazPanel web server on port $HTTPD_PORT..."
 msgstr "Εκκίνηση εξυπηρετητή ιστού TazPanel στη θύρα $HTTPD_PORT..."
 
-#: tazpanel:41
+#: tazpanel:40
 msgid "TazPanel Authentication - Default: root:root"
 msgstr "Πιστοποίηση TazPanel - Προεπιλογή: root:root"
 
-#: tazpanel:47
+#: tazpanel:46
 msgid "TazPanel is not running."
 msgstr ""
 
-#: tazpanel:50
+#: tazpanel:49
 msgid "Stopping TazPanel web server..."
 msgstr "Σταμάτημα εξυπηρετητή ιστού TazPanel..."
 
-#: tazpanel:56
+#: tazpanel:55
 msgid "Changing password for TazPanel"
 msgstr "Αλλαγή κωδικού για TazPanel"
 
-#: tazpanel:57
+#: tazpanel:56
 msgid "New password: "
 msgstr "Νέος κωδικός: "
 
-#: tazpanel:59
+#: tazpanel:58
 msgid "Password changed successfully"
 msgstr "Ο κωδικός άλλαξε επιτυχώς"
 
-#: tazpanel:64
-#, sh-format
-msgid "Usage: $program_name [start|stop|passwd]"
+#: tazpanel:62
+#, fuzzy
+msgid "Usage: tazpanel [start|stop|passwd]"
 msgstr "Χρήση: $program_name [start|stop|passwd]"
 
 #: index.cgi:38 index.cgi:95
@@ -244,7 +244,7 @@ msgstr "Πυρήνας Linux:"
 msgid "Network status"
 msgstr "Κατάσταση δικτύου"
 
-#: index.cgi:413 hardware.cgi:258
+#: index.cgi:413 hardware.cgi:266
 msgid "Filesystem usage statistics"
 msgstr "Στατιστικά χρήσης συστήματος αρχείων"
 
@@ -257,7 +257,7 @@ msgid "TazPanel - Network"
 msgstr "TazPanel - Δίκτυο"
 
 #: network.cgi:23 network.cgi:160 network.cgi:256 boot.cgi:82 settings.cgi:221
-#: lib/libtazpanel:110
+#: lib/libtazpanel:108
 msgid "Name"
 msgstr "Όνομα"
 
@@ -269,7 +269,7 @@ msgstr "Ποιότητα"
 msgid "Encryption"
 msgstr "Κρυπτογράφιση"
 
-#: network.cgi:26 boot.cgi:85 lib/libtazpanel:111
+#: network.cgi:26 boot.cgi:85 lib/libtazpanel:109
 msgid "Status"
 msgstr "Κατάσταση"
 
@@ -315,7 +315,7 @@ msgstr "Διαμόρφωση"
 msgid "Value"
 msgstr "Τιμή"
 
-#: network.cgi:166 lib/libtazpanel:109
+#: network.cgi:166 lib/libtazpanel:107
 msgid "Interface"
 msgstr "Διεπαφή"
 
@@ -359,7 +359,7 @@ msgstr ""
 "Οι τιμές αυτές είναι οι ρυθμίσεις του ethernet στο κύριο αρχείο διαμόρφωσης /"
 "etc/network.conf"
 
-#: network.cgi:202 network.cgi:290 hardware.cgi:354
+#: network.cgi:202 network.cgi:290 hardware.cgi:393
 msgid "Manual Edit"
 msgstr "Χειροκίνητη επεξεργασία"
 
@@ -371,11 +371,11 @@ msgstr "Σάρωση ασύρματης διεπαφής..."
 msgid "Wireless connection"
 msgstr "Ασύρματη σύνδεση"
 
-#: network.cgi:216 network.cgi:313 boot.cgi:218
+#: network.cgi:216 network.cgi:313 boot.cgi:219
 msgid "Start"
 msgstr "Εκκίνηση"
 
-#: network.cgi:218 network.cgi:315 boot.cgi:206
+#: network.cgi:218 network.cgi:315 boot.cgi:207
 msgid "Stop"
 msgstr "Σταμάτημα"
 
@@ -487,7 +487,7 @@ msgstr "Εξυπηρετητής Χ"
 msgid "Show more..."
 msgstr "Εμφάνισε περισσότερα..."
 
-#: boot.cgi:61 boot.cgi:303 styles/default/header.html:75
+#: boot.cgi:61 boot.cgi:304 styles/default/header.html:75
 msgid "Manage daemons"
 msgstr "Διαχείριση δαιμόνων (daemons)"
 
@@ -507,135 +507,135 @@ msgstr "Ενέργεια"
 msgid "PID"
 msgstr ""
 
-#: boot.cgi:114
+#: boot.cgi:115
 msgid "SliTaz Firewall with iptable rules"
 msgstr "Τοίχος προστασίας SliTaz με κανόνες πίνακα IP"
 
-#: boot.cgi:116
+#: boot.cgi:117
 msgid "Small and fast web server with CGI support"
 msgstr "Μικρός και γρήγορος εξυπηρετητής ιστού με υποστήριξη CGI"
 
-#: boot.cgi:118
+#: boot.cgi:119
 msgid "Network time protocol daemon"
 msgstr "Δαίμονας πρωτοκόλλου ώρας δικτύου"
 
-#: boot.cgi:121
+#: boot.cgi:122
 msgid "Anonymous FTP server"
 msgstr "Ανώνυμος εξυπηρετητής FTP"
 
-#: boot.cgi:123
+#: boot.cgi:124
 msgid "Busybox DHCP server"
 msgstr "Εξυπηρετητής DHCP Busybox"
 
-#: boot.cgi:125
+#: boot.cgi:126
 msgid "Linux Kernel log daemon"
 msgstr "Δαίμονας καταγραφής πυρήνα Linux"
 
-#: boot.cgi:128
+#: boot.cgi:129
 msgid "Execute scheduled commands"
 msgstr "Εκτέλεση προγραμματισμένων εντολών"
 
-#: boot.cgi:131
+#: boot.cgi:132
 msgid "Small static DNS server daemon"
 msgstr "Δαίμονας μικρού στατικού DNS εξυπηρετητή"
 
-#: boot.cgi:134
+#: boot.cgi:135
 msgid "Transfer a file on tftp request"
 msgstr "Μεταφορά ενός αρχείου κατόπιν αιτήματος tftp"
 
-#: boot.cgi:136
+#: boot.cgi:137
 msgid "Listen for network connections and launch programs"
 msgstr "Αναμονή για συνδέσεις δικτύου και έναρξη προγραμμάτων"
 
-#: boot.cgi:139
+#: boot.cgi:140
 msgid "Manage a ZeroConf IPv4 link-local address"
 msgstr "Διαχείριση μίας ZeroConf IPv4 link-local διεύθυνσης"
 
-#: boot.cgi:204
+#: boot.cgi:205
 msgid "Started"
 msgstr "Ξεκίνησε"
 
-#: boot.cgi:216
+#: boot.cgi:217
 msgid "Stopped"
 msgstr "Σταμάτησε"
 
-#: boot.cgi:244
+#: boot.cgi:245
 msgid "GRUB Boot loader"
 msgstr "Φορτωτής εκκίνησης GRUB"
 
-#: boot.cgi:246
+#: boot.cgi:247
 msgid "The first application started when the computer powers on"
 msgstr "Η πρώτη εφαρμογή που ξεκινά όταν ο υπολογιστής ανοίγει"
 
-#: boot.cgi:252
+#: boot.cgi:253
 msgid "Default entry:"
 msgstr "Προεπιλεγμένη καταχώρηση:"
 
-#: boot.cgi:254
+#: boot.cgi:255
 msgid "Timeout:"
 msgstr "Χρονικό όριο:"
 
-#: boot.cgi:256
+#: boot.cgi:257
 msgid "Splash image:"
 msgstr "Εικόνα εκκίνησης (splash):"
 
-#: boot.cgi:259 settings.cgi:401 settings.cgi:457 settings.cgi:524
+#: boot.cgi:260 settings.cgi:401 settings.cgi:457 settings.cgi:524
 msgid "Change"
 msgstr "Αλλαγή"
 
-#: boot.cgi:261
+#: boot.cgi:262
 msgid "View or edit menu.lst"
 msgstr "Προβολή ή επεξεργασία menu.lst"
 
-#: boot.cgi:264
+#: boot.cgi:265
 msgid "Boot entries"
 msgstr "Καταχωρήσεις εκκίνησης"
 
-#: boot.cgi:270
+#: boot.cgi:271
 msgid "Entry"
 msgstr "Καταχώρηση"
 
-#: boot.cgi:286
+#: boot.cgi:287
 msgid "Web boot is available with gPXE"
 msgstr "Η εκκίνηση μέσω δικτύου είναι διαθέσιμη με gPXE"
 
-#: boot.cgi:296
+#: boot.cgi:297
 msgid "Boot &amp; Start services"
 msgstr "Εκκίνηση &amp; Έναρξη υπηρεσιών"
 
-#: boot.cgi:297
+#: boot.cgi:298
 msgid "Everything that happens before user login"
 msgstr "Όλα όσα συμβαίνουν πρίν τη σύνδεση του χρήστη"
 
-#: boot.cgi:301 styles/default/header.html:67
+#: boot.cgi:302 styles/default/header.html:67
 msgid "Boot logs"
 msgstr "Καταγραφές εκκίνησης"
 
-#: boot.cgi:304 styles/default/header.html:65
+#: boot.cgi:305 styles/default/header.html:65
 msgid "Boot loader"
 msgstr "Φορτωτής εκκίνησης (boot loader)"
 
-#: boot.cgi:307
+#: boot.cgi:308
 msgid "Configuration files"
 msgstr "Αρχεία διαμόρφωσης"
 
-#: boot.cgi:309
+#: boot.cgi:310
 msgid "Main configuration file:"
 msgstr "Κύριο αρχείο διαμόρφωσης:"
 
-#: boot.cgi:311
+#: boot.cgi:312
 msgid "Login manager settings:"
 msgstr "Ρυθμίσεις διαχειριστή εισόδου:"
 
-#: boot.cgi:315
+#: boot.cgi:316
 msgid "Kernel cmdline"
 msgstr "Γραμμή εντολών Πυρήνα"
 
-#: boot.cgi:319
+#: boot.cgi:320
 msgid "Local startup commands"
 msgstr "Τοπικές εντολές κατά την εκκίνηση"
 
-#: boot.cgi:324
+#: boot.cgi:325
 msgid "Edit script"
 msgstr "Επεξεργασία δέσμης ενεργειών"
 
@@ -643,119 +643,149 @@ msgstr "Επεξεργασία δέσμης ενεργειών"
 msgid "TazPanel - Hardware"
 msgstr "TazPanel - Υλικό"
 
-#: hardware.cgi:58
+#: hardware.cgi:66
 msgid "Detect hardware"
 msgstr "Ανίχνευση υλικού"
 
-#: hardware.cgi:59
+#: hardware.cgi:67
 msgid "Detect PCI and USB hardware"
 msgstr "Ανίχνευση υλικού PCI και USB"
 
-#: hardware.cgi:71 hardware.cgi:174 styles/default/header.html:82
+#: hardware.cgi:79 hardware.cgi:182 styles/default/header.html:82
 msgid "Kernel modules"
 msgstr "Αρθρώματα (modules) πυρήνα"
 
-#: hardware.cgi:75
+#: hardware.cgi:83
 msgid "Modules search"
 msgstr "Αναζήτηση αρθρωμάτων"
 
-#: hardware.cgi:78
+#: hardware.cgi:86
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr ""
 "Διαχείριση, αναζήτηση ή συλλογή πληροφοριών σχετικά με τα αρθρώματα του "
 "πυρήνα Linux"
 
-#: hardware.cgi:85
+#: hardware.cgi:93
 #, sh-format
 msgid "Detailed information for module: $get_modinfo"
 msgstr "Λεπτομερείς πληροφορίες για το άρθρωμα: $get_modinfo"
 
-#: hardware.cgi:99
+#: hardware.cgi:107
 #, sh-format
 msgid "Matching result(s) for: $get_search"
 msgstr "Ταίριασμα αποτελέσματος(-ατων) για: $get_search"
 
-#: hardware.cgi:105
+#: hardware.cgi:113
 msgid "Module:"
 msgstr "Άρθρωμα:"
 
-#: hardware.cgi:112
+#: hardware.cgi:120
 msgid "Module"
 msgstr "Άρθρωμα"
 
-#: hardware.cgi:113 lib/libtazpanel:229
+#: hardware.cgi:121 lib/libtazpanel:227
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: hardware.cgi:114 lib/libtazpanel:231
+#: hardware.cgi:122 lib/libtazpanel:229
 msgid "Used"
 msgstr "Σε χρήση"
 
-#: hardware.cgi:115
+#: hardware.cgi:123
 msgid "by"
 msgstr "από"
 
-#: hardware.cgi:136
+#: hardware.cgi:144
 #, sh-format
 msgid "Information for USB Device $vidpid"
 msgstr ""
 
-#: hardware.cgi:137 hardware.cgi:151
+#: hardware.cgi:145 hardware.cgi:159
 msgid "Detailed information about specified device."
 msgstr ""
 
-#: hardware.cgi:150
+#: hardware.cgi:158
 #, sh-format
 msgid "Information for PCI Device $slot"
 msgstr ""
 
-#: hardware.cgi:169
+#: hardware.cgi:177
 msgid "Drivers &amp; Devices"
 msgstr "Οδηγοί &amp; Συσκευές"
 
-#: hardware.cgi:170
+#: hardware.cgi:178
 msgid "Manage your computer hardware"
 msgstr "Διαχείριση του υλικού του υπολογιστή σας"
 
-#: hardware.cgi:176 styles/default/header.html:84
+#: hardware.cgi:184 styles/default/header.html:84
 msgid "Detect PCI/USB"
 msgstr "Ανίχνευση PCI/USB"
 
-#: hardware.cgi:196
+#: hardware.cgi:204
 msgid "Battery"
 msgstr "Μπαταρία"
 
-#: hardware.cgi:198
+#: hardware.cgi:206
 msgid "health"
 msgstr "Υγεία"
 
-#: hardware.cgi:207
+#: hardware.cgi:215
 #, sh-format
 msgid "Discharging $rempct% - $remtimef"
 msgstr "Αποφορτίζεται $rempct% - $remtimef"
 
-#: hardware.cgi:211
+#: hardware.cgi:219
 #, sh-format
 msgid "Charging $rempct% - $remtimef"
 msgstr "Φορτίζεται $rempct% - $remtimef"
 
-#: hardware.cgi:213
+#: hardware.cgi:221
 msgid "Charged 100%"
 msgstr "Φορτίστηκε 100%"
 
-#: hardware.cgi:221
+#: hardware.cgi:229
 msgid "Temperature:"
 msgstr "Θερμοκρασία:"
 
-#: hardware.cgi:236
+#: hardware.cgi:244
 msgid "Brightness"
 msgstr "Φωτεινότητα"
 
-#: hardware.cgi:343
+#: hardware.cgi:380
 msgid "Filesystems table"
 msgstr ""
 
-#: hardware.cgi:357
+#: hardware.cgi:384 lib/libtazpanel:224
+msgid "Disk"
+msgstr "Δίσκος"
+
+#: hardware.cgi:384 lib/libtazpanel:230
+msgid "Mount point"
+msgstr "Σημείο προσάρτησης"
+
+#: hardware.cgi:385 lib/libtazpanel:226
+msgid "Type"
+msgstr "Τύπος"
+
+#: hardware.cgi:385
+#, fuzzy
+msgid "Options"
+msgstr "Ενέργεια"
+
+#: hardware.cgi:386
+msgid "Freq"
+msgstr ""
+
+#: hardware.cgi:386
+#, fuzzy
+msgid "Pass"
+msgstr "Κωδικός:"
+
+#: hardware.cgi:396
+msgid "Loop devices"
+msgstr ""
+
+#: hardware.cgi:436
 msgid "System memory"
 msgstr "Μνήμη συστήματος"
 
@@ -1023,37 +1053,25 @@ msgstr "Εξυπηρετητής"
 msgid "TazPanel provides a debuging mode and page:"
 msgstr "Το TazPanel παρέχει κατάσταση αποσφαλμάτωσης και σελίδα:"
 
-#: lib/libtazpanel:95
+#: lib/libtazpanel:93
 msgid "connected"
 msgstr "συνδεδεμένο"
 
-#: lib/libtazpanel:112
+#: lib/libtazpanel:110
 msgid "IP Address"
 msgstr "Διεύθυνση IP"
 
-#: lib/libtazpanel:113
+#: lib/libtazpanel:111
 msgid "Scan ports"
 msgstr "Σάρωση θυρών"
 
-#: lib/libtazpanel:226
-msgid "Disk"
-msgstr "Δίσκος"
-
-#: lib/libtazpanel:227
+#: lib/libtazpanel:225
 msgid "Label"
 msgstr "Ετικέτα"
 
 #: lib/libtazpanel:228
-msgid "Type"
-msgstr "Τύπος"
-
-#: lib/libtazpanel:230
 msgid "Available"
 msgstr "Διαθέσιμο"
-
-#: lib/libtazpanel:232
-msgid "Mount point"
-msgstr "Σημείο προσάρτησης"
 
 #: help.cgi:20
 msgid "Manual"
