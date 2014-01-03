@@ -2,7 +2,7 @@
 #
 # Network configuration CGI interface
 #
-# Copyright (C) 2012 SliTaz GNU/Linux - BSD License
+# Copyright (C) 2012-2014 SliTaz GNU/Linux - BSD License
 #
 
 # Common functions from libtazpanel

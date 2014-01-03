@@ -2,7 +2,7 @@
 #
 # help.cgi - Display TazPanel doc and README.
 #
-# Copyright (C) 2011 SliTaz GNU/Linux - BSD License
+# Copyright (C) 2011-2014 SliTaz GNU/Linux - BSD License
 #
 
 # Common functions from libtazpanel

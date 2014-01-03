@@ -2,7 +2,7 @@
 #
 # Hardware part of TazPanel - Devices, drivers, printing
 #
-# Copyright (C) 2011 SliTaz GNU/Linux - BSD License
+# Copyright (C) 2011-2014 SliTaz GNU/Linux - BSD License
 #
 
 # Common functions from libtazpanel
