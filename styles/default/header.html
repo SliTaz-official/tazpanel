@@ -36,7 +36,7 @@ cat << EOT
 					src="/styles/default/images/monitor.png" />$(gettext 'Processes')</a></li>
 				<li><a href="/index.cgi?report"><img
 					src="/styles/default/images/text.png" />$(gettext 'Create Report')</a></li>
-				$(for i in menu.d/panel/* ; do [ -f $i ] && . $i menu $i ; done)
+				$(for i in menu.d/panel/* ; do [ -f $i ] && sh $i menu $i ; done)
 			</ul>
 		</li>
 		<li><a href="/network.cgi">$(gettext 'Network')</a>
@@ -47,7 +47,7 @@ cat << EOT
 					src="/styles/default/images/ethernet.png" />$(gettext 'Ethernet')</a></li>
 				<li><a href="/network.cgi?wifi"><img
 					src="/styles/default/images/wireless.png" />$(gettext 'Wireless')</a></li>
-				$(for i in menu.d/network/* ; do [ -f $i ] && . $i menu $i ; done)
+				$(for i in menu.d/network/* ; do [ -f $i ] && sh $i menu $i ; done)
 			</ul>
 		</li>
 		<li><a href="/settings.cgi">$(gettext 'Settings')</a>
@@ -56,7 +56,7 @@ cat << EOT
 					src="/styles/default/images/user.png" />$(gettext 'Users')</a></li>
 				<li><a href="/settings.cgi?groups"><img
 					src="/styles/default/images/users.png" />$(gettext 'Groups')</a></li>
-				$(for i in menu.d/settings/* ; do [ -f $i ] && . $i menu $i ; done)
+				$(for i in menu.d/settings/* ; do [ -f $i ] && sh $i menu $i ; done)
 			</ul>
 		</li>
 		<li><a href="/boot.cgi">$(gettext 'Boot')</a>
@@ -73,7 +73,7 @@ cat << EOT
 				</li>
 				<li><a href="/boot.cgi?daemons"><img
 					src="/styles/default/images/recharge.png" />$(gettext 'Manage daemons')</a></li>
-				$(for i in menu.d/boot/* ; do [ -f $i ] && . $i menu $i ; done)
+				$(for i in menu.d/boot/* ; do [ -f $i ] && sh $i menu $i ; done)
 			</ul>
 		</li>
 		<li><a href="/hardware.cgi">$(gettext 'Hardware')</a>
@@ -84,10 +84,10 @@ cat << EOT
 					src="/styles/default/images/monitor.png" />$(gettext 'Detect PCI/USB')</a></li>
 				<li><a href="/hardware.cgi#disk"><img
 					src="/styles/default/images/harddisk.png" />$(gettext 'Disks')</a></li>
-				$(for i in menu.d/hardware/* ; do [ -f $i ] && . $i menu $i ; done)
+				$(for i in menu.d/hardware/* ; do [ -f $i ] && sh $i menu $i ; done)
 			</ul>
 		</li>
-		$(for i in menu.d/* ; do [ -f $i ] && . $i menu $i ; done)
+		$(for i in menu.d/* ; do [ -f $i ] && sh $i menu $i ; done)
 	</ul>
 </div>
 
