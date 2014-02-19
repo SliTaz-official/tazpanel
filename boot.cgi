@@ -71,7 +71,10 @@ EOT
 				/etc/init.d/${daemon#stop=} stop | log ;;
 			pid=*)
 				echo "<pre>"
-				ps ww | sed "1p;/^ *${daemon#pid=} /!d"
+				ps ww | sed 1q
+				for i in $(echo ${daemon#pid=} | sed 's/%20/ /g'); do
+					ps ww | sed "/^ $i /!d"
+				done
 				echo "</pre>" ;;
 		esac
 		# Daemon list

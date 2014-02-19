@@ -30,7 +30,7 @@ file_is_modified()
 			tmp=/tmp/tazpanel$$
 			mkdir -p $tmp
 			( cd $tmp ; zcat $org | cpio -id ${1#/} )
-			diff -u $tmp$1 $1 | sed "s|$tmp||"
+			diff -abu $tmp$1 $1 | sed "s|$tmp||"
 			rm -rf $tmp ;;
 		button)
 			cat <<EOT
