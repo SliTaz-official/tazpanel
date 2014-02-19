@@ -8,15 +8,13 @@ VERSION=1.4.3
 
 # Get the configuration file and functions
 CONFIG="/etc/slitaz/tazpanel.conf"
-[ -f $CONFIG ] && . $CONFIG
-[ -f data/tazpanel.conf ] && . data/tazpanel.conf
-[ ! -f $PANEL/lib/libtazpanel ] && \
-	echo "No config file or libtazpanel found: $CONFIG" && exit 1
-. $PANEL/lib/libtazpanel
+[ -f "$CONFIG" ] && . $CONFIG
+[ -f "data/tazpanel.conf" ] && . data/tazpanel.conf
+[ ! "$PANEL" ] && echo "No config file found: $CONFIG" && exit 1
+
 . /lib/libtaz.sh
 
 # I18n
-. /usr/bin/gettext.sh
 TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
 
@@ -30,11 +28,15 @@ DAEMON=/usr/sbin/httpd
 PIDFILE=/var/run/$NAME.pid
 
 case "$1" in
+	-h|*help|*usage)
+		echo ""
+		gettext 'Usage: tazpanel [start|stop|passwd|app]'; echo
+		echo "" ;;
 	start)  
-	        if [ -f $PIDFILE ]; then
+		if [ -f $PIDFILE ]; then
 	        gettext 'TazPanel is already running.'; echo
-	        exit 1
-	        fi
+			exit 1
+		fi
 		eval_gettext 'Starting TazPanel web server on port $HTTPD_PORT...'
 		httpd -p $HTTPD_PORT -u root -c $HTTPD_CONF \
 			-r "$(gettext 'TazPanel Authentication - Default: root:root')" &
@@ -58,9 +60,16 @@ case "$1" in
 		gettext 'Password changed successfully'; echo
 		echo "" ;;
 	*)
-		echo ""
-		gettext 'Usage: tazpanel [start|stop|passwd]'; echo
-		echo "" ;;
+		. /etc/slitaz/applications.conf
+		USER_CONFIG="$HOME/.config/slitaz/applications.conf"
+		[ -f  "$USER_CONFIG" ] && . $USER_CONFIG
+		[ "$1" ] && app="/${1}.cgi"
+		echo http://localhost:82${app}
+		case "$BROWSER" in
+			tazweb) tazweb --notoolbar http://localhost:82${app} & ;;
+			midori) midori --app=http://localhost:82${app} & ;;
+			*) $BROWSER http://localhost:82${app} & ;;
+		esac ;;
 esac
 
 exit 0
