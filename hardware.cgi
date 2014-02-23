@@ -12,7 +12,7 @@ header
 
 TITLE=$(gettext 'TazPanel - Hardware')
 
-# Call an optionnal module
+# Call an optional module
 lib()
 {
 	module=lib/$1

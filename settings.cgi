@@ -369,7 +369,7 @@ EOT
 
 	*)
 		#
-		# Defaut system settings page
+		# Default system settings page
 		#
 		cat << EOT
 <div id="wrapper">
@@ -532,7 +532,7 @@ EOT
 		<img src="$IMAGES/edit.png" />$(gettext 'Server')</a>
 </p>
 <p>
-	$(gettext 'TazPanel provides a debuging mode and page:')
+	$(gettext 'TazPanel provides a debugging mode and page:')
 	<a href="/index.cgi?debug">debug</a>
 </p>
 </section>
