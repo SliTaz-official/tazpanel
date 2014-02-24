@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-21 21:38+0100\n"
+"POT-Creation-Date: 2014-02-24 01:07+0100\n"
 "PO-Revision-Date: 2012-12-20 10:15+0100\n"
 "Last-Translator: Stanislas Leduc <shann@slitaz.org>\n"
 "Language-Team: French\n"
@@ -18,43 +18,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: tazpanel:35
+#: tazpanel:33
+#, fuzzy
+msgid "Usage: tazpanel [start|stop|passwd|app]"
+msgstr "Usage : $program_name [start|stop|passwd]"
+
+#: tazpanel:37
 msgid "TazPanel is already running."
 msgstr ""
 
-#: tazpanel:38
+#: tazpanel:40
 #, sh-format
 msgid "Starting TazPanel web server on port $HTTPD_PORT..."
 msgstr ""
 
-#: tazpanel:40
+#: tazpanel:42
 msgid "TazPanel Authentication - Default: root:root"
 msgstr "TazPanel Authentification - Defaut : root:root"
 
-#: tazpanel:46
+#: tazpanel:48
 msgid "TazPanel is not running."
 msgstr ""
 
-#: tazpanel:49
+#: tazpanel:51
 msgid "Stopping TazPanel web server..."
 msgstr "Arrêt du serveur web TazPanel..."
 
-#: tazpanel:55
+#: tazpanel:57
 msgid "Changing password for TazPanel"
 msgstr "Changement du mot de passe pour TazPanel"
 
-#: tazpanel:56
+#: tazpanel:58
 msgid "New password: "
 msgstr "Nouveau mot de passe : "
 
-#: tazpanel:58
+#: tazpanel:60
 msgid "Password changed successfully"
 msgstr "Mot de passe changé avec succès"
-
-#: tazpanel:62
-#, fuzzy
-msgid "Usage: tazpanel [start|stop|passwd]"
-msgstr "Usage : $program_name [start|stop|passwd]"
 
 #: index.cgi:38 index.cgi:95
 msgid "Differences"
@@ -178,11 +178,11 @@ msgstr "Obtention d'informations sur les systèmes de fichiers..."
 msgid "Getting boot logs..."
 msgstr "Obtention des journaux de démarrage..."
 
-#: index.cgi:333 boot.cgi:29 boot.cgi:34 styles/default/header.html:69
+#: index.cgi:333 boot.cgi:29 boot.cgi:34 styles/default/header.html:73
 msgid "Kernel messages"
 msgstr "Messages du noyau"
 
-#: index.cgi:336 boot.cgi:30 boot.cgi:38 styles/default/header.html:70
+#: index.cgi:336 boot.cgi:30 boot.cgi:38 styles/default/header.html:74
 msgid "Boot scripts"
 msgstr "Scripts de démarrage"
 
@@ -207,7 +207,7 @@ msgstr "Nom d'hôte : $hostname"
 msgid "SliTaz administration and configuration Panel"
 msgstr "Panneau de Configuration et d'Administration de SliTaz"
 
-#: index.cgi:375 styles/default/header.html:34
+#: index.cgi:375 styles/default/header.html:38
 msgid "Terminal"
 msgstr "Terminal"
 
@@ -256,7 +256,7 @@ msgstr "Panneau d'activités"
 msgid "TazPanel - Network"
 msgstr "TazPanel - Réseau"
 
-#: network.cgi:23 network.cgi:160 network.cgi:256 boot.cgi:82 settings.cgi:221
+#: network.cgi:23 network.cgi:160 network.cgi:256 boot.cgi:85 settings.cgi:221
 #: lib/libtazpanel:108
 msgid "Name"
 msgstr "Nom"
@@ -269,7 +269,7 @@ msgstr "Qualité"
 msgid "Encryption"
 msgstr "Chiffrement"
 
-#: network.cgi:26 boot.cgi:85 lib/libtazpanel:109
+#: network.cgi:26 boot.cgi:88 lib/libtazpanel:109
 msgid "Status"
 msgstr "État"
 
@@ -309,7 +309,7 @@ msgstr ""
 "DHCP pour obtenir automatiquement une adresse IP aléatoire ou configurer une "
 "adresse IP statique / fixe"
 
-#: network.cgi:154 boot.cgi:84
+#: network.cgi:154 boot.cgi:87
 msgid "Configuration"
 msgstr "Configuration"
 
@@ -374,11 +374,11 @@ msgstr "Scan des interfaces sans-fil..."
 msgid "Wireless connection"
 msgstr "Connection sans fil"
 
-#: network.cgi:216 network.cgi:313 boot.cgi:219
+#: network.cgi:216 network.cgi:313 boot.cgi:222
 msgid "Start"
 msgstr "Démarrer"
 
-#: network.cgi:218 network.cgi:315 boot.cgi:207
+#: network.cgi:218 network.cgi:315 boot.cgi:210
 msgid "Stop"
 msgstr "Arrêter"
 
@@ -485,7 +485,7 @@ msgstr "TazPanel - Démarrage"
 msgid "Boot log files"
 msgstr "Journaux de démarrage"
 
-#: boot.cgi:31 boot.cgi:42 styles/default/header.html:71
+#: boot.cgi:31 boot.cgi:42 styles/default/header.html:75
 msgid "X server"
 msgstr "Serveur x"
 
@@ -493,7 +493,7 @@ msgstr "Serveur x"
 msgid "Show more..."
 msgstr "Voir plus..."
 
-#: boot.cgi:61 boot.cgi:304 styles/default/header.html:75
+#: boot.cgi:61 boot.cgi:307 styles/default/header.html:79
 msgid "Manage daemons"
 msgstr "Gérer les démons"
 
@@ -501,150 +501,150 @@ msgstr "Gérer les démons"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Vérifier, démarrer et arrêter les démons sur SliTaz"
 
-#: boot.cgi:83 settings.cgi:331
+#: boot.cgi:86 settings.cgi:331
 msgid "Description"
 msgstr "Description"
 
-#: boot.cgi:86
+#: boot.cgi:89
 msgid "Action"
 msgstr "Action"
 
-#: boot.cgi:87
+#: boot.cgi:90
 msgid "PID"
 msgstr "PID"
 
-#: boot.cgi:115
+#: boot.cgi:118
 msgid "SliTaz Firewall with iptable rules"
 msgstr "Pare-feu SliTaz avec les règles iptables"
 
-#: boot.cgi:117
+#: boot.cgi:120
 msgid "Small and fast web server with CGI support"
 msgstr "Serveur web léger et rapide avec support de CGI"
 
-#: boot.cgi:119
+#: boot.cgi:122
 msgid "Network time protocol daemon"
 msgstr "Démon Network Time Protocol"
 
-#: boot.cgi:122
+#: boot.cgi:125
 msgid "Anonymous FTP server"
 msgstr "Serveur anonyme FTP"
 
-#: boot.cgi:124
+#: boot.cgi:127
 msgid "Busybox DHCP server"
 msgstr "Serveur DHCP Busybox"
 
-#: boot.cgi:126
+#: boot.cgi:129
 msgid "Linux Kernel log daemon"
 msgstr "Démon Linux Kernel log"
 
-#: boot.cgi:129
+#: boot.cgi:132
 msgid "Execute scheduled commands"
 msgstr "Exécuter des commandes planifiées"
 
-#: boot.cgi:132
+#: boot.cgi:135
 msgid "Small static DNS server daemon"
 msgstr "Démon du petit serveur DNS statique"
 
-#: boot.cgi:135
+#: boot.cgi:138
 msgid "Transfer a file on tftp request"
 msgstr "Transférer un fichier à travers une requête TFTP"
 
-#: boot.cgi:137
+#: boot.cgi:140
 msgid "Listen for network connections and launch programs"
 msgstr "Écoute des connexions réseau et lancement de programmes"
 
-#: boot.cgi:140
+#: boot.cgi:143
 msgid "Manage a ZeroConf IPv4 link-local address"
 msgstr "Gestion d'une adresse ZeroConf IPv4 link-local"
 
-#: boot.cgi:205
+#: boot.cgi:208
 #, fuzzy
 msgid "Started"
 msgstr "Démarrer"
 
-#: boot.cgi:217
+#: boot.cgi:220
 #, fuzzy
 msgid "Stopped"
 msgstr "Arrêter"
 
-#: boot.cgi:245
+#: boot.cgi:248
 msgid "GRUB Boot loader"
 msgstr "Gestionnaire de démarrage GRUB"
 
-#: boot.cgi:247
+#: boot.cgi:250
 msgid "The first application started when the computer powers on"
 msgstr "La première application démarrée au lancement du système"
 
-#: boot.cgi:253
+#: boot.cgi:256
 #, fuzzy
 msgid "Default entry:"
 msgstr "Miroir par défaut :"
 
-#: boot.cgi:255
+#: boot.cgi:258
 msgid "Timeout:"
 msgstr "Temps d'attente :"
 
-#: boot.cgi:257
+#: boot.cgi:260
 msgid "Splash image:"
 msgstr "Image a afficher pendant le démarrage :"
 
-#: boot.cgi:260 settings.cgi:401 settings.cgi:457 settings.cgi:524
+#: boot.cgi:263 settings.cgi:401 settings.cgi:457 settings.cgi:524
 msgid "Change"
 msgstr "Changer"
 
-#: boot.cgi:262
+#: boot.cgi:265
 msgid "View or edit menu.lst"
 msgstr "Voir ou éditer le fichier menu.lst"
 
-#: boot.cgi:265
+#: boot.cgi:268
 msgid "Boot entries"
 msgstr "Entrées de Grub"
 
-#: boot.cgi:271
+#: boot.cgi:274
 msgid "Entry"
 msgstr "Entrée"
 
-#: boot.cgi:287
+#: boot.cgi:290
 msgid "Web boot is available with gPXE"
 msgstr "Le démarrage réseau est disponible avec gPXE"
 
-#: boot.cgi:297
+#: boot.cgi:300
 msgid "Boot &amp; Start services"
 msgstr "Démarrage &amp; lancement des services"
 
-#: boot.cgi:298
+#: boot.cgi:301
 msgid "Everything that happens before user login"
 msgstr "Tout ce qui se produit avant le login de l'utilisateur"
 
-#: boot.cgi:302 styles/default/header.html:67
+#: boot.cgi:305 styles/default/header.html:71
 msgid "Boot logs"
 msgstr "Journaux de démarrage"
 
-#: boot.cgi:305 styles/default/header.html:65
+#: boot.cgi:308 styles/default/header.html:69
 msgid "Boot loader"
 msgstr "Chargeur d'amorçage"
 
-#: boot.cgi:308
+#: boot.cgi:311
 msgid "Configuration files"
 msgstr "Fichiers de configuration"
 
-#: boot.cgi:310
+#: boot.cgi:313
 msgid "Main configuration file:"
 msgstr "Fichier de configuration principal :"
 
-#: boot.cgi:312
+#: boot.cgi:315
 msgid "Login manager settings:"
 msgstr "Réglages du gestionnaire de session :"
 
-#: boot.cgi:316
+#: boot.cgi:319
 msgid "Kernel cmdline"
 msgstr "Ligne de commande passée au noyau"
 
-#: boot.cgi:320
+#: boot.cgi:323
 msgid "Local startup commands"
 msgstr "Commandes locales exécutées au démarrage"
 
-#: boot.cgi:325
+#: boot.cgi:328
 msgid "Edit script"
 msgstr "Éditer le script"
 
@@ -660,7 +660,7 @@ msgstr "Detecter le matériel"
 msgid "Detect PCI and USB hardware"
 msgstr "Détecter le matériel PCI/USB"
 
-#: hardware.cgi:79 hardware.cgi:182 styles/default/header.html:82
+#: hardware.cgi:79 hardware.cgi:182 styles/default/header.html:86
 msgid "Kernel modules"
 msgstr "Modules du noyau"
 
@@ -726,7 +726,7 @@ msgstr "Pilotes &amp; périphériques"
 msgid "Manage your computer hardware"
 msgstr "Gérer le matériel de l'ordinateur"
 
-#: hardware.cgi:184 styles/default/header.html:84
+#: hardware.cgi:184 styles/default/header.html:88
 msgid "Detect PCI/USB"
 msgstr "Détecter le matériel PCI/USB"
 
@@ -1059,7 +1059,7 @@ msgstr "Mot de passe :"
 msgid "Configuration files:"
 msgstr "Fichiers de configuration :"
 
-#: settings.cgi:530 styles/default/header.html:31
+#: settings.cgi:530 styles/default/header.html:35
 msgid "Panel"
 msgstr "Panneau"
 
@@ -1068,7 +1068,8 @@ msgid "Server"
 msgstr "Serveur"
 
 #: settings.cgi:535
-msgid "TazPanel provides a debuging mode and page:"
+#, fuzzy
+msgid "TazPanel provides a debugging mode and page:"
 msgstr "TazPanel fournit un mode et une page debuging :"
 
 #: lib/libtazpanel:93
@@ -1099,54 +1100,54 @@ msgstr ""
 msgid "TazPanel - Help &amp; Doc"
 msgstr "TazPanel - Aide &am; Support"
 
-#: styles/default/header.html:36
+#: styles/default/header.html:40
 msgid "Processes"
 msgstr "Processus"
 
-#: styles/default/header.html:38
+#: styles/default/header.html:42
 #, fuzzy
 msgid "Create Report"
 msgstr "Créer un rapport"
 
-#: styles/default/header.html:42
+#: styles/default/header.html:46
 #, fuzzy
 msgid "Network"
 msgstr "Gestion de réseau"
 
-#: styles/default/header.html:45
+#: styles/default/header.html:49
 #, fuzzy
 msgid "Config file"
 msgstr "Fichier de configuration"
 
-#: styles/default/header.html:47
+#: styles/default/header.html:51
 msgid "Ethernet"
 msgstr "Réseau filaire"
 
-#: styles/default/header.html:49
+#: styles/default/header.html:53
 msgid "Wireless"
 msgstr "Réseau sans fil"
 
-#: styles/default/header.html:53
+#: styles/default/header.html:57
 msgid "Settings"
 msgstr ""
 
-#: styles/default/header.html:56
+#: styles/default/header.html:60
 msgid "Users"
 msgstr ""
 
-#: styles/default/header.html:58
+#: styles/default/header.html:62
 msgid "Groups"
 msgstr ""
 
-#: styles/default/header.html:62
+#: styles/default/header.html:66
 msgid "Boot"
 msgstr ""
 
-#: styles/default/header.html:79
+#: styles/default/header.html:83
 msgid "Hardware"
 msgstr ""
 
-#: styles/default/header.html:86
+#: styles/default/header.html:90
 msgid "Disks"
 msgstr ""
 
