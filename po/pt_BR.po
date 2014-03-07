@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-24 01:07+0100\n"
-"PO-Revision-Date: 2013-01-27 01:50-0300\n"
-"Last-Translator: Claudinei Pereira <claudinei@slitaz.org>, 2013\n"
+"PO-Revision-Date: 2014-03-06 22:24-0300\n"
+"Last-Translator: Claudinei Pereira <claudinei@slitaz.org>, 2014\n"
 "Language-Team: Portuguese <i18n@slitaz.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -18,13 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: tazpanel:33
-#, fuzzy
 msgid "Usage: tazpanel [start|stop|passwd|app]"
-msgstr "Utilização: $program_name [start|stop|passwd]"
+msgstr "Utilização: tazpanel [start|stop|passwd|app]"
 
 #: tazpanel:37
 msgid "TazPanel is already running."
-msgstr ""
+msgstr "TazPanel já está sendo executado."
 
 #: tazpanel:40
 #, sh-format
@@ -37,7 +36,7 @@ msgstr "Autenticação do TazPanel - Padrão: root:root"
 
 #: tazpanel:48
 msgid "TazPanel is not running."
-msgstr ""
+msgstr "TazPanel não está sendo executado."
 
 #: tazpanel:51
 msgid "Stopping TazPanel web server..."
@@ -61,7 +60,7 @@ msgstr "Diferenças"
 
 #: index.cgi:66
 msgid "TazPanel - exec"
-msgstr ""
+msgstr "TazPanel - exec"
 
 #: index.cgi:84
 msgid "TazPanel - File"
@@ -694,16 +693,16 @@ msgstr "por"
 #: hardware.cgi:144
 #, sh-format
 msgid "Information for USB Device $vidpid"
-msgstr ""
+msgstr "Informação sobre o dispositivo USB $vidpid"
 
 #: hardware.cgi:145 hardware.cgi:159
 msgid "Detailed information about specified device."
-msgstr ""
+msgstr "Informação detalhada sobre um dispositivo específico."
 
 #: hardware.cgi:158
 #, sh-format
 msgid "Information for PCI Device $slot"
-msgstr ""
+msgstr "Informação sobre o dispositivo PCI $slot"
 
 #: hardware.cgi:177
 msgid "Drivers &amp; Devices"
@@ -749,7 +748,7 @@ msgstr "Brilho"
 
 #: hardware.cgi:380
 msgid "Filesystems table"
-msgstr ""
+msgstr "Tabela do sistema de arquivos"
 
 #: hardware.cgi:384 lib/libtazpanel:224
 msgid "Disk"
@@ -764,22 +763,20 @@ msgid "Type"
 msgstr "Tipo"
 
 #: hardware.cgi:385
-#, fuzzy
 msgid "Options"
-msgstr "Ação"
+msgstr "Opções"
 
 #: hardware.cgi:386
 msgid "Freq"
-msgstr ""
+msgstr "Freq"
 
 #: hardware.cgi:386
-#, fuzzy
 msgid "Pass"
-msgstr "Senha:"
+msgstr "Senha"
 
 #: hardware.cgi:396
 msgid "Loop devices"
-msgstr ""
+msgstr "Dispositivos em loop"
 
 #: hardware.cgi:436
 msgid "System memory"
@@ -791,7 +788,7 @@ msgstr "TazPanel - Configurações"
 
 #: settings.cgi:120 settings.cgi:383
 msgid "Manage groups"
-msgstr ""
+msgstr "Gerenciar grupos"
 
 #: settings.cgi:126 settings.cgi:209
 msgid "Selection:"
@@ -799,48 +796,47 @@ msgstr "Seleção:"
 
 #: settings.cgi:127
 msgid "Delete group"
-msgstr ""
+msgstr "Deletar grupo"
 
 #: settings.cgi:134
 msgid "Group"
-msgstr ""
+msgstr "Grupo"
 
 #: settings.cgi:135
 msgid "Group ID"
-msgstr ""
+msgstr "ID do Grupo"
 
 #: settings.cgi:136
 msgid "Members"
-msgstr ""
+msgstr "Membros"
 
 #: settings.cgi:163
 msgid "Add a new group"
-msgstr ""
+msgstr "Adicionar um novo grupo"
 
 #: settings.cgi:168 settings.cgi:182
 msgid "Group name:"
-msgstr ""
+msgstr "Nome do grupo:"
 
 #: settings.cgi:171
 msgid "Create group"
-msgstr ""
+msgstr "Criar grupo"
 
 #: settings.cgi:177
 msgid "Manage group membership"
-msgstr ""
+msgstr "Gerenciar membros do grupo"
 
 #: settings.cgi:186
 msgid "User name:"
-msgstr ""
+msgstr "Nome de usuário:"
 
 #: settings.cgi:190
-#, fuzzy
 msgid "Add user"
-msgstr "Adicionar um novo usuário"
+msgstr "Adicionar usuário"
 
 #: settings.cgi:191
 msgid "Remove user"
-msgstr ""
+msgstr "Remover usuário"
 
 #: settings.cgi:204 settings.cgi:381
 msgid "Manage users"
@@ -981,7 +977,7 @@ msgstr "Relógio de hardware:"
 
 #: settings.cgi:407
 msgid "Set date"
-msgstr ""
+msgstr "Configurar data"
 
 #: settings.cgi:430
 msgid "Sync online"
@@ -1049,9 +1045,8 @@ msgid "Server"
 msgstr "Servidor"
 
 #: settings.cgi:535
-#, fuzzy
 msgid "TazPanel provides a debugging mode and page:"
-msgstr "O TazPanel oferece um modo de debug:"
+msgstr "O TazPanel oferece um modo de debug e uma página dedicada:"
 
 #: lib/libtazpanel:93
 msgid "connected"
@@ -1115,7 +1110,7 @@ msgstr "Usuários"
 
 #: styles/default/header.html:62
 msgid "Groups"
-msgstr ""
+msgstr "Grupos"
 
 #: styles/default/header.html:66
 msgid "Boot"
@@ -1127,7 +1122,7 @@ msgstr "Hardware"
 
 #: styles/default/header.html:90
 msgid "Disks"
-msgstr ""
+msgstr "Discos"
 
 #: styles/default/footer.html:6
 msgid "Copyright"
