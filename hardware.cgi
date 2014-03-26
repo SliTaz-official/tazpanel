@@ -295,7 +295,9 @@ EOT
 		mount\ *)
 			ro=""
 			[ -n "$(GET readonly)" ] && ro="-r"
-			$device $ro $(GET mountpoint);;
+			mntdir="$(GET mountpoint)"
+			[ -d "$mntdir" ] || mkdir -p "$mntdir"
+			$device $ro "$mntdir";;
 		umount\ *|swapon\ *|swapoff\ *)
 			$device ;;
 		esac
