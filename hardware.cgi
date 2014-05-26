@@ -67,9 +67,9 @@ case " $(GET) " in
 	<p>$(gettext 'Detect PCI and USB hardware')</p>
 </div>
 
-<pre>$(tazhw detect-pci --output=gtk | htmlize)</pre>
+<pre>$(tazhw detect-pci | sed 's|^>|\&gt;|g')</pre>
 
-<pre>$(tazhw detect-usb --output=gtk | htmlize)</pre>
+<pre>$(tazhw detect-usb | sed 's|^>|\&gt;|g')</pre>
 EOT
 		;;
 	*\ modules\ *|*\ modinfo\ *)
