@@ -25,7 +25,7 @@ export TEXTDOMAIN
 NAME=tazpanel
 DESC="SliTaz administration and configuration panel."
 DAEMON=/usr/sbin/httpd
-PIDFILE=/var/run/$NAME.pid
+PIDFILE=/run/$NAME.pid
 
 case "$1" in
 	-h|*help|*usage)
