@@ -38,7 +38,7 @@ msgstr "TazPanel Authentification - Defaut : root:root"
 
 #: tazpanel:48
 msgid "TazPanel is not running."
-msgstr ""
+msgstr "TazPanel n'est pas actif."
 
 #: tazpanel:51
 msgid "Stopping TazPanel web server..."
@@ -280,7 +280,7 @@ msgstr "Connecté"
 #: network.cgi:99
 #, sh-format
 msgid "Changed hostname: $get_hostname"
-msgstr ""
+msgstr "Nouveau hostname: $get_hostname"
 
 #: network.cgi:115
 msgid "Scanning open ports..."
@@ -289,7 +289,7 @@ msgstr "Balayage des ports ouverts..."
 #: network.cgi:118
 #, sh-format
 msgid "Port scanning for $scan"
-msgstr ""
+msgstr "Scanning du port $scan"
 
 #: network.cgi:132
 msgid "Setting up IP..."
@@ -707,16 +707,16 @@ msgstr "par"
 #: hardware.cgi:144
 #, sh-format
 msgid "Information for USB Device $vidpid"
-msgstr ""
+msgstr "Détails du périphérique USB $vidpid"
 
 #: hardware.cgi:145 hardware.cgi:159
 msgid "Detailed information about specified device."
-msgstr ""
+msgstr "Détails sur un périphérique."
 
 #: hardware.cgi:158
 #, sh-format
 msgid "Information for PCI Device $slot"
-msgstr ""
+msgstr "Détails du périphérique PCI $slot"
 
 #: hardware.cgi:177
 msgid "Drivers &amp; Devices"
@@ -804,7 +804,7 @@ msgstr "TazPanel - Paramètres"
 
 #: settings.cgi:120 settings.cgi:383
 msgid "Manage groups"
-msgstr ""
+msgstr "Gestion des groupes"
 
 #: settings.cgi:126 settings.cgi:209
 msgid "Selection:"
@@ -812,31 +812,31 @@ msgstr "Sélection :"
 
 #: settings.cgi:127
 msgid "Delete group"
-msgstr ""
+msgstr "Efface un groupe"
 
 #: settings.cgi:134
 msgid "Group"
-msgstr ""
+msgstr "groupe"
 
 #: settings.cgi:135
 msgid "Group ID"
-msgstr ""
+msgstr "ID du groupe"
 
 #: settings.cgi:136
 msgid "Members"
-msgstr ""
+msgstr "Membres"
 
 #: settings.cgi:163
 msgid "Add a new group"
-msgstr ""
+msgstr "Ajoute un nouveau groupe"
 
 #: settings.cgi:168 settings.cgi:182
 msgid "Group name:"
-msgstr ""
+msgstr "Nom du groupe :"
 
 #: settings.cgi:171
 msgid "Create group"
-msgstr ""
+msgstr "Crée un groupe"
 
 #: settings.cgi:177
 #, fuzzy
@@ -855,7 +855,7 @@ msgstr "Ajouter un utilisateur"
 
 #: settings.cgi:191
 msgid "Remove user"
-msgstr ""
+msgstr "Enléve un utilisateur"
 
 #: settings.cgi:204 settings.cgi:381
 msgid "Manage users"
@@ -947,6 +947,9 @@ msgid ""
 "Can't see your language?<br/>You can <a href='/pkgs.cgi?do=Install&glibc-"
 "locale'>install glibc-locale</a> to see a larger list of available locales."
 msgstr ""
+"Votre langue est introuvable ?<br/> Vous pouvez "
+"<a href='/pkgs.cgi?do=Install&glibc-locale'>installer glibc-locale</a> "
+"pour avoir une liste de langues plus importante."
 
 #: settings.cgi:328
 msgid "Code"
@@ -997,7 +1000,7 @@ msgstr "Horloge système :"
 
 #: settings.cgi:407
 msgid "Set date"
-msgstr ""
+msgstr "Entrer la date"
 
 #: settings.cgi:430
 msgid "Sync online"
@@ -1032,7 +1035,7 @@ msgstr "Type de clavier de la console"
 #: settings.cgi:474
 #, sh-format
 msgid "Current console keymap: $keymap"
-msgstr ""
+msgstr "Clavier actif pour la console : $keymap"
 
 #: settings.cgi:491
 msgid "Suggested keymap for Xorg:"
@@ -1094,7 +1097,7 @@ msgstr "Disponible"
 
 #: help.cgi:20
 msgid "Manual"
-msgstr ""
+msgstr "Manuel utilisateur"
 
 #: help.cgi:28
 msgid "TazPanel - Help &amp; Doc"
@@ -1129,27 +1132,27 @@ msgstr "Réseau sans fil"
 
 #: styles/default/header.html:57
 msgid "Settings"
-msgstr ""
+msgstr "Réglages"
 
 #: styles/default/header.html:60
 msgid "Users"
-msgstr ""
+msgstr "Utilisateurs"
 
 #: styles/default/header.html:62
 msgid "Groups"
-msgstr ""
+msgstr "Groupes"
 
 #: styles/default/header.html:66
 msgid "Boot"
-msgstr ""
+msgstr "Démarrage"
 
 #: styles/default/header.html:83
 msgid "Hardware"
-msgstr ""
+msgstr "Matériel"
 
 #: styles/default/header.html:90
 msgid "Disks"
-msgstr ""
+msgstr "Disques"
 
 #: styles/default/footer.html:6
 msgid "Copyright"
