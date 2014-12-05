@@ -44,6 +44,7 @@ install:
 		$(DESTDIR)$(PANEL)/menu.d \
 		$(DESTDIR)/var/log
 	cp -a tazpanel $(DESTDIR)$(PREFIX)/bin
+	-[ "$(VERSION)" ] && sed -i 's/^VERSION=[0-9].*/VERSION=$(VERSION)/' $(DESTDIR)$(PREFIX)/bin/tazpanel
 	cp -a data/*.conf $(DESTDIR)$(SYSCONFDIR)
 	cp -a *.cgi lib/ styles/ doc/ README* $(DESTDIR)$(PANEL)
 	cp -a po/mo/* $(DESTDIR)$(PREFIX)/share/locale

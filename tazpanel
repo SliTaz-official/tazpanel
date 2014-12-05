@@ -4,7 +4,7 @@
 #
 # Copyright (C) 2012-2014 SliTaz GNU/Linux - BSD License
 #
-VERSION=1.4.3
+VERSION=1.8.1
 
 # Get the configuration file and functions
 CONFIG="/etc/slitaz/tazpanel.conf"
