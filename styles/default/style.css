@@ -290,7 +290,7 @@ table.zebra td + td {
 }
 table.zebra td:first-child { padding-left: 6px; }
 .outbox {
-	box-shadow: 0 0 0 4px #ddd, 0 0 0 4px #ddd;
+	box-shadow: 0 0 2px 4px #ddd;
 }
 .fixed {
 	table-layout: fixed;
