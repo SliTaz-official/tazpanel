@@ -5,7 +5,13 @@ cat << EOT
 	<title>$TITLE</title>
 	<meta charset="utf-8" />
 	<link rel="shortcut icon" href="/styles/$STYLE/favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="/styles/$STYLE/style.css" />
+EOT
+
+for css in $(cd /var/www/tazpanel; find ./styles/$STYLE -iname '*.css' | sed 's|./|/|'); do
+	echo "	<link rel=\"stylesheet\" type=\"text/css\" href=\"$css\" />"
+done
+
+cat << EOT
 	<!-- Function to hide the loading message when page is generated. -->
 	<script type="text/javascript">
 		function showLoading(){
