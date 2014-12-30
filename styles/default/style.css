@@ -141,30 +141,6 @@ a:hover { color: #000; }
 
 #block { float: left; }
 
-/* Sidebar menus */
-
-#sidebar {
-	position: fixed;
-	top: 124px;
-	right: 5px;
-	width: 116px;
-}
-
-#sidebar a {
-	display: block;
-	padding: 0px 0 0px 12px;
-	margin: 0;
-}
-
-#sidebar a.active {
-	color: #000;
-	font-weight: bold;
-}
-
-#sidebar h4 { margin: 0 0 2px 12px; font-size: 16px; color: #222; }
-#sidebar ul { list-style-type: none; padding: 0; }
-
-
 /* Content */
 
 #content { margin: 20px; }
