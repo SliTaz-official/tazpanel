@@ -180,11 +180,11 @@ EOT
 	<input type="hidden" name="groups" />
 	<table>
 		<tr><td>$(gettext 'Group name:')</td>
-		    <td><select name="group">
+		    <td><select class="button" name="group">
 		    	$(listdb group)
 		    </select></td>
 		<td>$(gettext 'User name:')</td>
-		    <td><select name="member">
+		    <td><select class="button" name="member">
 		    	$(listdb passwd)
 		    </select></td></tr>
 		<tr><td colspan="4"><input type="submit" name="addmember" value="$(gettext 'Add user')" />
@@ -389,7 +389,7 @@ EOT
 <form method="get" action="$SCRIPT_NAME">
 <table>
 	<tr><td>$(gettext 'Time zone:')</td><td>
-		<select name="tz">
+		<select class="button" name="tz">
 		$(cd  /usr/share/zoneinfo ; find * -type f | while read tz; do
 			if [ "$(cat /etc/TZ)" == "$tz" ]; then
 				echo "<option selected>$tz</option>"
@@ -405,25 +405,25 @@ EOT
 </form>
 <form method="get" action="$SCRIPT_NAME">
 <input type="submit" name="date" value="$(gettext 'Set date')" />
-<select name="day">
+<select class="button" name="day">
 $(for i in $(seq 1 31); do echo "<option>$i</option>"; done)
 </select>
-<select name="month">
+<select class="button" name="month">
 $(for i in 01 02 03 04 05 06 07 08 09 10 11 12; do
   date -d ${i}010101 '+%m %B' | \
   sed 's|\(.*\) \(.*\)|<option value="\1">\2</option>|'
 done)
 </select>
-<select name="year">
+<select class="button" name="year">
 $(for i in $(seq 2010 2030); do echo "<option>$i</option>"; done)
 </select>
-- <select name="hour">
+- <select class="button" name="hour">
 $(for i in $(seq 0 23); do printf "<option>%02d</option>" $i; done)
 </select>
-: <select name="min">
+: <select class="button" name="min">
 $(for i in $(seq 0 59); do printf "<option>%02d</option>" $i; done)
 </select>
-: <select name="sec">
+: <select class="button" name="sec">
 $(for i in $(seq 0 59); do printf "<option>%02d</option>" $i; done)
 </select>
 </form>
@@ -498,7 +498,7 @@ EOT
 		cat << EOT
 <form method="get" action="$SCRIPT_NAME">
 	$(gettext 'Available keymaps:')
-	<select name="gen_keymap">
+	<select class="button" name="gen_keymap">
 		$(list_keymaps)
 	</select>
 	<input type="submit" value="$(gettext 'Activate')" />
@@ -511,7 +511,7 @@ EOT
 <form method="get" action="$SCRIPT_NAME">
 	<p>
 		$(gettext 'Style:')
-		<select name="style">
+		<select class="button" name="style">
 			$(list_styles)
 		</select>
 		<input type="submit" value="$(gettext 'Activate')" />

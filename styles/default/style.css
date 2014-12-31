@@ -301,7 +301,7 @@ pre, .pre-main {
 
 .pre-main { margin: 16px 0; }
 
-input[type=submit], select, .button {
+input[type=submit], .button {
 	color: #444444;
 	border: 1px solid #afafaf;
 	padding: 4px;
@@ -332,7 +332,7 @@ a.button {
 	display: inline-block;
 }
 
-input[type=submit]:hover, select:hover, .button:hover {
+input[type=submit]:hover, .button:hover {
 	background-color: #ddd;
 	border: 1px solid #999;
 }

@@ -243,7 +243,7 @@ EOT
 <input type="hidden" name="dev" value="$name" />
 $(gettext 'Brightness') \
 $(sed 's/.*\.//;s/_*$//' < /sys/devices/virtual/backlight/$name/device/path):
-<select name="brightness" onchange="submit();">
+<select class="button" name="brightness" onchange="submit();">
 EOT
 				max=$(cat /sys/devices/virtual/backlight/$name/max_brightness)
 				for i in $(seq 0 $max); do
