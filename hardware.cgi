@@ -78,7 +78,7 @@ EOT
 <div id="wrapper">
 	<h2>$(gettext 'Kernel modules')</h2>
 	<div class="float-right">
-		<form method="get" action="$SCRIPT_NAME">
+		<form method="get" action="">
 			<input type="hidden" name="modules" />
 			<input type="search" placeholder="$(gettext 'Modules search')" name="search" />
 		</form>
@@ -110,7 +110,7 @@ EOT
 			do
 				name=$(basename $line)
 				mod=${name%.ko.gz}
-				echo "$(gettext 'Module:') <a href='$SCRIPT_NAME?modinfo=$mod'>$mod</a>"
+				echo "$(gettext 'Module:') <a href='?modinfo=$mod'>$mod</a>"
 			done
 			echo '</pre>'
 		fi
@@ -128,7 +128,7 @@ EOT
 		do
 			cat << EOT
 		<tr>
-			<td><a href="$SCRIPT_NAME?modinfo=$MOD">$MOD</a></td>
+			<td><a href="?modinfo=$MOD">$MOD</a></td>
 			<td>$SIZE</td>
 			<td>$USED</td>
 			<td>$(echo $BY | sed s/","/" "/g)</td>
@@ -178,9 +178,9 @@ EOT
 	<p>$(gettext 'Manage your computer hardware')</p>
 </div>
 <div>
-	<a class="button" href="$SCRIPT_NAME?modules">
+	<a class="button" href="?modules">
 		<img src="$IMAGES/tux.png" />$(gettext 'Kernel modules')</a>
-	<a class="button" href="$SCRIPT_NAME?detect">
+	<a class="button" href="?detect">
 		<img src="$IMAGES/monitor.png" />$(gettext 'Detect PCI/USB')</a>
 </div>
 
@@ -235,7 +235,7 @@ EOT
 
 		if [ -n "$(ls /sys/devices/virtual/backlight/*/brightness 2> /dev/null)" ]; then
 			cat <<EOT
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 EOT
 			for dev in /sys/devices/virtual/backlight/*/brightness ; do
 				name=$(echo $dev | sed 's|.*/backlight/\([^/]*\).*|\1|')
@@ -302,7 +302,7 @@ EOT
 			$device ;;
 		esac
 		cat << EOT
-<form method="get" action="$SCRIPT_NAME#mount">
+<form method="get" action="#mount">
 <table id="mount" class="zebra outbox nowrap">
 EOT
 		df_thead
@@ -391,7 +391,7 @@ grep -v '^#' /etc/fstab | awk 'BEGIN{print "<table class=\"zebra outbox\">\
 	END{print "</tbody></table>"}'
 
 		cat << EOT
-<a class="button" href="index.cgi?file=/etc/fstab&action=edit">
+<a class="button" href="index.cgi?file=/etc/fstab&amp;action=edit">
 	<img src="$IMAGES/edit.png" />$(gettext 'Manual Edit')</a>
 
 
@@ -401,7 +401,7 @@ EOT
 		# Loop device management gui
 		#
 		cat << EOT
-<form method="get" action="$SCRIPT_NAME#loop">
+<form method="get" action="#loop">
 <table id="loop" class="zebra outbox nowrap">
 <thead>
 <tr><td>Device</td><td>Backing file</td><td>Access</td><td>Offset</td></tr>

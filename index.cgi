@@ -34,7 +34,7 @@ file_is_modified()
 			rm -rf $tmp ;;
 		button)
 			cat <<EOT
-	<a class="button" href='$SCRIPT_NAME?file=$1&action=diff'>
+	<a class="button" href="?file=$1&amp;action=diff">
 		<img src="$IMAGES/help.png" />$(gettext 'Differences')</a>
 EOT
 		esac
@@ -88,10 +88,10 @@ EOT
 
 		if [ "$(GET action)" == "edit" ]; then
 			cat <<EOT
-<form method="post" action="$SCRIPT_NAME?file=$file">
+<form method="post" action="?file=$file">
 	<img src="$IMAGES/edit.png" />
 	<input type="submit" value="$(gettext 'Save')">
-		<a class="button" href='$SCRIPT_NAME?file=$file&action=diff'>
+		<a class="button" href="?file=$file&amp;action=diff">
 			<img src="$IMAGES/help.png" />$(gettext 'Differences')</a>
 		<textarea name="content" rows="30" style="width: 100%;">
 $(cat $file | htmlize)
@@ -103,7 +103,7 @@ EOT
 		elif [ "$(GET action)" == "setvar" ]; then
 			data="$(. $(GET file) ;eval echo \$$(GET var))"
 			cat <<EOT
-<form method="post" action="$SCRIPT_NAME?file=$file">
+<form method="post" action="?file=$file">
 	<img src="$IMAGES/edit.png" />
 	<input type="submit" value="$(gettext 'Save')">
 	$(GET var) : 
@@ -128,7 +128,7 @@ EOT
 			fi
 			cat <<EOT
 <div id="actions">
-	<a class="button" href='$SCRIPT_NAME?file=$file&action=edit'>
+	<a class="button" href="?file=$file&amp;action=edit">
 		<img src="$IMAGES/edit.png" />$(gettext 'Edit')</a>
 EOT
 			file_is_modified $file button
@@ -157,7 +157,7 @@ EOT
 		xhtml_header
 		cat << EOT
 <section>
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 	<div class="box">
 		root@$(hostname):~# <input autofocus type="text" name="cmd" style="width: 80%;" />
 	</div>
@@ -348,7 +348,7 @@ EOT
 	$(ok_status_t)
 </tbody>
 </table>
-<p><a class="button" href="$SCRIPT_NAME?file=$output">
+<p><a class="button" href="?file=$output">
 	<img src="/styles/default/images/browser.png" />
 	$(gettext 'View report')</a>
 	$(msg tip "$(gettext 'This report can be attached with a bug report on:')
@@ -371,11 +371,11 @@ EOT
 	<p>$(gettext 'SliTaz administration and configuration Panel')<p>
 </div>
 <div id="actions">
-	<a class="button" href="$SCRIPT_NAME?terminal">
+	<a class="button" href="?terminal">
 		<img src="$IMAGES/terminal.png" />$(gettext 'Terminal')</a>
-	<a class="button" href="$SCRIPT_NAME?top">
+	<a class="button" href="?top">
 		<img src="$IMAGES/monitor.png" />$(gettext 'Process activity')</a>
-	<a class="button" href="$SCRIPT_NAME?report">
+	<a class="button" href="?report">
 		<img src="$IMAGES/text.png" />$(gettext 'Create a report')</a>
 </div>
 

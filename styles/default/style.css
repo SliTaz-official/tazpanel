@@ -27,7 +27,7 @@ a:hover { color: #000; }
 
 /* Header and main title */
 
-#header {
+header {
 	height: 40px;
 	/*border-bottom: 4px solid #afafaf;*/
 	background: #222 url(images/logo.png) no-repeat left;
@@ -36,7 +36,7 @@ a:hover { color: #000; }
 	width: 100%;
 }
 
-#header h1 {
+header h1 {
 	margin: 0;
 	padding: 8px 0 0 42px;
 	font-style: italic;
@@ -132,7 +132,7 @@ a:hover { color: #000; }
 	cursor: progress;
 	position: fixed;
 	top: 76px;
-	right: 120px;
+	right: 140px;
 	width: 248px;
 	padding: 4px 4px 2px;
 }
@@ -367,7 +367,7 @@ div.scroll table { border: 0px solid #fff; }
 
 /* Footer */
 
-#footer {
+footer {
 	/* border-bottom: 1px solid #c1baad; */
 	height: 25px;
 	text-align: center;
@@ -376,8 +376,8 @@ div.scroll table { border: 0px solid #fff; }
 	color: #bbb;
 }
 
-#footer a { color: #bbb; }
-#footer a:hover { color: #555; }
+footer a { color: #bbb; }
+footer a:hover { color: #555; }
 
 /* HTML5 Meter */
 .meter {

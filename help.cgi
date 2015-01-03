@@ -14,7 +14,7 @@ header
 search_form() {
 	cat << EOT
 <div class="search">
-	<form method="get" action="$SCRIPT_NAME">
+	<form method="get" action="">
 		<p>
 			<input type="text" name="manual" size="20">
 			<input type="submit" class="radius" value="$(gettext 'Manual')">

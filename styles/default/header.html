@@ -1,36 +1,23 @@
 cat << EOT
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="$(echo $LANG | cut -f1 -d_)">
+<html lang="${LANG%%_*}">
 <head>
 	<title>$TITLE</title>
-	<meta charset="utf-8" />
 	<link rel="shortcut icon" href="/styles/$STYLE/favicon.ico" />
-EOT
+$(printf '\t<link rel="stylesheet" type="text/css" href="/%s" />\n' \
+	$(cd /var/www/tazpanel; ls styles/$STYLE/*.css))
 
-for css in $(cd /var/www/tazpanel; find ./styles/$STYLE -iname '*.css' | sed 's|./|/|'); do
-	echo "	<link rel=\"stylesheet\" type=\"text/css\" href=\"$css\" />"
-done
-
-cat << EOT
-	<!-- Function to hide the loading message when page is generated. -->
 	<script type="text/javascript">
-		function showLoading(){
-			document.getElementById("loading").style.display='none';
-		}
-
-		//Ask confirmation on close window during load time
-		window.onbeforeunload =  confirmExit;
-		function confirmExit()
-		{
-			return 1;
-		}
+		function hideLoading(){document.getElementById("loading").style.display='none';}
+		window.onbeforeunload = confirmExit;
+		function confirmExit(){return "$(_ 'Confirm break')";}
 	</script>
 </head>
-<body onload="showLoading()">
+<body onload="hideLoading()">
 
-<div id="header">
+<header>
 	<h1>$TITLE</h1>
-</div>
+</header>
 
 <div id="toolbar">
 	<div id="icons">

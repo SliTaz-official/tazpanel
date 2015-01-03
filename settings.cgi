@@ -119,7 +119,7 @@ case " $(GET) " in
 		cat <<EOT
 <h3 id="groups">$(gettext 'Manage groups')</h3>
 
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 	<input type="hidden" name="groups" />
 <div id="actions">
 	<div class="float-left">
@@ -162,7 +162,7 @@ EOT
 <section>
 <h4>$(gettext 'Add a new group')</h4>
 
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 	<input type="hidden" name="groups" />
 	<table>
 		<tr><td>$(gettext 'Group name:')</td>
@@ -176,7 +176,7 @@ EOT
 <section>
 <h4>$(gettext 'Manage group membership')</h4>
 
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 	<input type="hidden" name="groups" />
 	<table>
 		<tr><td>$(gettext 'Group name:')</td>
@@ -203,7 +203,7 @@ EOT
 		cat <<EOT
 <h3 id="users">$(gettext 'Manage users')</h3>
 
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 <div id="actions">
 	<div class="float-left">
 		$(gettext 'Selection:')
@@ -266,7 +266,7 @@ EOT
 <section>
 <h4>$(gettext 'Add a new user')</h4>
 
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 	<input type="hidden" name="user" />
 	<table>
 		<tr><td>$(gettext 'User login:')</td>
@@ -317,11 +317,11 @@ EOT
 		[ $? = 1 ] &&
 			msg tip $(gettext \
 			"Can't see your language?<br/>You can \
-<a href='/pkgs.cgi?do=Install&glibc-locale'>install glibc-locale</a> \
+<a href='/pkgs.cgi?do=Install&amp;glibc-locale'>install glibc-locale</a> \
 to see a larger list of available locales.")
 
 		cat << EOT
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 	<div class="outbox">
 	<table class="zebra fixed">
 	<thead>
@@ -377,16 +377,16 @@ EOT
 	<p>$(gettext 'Manage system time, users or language settings')<p>
 </div>
 <div id="actions">
-	<a class="button" href="$SCRIPT_NAME?users">
+	<a class="button" href="?users">
 		<img src="$IMAGES/user.png" />$(gettext 'Manage users')</a>
-	<a class="button" href="$SCRIPT_NAME?groups">
+	<a class="button" href="?groups">
 		<img src="$IMAGES/users.png" />$(gettext 'Manage groups')</a>
 </div>
 
 <section>
 <h3>$(gettext 'System time')</h3>
 
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 <table>
 	<tr><td>$(gettext 'Time zone:')</td><td>
 		<select class="button" name="tz">
@@ -403,32 +403,23 @@ EOT
 	<tr><td>$(gettext 'Hardware clock:')</td><td>$(hwclock -r)</tr>
 </table>
 </form>
-<form method="get" action="$SCRIPT_NAME">
-<input type="submit" name="date" value="$(gettext 'Set date')" />
-<select class="button" name="day">
-$(for i in $(seq 1 31); do echo "<option>$i</option>"; done)
-</select>
-<select class="button" name="month">
-$(for i in 01 02 03 04 05 06 07 08 09 10 11 12; do
-  date -d ${i}010101 '+%m %B' | \
-  sed 's|\(.*\) \(.*\)|<option value="\1">\2</option>|'
-done)
-</select>
-<select class="button" name="year">
-$(for i in $(seq 2010 2030); do echo "<option>$i</option>"; done)
-</select>
-- <select class="button" name="hour">
-$(for i in $(seq 0 23); do printf "<option>%02d</option>" $i; done)
-</select>
-: <select class="button" name="min">
-$(for i in $(seq 0 59); do printf "<option>%02d</option>" $i; done)
-</select>
-: <select class="button" name="sec">
-$(for i in $(seq 0 59); do printf "<option>%02d</option>" $i; done)
-</select>
+
+<form method="get" action="">
+	<input type="submit" name="date" value="$(gettext 'Set date')" />
+	<select class="button" name="day">$(printf '<option>%d</option>' $(seq 31))</select>
+	<select class="button" name="month">
+		$(for i in $(seq 12); do
+			printf '<option value="%s">%s</option>' $(date -d $i.01-01:01 '+%m %B')
+		done)
+	</select>
+	<select class="button" name="year">$(printf '<option>%d</option>' $(seq 2010 2030))</select>
+-	<select class="button" name="hour">$(printf '<option>%02d</option>' $(seq 0 23))</select>
+:	<select class="button" name="min">$(printf '<option>%02d</option>' $(seq 0 59))</select>
+:	<select class="button" name="sec">$(printf '<option>%02d</option>' $(seq 0 59))</select>
 </form>
-<a class="button" href="$SCRIPT_NAME?rdate">$(gettext 'Sync online')</a>
-<a class="button" href="$SCRIPT_NAME?hwclock">$(gettext 'Set hardware clock')</a>
+
+<a class="button" href="?rdate">$(gettext 'Sync online')</a>
+<a class="button" href="?hwclock">$(gettext 'Set hardware clock')</a>
 </section>
 EOT
 		#
@@ -454,7 +445,7 @@ EOT
 			locale | grep LANG | cut -d= -f2
 		fi
 		cat << EOT
-</strong> <a class="button" href="$SCRIPT_NAME?locale">$(gettext 'Change')</a></p>
+</strong> <a class="button" href="?locale">$(gettext 'Change')</a></p>
 </section>
 
 <section>
@@ -487,7 +478,7 @@ EOT
 			esac
 			keyboard_config=/etc/X11/xorg.conf.d/40-Keyboard.conf
 			cat << EOT
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 	$(gettext 'Suggested keymap for Xorg:')
 	<input type="submit" name "apply_xorg_kbd" value="$keymap" />
 	<a class="button" href="index.cgi?file=$keyboard_config">
@@ -496,7 +487,7 @@ EOT
 EOT
 		fi
 		cat << EOT
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 	$(gettext 'Available keymaps:')
 	<select class="button" name="gen_keymap">
 		$(list_keymaps)
@@ -508,7 +499,7 @@ EOT
 <section>
 <h2>$(gettext 'Panel configuration')</h2>
 
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 	<p>
 		$(gettext 'Style:')
 		<select class="button" name="style">
@@ -517,7 +508,7 @@ EOT
 		<input type="submit" value="$(gettext 'Activate')" />
 	</p>
 </form>
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 	<p>
 		$(gettext 'Panel password:')
 		<input type="password" name="panel_pass"/>

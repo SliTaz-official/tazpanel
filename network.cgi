@@ -45,7 +45,7 @@ EOT
 				ENCRYPTION="WPA"
 			fi
 			if echo $SCAN | grep -q 'Mode:Managed'; then
-				AP="&ap=$(echo $SCAN | sed 's/.*Address: \([^ ]*\).*/\1/')"
+				AP="ap=$(echo $SCAN | sed 's/.*Address: \([^ ]*\).*/\1/')"
 			else
 				AP=""
 			fi
@@ -58,7 +58,7 @@ EOT
 				status="---"
 			fi
 			echo '<tr>'
-			echo "<td><a href=\"$SCRIPT_NAME?wifi&select=$ESSID&keytype=$ENCRYPTION&$AP\">
+			echo "<td><a href=\"?wifi&amp;select=$ESSID&amp;keytype=$ENCRYPTION&amp;$AP\">
 				<img src='$IMAGES/wireless.png' />$ESSID</a></td>"
 			echo "<td>$QUALITY</td><td>$ENCRYPTION</td><td>$status $ip</td>"
 			echo '</tr>'
@@ -152,7 +152,7 @@ automatically get a random IP or configure a static/fixed IP")</p>
 
 <section>
 <h3>$(gettext 'Configuration')</h3>
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 	<input type="hidden" name="eth" />
 	<table>
 	<thead>
@@ -198,7 +198,7 @@ automatically get a random IP or configure a static/fixed IP")</p>
 <pre>
 $(grep ^[A-V] /etc/network.conf | syntax_highlighter conf)
 </pre>
-<a class="button" href="index.cgi?file=/etc/network.conf&action=edit">
+<a class="button" href="index.cgi?file=/etc/network.conf&amp;action=edit">
 	<img src="$IMAGES/edit.png" />$(gettext 'Manual Edit')</a>
 </section>
 EOT
@@ -212,11 +212,11 @@ EOT
 		cat << EOT
 <h2>$(gettext 'Wireless connection')</h2>
 <div id="actions">
-	<a class="button" href="$SCRIPT_NAME?wifi&start-wifi=start-wifi">
+	<a class="button" href="?wifi&amp;start-wifi=start-wifi">
 		<img src="$IMAGES/start.png" />$(gettext 'Start')</a>
-	<a class="button" href="$SCRIPT_NAME?wifi&stop=stop">
+	<a class="button" href="?wifi&amp;stop=stop">
 		<img src="$IMAGES/stop.png" />$(gettext 'Stop')</a>
-	<a class="button" href="$SCRIPT_NAME?wifi=scan">
+	<a class="button" href="?wifi=scan">
 		<img src="$IMAGES/recharge.png" />$(gettext 'Scan')</a>
 </div>
 $(detect_wifi_networks)
@@ -248,7 +248,7 @@ EOT
 	cat << EOT
 <section>
 <h3>$(gettext 'Connection')</h3>
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 	<input type="hidden" name="connect-wifi" />
 	$(table_start)
 	<thead>
@@ -284,9 +284,10 @@ EOT
 <p>$(gettext "These values are the wifi settings in the main /etc/network.conf \
 configuration file")</p>
 
-<pre>$(grep ^WIFI /etc/network.conf | syntax_highlighter conf)</pre>
+<pre>$(grep ^WIFI /etc/network.conf | sed '/WIFI_KEY=/s|".*"|"********"|' | \
+syntax_highlighter conf)</pre>
 
-<a class="button" href="index.cgi?file=/etc/network.conf&action=edit">
+<a class="button" href="index.cgi?file=/etc/network.conf&amp;action=edit">
 	<img src="$IMAGES/edit.png" />$(gettext 'Manual Edit')</a>
 </section>
 
@@ -309,18 +310,18 @@ EOT
 <section>
 <div id="actions">
 	<div class="float-left">
-		<a class="button" href="$SCRIPT_NAME?start">
+		<a class="button" href="?start">
 			<img src="$IMAGES/start.png" />$(gettext 'Start')</a>
-		<a class="button" href="$SCRIPT_NAME?stop">
+		<a class="button" href="?stop">
 			<img src="$IMAGES/stop.png" />$(gettext 'Stop')</a>
-		<a class="button" href="$SCRIPT_NAME?restart">
+		<a class="button" href="?restart">
 			<img src="$IMAGES/recharge.png" />$(gettext 'Restart')</a>
 	</div>
 	<div class="float-right">
 		$(gettext 'Configuration:')
 		<a class="button" href="index.cgi?file=/etc/network.conf">network.conf</a>
-		<a class="button" href="$SCRIPT_NAME?eth">Ethernet</a>
-		<a class="button" href="$SCRIPT_NAME?wifi">Wireless</a>
+		<a class="button" href="?eth">Ethernet</a>
+		<a class="button" href="?wifi">Wireless</a>
 	</div>
 </div>
 
@@ -332,14 +333,14 @@ $(list_network_interfaces)
 
 <pre>$(cat /etc/hosts)</pre>
 
-<a class="button" href="index.cgi?file=/etc/hosts&action=edit">
+<a class="button" href="index.cgi?file=/etc/hosts&amp;action=edit">
 	<img src="$IMAGES/edit.png" />$(gettext 'Edit hosts')</a>
 </section>
 
 <section>
 <h3>$(gettext 'Hostname')</h3>
 
-<form method="get" name="$SCRIPT_NAME">
+<form method="get" name="">
 	<input type="text" name="hostname" value="$hostname" />
 	<input type="submit" value="$(gettext 'Change hostname')" />
 </form>

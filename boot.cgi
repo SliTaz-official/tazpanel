@@ -173,14 +173,14 @@ EOT
 					set -- $i
 					case "$1" in
 					edit)	cat <<EOT
-<a href="index.cgi?file=${3:-/etc/$name.conf}&action=edit">
+<a href="index.cgi?file=${3:-/etc/$name.conf}&amp;action=edit">
 <img title="${2:-$name Configuration}" src="$IMAGES/edit.png" /></a>
 EOT
 						;;
 					options)
 						key=$(echo $name | tr [a-z] [A-Z])_OPTIONS
 						cat <<EOT
-<a href="index.cgi?file=/etc/daemons.conf&action=setvar&var=$key&default=$3">
+<a href="index.cgi?file=/etc/daemons.conf&amp;action=setvar&amp;var=$key&amp;default=$3">
 <img title="${2:-$key}" src="$IMAGES/tux.png" /></a>
 EOT
 						;;
@@ -206,19 +206,19 @@ EOT
 			if [ "$pid" ]; then
 				cat << EOT
 <td><img src="$IMAGES/started.png" alt="Started" title="$(gettext 'Started')" /></td>
-<td><a href="$SCRIPT_NAME?daemons=stop=$name">
+<td><a href="?daemons=stop=$name">
 	<img src="$IMAGES/stop.png" alt="Stop" title="$(gettext 'Stop')" /></a></td>
 <td>
 EOT
 				for i in $pid; do
 					cat << EOT
-<a href="$SCRIPT_NAME?daemons=pid=$i">$i</a>
+<a href="?daemons=pid=$i">$i</a>
 EOT
 				done
 			else
 				cat << EOT
 <td><img src="$IMAGES/stopped.png" alt="Stopped" title="$(gettext 'Stopped')" /></td>
-<td><a href="$SCRIPT_NAME?daemons=start=$name">
+<td><a href="?daemons=start=$name">
     <img src="$IMAGES/start.png" alt="Start" title="$(gettext 'Start')" /></a></td>
 <td>-----
 EOT
@@ -250,7 +250,7 @@ EOT
 	<p>$(gettext 'The first application started when the computer powers on')</p>
 </div>
 
-<form method="get" action="$SCRIPT_NAME">
+<form method="get" action="">
 	<input type="hidden" name="grub" />
 <table>
 <tr><td>$(gettext 'Default entry:')</td>
@@ -301,11 +301,11 @@ menu=$(tail -q -n +$(grep -n ^title $GRUBMENU | head -n1 | cut -d: -f1) $GRUBMEN
 	<p>$(gettext 'Everything that happens before user login')</p>
 </div>
 <div>
-	<a class="button" href="$SCRIPT_NAME?log">
+	<a class="button" href="?log">
 		<img src="$IMAGES/text.png" />$(gettext 'Boot logs')</a>
-	<a class="button" href="$SCRIPT_NAME?daemons">
+	<a class="button" href="?daemons">
 		<img src="$IMAGES/recharge.png" />$(gettext 'Manage daemons')</a>
-	<a class="button" href="$SCRIPT_NAME?grub">$(gettext 'Boot loader')</a>
+	<a class="button" href="?grub">$(gettext 'Boot loader')</a>
 </div>
 
 <h3>$(gettext 'Configuration files')</h3>
