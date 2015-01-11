@@ -1,5 +1,5 @@
 /*
- * CSS style for TazPanel - (C) 2011-12 SliTaz GNU/Linux
+ * CSS style for TazPanel - (C) 2011-2015 SliTaz GNU/Linux
 */
 
 /* To always have a scroll bar */
@@ -307,12 +307,12 @@ input[type=submit], .button {
 	padding: 4px;
 	margin: 4px 0px;
 	font-size: 14px;
-	line-height: 1.2em;
+	/*line-height: 1.2em;*/
 	background-image: -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
 	background-image: -moz-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
-	-webkit-appearance: none;
+	/*-webkit-appearance: none;
 	-webkit-padding-end: 12px;
-	-webkit-padding-start: 6px;
+	-webkit-padding-start: 6px;*/
 }
 input[type="submit"] {
 	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
