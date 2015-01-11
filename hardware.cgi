@@ -57,6 +57,12 @@ case " $(GET) " in
 	*\ print\ *)
 		xhtml_header
 		echo "<h2>TODO</h2>" ;;
+	*\ tazx\ *)
+		xhtml_header
+		cat << EOT
+<pre>$(tazx auto)</pre>
+EOT
+		;;
 	*\ detect\ *)
 		# Front end for Tazhw
 		# TODO: Add button to detect webcam, etc. Like in tazhw box.
@@ -182,6 +188,8 @@ EOT
 		<img src="$IMAGES/tux.png" />$(gettext 'Kernel modules')</a>
 	<a class="button" href="?detect">
 		<img src="$IMAGES/monitor.png" />$(gettext 'Detect PCI/USB')</a>
+	<a class="button" href="?tazx">
+		<img src="$IMAGES/terminal.png" />$(gettext 'Auto-install Xorg video driver')</a>
 </div>
 
 EOT
