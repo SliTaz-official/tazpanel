@@ -25,12 +25,12 @@ msgstr "Usage : $program_name [start|stop|passwd]"
 
 #: tazpanel:37
 msgid "TazPanel is already running."
-msgstr ""
+msgstr "TazPanel est déjà actif."
 
 #: tazpanel:40
 #, sh-format
 msgid "Starting TazPanel web server on port $HTTPD_PORT..."
-msgstr ""
+msgstr "Lancement du serveur TazPanel sur le port $HTTPD_PORT..."
 
 #: tazpanel:42
 msgid "TazPanel Authentication - Default: root:root"
@@ -98,12 +98,12 @@ msgstr "Téléchargement dans : $dl"
 #: index.cgi:184
 #, sh-format
 msgid "$cmd needs an argument"
-msgstr "La commande $cmd recquière un argument"
+msgstr "La commande $cmd nécéssite un argument"
 
 #: index.cgi:188
 #, sh-format
 msgid "Unknown command: $cmd"
-msgstr "Commande inconnu : $cmd"
+msgstr "Commande inconnue : $cmd"
 
 #: index.cgi:196
 msgid "TazPanel - Process activity"
@@ -131,7 +131,7 @@ msgstr "aucun"
 
 #: index.cgi:223
 msgid "TazPanel - Debug"
-msgstr "TazPanel - Debuguage"
+msgstr "TazPanel - Debugage"
 
 #: index.cgi:226
 msgid "HTTP Environment"
@@ -164,19 +164,19 @@ msgstr "Date :"
 
 #: index.cgi:278
 msgid "Getting hardware info..."
-msgstr "Obtention d'informations sur le matériel..."
+msgstr "Collecte d'informations sur le matériel..."
 
 #: index.cgi:296
 msgid "Getting networking info..."
-msgstr "Obtention d'informations sur le réseau..."
+msgstr "Collecte d'informations sur le réseau..."
 
 #: index.cgi:310
 msgid "Getting filesystems info..."
-msgstr "Obtention d'informations sur les systèmes de fichiers..."
+msgstr "Collecte d'informations sur les systèmes de fichiers..."
 
 #: index.cgi:330
 msgid "Getting boot logs..."
-msgstr "Obtention des journaux de démarrage..."
+msgstr "Collecte des journaux de démarrage..."
 
 #: index.cgi:333 boot.cgi:29 boot.cgi:34 styles/default/header.html:73
 msgid "Kernel messages"
@@ -246,11 +246,11 @@ msgstr "État du réseau"
 
 #: index.cgi:413 hardware.cgi:266
 msgid "Filesystem usage statistics"
-msgstr "Statistiques d'utilisation du système de fichiers"
+msgstr "Utilisation des systèmes de fichiers"
 
 #: index.cgi:446
 msgid "Panel Activity"
-msgstr "Panneau d'activités"
+msgstr "Dernières actions"
 
 #: network.cgi:13
 msgid "TazPanel - Network"
@@ -450,11 +450,11 @@ msgstr "Editer les hôtes"
 
 #: network.cgi:340
 msgid "Hostname"
-msgstr "Nom d'hôte"
+msgstr "Nom de l'hôte"
 
 #: network.cgi:344
 msgid "Change hostname"
-msgstr "Changer le nom d'hôte"
+msgstr "Changer le nom de l'hôte"
 
 #: network.cgi:349
 #, fuzzy
@@ -487,11 +487,11 @@ msgstr "Journaux de démarrage"
 
 #: boot.cgi:31 boot.cgi:42 styles/default/header.html:75
 msgid "X server"
-msgstr "Serveur x"
+msgstr "Serveur X"
 
 #: boot.cgi:46
 msgid "Show more..."
-msgstr "Voir plus..."
+msgstr "En voir plus..."
 
 #: boot.cgi:61 boot.cgi:307 styles/default/header.html:79
 msgid "Manage daemons"
@@ -569,7 +569,7 @@ msgstr "Arrêter"
 
 #: boot.cgi:248
 msgid "GRUB Boot loader"
-msgstr "Gestionnaire de démarrage GRUB"
+msgstr "Gestionnaire de d'amorçage GRUB"
 
 #: boot.cgi:250
 msgid "The first application started when the computer powers on"
@@ -586,7 +586,7 @@ msgstr "Temps d'attente :"
 
 #: boot.cgi:260
 msgid "Splash image:"
-msgstr "Image a afficher pendant le démarrage :"
+msgstr "Image à afficher pendant le démarrage :"
 
 #: boot.cgi:263 settings.cgi:401 settings.cgi:457 settings.cgi:524
 msgid "Change"
@@ -642,7 +642,7 @@ msgstr "Ligne de commande passée au noyau"
 
 #: boot.cgi:323
 msgid "Local startup commands"
-msgstr "Commandes locales exécutées au démarrage"
+msgstr "Commandes supplémentaires lors du démarrage"
 
 #: boot.cgi:328
 msgid "Edit script"
@@ -779,7 +779,7 @@ msgstr "Type"
 #: hardware.cgi:385
 #, fuzzy
 msgid "Options"
-msgstr "Action"
+msgstr ""
 
 #: hardware.cgi:386
 msgid "Freq"
@@ -903,11 +903,11 @@ msgstr "Ajouter un utilisateur"
 
 #: settings.cgi:272
 msgid "User login:"
-msgstr "Identifiant de l'utilisateur :"
+msgstr "Identifiant :"
 
 #: settings.cgi:274
 msgid "User password:"
-msgstr "Mot de passe de l'utilisateur :"
+msgstr "Mot de passe :"
 
 #: settings.cgi:277
 msgid "Create user"
@@ -1026,7 +1026,7 @@ msgstr ""
 #: settings.cgi:453
 #, fuzzy
 msgid "Current system locale:"
-msgstr "Locales système courantes :"
+msgstr "Locales système actuelles :"
 
 #: settings.cgi:461
 msgid "Console keymap"
@@ -1073,7 +1073,7 @@ msgstr "Serveur"
 #: settings.cgi:535
 #, fuzzy
 msgid "TazPanel provides a debugging mode and page:"
-msgstr "TazPanel fournit un mode et une page debuging :"
+msgstr "TazPanel fournit un mode et une page de debug :"
 
 #: lib/libtazpanel:93
 msgid "connected"
@@ -1085,11 +1085,11 @@ msgstr "Adresse IP"
 
 #: lib/libtazpanel:111
 msgid "Scan ports"
-msgstr "Scan de ports"
+msgstr "Scan des ports"
 
 #: lib/libtazpanel:225
 msgid "Label"
-msgstr "Libellé"
+msgstr "Etiquette"
 
 #: lib/libtazpanel:228
 msgid "Available"
@@ -1115,7 +1115,7 @@ msgstr "Créer un rapport"
 #: styles/default/header.html:46
 #, fuzzy
 msgid "Network"
-msgstr "Gestion de réseau"
+msgstr "Réseau"
 
 #: styles/default/header.html:49
 #, fuzzy
