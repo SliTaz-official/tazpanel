@@ -63,9 +63,10 @@ $(printf '\t<link rel="stylesheet" type="text/css" href="/%s" />\n' \
 				<li><a href="/boot.cgi?log"><img
 					src="/styles/$STYLE/images/text.png" />$(gettext 'Boot logs')</a>
 					<ul>
-						<li><a href="/boot.cgi?log#kernel">$(gettext 'Kernel messages')</a>
-						<li><a href="/boot.cgi?log#boot">$(gettext 'Boot scripts')</a>
-						<li><a href="/boot.cgi?log#slim">$(gettext 'X server')</a>
+						<li><a href="/boot.cgi?log=kernel">$(gettext 'Kernel messages')</a>
+						<li><a href="/boot.cgi?log=boot">$(gettext 'Boot scripts')</a>
+						<li><a href="/boot.cgi?log=xlog">$(gettext 'X server')</a>
+						<li><a href="/boot.cgi?log=slim">$(gettext 'X session')</a>
 					</ul>
 				</li>
 				<li><a href="/boot.cgi?daemons"><img

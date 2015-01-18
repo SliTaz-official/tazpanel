@@ -13,37 +13,45 @@ get_config
 
 TITLE=$(gettext 'TazPanel - Boot')
 
+loghead()
+{
+	tail -n 40 $1 | htmlize
+	[ $(wc -l < $1) -gt 40 ] && cat <<EOT
+<hr /><a href="/index.cgi?file=$1">$(gettext 'Show more...')</a>
+EOT
+}
+
 #
 # Commands
 #
 
 case " $(GET) " in
 	*\ log\ *)
+		unset actboot actslim actxlog actkernel
+		case "$(GET log)" in
+		boot)	actboot=' class="active"'
+			output="$(filter_taztools_msgs < /var/log/boot.log)"
+			;;
+		slim)	actslim=' class="active"'
+			output="$(loghead /var/log/slim.log)" ;;
+		xlog)	actxlog=' class="active"'
+			output="$(loghead /var/log/Xorg.0.log)" ;;
+		*)	actkernel=' class="active"'
+			output="$(syntax_highlighter kernel < /var/log/dmesg.log)"
+		esac
 		xhtml_header
 		cat << EOT
 <div id="wrapper">
 	<h2>$(gettext 'Boot log files')</h2>
 </div>
-<div>
-	<a class="button" href="#kernel">
-		<img src="$IMAGES/tux.png" />$(gettext 'Kernel messages')</a>
-	<a class="button" href="#boot">$(gettext 'Boot scripts')</a>
-	<a class="button" href="#slim">$(gettext 'X server')</a>
-</div>
-
-	<h3 id="kernel">$(gettext 'Kernel messages')</h3>
-
-	<pre>$(cat /var/log/dmesg.log | syntax_highlighter kernel)</pre>
-
-	<h3 id="boot">$(gettext 'Boot scripts')</h3>
-
-	<pre>$(cat /var/log/boot.log | filter_taztools_msgs)</pre>
-
-	<h3 id="slim">$(gettext 'X server')</h3>
-
-	<pre>
-$(tail -n 40 /var/log/slim.log | htmlize)
-<hr /><a href="/index.cgi?file=/var/log/slim.log">$(gettext 'Show more...')</a>
+<ul id="tabs">
+	<li$actkernel><a href="?log=kernel">$(gettext 'Kernel messages')</a></li>
+	<li$actboot><a href="?log=boot">$(gettext 'Boot scripts')</a></li>
+	<li$actxlog><a href="?log=xlog">$(gettext 'X server')</a></li>
+	<li$actslim><a href="?log=slim">$(gettext 'X session')</a></li>
+</ul>
+<pre>
+$output
 </pre>
 EOT
 		;;
