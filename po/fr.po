@@ -1101,7 +1101,7 @@ msgstr "Manuel utilisateur"
 
 #: help.cgi:28
 msgid "TazPanel - Help &amp; Doc"
-msgstr "TazPanel - Aide &am; Support"
+msgstr "TazPanel - Aide &amp; Support"
 
 #: styles/default/header.html:40
 msgid "Processes"
