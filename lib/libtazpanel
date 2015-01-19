@@ -68,14 +68,14 @@ syntax_highlighter() {
 
 # Remove status and ESC char from tazpkg/tazlito commands output
 filter_taztools_msgs() {
-	sed	-e s'|.\[1;32m|<span style="color: green">|g' \
-		-e s'|.\[1;31m|<span style="color: red">|g' \
-		-e s'|.\[1;33m|<span style="color: yellow">|g' \
-		-e s'|.\[1;34m|<span style="color: blue">|g' \
-		-e s'|.\[1;36m|<span style="color: lightblue">|g' \
-		-e s'|.\[0;39m|</span>|g' \
-		-e s'/\[^Gm]*.//g' \
-		-e ':a;s/^\(.\{1,68\}\)\(\[ *<span style="color\)/\1 \2/;ta'
+	sed	-e s'|\\[1;32m|<span style="color: green">|g' \
+		-e s'|\\[1;31m|<span style="color: red">|g' \
+		-e s'|\\[1;33m|<span style="color: yellow">|g' \
+		-e s'|\\[1;34m|<span style="color: blue">|g' \
+		-e s'|\\[1;36m|<span style="color: lightblue">|g' \
+		-e s'|\\[0;39m|</span>|g' \
+		-e ':a;s/^\(.\{0,69\}\)\(\\[[0-9]*G\[\)/\1 \2/;ta' \
+		-e s'/\[^Gm]*.//g'
 }
 
 # LOG activities

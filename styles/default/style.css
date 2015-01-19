@@ -433,9 +433,8 @@ section h3 {
 
 #tabs li {
 	float: left;
-	height: 15px;
+	height: 16px;
 	background-color: #eee;
-	/* margin: 2px 2px 0 2px !important; */
 	margin: 1px 1px 0 1px;
 	border: 1px solid #aaa;
 	text-align: center;
@@ -446,6 +445,7 @@ section h3 {
 	-webkit-border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
 	border-top-left-radius: 4px;
+	margin: 0 40px 0 -40px;
 }
 
 #tabs li.active {
