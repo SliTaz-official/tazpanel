@@ -736,7 +736,7 @@ msgstr "Détecter le matériel PCI/USB"
 
 #: hardware.cgi:192
 msgid "Auto-install Xorg video driver"
-msgstr ""
+msgstr "Installation du driver vidéo Xorg"
 
 #: hardware.cgi:212
 msgid "Battery"
@@ -770,7 +770,7 @@ msgstr "Luminosité d'écran"
 
 #: hardware.cgi:390
 msgid "Filesystems table"
-msgstr ""
+msgstr "Systèmes de fichiers"
 
 #: hardware.cgi:394 lib/libtazpanel:228
 msgid "Disk"
