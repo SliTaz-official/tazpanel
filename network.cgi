@@ -33,6 +33,51 @@ start_wifi() {
 }
 
 
+# Connect to a Wi-Fi network
+connect_wifi() {
+	/etc/init.d/network.sh stop | log
+	sed -i \
+		-e "s|^WIFI_ESSID=.*|WIFI_ESSID=\"$(GET essid)\"|" \
+		-e "s|^WIFI_BSSID=.*|WIFI_BSSID=\"$(GET bssid)\"|" \
+		-e "s|^WIFI_KEY_TYPE=.*|WIFI_KEY_TYPE=\"$(GET keyType)\"|" \
+		-e "s|^WIFI_KEY=.*|WIFI_KEY=\"$(GET password)\"|" \
+		-e "s|^WIFI_EAP_METHOD=.*|WIFI_EAP_METHOD=\"$(GET eap)\"|" \
+		-e "s|^WIFI_CA_CERT=.*|WIFI_CA_CERT=\"$(GET caCert)\"|" \
+		-e "s|^WIFI_CLIENT_CERT=.*|WIFI_CLIENT_CERT=\"$(GET clientCert)\"|" \
+		-e "s|^WIFI_IDENTITY=.*|WIFI_IDENTITY=\"$(GET identity)\"|" \
+		-e "s|^WIFI_ANONYMOUS_IDENTITY=.*|WIFI_ANONYMOUS_IDENTITY=\"$(GET anonymousIdentity)\"|" \
+		-e "s|^WIFI_PHASE2=.*|WIFI_PHASE2=\"$(GET phase2)\"|" \
+		/etc/network.conf
+	. /etc/network.conf
+	start_wifi
+}
+
+
+# Start an Ethernet connection
+
+start_eth() {
+	case "$(GET staticip)" in
+		on) DHCP='no';  STATIC='yes';;
+		*)  DHCP='yes'; STATIC='no';;
+	esac
+
+	/etc/init.d/network.sh stop | log
+	sleep 2
+	sed -i \
+		-e "s|^INTERFACE=.*|INTERFACE=\"$(GET iface)\"|" \
+		-e 's|^WIFI=.*|WIFI="no"|' \
+		-e "s|^DHCP=.*|DHCP=\"$DHCP\"|" \
+		-e "s|^STATIC=.*|STATIC=\"$STATIC\"|" \
+		-e "s|^IP=.*|IP=\"$(GET ip)\"|" \
+		-e "s|^NETMASK=.*|NETMASK=\"$(GET netmask)\"|" \
+		-e "s|^GATEWAY=.*|GATEWAY=\"$(GET gateway)\"|" \
+		-e "s|^DNS_SERVER=.*|DNS_SERVER=\"$(GET dns)\"|" \
+		/etc/network.conf
+	/etc/init.d/network.sh start | log
+	. /etc/network.conf
+}
+
+
 # Use /etc/wpa/wpa.conf as single database for known networks, passwords, etc.
 # Translate this data to use in javascript.
 
@@ -85,8 +130,12 @@ case " $(GET) " in
 	*\ restart\ *)
 		/etc/init.d/network.sh restart | log
 		wait_up ;;
-	*\ start-wifi\ *)
+	*\ start_wifi\ *)
 		start_wifi ;;
+	*\ start_eth\ *)
+		start_eth ;;
+	*\ connect_wifi\ *)
+		connect_wifi ;;
 	*\ host\ *)
 		get_hostname="$(GET host)"
 		echo $(eval_gettext 'Changed hostname: $get_hostname') | log
@@ -129,28 +178,21 @@ EOT
 	*\ eth\ *)
 		# Wired connections settings
 		xhtml_header
-		if [ "$(GET ip)" ]; then
-			DHCP=no
-			STATIC=no
-			[ -n "$(GET dhcp)" ] && DHCP=yes
-			[ -n "$(GET static)" ] && STATIC=yes
-			LOADING_MSG=$(gettext 'Setting up IP...'); loading_msg
 
-			sed -i \
-				-e s"/^INTERFACE=.*/INTERFACE=\"$(GET iface)\""/ \
-				-e s"/^DHCP=.*/DHCP=\"$DHCP\"/" \
-				-e s"/^STATIC=.*/STATIC=\"$STATIC\"/" \
-				-e s"/^NETMASK=.*/NETMASK=\"$(GET netmask)\"/" \
-				-e s"/^GATEWAY=.*/GATEWAY=\"$(GET gateway)\"/" \
-				-e s"/^DNS_SERVER=.*/DNS_SERVER=\"$(GET dns)\"/" \
-				-e s"/^IP=.*/IP=\"$(GET ip)\"/" /etc/network.conf
-			/etc/init.d/network stop | log
-			sleep 2
-			/etc/init.d/network start | log
-			. /etc/network.conf
+		PAR1="size=\"20\" required"; PAR="$PAR1 pattern=\"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\""
+
+		case "$STATIC" in
+			yes) use_static='checked';;
+			*)   use_static='';;
+		esac
+
+		stop_disabled=''; start_disabled=''
+		if cat /sys/class/net/eth*/operstate | fgrep -q up; then
+			start_disabled='disabled'
+		else
+			stop_disabled='disabled'
 		fi
 
-		PAR1="size=\"20\" required"; PAR="$PAR1 pattern=\"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\" data-x=\"Four numbers, each in range 0-255, delimited by full stop.\""
 		cat <<EOT
 <h2>$(gettext 'Ethernet connection')</h2>
 
@@ -164,45 +206,48 @@ automatically get a random IP or configure a static/fixed IP")</p>
 		<div>
 			<table>
 				<tr><td>$(gettext 'Interface')</td>
-					<td><select name="iface" value="$INTERFACE" style="width:100%"/>
+					<td><select name="iface" value="$INTERFACE" style="width:100%">
 					$(cd /sys/class/net; ls -1 | awk -viface="$INTERFACE" '{
 						sel = ($0 == iface) ? " selected":""
 						printf "<option value=\"%s\"%s>%s", $0, sel, $0
 					}')
 					</select></td>
 				</tr>
-				<tr><td>&nbsp;</td>
-					<td><label><input type="checkbox" name="staticip" id="staticip"/>
+				<tr><td>$(gettext 'Static IP')</td>
+					<td><label><input type="checkbox" name="staticip" id="staticip" $use_static/>
 						$(gettext 'Use static IP')</td>
-				<tr><td>$(gettext 'IP address')</td>
-					<td><input type="text" name="ip"      id="st1" value="$IP"         $PAR/></td>
 				</tr>
-				<tr><td>$(gettext 'Netmask')</td>
-					<td><input type="text" name="netmask" id="st2" value="$NETMASK"    $PAR/></td>
+				<tr id="st1"><td>$(gettext 'IP address')</td>
+					<td><input type="text" name="ip"      value="$IP"         $PAR/></td>
 				</tr>
-				<tr><td>$(gettext 'Gateway')</td>
-					<td><input type="text" name="gateway" id="st3" value="$GATEWAY"    $PAR/></td>
+				<tr id="st2"><td>$(gettext 'Netmask')</td>
+					<td><input type="text" name="netmask" value="$NETMASK"    $PAR/></td>
 				</tr>
-				<tr><td>$(gettext 'DNS server')</td>
-					<td><input type="text" name="dns"     id="st4" value="$DNS_SERVER" $PAR/></td>
+				<tr id="st3"><td>$(gettext 'Gateway')</td>
+					<td><input type="text" name="gateway" value="$GATEWAY"    $PAR/></td>
+				</tr>
+				<tr id="st4"><td>$(gettext 'DNS server')</td>
+					<td><input type="text" name="dns"     value="$DNS_SERVER" $PAR/></td>
 				</tr>
 			</table>
 		</div>
 	</form>
 	<footer><!--
-		--><button form="conf" type="submit" name="static"  data-icon="ok"    >$(gettext 'Activate (static)')</button><!--
-		--><button form="conf" type="submit" name="dhcp"    data-icon="ok"    >$(gettext 'Activate (DHCP)'  )</button><!--
-		--><button form="conf" name="disable" data-icon="cancel">$(gettext 'Disable'          )</button><!--
+		--><button form="conf" type="submit" name="start_eth" data-icon="start" $start_disabled>$(gettext 'Start'  )</button><!--
+		--><button form="conf" type="submit" name="stop"      data-icon="stop"  $stop_disabled >$(gettext 'Stop'   )</button><!--
 	--></footer>
 </section>
 
 <script type="text/javascript">
-	document.getElementById('staticip').onchange = static_change;
-
-	function static_change() {
-		staticip = document.getElementById('staticip');
-		alert(staticip.checked);
+function static_change() {
+	staticip = document.getElementById('staticip').checked;
+	for (i = 1; i < 5; i++) {
+		document.getElementById('st' + i).style.display = staticip ? '' : 'none';
 	}
+}
+
+document.getElementById('staticip').onchange = static_change;
+static_change();
 </script>
 
 <section>
@@ -343,7 +388,7 @@ EOT
 		fi
 
 		cat <<EOT
-	   <button name="start-wifi" data-icon="start"   $start_disabled>$(gettext 'Start')</button><!--
+	   <button name="start_wifi" data-icon="start"   $start_disabled>$(gettext 'Start')</button><!--
 	--><button name="stop"       data-icon="stop"    $stop_disabled >$(gettext 'Stop' )</button><!--
 	--><button type="submit"     data-icon="refresh" $stop_disabled >$(gettext 'Scan' )</button>
 </form>
@@ -361,23 +406,6 @@ EOT
 </script>
 EOT
 
-			ESSID="$(GET essid)"
-			#WIFI_KEY_TYPE="$(GET keyType)"
-			#WIFI_KEY="$(GET key)"
-			#WIFI_AP="$(GET ap)"
-
-			if [ -n "$ESSID" ]; then
-				/etc/init.d/network.sh stop | log
-				sed -i \
-					-e "s/^WIFI_ESSID=.*/WIFI_ESSID=\"$essid\"/" \
-					-e "s/^WIFI_KEY_TYPE=.*/WIFI_KEY_TYPE=\"$WIFI_KEY_TYPE\"/" \
-					-e "s/^WIFI_KEY=.*/WIFI_KEY=\"$WIFI_KEY\"/" \
-					-e "s/^WIFI_AP=.*/WIFI_AP=\"$WIFI_AP\"/" \
-					/etc/network.conf
-				. /etc/network.conf
-				start_wifi
-			fi
-
 			# ESSID names are clickable
 			#SELECT="$(GET select)"
 			#if [ -n "$SELECT" ]; then
@@ -390,7 +418,8 @@ EOT
 	<header>$(gettext 'Connection')</header>
 	<div>
 		<form id="connection">
-			<input type="hidden" name="connect-wifi"/>
+			<input type="hidden" name="connect_wifi"/>
+			<input type="hidden" name="bssid" id="bssid"/>
 			<table>
 				<tr><td>$(gettext 'Network SSID')</td>
 					<td><input type="text" name="essid" value="$WIFI_ESSID" id="essid"/></td>

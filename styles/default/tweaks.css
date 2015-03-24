@@ -224,6 +224,9 @@ a[data-icon] { white-space: pre-line; }
 
 [data-img="web"]::before {color:#268bd2} /*blue*/
 
+/* disabled buttons with gray icons */
+[disabled][data-icon]:before { color: #888; }
+
 
 
 /**********
