@@ -1,73 +1,82 @@
 <div id="help">
 
-<h2>English Help</h2>
+	<section>
+		<header>English Help</header>
+		<div>
 
-<p>
+			<p>
 	TazPanel is the SliTaz administration and settings center from where
 	you can control your entire system such as managing packages, adding 
 	or removing users, creating Live systems and much more. Navigation
 	is done with the toolbar at the top of the application window and
 	in some cases with a submenu or a side bar as in the packages interface.
-</p>
+			</p>
 
-<p>
+			<p>
 	In most cases you will get a description and useful information with
-	the section concerned. TazPanel uses the latest XHTML 5 and CSS 3 technology
+	the section concerned. TazPanel uses the latest HTML 5 and CSS 3 technology
 	to provide a clean and easy to use frontend for all the administration tasks
 	that you can do on SliTaz. TazPanel has also been coded from the beginning
 	with speed and quality in mind and it also supports full
 	internationalization.
-</p>
+			</p>
 
-<p>
+			<p>
 	TazPanel is run as a web server on port 82 by default and can be used only
 	from the local system. If you wish to control your system from a remote host
 	you can change the server configuration file to allow connections from a
 	local network or the entire world wide web, but in this last case make sure
 	that you set a strong password for the panel. The server configuration file is
-	/etc/slitaz/httpd.conf.
-</p>
+	<a data-icon="text" href="index.cgi?file=/etc/slitaz/httpd.conf">/etc/slitaz/httpd.conf</a>.
+			</p>
 
-<h3>Terminal</h3>
-<p>
+
+			<h3>Terminal</h3>
+
+			<p>
 	TazPanel provides a small terminal emulator which lets you execute commands as
 	root on the remote or local system. Not all available commands are usable
 	and you should use a SSH connection for most tasks. That said, having access
-	to a few commands within the web interface can be useful and wget is
+	to a few commands within the web interface can be useful and <tt>wget</tt> is
 	supported to allow file uploads on a remote machine. The download directory
-	is /var/www/downloads by default. All commands can use options such as
-	-R -l etc.
-</p>
+	is <tt>/var/www/downloads</tt> by default. All commands can use options such as
+	<tt>-R</tt> <tt>-l</tt> etc.
+			</p>
 
-<h3>Get Support</h3>
 
-<p>
-	You can get support on the Slitaz <a href="http://forum.slitaz.org/">forum</a>,
+			<h3>Get Support</h3>
+
+			<p>
+	You can get support on the SliTaz <a data-icon="web" href="http://forum.slitaz.org/" target="_blank">forum</a>,
 	the mailing list or the IRC channel. The official SliTaz IRC channel is on
 	Freenode (note that you can use LostIRC, Xchat or Pidgin on SliTaz). Freenode also
-	provides a nice IRC <a href="http://webchat.freenode.net/">web interface</a>.
-</p>
+	provides a nice IRC <a data-icon="web" href="http://webchat.freenode.net/" target="_blank">web interface</a>.
+			</p>
 
-<h3>Get involved</h3>
 
-<p>
+			<h3>Get involved</h3>
+
+			<p>
 	If you want to help and get involved in SliTaz, TazPanel maybe for you!
 	We need help in translating, styling, documenting and coding. If
 	you need more information or want to publish a new graphical style,
-	you can go to the SliTaz <a href="http://scn.slitaz.org/">Community</a>
+	you can go to the SliTaz <a data-icon="web" href="http://scn.slitaz.org/" target="_blank">Community</a>
 	and post on the Devel forum or post an update with a PM to a SliTaz
 	contributor so that we can get in touch and include your work in TazPanel
 	or in an extra styles package.
-</p>
+			</p>
 
-<h3>Bugs and features</h3>
 
-<p>
+			<h3>Bugs and features</h3>
+
+			<p>
 	TazPanel is still a young application which will be improved and polished in
 	time. If you find a bug, please post on the SliTaz tracker:
-	<a href="http://bugs.slitaz.org/">bugs.slitaz.org</a>. Tazpanel has a
-	debug mode that can be enabled in the configuration file tazpanel.conf 
-	and also provides a <a href="/index.cgi?debug">debug page</a>.
-</p>
+	<a data-icon="web" href="http://bugs.slitaz.org/" target="_blank">bugs.slitaz.org</a>. Tazpanel has a
+	debug mode that can be enabled in the configuration file <a data-icon="text" href="index.cgi?file=/etc/slitaz/tazpanel.conf">tazpanel.conf</a>
+	and also provides a <a data-icon="info" href="index.cgi?debug">debug page</a>.
+			</p>
 
+		</div>
+	</section>
 </div>

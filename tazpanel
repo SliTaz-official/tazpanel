@@ -2,11 +2,13 @@
 #
 # Tiny Tazpanel cmdline interface
 #
-# Copyright (C) 2012-2014 SliTaz GNU/Linux - BSD License
+# Copyright (C) 2012-2015 SliTaz GNU/Linux - BSD License
 #
 VERSION=1.8.2
 
+
 # Get the configuration file and functions
+
 CONFIG="/etc/slitaz/tazpanel.conf"
 [ -f "$CONFIG" ] && . $CONFIG
 [ -f "data/tazpanel.conf" ] && . data/tazpanel.conf
@@ -14,9 +16,12 @@ CONFIG="/etc/slitaz/tazpanel.conf"
 
 . /lib/libtaz.sh
 
+
 # I18n
+
 TEXTDOMAIN='tazpanel'
 export TEXTDOMAIN
+
 
 #
 # Commands
@@ -29,12 +34,12 @@ PIDFILE=/run/$NAME.pid
 
 case "$1" in
 	-h|*help|*usage)
-		echo ""
+		echo
 		gettext 'Usage: tazpanel [start|stop|passwd|app]'; echo
-		echo "" ;;
-	start)  
+		echo ;;
+	start)
 		if [ -f $PIDFILE ]; then
-	        gettext 'TazPanel is already running.'; echo
+			gettext 'TazPanel is already running.'; echo
 			exit 1
 		fi
 		eval_gettext 'Starting TazPanel web server on port $HTTPD_PORT...'
@@ -43,27 +48,27 @@ case "$1" in
 		ps | grep "httpd -p $HTTPD_PORT " | grep -v grep | \
 			awk '{ print $1 }' > $PIDFILE
 		status ;;
-	stop)   
-	        if [ ! -f $PIDFILE ]; then
-	        gettext 'TazPanel is not running.'; echo
-	        exit 1
-	        fi
+	stop)
+		if [ ! -f $PIDFILE ]; then
+			gettext 'TazPanel is not running.'; echo
+			exit 1
+		fi
 		gettext 'Stopping TazPanel web server...'
-		kill $(pgrep -f TazPanel) 
+		kill $(pgrep -f TazPanel)
 		rm -f $PIDFILE
 		status ;;
 	passwd|-p)
-		echo ""
+		echo
 		gettext 'Changing password for TazPanel'; echo
 		gettext 'New password: ' && read pass
-		sed -i s"/\/:root:.*/\/:root:$pass/" $HTTPD_CONF
+		sed -i "s/\/:root:.*/\/:root:$pass/" $HTTPD_CONF
 		gettext 'Password changed successfully'; echo
-		echo "" ;;
+		echo ;;
 	*)
 		. /etc/slitaz/applications.conf
 		USER_CONFIG="$HOME/.config/slitaz/applications.conf"
-		[ -f  "$USER_CONFIG" ] && . $USER_CONFIG
-		[ "$1" ] && app="/${1}.cgi"
+		[ -f "$USER_CONFIG" ] && . $USER_CONFIG
+		[ -n "$1" ] && app="/${1}.cgi"
 		echo http://localhost:82${app}
 		case "$BROWSER" in
 			tazweb) tazweb --notoolbar http://localhost:82${app} & ;;

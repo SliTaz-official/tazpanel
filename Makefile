@@ -36,21 +36,28 @@ msgfmt:
 # Installation
 
 install:
-	mkdir -p $(DESTDIR)$(PREFIX)/bin \
+	mkdir -p \
+		$(DESTDIR)$(PREFIX)/bin \
 		$(DESTDIR)$(PREFIX)/share/locale \
 		$(DESTDIR)$(PREFIX)/share/applications \
-		$(DESTDIR)$(PREFIX)/share/pixmaps \
 		$(DESTDIR)$(SYSCONFDIR) \
 		$(DESTDIR)$(PANEL)/menu.d \
 		$(DESTDIR)/var/log
 	cp -a tazpanel $(DESTDIR)$(PREFIX)/bin
 	-[ "$(VERSION)" ] && sed -i 's/^VERSION=[0-9].*/VERSION=$(VERSION)/' $(DESTDIR)$(PREFIX)/bin/tazpanel
-	cp -a data/*.conf $(DESTDIR)$(SYSCONFDIR)
 	cp -a *.cgi lib/ styles/ doc/ README* $(DESTDIR)$(PANEL)
-	cp -a po/mo/* $(DESTDIR)$(PREFIX)/share/locale
+	cp -a po/mo/*        $(DESTDIR)$(PREFIX)/share/locale
+	cp -a data/*.conf    $(DESTDIR)$(SYSCONFDIR)
 	cp -a data/*.desktop $(DESTDIR)$(PREFIX)/share/applications
-	cp -a data/*.png $(DESTDIR)$(PREFIX)/share/pixmaps
+	cp -a data/icons     $(DESTDIR)$(PREFIX)/share
 	touch $(DESTDIR)/var/log/tazpanel.log
+
+	@# Clean comments in production release
+	sed -i '/^\t*\/\//d' $(DESTDIR)$(PANEL)/lib/tazpanel.js
+
+	@# Remove this when TazWeb will support OpenType ligatures for web-fonts (maybe, after Webkit upgrade?)
+	mkdir -p $(DESTDIR)/usr/share/fonts/TTF
+	ln -fs $(PANEL)/styles/default/tazpanel.ttf $(DESTDIR)/usr/share/fonts/TTF/tazpanel.ttf
 
 # Clean source
 

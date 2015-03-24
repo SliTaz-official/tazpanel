@@ -3,91 +3,85 @@ cat << EOT
 <html lang="${LANG%%_*}">
 <head>
 	<title>$TITLE</title>
-	<link rel="shortcut icon" href="/styles/$STYLE/favicon.ico" />
-$(printf '\t<link rel="stylesheet" type="text/css" href="/%s" />\n' \
-	$(cd /var/www/tazpanel; ls styles/$STYLE/*.css))
-
-	<script type="text/javascript">
-		function hideLoading(){document.getElementById("loading").style.display='none';}
-		window.onbeforeunload = confirmExit;
-		function confirmExit(){return "$(_ 'Confirm break')";}
-	</script>
+	<link rel="shortcut icon" href="/styles/$STYLE/favicon.ico"/>
+$(printf '\t<link rel="stylesheet" type="text/css" href="/%s"/>\n' $(cd /var/www/tazpanel; ls styles/$STYLE/*.css))
+$(printf '\t<script type="text/javascript" src="/%s"></script>\n' $(cd /var/www/tazpanel; ls lib/*.js))
 </head>
-<body onload="hideLoading()">
+<body>
+<script type="text/javascript">setColorTheme(); setBaseFont();</script>
 
 <header>
-	<h1>$TITLE</h1>
+	<h1 data-icon="tazpanel">$TITLE</h1>
 </header>
 
-<div id="toolbar">
-	<div id="icons">
-		<a href="/help.cgi">
-			<img src="/styles/$STYLE/images/help.png" alt="Help" /></a>
-	</div>
-	<ul id="menu">
-		<li><a href="/">$(gettext 'Panel')</a>
-			<ul>
-				<li><a href="/index.cgi?terminal"><img
-					src="/styles/$STYLE/images/terminal.png" />$(gettext 'Terminal')</a></li>
-				<li><a href="/index.cgi?top"><img
-					src="/styles/$STYLE/images/monitor.png" />$(gettext 'Processes')</a></li>
-				<li><a href="/index.cgi?report"><img
-					src="/styles/$STYLE/images/text.png" />$(gettext 'Create Report')</a></li>
-				$(for i in menu.d/panel/* ; do [ -f $i ] && sh $i menu $i ; done)
-			</ul>
-		</li>
-		<li><a href="/network.cgi">$(gettext 'Network')</a>
-			<ul>
-				<li><a href="/index.cgi?file=/etc/network.conf"><img
-					src="/styles/$STYLE/images/edit.png" />$(gettext 'Config file')</a></li>
-				<li><a href="/network.cgi?eth"><img
-					src="/styles/$STYLE/images/ethernet.png" />$(gettext 'Ethernet')</a></li>
-				<li><a href="/network.cgi?wifi"><img
-					src="/styles/$STYLE/images/wireless.png" />$(gettext 'Wireless')</a></li>
-				$(for i in menu.d/network/* ; do [ -f $i ] && sh $i menu $i ; done)
-			</ul>
-		</li>
-		<li><a href="/settings.cgi">$(gettext 'Settings')</a>
-			<ul>
-				<li><a href="/settings.cgi?users"><img
-					src="/styles/$STYLE/images/user.png" />$(gettext 'Users')</a></li>
-				<li><a href="/settings.cgi?groups"><img
-					src="/styles/$STYLE/images/users.png" />$(gettext 'Groups')</a></li>
-				$(for i in menu.d/settings/* ; do [ -f $i ] && sh $i menu $i ; done)
-			</ul>
-		</li>
-		<li><a href="/boot.cgi">$(gettext 'Boot')</a>
-			<ul>
-				<li><a href="/boot.cgi?grub"><img
-					src="/styles/$STYLE/images/tux.png" />$(gettext 'Boot loader')</a></li>
-				<li><a href="/boot.cgi?log"><img
-					src="/styles/$STYLE/images/text.png" />$(gettext 'Boot logs')</a>
-					<ul>
-						<li><a href="/boot.cgi?log=kernel">$(gettext 'Kernel messages')</a>
-						<li><a href="/boot.cgi?log=boot">$(gettext 'Boot scripts')</a>
-						<li><a href="/boot.cgi?log=xlog">$(gettext 'X server')</a>
-						<li><a href="/boot.cgi?log=slim">$(gettext 'X session')</a>
-					</ul>
-				</li>
-				<li><a href="/boot.cgi?daemons"><img
-					src="/styles/$STYLE/images/recharge.png" />$(gettext 'Manage daemons')</a></li>
-				$(for i in menu.d/boot/* ; do [ -f $i ] && sh $i menu $i ; done)
-			</ul>
-		</li>
-		<li><a href="/hardware.cgi">$(gettext 'Hardware')</a>
-			<ul>
-				<li><a href="/hardware.cgi?modules"><img
-					src="/styles/$STYLE/images/tux.png" />$(gettext 'Kernel modules')</a></li>
-				<li><a href="/hardware.cgi?detect"><img
-					src="/styles/$STYLE/images/monitor.png" />$(gettext 'Detect PCI/USB')</a></li>
-				<li><a href="/hardware.cgi#disk"><img
-					src="/styles/$STYLE/images/harddisk.png" />$(gettext 'Disks')</a></li>
-				$(for i in menu.d/hardware/* ; do [ -f $i ] && sh $i menu $i ; done)
-			</ul>
-		</li>
-		$(for i in menu.d/* ; do [ -f $i ] && sh $i menu $i ; done)
-	</ul>
-</div>
+<nav id="toolbar">
+ <menu type="toolbar" id="toolbarMenu">
+  <li tabindex="1">
+   <span>$(gettext 'Panel')</span>
+   <menu>
+    <li><a data-icon="info"     href="/">$(gettext 'Summary')</a></li>
+    <li><a data-icon="terminal" href="/index.cgi?cmd=help">$(gettext 'Terminal')</a></li>
+    <li><a data-icon="proc"     href="/index.cgi?top">$(gettext 'Processes')</a></li>
+    <li><a data-icon="report"   href="/index.cgi?report">$(gettext 'Create Report')</a></li>
+    $(for i in menu.d/panel/* ; do [ -f $i ] && sh $i menu $i ; done)
+   </menu>
+  </li>
+  <li tabindex="2">
+   <span>$(gettext 'Network')</span>
+   <menu>
+    <li><a data-icon="info" href="/network.cgi">$(gettext 'Summary')</a></li>
+    <li><a data-icon="conf" href="/index.cgi?file=/etc/network.conf">$(gettext 'Config file')</a></li>
+    <li><a data-icon="eth"  href="/network.cgi?eth">$(gettext 'Ethernet')</a></li>
+    <li><a data-icon="wifi" href="/network.cgi?wifi">$(gettext 'Wireless')</a></li>
+    $(for i in menu.d/network/* ; do [ -f $i ] && sh $i menu $i ; done)
+   </menu>
+  </li>
+  <li tabindex="3">
+   <span>$(gettext 'Settings')</span>
+   <menu>
+    <li><a data-icon="info"  href="/settings.cgi">$(gettext 'Summary')</a></li>
+    <li><a data-icon="user"  href="/settings.cgi?users">$(gettext 'Users')</a></li>
+    <li><a data-icon="group" href="/settings.cgi?groups">$(gettext 'Groups')</a></li>
+    $(for i in menu.d/settings/* ; do [ -f $i ] && sh $i menu $i ; done)
+   </menu>
+  </li>
+  <li tabindex="4">
+   <span>$(gettext 'Boot')</span>
+   <menu>
+    <li><a data-icon="info" href="/boot.cgi">$(gettext 'Summary')</a></li>
+    <li><a data-icon="grub" href="/boot.cgi?grub">$(gettext 'Boot loader')</a></li>
+    <li><a data-icon="logs" href="/boot.cgi?log">$(gettext 'Boot logs')</a>
+     <menu>
+      <li><a data-icon="" href="/boot.cgi?log=kernel">$(gettext 'Kernel messages')</a></li>
+      <li><a data-icon="" href="/boot.cgi?log=boot">$(gettext 'Boot scripts')</a></li>
+      <li><a data-icon="" href="/boot.cgi?log=xlog">$(gettext 'X server')</a></li>
+      <li><a data-icon="" href="/boot.cgi?log=slim">$(gettext 'X session')</a></li>
+     </menu>
+    </li>
+    <li><a data-icon="daemons" href="/boot.cgi?daemons">$(gettext 'Manage daemons')</a></li>
+    $(for i in menu.d/boot/* ; do [ -f $i ] && sh $i menu $i ; done)
+   </menu>
+  </li>
+  <li tabindex="5">
+   <span>$(gettext 'Hardware')</span>
+   <menu>
+    <li><a data-icon="info"    href="/hardware.cgi">$(gettext 'Summary')</a></li>
+    <li><a data-icon="modules" href="/hardware.cgi?modules">$(gettext 'Kernel modules')</a></li>
+    <li><a data-icon="detect"  href="/hardware.cgi?detect">$(gettext 'Detect PCI/USB')</a></li>
+    <li><a data-icon="hdd"     href="/hardware.cgi#disk">$(gettext 'Disks')</a></li>
+    $(for i in menu.d/hardware/* ; do [ -f $i ] && sh $i menu $i ; done)
+   </menu>
+  </li>
+  $(for i in menu.d/* ; do [ -f $i ] && sh $i menu $i ; done)
+ </menu>
+ <span id="icons">
+  <span id="miscinfo2"></span>
+  <span id="miscinfo1"></span>
+  <a data-img="help" href="/help.cgi"></a>
+ </span>
+</nav>
+<div id="noMenu"></div>
+<script type="text/javascript">addMenuHandlers();</script>
 
 <!-- Page content -->
 <div id="content">

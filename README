@@ -2,84 +2,85 @@ SliTaz Web Control Panel
 ================================================================================
 
 
-Tazpanel is the SliTaz Control Panel, a web interface which lets you manage the
-full system in a radically simple way. The output xHTML code is valid xHTML 5
-and all theming is done with standard CSS 3. TazPanel is published under a
-BSD License.
+Tazpanel is the SliTaz Control Panel, a web interface  which lets you manage the
+full system  in a radically simple way. The output  xHTML code is valid  xHTML 5
+and  all  theming  is done  with standard  CSS 3.  TazPanel  is  published under
+a BSD License.
 
 
 Use it!
-------
-You can clone the tazpanel repo into /var/www/tazpanel and work on this
-copy or clone it somewhere else and 'make install'. After, add tazpanel to
-your /etc/hosts, type './tazpanel start' to start the server and go to the
-URL: http://tazpanel:82. Panel user and password are defined in the 
-httpd.conf and default is root:root
+-------
+You can clone the tazpanel repo into  /var/www/tazpanel and work on this copy or
+clone  it  somewhere  else  and  'make install'.  After,  add  tazpanel  to your
+/etc/hosts,  type './tazpanel start'  to start  the server  and  go to  the URL:
+http://tazpanel:82.  Panel user  and password are defined  in the httpd.conf and
+default is root:root
 
 
 i18n
 ----
-TazPanel has been coded from the beginning with gettext support. Please
-forget 'echo' and use gettext, but remember that gettext "" is equivalent
-to echo -n. All scripts use the same TEXTDOMAIN and the same pot files, and 
-all translations go in the po/ folder. To start a new translation please
-use msginit from the pot file directory. Example for French/France
-locale (fr_FR):
+TazPanel has been coded  from the beginning  with gettext support. Please forget
+'echo' and use gettext, but remember that  gettext "" is equivalent  to echo -n.
+All scripts use the same TEXTDOMAIN and the same pot files, and all translations
+go in the po/ folder. To start a new translation please use msginit from the pot
+file directory. Example for French/France locale (fr_FR):
 
-	$ msginit -l fr_FR -o fr.po -i tazpanel.pot
+    $ msginit -l fr_FR -o fr.po -i tazpanel.pot
 
 To update all translations from a newly updated pot file:
 
-	$ make msgmerge
+    $ make msgmerge
 
 
 User interface
 --------------
-If you develop an official SliTaz GUI for TazPanel, please follow the default 
-style. If you need more CSS markup and you are not a coder, please ask an 
-official developer for the best way to implement your idea. TazPanel is fully 
-themable and more than one theme can be installed, this will allow us to make 
-packages in a TazPanel style! All the GUI is done with xHTML 5 and CSS 3; some
-javascript can be used, but with precautions... one more time, it's better
-to check with a main contributor before adding too much stuff; the goal is,
-as for all the SliTaz projects: KISS
+If you develop  an official SliTaz GUI  for TazPanel, please follow  the default
+style. If you need  more CSS markup and you are not a coder, please ask an offi-
+cial developer for the best way to implement your idea. TazPanel is fully thema-
+ble and more than one  theme can be installed, this will allow us to make packa-
+ges in a TazPanel style!  All the GUI is done with xHTML 5 and CSS 3; some java-
+script can be used, but with precautions...  one more time, it's better to check
+with a  main contributor before adding  too much stuff;  the goal is, as for all
+the SliTaz projects: KISS
 
 
 CGI template and files
 ----------------------
-To start or test a new function with TazPanel you will find a file in
-utils/template.cgi that needs to be in the $PANEL root to work, all TazPanel
-CGI scripts are in that location. If you think your code is too big to fit
-in another script you can eventually create a new CGI page and update all
-links, but please to talk to the AUTHORS beforehand.
+To  start  or  test  a new  function  with  TazPanel  you will  find  a file  in
+utils/template.cgi that needs to be in the $PANEL root to work, all TazPanel CGI
+scripts are in that location.  If you think your code is too big  to fit in ano-
+ther script you can  eventually create a new CGI page  and update all links, but
+please to talk to the AUTHORS beforehand.
 
-	* index.cgi     Main Tazpanel CGI script
-	* boot.cgi      All what happens before login
-	* network.cgi   All related stuff to networking (eth, wifi, services)
-	* pkgs.cgi      Tazpkg packages CGI interface
-	* settings.cgi  System settings and services such as time, users
-	                accounts, locales or daemons management
-	* live.cgi      All tools related to Live systems (CD, USB, Frugal)
-	* hardware.cgi  Devices drivers, firmware, printing
-	* help.cgi      Cat the html doc and this README file
+    * index.cgi     Main TazPanel CGI script
+    * boot.cgi      All what happens before login
+    * network.cgi   All related stuff to networking (Ethernet, Wi-Fi, services)
+    * pkgs.cgi      TazPkg packages CGI interface
+    * settings.cgi  System settings and services such as time, users accounts,
+                    locales or daemons management
+    * live.cgi      All tools related to Live systems (CD, USB, Frugal)
+    * hardware.cgi  Devices drivers, firmware, printing
+    * help.cgi      Cat the html doc and this README file
 
-For common functions have a look at lib/libtazpanel, where you may find functions
-you need already coded such as a xhtml_header to get the style header.html
-in your CGI script. For the loading message you can use loading_msg. When
-cat is used: `gettext "Text to translate"`
+For common functions have a look at  lib/libtazpanel, where you may find functi-
+ons you need already coded  such as a xhtml_header  to get the style header.html
+in your CGI script. For the loading message you can use loading_msg. When cat is
+used:
+
+    $(gettext "Text to translate")
 
 
 Web server
 ----------
-Tazpanel can run with the Busybox httpd applet or LightTPD and probably Apache.
-Start the webserver with a custom config to listen only on a local port for
+Tazpanel can run  with the Busybox httpd applet or LightTPD and probably Apache.
+Start the webserver  with a custom  config  to listen only  on a local  port for
 security reasons since we run as root to perform system actions, example:
 
-# httpd -p 82 u root -c /etc/slitaz/httpd.conf
+    # httpd -p 82 u root -c /etc/slitaz/httpd.conf
 
 Or use a tazpanel cmdline:
 
-# ./tazpanel start
+    # ./tazpanel start
 
 
 ================================================================================

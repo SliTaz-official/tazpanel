@@ -2,7 +2,7 @@
 #
 # Hardware part of TazPanel - Devices, drivers, printing
 #
-# Copyright (C) 2011-2014 SliTaz GNU/Linux - BSD License
+# Copyright (C) 2011-2015 SliTaz GNU/Linux - BSD License
 #
 
 # Common functions from libtazpanel
@@ -20,10 +20,11 @@ lib()
 	[ -s $module ] && . $module "$@"
 }
 
+
 lsusb_table()
 {
-	cat << EOT
-<table class="zebra outbox">
+	cat <<EOT
+<table class="wide zebra">
 <thead><tr><td>Bus</td><td>Device</td><td>ID</td><td>Name</td></thead>
 <tbody>
 EOT
@@ -35,10 +36,11 @@ EOT
 	echo "</tbody></table>"
 }
 
+
 lspci_table()
 {
-	cat << EOT
-<table class="zebra outbox">
+	cat <<EOT
+<table class="wide zebra">
 <thead><tr><td>Slot</td><td>Device</td><td>Name</td></thead>
 <tbody>
 EOT
@@ -56,51 +58,64 @@ EOT
 case " $(GET) " in
 	*\ print\ *)
 		xhtml_header
-		echo "<h2>TODO</h2>" ;;
+		echo "<h2>TODO</h2>"
+		;;
+
+
 	*\ tazx\ *)
 		xhtml_header
-		cat << EOT
+		cat <<EOT
 <pre>$(tazx auto)</pre>
 EOT
 		;;
+
+
 	*\ detect\ *)
 		# Front end for Tazhw
 		# TODO: Add button to detect webcam, etc. Like in tazhw box.
 		xhtml_header
-		cat << EOT
-<div id="wrapper">
-	<h2>$(gettext 'Detect hardware')</h2>
-	<p>$(gettext 'Detect PCI and USB hardware')</p>
-</div>
+		cat <<EOT
+<h2>$(gettext 'Detect hardware')</h2>
+<p>$(gettext 'Detect PCI and USB hardware')</p>
 
-<pre>$(tazhw detect-pci | sed 's|^>|\&gt;|g')</pre>
-
-<pre>$(tazhw detect-usb | sed 's|^>|\&gt;|g')</pre>
+<section>
+	<div>
+		<pre>$(tazhw detect-pci | sed 's|^>|\&gt;|g')</pre>
+		<pre>$(tazhw detect-usb | sed 's|^>|\&gt;|g')</pre>
+	</div>
+</section>
 EOT
 		;;
+
+
 	*\ modules\ *|*\ modinfo\ *)
 		xhtml_header
-		cat << EOT
-<div id="wrapper">
-	<h2>$(gettext 'Kernel modules')</h2>
-	<div class="float-right">
-		<form method="get" action="">
-			<input type="hidden" name="modules" />
-			<input type="search" placeholder="$(gettext 'Modules search')" name="search" />
-		</form>
-	</div>
-	<p>$(gettext 'Manage, search or get information about the Linux kernel modules')</p>
-</div>
+		cat <<EOT
+<h2>$(gettext 'Kernel modules')</h2>
+
+<form id="actions">
+	<input type="hidden" name="modules"/>
+	$(gettext 'Manage, search or get information about the Linux kernel modules')
+
+	<input type="search" name="search" class="float-right" placeholder="$(gettext 'Modules search')" results="5" autosave="modsearch" autocomplete="on"/>
+</form>
 EOT
 		# Request may be modinfo output that we want in the page itself
 		get_modinfo="$(GET modinfo)"
 		if [ -n "$get_modinfo" ]; then
-			cat << EOT
-<strong>$(eval_gettext 'Detailed information for module: $get_modinfo')</strong>
+			cat <<EOT
+<section>
+	<header>$(eval_gettext 'Detailed information for module: $get_modinfo')</header>
 
-<pre>$(modinfo $get_modinfo)</pre>
 EOT
+		modinfo $get_modinfo | awk 'BEGIN{print "<table class=\"wide zebra\">"}
+		{
+			printf("<tr><td><b>%s</b></td>", $1)
+			$1=""; printf("<td>%s</td></tr>", $0)
+		}
+		END{print "</table></section>"}'
 		fi
+
 		if [ -n "$(GET modprobe)" ]; then
 			echo "<pre>$(modprobe -v $(GET modprobe))</pre>"
 		fi
@@ -120,56 +135,73 @@ EOT
 			done
 			echo '</pre>'
 		fi
-		cat << EOT
-	$(table_start)
-		<tr class="thead">
-			<td>$(gettext 'Module')</td>
-			<td>$(gettext 'Size')</td>
-			<td>$(gettext 'Used')</td>
-			<td>$(gettext 'by')</td>
-		</tr>
+		cat <<EOT
+<section>
+	<table class="zebra borders hborders">
+		<thead>
+			<tr>
+				<td>$(gettext 'Module')</td>
+				<td>$(gettext 'Description')</td>
+				<td>$(gettext 'Size')</td>
+				<td>$(gettext 'Used')</td>
+				<td>$(gettext 'by')</td>
+			</tr>
+		<thead>
+		<tbody>
 EOT
 		# Get the list of modules and link to modinfo
-		lsmod | grep ^[a-z] | while read MOD SIZE USED BY
-		do
-			cat << EOT
-		<tr>
-			<td><a href="?modinfo=$MOD">$MOD</a></td>
-			<td>$SIZE</td>
-			<td>$USED</td>
-			<td>$(echo $BY | sed s/","/" "/g)</td>
-		</tr>
+		lsmod | tail -n+2 | awk '{
+			gsub(",", " ", $4);
+			printf("<tr><td><a href=\"?modinfo=%s\">%s</a></td><td>", $1, $1);
+			system("modinfo -d " $1);
+			printf("</td><td>%s</td><td>%s</td><td>%s</td></tr>", $2, $3, $4);
+		}'
+		cat <<EOT
+		</thead>
+	</table>
+</section>
 EOT
-		done
-		table_end ;;
+		;;
+
+
 	*\ lsusb\ *)
 		xhtml_header
 		vidpid="$(GET lsusb)"
-		cat << EOT
-<div id="wrapper">
-	<h2>$(eval_gettext 'Information for USB Device $vidpid')</h2>
-	<p>$(gettext 'Detailed information about specified device.')</p>
-EOT
-		lsusb_table
-		cat << EOT
-</div>
-<pre>$(lsusb -vd $vidpid | syntax_highlighter lsusb)</pre>
+		cat <<EOT
+<h2>$(eval_gettext 'Information for USB Device $vidpid')</h2>
+
+<p>$(gettext 'Detailed information about specified device.')</p>
+
+<section>$(lsusb_table)</section>
+
+<section>
+	<div>
+		<pre style="white-space: pre-wrap">$(lsusb -vd $vidpid | syntax_highlighter lsusb)</pre>
+	</div>
+</section>
 EOT
 		;;
+
+
 	*\ lspci\ *)
 		xhtml_header
 		slot="$(GET lspci)"
-		cat << EOT
-<div id="wrapper">
-	<h2>$(eval_gettext 'Information for PCI Device $slot')</h2>
-	<p>$(gettext 'Detailed information about specified device.')</p>
-EOT
-		lspci_table
-		cat << EOT
-</div>
-<pre>$(lspci -vs $slot | syntax_highlighter lspci)</pre>
+		cat <<EOT
+<h2>$(eval_gettext 'Information for PCI Device $slot')</h2>
+
+<p>$(gettext 'Detailed information about specified device.')</p>
+
+<section>$(lspci_table)</section>
+
+<section>
+	<div>
+		<pre style="white-space: pre-wrap">$(lspci -vs $slot | syntax_highlighter lspci)</pre>
+	</div>
+</section>
 EOT
 		;;
+
+
 	*)
 		[ -n "$(GET brightness)" ] &&
 		echo -n $(GET brightness) > /sys/devices/virtual/backlight/$(GET dev)/brightness
@@ -178,43 +210,47 @@ EOT
 		# Default to summary with mounted filesystem, loaded modules
 		#
 		xhtml_header
-		cat << EOT
-<div id="wrapper">
-	<h2>$(gettext 'Drivers &amp; Devices')</h2>
-	<p>$(gettext 'Manage your computer hardware')</p>
-</div>
-<div>
-	<a class="button" href="?modules">
-		<img src="$IMAGES/tux.png" />$(gettext 'Kernel modules')</a>
-	<a class="button" href="?detect">
-		<img src="$IMAGES/monitor.png" />$(gettext 'Detect PCI/USB')</a>
-	<a class="button" href="?tazx">
-		<img src="$IMAGES/terminal.png" />$(gettext 'Auto-install Xorg video driver')</a>
-</div>
+		cat <<EOT
+<h2>$(gettext 'Drivers &amp; Devices')</h2>
+<p>$(gettext 'Manage your computer hardware')</p>
+
+<form><!--
+	--><button name="modules" data-icon="modules">$(gettext 'Kernel modules')</button><!--
+	--><button name="detect"  data-icon="detect" >$(gettext 'Detect PCI/USB')</button><!--
+	--><button name="tazx"    data-icon="tazx"   >$(gettext 'Auto-install Xorg video driver')</button>
+</form>
 
 EOT
-		if [ -n "$(ls /proc/acpi/battery/*/info 2> /dev/null)" ]; then
-			echo "<table>"
+
+
+		# Battery state
+		if [ -n "$(ls /proc/acpi/battery/*/info 2>/dev/null)" ]; then
+			cat <<EOT
+<section>
+	<header>$(gettext 'Battery')</header>
+	<div>
+		<table class="wide">
+EOT
 			for dev in /proc/acpi/battery/*; do
 				grep ^present $dev/info | grep -q yes || continue
-				design=$(sed '/design capacity:/!d;s/[^0-9]*\([0-9]*\).*/\1/' < $dev/info)
-				remain=$(sed '/remaining capacity/!d;s/[^0-9]*\([0-9]*\).*/\1/' < $dev/state)
-				rate=$(sed '/present rate/!d;s/[^0-9]*\([0-9]*\).*/\1/' < $dev/state)
-				full=$(sed '/last full capacity/!d;s/[^0-9]*\([0-9]*\).*/\1/' < $dev/info)
+				 design=$(sed '/design capacity:/!d;       s/[^0-9]*\([0-9]*\).*/\1/' < $dev/info)
+				 remain=$(sed '/remaining capacity/!d;     s/[^0-9]*\([0-9]*\).*/\1/' < $dev/state)
+				   rate=$(sed '/present rate/!d;           s/[^0-9]*\([0-9]*\).*/\1/' < $dev/state)
+				   full=$(sed '/last full capacity/!d;     s/[^0-9]*\([0-9]*\).*/\1/' < $dev/info)
 				warning=$(sed '/design capacity warning/!d;s/[^0-9]*\([0-9]*\).*/\1/' < $dev/info)
-				low=$(sed '/design capacity low/!d;s/[^0-9]*\([0-9]*\).*/\1/' < $dev/info)
-				state=$(sed '/charging state/!d;s/\([^:]*:[ ]\+\)\([a-z]\+\)/\2/' < $dev/state)
+				    low=$(sed '/design capacity low/!d;    s/[^0-9]*\([0-9]*\).*/\1/' < $dev/info)
+				  state=$(sed '/charging state/!d;         s/\([^:]*:[ ]\+\)\([a-z]\+\)/\2/' < $dev/state)
 
 				rempct=$(( $remain * 100 / $full ))
-				cat << EOT
-<tr>
-	<td><img src="$IMAGES/battery.png" />
-		$(gettext 'Battery') $(grep "^battery type" $dev/info | sed 's/.*: *//')
-		$(grep "^design capacity:" $dev/info | sed 's/.*: *//') </td>
-	<td>$(gettext 'health') $(( (100*$full)/$design))%</td>
-	<td class="meter"><meter min="0" max="$full" value="$remain" low="$low"
-		high="$warning" optimum="$full"></meter>
-		<span>
+				cat <<EOT
+			<tr>
+				<td><span data-icon="battery">$(gettext 'Battery')</span>
+					$(grep "^battery type" $dev/info | sed 's/.*: *//')
+					$(grep "^design capacity:" $dev/info | sed 's/.*: *//') </td>
+				<td>$(gettext 'health') $(( (100*$full)/$design))%</td>
+				<td class="meter"><meter min="0" max="$full" value="$remain" low="$low"
+					high="$warning" optimum="$full"></meter>
+					<span>
 EOT
 				case "$state" in
 				"discharging")
@@ -228,30 +264,41 @@ EOT
 				"charged")
 					gettext 'Charged 100%' ;;
 				esac
-				echo '</span></td></tr>'
+				cat <<EOT
+
+					</span>
+				</td>
+			</tr>
+EOT
 			done
-			echo "</table>"
+			cat <<EOT
+		</table>
+	</div>
+</section>
+EOT
 		fi
 
-		if [ -n "$(ls /sys/devices/virtual/thermal/*/temp 2> /dev/null)" ]; then
-			echo -n '<p>'; gettext 'Temperature:'
+
+		# Thermal sensors
+		if [ -n "$(ls /sys/devices/virtual/thermal/*/temp 2>/dev/null)" ]; then
+			echo "<p><span data-icon=\"temperature\">$(gettext 'Temperature:')</span>"
 			for temp in /sys/devices/virtual/thermal/*/temp; do
-				awk '{ print $1/1000 }' < $temp
+				awk '{ print $1/1000 "℃" }' < $temp
 			done
 			echo '</p>'
 		fi
 
-		if [ -n "$(ls /sys/devices/virtual/backlight/*/brightness 2> /dev/null)" ]; then
-			cat <<EOT
-<form method="get" action="">
-EOT
-			for dev in /sys/devices/virtual/backlight/*/brightness ; do
+
+		# Brightness
+		if [ -n "$(ls /sys/devices/virtual/backlight/*/brightness 2>/dev/null)" ]; then
+			echo '<form>'
+			for dev in /sys/devices/virtual/backlight/*/brightness; do
 				name=$(echo $dev | sed 's|.*/backlight/\([^/]*\).*|\1|')
 				cat <<EOT
-<input type="hidden" name="dev" value="$name" />
-$(gettext 'Brightness') \
+<input type="hidden" name="dev" value="$name"/>
+<span data-icon="brightness">$(gettext 'Brightness')</span> \
 $(sed 's/.*\.//;s/_*$//' < /sys/devices/virtual/backlight/$name/device/path):
-<select class="button" name="brightness" onchange="submit();">
+<select name="brightness" onchange="submit();">
 EOT
 				max=$(cat /sys/devices/virtual/backlight/$name/max_brightness)
 				for i in $(seq 0 $max); do
@@ -260,22 +307,19 @@ EOT
 					echo -n " selected=\"selected\""
 					echo "> $(( (($i + 1) * 100) / ($max + 1) ))% </option>"
 				done
-				cat <<EOT
-</select>
-EOT
+				echo '</select>'
 			done
-			cat << EOT
-</form>
-EOT
+			echo '</form>'
 		fi
-		cat << EOT
 
 
-<h3 id="disk">$(gettext 'Filesystem usage statistics')</h3>
-
-<pre>
-$(fdisk -l | fgrep Disk)
-</pre>
+		cat <<EOT
+<section>
+	<form action="#mount" class="wide">
+		<header id="disk">$(gettext 'Filesystem usage statistics')</header>
+		<div>
+			<pre>$(fdisk -l | fgrep Disk)</pre>
+		</div>
 EOT
 
 
@@ -293,6 +337,8 @@ EOT
 			file="$(GET backingfile)"
 			[ -n "$file" ] && losetup -o $(GET offset) $ro $device $file
 		esac
+
+
 		#
 		# Disk stats and management (mount, umount, check)
 		#
@@ -309,13 +355,12 @@ EOT
 		umount\ *|swapon\ *|swapoff\ *)
 			$device ;;
 		esac
-		cat << EOT
-<form method="get" action="#mount">
-<table id="mount" class="zebra outbox nowrap">
+		cat <<EOT
+		<table id="mount" class="zebra wide center">
 EOT
 		df_thead
 		echo '<tbody>'
-		for fs in $(blkid | sed 's/:.*//')
+		for fs in $(blkid | sort | sed 's/:.*//')
 		do
 			set -- $(df -h | grep "^$fs ")
 			size=$2
@@ -325,6 +370,8 @@ EOT
 			av="<del>$av</del>"
 			pct=$5
 			mp=$6
+
+			# action
 			action="mount"
 			[ -n "$mp" ] && action="umount"
 			type=$(blkid $fs | sed '/TYPE=/!d;s/.*TYPE="\([^"]*\).*/\1/')
@@ -338,132 +385,216 @@ EOT
 				pct=$(((100*$4)/$3))%
 				mp=swap
 			fi
+
+			# size
 			[ -z "$size" ] &&
 			size="$(blk2h $(cat /sys/block/${fs#/dev/}/size /sys/block/*/${fs#/dev/}/size))"
-			img="harddisk.png"
-			case "$(cat /sys/block/${fs#/dev/}/removable 2> /dev/null ||
-				cat /sys/block/${fs:5:3}/removable 2> /dev/null)" in
-			1) img="floppy.png" ;; 
+
+			# image
+			disktype="hdd"
+			case "$(cat /sys/block/${fs#/dev/}/removable 2>/dev/null ||
+				cat /sys/block/${fs:5:3}/removable 2>/dev/null)" in
+			1) disktype="removable" ;;
 			esac
-			case "$(cat /sys/block/${fs#/dev/}/ro 2> /dev/null ||
-				cat /sys/block/${fs:5:3}/ro 2> /dev/null)" in
-			1) img="tazlito.png" ;; 
+			case "$(cat /sys/block/${fs#/dev/}/ro 2>/dev/null ||
+				cat /sys/block/${fs:5:3}/ro 2>/dev/null)" in
+			1) disktype="cd" ;;
 			esac
-			[ -s ".$IMAGES/$img" ] || img="harddisk.png"
-			cat << EOT
-<tr>
-	<td><input type="radio" name="device" value="$action $fs" />
-	    <img src="$IMAGES/$img" />${fs#/dev/}</td>
-	<td>$(blkid $fs | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/\1/')</td>
-	<td>$type</td>
-	<td>$size</td>
-	<td>$av</td>
+
+			cat <<EOT
+			<tr>
+				<td><input type="radio" name="device" value="$action $fs" id="${fs#/dev/}"/><!--
+					--><label for="${fs#/dev/}" data-icon="$disktype">&thinsp;${fs#/dev/}</label></td>
+				<td>$(blkid $fs | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/\1/')</td>
+				<td>$type</td>
+				<td>$size</td>
+				<td>$av</td>
 EOT
 		if [ -n "$pct" ]; then
-			cat << EOT
-	<td class="meter"><meter min="0" max="100" value="${pct%%%}" low="70"
-	high="90" optimum="10"></meter>
-		<span>$used - $pct</span>
-	</td>
+			cat <<EOT
+				<td class="meter"><meter min="0" max="100" value="${pct%%%}" low="70"
+					high="90" optimum="10"></meter>
+					<span>$used - $pct</span>
+				</td>
 EOT
 		else
-			cat << EOT
-	<td> </td>
+			cat <<EOT
+				<td> </td>
 EOT
 		fi
-		cat << EOT
-	<td>$mp</td>
-	<td>$(blkid $fs | sed '/UUID=/!d;s/.*UUID="\([^"]*\).*/\1/')</td>
-</tr>
+		cat <<EOT
+				<td>$mp</td>
+				<td>$(blkid $fs | sed '/UUID=/!d;s/.*UUID="\([^"]*\).*/\1/')</td>
+			</tr>
 EOT
 		done
-		cat << EOT
-</tbody>
-</table>
-$(lib crypto input)
-<input type="submit" value="mount / umount" /> -
-new mount point <input type=text" name="mountpoint" value="/media/usbdisk" /> -
-<input type="checkbox" name="readonly"> read-only
-</form>
+		cat <<EOT
+			</tbody>
+		</table>
+		$(lib crypto input)
 
-
-<h3>$(gettext 'Filesystems table')</h3>
+		<footer>
+			<button type="submit">mount / umount</button> -
+			$(gettext 'new mount point:') <input type="text" name="mountpoint" value="/media/usbdisk"/> -
+			<input type="checkbox" name="readonly" id="ro"><label for="ro">&thinsp;$(gettext 'read-only')</label>
+		</footer>
+	</form>
+</section>
 EOT
 
-grep -v '^#' /etc/fstab | awk 'BEGIN{print "<table class=\"zebra outbox\">\
-	<thead><tr><td>$(gettext 'Disk')</td><td>$(gettext 'Mount point')</td><td>\
-	$(gettext 'Type')</td><td>$(gettext 'Options')</td><td>\
-	$(gettext 'Freq')</td><td>$(gettext 'Pass')</td></thead><tbody>"}\
-	{print "<tr><td>"$1"</td><td>"$2\
-	"</td><td>"$3"</td><td>"$4"</td><td>"$5"</td><td>"$6"</td></tr>"}
+
+		#
+		# /etc/fstab
+		#
+		cat <<EOT
+<section>
+	<header>$(gettext 'Filesystems table')</header>
+	<table class="wide zebra center">
+		<thead>
+			<tr>
+				<td>$(gettext 'Disk')</td>
+				<td>$(gettext 'Mount point')</td>
+				<td>$(gettext 'Type')</td>
+				<td>$(gettext 'Options')</td>
+				<td>$(gettext 'Freq')</td>
+				<td>$(gettext 'Pass')</td>
+			</tr>
+		</thead>
+		<tbody>
+EOT
+
+grep -v '^#' /etc/fstab | awk '{
+	print "<tr><td>" $1 "</td><td>" $2 "</td><td>" $3 "</td><td>" $4
+	print "</td><td>" $5 "</td><td>" $6 "</td></tr>"
+}
 	END{print "</tbody></table>"}'
 
-		cat << EOT
-<a class="button" href="index.cgi?file=/etc/fstab&amp;action=edit">
-	<img src="$IMAGES/edit.png" />$(gettext 'Manual Edit')</a>
+		cat <<EOT
+	<footer>
+		<form action="index.cgi">
+			<input type="hidden" name="file" value="/etc/fstab"/>
+			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button>
+		</form>
+	</footer>
+</section>
+EOT
 
 
-<h3>$(gettext 'Loop devices')</h3>
-EOT
 		#
-		# Loop device management gui
+		# Loop device management GUI
 		#
-		cat << EOT
-<form method="get" action="#loop">
-<table id="loop" class="zebra outbox nowrap">
-<thead>
-<tr><td>Device</td><td>Backing file</td><td>Access</td><td>Offset</td></tr>
-</thead>
-<tbody>
+		cat <<EOT
+<section>
+	<header>$(gettext 'Loop devices')</header>
+
+	<form action="#loop" class="wide">
+		<table id="loop" class="wide zebra">
+			<thead>
+				<tr>
+					<td>$(gettext 'Device')</td>
+					<td>$(gettext 'Backing file')</td>
+					<td>$(gettext 'Access')</td>
+					<td>$(gettext 'Offset')</td>
+				</tr>
+			</thead>
+			<tbody>
 EOT
-for loop in $(ls /dev/loop[0-9]*); do
-	case "$(cat /sys/block/${loop#/dev/}/ro 2> /dev/null)" in
-	0) ro="read/write" ;;
-	1) ro="read&nbsp;only" ;;
+for devloop in $(ls /dev/loop[0-9]*); do
+	loop="${devloop#/dev/}"
+	case "$(cat /sys/block/$loop/ro 2>/dev/null)" in
+	0) ro="$(gettext "read/write")" ;;
+	1) ro="$(gettext "read only")" ;;
 	*) ro="" ;;
 	esac
-	set -- $(losetup | grep ^$loop:) $ro
-	cat << EOT
-<tr>
-	<td><input type="radio" name="loopdev" value="$loop" />
-	    <img src="$IMAGES/harddisk.png" />${loop#/dev/}</td>
-	<td>$3</td><td align="center">$4</td><td align="right">$2</td>
-</tr>
+	set -- $(losetup | grep ^$devloop:) ${ro// /&nbsp;}
+	cat <<EOT
+				<tr><td><input type="radio" name="loopdev" value="$devloop" id="$loop"/><!--
+					--><label for="$loop" data-icon="loopback">$loop</label></td>
+					<td>$3</td><td align="center">$4</td><td align="right">$2</td>
+				</tr>
 EOT
 done
-		cat << EOT
-</tbody>
-</table>
+		cat <<EOT
+			</tbody>
+		</table>
+
 $(lib crypto input)
-<input type="submit" value="Setup" /> -
-new backing file <input type="text" name="backingfile" /> -
-offset in bytes <input type="text" name="offset" size="8" value="0" /> -
-<input type="checkbox" name="readonly"> read-only
-</form>
+
+		<footer>
+			<button type="submit" data-icon="ok">$(gettext 'Setup')</button> -
+			$(gettext 'new backing file:') <input type="text" name="backingfile"/> -
+			$(gettext 'offset in bytes:') <input type="text" name="offset" value="0" size="8"/> -
+			<input type="checkbox" name="readonly" id="ro"/><label for="ro">$(gettext 'read only')</label>
+		</footer>
+	</form>
+</section>
 EOT
 
-		cat << EOT
-<h3>$(gettext 'System memory')</h3>
+
+		#
+		# System memory
+		#
+		mem_total=$(free -m | awk '$1 ~ "M" {print $2}')
+		mem_used=$((100 * $(free -m | awk '$1 ~ "+" {print $3}') / mem_total))
+		mem_buff=$((100 * $(free -m | awk '$1 ~ "M" {print $6}') / mem_total))
+		mem_free=$((100 - mem_used - mem_buff))
+
+		cat <<EOT
+<section>
+	<header>$(gettext 'System memory')</header>
+
+	<div class="sysmem"><!--
+		--><span class="sysmem_used" style="width: ${mem_used}%" title="$(gettext 'Used')"   ><span>${mem_used}%</span></span><!--
+EOT
+		[ $mem_buff != 0 ] && cat <<EOT
+		--><span class="sysmem_buff" style="width: ${mem_buff}%" title="$(gettext 'Buffers')"><span>${mem_buff}%</span></span><!--
+EOT
+		cat <<EOT
+		--><span class="sysmem_free" style="width: ${mem_free}%" title="$(gettext 'Free')"   ><span>${mem_free}%</span></span><!--
+	--></div>
+
+	<table class="wide zebra center">
+		<thead>
+			<tr>
+				<td>&nbsp;</td>
+				<td>total</td>
+				<td>used</td>
+				<td>free</td>
+				<td>shared</td>
+				<td>buffers</td>
+			</tr>
+		</thead>
+		<tbody>
 EOT
 
-echo "<table class=\"zebra outbox\"><thead><tr><td>&nbsp;</td><td>total</td>\
-<td>used</td><td>free</td><td>shared</td><td>buffers</td></tr></thead><tbody>"
-freem=$(free -m)
-echo "$freem" | grep Mem: | awk '{print "<tr><td>"$1"</td><td>"$2"</td><td>"$3\
-	"</td><td>"$4"</td><td>"$5"</td><td>"$6"</td></tr>"}'
-echo "$freem" | grep buffers: | awk '{print "<tr><td>"$1 $2"</td><td>&nbsp;</td>\
-	<td>"$3"</td><td>"$4"</td><td>&nbsp;</td><td>&nbsp;</td></tr>"}'
-echo "$freem" | grep Swap: | awk '{print "<tr><td>"$1"</td><td>"$2"</td><td>"$3\
-	"</td><td>"$4"</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>"}'
+free -m | awk '
+$1 ~ "M" {print "<tr><td>"$1"</td><td>"$2"</td><td>"$3"</td><td>"$4"</td><td>"$5"</td><td>"$6"</td></tr>"}
+$1 ~ "+" {print "<tr><td>"$1 $2"</td><td></td><td>"$3"</td><td>"$4"</td><td></td><td></td></tr>"}
+$1 ~ "S" {print "<tr><td>"$1"</td><td>"$2"</td><td>"$3"</td><td>"$4"</td><td></td><td></td></tr>"}'
 
-		cat << EOT
-<h3>lspci</h3>
-$(lspci_table)
-
-<h3>lsusb</h3>
-$(lsusb_table)
+		cat <<EOT
+		</tbody>
+	</table>
+</section>
 EOT
-			;;
+
+
+		#
+		# lspci and lsusb summary tables
+		#
+		cat <<EOT
+<section>
+	<header>lspci</header>
+	$(lspci_table)
+</section>
+
+
+<section>
+	<header>lsusb</header>
+	$(lsusb_table)
+</section>
+EOT
+		;;
 esac
 
 xhtml_footer

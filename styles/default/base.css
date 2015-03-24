@@ -1,0 +1,731 @@
+/**
+ * CSS style for TazPanel - (C) 2011-2015 SliTaz GNU/Linux
+ */
+
+
+/* To always have a scroll bar */
+/*html { min-height: 102%; } */
+
+body { color: CaptionText; font: caption; margin: 72px 0 0 0; }
+
+
+
+/**
+ * Header and main title
+ */
+
+body > header {
+	position: fixed; top: 0; left: 0;
+	/*height: 40px;*/ width: 100%;
+	/*background: #222 url(images/logo.png) no-repeat left; padding-left: 40px;*/
+	background-color: #222;
+}
+
+body > header h1 {
+	margin: 0;
+	color: #fff;
+	font-size: 20px; line-height: 40px; /* center vertical */
+	font-style: italic;
+	white-space: nowrap; overflow: hidden;
+	vertical-align: middle;
+}
+
+
+
+/**
+ * Toolbar with menu
+ */
+
+nav {
+	position: fixed; top: 40px; left: 0;
+	width: 100%;
+	display: table;
+	border: 1px solid; border-right: none; border-left: none;
+}
+
+
+
+/* menu panel */
+#toolbarMenu { margin: 0; padding: 0; height: 100%; font: menu; }
+
+/* menu items */
+#toolbarMenu li {
+	list-style: none;
+	float: left;
+	display: block;
+	padding: 0;
+	color: inherit; background: inherit;
+	cursor: pointer;
+	outline: none;
+}
+#toolbarMenu > li > span {
+	display: inline-block;
+	padding: 0.2rem;
+}
+
+#toolbarMenu menu li {
+	padding: 0.2rem;
+}
+
+/* Selected menu item */
+#toolbarMenu li:focus span,
+#toolbarMenu li:hover span,
+#toolbarMenu menu li:focus,
+#toolbarMenu menu li:hover {
+	background-color: hsla(30, 100%, 50%, 0.5);
+}
+
+
+
+
+#toolbarMenu menu {
+	position: absolute;
+	margin: 0; padding: 0;
+	white-space: nowrap;
+	border: 1px solid;
+	display: none;
+}
+
+/* Submenus */
+#toolbarMenu menu menu {
+	left: 100%; top: 0;
+	min-width: 100%;
+}
+
+/* Show menu list */
+#toolbarMenu menu.opened {
+	display: block; z-index: 10;
+}
+
+/* By default hide submenus */
+#toolbarMenu menu.opened menu {
+	display: none;
+}
+/* Show submenu on mouse over */
+.opened li:hover menu { display: block !important; }
+
+/* Menu items one below the other */
+#toolbarMenu menu li {
+	position: relative;
+	float: none;
+}
+/* Show arrow for submenu */
+#toolbarMenu a:after   { content: "‣"; float: right; }
+#toolbarMenu a:only-child:after { content: " "; }
+
+#toolbarMenu a { display: block; color: inherit; text-decoration: none; }
+
+#noMenu {
+	position: fixed;
+	background-color: transparent; /*hsla(40, 100%, 60%, 0.5);*/
+	display: none;
+	height: 100%; width: 100%;
+}
+
+
+/**
+ * Panes, sections
+ */
+
+section {
+	display: block;
+	border: 1pt solid; border-radius: 0.3rem;
+	padding: 0; margin: 0.5rem 0 0 0;
+}
+
+section header {
+	padding: 0.2rem 0.3rem; margin: 0;
+	display: table; width: 100%;
+	border-radius: 0.3rem 0.3rem 0 0;
+	font-weight: bold; font-size: 1.1rem;/* line-height: 0;*/
+	text-shadow: 0 1px 1px hsla(0, 0%, 0%, 0.5);
+	overflow: auto; /* provide break after floated objects */
+	vertical-align: baseline;
+}
+section header form, section footer form {
+	display: table-cell; vertical-align: baseline; line-height: 0; width: 1px; white-space: nowrap;
+}
+section header button, section footer button { margin: 0; }
+
+section footer {
+	padding: 0 0.3rem 0.2rem; margin: 0;
+	display: block;
+	overflow: auto; /* provide break after floated objects */
+	vertical-align: baseline;
+}
+
+section > pre,
+section div { padding: 0.3rem 0.3rem 0.2rem 0.3rem; margin: 0; }
+section td:nth-child(1) { padding-left: 0.3rem; }
+section table { margin-bottom: 0.3rem; }
+.nogap { word-spacing: 0; } /* remove gap between buttons in line */
+
+
+
+
+
+
+
+
+
+
+#actions {
+	display: block;
+	margin: 0; padding: 0.2rem 0.3rem;
+	overflow: auto; /* provide break after floated objects */
+}
+.float-left, .float-right { display: table-cell; padding: 0; margin: 0; }
+.float-left  { float: left; }
+.float-right { float: right; }
+
+
+
+      fieldset { border: 1pt solid; border-radius: 0.3rem; margin-bottom: 0.2rem; }
+
+
+
+
+
+
+/* Icons on the right of the toolbar */
+#icons {
+	display: table-cell; vertical-align: middle; /* center vertical */
+	padding: 0.1rem 0.3rem;
+	white-space: nowrap; width: 1rem; /* minimal width */
+}
+#icons img { vertical-align: middle; }
+
+
+
+/* Loading notification bar */
+#loading {
+	position: fixed; top: 76px; right: 140px; width: 248px;
+	padding: 4px 4px 2px;
+	background-color: #f8f8f8; color: #666;
+	border: 1px solid #ddd;
+	cursor: progress;
+}
+
+
+
+/* Page content container */
+#content { margin: 1ex; }
+
+
+/* Page first header */
+h2 { font-size: 1.5rem; padding: 0.5rem 0 0 0; margin: 0; }
+
+
+/* Additional headers (obsolete) */
+h3 { font-size: 1.3rem; margin: 0; }
+h4 { font-size: 1.1rem; margin: 0; }
+
+
+/* Plain paragraph */
+p { margin: 1ex 0; }
+
+
+#actions p { margin: 6px 0; }
+
+
+
+
+
+button img { padding: 0 3px 0 0; margin: 0; }
+button, input, select {
+	/*color: ButtonText;*/
+	vertical-align: middle; }
+button:before, input:before, select:before {
+	padding: 3px; }
+
+ul { list-style-type: square; }
+li { padding: 4px 0; }
+
+
+/* Blocks */
+
+#block { float: left; }
+
+#wrapper, .wrapper { margin: 20px 0; }
+
+.box {
+	margin: 10px 0;
+	padding: 12px;
+	background: #f8f8f8;
+	border: 1px solid #ddd;
+}
+
+.box ul { list-style-type: none; padding: 0; }
+
+.debug {
+	position: fixed;
+	bottom: 0px;
+	right: 10px;
+	left: 10px;
+	margin: 5px;
+	padding: 4px 10px;
+	background-color: #111;
+	color: #fff;
+	border: 0;
+	/*font-size: 12px;*/
+	opacity: 0.9;
+}
+
+
+
+
+/**********
+ * Tables *
+ **********/
+
+/* Base style */
+table   { margin: 0; padding: 0; border: 0 none; border-collapse: collapse; }
+
+/* Bold header */
+thead { font-weight: bold; }
+
+/* Wide table */
+.wide   { width: 100%; }
+
+/* Center content excluding first column */
+.center tr td { text-align: center; }
+.center tr td:nth-child(1) { text-align: left; padding-left: 0.3rem; }
+
+/* Table Zebra */
+.zebra thead td { line-height: 1.5em; text-align: center; vertical-align: middle; border: 1pt solid; }
+
+
+
+.borders.zebra td + td { border-left: 1px solid; }
+
+
+
+.outbox { box-shadow: 0 0 2px 4px #ddd; }
+.fixed  { table-layout: fixed; }
+
+
+.borders tr { border-bottom: 1pt solid; }
+
+.hborders thead tr { border-top: 1.5pt solid; border-bottom: 1.5pt solid; }
+
+td.small { min-width: 60px; }
+td.pct   { min-width: 200px; background: #eee; }
+div.pct  { background: #ccc; }
+td.pct, div.pct { border-radius: 2px; }
+td img {vertical-align: middle; }
+
+table.daemons td:nth-child(4), table.daemons td:nth-child(5) { text-align: center; }
+
+
+
+
+
+/* Misc */
+
+a       { text-decoration: none; color: #268bd2; cursor: pointer; }
+a:not([data-img]):hover { text-decoration: underline; }
+
+
+form { display: inline-block; padding: 0; margin: 0; }
+
+pre { margin: 0; padding: 0; color: CaptionText; }
+
+.pre-main { margin: 16px 0; }
+
+.scroll { height: 12rem; overflow: auto; border: 1px solid; }
+.scroll table { border: 0px solid #fff; }
+
+
+/* Round corner */
+
+#loading, .debug, .box, div.scroll, .outbox, section {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/* Help page */
+
+#help { text-align: justify; }
+#help a { text-decoration: underline; }
+#help a:hover { text-decoration: none; }
+
+
+
+/*
+ * Page footer
+ */
+
+body > footer {
+	border-top: 1px solid;
+	text-align: center;
+	padding: 0.5em;
+	font-size: smaller;
+}
+
+
+/***************
+ * HTML5 Meter *
+ ***************/
+
+.meter {
+	height: 1.2rem;
+	min-width: 150px;
+	color: #222;
+	/*cursor: default;*/
+}
+.meter meter {
+	height: inherit;
+	width: 100%;
+	display: block;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+.meter span {
+	display: block;
+	white-space: nowrap;
+	position: absolute;
+	margin: -1.1rem auto 0 0.3rem;
+}
+
+
+
+/**************
+ * Animations *
+ **************/
+
+a.button {
+	-webkit-transition: all 0.3s ease-in-out;
+	   -moz-transition: all 0.3s ease-in-out;
+	     -o-transition: all 0.3s ease-in-out;
+	    -ms-transition: all 0.3s ease-in-out;
+	        transition: all 0.3s ease-in-out;
+}
+
+/*section {
+	margin: 20pt -0.7em;
+	padding: 0.8em 0.7em 1.2em;
+	background-color: #fdfdfd;
+	border: 1px solid #ddd;
+	border-radius: 1em;
+	box-shadow: 0 0 3pt 2pt #eee;
+}
+section h4 {
+	margin: 0 0 0.5em 0;
+}
+section h3 {
+	margin: 0 0 0.5em 0; }
+*/
+
+#tabs {
+	font-weight: bold;
+	/*font-size: 14px;*/
+	list-style-type: none;
+	padding-bottom: 25px;
+	border-bottom: 1px solid #aaa;
+}
+
+#tabs li {
+	float: left;
+	height: 16px;
+	background-color: #eee;
+	margin: 0 40px 0 -40px;
+	border: 1px solid #aaa;
+	text-align: center;
+	min-width: 100px;
+	-webkit-border-radius: 4px 4px 0 0;
+	   -moz-border-radius: 4px 4px 0 0;
+	        border-radius: 4px 4px 0 0;
+	-webkit-appearance: tab;
+	appearance: tab;
+}
+
+#tabs li.active {
+	border-bottom: 1px solid #fff;
+	background-color: #fff;
+}
+
+#tabs a {
+	padding: 8px;
+}
+
+
+
+/****************
+ * Search block *
+ ****************/
+.search {
+	display: block; white-space: nowrap;
+	position: fixed; right: 7px; top: 7px;
+	margin: 0; padding: 0; border: none;
+}
+.search input {
+	display: inline-block;
+	width: 200px; height: 24px;
+}
+.search button {
+	-webkit-appearance: button;
+	height: 100%; margin: 0;
+}
+
+
+
+/**********************
+ * Buttons with icons *
+ **********************/
+@font-face {
+	font-family: TazPanelWeb;
+	src: url('/styles/default/tazpanel.ttf');
+}
+
+[data-icon]:before, [data-img] {
+	vertical-align: baseline;
+	padding: 0;
+	margin: 0 /*0 0 -0.5em*/;
+	font-size: 1.2em;
+	font-family: TazPanel, TazPanelWeb;
+
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1.2em;
+	display: inline-block;
+	text-decoration: none;
+	width: 1.2em; text-align: center;
+
+	-webkit-font-feature-settings: "liga", "dlig";
+	   -moz-font-feature-settings: "liga=1, dlig=1";
+	     -o-font-feature-settings: "liga", "dlig";
+	        font-feature-settings: "liga", "dlig";
+
+	-webkit-text-rendering: optimizeLegibility;
+	   -moz-text-rendering: optimizeLegibility;
+	     -o-text-rendering: optimizeLegibility;
+	        text-rendering: optimizeLegibility;
+
+	-webkit-font-smoothing: antialiased;
+	   -moz-font-smoothing: antialiased;
+	     -o-font-smoothing: antialiased;
+	        font-smoothing: antialiased;
+}
+button[data-icon]::before { font-size: 16px; line-height: 16px; width: 16px; }
+
+[data-icon]::before { content: attr(data-icon); }
+[data-img]::before  { content: attr(data-img);  }
+
+[data-icon], [data-img] { display: inline-block; }
+
+
+/* Solarized:
+ red      #dc322f
+ orange   #cb4b16
+ yellow   #b58900
+ green    #859900
+ cyan     #2aa198
+ blue     #268bd2
+ magenta  #d33682
+*/
+
+
+[data-icon="tazpanel"]::before {
+	display: inline-block;
+	content: '\f13d';
+	color: #EBEBEB;
+	border: 1pt solid hsl(5, 85%, 35%); border-radius: 0.2rem;
+	font-size: 32px; line-height: 32px;
+
+	height: 32px; width: 32px;
+	margin: 0.2rem;
+	padding: 0;
+	vertical-align: top;
+	background-image: -webkit-linear-gradient(top, hsl(10, 100%, 40%), hsl(0, 70%, 30%));
+}
+.light [data-icon="tazpanel"]::before {
+	text-shadow: 0 1pt 2pt hsla(0, 0%, 0%, 0.9), 0 0 2pt hsla(0, 0%, 0%, 0.6);
+}
+
+
+
+/*******************
+ * Terminal colors *
+ *******************/
+
+/* Using color palettes from Sakura terminal source */
+
+.term {
+	padding: 0.3rem;
+	height: 24rem; max-height: 24rem;
+	white-space: pre-wrap;
+	overflow: auto;
+	z-index: 4;
+	background: transparent;
+}
+
+/* SliTaz Spider on background */
+/*.term_ { display: block; position: relative; z-index: 2; }
+.term_::after {
+	display: block; border: 1pt solid;
+	font-family: TazPanel;
+	font-size: 16rem;
+	position: absolute; right: 0; bottom: 0;
+	content: '\f13f';
+	opacity: 1;
+	color: orange;
+	z-index: 1;
+}*/
+
+.term.log { white-space: pre; }
+/*.term input[type="text"] {
+	width: 100%!important; padding: 0; margin: 0; vertical-align: middle;
+	-webkit-appearance: none!important; -moz-appearance: none; appearance: none;
+	display: inline;
+	background-color: transparent; color: inherit; border: none; outline: none;
+	font: inherit; line-height: 1rem;
+}*/
+.term .cmdline {
+	/*position: relative; float: left; display: inline-block; white-space: pre-wrap;
+	width: 100%; overflow: hidden;  left: 0;
+	vertical-align: middle;*/
+	padding: 0;
+}
+#typeField {
+	outline-style: none !important;
+	-webkit-user-modify: read-write;
+	word-wrap: break-word;
+	-webkit-nbsp-mode: space;
+	-webkit-line-break: after-white-space;
+}
+#num_hist { 
+	display: inline-block;
+	position: absolute; right: 0.5rem; float: right;
+	height: 0;
+	color: #FFF; background: #FFF;
+}
+
+/* Tango palette (default) */
+.color30{color:#2E3436} .color1.color30{color:#555753} .color40{background:#2E3436}
+.color31{color:#CC0000} .color1.color31{color:#EF2929} .color41{background:#CC0000}
+.color32{color:#4E9A06} .color1.color32{color:#8AE234} .color42{background:#4E9A06}
+.color33{color:#C4A000} .color1.color33{color:#FCE94F} .color43{background:#C4A000}
+.color34{color:#3465A4} .color1.color34{color:#729FCF} .color44{background:#3465A4}
+.color35{color:#75507B} .color1.color35{color:#AD7FA8} .color45{background:#75507B}
+.color36{color:#06989A} .color1.color36{color:#34E2E2} .color46{background:#06989A}
+.color37{color:#D3D7CF} .color1.color37{color:#EEEEEC} .color47{background:#D3D7CF}
+.term   {color:#D3D7CF; background:#2E3436}
+
+/* Linux palette */
+.linux .color30{color:#000} .linux .color1.color30{color:#555} .linux .color40{background:#000}
+.linux .color31{color:#A00} .linux .color1.color31{color:#F55} .linux .color41{background:#A00}
+.linux .color32{color:#0A0} .linux .color1.color32{color:#5F5} .linux .color42{background:#0A0}
+.linux .color33{color:#A50} .linux .color1.color33{color:#FF5} .linux .color43{background:#A50}
+.linux .color34{color:#00A} .linux .color1.color34{color:#55F} .linux .color44{background:#00A}
+.linux .color35{color:#A0A} .linux .color1.color35{color:#F5F} .linux .color45{background:#A0A}
+.linux .color36{color:#0AA} .linux .color1.color36{color:#5FF} .linux .color46{background:#0AA}
+.linux .color37{color:#AAA} .linux .color1.color37{color:#FFF} .linux .color47{background:#AAA}
+.linux.term    {color:#AAA; background:#000}
+
+/* Xterm palette */
+.xterm .color30{color:#000000} .xterm .color1.color30{color:#4C4C4C} .xterm .color40{background:#000000}
+.xterm .color31{color:#CD0000} .xterm .color1.color31{color:#FF0000} .xterm .color41{background:#CD0000}
+.xterm .color32{color:#00CD00} .xterm .color1.color32{color:#00FFFF} .xterm .color42{background:#00CD00}
+.xterm .color33{color:#CDCD00} .xterm .color1.color33{color:#FFFF00} .xterm .color43{background:#CDCD00}
+.xterm .color34{color:#1E90FF} .xterm .color1.color34{color:#4682B4} .xterm .color44{background:#1E90FF}
+.xterm .color35{color:#CD00CD} .xterm .color1.color35{color:#FF00FF} .xterm .color45{background:#CD00CD}
+.xterm .color36{color:#00CDCD} .xterm .color1.color36{color:#00FFFF} .xterm .color46{background:#00CDCD}
+.xterm .color37{color:#E5E5E5} .xterm .color1.color37{color:#FFFFFF} .xterm .color47{background:#E5E5E5}
+.xterm.term    {color:#E5E5E5; background:#000000}
+
+/* Rxvt palette */
+.rxvt .color30{color:#000000} .rxvt .color1.color30{color:#404040} .rxvt .color40{background:#000000}
+.rxvt .color31{color:#CD0000} .rxvt .color1.color31{color:#FF0000} .rxvt .color41{background:#CD0000}
+.rxvt .color32{color:#00CD00} .rxvt .color1.color32{color:#00FFFF} .rxvt .color42{background:#00CD00}
+.rxvt .color33{color:#CDCD00} .rxvt .color1.color33{color:#FFFF00} .rxvt .color43{background:#CDCD00}
+.rxvt .color34{color:#0000CD} .rxvt .color1.color34{color:#0000FF} .rxvt .color44{background:#0000CD}
+.rxvt .color35{color:#CD00CD} .rxvt .color1.color35{color:#FF00FF} .rxvt .color45{background:#CD00CD}
+.rxvt .color36{color:#00CDCD} .rxvt .color1.color36{color:#00FFFF} .rxvt .color46{background:#00CDCD}
+.rxvt .color37{color:#FAEBD7} .rxvt .color1.color37{color:#FFFFFF} .rxvt .color47{background:#FAEBD7}
+.rxvt.term    {color:#FAEBD7; background:#000000}
+
+/* Echo palette (http://mso-chronicles.blogspot.com/2013/02/xfce-terminal-and-xchat-colour-scheme.html) */
+.echo .color30{color:#000000} .echo .color1.color30{color:#5E5E5E} .echo .color40{background:#000000}
+.echo .color31{color:#B40000} .echo .color1.color31{color:#FF5200} .echo .color41{background:#B40000}
+.echo .color32{color:#00AA00} .echo .color1.color32{color:#93DA00} .echo .color42{background:#00AA00}
+.echo .color33{color:#CB7C00} .echo .color1.color33{color:#FFE139} .echo .color43{background:#CB7C00}
+.echo .color34{color:#003F68} .echo .color1.color34{color:#0073A2} .echo .color44{background:#003F68}
+.echo .color35{color:#BF00EF} .echo .color1.color35{color:#DB81FF} .echo .color45{background:#BF00EF}
+.echo .color36{color:#00A6D0} .echo .color1.color36{color:#81E3FF} .echo .color46{background:#00A6D0}
+.echo .color37{color:#C6C6C6} .echo .color1.color37{color:#FFFFFF} .echo .color47{background:#C6C6C6}
+.echo.term    {color:#C6C6C6; background:#000000}
+
+.color1 { font-weight: bold; }
+
+/* History table for terminal */
+.history { width: 100%; }
+.history td:nth-child(1), .history td:nth-child(2), .history td:nth-child(3) {
+	white-space: nowrap;
+	width: 1px;
+}
+
+
+
+/**********
+ * Inputs *
+ **********/
+
+:default  { outline: 1px dotted hsla(240, 100%, 50%, 0.5); outline-offset: -4px; }
+:required { outline: 1px solid  hsla( 30, 100%, 50%, 0.7); outline-offset: -3px; }
+:invalid  { outline: 2px solid  hsla(  0, 100%, 50%, 0.7); outline-offset: -3px; }
+
+
+/* HACK for Tazweb (as clean Webkit browser): remove 1px white border around textfield */
+input[type="text"], input[type="password"], input[type="number"], textarea { -webkit-appearance: searchfield; }
+
+textarea { display: block; color: CaptionText; font-family: monospace; box-sizing: border-box; }
+
+
+
+
+
+/***********************
+ * System memory gauge *
+ ***********************/
+
+.sysmem {
+	margin: 0.2rem; padding: 0;
+	border: 1pt solid;
+	border-radius: 0.2rem;
+	box-shadow: inset 0 0 0 1pt hsla(0, 0%, 100%, 0.05);
+	width: 100%; margin: 0; padding: 0;
+}
+
+.sysmem_used, .sysmem_buff, .sysmem_free {
+	display: inline-block;
+	padding: 0.2rem 0; margin: 0;
+	height: 120%;
+	text-align: center; vertical-align: middle;
+	text-shadow: 0 1px 1px hsla(0, 0%, 0%, 0.5);
+	text-align: center;
+}
+
+.sysmem_used {
+	background-color: #f28f68;
+	background-image: -webkit-linear-gradient(top, hsla(0, 0%, 100%, 0.25), hsla(0, 0%, 0%, 0.2));
+	border-radius: 0.2rem 0 0 0.2rem;
+}
+.sysmem_buff {
+	background-color: #f28f68;
+	background-image:
+		-webkit-linear-gradient(top, hsla(0, 0%, 100%, 0.25), hsla(0, 0%, 0%, 0.2)),
+		-webkit-linear-gradient(135deg,
+								transparent, transparent 25%,
+								#719fd1 25%, #719fd1 50%,
+								transparent 50%, transparent 75%,
+								#719fd1 75%);
+	background-size: 100% 100%;
+}
+.sysmem_free {
+	background-color: #719fd1;
+	background-image: -webkit-linear-gradient(top, hsla(0, 0%, 100%, 0.25), hsla(0, 0%, 0%, 0.2));
+	border-radius: 0 0.2rem 0.2rem 0;
+}
