@@ -534,7 +534,7 @@ EOT
 		#
 		# Default system settings page
 		#
-		list_of
+
 		cat <<EOT
 <h2>$(gettext 'System settings')</h2>
 
