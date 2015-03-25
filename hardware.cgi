@@ -329,7 +329,7 @@ EOT
 		device=$(GET loopdev)
 		lib crypto $device
 		case "$device" in
-		/dev/loop*)
+		/dev/*loop*)
 			set -- $(losetup | grep ^$device:)
 			[ -n "$3" ] && losetup -d $device
 			ro=""
@@ -499,7 +499,7 @@ EOT
 			</thead>
 			<tbody>
 EOT
-for devloop in $(ls /dev/loop[0-9]*); do
+for devloop in $(ls /dev/*loop[0-9]*); do
 	loop="${devloop#/dev/}"
 	case "$(cat /sys/block/$loop/ro 2>/dev/null)" in
 	0) ro="$(gettext "read/write")" ;;
