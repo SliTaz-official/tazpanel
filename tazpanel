@@ -47,6 +47,7 @@ case "$1" in
 			-r "$(gettext 'TazPanel Authentication - Default: root:root')" &
 		ps | grep "httpd -p $HTTPD_PORT " | grep -v grep | \
 			awk '{ print $1 }' > $PIDFILE
+		[ ! -f /var/lib/tazpkg/installed.info ] && tazpkg -l>/dev/null&
 		status ;;
 	stop)
 		if [ ! -f $PIDFILE ]; then
