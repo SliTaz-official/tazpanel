@@ -184,24 +184,10 @@ body.dark  { background: #3C3C3C; }
  * Buttons with icons *
  **********************/
 
-.light .icon:before,
-.light .icon2:before,
-.light [class|="icon"]:before {
-	text-shadow: 0 1px 0   hsla(0, 0%, 100%, 0.3), 0 0   3px hsla(0, 0%, 100%, 0.7); }
-.dark  .icon:before,
-.dark  .icon2:before {
-	text-shadow: 0 0   3px hsla(0, 0%,   0%, 0.7), 0 1px 0   hsla(0, 0%,   0%, 0.3); }
+.light button[data-icon]::before {
+	text-shadow: 0 1px 0 hsla(0, 0%, 100%, 0.9); }
 
-.dark.nowebkit [data-icon]::before {
-	text-shadow:
-		0 1px 0 hsla(0, 0%, 0%, 0.7), 0 -1px 0 hsla(0, 0%, 0%, 0.4),
-		1px 0 0 hsla(0, 0%, 0%, 0.4), -1px 0 0 hsla(0, 0%, 0%, 0.4); }
-.light button[data-icon]::before, button {
-	text-shadow:
-		0 1px 0 hsla(0, 0%, 100%, 0.9) /*, 0 -1px 0 hsla(0, 0%, 100%, 0.6),
-		1px 0 0 hsla(0, 0%, 100%, 0.6), -1px 0 0 hsla(0, 0%, 100%, 0.6)*/; }
-
-.dark [data-icon]:before, .dark [data-img] {
+.dark [data-icon]:not([disabled])::before, .dark [data-img] {
 	/* Experimental webkit-only styles */
 	background-image: -webkit-radial-gradient(25% 25%, #fff, #777);
 	-webkit-background-clip: text;
@@ -211,21 +197,22 @@ body.dark  { background: #3C3C3C; }
 a[data-icon] { white-space: pre-line; }
 
 [data-icon="cancel"]::before, [data-icon="delete"]::before,
-[data-icon="remove"]::before, [data-icon="stop"]::before,
+[data-icon="remove"]::before, [data-icon="stop"]:not([disabled])::before,
 [data-img="help"]::before,    [data-img="man"]::before,
 [data-img="off"]::before,     [data-img="remove"]::before,
-[data-img="stop"]::before {color:#dc322f} /*red*/
+[data-img="stop"]::before,    [data-icon="pkgib"]::before {color:#dc322f} /*red*/
 
-[data-icon="restart"]::before, [data-img="conf"]::before {color:#cb4b16} /*orange*/
+[data-icon="restart"]:not([disabled])::before, [data-img="conf"]::before {color:#cb4b16} /*orange*/
 
 [data-icon="ok"]::before,    [data-icon="run"]::before,
-[data-icon="start"]::before, [data-img="on"]::before,
-[data-img="opt"]::before, [data-img="run"]::before {color:#859900} /*green*/
+[data-icon="start"]:not([disabled])::before, [data-img="on"]::before,
+[data-img="opt"]::before, [data-img="run"]::before, [data-icon="pkgi"]::before {color:#859900} /*green*/
 
-[data-img="web"]::before {color:#268bd2} /*blue*/
+[data-img="web"]::before {color:#268bd2}, [data-icon="pkg"]::before /*blue*/
 
 /* disabled buttons with gray icons */
-[disabled][data-icon]:before { color: #888; }
+/*.light [disabled][data-icon]::before {color:#888}
+.dark  [disabled][data-icon]::before {color:#222}*/
 
 
 

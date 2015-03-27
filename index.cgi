@@ -161,8 +161,9 @@ EOT
 
 			cat <<EOT
 <section>
-	<header><span data-icon="text">$file</span>
-		<form class="nogap">
+	<header>
+		<span data-icon="text">$file</span>
+		<form>
 			<input type="hidden" name="file" value="$file"/>
 			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button><!--
 			-->$(file_is_modified $file button)

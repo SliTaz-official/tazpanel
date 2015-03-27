@@ -13,19 +13,24 @@ header
 TITLE=$(gettext 'TazPanel - Hardware')
 
 # Call an optional module
-lib()
-{
+lib() {
 	module=lib/$1
 	shift
 	[ -s $module ] && . $module "$@"
 }
 
 
-lsusb_table()
-{
+lsusb_table() {
 	cat <<EOT
 <table class="wide zebra">
-<thead><tr><td>Bus</td><td>Device</td><td>ID</td><td>Name</td></thead>
+	<thead>
+		<tr>
+			<td>$(gettext 'Bus')</td>
+			<td>$(gettext 'Device')</td>
+			<td>$(gettext 'ID')</td>
+			<td>$(gettext 'Name')</td>
+		</tr>
+	</thead>
 <tbody>
 EOT
 	lsusb | sed 's|^Bus \([0-9]*\)|<tr><td>\1</td>|;
@@ -37,8 +42,7 @@ EOT
 }
 
 
-lspci_table()
-{
+lspci_table() {
 	cat <<EOT
 <table class="wide zebra">
 <thead><tr><td>Slot</td><td>Device</td><td>Name</td></thead>
@@ -50,6 +54,7 @@ EOT
 			s|^.*$|<tr><td>\0</td></tr>|'
 	echo "</tbody></table>"
 }
+
 
 #
 # Commands
@@ -79,10 +84,8 @@ EOT
 <p>$(gettext 'Detect PCI and USB hardware')</p>
 
 <section>
-	<div>
-		<pre>$(tazhw detect-pci | sed 's|^>|\&gt;|g')</pre>
-		<pre>$(tazhw detect-usb | sed 's|^>|\&gt;|g')</pre>
-	</div>
+	<pre>$(tazhw detect-pci | sed 's|^>|\&gt;|g')</pre>
+	<pre>$(tazhw detect-usb | sed 's|^>|\&gt;|g')</pre>
 </section>
 EOT
 		;;
@@ -137,7 +140,7 @@ EOT
 		fi
 		cat <<EOT
 <section>
-	<table class="zebra borders hborders">
+	<table class="zebra">
 		<thead>
 			<tr>
 				<td>$(gettext 'Module')</td>
@@ -173,11 +176,10 @@ EOT
 <p>$(gettext 'Detailed information about specified device.')</p>
 
 <section>$(lsusb_table)</section>
-
+EOT
+		[ "$vidpid" != 'lsusb' ] && cat <<EOT
 <section>
-	<div>
-		<pre style="white-space: pre-wrap">$(lsusb -vd $vidpid | syntax_highlighter lsusb)</pre>
-	</div>
+	<pre style="white-space: pre-wrap">$(lsusb -vd $vidpid | syntax_highlighter lsusb)</pre>
 </section>
 EOT
 		;;
@@ -192,11 +194,10 @@ EOT
 <p>$(gettext 'Detailed information about specified device.')</p>
 
 <section>$(lspci_table)</section>
-
+EOT
+		[ "$slot" != 'lspci' ] && cat <<EOT
 <section>
-	<div>
-		<pre style="white-space: pre-wrap">$(lspci -vs $slot | syntax_highlighter lspci)</pre>
-	</div>
+	<pre style="white-space: pre-wrap">$(lspci -vs $slot | syntax_highlighter lspci)</pre>
 </section>
 EOT
 		;;
@@ -204,7 +205,7 @@ EOT
 
 	*)
 		[ -n "$(GET brightness)" ] &&
-		echo -n $(GET brightness) > /sys/devices/virtual/backlight/$(GET dev)/brightness
+			echo -n $(GET brightness) > /sys/devices/virtual/backlight/$(GET dev)/brightness
 
 		#
 		# Default to summary with mounted filesystem, loaded modules
@@ -360,8 +361,7 @@ EOT
 EOT
 		df_thead
 		echo '<tbody>'
-		for fs in $(blkid | sort | sed 's/:.*//')
-		do
+		for fs in $(blkid | sort | sed 's/:.*//'); do
 			set -- $(df -h | grep "^$fs ")
 			size=$2
 			used=$3
@@ -448,7 +448,13 @@ EOT
 		#
 		cat <<EOT
 <section>
-	<header>$(gettext 'Filesystems table')</header>
+	<header>
+		$(gettext 'Filesystems table')
+		<form action="index.cgi">
+			<input type="hidden" name="file" value="/etc/fstab"/>
+			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button>
+		</form>
+	</header>
 	<table class="wide zebra center">
 		<thead>
 			<tr>
@@ -470,12 +476,6 @@ grep -v '^#' /etc/fstab | awk '{
 	END{print "</tbody></table>"}'
 
 		cat <<EOT
-	<footer>
-		<form action="index.cgi">
-			<input type="hidden" name="file" value="/etc/fstab"/>
-			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button>
-		</form>
-	</footer>
 </section>
 EOT
 

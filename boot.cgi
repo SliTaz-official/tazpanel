@@ -18,14 +18,13 @@ TITLE=$(gettext 'TazPanel - Boot')
 
 # Print last 40 lines of given file with "more" link
 
-loghead()
-{
+loghead() {
 	case $2 in
 		htmlize) tail -n40 $1 | htmlize;;
-		*) tail -n40;;
+		*)       tail -n40;;
 	esac
 	[ $(wc -l < $1) -gt 40 ] && cat <<EOT
-<hr/><a href="/index.cgi?file=$1">$(gettext 'Show more...')</a>
+<hr/><a data-icon="view" href="/index.cgi?file=$1">$(gettext 'Show more...')</a>
 EOT
 }
 
@@ -365,23 +364,19 @@ EOT
 
 <section>
 	<header>$(gettext 'Kernel cmdline')</header>
-	<div>
-		<pre>$(cat /proc/cmdline)</pre>
-	</div>
+	<pre>$(cat /proc/cmdline)</pre>
 </section>
 
 
 <section>
-	<header>$(gettext 'Local startup commands')</header>
-	<div>
-		<pre>$(cat /etc/init.d/local.sh | syntax_highlighter sh)</pre>
-	</div>
-	<footer>
+	<header>
+		$(gettext 'Local startup commands')
 		<form action="index.cgi">
 			<input type="hidden" name="file" value="/etc/init.d/local.sh"/>
-			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit script')</button>
+			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button>
 		</form>
-	</footer>
+	</header>
+	<pre>$(cat /etc/init.d/local.sh | syntax_highlighter sh)</pre>
 </section>
 EOT
 		;;
