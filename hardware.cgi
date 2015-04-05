@@ -488,7 +488,8 @@ EOT
 	<header>$(gettext 'Loop devices')</header>
 
 	<form action="#loop" class="wide">
-		<table id="loop" class="wide zebra">
+	<div class="scroll">
+		<table id="loop" class="wide zebra scroll">
 			<thead>
 				<tr>
 					<td>$(gettext 'Device')</td>
@@ -517,6 +518,7 @@ done
 		cat <<EOT
 			</tbody>
 		</table>
+	</div>
 
 $(lib crypto input)
 
