@@ -205,9 +205,9 @@ list_locales() {
 # Get the list of console keymaps
 
 list_keymaps() {
-	for keymap in /usr/share/kmap/*.kmap; do
-		basename $keymap .kmap | sed "s|.*|<option value='&'>&</option>|"
-	done
+	for keymap in $(find /usr/share/k* -type f -name "*.*map*"); do
+		basename $keymap
+	done | sed "s|\..*||;s|.*|<option value='&'>&</option>|" | sort
 }
 
 
