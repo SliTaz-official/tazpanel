@@ -223,9 +223,13 @@ EOT
 <p>$(gettext 'Manage your computer hardware')</p>
 
 <form><!--
-	--><button name="modules" data-icon="modules">$(gettext 'Kernel modules')</button><!--
-	--><button name="detect"  data-icon="detect" >$(gettext 'Detect PCI/USB')</button><!--
-	--><button name="tazx"    data-icon="tazx"   >$(gettext 'Auto-install Xorg video driver')</button>
+	--><button name="modules" data-icon="modules">$(gettext 'Kernel modules')</button>
+EOT
+		[ "$REMOTE_USER" == "root" ] && cat <<EOT
+	<button name="detect"  data-icon="detect" >$(gettext 'Detect PCI/USB')</button>
+	<button name="tazx"    data-icon="tazx"   >$(gettext 'Auto-install Xorg video driver')</button>
+EOT
+		cat <<EOT
 </form>
 
 EOT
@@ -438,6 +442,8 @@ EOT
 		cat <<EOT
 			</tbody>
 		</table>
+EOT
+		[ "$REMOTE_USER" == "root" ] && cat <<EOT
 		$(lib crypto input)
 
 		<footer>
@@ -445,6 +451,8 @@ EOT
 			$(gettext 'new mount point:') <input type="text" name="mountpoint" value="/media/usbdisk"/> -
 			<input type="checkbox" name="readonly" id="ro"><label for="ro">&thinsp;$(gettext 'read-only')</label>
 		</footer>
+EOT
+		cat <<EOT
 	</form>
 </section>
 EOT

@@ -161,6 +161,8 @@ EOT
 
 			cat <<EOT
 <section>
+EOT
+			[ -w "$file" ] && cat <<EOT
 	<header>
 		<span data-icon="text">$file</span>
 		<form>
@@ -169,7 +171,8 @@ EOT
 			-->$(file_is_modified $file button)
 		</form>
 	</header>
-
+EOT
+			cat <<EOT
 	<div>
 		<pre>
 EOT

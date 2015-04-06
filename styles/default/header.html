@@ -20,9 +20,13 @@ $(printf '\t<script type="text/javascript" src="/%s"></script>\n' $(cd /var/www/
    <span>$(gettext 'Panel')</span>
    <menu>
     <li><a data-icon="info"     href="/">$(gettext 'Summary')</a></li>
-    <li><a data-icon="terminal" href="/index.cgi?cmd=help">$(gettext 'Terminal')</a></li>
     <li><a data-icon="proc"     href="/index.cgi?top">$(gettext 'Processes')</a></li>
+EOT
+[ "$REMOTE_USER" == "root" ] && cat << EOT
+    <li><a data-icon="terminal" href="/index.cgi?cmd=help">$(gettext 'Terminal')</a></li>
     <li><a data-icon="report"   href="/index.cgi?report">$(gettext 'Create Report')</a></li>
+EOT
+cat << EOT
     $(for i in menu.d/panel/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>
@@ -37,15 +41,6 @@ $(printf '\t<script type="text/javascript" src="/%s"></script>\n' $(cd /var/www/
    </menu>
   </li>
   <li tabindex="3">
-   <span>$(gettext 'Settings')</span>
-   <menu>
-    <li><a data-icon="info"  href="/settings.cgi">$(gettext 'Summary')</a></li>
-    <li><a data-icon="user"  href="/settings.cgi?users">$(gettext 'Users')</a></li>
-    <li><a data-icon="group" href="/settings.cgi?groups">$(gettext 'Groups')</a></li>
-    $(for i in menu.d/settings/* ; do [ -f $i ] && sh $i menu $i ; done)
-   </menu>
-  </li>
-  <li tabindex="4">
    <span>$(gettext 'Boot')</span>
    <menu>
     <li><a data-icon="info" href="/boot.cgi">$(gettext 'Summary')</a></li>
@@ -62,16 +57,33 @@ $(printf '\t<script type="text/javascript" src="/%s"></script>\n' $(cd /var/www/
     $(for i in menu.d/boot/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>
-  <li tabindex="5">
+  <li tabindex="4">
    <span>$(gettext 'Hardware')</span>
    <menu>
     <li><a data-icon="info"    href="/hardware.cgi">$(gettext 'Summary')</a></li>
     <li><a data-icon="modules" href="/hardware.cgi?modules">$(gettext 'Kernel modules')</a></li>
+EOT
+[ "$REMOTE_USER" == "root" ] && cat << EOT
     <li><a data-icon="detect"  href="/hardware.cgi?detect">$(gettext 'Detect PCI/USB')</a></li>
+EOT
+cat << EOT
     <li><a data-icon="hdd"     href="/hardware.cgi#disk">$(gettext 'Disks')</a></li>
     $(for i in menu.d/hardware/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>
+EOT
+[ "$REMOTE_USER" == "root" ] && cat << EOT
+  <li tabindex="5">
+   <span>$(gettext 'Settings')</span>
+   <menu>
+    <li><a data-icon="info"  href="/settings.cgi">$(gettext 'Summary')</a></li>
+    <li><a data-icon="user"  href="/settings.cgi?users">$(gettext 'Users')</a></li>
+    <li><a data-icon="group" href="/settings.cgi?groups">$(gettext 'Groups')</a></li>
+    $(for i in menu.d/settings/* ; do [ -f $i ] && sh $i menu $i ; done)
+   </menu>
+  </li>
+EOT
+cat << EOT
   $(for i in menu.d/* ; do [ -f $i ] && sh $i menu $i ; done)
  </menu>
  <span id="icons">
