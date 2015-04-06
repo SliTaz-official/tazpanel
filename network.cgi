@@ -195,7 +195,8 @@ EOT
 
 		cat <<EOT
 <h2>$(gettext 'Ethernet connection')</h2>
-
+EOT
+		[ -w /etc/network.conf ] && cat <<EOT
 <p>$(gettext "Here you can configure a wired connection using DHCP to \
 automatically get a random IP or configure a static/fixed IP")</p>
 
@@ -249,14 +250,19 @@ function static_change() {
 document.getElementById('staticip').onchange = static_change;
 static_change();
 </script>
-
+EOT
+		cat <<EOT
 <section>
 	<header>
 		$(gettext 'Configuration file')
+EOT
+		[ -w /etc/network.conf ] && cat <<EOT
 		<form action="index.cgi">
 			<input type="hidden" name="file" value="/etc/network.conf"/>
 			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button>
 		</form>
+EOT
+		cat <<EOT
 	</header>
 	<div>$(gettext "These values are the ethernet settings in the main /etc/network.conf configuration file")</div>
 	<pre>$(awk '{if($1 !~ "WIFI" && $1 !~ "#" && $1 != ""){print $0}}' /etc/network.conf | syntax_highlighter conf)</pre>
@@ -375,9 +381,6 @@ EOT
 		. /etc/network.conf
 		cat <<EOT
 <h2>$(gettext 'Wireless connection')</h2>
-
-<form>
-	<input type="hidden" name="wifi"/>
 EOT
 
 		start_disabled=''; stop_disabled=''
@@ -387,13 +390,16 @@ EOT
 			start_disabled='disabled'
 		fi
 
-		cat <<EOT
+		[ -w /etc/network.conf ] && cat <<EOT
+<form>
+	<input type="hidden" name="wifi"/>
 	   <button name="start_wifi" data-icon="start"   $start_disabled>$(gettext 'Start')</button><!--
 	--><button name="stop"       data-icon="stop"    $stop_disabled >$(gettext 'Stop' )</button><!--
 	--><button type="submit"     data-icon="refresh" $stop_disabled >$(gettext 'Scan' )</button>
 </form>
 EOT
 
+		[ -w /etc/network.conf ] &&
 		if [ -n "$start_disabled" ]; then
 			cat <<EOT
 <section id="wifiList">
@@ -540,10 +546,14 @@ EOT
 <section>
 	<header>
 		$(gettext 'Configuration file')
+EOT
+		[ -w /etc/network.conf ] && cat <<EOT
 		<form action="index.cgi">
 			<input type="hidden" name="file" value="/etc/network.conf"/>
 			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button>
 		</form>
+EOT
+		cat <<EOT
 	</header>
 	<div>$(gettext "These values are the wifi settings in the main /etc/network.conf configuration file")</div>
 	<pre>$(grep ^WIFI /etc/network.conf | sed '/WIFI_KEY=/s|".*"|"********"|' | syntax_highlighter conf)</pre>
@@ -575,12 +585,15 @@ EOT
 <p>$(gettext 'Manage network connections and services')</p>
 
 <form action="index.cgi" id="indexform"></form>
-
+EOT
+		[ -w /etc/network.conf ] && cat <<EOT
 <form id="mainform"><!--
 	--><button name="start"   data-icon="start"   $start_disabled>$(gettext 'Start'  )</button><!--
 	--><button name="stop"    data-icon="stop"    $stop_disabled >$(gettext 'Stop'   )</button><!--
 	--><button name="restart" data-icon="restart" $stop_disabled >$(gettext 'Restart')</button>
 </form>
+EOT
+		cat <<EOT
 <div class="float-right"><!--
 	-->$(gettext 'Configuration:')<!--
 	--><button form="indexform" name="file" value="/etc/network.conf" data-icon="conf">network.conf</button><!--
@@ -598,23 +611,35 @@ EOT
 <section>
 	<header id="hosts">$(gettext 'Hosts')</header>
 	<pre>$(cat /etc/hosts)</pre>
+EOT
+		[ -w /etc/hosts ] && cat <<EOT
 	<footer>
 		<form action="index.cgi">
 			<input type="hidden" name="file" value="/etc/hosts"/>
 			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button>
 		</form>
 	</footer>
+EOT
+		cat <<EOT
 </section>
 
 
 <section>
 	<header>$(gettext 'Hostname')</header>
 	<footer>
+EOT
+		if [ -w /etc/hostname ]; then
+			cat <<EOT
 		<form>
 			<!-- was: name="hostname"; please don't use 'name' in name: unwanted webkit styling -->
 			<input type="text" name="host" value="$(cat /etc/hostname)"/><!--
 			--><button type="submit" data-icon="ok">$(gettext 'Change')</button>
 		</form>
+EOT
+		else
+			cat /etc/hostname
+		fi
+		cat <<EOT
 	</footer>
 </section>
 
