@@ -17,7 +17,7 @@ xhtml_header
 cat <<EOT
 
 <section>
-	<header data-icon="info">Buttons with font icons</header>
+	<header><span data-img="info"></span>Buttons with font icons</header>
 <!--
 --><button data-icon="add"        >Add        </button><button data-icon="admin"   >Admin   </button><!--
 --><button data-icon="back"       >Back       </button><button data-icon="battery" >Battery </button><!--
@@ -56,7 +56,7 @@ cat <<EOT
 
 
 <section>
-	<header data-icon="link">Links with font icons</header>
+	<header><span data-img="link"></span>Links with font icons</header>
 	<div>
 <p>
 <a data-icon="add"        >Add        </a> <a data-icon="admin"     >Admin     </a> <a data-icon="back"     >Back     </a>
@@ -87,17 +87,17 @@ cat <<EOT
 
 
 <section>
-	<header data-icon="view">Links with font icons only (small buttons)</header>
+	<header><span data-img="view"></span>Links with font icons only (small buttons)</header>
 	<p>
 <a data-img="conf"   href="#"></a>Conf   <a data-img="help" href="#"></a>Help <a data-img="man"  href="#"></a>Man
 <a data-img="off"    href="#"></a>Off    <a data-img="on"   href="#"></a>On   <a data-img="opt"  href="#"></a>Opt
 <a data-img="remove" href="#"></a>Remove <a data-img="run"  href="#"></a>Run  <a data-img="stop" href="#"></a>Stop
-<a data-img="web"    href="#"></a>Web
+<a data-img="web"    href="#"></a>Web    <a data-img="slitaz" href="#"></a>SliTaz <a data-img="user" href="#"></a>User
 </p>
 </section>
 
 <section>
-	<header data-icon="check">User input elements</header>
+	<header><span data-img="check"></span>User input elements</header>
 	<div><form>
 	<table>
 		<tr><td>Text:</td>

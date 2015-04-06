@@ -19,8 +19,7 @@ TITLE="TazPanel"
 
 # Check whether a configuration file has been modified after installation
 
-file_is_modified()
-{
+file_is_modified() {
 	grep -l "  $1$" $INSTALLED/*/md5sum | while read file; do
 
 		# Found, but can we do diff?
@@ -35,7 +34,7 @@ file_is_modified()
 				diff -abu $tmp$1 $1 | sed "s|$tmp||"
 				rm -rf $tmp;;
 			button)
-				echo -n '<button name="action" value="diff" data-icon="diff">'$(gettext 'Differences')'</button>';;
+				echo -n '<button name="action" value="diff" data-icon="diff">'$(_ 'Differences')'</button>';;
 		esac
 		break
 	done
@@ -47,6 +46,20 @@ file_is_modified()
 
 ok_status_t() {
 	echo '<td><span class="diff-add" data-img="ok"></span></td></tr>'
+}
+
+
+
+# Terminal prompt
+
+term_prompt() {
+	if [ "$user" == 'root' ]; then
+		local color1='color31' sign='#'
+	else
+		local color1='color32' sign='$'
+	fi
+	echo -n "<span class='$color1'>$user@$(hostname)</span>:<span class='color33'>"
+	pwd | sed "s|^$HOME|~|" | tr -d '\n'; echo -n "</span>$sign "
 }
 
 
@@ -202,16 +215,14 @@ EOT
 	*\ terminal\ *|*\ cmd\ *)
 		# Cmdline terminal
 
-		TITLE=$(gettext 'TazPanel - Terminal'); header; xhtml_header
+		header; TITLE=$(gettext 'TazPanel - Terminal'); xhtml_header
 
-		historyfile=/root/.ash_history
-		#commands='cat cd date du fdisk help ls ping pwd who wget'
-		cmd=$(GET cmd)
-
-		path="$(GET path)"; path="${path:-/tmp}"; cd "${path/~//root}"
-		[ "$path" == '/root' ] && path='~'
 		user="$REMOTE_USER"
-		[ -z "$HOME" ] && HOME=/root  # for apps that modified user settings
+		HOME="$(awk -F: -vu=$user '$1==u{print $6}' /etc/passwd)"
+		historyfile="$HOME/.ash_history"
+
+		cmd=$(GET cmd)
+		path="$(GET path)"; path="${path:-/tmp}"; cd "$path"
 
 		font="${TERM_FONT:-monospace}"
 		palette=$(echo $TERM_PALETTE | tr A-Z a-z)
@@ -265,7 +276,7 @@ EOT
 	<pre class="term $palette" style="font-family: '$font'" onclick="document.getElementById('typeField').focus()">
 EOT
 		if [ -n "$cmd" ]; then
-			echo -n "<span class='color31'>$user@$(hostname)</span>:<span class='color33'>$path</span># "
+			term_prompt
 			echo "$cmd" | htmlize
 		fi
 
@@ -280,7 +291,8 @@ EOT
 			eval_gettext 'Downloading to: $dl'; echo
 			cd $dl; $cmd 2>&1 ;;
 		cd|cd\ *)
-			path="${cmd#cd}"; path="${path:-/root}"; path="$(realpath $path)" ;;
+			path="${cmd#cd}"; path="${path:-$HOME}";
+			path="$(realpath $path)"; cd "$path" ;;
 		ls|ls\ *)
 			$cmd -w80 --color=always 2>&1 | filter_taztools_msgs ;;
 		cat)
@@ -296,11 +308,10 @@ EOT
 			;;
 	esac
 
-	[ "$path" == '/root' ] && path='~'
 	cat <<EOT
 <form id="term">
-<div class="cmdline" id="cmdline"><span id="prompt"><span class="color31">$user@$(hostname)</span>:<span class="color33">$path</span># </span><span id="typeField"> </span></div>
-<input type="hidden" name="path" value="$path"/>
+<div class="cmdline" id="cmdline"><span id="prompt">$(term_prompt)</span><span id="typeField"> </span></div>
+<input type="hidden" name="path" value="$(pwd)"/>
 <input type="hidden" name="cmd" id="cmd"/>
 </form>
 </pre>
@@ -337,7 +348,9 @@ EOT
 
 	*\ rmhistory\ *)
 		# Manage shell commandline history
-		historyfile=/root/.ash_history
+		user="$REMOTE_USER"
+		[ -z "$HOME" ] && HOME="$(awk -F: -vu=$user '$1==u{print $6}' /etc/passwd)"
+		historyfile="$HOME/.ash_history"
 
 		# Return sed command for removing history lines ('8d12d' to remove 8 and 12 lines)
 		rms=$(echo $QUERY_STRING | awk 'BEGIN{RS="&";FS="="}{if($1=="rm")printf "%dd", $2}')
@@ -609,14 +622,10 @@ EOT
 <p>$(gettext 'SliTaz administration and configuration Panel')<p>
 
 <form class="nogap"><!--
-EOT
-		[ "$REMOTE_USER" == "root" ] && cat <<EOT
 	--><button name="terminal" data-icon="terminal">$(gettext 'Terminal'        )</button><!--
-	--><button name="report"   data-icon="report"  >$(gettext 'Create a report' )</button><!--
-EOT
-		cat <<EOT
-	--><button name="top"      data-icon="proc"    >$(gettext 'Process activity')</button>
-</form>
+	--><button name="top"      data-icon="proc"    >$(gettext 'Process activity')</button><!--
+	--><button name="report"   data-icon="report" data-root>$(gettext 'Create a report' )</button><!--
+--></form>
 
 <section>
 	<header>$(gettext 'Summary')</header>

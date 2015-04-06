@@ -19,13 +19,11 @@ TITLE=$(gettext 'TazPanel - Settings')
 
 # Get system database. LDAP compatible.
 
-getdb()
-{
+getdb() {
 	getent $1 2>/dev/null || cat /etc/$1
 }
 
-listdb()
-{
+listdb() {
 	for item in $(getdb $1 | cut -d ":" -f 1); do
 		echo "<option>$item</option>\n"
 	done
@@ -257,6 +255,7 @@ esac
 #
 
 xhtml_header
+check_root_tazpanel
 
 case " $(GET) " in
 	*\ group*)
@@ -557,19 +556,23 @@ EOT
 			</select>
 			<button name="do" value="settz" data-icon="ok">$(gettext 'Change')</button>
 		</fieldset>
+
 		<fieldset><legend>$(gettext 'System time:')</legend>
 			$(date | sed 's|[0-9][0-9]:[0-9:]*|<span id="time">&</span>|')
 			<button name="do" value="rdate" data-icon="sync">$(gettext 'Sync online')</button>
 		</fieldset>
-		<fieldset><legend>$(gettext 'Hardware clock:')</legend>
+
+		<fieldset id="hwclock1"><legend>$(gettext 'Hardware clock:')</legend>
 			$(hwclock -ur | sed 's|0.000000 seconds||')
-			<button name="do" value="hwclock" data-icon="clock">$(gettext 'Set hardware clock')</button>
+			<button name="do" value="hwclock" id="hwclock" data-icon="clock">$(gettext 'Set hardware clock')</button>
 		</fieldset>
+
 		<fieldset><legend>$(gettext 'Set date')</legend>
 			<input type="number" name="day" value="$(date +%d)" min="1" max="31" size="4" required/>
 			<select name="month" value="$(date +%m)">
 				$(for i in $(seq 12); do
-					printf '<option value="%s">%s</option>' $(date -d $i.01-01:01 '+%m %B')
+					sel=''; [ "$i" == "$(date +%-m)" ] && sel=' selected'
+					printf "<option value=\"%s\"$sel>%s</option>" $(date -d $i.01-01:01 '+%m %B')
 				done)
 			</select>
 			<input type="number" name="year" value="$(date +%Y)" min="2015" max="2030" size="6" required/>
@@ -587,6 +590,8 @@ Date.prototype.timeNow = function() {
 	return ((this.getHours() < 10)?"0":"") + this.getHours() + ":" + ((this.getMinutes() < 10)?"0":"") + this.getMinutes() + ":" + ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
 }
 setInterval(function(){document.getElementById('time').innerText = new Date().timeNow()}, 1000);
+
+//document.getElementById('hwclock').disabled = 'disabled';
 </script>
 </section>
 EOT

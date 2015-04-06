@@ -1,3 +1,5 @@
+rootclass='user'; [ $(id -u) == '0' ] && rootclass='root'
+
 cat << EOT
 <!DOCTYPE html>
 <html lang="${LANG%%_*}">
@@ -7,11 +9,11 @@ cat << EOT
 $(printf '\t<link rel="stylesheet" type="text/css" href="/%s"/>\n' $(cd /var/www/tazpanel; ls styles/$STYLE/*.css))
 $(printf '\t<script type="text/javascript" src="/%s"></script>\n' $(cd /var/www/tazpanel; ls lib/*.js))
 </head>
-<body>
+<body class="$rootclass">
 <script type="text/javascript">setColorTheme(); setBaseFont();</script>
 
 <header>
-	<h1 data-icon="tazpanel">$TITLE</h1>
+	<h1 data-icon="tazpanel">$TITLE </h1>
 </header>
 
 <nav id="toolbar">
@@ -21,12 +23,8 @@ $(printf '\t<script type="text/javascript" src="/%s"></script>\n' $(cd /var/www/
    <menu>
     <li><a data-icon="info"     href="/">$(gettext 'Summary')</a></li>
     <li><a data-icon="proc"     href="/index.cgi?top">$(gettext 'Processes')</a></li>
-EOT
-[ "$REMOTE_USER" == "root" ] && cat << EOT
     <li><a data-icon="terminal" href="/index.cgi?cmd=help">$(gettext 'Terminal')</a></li>
-    <li><a data-icon="report"   href="/index.cgi?report">$(gettext 'Create Report')</a></li>
-EOT
-cat << EOT
+    <li><a data-icon="report"   href="/index.cgi?report" data-root>$(gettext 'Create Report')</a></li>
     $(for i in menu.d/panel/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>
@@ -66,23 +64,17 @@ cat << EOT
    <menu>
     <li><a data-icon="info"    href="/hardware.cgi">$(gettext 'Summary')</a></li>
     <li><a data-icon="modules" href="/hardware.cgi?modules">$(gettext 'Kernel modules')</a></li>
-EOT
-[ "$REMOTE_USER" == "root" ] && cat << EOT
-    <li><a data-icon="detect"  href="/hardware.cgi?detect">$(gettext 'Detect PCI/USB')</a></li>
-EOT
-cat << EOT
+    <li><a data-icon="detect"  href="/hardware.cgi?detect" data-root>$(gettext 'Detect PCI/USB')</a></li>
     <li><a data-icon="hdd"     href="/hardware.cgi#disk">$(gettext 'Disks')</a></li>
     $(for i in menu.d/hardware/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>
-EOT
-[ "$REMOTE_USER" == "root" ] && cat << EOT
   <li tabindex="5">
    <span>$(gettext 'Settings')</span>
    <menu>
-    <li><a data-icon="info"  href="/settings.cgi">$(gettext 'Summary')</a></li>
-    <li><a data-icon="user"  href="/settings.cgi?users">$(gettext 'Users')</a></li>
-    <li><a data-icon="group" href="/settings.cgi?groups">$(gettext 'Groups')</a></li>
+    <li><a data-icon="info"  href="/settings.cgi" data-root>$(gettext 'Summary')</a></li>
+    <li><a data-icon="user"  href="/settings.cgi?users" data-root>$(gettext 'Users')</a></li>
+    <li><a data-icon="group" href="/settings.cgi?groups" data-root>$(gettext 'Groups')</a></li>
     $(for i in menu.d/settings/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>
@@ -91,8 +83,17 @@ cat << EOT
   $(for i in menu.d/* ; do [ -f $i ] && sh $i menu $i ; done)
  </menu>
  <span id="icons">
-  <span id="miscinfo2"></span>
-  <span id="miscinfo1"></span>
+EOT
+
+username="${REMOTE_USER:-root}"
+case "$username" in
+	root) icon='slitaz'; warn='';;
+	*)    icon='user';   warn="$(_ 'Some features are disabled.')"$'\n';;
+esac
+
+	cat << EOT
+  <a data-img="$icon" title="$(_ 'You are logged in to the TazPanel as user $username.')
+$warn$(_ 'Click to re-login.')" href="http://$RANDOM:*@tazpanel:82/"></a>
   <a data-img="help" href="/help.cgi"></a>
  </span>
 </nav>

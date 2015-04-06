@@ -5,6 +5,7 @@
 # Copyright (C) 2011-2015 SliTaz GNU/Linux - BSD License
 #
 
+. /lib/libtaz.sh
 
 [ "$(id -un)" == "${REMOTE_USER:-root}" ] || exec su -c "$(realpath $0) $@" $REMOTE_USER
 
@@ -205,9 +206,9 @@ list_locales() {
 # Get the list of console keymaps
 
 list_keymaps() {
-	for keymap in $(find /usr/share/k* -type f -name "*.*map*"); do
-		basename $keymap
-	done | sed "s|\..*||;s|.*|<option value='&'>&</option>|" | sort
+	find /usr/share/kbd/keymaps/i386 -type f -name '*.map*' ! -path '*include*' | \
+	awk -F/ '{gsub(/.map.gz/, ""); printf "<option value=\"%s\">%s (%s)\n", $8, $8, $7}' | \
+	sort
 }
 
 
@@ -298,8 +299,7 @@ msg() {
 		*)				MSG_ICON="$IMAGES/msg.png" ;;
 	esac
 	cat <<EOT
-	<section class="box" style="width:50%;margin:0.5em auto;">
-		<image src="$MSG_ICON" alt="$msgtype" class="float-left" />
+	<section class="box"><img src="$MSG_ICON" alt="$msgtype"/>
 		$@
 	</section>
 EOT
@@ -331,7 +331,8 @@ back_button() {
 	local caption="${2:-$default_caption}" icon="${3:-back}"
 
 	if [ -n "$1" ]; then
-		printf '<form action="%s" method="post"><button data-icon="%s">%s</button></form>' "$URL" "$icon" "$caption"
+		printf '<form action="%s" method="post"><button data-icon="%s">%s</button></form>' \
+			"$URL" "$icon" "$caption"
 	fi
 }
 
@@ -340,4 +341,12 @@ back_button() {
 
 selected() {
 	[ "$1" == "$2" ] && echo -n 'selected'
+}
+
+
+check_root_tazpanel() {
+	if [ $(id -u) != '0' ]; then
+		msg err "$(_ 'You must be root to show this page.')"
+		xhtml_footer; exit 0
+	fi
 }

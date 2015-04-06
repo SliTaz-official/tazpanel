@@ -54,15 +54,15 @@ nav {
 	display: block;
 	padding: 0;
 	color: inherit; background: inherit;
-	cursor: pointer;
 	outline: none;
 }
 #toolbarMenu > li > span {
 	display: inline-block;
 	padding: 0.2rem;
+	cursor: pointer;
 }
 
-#toolbarMenu menu li {
+#toolbarMenu menu li a {
 	padding: 0.2rem;
 }
 
@@ -70,7 +70,8 @@ nav {
 #toolbarMenu li:focus span,
 #toolbarMenu li:hover span,
 #toolbarMenu menu li:focus,
-#toolbarMenu menu li:hover {
+.user #toolbarMenu menu li:hover > a:not([data-root]),
+.root #toolbarMenu menu li:hover {
 	background-color: hsla(30, 100%, 50%, 0.5);
 }
 
@@ -160,6 +161,8 @@ section td:nth-child(1) { padding-left: 0.3rem; }
 section table { margin-bottom: 0.3rem; }
 .nogap { word-spacing: 0; } /* remove gap between buttons in line */
 
+.scroll { height: 12rem; overflow: auto; border: 1pt solid; }
+section .scroll { padding: 0; margin: 0; }
 
 
 
@@ -181,7 +184,7 @@ section table { margin-bottom: 0.3rem; }
 
 
 fieldset { border: 1pt solid; border-radius: 0.3rem; margin-bottom: 0.2rem; }
-
+fieldset[disabled] { background-color: hsla(0, 0%, 50%, 0.1);}
 
 
 
@@ -248,11 +251,11 @@ li { padding: 4px 0; }
 #wrapper, .wrapper { margin: 20px 0; }
 
 .box {
-	margin: 10px 0;
-	padding: 12px;
-	background: #f8f8f8;
-	border: 1px solid #ddd;
+	display: table;
+	padding: 1em;
+	width: 50%; margin: 0.5em auto;
 }
+.box img { float: left; }
 
 .box ul { list-style-type: none; padding: 0; }
 
@@ -319,7 +322,11 @@ table.daemons td:nth-child(4), table.daemons td:nth-child(5) { text-align: cente
 
 
 
-/* Misc */
+/**
+ * Misc
+ */
+
+/* Links */
 
 a       { text-decoration: none; color: #268bd2; cursor: pointer; }
 a:not([data-img]):hover { text-decoration: underline; }
@@ -331,13 +338,11 @@ pre { margin: 0; padding: 0; color: CaptionText; }
 
 .pre-main { margin: 16px 0; }
 
-.scroll { height: 12rem; overflow: auto; border: 1px solid; }
-.scroll table { border: 0px solid #fff; }
 
 
 /* Round corner */
 
-#loading, .debug, .box, div.scroll, .outbox, section {
+#loading, .debug, .box, .outbox, section {
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
@@ -728,3 +733,9 @@ textarea { display: block; color: CaptionText; font-family: monospace; box-sizin
 	background-image: -webkit-linear-gradient(top, hsla(0, 0%, 100%, 0.25), hsla(0, 0%, 0%, 0.2));
 	border-radius: 0 0.2rem 0.2rem 0;
 }
+
+
+
+/* Disable some links to root actions */
+button:not([disabled]) { cursor: pointer; }
+.user [data-root] { pointer-events: none; cursor: default !important; }

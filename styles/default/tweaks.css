@@ -57,11 +57,11 @@ body.dark  { background: #3C3C3C; }
 
 
 
-.dark fieldset {
+.dark fieldset, .dark .scroll {
 	border-color: #313131;
 	box-shadow: inset 1pt 1pt 0 0 #3E3E3E, 1pt 1pt 0 0 #3E3E3E; /*ok*/
 }
-.light fieldset {
+.light fieldset, .light .scroll {
 	border-color: #C1C1C1; }
 .dark legend { background-color: #454545; }
 
@@ -202,11 +202,13 @@ a[data-icon] { white-space: pre-line; }
 [data-img="off"]::before,     [data-img="remove"]::before,
 [data-img="stop"]::before,    [data-icon="pkgib"]::before {color:#dc322f} /*red*/
 
-[data-icon="restart"]:not([disabled])::before, [data-img="conf"]::before {color:#cb4b16} /*orange*/
+[data-icon="restart"]:not([disabled])::before, [data-img="conf"]::before,
+[data-img="slitaz"]::before {color:#cb4b16} /*orange*/
 
 [data-icon="ok"]::before,    [data-icon="run"]::before,
 [data-icon="start"]:not([disabled])::before, [data-img="on"]::before,
-[data-img="opt"]::before, [data-img="run"]::before, [data-icon="pkgi"]::before {color:#859900} /*green*/
+[data-img="opt"]::before, [data-img="run"]::before, [data-icon="pkgi"]::before,
+[data-img="user"]::before {color:#859900} /*green*/
 
 [data-img="web"]::before {color:#268bd2}, [data-icon="pkg"]::before /*blue*/
 
@@ -232,3 +234,9 @@ a[data-icon] { white-space: pre-line; }
 .dark  .sysmem { border-color: #2E2E2E; }
 .light .sysmem { border-color: #A3A3A3; }
 
+
+/* Disable some links to root actions */
+.light.user [data-root] { color: #999 !important; }
+.dark.user  [data-root] { color: #666 !important; }
+.dark.user  [data-root]:before {
+	color: #666 !important; background: transparent; -webkit-text-fill-color: #666; }
