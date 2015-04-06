@@ -19,6 +19,13 @@ lib() {
 	[ -s $module ] && . $module "$@"
 }
 
+disk_info() {
+	fdisk -l | fgrep Disk | while read a b c; do
+		d=${b#/dev/}
+		d="/sys/block/${d%:}/device"
+		[ -d $d ] && echo "$a $b $c, $(cat $d/vendor) $(cat $d/model)"
+	done 2> /dev/null | sed 's/  */ /g'
+}
 
 lsusb_table() {
 	cat <<EOT
@@ -319,7 +326,7 @@ EOT
 	<form action="#mount" class="wide">
 		<header id="disk">$(gettext 'Filesystem usage statistics')</header>
 		<div>
-			<pre>$(fdisk -l | fgrep Disk)</pre>
+			<pre>$(disk_info)</pre>
 		</div>
 EOT
 
@@ -374,7 +381,7 @@ EOT
 			# action
 			action="mount"
 			[ -n "$mp" ] && action="umount"
-			type=$(blkid $fs | sed '/TYPE=/!d;s/.*TYPE="\([^"]*\).*/\1/')
+			type=$(blkid $fs | sed '/TYPE=/!d;s/.* TYPE="\([^"]*\).*/\1/')
 			[ "$type" == "swap" ] && action="swapon"
 			if grep -q "^$fs " /proc/swaps; then
 				action="swapoff"
