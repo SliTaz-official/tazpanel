@@ -362,7 +362,7 @@ EOT
 </section>
 
 
-<section>
+<section style="overflow-x: auto">
 	<header>$(gettext 'Kernel cmdline')</header>
 	<pre>$(cat /proc/cmdline)</pre>
 </section>
