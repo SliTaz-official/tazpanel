@@ -345,7 +345,11 @@ EOT
 <form>
 	<button name="log"     data-icon="logs"   >$(gettext 'Boot logs'     )</button>
 	<button name="daemons" data-icon="daemons">$(gettext 'Manage daemons')</button>
+EOT
+		[ -w /boot/grub/menu.lst ] && cat <<EOT
 	<button name="grub"    data-icon="grub"   >$(gettext 'Boot loader'   )</button>
+EOT
+		cat <<EOT
 </form>
 
 
@@ -373,7 +377,11 @@ EOT
 		$(gettext 'Local startup commands')
 		<form action="index.cgi">
 			<input type="hidden" name="file" value="/etc/init.d/local.sh"/>
+EOT
+		[ -w /etc/init.d/local.sh ] && cat <<EOT
 			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button>
+EOT
+		cat <<EOT
 		</form>
 	</header>
 	<pre>$(cat /etc/init.d/local.sh | syntax_highlighter sh)</pre>

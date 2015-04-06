@@ -44,7 +44,11 @@ cat << EOT
    <span>$(gettext 'Boot')</span>
    <menu>
     <li><a data-icon="info" href="/boot.cgi">$(gettext 'Summary')</a></li>
+EOT
+		[ -w /boot/grub/menu.lst ] && cat <<EOT
     <li><a data-icon="grub" href="/boot.cgi?grub">$(gettext 'Boot loader')</a></li>
+EOT
+cat << EOT
     <li><a data-icon="logs" href="/boot.cgi?log">$(gettext 'Boot logs')</a>
      <menu>
       <li><a data-icon="" href="/boot.cgi?log=kernel">$(gettext 'Kernel messages')</a></li>

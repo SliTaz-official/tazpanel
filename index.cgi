@@ -609,9 +609,13 @@ EOT
 <p>$(gettext 'SliTaz administration and configuration Panel')<p>
 
 <form class="nogap"><!--
+EOT
+		[ "$REMOTE_USER" == "root" ] && cat <<EOT
 	--><button name="terminal" data-icon="terminal">$(gettext 'Terminal'        )</button><!--
-	--><button name="top"      data-icon="proc"    >$(gettext 'Process activity')</button><!--
-	--><button name="report"   data-icon="report"  >$(gettext 'Create a report' )</button>
+	--><button name="report"   data-icon="report"  >$(gettext 'Create a report' )</button><!--
+EOT
+		cat <<EOT
+	--><button name="top"      data-icon="proc"    >$(gettext 'Process activity')</button>
 </form>
 
 <section>

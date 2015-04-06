@@ -223,13 +223,13 @@ EOT
 <p>$(gettext 'Manage your computer hardware')</p>
 
 <form><!--
-	--><button name="modules" data-icon="modules">$(gettext 'Kernel modules')</button>
 EOT
 		[ "$REMOTE_USER" == "root" ] && cat <<EOT
-	<button name="detect"  data-icon="detect" >$(gettext 'Detect PCI/USB')</button>
-	<button name="tazx"    data-icon="tazx"   >$(gettext 'Auto-install Xorg video driver')</button>
+	--><button name="detect"  data-icon="detect" >$(gettext 'Detect PCI/USB')</button><!--
+	--><button name="tazx"    data-icon="tazx"   >$(gettext 'Auto-install Xorg video driver')</button><!--
 EOT
 		cat <<EOT
+	--><button name="modules" data-icon="modules">$(gettext 'Kernel modules')</button>
 </form>
 
 EOT
