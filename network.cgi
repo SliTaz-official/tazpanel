@@ -579,21 +579,23 @@ EOT
 			stop_disabled='disabled'
 		fi
 
+		if [ ! -w /etc/network.conf ]; then
+			start_disabled='disabled'; stop_disabled='disabled'
+		fi
+
 		cat <<EOT
 <h2>$(gettext 'Networking')</h2>
 
 <p>$(gettext 'Manage network connections and services')</p>
 
 <form action="index.cgi" id="indexform"></form>
-EOT
-		[ -w /etc/network.conf ] && cat <<EOT
+
 <form id="mainform"><!--
 	--><button name="start"   data-icon="start"   $start_disabled>$(gettext 'Start'  )</button><!--
 	--><button name="stop"    data-icon="stop"    $stop_disabled >$(gettext 'Stop'   )</button><!--
 	--><button name="restart" data-icon="restart" $stop_disabled >$(gettext 'Restart')</button>
 </form>
-EOT
-		cat <<EOT
+
 <div class="float-right"><!--
 	-->$(gettext 'Configuration:')<!--
 	--><button form="indexform" name="file" value="/etc/network.conf" data-icon="conf">network.conf</button><!--

@@ -174,18 +174,19 @@ EOT
 
 			cat <<EOT
 <section>
-EOT
-			[ -w "$file" ] && cat <<EOT
 	<header>
 		<span data-icon="text">$file</span>
+EOT
+			[ -w "$file" ] && cat <<EOT
 		<form>
 			<input type="hidden" name="file" value="$file"/>
 			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button><!--
 			-->$(file_is_modified $file button)
 		</form>
-	</header>
 EOT
 			cat <<EOT
+	</header>
+
 	<div>
 		<pre>
 EOT
