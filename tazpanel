@@ -34,9 +34,20 @@ PIDFILE=/run/$NAME.pid
 
 case "$1" in
 	-h|*help|*usage)
-		echo
-		gettext 'Usage: tazpanel [start|stop|passwd|app]'; echo
-		echo ;;
+		cat <<EOT
+Usage: tazpanel [command]
+
+Commands:
+  start    Start tazpanel daemon
+  stop     Stop tazpanel daemon
+  restart  Restart tazpanel daemon
+  passwd   Changing TazPanel password for root (also, short command -p)
+  <app>    Open TazPanel page in the browser, where <app> is one of:
+           boot, hardware, help, index, installer, live, network, settings, pkgs
+           If <app> is empty, index page will open in the browser.
+
+EOT
+		;;
 	start)
 		if [ -f $PIDFILE ]; then
 			gettext 'TazPanel is already running.'; echo
@@ -58,6 +69,8 @@ case "$1" in
 		kill $(pgrep -f TazPanel)
 		rm -f $PIDFILE
 		status ;;
+	restart)
+		tazpanel stop; sleep 1; tazpanel start;;
 	passwd|-p)
 		echo
 		gettext 'Changing password for TazPanel'; echo
