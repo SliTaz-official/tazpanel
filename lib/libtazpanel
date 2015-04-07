@@ -206,9 +206,13 @@ list_locales() {
 # Get the list of console keymaps
 
 list_keymaps() {
-	find /usr/share/kbd/keymaps/i386 -type f -name '*.map*' ! -path '*include*' | \
-	awk -F/ '{gsub(/.map.gz/, ""); printf "<option value=\"%s\">%s (%s)\n", $8, $8, $7}' | \
-	sort
+	if [ -d /usr/share/kbd ]; then			# kbd-base
+		find /usr/share/kbd/keymaps/i386 -type f -name '*.map*' ! -path '*include*' | \
+		awk -F/ '{gsub(/.map.gz/, ""); printf "<option value=\"%s\">%s (%s)\n", $8, $8, $7}' 
+	else						# kbd-busybox
+		ls /usr/share/kmap/*.kmap | \
+		sed 's|.*kmap/\(.*\).kmap|<option value="\1">\1|'
+	fi | sort
 }
 
 

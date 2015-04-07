@@ -344,7 +344,7 @@ EOT
 
 <form>
 	<button name="log"     data-icon="logs"   >$(gettext 'Boot logs'     )</button>
-	<button name="daemons" data-icon="daemons">$(gettext 'Manage daemons')</button>
+	<button name="daemons" data-icon="daemons" data-root>$(gettext 'Manage daemons')</button>
 EOT
 		[ -w /boot/grub/menu.lst ] && cat <<EOT
 	<button name="grub"    data-icon="grub"   >$(gettext 'Boot loader'   )</button>
