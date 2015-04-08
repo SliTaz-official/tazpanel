@@ -177,13 +177,22 @@ EOT
 	<header>
 		<span data-icon="text">$file</span>
 EOT
-			[ -w "$file" ] && cat <<EOT
+			if [ -w "$file" ]; then
+				cat <<EOT
 		<form>
 			<input type="hidden" name="file" value="$file"/>
 			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button><!--
 			-->$(file_is_modified $file button)
 		</form>
 EOT
+			elif [ -r "$file" ]; then
+				cat <<EOT
+		<form>
+			<input type="hidden" name="file" value="$file"/>
+			$(file_is_modified $file button)
+		</form>
+EOT
+			fi
 			cat <<EOT
 	</header>
 
