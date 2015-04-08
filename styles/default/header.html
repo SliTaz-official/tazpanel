@@ -87,13 +87,15 @@ EOT
 
 username="${REMOTE_USER:-root}"
 case "$username" in
-	root) icon='slitaz'; warn='';;
-	*)    icon='user';   warn="$(_ 'Some features are disabled.')"$'\n';;
+	root) icon='slitaz'; warn=''
+	      toggle_url="http://tazpanel:82/";;
+	*)    icon='user';   warn="$(_ 'Some features are disabled.')"$'\n'
+	      toggle_url="http://$RANDOM:*@tazpanel:82/user/";;
 esac
 
 	cat << EOT
   <a data-img="$icon" title="$(_ 'You are logged in to the TazPanel as user $username.')
-$warn$(_ 'Click to re-login.')" href="http://$RANDOM:*@tazpanel:82/user/"></a>
+$warn$(_ 'Click to re-login.')" href="$toggle_url$(basename $REQUEST_URI)"></a>
   <a data-img="help" href="help.cgi"></a>
  </span>
 </nav>
