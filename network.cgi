@@ -12,7 +12,7 @@
 get_config
 header
 
-TITLE=$(gettext 'TazPanel - Network')
+TITLE=$(_ 'TazPanel - Network')
 
 
 # Start a Wi-Fi connection
@@ -138,7 +138,7 @@ case " $(GET) " in
 		connect_wifi ;;
 	*\ host\ *)
 		get_hostname="$(GET host)"
-		echo $(eval_gettext 'Changed hostname: $get_hostname') | log
+		echo $(_ 'Changed hostname: %s' $get_hostname) | log
 		echo "$get_hostname" > /etc/hostname ;;
 esac
 
@@ -161,13 +161,13 @@ case " $(GET) " in
 		# Scan open ports
 		scan=$(GET scan); back=$(GET back)
 		xhtml_header
-		LOADING_MSG=$(gettext 'Scanning open ports...'); loading_msg
+		LOADING_MSG=$(_ 'Scanning open ports...'); loading_msg
 
 		cat <<EOT
 <section>
 	<header>
-		$(eval_gettext 'Port scanning for $scan')
-		$(back_button "$back" "$(gettext 'Network')" "")
+		$(_ 'Port scanning for %s' $scan)
+		$(back_button "$back" "$(_ 'Network')" "")
 	</header>
 	<pre>$(pscan -b $scan)</pre>
 </section>
@@ -194,19 +194,19 @@ EOT
 		fi
 
 		cat <<EOT
-<h2>$(gettext 'Ethernet connection')</h2>
+<h2>$(_ 'Ethernet connection')</h2>
 EOT
 		[ -w /etc/network.conf ] && cat <<EOT
-<p>$(gettext "Here you can configure a wired connection using DHCP to \
+<p>$(_ "Here you can configure a wired connection using DHCP to \
 automatically get a random IP or configure a static/fixed IP")</p>
 
 <section>
-	<header>$(gettext 'Configuration')</header>
+	<header>$(_ 'Configuration')</header>
 	<form id="conf">
 		<input type="hidden" name="eth"/>
 		<div>
 			<table>
-				<tr><td>$(gettext 'Interface')</td>
+				<tr><td>$(_ 'Interface')</td>
 					<td><select name="iface" value="$INTERFACE" style="width:100%">
 					$(cd /sys/class/net; ls -1 | awk -viface="$INTERFACE" '{
 						sel = ($0 == iface) ? " selected":""
@@ -214,28 +214,28 @@ automatically get a random IP or configure a static/fixed IP")</p>
 					}')
 					</select></td>
 				</tr>
-				<tr><td>$(gettext 'Static IP')</td>
+				<tr><td>$(_ 'Static IP')</td>
 					<td><label><input type="checkbox" name="staticip" id="staticip" $use_static/>
-						$(gettext 'Use static IP')</td>
+						$(_ 'Use static IP')</td>
 				</tr>
-				<tr id="st1"><td>$(gettext 'IP address')</td>
+				<tr id="st1"><td>$(_ 'IP address')</td>
 					<td><input type="text" name="ip"      value="$IP"         $PAR/></td>
 				</tr>
-				<tr id="st2"><td>$(gettext 'Netmask')</td>
+				<tr id="st2"><td>$(_ 'Netmask')</td>
 					<td><input type="text" name="netmask" value="$NETMASK"    $PAR/></td>
 				</tr>
-				<tr id="st3"><td>$(gettext 'Gateway')</td>
+				<tr id="st3"><td>$(_ 'Gateway')</td>
 					<td><input type="text" name="gateway" value="$GATEWAY"    $PAR/></td>
 				</tr>
-				<tr id="st4"><td>$(gettext 'DNS server')</td>
+				<tr id="st4"><td>$(_ 'DNS server')</td>
 					<td><input type="text" name="dns"     value="$DNS_SERVER" $PAR/></td>
 				</tr>
 			</table>
 		</div>
 	</form>
 	<footer><!--
-		--><button form="conf" type="submit" name="start_eth" data-icon="start" $start_disabled>$(gettext 'Start'  )</button><!--
-		--><button form="conf" type="submit" name="stop"      data-icon="stop"  $stop_disabled >$(gettext 'Stop'   )</button><!--
+		--><button form="conf" type="submit" name="start_eth" data-icon="start" $start_disabled>$(_ 'Start'  )</button><!--
+		--><button form="conf" type="submit" name="stop"      data-icon="stop"  $stop_disabled >$(_ 'Stop'   )</button><!--
 	--></footer>
 </section>
 
@@ -254,17 +254,17 @@ EOT
 		cat <<EOT
 <section>
 	<header>
-		$(gettext 'Configuration file')
+		$(_ 'Configuration file')
 EOT
 		[ -w /etc/network.conf ] && cat <<EOT
 		<form action="index.cgi">
 			<input type="hidden" name="file" value="/etc/network.conf"/>
-			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button>
+			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
 		</form>
 EOT
 		cat <<EOT
 	</header>
-	<div>$(gettext "These values are the ethernet settings in the main /etc/network.conf configuration file")</div>
+	<div>$(_ "These values are the ethernet settings in the main /etc/network.conf configuration file")</div>
 	<pre>$(awk '{if($1 !~ "WIFI" && $1 !~ "#" && $1 != ""){print $0}}' /etc/network.conf | syntax_highlighter conf)</pre>
 </section>
 EOT
@@ -276,17 +276,17 @@ EOT
 		# Catch ESSIDs and format output.
 		# We get the list of networks by Cell and without spaces.
 
-		HIDDEN="$(gettext '(hidden)')"
+		HIDDEN="$(_ '(hidden)')"
 
 		cat <<EOT
 <table class="wide center zebra">
 	<thead>
 		<tr>
-			<td>$(gettext 'Name')</td>
-			<td>$(gettext 'Signal level')</td>
-			<td>$(gettext 'Channel')</td>
-			<td>$(gettext 'Encryption')</td>
-			<td>$(gettext 'Status')</td>
+			<td>$(_ 'Name')</td>
+			<td>$(_ 'Signal level')</td>
+			<td>$(_ 'Channel')</td>
+			<td>$(_ 'Encryption')</td>
+			<td>$(_ 'Status')</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -337,7 +337,7 @@ EOT
 					fi
 				else
 					WIFI_KEY_TYPE='NONE'
-					ENC_SIMPLE="$(gettext 'None')"; ENC_ICON='seclo' # low
+					ENC_SIMPLE="$(_ 'None')"; ENC_ICON='seclo' # low
 				fi
 
 				# 
@@ -350,7 +350,7 @@ EOT
 				# Connected or not connected...
 				if  ifconfig $WIFI_INTERFACE | fgrep -q inet && \
 					iwconfig $WIFI_INTERFACE | fgrep -q "ESSID:\"$ESSID\""; then
-					status="$(gettext 'Connected')"
+					status="$(_ 'Connected')"
 				else
 					status='---'
 				fi
@@ -380,7 +380,7 @@ EOT
 
 		. /etc/network.conf
 		cat <<EOT
-<h2>$(gettext 'Wireless connection')</h2>
+<h2>$(_ 'Wireless connection')</h2>
 EOT
 
 		start_disabled=''; stop_disabled=''
@@ -393,9 +393,9 @@ EOT
 		[ -w /etc/network.conf ] && cat <<EOT
 <form>
 	<input type="hidden" name="wifi"/>
-	   <button name="start_wifi" data-icon="start"   $start_disabled>$(gettext 'Start')</button><!--
-	--><button name="stop"       data-icon="stop"    $stop_disabled >$(gettext 'Stop' )</button><!--
-	--><button type="submit"     data-icon="refresh" $stop_disabled >$(gettext 'Scan' )</button>
+	   <button name="start_wifi" data-icon="start"   $start_disabled>$(_ 'Start')</button><!--
+	--><button name="stop"       data-icon="stop"    $stop_disabled >$(_ 'Stop' )</button><!--
+	--><button type="submit"     data-icon="refresh" $stop_disabled >$(_ 'Scan' )</button>
 </form>
 EOT
 
@@ -403,7 +403,7 @@ EOT
 		if [ -n "$start_disabled" ]; then
 			cat <<EOT
 <section id="wifiList">
-	<div style="text-align: center;"><span id="ajaxStatus"></span>$(gettext 'Scanning wireless interface...')</div>
+	<div style="text-align: center;"><span id="ajaxStatus"></span>$(_ 'Scanning wireless interface...')</div>
 </section>
 
 <script type="text/javascript">
@@ -421,19 +421,19 @@ EOT
 
 			cat <<EOT
 <section>
-	<header>$(gettext 'Connection')</header>
+	<header>$(_ 'Connection')</header>
 	<div>
 		<form id="connection">
 			<input type="hidden" name="connect_wifi"/>
 			<input type="hidden" name="bssid" id="bssid"/>
 			<table>
-				<tr><td>$(gettext 'Network SSID')</td>
+				<tr><td>$(_ 'Network SSID')</td>
 					<td><input type="text" name="essid" value="$WIFI_ESSID" id="essid"/></td>
 				</tr>
 
-				<tr><td>$(gettext 'Security')</td>
+				<tr><td>$(_ 'Security')</td>
 					<td><select name="keyType" id="keyType">
-							<option value="NONE">$(gettext 'None')</option>
+							<option value="NONE">$(_ 'None')</option>
 							<option value="WEP" >WEP</option>
 							<option value="WPA" >WPA/WPA2 PSK</option>
 							<option value="EAP" >802.1x EAP</option>
@@ -442,7 +442,7 @@ EOT
 				</tr>
 
 				<tr class="eap">
-					<td><div>$(gettext 'EAP method')</div></td>
+					<td><div>$(_ 'EAP method')</div></td>
 					<td><div><select name="eap" id="eap">
 							<option value="PEAP">PEAP</option>
 							<option value="TLS" >TLS</option>
@@ -453,9 +453,9 @@ EOT
 				</tr>
 
 				<tr class="eap1">
-					<td><div>$(gettext 'Phase 2 authentication')</div></td>
+					<td><div>$(_ 'Phase 2 authentication')</div></td>
 					<td><div><select name="phase2" id="phase2">
-							<option value="none"    >$(gettext 'None')</option>
+							<option value="none"    >$(_ 'None')</option>
 							<option value="pap"     >PAP</option>
 							<option value="mschap"  >MSCHAP</option>
 							<option value="mschapv2">MSCHAPV2</option>
@@ -465,30 +465,30 @@ EOT
 				</tr>
 
 				<tr class="eap1">
-					<td><div>$(gettext 'CA certificate')</div></td>
+					<td><div>$(_ 'CA certificate')</div></td>
 					<td><div><input type="text" name="caCert" id="caCert"></div></td>
 				</tr>
 
 				<tr class="eap1">
-					<td><div>$(gettext 'User certificate')</div></td>
+					<td><div>$(_ 'User certificate')</div></td>
 					<td><div><input type="text" name="clientCert" id="clientCert"></div></td>
 				</tr>
 
 				<tr class="eap">
-					<td><div>$(gettext 'Identity')</div></td>
+					<td><div>$(_ 'Identity')</div></td>
 					<td><div><input type="text" name="identity" id="identity"></div></td>
 				</tr>
 
 				<tr class="eap1">
-					<td><div>$(gettext 'Anonymous identity')</div></td>
+					<td><div>$(_ 'Anonymous identity')</div></td>
 					<td><div><input type="text" name="anonymousIdentity" id="anonymousIdentity"></div></td>
 				</tr>
 
 				<tr class="wep wpa eap">
-					<td><div>$(gettext 'Password')</div></td>
+					<td><div>$(_ 'Password')</div></td>
 					<td><div>
 						<input type="password" name="password" value="$WIFI_KEY" id="password"/>
-						<span data-img="view" title="$(gettext 'Show password')"
+						<span data-img="view" title="$(_ 'Show password')"
 							onmousedown="document.getElementById('password').type='text'; return false"
 							  onmouseup="document.getElementById('password').type='password'"
 							 onmouseout="document.getElementById('password').type='password'"
@@ -498,7 +498,7 @@ EOT
 
 
 <!--
-				<tr><td>$(gettext 'Access point')</td>
+				<tr><td>$(_ 'Access point')</td>
 					<td><input type="text" name="ap" value="$WIFI_AP"/></td>
 				</tr>
 -->
@@ -536,7 +536,7 @@ document.getElementById('keyType').value = "$WIFI_KEY_TYPE"; wifiSettingsChange(
 		</form>
 	</div>
 	<footer>
-		<button form="connection" type="submit" name="wifi" data-icon="ok">$(gettext 'Configure')</button>
+		<button form="connection" type="submit" name="wifi" data-icon="ok">$(_ 'Configure')</button>
 	</footer>
 </section>
 EOT
@@ -545,23 +545,23 @@ EOT
 		cat <<EOT
 <section>
 	<header>
-		$(gettext 'Configuration file')
+		$(_ 'Configuration file')
 EOT
 		[ -w /etc/network.conf ] && cat <<EOT
 		<form action="index.cgi">
 			<input type="hidden" name="file" value="/etc/network.conf"/>
-			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button>
+			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
 		</form>
 EOT
 		cat <<EOT
 	</header>
-	<div>$(gettext "These values are the wifi settings in the main /etc/network.conf configuration file")</div>
+	<div>$(_ "These values are the wifi settings in the main /etc/network.conf configuration file")</div>
 	<pre>$(grep ^WIFI /etc/network.conf | sed '/WIFI_KEY=/s|".*"|"********"|' | syntax_highlighter conf)</pre>
 </section>
 
 
 <section>
-	<header>$(gettext 'Output of iwconfig')</header>
+	<header>$(_ 'Output of iwconfig')</header>
 	<pre>$(iwconfig)</pre>
 </section>
 EOT
@@ -584,20 +584,20 @@ EOT
 		fi
 
 		cat <<EOT
-<h2>$(gettext 'Networking')</h2>
+<h2>$(_ 'Networking')</h2>
 
-<p>$(gettext 'Manage network connections and services')</p>
+<p>$(_ 'Manage network connections and services')</p>
 
 <form action="index.cgi" id="indexform"></form>
 
 <form id="mainform"><!--
-	--><button name="start"   data-icon="start"   $start_disabled>$(gettext 'Start'  )</button><!--
-	--><button name="stop"    data-icon="stop"    $stop_disabled >$(gettext 'Stop'   )</button><!--
-	--><button name="restart" data-icon="restart" $stop_disabled >$(gettext 'Restart')</button>
+	--><button name="start"   data-icon="start"   $start_disabled>$(_ 'Start'  )</button><!--
+	--><button name="stop"    data-icon="stop"    $stop_disabled >$(_ 'Stop'   )</button><!--
+	--><button name="restart" data-icon="restart" $stop_disabled >$(_ 'Restart')</button>
 </form>
 
 <div class="float-right"><!--
-	-->$(gettext 'Configuration:')<!--
+	-->$(_ 'Configuration:')<!--
 	--><button form="indexform" name="file" value="/etc/network.conf" data-icon="conf">network.conf</button><!--
 	--><button form="mainform" name="eth" data-icon="eth">Ethernet</button><!--
 	--><button form="mainform" name="wifi" data-icon="wifi">Wireless</button>
@@ -605,20 +605,20 @@ EOT
 
 
 <section>
-	<header>$(gettext 'Network interfaces')</header>
+	<header>$(_ 'Network interfaces')</header>
 	$(list_network_interfaces)
 </section>
 
 
 <section>
-	<header id="hosts">$(gettext 'Hosts')</header>
+	<header id="hosts">$(_ 'Hosts')</header>
 	<pre>$(cat /etc/hosts)</pre>
 EOT
 		[ -w /etc/hosts ] && cat <<EOT
 	<footer>
 		<form action="index.cgi">
 			<input type="hidden" name="file" value="/etc/hosts"/>
-			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button>
+			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
 		</form>
 	</footer>
 EOT
@@ -627,7 +627,7 @@ EOT
 
 
 <section>
-	<header>$(gettext 'Hostname')</header>
+	<header>$(_ 'Hostname')</header>
 	<footer>
 EOT
 		if [ -w /etc/hostname ]; then
@@ -635,7 +635,7 @@ EOT
 		<form>
 			<!-- was: name="hostname"; please don't use 'name' in name: unwanted webkit styling -->
 			<input type="text" name="host" value="$(cat /etc/hostname)"/><!--
-			--><button type="submit" data-icon="ok">$(gettext 'Change')</button>
+			--><button type="submit" data-icon="ok">$(_ 'Change')</button>
 		</form>
 EOT
 		else
@@ -647,31 +647,31 @@ EOT
 
 
 <section>
-	<header id="ifconfig">$(gettext 'Output of ifconfig')</header>
+	<header id="ifconfig">$(_ 'Output of ifconfig')</header>
 	<pre>$(ifconfig)</pre>
 </section>
 
 
 <section>
-	<header id="routing">$(gettext 'Routing table')</header>
+	<header id="routing">$(_ 'Routing table')</header>
 	<pre>$(route -n)</pre>
 </section>
 
 
 <section>
-	<header id="dns">$(gettext 'Domain name resolution')</header>
+	<header id="dns">$(_ 'Domain name resolution')</header>
 	<pre>$(cat /etc/resolv.conf)</pre>
 </section>
 
 
 <section>
-	<header id="arp">$(gettext 'ARP table')</header>
+	<header id="arp">$(_ 'ARP table')</header>
 	<pre>$(arp)</pre>
 </section>
 
 
 <section>
-	<header id="connections">$(gettext 'IP Connections')</header>
+	<header id="connections">$(_ 'IP Connections')</header>
 	<pre>$(netstat -anp 2>/dev/null | sed -e '/UNIX domain sockets/,$d' \
 -e 's#\([0-9]*\)/#<a href="boot.cgi?daemons=pid=\1">\1</a>/#')</pre>
 </section>

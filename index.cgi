@@ -85,7 +85,7 @@ case " $(GET) " in
 	*\ exec\ *)
 		# Execute command and display its result in a terminal-like window
 
-		header; TITLE=$(gettext 'TazPanel - exec'); xhtml_header
+		header; TITLE=$(_ 'TazPanel - exec'); xhtml_header
 
 		exec="$(GET exec)"
 		font="${TERM_FONT:-monospace}"
@@ -117,7 +117,7 @@ EOT
 			*.html)
 				cat $file; exit 0 ;;
 			*)
-				TITLE=$(gettext 'TazPanel - File'); xhtml_header ;;
+				TITLE=$(_ 'TazPanel - File'); xhtml_header ;;
 		esac
 
 		case "$action" in
@@ -127,8 +127,8 @@ EOT
 	<header>
 		<span data-icon="edit">$file</span>
 		<form id="editform" method="post" action="?file=$file" class="nogap">
-			<button data-icon="save">$(gettext 'Save')</button>
-			<button name="action" value="diff" data-icon="diff">$(gettext 'Differences')</button>
+			<button data-icon="save">$(_ 'Save')</button>
+			<button name="action" value="diff" data-icon="diff">$(_ 'Differences')</button>
 		</form>
 	</header>
 	<textarea form="editform" name="content" class="wide" rows="30" autofocus>$(cat $file | htmlize)</textarea>
@@ -146,7 +146,7 @@ EOT
 	<form method="post" action="?file=$file" class="nogap">
 		<input type="hidden" name="var" value="$(GET var)">
 		<input type="text" name="content" value="${data:-$(GET default)}">
-		<button type="submit" data-icon="save">$(gettext 'Save')</button>
+		<button type="submit" data-icon="save">$(_ 'Save')</button>
 	</form>
 </section>
 EOT
@@ -180,7 +180,7 @@ EOT
 			[ -w "$file" ] && cat <<EOT
 		<form>
 			<input type="hidden" name="file" value="$file"/>
-			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button><!--
+			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button><!--
 			-->$(file_is_modified $file button)
 		</form>
 EOT
@@ -216,7 +216,7 @@ EOT
 	*\ terminal\ *|*\ cmd\ *)
 		# Cmdline terminal
 
-		header; TITLE=$(gettext 'TazPanel - Terminal'); xhtml_header
+		header; TITLE=$(_ 'TazPanel - Terminal'); xhtml_header
 
 		user="$REMOTE_USER"
 		HOME="$(awk -F: -vu=$user '$1==u{print $6}' /etc/passwd)"
@@ -237,14 +237,14 @@ EOT
 			cat <<EOT
 <section>
 	<header>
-		$(gettext 'History')
-		<form><button name="terminal" data-icon="terminal">$(gettext 'Back')</button></form>
+		$(_ 'History')
+		<form><button name="terminal" data-icon="terminal">$(_ 'Back')</button></form>
 	</header>
 	<form>
 		<input type="hidden" name="path" value="$path"/>
 		<pre class="term $palette" style="font-family: '$font'">
 EOT
-			htmlize < $historyfile | awk -vrun="$(gettext 'run')" -vpath="$path" '
+			htmlize < $historyfile | awk -vrun="$(_ 'run')" -vpath="$path" '
 			BEGIN { num=1 }
 			{
 			printf("%3d ", num);
@@ -259,7 +259,7 @@ EOT
 			cat <<EOT
 		</pre>
 		<footer>
-			<button name="rmhistory" data-icon="remove">$(gettext 'Clear')</button>
+			<button name="rmhistory" data-icon="remove">$(_ 'Clear')</button>
 		</footer>
 	</form>
 </section>
@@ -283,13 +283,13 @@ EOT
 
 		case "$cmd" in
 		usage|help)
-			gettext 'Small non-interactive terminal emulator.'; echo
-			gettext 'Run any command at your own risk, avoid interactive commands (nano, mc, ...)'; echo
+			_ 'Small non-interactive terminal emulator.'; echo
+			_ 'Run any command at your own risk, avoid interactive commands (%s)' "nano, mc, ..."; echo
 			;;
 		wget*)
 			dl=/var/cache/downloads
 			[ ! -d "$dl" ] && mkdir -p $dl
-			eval_gettext 'Downloading to: $dl'; echo
+			_ 'Downloading to: %s' $dl; echo
 			cd $dl; $cmd 2>&1 ;;
 		cd|cd\ *)
 			path="${cmd#cd}"; path="${path:-$HOME}";
@@ -298,10 +298,10 @@ EOT
 			$cmd -w80 --color=always 2>&1 | filter_taztools_msgs ;;
 		cat)
 			# Cmd must be used with an arg.
-			eval_gettext '$cmd needs an argument' ;;
-		mc|nano)
+			_ '%s needs an argument' "$cmd" ;;
+		mc|nano|su)
 			# List of restricted (interactive) commands
-			eval_gettext "Please, don't run interactive command \"$cmd\""; echo; echo ;;
+			_ "Please, don't run interactive command \"%s\"" "$cmd"; echo; echo ;;
 		*)
 			unset HTTP_REFERER  # for fooling /lib/libtaz.sh formatting utils (<hr> in the terminal is so-so)
 			export DISPLAY=:0.0 # for run X applications
@@ -319,8 +319,8 @@ EOT
 </section>
 
 <form>
-	<button name="termsettings" data-icon="settings">$(gettext 'Settings')</button>
-	<button name="cmd" value="history" data-icon="history">$(gettext 'History')</button>
+	<button name="termsettings" data-icon="settings">$(_ 'Settings')</button>
+	<button name="cmd" value="history" data-icon="history">$(_ 'History')</button>
 </form>
 
 <script type="text/javascript">
@@ -368,7 +368,7 @@ EOT
 
 	*\ termsettings\ *)
 		# Terminal settings
-		TITLE=$(gettext 'TazPanel - Terminal'); header; xhtml_header;
+		TITLE=$(_ 'TazPanel - Terminal'); header; xhtml_header;
 		user="$REMOTE_USER"
 		font="$(GET font)"; font="${font:-$TERM_FONT}"
 		palette="$(GET palette)"; palette="${palette:-$TERM_PALETTE}"
@@ -389,9 +389,9 @@ EOT
 		cat <<EOT
 <section>
 	<header>
-		$(gettext 'Terminal settings')
+		$(_ 'Terminal settings')
 		<form>
-			<button name="terminal" data-icon="terminal">$(gettext 'Terminal')</button>
+			<button name="terminal" data-icon="terminal">$(_ 'Terminal')</button>
 		</form>
 	</header>
 	<pre class="term $pal" style="height: auto; font-family: '$font'">
@@ -410,21 +410,21 @@ $(
 	</pre>
 	<footer>
 		<form class="wide">
-			$(gettext 'Font:')
+			$(_ 'Font:')
 			<select name="font">
-				<option value="">$(gettext 'Default')</option>
+				<option value="">$(_ 'Default')</option>
 				$(fc-list :spacing=mono:lang=en family | sed '/\.pcf/d;/,/d;s|\\-|-|g' | sort -u | \
 				awk -vfont="$font" '{
 				printf("<option value=\"%s\"%s>%s</option>\n", $0, ($0 == font)?" selected":"", $0)
 				}')
 			</select>
-			$(gettext 'Palette:')
+			$(_ 'Palette:')
 			<select name="palette">
 				$(echo -e 'Tango\nLinux\nXterm\nRxvt\nEcho' | awk -vpal="$palette" '{
 				printf("<option value=\"%s\"%s>%s</option>\n", $0, ($0 == pal)?" selected":"", $0)
 				}')
 			</select>
-			<button name="termsettings" data-icon="ok">$(gettext 'Apply')</button>
+			<button name="termsettings" data-icon="ok">$(_ 'Apply')</button>
 		</form>
 	</footer>
 </section>
@@ -434,21 +434,21 @@ EOT
 
 
 	*\ top\ *)
-		TITLE=$(gettext 'TazPanel - Process activity'); header; xhtml_header
+		header; TITLE=$(_ 'TazPanel - Process activity'); xhtml_header
 
 		r=$(GET refresh)
 		cat <<EOT
 <form>
-	<p>$(gettext 'Refresh:')
+	<p>$(_ 'Refresh:')
 	<input type="hidden" name="top"/>
 	<input type="radio" name="refresh" value="1"  id="r1" $([ "$r" == 1  ] && echo checked) onchange="this.form.submit()"/>
-	<label for="r1">$(gettext '1s'  )</label>
+	<label for="r1">$(_ '1s'  )</label>
 	<input type="radio" name="refresh" value="5"  id="r2" $([ "$r" == 5  ] && echo checked) onchange="this.form.submit()"/>
-	<label for="r2">$(gettext '5s'  )</label>
+	<label for="r2">$(_ '5s'  )</label>
 	<input type="radio" name="refresh" value="10" id="r3" $([ "$r" == 10 ] && echo checked) onchange="this.form.submit()"/>
-	<label for="r3">$(gettext '10s' )</label>
+	<label for="r3">$(_ '10s' )</label>
 	<input type="radio" name="refresh" value=""   id="r4" $([ -z "$r"    ] && echo checked) onchange="this.form.submit()"/>
-	<label for="r4">$(gettext 'none')</label>
+	<label for="r4">$(_ 'none')</label>
 	</p>
 </form>
 EOT
@@ -462,10 +462,10 @@ EOT
 
 
 	*\ debug\ *)
-		TITLE=$(gettext 'TazPanel - Debug'); header; xhtml_header
+		header; TITLE=$(_ 'TazPanel - Debug'); xhtml_header
 
 		cat <<EOT
-<h2>$(gettext 'HTTP Environment')</h2>
+<h2>$(_ 'HTTP Environment')</h2>
 
 <section>
 	<div>
@@ -477,7 +477,7 @@ EOT
 
 
 	*\ report\ *)
-		TITLE=$(gettext 'TazPanel - System report'); header; xhtml_header
+		header; TITLE=$(_ 'TazPanel - System report'); xhtml_header
 
 		[ -d /var/cache/slitaz ] || mkdir -p /var/cache/slitaz
 		output=/var/cache/slitaz/sys-report.html
@@ -485,17 +485,17 @@ EOT
 		cat <<EOT
 
 <section>
-	<header>$(eval_gettext 'Reporting to: $output')</header>
+	<header>$(_ 'Reporting to: %s' "$output")</header>
 	<table class="wide zebra">
 		<tbody>
-			<tr><td>$(gettext 'Creating report header...')</td>
+			<tr><td>$(_ 'Creating report header...')</td>
 EOT
 		cat > $output <<EOT
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="utf-8"/>
-	<title>$(gettext 'SliTaz system report')</title>
+	<title>$(_ 'SliTaz system report')</title>
 	<style type="text/css">
 		body { padding: 20px 60px; font-size: 13px; }
 		h1, h2 { color: #444; }
@@ -509,11 +509,11 @@ EOT
 EOT
 		cat <<EOT
 	$(ok_status_t)
-	<tr><td>$(gettext 'Creating system summary...')</td>
+	<tr><td>$(_ 'Creating system summary...')</td>
 EOT
 		cat >> $output <<EOT
-<h1>$(gettext 'SliTaz system report')</h1>
-$(gettext 'Date:') $(date)
+<h1>$(_ 'SliTaz system report')</h1>
+$(_ 'Date:') $(date)
 <pre>
 uptime   : $(uptime)
 cmdline  : $(cat /proc/cmdline)
@@ -524,7 +524,7 @@ kernel   : $(uname -r)
 EOT
 		cat <<EOT
 	$(ok_status_t)
-	<tr><td>$(gettext 'Getting hardware info...')</td>
+	<tr><td>$(_ 'Getting hardware info...')</td>
 EOT
 		cat >> $output <<EOT
 <h2>free</h2>
@@ -542,7 +542,7 @@ EOT
 EOT
 		cat <<EOT
 	$(ok_status_t)
-	<tr><td>$(gettext 'Getting networking info...')</td>
+	<tr><td>$(_ 'Getting networking info...')</td>
 EOT
 		cat >> $output <<EOT
 <h2>ifconfig -a</h2>
@@ -556,7 +556,7 @@ EOT
 EOT
 		cat <<EOT
 	$(ok_status_t)
-	<tr><td>$(gettext 'Getting filesystems info...')</td>
+	<tr><td>$(_ 'Getting filesystems info...')</td>
 EOT
 		cat >> $output <<EOT
 <h2>blkid</h2>
@@ -576,18 +576,18 @@ EOT
 EOT
 		cat <<EOT
 	$(ok_status_t)
-	<tr><td>$(gettext 'Getting boot logs...')</td>
+	<tr><td>$(_ 'Getting boot logs...')</td>
 EOT
 		cat >> $output <<EOT
-<h2>$(gettext 'Kernel messages')</h2>
+<h2>$(_ 'Kernel messages')</h2>
 <pre>$(cat /var/log/dmesg.log)</pre>
 
-<h2>$(gettext 'Boot scripts')</h2>
+<h2>$(_ 'Boot scripts')</h2>
 <pre>$(cat /var/log/boot.log | filter_taztools_msgs)</pre>
 EOT
 		cat <<EOT
 	$(ok_status_t)
-	<tr><td>$(gettext 'Creating report footer...')</td>
+	<tr><td>$(_ 'Creating report footer...')</td>
 EOT
 		cat cat >> $output <<EOT
 </body>
@@ -598,12 +598,12 @@ EOT
 		</tbody>
 	</table>
 	<footer>
-		<form><button name="file" value="$output" data-icon="view">$(gettext 'View report')</button></form>
+		<form><button name="file" value="$output" data-icon="view">$(_ 'View')</button></form>
 	</footer>
 </section>
 
 
-	$(msg tip "$(gettext 'This report can be attached with a bug report on:')
+	$(msg tip "$(_ 'This report can be attached with a bug report on:')
 	<a href="http://bugs.slitaz.org/" target="_blank">bugs.slitaz.org</a></p>")
 EOT
 		;;
@@ -619,28 +619,28 @@ EOT
 		hostname=$(hostname)
 
 		cat <<EOT
-<h2>$(eval_gettext 'Host: $hostname')</h2>
-<p>$(gettext 'SliTaz administration and configuration Panel')<p>
+<h2>$(_ 'Host: %s' $hostname)</h2>
+<p>$(_ 'SliTaz administration and configuration Panel')<p>
 
 <form class="nogap"><!--
-	--><button name="terminal" data-icon="terminal">$(gettext 'Terminal'        )</button><!--
-	--><button name="top"      data-icon="proc"    >$(gettext 'Process activity')</button><!--
-	--><button name="report"   data-icon="report" data-root>$(gettext 'Create a report' )</button><!--
+	--><button name="terminal" data-icon="terminal">$(_ 'Terminal')</button><!--
+	--><button name="top"      data-icon="proc"    >$(_ 'Process activity')</button><!--
+	--><button name="report"   data-icon="report"  data-root>$(_ 'Create a report')</button><!--
 --></form>
 
 <section>
-	<header>$(gettext 'Summary')</header>
+	<header>$(_ 'Summary')</header>
 	<table>
-		<tr><td>$(gettext 'Uptime:')</td>
+		<tr><td>$(_ 'Uptime:')</td>
 			<td id="uptime">$(uptime | sed 's|\([0-9.:][0-9.:]*\)|<b>\1</b>|g')</td>
 		</tr>
-		<tr><td>$(gettext 'Memory in Mb:')</td>
+		<tr><td>$(_ 'Memory in Mb:')</td>
 			<td>$(free -m | grep Mem: | \
 				awk -vline="$(gettext 'Total: %d, Used: %d, Free: %d')" \
 				'{ printf(line, $2, $3, $4) }' | \
 				sed 's|\([0-9][0-9]*\)|<b>\1</b>|g')</td>
 		</tr>
-		<tr><td>$(gettext 'Linux kernel:')</td>
+		<tr><td>$(_ 'Linux kernel:')</td>
 			<td>$(uname -r)</td>
 		</tr>
 	</table>
@@ -649,9 +649,9 @@ EOT
 
 <section>
 	<header>
-		$(gettext 'Network status')
+		$(_ 'Network status')
 		<form action="network.cgi">
-			<button data-icon="wifi">$(gettext 'Network')</button>
+			<button data-icon="wifi">$(_ 'Network')</button>
 		</form>
 	</header>
 	$(list_network_interfaces)
@@ -660,9 +660,9 @@ EOT
 
 <section>
 	<header>
-		$(gettext 'Filesystem usage statistics')
+		$(_ 'Filesystem usage statistics')
 		<form action="hardware.cgi">
-			<button data-icon="hdd">$(gettext 'Disks')</button>
+			<button data-icon="hdd">$(_ 'Disks')</button>
 		</form>
 	</header>
 	<table class="wide zebra center">
@@ -694,9 +694,9 @@ EOT
 
 <section>
 	<header>
-		$(gettext 'Panel Activity')
+		$(_ 'Panel Activity')
 		<form>
-			<button name="file" value="$LOG_FILE" data-icon="view">$(gettext 'View')</button>
+			<button name="file" value="$LOG_FILE" data-icon="view">$(_ 'View')</button>
 		</form>
 	</header>
 	<div>

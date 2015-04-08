@@ -21,16 +21,15 @@ msgstr ""
 #: tazpanel:33
 #, fuzzy
 msgid "Usage: tazpanel [start|stop|passwd|app]"
-msgstr "Χρήση: $program_name [start|stop|passwd]"
+msgstr "Χρήση: tazpanel [start|stop|passwd|app]"
 
 #: tazpanel:37
 msgid "TazPanel is already running."
 msgstr ""
 
 #: tazpanel:40
-#, sh-format
-msgid "Starting TazPanel web server on port $HTTPD_PORT..."
-msgstr "Εκκίνηση εξυπηρετητή ιστού TazPanel στη θύρα $HTTPD_PORT..."
+msgid "Starting TazPanel web server on port %d..."
+msgstr "Εκκίνηση εξυπηρετητή ιστού TazPanel στη θύρα %d..."
 
 #: tazpanel:42
 msgid "TazPanel Authentication - Default: root:root"
@@ -85,24 +84,20 @@ msgid "Small terminal emulator, commands options are supported."
 msgstr "Μικρός προσομοιωτής τερματικού, υποστηρίζονται επιλογές εντολών"
 
 #: index.cgi:172 index.cgi:189
-#, sh-format
-msgid "Commands: $commands"
-msgstr "Εντολές: $commands"
+msgid "Commands: %s"
+msgstr "Εντολές: %s"
 
 #: index.cgi:177
-#, sh-format
-msgid "Downloading to: $dl"
-msgstr "Κατέβασμα στο: $dl"
+msgid "Downloading to: %s"
+msgstr "Κατέβασμα στο: %s"
 
 #: index.cgi:184
-#, sh-format
-msgid "$cmd needs an argument"
-msgstr "$cmd χρειάζεται όρισμα"
+msgid "%s needs an argument"
+msgstr "%s χρειάζεται όρισμα"
 
 #: index.cgi:188
-#, sh-format
-msgid "Unknown command: $cmd"
-msgstr "Άγνωστη εντολή: $cmd"
+msgid "Unknown command: %s"
+msgstr "Άγνωστη εντολή: %s"
 
 #: index.cgi:196
 msgid "TazPanel - Process activity"
@@ -141,9 +136,8 @@ msgid "TazPanel - System report"
 msgstr "TazPanel - Αναφορά συστήματος"
 
 #: index.cgi:239
-#, sh-format
-msgid "Reporting to: $output"
-msgstr "Αναφορά σε: $output"
+msgid "Reporting to: %s"
+msgstr "Αναφορά σε: %s"
 
 #: index.cgi:242
 msgid "Creating report header..."
@@ -199,9 +193,8 @@ msgstr ""
 "Αυτή η αναφορά μπορεί να επισυναφθεί μαζί με μια αναφορά σφάλματος στο:"
 
 #: index.cgi:370
-#, sh-format
-msgid "Host: $hostname"
-msgstr "Τοπικός υπολογιστής (Host): $hostname"
+msgid "Host: %s"
+msgstr "Τοπικός υπολογιστής (Host): %s"
 
 #: index.cgi:371
 msgid "SliTaz administration and configuration Panel"
@@ -232,9 +225,8 @@ msgid "Memory in Mb:"
 msgstr "Μνήμη σε Mb:"
 
 #: index.cgi:394
-#, sh-format
-msgid "Total: $memtotal, Used: $memused, Free: $memfree"
-msgstr "Σύνολο: $memtotal, Σε χρήση: $memused, Ελεύθερα: $memfree"
+msgid "Total: %d, Used: %d, Free: %d"
+msgstr "Σύνολο: %d, Σε χρήση: %d, Ελεύθερα: %d"
 
 #: index.cgi:399
 msgid "Linux kernel:"
@@ -278,18 +270,16 @@ msgid "Connected"
 msgstr "Συνδεδεμένο"
 
 #: network.cgi:99
-#, sh-format
-msgid "Changed hostname: $get_hostname"
-msgstr "Αλλαγμένο όνομα υπολογιστή: $get_hostname"
+msgid "Changed hostname: %s"
+msgstr "Αλλαγμένο όνομα υπολογιστή: %s"
 
 #: network.cgi:115
 msgid "Scanning open ports..."
 msgstr "Σάρωση ανοιχτών θυρών..."
 
 #: network.cgi:118
-#, sh-format
-msgid "Port scanning for $scan"
-msgstr "Σάρωση θύρας για $scan"
+msgid "Port scanning for %s"
+msgstr "Σάρωση θύρας για %s"
 
 #: network.cgi:132
 msgid "Setting up IP..."
@@ -670,14 +660,12 @@ msgstr ""
 "πυρήνα Linux"
 
 #: hardware.cgi:99
-#, sh-format
-msgid "Detailed information for module: $get_modinfo"
-msgstr "Λεπτομερείς πληροφορίες για το άρθρωμα: $get_modinfo"
+msgid "Detailed information for module: %s"
+msgstr "Λεπτομερείς πληροφορίες για το άρθρωμα: %s"
 
 #: hardware.cgi:113
-#, sh-format
-msgid "Matching result(s) for: $get_search"
-msgstr "Ταίριασμα αποτελέσματος(-ατων) για: $get_search"
+msgid "Matching result(s) for: %s"
+msgstr "Ταίριασμα αποτελέσματος(-ατων) για: %s"
 
 #: hardware.cgi:119
 msgid "Module:"
@@ -700,8 +688,7 @@ msgid "by"
 msgstr "από"
 
 #: hardware.cgi:150
-#, sh-format
-msgid "Information for USB Device $vidpid"
+msgid "Information for USB Device %s"
 msgstr ""
 
 #: hardware.cgi:151 hardware.cgi:165
@@ -709,8 +696,7 @@ msgid "Detailed information about specified device."
 msgstr ""
 
 #: hardware.cgi:164
-#, sh-format
-msgid "Information for PCI Device $slot"
+msgid "Information for PCI Device %s"
 msgstr ""
 
 #: hardware.cgi:183
@@ -738,18 +724,16 @@ msgid "health"
 msgstr "Υγεία"
 
 #: hardware.cgi:223
-#, sh-format
-msgid "Discharging $rempct% - $remtimef"
-msgstr "Αποφορτίζεται $rempct% - $remtimef"
+msgid "Discharging %d%% - %s"
+msgstr "Αποφορτίζεται %d%% - %s"
 
 #: hardware.cgi:227
-#, sh-format
-msgid "Charging $rempct% - $remtimef"
-msgstr "Φορτίζεται $rempct% - $remtimef"
+msgid "Charging %d%% - %s"
+msgstr "Φορτίζεται %d%% - %s"
 
 #: hardware.cgi:229
-msgid "Charged 100%"
-msgstr "Φορτίστηκε 100%"
+msgid "Charged 100%%"
+msgstr "Φορτίστηκε 100%%"
 
 #: hardware.cgi:237
 msgid "Temperature:"
@@ -1004,13 +988,12 @@ msgid "System language"
 msgstr "Γλώσσα συστήματος"
 
 #: settings.cgi:442
-#, sh-format
 msgid ""
-"You must logout and login again to your current session to use $new_locale "
+"You must logout and login again to your current session to use %s "
 "locale."
 msgstr ""
 "Πρέπει να αποσυνδεθείτε και να συνδεθείτε πάλι στην τρέχουσα συνεδρία σας "
-"για να χρησιμοποιήσετε τα $new_locale locale."
+"για να χρησιμοποιήσετε τα %s locale."
 
 #: settings.cgi:444
 msgid "Current system locale:"
@@ -1021,9 +1004,8 @@ msgid "Console keymap"
 msgstr "Διάταξη πληκτρολογίου κονσόλας"
 
 #: settings.cgi:465
-#, sh-format
-msgid "Current console keymap: $keymap"
-msgstr "Τρέχουσα διάταξη πληκτρολογίου κονσόλας: $keymap"
+msgid "Current console keymap: %s"
+msgstr "Τρέχουσα διάταξη πληκτρολογίου κονσόλας: %s"
 
 #: settings.cgi:482
 msgid "Suggested keymap for Xorg:"

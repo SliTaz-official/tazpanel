@@ -10,7 +10,7 @@
 get_config
 header
 
-TITLE=$(gettext 'TazPanel - Hardware')
+TITLE=$(_ 'TazPanel - Hardware')
 
 # Call an optional module
 lib() {
@@ -32,10 +32,10 @@ lsusb_table() {
 <table class="wide zebra">
 	<thead>
 		<tr>
-			<td>$(gettext 'Bus')</td>
-			<td>$(gettext 'Device')</td>
-			<td>$(gettext 'ID')</td>
-			<td>$(gettext 'Name')</td>
+			<td>$(_ 'Bus')</td>
+			<td>$(_ 'Device')</td>
+			<td>$(_ 'ID')</td>
+			<td>$(_ 'Name')</td>
 		</tr>
 	</thead>
 <tbody>
@@ -87,8 +87,8 @@ EOT
 		# TODO: Add button to detect webcam, etc. Like in tazhw box.
 		xhtml_header
 		cat <<EOT
-<h2>$(gettext 'Detect hardware')</h2>
-<p>$(gettext 'Detect PCI and USB hardware')</p>
+<h2>$(_ 'Detect hardware')</h2>
+<p>$(_ 'Detect PCI and USB hardware')</p>
 
 <section>
 	<pre>$(tazhw detect-pci | sed 's|^>|\&gt;|g')</pre>
@@ -101,13 +101,12 @@ EOT
 	*\ modules\ *|*\ modinfo\ *)
 		xhtml_header
 		cat <<EOT
-<h2>$(gettext 'Kernel modules')</h2>
+<h2>$(_ 'Kernel modules')</h2>
+<p>$(_ 'Manage, search or get information about the Linux kernel modules')</p>
 
-<form id="actions">
+<form>
 	<input type="hidden" name="modules"/>
-	$(gettext 'Manage, search or get information about the Linux kernel modules')
-
-	<input type="search" name="search" class="float-right" placeholder="$(gettext 'Modules search')" results="5" autosave="modsearch" autocomplete="on"/>
+	<input type="search" name="search" class="float-right" placeholder="$(_ 'Modules search')" results="5" autosave="modsearch" autocomplete="on"/>
 </form>
 EOT
 		# Request may be modinfo output that we want in the page itself
@@ -115,7 +114,7 @@ EOT
 		if [ -n "$get_modinfo" ]; then
 			cat <<EOT
 <section>
-	<header>$(eval_gettext 'Detailed information for module: $get_modinfo')</header>
+	<header>$(_ 'Detailed information for module: %s' $get_modinfo)</header>
 
 EOT
 		modinfo $get_modinfo | awk 'BEGIN{print "<table class=\"wide zebra\">"}
@@ -135,13 +134,13 @@ EOT
 		fi
 		get_search="$(GET search)"
 		if [ -n "$get_search" ]; then
-			eval_gettext 'Matching result(s) for: $get_search'
+			_ 'Matching result(s) for: %s' $get_search
 			echo '<pre>'
 			modprobe -l | grep "$(GET search)" | while read line
 			do
 				name=$(basename $line)
 				mod=${name%.ko.gz}
-				echo "$(gettext 'Module:') <a href='?modinfo=$mod'>$mod</a>"
+				echo "$(_ 'Module:') <a href='?modinfo=$mod'>$mod</a>"
 			done
 			echo '</pre>'
 		fi
@@ -150,11 +149,11 @@ EOT
 	<table class="zebra">
 		<thead>
 			<tr>
-				<td>$(gettext 'Module')</td>
-				<td>$(gettext 'Description')</td>
-				<td>$(gettext 'Size')</td>
-				<td>$(gettext 'Used')</td>
-				<td>$(gettext 'by')</td>
+				<td>$(_ 'Module')</td>
+				<td>$(_ 'Description')</td>
+				<td>$(_ 'Size')</td>
+				<td>$(_ 'Used')</td>
+				<td>$(_ 'by')</td>
 			</tr>
 		<thead>
 		<tbody>
@@ -178,9 +177,9 @@ EOT
 		xhtml_header
 		vidpid="$(GET lsusb)"
 		cat <<EOT
-<h2>$(eval_gettext 'Information for USB Device $vidpid')</h2>
+<h2>$(_ 'Information for USB Device %s' $vidpid)</h2>
 
-<p>$(gettext 'Detailed information about specified device.')</p>
+<p>$(_ 'Detailed information about specified device.')</p>
 
 <section>$(lsusb_table)</section>
 EOT
@@ -196,9 +195,9 @@ EOT
 		xhtml_header
 		slot="$(GET lspci)"
 		cat <<EOT
-<h2>$(eval_gettext 'Information for PCI Device $slot')</h2>
+<h2>$(_ 'Information for PCI Device %s' $slot)</h2>
 
-<p>$(gettext 'Detailed information about specified device.')</p>
+<p>$(_ 'Detailed information about specified device.')</p>
 
 <section>$(lspci_table)</section>
 EOT
@@ -219,13 +218,13 @@ EOT
 		#
 		xhtml_header
 		cat <<EOT
-<h2>$(gettext 'Drivers &amp; Devices')</h2>
-<p>$(gettext 'Manage your computer hardware')</p>
+<h2>$(_ 'Drivers &amp; Devices')</h2>
+<p>$(_ 'Manage your computer hardware')</p>
 
 <form><!--
-	--><button name="modules" data-icon="modules">$(gettext 'Kernel modules')</button><!--
-	--><button name="detect"  data-icon="detect" data-root>$(gettext 'Detect PCI/USB')</button><!--
-	--><button name="tazx"    data-icon="tazx"   data-root>$(gettext 'Auto-install Xorg video driver')</button><!--
+	--><button name="modules" data-icon="modules">$(_ 'Kernel modules')</button><!--
+	--><button name="detect"  data-icon="detect" data-root>$(_ 'Detect PCI/USB')</button><!--
+	--><button name="tazx"    data-icon="tazx"   data-root>$(_ 'Auto-install Xorg video driver')</button><!--
 --></form>
 
 EOT
@@ -235,7 +234,7 @@ EOT
 		if [ -n "$(ls /proc/acpi/battery/*/info 2>/dev/null)" ]; then
 			cat <<EOT
 <section>
-	<header>$(gettext 'Battery')</header>
+	<header>$(_ 'Battery')</header>
 	<div>
 		<table class="wide">
 EOT
@@ -252,10 +251,10 @@ EOT
 				rempct=$(( $remain * 100 / $full ))
 				cat <<EOT
 			<tr>
-				<td><span data-icon="battery">$(gettext 'Battery')</span>
+				<td><span data-icon="battery">$(_ 'Battery')</span>
 					$(grep "^battery type" $dev/info | sed 's/.*: *//')
 					$(grep "^design capacity:" $dev/info | sed 's/.*: *//') </td>
-				<td>$(gettext 'health') $(( (100*$full)/$design))%</td>
+				<td>$(_ 'health') $(( (100*$full)/$design))%</td>
 				<td class="meter"><meter min="0" max="$full" value="$remain" low="$low"
 					high="$warning" optimum="$full"></meter>
 					<span>
@@ -264,13 +263,13 @@ EOT
 				"discharging")
 					remtime=$(( $remain * 60 / $rate ))
 					remtimef=$(printf "%d:%02d" $(($remtime/60)) $(($remtime%60)))
-					eval_gettext 'Discharging $rempct% - $remtimef' ;;
+					_ 'Discharging %d%% - %s' $rempct $remtimef ;;
 				"charging")
 					remtime=$(( ($full - $remain) * 60 / $rate ))
 					remtimef=$(printf "%d:%02d" $(($remtime/60)) $(($remtime%60)))
-					eval_gettext 'Charging $rempct% - $remtimef' ;;
+					eval_gettext 'Charging %d%% - %s' $rempct $remtimef ;;
 				"charged")
-					gettext 'Charged 100%' ;;
+					_ 'Charged 100%' ;;
 				esac
 				cat <<EOT
 
@@ -289,7 +288,7 @@ EOT
 
 		# Thermal sensors
 		if [ -n "$(ls /sys/devices/virtual/thermal/*/temp 2>/dev/null)" ]; then
-			echo "<p><span data-icon=\"temperature\">$(gettext 'Temperature:')</span>"
+			echo "<p><span data-icon=\"temperature\">$(_ 'Temperature:')</span>"
 			for temp in /sys/devices/virtual/thermal/*/temp; do
 				awk '{ print $1/1000 "℃" }' < $temp
 			done
@@ -304,7 +303,7 @@ EOT
 				name=$(echo $dev | sed 's|.*/backlight/\([^/]*\).*|\1|')
 				cat <<EOT
 <input type="hidden" name="dev" value="$name"/>
-<span data-icon="brightness">$(gettext 'Brightness')</span> \
+<span data-icon="brightness">$(_ 'Brightness')</span> \
 $(sed 's/.*\.//;s/_*$//' < /sys/devices/virtual/backlight/$name/device/path):
 <select name="brightness" onchange="submit();">
 EOT
@@ -324,7 +323,7 @@ EOT
 		cat <<EOT
 <section>
 	<form action="#mount" class="wide">
-		<header id="disk">$(gettext 'Filesystem usage statistics')</header>
+		<header id="disk">$(_ 'Filesystem usage statistics')</header>
 		<div>
 			<pre>$(disk_info)</pre>
 		</div>
@@ -444,8 +443,8 @@ EOT
 
 		<footer>
 			<button type="submit">mount / umount</button> -
-			$(gettext 'new mount point:') <input type="text" name="mountpoint" value="/media/usbdisk"/> -
-			<input type="checkbox" name="readonly" id="ro"><label for="ro">&thinsp;$(gettext 'read-only')</label>
+			$(_ 'new mount point:') <input type="text" name="mountpoint" value="/media/usbdisk"/> -
+			<input type="checkbox" name="readonly" id="ro"><label for="ro">&thinsp;$(_ 'read-only')</label>
 		</footer>
 EOT
 		cat <<EOT
@@ -460,12 +459,12 @@ EOT
 		cat <<EOT
 <section>
 	<header>
-		$(gettext 'Filesystems table')
+		$(_ 'Filesystems table')
 EOT
 		[ -w /etc/fstab ] && cat <<EOT
 		<form action="index.cgi">
 			<input type="hidden" name="file" value="/etc/fstab"/>
-			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button>
+			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
 		</form>
 EOT
 		cat <<EOT
@@ -473,12 +472,12 @@ EOT
 	<table class="wide zebra center">
 		<thead>
 			<tr>
-				<td>$(gettext 'Disk')</td>
-				<td>$(gettext 'Mount point')</td>
-				<td>$(gettext 'Type')</td>
-				<td>$(gettext 'Options')</td>
-				<td>$(gettext 'Freq')</td>
-				<td>$(gettext 'Pass')</td>
+				<td>$(_ 'Disk')</td>
+				<td>$(_ 'Mount point')</td>
+				<td>$(_ 'Type')</td>
+				<td>$(_ 'Options')</td>
+				<td>$(_ 'Freq')</td>
+				<td>$(_ 'Pass')</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -500,17 +499,17 @@ EOT
 		#
 		cat <<EOT
 <section>
-	<header>$(gettext 'Loop devices')</header>
+	<header>$(_ 'Loop devices')</header>
 
 	<form action="#loop" class="wide">
 	<div class="scroll">
 		<table id="loop" class="wide zebra scroll">
 			<thead>
 				<tr>
-					<td>$(gettext 'Device')</td>
-					<td>$(gettext 'Backing file')</td>
-					<td>$(gettext 'Access')</td>
-					<td>$(gettext 'Offset')</td>
+					<td>$(_ 'Device')</td>
+					<td>$(_ 'Backing file')</td>
+					<td>$(_ 'Access')</td>
+					<td>$(_ 'Offset')</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -518,8 +517,8 @@ EOT
 for devloop in $(ls /dev/*loop[0-9]*); do
 	loop="${devloop#/dev/}"
 	case "$(cat /sys/block/$loop/ro 2>/dev/null)" in
-	0) ro="$(gettext "read/write")" ;;
-	1) ro="$(gettext "read only")" ;;
+	0) ro="$(_ "read/write")" ;;
+	1) ro="$(_ "read only")" ;;
 	*) ro="" ;;
 	esac
 	set -- $(losetup | grep ^$devloop:) ${ro// /&nbsp;}
@@ -538,10 +537,10 @@ done
 $(lib crypto input)
 
 		<footer>
-			<button type="submit" data-icon="ok">$(gettext 'Setup')</button> -
-			$(gettext 'new backing file:') <input type="text" name="backingfile"/> -
-			$(gettext 'offset in bytes:') <input type="text" name="offset" value="0" size="8"/> -
-			<input type="checkbox" name="readonly" id="ro"/><label for="ro">$(gettext 'read only')</label>
+			<button type="submit" data-icon="ok">$(_ 'Setup')</button> -
+			$(_ 'new backing file:') <input type="text" name="backingfile"/> -
+			$(_ 'offset in bytes:') <input type="text" name="offset" value="0" size="8"/> -
+			<input type="checkbox" name="readonly" id="ro"/><label for="ro">$(_ 'read only')</label>
 		</footer>
 	</form>
 </section>
@@ -558,16 +557,16 @@ EOT
 
 		cat <<EOT
 <section>
-	<header>$(gettext 'System memory')</header>
+	<header>$(_ 'System memory')</header>
 
 	<div class="sysmem"><!--
-		--><span class="sysmem_used" style="width: ${mem_used}%" title="$(gettext 'Used')"   ><span>${mem_used}%</span></span><!--
+		--><span class="sysmem_used" style="width: ${mem_used}%" title="$(_ 'Used')"   ><span>${mem_used}%</span></span><!--
 EOT
 		[ $mem_buff != 0 ] && cat <<EOT
-		--><span class="sysmem_buff" style="width: ${mem_buff}%" title="$(gettext 'Buffers')"><span>${mem_buff}%</span></span><!--
+		--><span class="sysmem_buff" style="width: ${mem_buff}%" title="$(_ 'Buffers')"><span>${mem_buff}%</span></span><!--
 EOT
 		cat <<EOT
-		--><span class="sysmem_free" style="width: ${mem_free}%" title="$(gettext 'Free')"   ><span>${mem_free}%</span></span><!--
+		--><span class="sysmem_free" style="width: ${mem_free}%" title="$(_ 'Free')"   ><span>${mem_free}%</span></span><!--
 	--></div>
 
 	<table class="wide zebra center">

@@ -17,18 +17,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.5\n"
 
-#: tazpanel:33
-msgid "Usage: tazpanel [start|stop|passwd|app]"
-msgstr "用法：tazpanel [start|stop|passwd|app] (开始、停止、密码、程序)"
-
 #: tazpanel:37
 msgid "TazPanel is already running."
 msgstr "tazpanel已经运行。"
 
 #: tazpanel:40
-#, sh-format
-msgid "Starting TazPanel web server on port $HTTPD_PORT..."
-msgstr "在端口 $HTTPD_PORT 启动Tazpanel Web服务器中..."
+msgid "Starting TazPanel web server on port %d..."
+msgstr "在端口 %d 启动Tazpanel Web服务器中..."
 
 #: tazpanel:42
 msgid "TazPanel Authentication - Default: root:root"
@@ -83,24 +78,20 @@ msgid "Small terminal emulator, commands options are supported."
 msgstr "小型终端仿真器，支持命令选项。"
 
 #: index.cgi:172 index.cgi:189
-#, sh-format
-msgid "Commands: $commands"
-msgstr "命令： $commands"
+msgid "Commands: %s"
+msgstr "命令： %s"
 
 #: index.cgi:177
-#, sh-format
-msgid "Downloading to: $dl"
-msgstr "下载到：$dl"
+msgid "Downloading to: %s"
+msgstr "下载到：%s"
 
 #: index.cgi:184
-#, sh-format
-msgid "$cmd needs an argument"
-msgstr "$cmd需要一个参数"
+msgid "%s needs an argument"
+msgstr "%s需要一个参数"
 
 #: index.cgi:188
-#, sh-format
-msgid "Unknown command: $cmd"
-msgstr "未知的命令：$cmd"
+msgid "Unknown command: %s"
+msgstr "未知的命令：%s"
 
 #: index.cgi:196
 msgid "TazPanel - Process activity"
@@ -139,9 +130,8 @@ msgid "TazPanel - System report"
 msgstr "TazPanel - 系统报告"
 
 #: index.cgi:239
-#, sh-format
-msgid "Reporting to: $output"
-msgstr "汇报给：$output"
+msgid "Reporting to: %s"
+msgstr "汇报给：%s"
 
 #: index.cgi:242
 msgid "Creating report header..."
@@ -196,9 +186,8 @@ msgid "This report can be attached with a bug report on:"
 msgstr "这份报告可附带一个BUG报告："
 
 #: index.cgi:370
-#, sh-format
-msgid "Host: $hostname"
-msgstr "主机：$hostname"
+msgid "Host: %s"
+msgstr "主机：%s"
 
 #: index.cgi:371
 msgid "SliTaz administration and configuration Panel"
@@ -229,9 +218,8 @@ msgid "Memory in Mb:"
 msgstr "内存（MB）："
 
 #: index.cgi:394
-#, sh-format
-msgid "Total: $memtotal, Used: $memused, Free: $memfree"
-msgstr "总计：$memtotal，使用的：$memused，空闲的：$memfree"
+msgid "Total: %d, Used: %d, Free: %d"
+msgstr "总计：%d，使用的：%d，空闲的：%d"
 
 #: index.cgi:399
 msgid "Linux kernel:"
@@ -275,18 +263,16 @@ msgid "Connected"
 msgstr "连接完毕"
 
 #: network.cgi:99
-#, sh-format
-msgid "Changed hostname: $get_hostname"
-msgstr "已更改主机名: $get_hostname"
+msgid "Changed hostname: %s"
+msgstr "已更改主机名: %s"
 
 #: network.cgi:115
 msgid "Scanning open ports..."
 msgstr "探索开放的端口中…"
 
 #: network.cgi:118
-#, sh-format
-msgid "Port scanning for $scan"
-msgstr "端口扫描为$scan"
+msgid "Port scanning for %s"
+msgstr "端口扫描为%s"
 
 #: network.cgi:132
 msgid "Setting up IP..."
@@ -656,14 +642,12 @@ msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "管理，搜索和获取关于Linux内核模块的信息"
 
 #: hardware.cgi:93
-#, sh-format
-msgid "Detailed information for module: $get_modinfo"
-msgstr "有关模块的详细信息：$get_modinfo"
+msgid "Detailed information for module: %s"
+msgstr "有关模块的详细信息：%s"
 
 #: hardware.cgi:107
-#, sh-format
-msgid "Matching result(s) for: $get_search"
-msgstr "匹配结果为：$get_search"
+msgid "Matching result(s) for: %s"
+msgstr "匹配结果为：%s"
 
 #: hardware.cgi:113
 msgid "Module:"
@@ -686,18 +670,16 @@ msgid "by"
 msgstr "由"
 
 #: hardware.cgi:144
-#, sh-format
-msgid "Information for USB Device $vidpid"
-msgstr "USB设备$vidpid的信息"
+msgid "Information for USB Device %s"
+msgstr "USB设备%s的信息"
 
 #: hardware.cgi:145 hardware.cgi:159
 msgid "Detailed information about specified device."
 msgstr "有关指定的设备的详细信息。"
 
 #: hardware.cgi:158
-#, sh-format
-msgid "Information for PCI Device $slot"
-msgstr "PCI设备的信息$slot"
+msgid "Information for PCI Device %s"
+msgstr "PCI设备的信息%s"
 
 #: hardware.cgi:177
 msgid "Drivers &amp; Devices"
@@ -720,17 +702,15 @@ msgid "health"
 msgstr "健康"
 
 #: hardware.cgi:215
-#, sh-format
-msgid "Discharging $rempct% - $remtimef"
-msgstr "放电 $rempct% - $remtimef"
+msgid "Discharging %d%% - %s"
+msgstr "放电 %d%% - %s"
 
 #: hardware.cgi:219
-#, sh-format
-msgid "Charging $rempct% - $remtimef"
-msgstr "充电 $rempct% - $remtimef"
+msgid "Charging %d%% - %s"
+msgstr "充电 %d%% - %s"
 
 #: hardware.cgi:221
-msgid "Charged 100%"
+msgid "Charged 100%%"
 msgstr "已充满"
 
 #: hardware.cgi:229
@@ -986,11 +966,10 @@ msgid "System language"
 msgstr "系统语言"
 
 #: settings.cgi:451
-#, sh-format
 msgid ""
-"You must logout and login again to your current session to use $new_locale "
+"You must logout and login again to your current session to use %s "
 "locale."
-msgstr "请您的当前会话注销并再次登录来使用新的（$new_locale）地区设置。"
+msgstr "请您的当前会话注销并再次登录来使用新的（%s）地区设置。"
 
 #: settings.cgi:453
 msgid "Current system locale:"
@@ -1001,9 +980,8 @@ msgid "Console keymap"
 msgstr "鍵映射"
 
 #: settings.cgi:474
-#, sh-format
-msgid "Current console keymap: $keymap"
-msgstr "当前控制台键盘映射：$keymap"
+msgid "Current console keymap: %s"
+msgstr "当前控制台键盘映射：%s"
 
 #: settings.cgi:491
 msgid "Suggested keymap for Xorg:"

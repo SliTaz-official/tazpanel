@@ -17,19 +17,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: tazpanel:33
-#, fuzzy
-msgid "Usage: tazpanel [start|stop|passwd|app]"
-msgstr "Användning: $program_name [start|stop|passwd]"
-
 #: tazpanel:37
 msgid "TazPanel is already running."
 msgstr ""
 
 #: tazpanel:40
 #, sh-format
-msgid "Starting TazPanel web server on port $HTTPD_PORT..."
-msgstr "Startar TazPanel web server på port $HTTPD_PORT..."
+msgid "Starting TazPanel web server on port %d..."
+msgstr "Startar TazPanel web server på port %d..."
 
 #: tazpanel:42
 msgid "TazPanel Authentication - Default: root:root"
@@ -84,24 +79,20 @@ msgid "Small terminal emulator, commands options are supported."
 msgstr "Liten terminalemulator, kommando val är stödda."
 
 #: index.cgi:172 index.cgi:189
-#, sh-format
-msgid "Commands: $commands"
-msgstr "Kommandon: $commands"
+msgid "Commands: %s"
+msgstr "Kommandon: %s"
 
 #: index.cgi:177
-#, sh-format
-msgid "Downloading to: $dl"
-msgstr "Laddar ner till: $dl"
+msgid "Downloading to: %s"
+msgstr "Laddar ner till: %s"
 
 #: index.cgi:184
-#, sh-format
-msgid "$cmd needs an argument"
-msgstr "$cmd behöver ett argument"
+msgid "%s needs an argument"
+msgstr "%s behöver ett argument"
 
 #: index.cgi:188
-#, sh-format
-msgid "Unknown command: $cmd"
-msgstr "Okänt kommando: $cmd"
+msgid "Unknown command: %s"
+msgstr "Okänt kommando: %s"
 
 #: index.cgi:196
 msgid "TazPanel - Process activity"
@@ -140,9 +131,8 @@ msgid "TazPanel - System report"
 msgstr "TazPanel - System rapport"
 
 #: index.cgi:239
-#, sh-format
-msgid "Reporting to: $output"
-msgstr "Rapporterar till: $output"
+msgid "Reporting to: %s"
+msgstr "Rapporterar till: %s"
 
 #: index.cgi:242
 msgid "Creating report header..."
@@ -197,9 +187,8 @@ msgid "This report can be attached with a bug report on:"
 msgstr "Den här rapporten kan bifogas med en bug rapport på:"
 
 #: index.cgi:370
-#, sh-format
-msgid "Host: $hostname"
-msgstr "Host: $hostname"
+msgid "Host: %s"
+msgstr "Host: %s"
 
 #: index.cgi:371
 msgid "SliTaz administration and configuration Panel"
@@ -230,9 +219,8 @@ msgid "Memory in Mb:"
 msgstr "Minne i Mb:"
 
 #: index.cgi:394
-#, sh-format
-msgid "Total: $memtotal, Used: $memused, Free: $memfree"
-msgstr "Totalt: $memtotal, Använt: $memused, Ledigt: $memfree"
+msgid "Total: %d, Used: %d, Free: %d"
+msgstr "Totalt: %d, Använt: %d, Ledigt: %d"
 
 #: index.cgi:399
 msgid "Linux kernel:"
@@ -276,18 +264,16 @@ msgid "Connected"
 msgstr "Ansluten"
 
 #: network.cgi:99
-#, sh-format
-msgid "Changed hostname: $get_hostname"
-msgstr "Ändrat värdnamn: $get_hostname"
+msgid "Changed hostname: %s"
+msgstr "Ändrat värdnamn: %s"
 
 #: network.cgi:115
 msgid "Scanning open ports..."
 msgstr "Skannar öppna portar..."
 
 #: network.cgi:118
-#, sh-format
-msgid "Port scanning for $scan"
-msgstr "Port skanning för $scan"
+msgid "Port scanning for %s"
+msgstr "Port skanning för %s"
 
 #: network.cgi:132
 msgid "Setting up IP..."
@@ -665,14 +651,12 @@ msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Hantera, sök eller samla information om Linux kärnmoduler"
 
 #: hardware.cgi:99
-#, sh-format
-msgid "Detailed information for module: $get_modinfo"
-msgstr "Detaljerad information för modul: $get_modinfo"
+msgid "Detailed information for module: %s"
+msgstr "Detaljerad information för modul: %s"
 
 #: hardware.cgi:113
-#, sh-format
-msgid "Matching result(s) for: $get_search"
-msgstr "Matchande resultat för: $get_search"
+msgid "Matching result(s) for: %s"
+msgstr "Matchande resultat för: %s"
 
 #: hardware.cgi:119
 msgid "Module:"
@@ -695,8 +679,7 @@ msgid "by"
 msgstr "av"
 
 #: hardware.cgi:150
-#, sh-format
-msgid "Information for USB Device $vidpid"
+msgid "Information for USB Device %s"
 msgstr ""
 
 #: hardware.cgi:151 hardware.cgi:165
@@ -704,8 +687,7 @@ msgid "Detailed information about specified device."
 msgstr ""
 
 #: hardware.cgi:164
-#, sh-format
-msgid "Information for PCI Device $slot"
+msgid "Information for PCI Device %s"
 msgstr ""
 
 #: hardware.cgi:183
@@ -733,18 +715,16 @@ msgid "health"
 msgstr "hälsa"
 
 #: hardware.cgi:223
-#, sh-format
-msgid "Discharging $rempct% - $remtimef"
-msgstr "Laddar ur $rempct% - $remtimef"
+msgid "Discharging %d%% - %s"
+msgstr "Laddar ur %d%% - %s"
 
 #: hardware.cgi:227
-#, sh-format
-msgid "Charging $rempct% - $remtimef"
-msgstr "Laddar $rempct% - $remtimef"
+msgid "Charging %d%% - %s"
+msgstr "Laddar %d%% - %s"
 
 #: hardware.cgi:229
-msgid "Charged 100%"
-msgstr "Laddad 100%"
+msgid "Charged 100%%"
+msgstr "Laddad 100%%"
 
 #: hardware.cgi:237
 msgid "Temperature:"
@@ -1003,13 +983,12 @@ msgid "System language"
 msgstr "System språk"
 
 #: settings.cgi:442
-#, sh-format
 msgid ""
-"You must logout and login again to your current session to use $new_locale "
+"You must logout and login again to your current session to use %s "
 "locale."
 msgstr ""
 "Du måste logga ut och logga in till din nuvarande session för att använda "
-"$new_locale språk."
+"%s språk."
 
 #: settings.cgi:444
 msgid "Current system locale:"
@@ -1020,9 +999,8 @@ msgid "Console keymap"
 msgstr "Tangentbordsspråk"
 
 #: settings.cgi:465
-#, sh-format
-msgid "Current console keymap: $keymap"
-msgstr "Nuvarande tangentbordsspråk: $keymap"
+msgid "Current console keymap: %s"
+msgstr "Nuvarande tangentbordsspråk: %s"
 
 #: settings.cgi:482
 msgid "Suggested keymap for Xorg:"

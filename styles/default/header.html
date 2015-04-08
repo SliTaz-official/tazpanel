@@ -6,6 +6,7 @@ cat << EOT
 <head>
 	<title>$TITLE</title>
 	<link rel="shortcut icon" href="/styles/$STYLE/favicon.ico"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
 $(printf '\t<link rel="stylesheet" type="text/css" href="/%s"/>\n' $(cd /var/www/tazpanel; ls styles/$STYLE/*.css))
 $(printf '\t<script type="text/javascript" src="/%s"></script>\n' $(cd /var/www/tazpanel; ls lib/*.js))
 </head>
@@ -19,62 +20,62 @@ $(printf '\t<script type="text/javascript" src="/%s"></script>\n' $(cd /var/www/
 <nav id="toolbar">
  <menu type="toolbar" id="toolbarMenu">
   <li tabindex="1">
-   <span>$(gettext 'Panel')</span>
+   <span>$(_ 'Panel')</span>
    <menu>
-    <li><a data-icon="info"     href="index.cgi">$(gettext 'Summary')</a></li>
-    <li><a data-icon="proc"     href="index.cgi?top">$(gettext 'Processes')</a></li>
-    <li><a data-icon="terminal" href="index.cgi?cmd=help">$(gettext 'Terminal')</a></li>
-    <li><a data-icon="report"   href="index.cgi?report" data-root>$(gettext 'Create Report')</a></li>
+    <li><a data-icon="info"     href="index.cgi">$(_ 'Summary')</a></li>
+    <li><a data-icon="proc"     href="index.cgi?top">$(_ 'Processes')</a></li>
+    <li><a data-icon="terminal" href="index.cgi?cmd=help">$(_ 'Terminal')</a></li>
+    <li><a data-icon="report"   href="index.cgi?report" data-root>$(_ 'Create Report')</a></li>
     $(for i in menu.d/panel/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>
   <li tabindex="2">
-   <span>$(gettext 'Network')</span>
+   <span>$(_ 'Network')</span>
    <menu>
-    <li><a data-icon="info" href="network.cgi">$(gettext 'Summary')</a></li>
-    <li><a data-icon="conf" href="index.cgi?file=/etc/network.conf">$(gettext 'Config file')</a></li>
-    <li><a data-icon="eth"  href="network.cgi?eth">$(gettext 'Ethernet')</a></li>
-    <li><a data-icon="wifi" href="network.cgi?wifi">$(gettext 'Wireless')</a></li>
+    <li><a data-icon="info" href="network.cgi">$(_ 'Summary')</a></li>
+    <li><a data-icon="conf" href="index.cgi?file=/etc/network.conf">$(_ 'Config file')</a></li>
+    <li><a data-icon="eth"  href="network.cgi?eth">$(_ 'Ethernet')</a></li>
+    <li><a data-icon="wifi" href="network.cgi?wifi">$(_ 'Wireless')</a></li>
     $(for i in menu.d/network/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>
   <li tabindex="3">
-   <span>$(gettext 'Boot')</span>
+   <span>$(_ 'Boot')</span>
    <menu>
-    <li><a data-icon="info" href="boot.cgi">$(gettext 'Summary')</a></li>
+    <li><a data-icon="info" href="boot.cgi">$(_ 'Summary')</a></li>
 EOT
 		[ -w /boot/grub/menu.lst ] && cat <<EOT
-    <li><a data-icon="grub" href="boot.cgi?grub">$(gettext 'Boot loader')</a></li>
+    <li><a data-icon="grub" href="boot.cgi?grub">$(_ 'Boot loader')</a></li>
 EOT
 cat << EOT
-    <li><a data-icon="logs" href="boot.cgi?log">$(gettext 'Boot logs')</a>
+    <li><a data-icon="logs" href="boot.cgi?log">$(_ 'Boot logs')</a>
      <menu>
-      <li><a data-icon="" href="boot.cgi?log=kernel">$(gettext 'Kernel messages')</a></li>
-      <li><a data-icon="" href="boot.cgi?log=boot">$(gettext 'Boot scripts')</a></li>
-      <li><a data-icon="" href="boot.cgi?log=xlog">$(gettext 'X server')</a></li>
-      <li><a data-icon="" href="boot.cgi?log=slim">$(gettext 'X session')</a></li>
+      <li><a data-icon="" href="boot.cgi?log=kernel">$(_ 'Kernel messages')</a></li>
+      <li><a data-icon="" href="boot.cgi?log=boot">$(_ 'Boot scripts')</a></li>
+      <li><a data-icon="" href="boot.cgi?log=xlog">$(_ 'X server')</a></li>
+      <li><a data-icon="" href="boot.cgi?log=slim">$(_ 'X session')</a></li>
      </menu>
     </li>
-    <li><a data-icon="daemons" href="boot.cgi?daemons">$(gettext 'Manage daemons')</a></li>
+    <li><a data-icon="daemons" href="boot.cgi?daemons">$(_ 'Manage daemons')</a></li>
     $(for i in menu.d/boot/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>
   <li tabindex="4">
-   <span>$(gettext 'Hardware')</span>
+   <span>$(_ 'Hardware')</span>
    <menu>
-    <li><a data-icon="info"    href="hardware.cgi">$(gettext 'Summary')</a></li>
-    <li><a data-icon="modules" href="hardware.cgi?modules">$(gettext 'Kernel modules')</a></li>
-    <li><a data-icon="detect"  href="hardware.cgi?detect" data-root>$(gettext 'Detect PCI/USB')</a></li>
-    <li><a data-icon="hdd"     href="hardware.cgi#disk">$(gettext 'Disks')</a></li>
+    <li><a data-icon="info"    href="hardware.cgi">$(_ 'Summary')</a></li>
+    <li><a data-icon="modules" href="hardware.cgi?modules">$(_ 'Kernel modules')</a></li>
+    <li><a data-icon="detect"  href="hardware.cgi?detect" data-root>$(_ 'Detect PCI/USB')</a></li>
+    <li><a data-icon="hdd"     href="hardware.cgi#disk">$(_ 'Disks')</a></li>
     $(for i in menu.d/hardware/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>
   <li tabindex="5">
-   <span>$(gettext 'Settings')</span>
+   <span>$(_ 'Settings')</span>
    <menu>
-    <li><a data-icon="info"  href="settings.cgi" data-root>$(gettext 'Summary')</a></li>
-    <li><a data-icon="user"  href="settings.cgi?users" data-root>$(gettext 'Users')</a></li>
-    <li><a data-icon="group" href="settings.cgi?groups" data-root>$(gettext 'Groups')</a></li>
+    <li><a data-icon="info"  href="settings.cgi" data-root>$(_ 'Summary')</a></li>
+    <li><a data-icon="user"  href="settings.cgi?users" data-root>$(_ 'Users')</a></li>
+    <li><a data-icon="group" href="settings.cgi?groups" data-root>$(_ 'Groups')</a></li>
     $(for i in menu.d/settings/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>
@@ -88,9 +89,9 @@ EOT
 username="${REMOTE_USER:-root}"
 case "$username" in
 	root) icon='slitaz'; warn=''
-	      toggle_url="http://tazpanel:82/";;
+	      toggle_url="http://$HTTP_HOST/";;
 	*)    icon='user';   warn="$(_ 'Some features are disabled.')"$'\n'
-	      toggle_url="http://$RANDOM:*@tazpanel:82/user/";;
+	      toggle_url="http://$RANDOM:*@$HTTP_HOST/user/";;
 esac
 
 	cat << EOT

@@ -50,22 +50,22 @@ EOT
 		;;
 	start)
 		if [ -f $PIDFILE ]; then
-			gettext 'TazPanel is already running.'; echo
+			_ 'TazPanel is already running.'
 			exit 1
 		fi
-		eval_gettext 'Starting TazPanel web server on port $HTTPD_PORT...'
+		_n 'Starting TazPanel web server on port %d...' $HTTPD_PORT
 		httpd -p $HTTPD_PORT -u root -c $HTTPD_CONF \
-			-r "$(gettext 'TazPanel Authentication - Default: root:root')" &
+			-r "$(_ 'TazPanel Authentication - Default: root:root')" &
 		ps | grep "httpd -p $HTTPD_PORT " | grep -v grep | \
 			awk '{ print $1 }' > $PIDFILE
 		[ ! -f /var/lib/tazpkg/installed.info ] && tazpkg -l>/dev/null&
 		status ;;
 	stop)
 		if [ ! -f $PIDFILE ]; then
-			gettext 'TazPanel is not running.'; echo
+			_ 'TazPanel is not running.'
 			exit 1
 		fi
-		gettext 'Stopping TazPanel web server...'
+		_n 'Stopping TazPanel web server...'
 		kill $(pgrep -f TazPanel)
 		rm -f $PIDFILE
 		status ;;
@@ -73,10 +73,10 @@ EOT
 		tazpanel stop; sleep 1; tazpanel start;;
 	passwd|-p)
 		echo
-		gettext 'Changing password for TazPanel'; echo
-		gettext 'New password: ' && read pass
+		_ 'Changing password for TazPanel'
+		_n 'New password: ' && read pass
 		sed -i "s/\/:root:.*/\/:root:$pass/" $HTTPD_CONF
-		gettext 'Password changed successfully'; echo
+		_ 'Password changed successfully'
 		echo ;;
 	*)
 		. /etc/slitaz/applications.conf

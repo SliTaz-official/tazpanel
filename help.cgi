@@ -17,7 +17,7 @@ search_form() {
 	cat <<EOT
 <form class="search"><!--
 	--><input type="search" name="manual" results="5" autosave="pkgsearch" autocomplete="on"><!--
-	--><button type="submit">$(gettext 'Manual')</button><!--
+	--><button type="submit">$(_ 'Manual')</button><!--
 --></form>
 EOT
 }
@@ -25,7 +25,7 @@ EOT
 
 # Cat translated help content
 
-TITLE=$(gettext 'TazPanel - Help &amp; Doc')
+TITLE=$(_ 'TazPanel - Help &amp; Doc')
 
 xhtml_header
 search_form

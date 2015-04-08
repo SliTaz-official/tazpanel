@@ -134,9 +134,9 @@ interface_status() {
 	if ifconfig | grep -A1 $1 | grep -q inet; then
 		ip=$(ifconfig | grep -A1 $1 | grep inet | awk '{ print $2 }' | cut -d: -f2)
 		cat <<EOT
-	<td>$(gettext 'connected')</td>
+	<td>$(_ 'connected')</td>
 	<td>$ip</td>
-	<td><a data-icon="scan" href='network.cgi?scan=$ip&amp;back=network.cgi'>$(gettext 'Scan')</a></td>
+	<td><a data-icon="scan" href='network.cgi?scan=$ip&amp;back=network.cgi'>$(_ 'Scan')</a></td>
 EOT
 	else
 		echo "<td>----</td><td>----</td><td></td>"
@@ -151,11 +151,11 @@ list_network_interfaces() {
 <table class="wide zebra center">
 	<thead>
 		<tr>
-			<td>$(gettext 'Interface')</td>
-			<td>$(gettext 'Name')</td>
-			<td>$(gettext 'Status')</td>
-			<td>$(gettext 'IP Address')</td>
-			<td>$(gettext 'Scan ports')</td>
+			<td>$(_ 'Interface')</td>
+			<td>$(_ 'Name')</td>
+			<td>$(_ 'Status')</td>
+			<td>$(_ 'IP Address')</td>
+			<td>$(_ 'Scan ports')</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -279,13 +279,13 @@ df_thead() {
 	cat <<EOT
 <thead>
 	<tr>
-		<td>$(gettext 'Disk')</td>
-		<td>$(gettext 'Label')</td>
-		<td>$(gettext 'Type')</td>
-		<td>$(gettext 'Size')</td>
-		<td>$(gettext 'Available')</td>
-		<td>$(gettext 'Used')</td>
-		<td>$(gettext 'Mount point')</td>
+		<td>$(_ 'Disk')</td>
+		<td>$(_ 'Label')</td>
+		<td>$(_ 'Type')</td>
+		<td>$(_ 'Size')</td>
+		<td>$(_ 'Available')</td>
+		<td>$(_ 'Used')</td>
+		<td>$(_ 'Mount point')</td>
 		<td>UUID</td>
 	</tr>
 </thead>
@@ -331,7 +331,7 @@ blk2h() {
 # Show "Back" button
 
 back_button() {
-	local URL="$1" default_caption="$(gettext 'Back')"
+	local URL="$1" default_caption="$(_ 'Back')"
 	local caption="${2:-$default_caption}" icon="${3:-back}"
 
 	if [ -n "$1" ]; then

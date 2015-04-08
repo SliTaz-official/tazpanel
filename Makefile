@@ -13,7 +13,7 @@ all: msgfmt
 # i18n
 
 pot:
-	xgettext -o po/tazpanel.pot -L Shell \
+	xgettext -o po/tazpanel.pot -L Shell -k_ -k_n -k_p:1,2 \
 		--package-name="TazPanel" \
 		--package-version="$(VERSION)" \
 		./tazpanel ./index.cgi ./network.cgi ./boot.cgi \

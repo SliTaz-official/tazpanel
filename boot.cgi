@@ -13,7 +13,7 @@
 get_config
 header
 
-TITLE=$(gettext 'TazPanel - Boot')
+TITLE=$(_ 'TazPanel - Boot')
 
 
 # Print last 40 lines of given file with "more" link
@@ -24,7 +24,7 @@ loghead() {
 		*)       tail -n40;;
 	esac
 	[ $(wc -l < $1) -gt 40 ] && cat <<EOT
-<hr/><a data-icon="view" href="index.cgi?file=$1">$(gettext 'Show more...')</a>
+<hr/><a data-icon="view" href="index.cgi?file=$1">$(_ 'Show more...')</a>
 EOT
 }
 
@@ -53,13 +53,13 @@ case " $(GET) " in
 		esac
 		xhtml_header
 		cat <<EOT
-<h2>$(gettext 'Boot log files')</h2>
+<h2>$(_ 'Boot log files')</h2>
 
 <ul id="tabs">
-	<li$actkernel><a href="?log=kernel">$(gettext 'Kernel messages')</a></li>
-	<li$actboot  ><a href="?log=boot"  >$(gettext 'Boot scripts'   )</a></li>
-	<li$actxlog  ><a href="?log=xlog"  >$(gettext 'X server'       )</a></li>
-	<li$actslim  ><a href="?log=slim"  >$(gettext 'X session'      )</a></li>
+	<li$actkernel><a href="?log=kernel">$(_ 'Kernel messages')</a></li>
+	<li$actboot  ><a href="?log=boot"  >$(_ 'Boot scripts'   )</a></li>
+	<li$actxlog  ><a href="?log=xlog"  >$(_ 'X server'       )</a></li>
+	<li$actslim  ><a href="?log=slim"  >$(_ 'X session'      )</a></li>
 </ul>
 
 <section>
@@ -81,9 +81,9 @@ EOT
 		xhtml_header
 
 		cat <<EOT
-<h2>$(gettext 'Manage daemons')</h2>
+<h2>$(_ 'Manage daemons')</h2>
 
-<p>$(gettext 'Check, start and stop daemons on SliTaz')</p>
+<p>$(_ 'Check, start and stop daemons on SliTaz')</p>
 EOT
 		daemon=$(GET daemons)
 		case "$daemon" in
@@ -107,12 +107,12 @@ EOT
 	<table class="zebra wide daemons">
 		<thead>
 			<tr>
-				<td>$(gettext 'Name')</td>
-				<td>$(gettext 'Description')</td>
-				<td>$(gettext 'Configuration')</td>
-				<td>$(gettext 'Status')</td>
-				<td>$(gettext 'Action')</td>
-				<td>$(gettext 'PID')</td>
+				<td>$(_ 'Name')</td>
+				<td>$(_ 'Description')</td>
+				<td>$(_ 'Configuration')</td>
+				<td>$(_ 'Status')</td>
+				<td>$(_ 'Action')</td>
+				<td>$(_ 'PID')</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -135,32 +135,32 @@ EOT
 			[ -n "$(which $name)" ] && cfg="man|help|$cfg"
 			case "$name" in
 				firewall)
-					gettext 'SliTaz Firewall with iptable rules' ;;
+					_ 'SliTaz Firewall with iptable rules' ;;
 				httpd)
-					gettext 'Small and fast web server with CGI support' ;;
+					_ 'Small and fast web server with CGI support' ;;
 				ntpd)
-					gettext 'Network time protocol daemon' ;;
+					_ 'Network time protocol daemon' ;;
 				ftpd)
 					cfg="man|help|edit::/etc/inetd.conf"
-					gettext 'Anonymous FTP server' ;;
+					_ 'Anonymous FTP server' ;;
 				udhcpd)
-					gettext 'Busybox DHCP server' ;;
+					_ 'Busybox DHCP server' ;;
 				syslogd|klogd)
-					gettext 'Linux Kernel log daemon' ;;
+					_ 'Linux Kernel log daemon' ;;
 				crond)
 					# FIXME crontab
-					gettext 'Execute scheduled commands' ;;
+					_ 'Execute scheduled commands' ;;
 				dnsd)
 					cfg="man|help|edit|options::-d"
-					gettext 'Small static DNS server daemon' ;;
+					_ 'Small static DNS server daemon' ;;
 				tftpd)
 					cfg="man|help|edit::/etc/inetd.conf"
-					gettext 'Transfer a file on tftp request' ;;
+					_ 'Transfer a file on tftp request' ;;
 				inetd)
-					gettext 'Listen for network connections and launch programs' ;;
+					_ 'Listen for network connections and launch programs' ;;
 				zcip)
 					cfg="man|help|edit:Script:/etc/zcip.script|options::eth0 /etc/zcip.script"
-					gettext 'Manage a ZeroConf IPv4 link-local address' ;;
+					_ 'Manage a ZeroConf IPv4 link-local address' ;;
 				*)
 					# Description from receipt
 					[ -d "$LOCALSTATE/installed/$name" ] && pkg=$name
@@ -229,8 +229,8 @@ EOT
 			echo "</td>"
 			if [ "$pid" ]; then
 				cat <<EOT
-<td><span title="$(gettext 'Started')" data-img="on"></span></td>
-<td><a href="?daemons=stop=$name" title="$(gettext 'Stop')" data-img="stop"></a></td>
+<td><span title="$(_ 'Started')" data-img="on"></span></td>
+<td><a href="?daemons=stop=$name" title="$(_ 'Stop')" data-img="stop"></a></td>
 <td>
 EOT
 				for i in $pid; do
@@ -240,8 +240,8 @@ EOT
 				done
 			else
 				cat <<EOT
-<td><span title="$(gettext 'Stopped')" data-img="off"></span></td>
-<td><a href="?daemons=start=$name" title="$(gettext 'Start')" data-img="start"></a></td>
+<td><span title="$(_ 'Stopped')" data-img="off"></span></td>
+<td><a href="?daemons=start=$name" title="$(_ 'Start')" data-img="start"></a></td>
 <td>-----
 EOT
 			fi
@@ -267,44 +267,44 @@ EOT
 		 splash=$(cat $GRUBMENU | grep ^splashimage | cut -d' ' -f2)
 		xhtml_header
 				cat <<EOT
-<h2>$(gettext 'GRUB Boot loader')</h2>
+<h2>$(_ 'GRUB Boot loader')</h2>
 
-<p>$(gettext 'The first application started when the computer powers on')</p>
+<p>$(_ 'The first application started when the computer powers on')</p>
 
 <form class="wide">
 	<section>
 		<div>
 			<input type="hidden" name="grub"/>
 			<table>
-				<tr><td>$(gettext 'Default entry:')</td>
+				<tr><td>$(_ 'Default entry:')</td>
 					<td><input type="text" name="default" value="${default##*=}"/></td></tr>
-				<tr><td>$(gettext 'Timeout:')</td>
+				<tr><td>$(_ 'Timeout:')</td>
 					<td><input type="text" name="timeout" value="${timeout##*=}"/></td></tr>
-				<tr><td>$(gettext 'Splash image:')</td>
+				<tr><td>$(_ 'Splash image:')</td>
 					<td><input type="text" name="splash" value="${splash##*=}" size="40"/></td></tr>
 			</table>
 		</div>
 		<footer>
-			<button type="submit" data-icon="ok">$(gettext 'Change')</button>
+			<button type="submit" data-icon="ok">$(_ 'Change')</button>
 		</footer>
 	</section>
 </form>
 
 <form action="index.cgi">
 	<input type="hidden" name="file" value="$GRUBMENU"/>
-	<button data-icon="text">$(gettext 'View or edit menu.lst')</button>
+	<button data-icon="text">$(_ 'View or edit menu.lst')</button>
 </form>
 
 
 <section>
-	<header>$(gettext 'Boot entries')</header>
+	<header>$(_ 'Boot entries')</header>
 	<div>
 EOT
 
 
 menu=$(tail -q -n +$(grep -n ^title $GRUBMENU | head -n1 | cut -d: -f1) $GRUBMENU | \
 	sed -e "s|^$||g" | \
-	sed -e "s|^title|</pre></div>\n</section>\n\n<section>\n\t<header>$(gettext 'Entry') #</header>\n<div><pre style=\"white-space:pre-wrap\">\0|g" | \
+	sed -e "s|^title|</pre></div>\n</section>\n\n<section>\n\t<header>$(_ 'Entry') #</header>\n<div><pre style=\"white-space:pre-wrap\">\0|g" | \
 	sed '/^[ \t]*$/d' | \
 	tail -q -n +2)"</pre>"
 
@@ -325,7 +325,7 @@ menu=$(tail -q -n +$(grep -n ^title $GRUBMENU | head -n1 | cut -d: -f1) $GRUBMEN
 	[ -f "/boot/gpxe" ] && cat <<EOT
 <section>
 	<header>gPXE</header>
-	<div>$(gettext 'Web boot is available with gPXE')</div>
+	<div>$(_ 'Web boot is available with gPXE')</div>
 </section>
 EOT
 	;;
@@ -338,48 +338,48 @@ EOT
 		. /etc/rcS.conf
 		xhtml_header
 		cat <<EOT
-<h2>$(gettext 'Boot &amp; Start services')</h2>
+<h2>$(_ 'Boot &amp; Start services')</h2>
 
-<p>$(gettext 'Everything that happens before user login')</p>
+<p>$(_ 'Everything that happens before user login')</p>
 
 <form>
-	<button name="log"     data-icon="logs"   >$(gettext 'Boot logs'     )</button>
-	<button name="daemons" data-icon="daemons" data-root>$(gettext 'Manage daemons')</button>
+	<button name="log"     data-icon="logs"   >$(_ 'Boot logs')</button>
+	<button name="daemons" data-icon="daemons" data-root>$(_ 'Manage daemons')</button>
 EOT
 		[ -w /boot/grub/menu.lst ] && cat <<EOT
-	<button name="grub"    data-icon="grub"   >$(gettext 'Boot loader'   )</button>
+	<button name="grub"    data-icon="grub"   >$(_ 'Boot loader')</button>
 EOT
 		cat <<EOT
 </form>
 
 
 <section>
-	<header>$(gettext 'Configuration files')</header>
+	<header>$(_ 'Configuration files')</header>
 	<form action="index.cgi" class="wide">
 		<table>
-			<tr><td>$(gettext 'Main configuration file:') <b>rcS.conf</b></td>
-				<td><button name="file" value="/etc/rcS.conf" data-icon="view">$(gettext 'View')</button></td></tr>
-			<tr><td>$(gettext 'Login manager settings:') <b>slim.conf</b></td>
-				<td><button name="file" value="/etc/slim.conf" data-icon="view">$(gettext 'View')</button></td></tr>
+			<tr><td>$(_ 'Main configuration file:') <b>rcS.conf</b></td>
+				<td><button name="file" value="/etc/rcS.conf" data-icon="view">$(_ 'View')</button></td></tr>
+			<tr><td>$(_ 'Login manager settings:') <b>slim.conf</b></td>
+				<td><button name="file" value="/etc/slim.conf" data-icon="view">$(_ 'View')</button></td></tr>
 		</table>
 	</form>
 </section>
 
 
 <section style="overflow-x: auto">
-	<header>$(gettext 'Kernel cmdline')</header>
+	<header>$(_ 'Kernel cmdline')</header>
 	<pre>$(cat /proc/cmdline)</pre>
 </section>
 
 
 <section>
 	<header>
-		$(gettext 'Local startup commands')
+		$(_ 'Local startup commands')
 		<form action="index.cgi">
 			<input type="hidden" name="file" value="/etc/init.d/local.sh"/>
 EOT
 		[ -w /etc/init.d/local.sh ] && cat <<EOT
-			<button name="action" value="edit" data-icon="edit">$(gettext 'Edit')</button>
+			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
 EOT
 		cat <<EOT
 		</form>

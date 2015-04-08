@@ -14,7 +14,7 @@
 get_config
 header
 
-TITLE=$(gettext 'TazPanel - Settings')
+TITLE=$(_ 'TazPanel - Settings')
 
 
 # Get system database. LDAP compatible.
@@ -80,9 +80,9 @@ get_locale_info_measurement()
 {
 	# faster to use pre-processed values
 	case $1 in
-		en_AG|en_US|es_PR|es_US|nl_AW|yi_US) gettext 'US' ;;
+		en_AG|en_US|es_PR|es_US|nl_AW|yi_US) _ 'US' ;;
 		POSIX) ;;
-		*) gettext 'metric' ;;
+		*) _ 'metric' ;;
 	esac
 }
 
@@ -263,24 +263,24 @@ case " $(GET) " in
 		# Groups management
 		#
 		cat <<EOT
-<h2 id="groups">$(gettext 'Manage groups')</h2>
+<h2 id="groups">$(_ 'Manage groups')</h2>
 
 
 <section>
 	<form class="wide">
 		<header>
 			<input type="hidden" name="groups"/>
-			<!-- $(gettext 'Selection:') -->
-			<button name="do" value="delgroups" data-icon="delete">$(gettext 'Delete group')</button>
+			<!-- $(_ 'Selection:') -->
+			<button name="do" value="delgroups" data-icon="delete">$(_ 'Delete group')</button>
 		</header>
 
 		<div class="scroll">
 			<table class="wide zebra scroll">
 				<thead>
 					<tr class="thead">
-						<td>$(gettext 'Group')</td>
-						<td>$(gettext 'Group ID')</td>
-						<td>$(gettext 'Members')</td>
+						<td>$(_ 'Group')</td>
+						<td>$(_ 'Group ID')</td>
+						<td>$(_ 'Members')</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -309,15 +309,15 @@ EOT
 
 
 <section>
-	<header>$(gettext 'Add a new group')</header>
+	<header>$(_ 'Add a new group')</header>
 	<form>
 		<input type="hidden" name="groups"/>
 		<table>
-			<tr><td>$(gettext 'Group name:')</td>
+			<tr><td>$(_ 'Group name:')</td>
 				<td><input type="text" name="group"/></td>
 			</tr>
 			<tr><td colspan="2">
-				<button type="submit" name="do" value="addgroup" data-icon="add">$(gettext 'Create group')</button>
+				<button type="submit" name="do" value="addgroup" data-icon="add">$(_ 'Create group')</button>
 			</td></tr>
 		</table>
 	</form>
@@ -325,22 +325,22 @@ EOT
 
 
 <section>
-	<header>$(gettext 'Manage group membership')</header>
+	<header>$(_ 'Manage group membership')</header>
 	<form>
 		<input type="hidden" name="groups"/>
 		<table>
 			<tr>
-				<td>$(gettext 'Group name:')</td>
+				<td>$(_ 'Group name:')</td>
 				<td><select name="group">$(listdb group)</select></td>
-				<td>$(gettext 'User name:')</td>
+				<td>$(_ 'User name:')</td>
 				<td><select name="member">$(listdb passwd)</select></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-					<button name="do" value="addmember" data-icon="add">$(gettext 'Add user')</button>
+					<button name="do" value="addmember" data-icon="add">$(_ 'Add user')</button>
 				</td>
 				<td colspan="2">
-					<button name="do" value="delmember" data-icon="delete">$(gettext 'Remove user')</button>
+					<button name="do" value="delmember" data-icon="delete">$(_ 'Remove user')</button>
 				</td>
 			</tr>
 		</table>
@@ -356,25 +356,25 @@ EOT
 		# Users management
 		#
 		cat <<EOT
-<h2 id="users">$(gettext 'Manage users')</h2>
+<h2 id="users">$(_ 'Manage users')</h2>
 
 <section>
 	<form class="wide">
 		<header>
-			<!--$(gettext 'Selection:')-->
-			<button name="do" value="delusers"    data-icon="delete">$(gettext 'Delete user')</button>
-			<button name="do" value="lockusers"   data-icon="lock"  >$(gettext 'Lock user'  )</button>
-			<button name="do" value="unlockusers" data-icon="unlock">$(gettext 'Unlock user')</button>
+			<!--$(_ 'Selection:')-->
+			<button name="do" value="delusers"    data-icon="delete">$(_ 'Delete user')</button>
+			<button name="do" value="lockusers"   data-icon="lock"  >$(_ 'Lock user'  )</button>
+			<button name="do" value="unlockusers" data-icon="unlock">$(_ 'Unlock user')</button>
 		</header>
 
 		<table class="wide zebra center">
 			<thead>
 				<tr>
-					<td>$(gettext 'Login')</td>
-					<td>$(gettext 'User ID')</td>
-					<td>$(gettext 'Name')</td>
-					<td>$(gettext 'Home')</td>
-					<td>$(gettext 'Shell')</td>
+					<td>$(_ 'Login')</td>
+					<td>$(_ 'User ID')</td>
+					<td>$(_ 'Name')</td>
+					<td>$(_ 'Home')</td>
+					<td>$(_ 'Shell')</td>
 				</tr>
 			</thead>
 			</tbody>
@@ -407,9 +407,9 @@ EOT
 		cat <<EOT
 		<footer>
 			<div>
-				$(gettext 'Password:')
+				$(_ 'Password:')
 				<input type="password" name="password"/>
-				<button type="submit" name="do" value="chpasswd" data-icon="ok">$(gettext 'Change password')</button>
+				<button type="submit" name="do" value="chpasswd" data-icon="ok">$(_ 'Change password')</button>
 			</div>
 		</footer>
 	</form>
@@ -417,34 +417,34 @@ EOT
 
 
 <section>
-	<header>$(gettext 'Add a new user')</header>
+	<header>$(_ 'Add a new user')</header>
 
 	<form>
 		<input type="hidden" name="users"/>
 		<table class="summary">
-			<tr><td>$(gettext 'User login:')</td>
+			<tr><td>$(_ 'User login:')</td>
 				<td><input type="text" name="user" size="30" pattern="[a-z]*"/></td></tr>
-			<tr><td>$(gettext 'User name:')</td>
+			<tr><td>$(_ 'User name:')</td>
 				<td><input type="text" name="name" size="30"/></td></tr>
-			<tr><td>$(gettext 'User password:')</td>
+			<tr><td>$(_ 'User password:')</td>
 				<td><input type="password" name="passwd" size="30"/></td></tr>
 		</table>
 
 		<footer>
-			<button type="submit" name="do" value="adduser" data-icon="add">$(gettext 'Create user')</button>
+			<button type="submit" name="do" value="adduser" data-icon="add">$(_ 'Create user')</button>
 		</footer>
 	</form>
 </section>
 
 
 <section>
-	<header>$(gettext 'Current user sessions')</header>
+	<header>$(_ 'Current user sessions')</header>
 	<pre>$(who)</pre>
 </section>
 
 
 <section>
-	<header>$(gettext 'Last user sessions')</header>
+	<header>$(_ 'Last user sessions')</header>
 	<div class="scroll"><pre>$(last)</pre></div>
 </section>
 EOT
@@ -455,21 +455,21 @@ EOT
 		#
 		# Choose locale
 		#
-		LOADING_MSG="$(gettext 'Please wait...')"; loading_msg
+		LOADING_MSG="$(_ 'Please wait...')"; loading_msg
 
 		cur_loc=$(locale | grep LANG | cut -d= -f2)
 		cat <<EOT
-<h2 id="locale">$(gettext 'Choose locale')</h2>
+<h2 id="locale">$(_ 'Choose locale')</h2>
 
 <section>
-	<header>$(gettext 'Current locale settings:')</header>
+	<header>$(_ 'Current locale settings:')</header>
 	<div>
 		<pre>$(locale)</pre>
 	</div>
 </section>
 
 <section>
-	<header>$(gettext 'Locales that are currently installed on the machine:')</header>
+	<header>$(_ 'Locales that are currently installed on the machine:')</header>
 	<div>
 		<pre>$(locale -a)</pre>
 	</div>
@@ -478,7 +478,7 @@ EOT
 
 		is_installed "glibc-locale"
 		[ $? = 1 ] &&
-			msg tip $(gettext \
+			msg tip $(_ \
 			"Can't see your language?<br/>You can \
 <a href='pkgs.cgi?do=Install&amp;glibc-locale'>install glibc-locale</a> \
 to see a larger list of available locales.")
@@ -486,14 +486,14 @@ to see a larger list of available locales.")
 
 		cat <<EOT
 <section>
-	<header>$(gettext 'Available locales:')</header>
+	<header>$(_ 'Available locales:')</header>
 	<form class="wide">
 		<table class="wide zebra">
 			<thead>
-				<tr><td>$(gettext 'Code')</td>
-					<td>$(gettext 'Language')</td>
-					<td>$(gettext 'Territory')</td>
-					<td>$(gettext 'Description')</td>
+				<tr><td>$(_ 'Code')</td>
+					<td>$(_ 'Language')</td>
+					<td>$(_ 'Territory')</td>
+					<td>$(_ 'Description')</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -521,7 +521,7 @@ EOT
 		</table>
 
 		<footer>
-			<button type="submit" data-icon="ok">$(gettext 'Activate')</button>
+			<button type="submit" data-icon="ok">$(_ 'Activate')</button>
 		</footer>
 	</form>
 </section>
@@ -535,39 +535,39 @@ EOT
 		#
 
 		cat <<EOT
-<h2>$(gettext 'System settings')</h2>
+<h2>$(_ 'System settings')</h2>
 
-<p>$(gettext 'Manage system time, users or language settings')<p>
+<p>$(_ 'Manage system time, users or language settings')<p>
 
 <form><!--
-	--><button name="users"  data-icon="user" >$(gettext 'Manage users' )</button><!--
-	--><button name="groups" data-icon="group">$(gettext 'Manage groups')</button>
+	--><button name="users"  data-icon="user" >$(_ 'Manage users' )</button><!--
+	--><button name="groups" data-icon="group">$(_ 'Manage groups')</button>
 </form>
 
 <section>
-	<header>$(gettext 'System time')</header>
+	<header>$(_ 'System time')</header>
 	<div>
 	<form class="wide">
-		<fieldset><legend>$(gettext 'Time zone:')</legend>
+		<fieldset><legend>$(_ 'Time zone:')</legend>
 			<select name="tz">
 				$(cd /usr/share/zoneinfo; find * -type f ! -name '*.tab' | sort | \
 				awk -vtz="$(cat /etc/TZ)" \
 				'{printf("<option%s>%s</option>", ($1 == tz)?" selected":"", $1)}')
 			</select>
-			<button name="do" value="settz" data-icon="ok">$(gettext 'Change')</button>
+			<button name="do" value="settz" data-icon="ok">$(_ 'Change')</button>
 		</fieldset>
 
-		<fieldset><legend>$(gettext 'System time:')</legend>
+		<fieldset><legend>$(_ 'System time:')</legend>
 			$(date | sed 's|[0-9][0-9]:[0-9:]*|<span id="time">&</span>|')
-			<button name="do" value="rdate" data-icon="sync">$(gettext 'Sync online')</button>
+			<button name="do" value="rdate" data-icon="sync">$(_ 'Sync online')</button>
 		</fieldset>
 
-		<fieldset id="hwclock1"><legend>$(gettext 'Hardware clock:')</legend>
+		<fieldset id="hwclock1"><legend>$(_ 'Hardware clock:')</legend>
 			$(hwclock -ur | sed 's|0.000000 seconds||')
-			<button name="do" value="hwclock" id="hwclock" data-icon="clock">$(gettext 'Set hardware clock')</button>
+			<button name="do" value="hwclock" id="hwclock" data-icon="clock">$(_ 'Set hardware clock')</button>
 		</fieldset>
 
-		<fieldset><legend>$(gettext 'Set date')</legend>
+		<fieldset><legend>$(_ 'Set date')</legend>
 			<input type="number" name="day" value="$(date +%d)" min="1" max="31" size="4" required/>
 			<select name="month" value="$(date +%m)">
 				$(for i in $(seq 12); do
@@ -579,7 +579,7 @@ EOT
 		-	<input type="number" name="hour" value="$(date +%H)" min="0"    max="23"   size="4" required/><!--
 		-->:<input type="number" name="min"  value="$(date +%M)" min="0"    max="59"   size="4" required/><!--
 		-->:<input type="number" name="sec"  value="00"          min="0"    max="59"   size="4" required/>
-			<button name="do" value="date" data-icon="ok">$(gettext 'Set date')</button>
+			<button name="do" value="date" data-icon="ok">$(_ 'Set date')</button>
 		</fieldset>
 	</form>
 	</div>
@@ -602,7 +602,7 @@ EOT
 		#
 		cat <<EOT
 <section>
-	<header id="locale">$(gettext 'System language')</header>
+	<header id="locale">$(_ 'System language')</header>
 	<div>
 	<form>
 EOT
@@ -614,13 +614,13 @@ EOT
 			# System configuration
 			echo "LANG=$new_locale" > /etc/locale.conf
 			echo "LC_ALL=$new_locale" >> /etc/locale.conf
-			msg warn "$(eval_gettext \
-			'You must logout and login again to your current session to use $new_locale locale.')"
+			msg warn "$(_ \
+			'You must logout and login again to your current session to use %s locale.' $new_locale)"
 		else
 			cat <<EOT
-		$(gettext 'Current system locale:')
+		$(_ 'Current system locale:')
 		<strong>$(locale | grep LANG | cut -d= -f2)</strong>
-		<button name="locale" data-icon="locale">$(gettext 'Change')</button>
+		<button name="locale" data-icon="locale">$(_ 'Change')</button>
 EOT
 		fi
 		cat <<EOT
@@ -630,7 +630,7 @@ EOT
 
 
 <section>
-	<header id="keymap">$(gettext 'Keyboard layout')</header>
+	<header id="keymap">$(_ 'Keyboard layout')</header>
 	<div>
 EOT
 		# Check if a new keymap was requested
@@ -644,7 +644,7 @@ EOT
 		fi
 
 		keymap=$(cat /etc/keymap.conf)
-		eval_gettext 'Current console keymap: $keymap'
+		_ 'Current console keymap: %s' $keymap
 		if [ -n "$keymap" ]; then
 			case "$keymap" in
 			fr_CH*)
@@ -662,45 +662,45 @@ EOT
 		<form id="settings"></form>
 		<form id="index" action="index.cgi"></form>
 		<br/>
-		$(gettext 'Suggested keymap for Xorg:') $keymap
-		<button form="settings" name="apply_xorg_kbd" value="$keymap" data-icon="ok">$(gettext 'Activate')</button>
-		<button form="index" name="file" value="$keyboard_config" data-icon="edit">$(gettext 'Edit')</button>
+		$(_ 'Suggested keymap for Xorg:') $keymap
+		<button form="settings" name="apply_xorg_kbd" value="$keymap" data-icon="ok">$(_ 'Activate')</button>
+		<button form="index" name="file" value="$keyboard_config" data-icon="edit">$(_ 'Edit')</button>
 		<br/>
 EOT
 		fi
 		cat <<EOT
 		<form>
-			$(gettext 'Available keymaps:')
+			$(_ 'Available keymaps:')
 			<select name="gen_keymap">
 				$(list_keymaps)
 			</select>
-			<button type="submit" data-icon="ok">$(gettext 'Activate')</button>
+			<button type="submit" data-icon="ok">$(_ 'Activate')</button>
 		</form>
 	</div>
 </section>
 
 
 <section>
-	<header>$(gettext 'Panel configuration')</header>
+	<header>$(_ 'Panel configuration')</header>
 	<div>
 	<form class="wide">
-		<fieldset><legend>$(gettext 'Style:')</legend>
+		<fieldset><legend>$(_ 'Style:')</legend>
 			<select name="style">$(list_styles)</select>
-			<button data-icon="ok">$(gettext 'Activate')</button>
+			<button data-icon="ok">$(_ 'Activate')</button>
 		</fieldset>
 
-		<fieldset><legend>$(gettext 'Panel password:')</legend>
+		<fieldset><legend>$(_ 'Panel password:')</legend>
 			<input type="password" name="panel_pass"/>
-			<button data-icon="ok">$(gettext 'Change')</button>
+			<button data-icon="ok">$(_ 'Change')</button>
 		</fieldset>
 	</form>
 
-	<fieldset><legend>$(gettext 'Configuration files:')</legend>
-		<button form="index" name="file" value="$CONFIG" data-icon="edit">$(gettext 'Panel')</button>
-		<button form="index" name="file" value="$HTTPD_CONF" data-icon="edit">$(gettext 'Server')</button>
+	<fieldset><legend>$(_ 'Configuration files:')</legend>
+		<button form="index" name="file" value="$CONFIG" data-icon="edit">$(_ 'Panel')</button>
+		<button form="index" name="file" value="$HTTPD_CONF" data-icon="edit">$(_ 'Server')</button>
 	</fieldset>
 
-	<p>$(gettext 'TazPanel provides a debugging mode and page:')
+	<p>$(_ 'TazPanel provides a debugging mode and page:')
 		<a href="index.cgi?debug">debug</a>
 	</p>
 	</div>

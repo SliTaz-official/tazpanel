@@ -21,19 +21,13 @@ msgstr ""
 "X-Poedit-Country: POLAND\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: tazpanel:33
-#, fuzzy
-msgid "Usage: tazpanel [start|stop|passwd|app]"
-msgstr "Użycie: $program_name [start|stop|passwd]"
-
 #: tazpanel:37
 msgid "TazPanel is already running."
 msgstr "TazPanel jest już uruchomiony."
 
 #: tazpanel:40
-#, sh-format
-msgid "Starting TazPanel web server on port $HTTPD_PORT..."
-msgstr "Uruchamianie web serwera TazPanel na porcie $HTTPD_PORT..."
+msgid "Starting TazPanel web server on port %d..."
+msgstr "Uruchamianie web serwera TazPanel na porcie %d..."
 
 #: tazpanel:42
 msgid "TazPanel Authentication - Default: root:root"
@@ -88,24 +82,20 @@ msgid "Small terminal emulator, commands options are supported."
 msgstr "Niewielki emulator terminala, opcje poleceń są obsługiwane."
 
 #: index.cgi:172 index.cgi:189
-#, sh-format
-msgid "Commands: $commands"
-msgstr "Polecenia: $commands"
+msgid "Commands: %s"
+msgstr "Polecenia: %s"
 
 #: index.cgi:177
-#, sh-format
-msgid "Downloading to: $dl"
-msgstr "Pobieranie do: $dl"
+msgid "Downloading to: %s"
+msgstr "Pobieranie do: %s"
 
 #: index.cgi:184
-#, sh-format
-msgid "$cmd needs an argument"
-msgstr "$cmd wymaga podania argumentu"
+msgid "%s needs an argument"
+msgstr "%s wymaga podania argumentu"
 
 #: index.cgi:188
-#, sh-format
-msgid "Unknown command: $cmd"
-msgstr "Nieznane polecenie: $cmd"
+msgid "Unknown command: %s"
+msgstr "Nieznane polecenie: %s"
 
 #: index.cgi:196
 msgid "TazPanel - Process activity"
@@ -144,9 +134,8 @@ msgid "TazPanel - System report"
 msgstr "TazPanel - Raport systemu"
 
 #: index.cgi:239
-#, sh-format
-msgid "Reporting to: $output"
-msgstr "Zapisywanie raportu do: $output"
+msgid "Reporting to: %s"
+msgstr "Zapisywanie raportu do: %s"
 
 #: index.cgi:242
 msgid "Creating report header..."
@@ -201,9 +190,8 @@ msgid "This report can be attached with a bug report on:"
 msgstr "Ten raport może być dołączony do zgłoszenia błędu na:"
 
 #: index.cgi:370
-#, sh-format
-msgid "Host: $hostname"
-msgstr "Host: $hostname"
+msgid "Host: %s"
+msgstr "Host: %s"
 
 #: index.cgi:371
 msgid "SliTaz administration and configuration Panel"
@@ -234,9 +222,8 @@ msgid "Memory in Mb:"
 msgstr "Pamięć w Mb:"
 
 #: index.cgi:394
-#, sh-format
-msgid "Total: $memtotal, Used: $memused, Free: $memfree"
-msgstr "Całkowita: $memtotal, Użyta: $memused, Wolna: $memfree"
+msgid "Total: %d, Used: %d, Free: %d"
+msgstr "Całkowita: %d, Użyta: %d, Wolna: %d"
 
 #: index.cgi:399
 msgid "Linux kernel:"
@@ -280,18 +267,16 @@ msgid "Connected"
 msgstr "Połączony"
 
 #: network.cgi:99
-#, sh-format
-msgid "Changed hostname: $get_hostname"
-msgstr "Zmieniona nazwa hosta: $get_hostname"
+msgid "Changed hostname: %s"
+msgstr "Zmieniona nazwa hosta: %s"
 
 #: network.cgi:115
 msgid "Scanning open ports..."
 msgstr "Skanowanie otwartych portów..."
 
 #: network.cgi:118
-#, sh-format
-msgid "Port scanning for $scan"
-msgstr "Skanowanie portów dla $scan"
+msgid "Port scanning for %s"
+msgstr "Skanowanie portów dla %s"
 
 #: network.cgi:132
 msgid "Setting up IP..."
@@ -671,14 +656,12 @@ msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Zarządzaj, szukaj albo pobierz informacje na temat modułów jądra Linux"
 
 #: hardware.cgi:99
-#, sh-format
-msgid "Detailed information for module: $get_modinfo"
-msgstr "Szczegółowe informacje dla modułu: $get_modinfo"
+msgid "Detailed information for module: %s"
+msgstr "Szczegółowe informacje dla modułu: %s"
 
 #: hardware.cgi:113
-#, sh-format
-msgid "Matching result(s) for: $get_search"
-msgstr "Pasujące rezultat(y) dla: $get_search"
+msgid "Matching result(s) for: %s"
+msgstr "Pasujące rezultat(y) dla: %s"
 
 #: hardware.cgi:119
 msgid "Module:"
@@ -701,18 +684,16 @@ msgid "by"
 msgstr "przez"
 
 #: hardware.cgi:150
-#, sh-format
-msgid "Information for USB Device $vidpid"
-msgstr "Informacje i urządzeniu USB $vidpid"
+msgid "Information for USB Device %s"
+msgstr "Informacje i urządzeniu USB %s"
 
 #: hardware.cgi:151 hardware.cgi:165
 msgid "Detailed information about specified device."
 msgstr "Szczegółowe informacje o wybranym urządzeniu."
 
 #: hardware.cgi:164
-#, sh-format
-msgid "Information for PCI Device $slot"
-msgstr "Informacje o urządzeniu PCI $slot"
+msgid "Information for PCI Device %s"
+msgstr "Informacje o urządzeniu PCI %s"
 
 #: hardware.cgi:183
 msgid "Drivers &amp; Devices"
@@ -739,18 +720,16 @@ msgid "health"
 msgstr "zużycie"
 
 #: hardware.cgi:223
-#, sh-format
-msgid "Discharging $rempct% - $remtimef"
-msgstr "Rozładowywanie $rempct% - $remtimef"
+msgid "Discharging %d%% - %s"
+msgstr "Rozładowywanie %d%% - %s"
 
 #: hardware.cgi:227
-#, sh-format
-msgid "Charging $rempct% - $remtimef"
-msgstr "Ładowanie $rempct% - $remtimef"
+msgid "Charging %d%% - %s"
+msgstr "Ładowanie %d%% - %s"
 
 #: hardware.cgi:229
-msgid "Charged 100%"
-msgstr "Naładowana w 100%"
+msgid "Charged 100%%"
+msgstr "Naładowana w 100%%"
 
 #: hardware.cgi:237
 msgid "Temperature:"
@@ -1010,13 +989,12 @@ msgid "System language"
 msgstr "Język systemu"
 
 #: settings.cgi:442
-#, sh-format
 msgid ""
-"You must logout and login again to your current session to use $new_locale "
+"You must logout and login again to your current session to use %s "
 "locale."
 msgstr ""
 "Należy się wylogować i zalogować ponownie aby używać ustawień regionalnych "
-"$new_locale."
+"%s."
 
 #: settings.cgi:444
 msgid "Current system locale:"
@@ -1027,9 +1005,8 @@ msgid "Console keymap"
 msgstr "Układ klawiatury konsoli"
 
 #: settings.cgi:465
-#, sh-format
-msgid "Current console keymap: $keymap"
-msgstr "Aktualny układ klawiatury dla konsoli: $keymap"
+msgid "Current console keymap: %s"
+msgstr "Aktualny układ klawiatury dla konsoli: %s"
 
 #: settings.cgi:482
 msgid "Suggested keymap for Xorg:"
