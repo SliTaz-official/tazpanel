@@ -24,7 +24,7 @@ loghead() {
 		*)       tail -n40;;
 	esac
 	[ $(wc -l < $1) -gt 40 ] && cat <<EOT
-<hr/><a data-icon="view" href="/index.cgi?file=$1">$(gettext 'Show more...')</a>
+<hr/><a data-icon="view" href="index.cgi?file=$1">$(gettext 'Show more...')</a>
 EOT
 }
 

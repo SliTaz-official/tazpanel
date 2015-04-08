@@ -7,7 +7,7 @@
 
 . /lib/libtaz.sh
 
-[ "$(id -un)" == "${REMOTE_USER:-root}" ] || exec su -c "$(realpath $0) $@" $REMOTE_USER
+[ "$(id -un)" == "${REMOTE_USER:=$USER}" ] || exec su -c "$(realpath $0) $@" $REMOTE_USER
 
 
 # Get parameters with GET, POST and FILE functions
@@ -163,10 +163,10 @@ EOT
 	for i in $(ls /sys/class/net); do
 		case $i in
 			eth*)
-				echo "		<tr><td><a data-icon='eth' href='/network.cgi?eth'>$i</a></td>
+				echo "		<tr><td><a data-icon='eth' href='network.cgi?eth'>$i</a></td>
 					<td>Ethernet</td> $(interface_status $i)</tr>" ;;
 			wlan*|ath*|ra*)
-				echo "		<tr><td><a data-icon='wifi' href='/network.cgi?wifi'>$i</a></td>
+				echo "		<tr><td><a data-icon='wifi' href='network.cgi?wifi'>$i</a></td>
 					<td>Wireless</td> $(interface_status $i)</tr>" ;;
 			lo)
 				echo "		<tr><td><span data-icon='loopback'>$i</span></td>

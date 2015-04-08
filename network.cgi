@@ -407,7 +407,7 @@ EOT
 </section>
 
 <script type="text/javascript">
-	ajax('/network.cgi?wifi_list', '1', 'wifiList');
+	ajax('network.cgi?wifi_list', '1', 'wifiList');
 	$(parse_wpa_conf)
 </script>
 EOT

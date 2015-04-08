@@ -480,7 +480,7 @@ EOT
 		[ $? = 1 ] &&
 			msg tip $(gettext \
 			"Can't see your language?<br/>You can \
-<a href='/pkgs.cgi?do=Install&amp;glibc-locale'>install glibc-locale</a> \
+<a href='pkgs.cgi?do=Install&amp;glibc-locale'>install glibc-locale</a> \
 to see a larger list of available locales.")
 
 
@@ -701,7 +701,7 @@ EOT
 	</fieldset>
 
 	<p>$(gettext 'TazPanel provides a debugging mode and page:')
-		<a href="/index.cgi?debug">debug</a>
+		<a href="index.cgi?debug">debug</a>
 	</p>
 	</div>
 </section>
