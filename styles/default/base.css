@@ -161,9 +161,9 @@ section td:nth-child(1) { padding-left: 0.3rem; }
 section table { margin-bottom: 0.3rem; }
 .nogap { word-spacing: 0; } /* remove gap between buttons in line */
 
-.scroll { height: 12rem; overflow: auto; border: 1pt solid; }
-section .scroll { padding: 0; margin: 0; }
-
+.scroll { max-height: 12rem; overflow: auto; }
+section .scroll { padding: 0; margin: 0; border: 1pt solid; }
+section pre.scroll { margin: 0.1rem; padding: 0.1rem; }
 
 
 
