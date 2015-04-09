@@ -56,7 +56,7 @@ cat << EOT
       <li><a data-icon="" href="boot.cgi?log=slim">$(_ 'X session')</a></li>
      </menu>
     </li>
-    <li><a data-icon="daemons" href="boot.cgi?daemons">$(_ 'Manage daemons')</a></li>
+    <li><a data-icon="daemons" href="boot.cgi?daemons" data-root>$(_ 'Manage daemons')</a></li>
     $(for i in menu.d/boot/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>

@@ -7,7 +7,7 @@
 
 . /lib/libtaz.sh
 
-[ "$(id -un)" == "${REMOTE_USER:=$USER}" ] || exec su -c "$(realpath $0) $@" $REMOTE_USER
+[ "$(id -un)" == "${REMOTE_USER:=nobody}" ] || exec su -s /bin/sh -c "$(realpath $0) $@" $REMOTE_USER
 
 
 # Get parameters with GET, POST and FILE functions
