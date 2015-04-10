@@ -325,6 +325,9 @@ msgstr "En voir plus..."
 msgid "Boot log files"
 msgstr "Journaux de démarrage"
 
+msgid "System logs"
+msgstr "Journaux système"
+
 #: boot.cgi:59 styles/default/header.html:53
 msgid "Kernel messages"
 msgstr "Messages du noyau"

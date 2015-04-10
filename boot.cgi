@@ -34,6 +34,33 @@ EOT
 #
 
 case " $(GET) " in
+	*\ syslog\ *)
+		logtype="$(GET syslog)"
+		[ "$logtype" == "syslog" ] && logtype=messages
+		xhtml_header
+		cat <<EOT
+<h2>$(_ 'System logs')</h2>
+
+<ul id="tabs">
+EOT
+		for i in $(sed '/var\/log/!d;s|.*/log/||' /etc/syslog.conf); do
+			unset act
+			[ "$i" == "$logtype" ] && act=' class="active"'
+			cat <<EOT
+	<li$act><a href="?syslog=$i" title="$(sed "/$i$/!d;s/[\t ].*//" /etc/syslog.conf)">$i</a></li>
+EOT
+		done
+		cat <<EOT
+</ul>
+
+<section>
+	<div>
+		<pre>$(syntax_highlighter kernel < /var/log/$logtype | \
+					   loghead /var/log/$logtype)</pre>
+	</div>
+</section>
+EOT
+		;;
 	*\ log\ *)
 		unset actboot actslim actxlog actkernel colors
 		case "$(GET log)" in
@@ -344,6 +371,7 @@ EOT
 
 <form>
 	<button name="log"     data-icon="logs"   >$(_ 'Boot logs')</button>
+	<button name="syslog"  data-icon="logs"   >$(_ 'System logs')</button>
 	<button name="daemons" data-icon="daemons" data-root>$(_ 'Manage daemons')</button>
 EOT
 		[ -w /boot/grub/menu.lst ] && cat <<EOT
