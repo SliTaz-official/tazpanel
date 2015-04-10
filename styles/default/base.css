@@ -337,6 +337,7 @@ form { display: inline-block; padding: 0; margin: 0; }
 pre { margin: 0; padding: 0; color: CaptionText; }
 
 .pre-main { margin: 16px 0; }
+.pre-wrap { white-space: pre-wrap; }
 
 
 
