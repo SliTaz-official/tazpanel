@@ -36,7 +36,7 @@ EOT
 case " $(GET) " in
 	*\ syslog\ *)
 		logtype="$(GET syslog)"
-		[ "$logtype" == "syslog" ] && logtype=messages
+		[ "${logtype:-syslog}" == "syslog" ] && logtype=messages
 		xhtml_header
 		[ -w /etc/syslog.conf ] && cat <<EOT
 <a href="index.cgi?file=/etc/syslog.conf&amp;action=edit" data-img="conf"></a>syslog.conf
@@ -361,6 +361,99 @@ EOT
 	;;
 
 
+	*\ iso\ *)
+		xhtml_header
+		iso=$(POST iso)
+		workdir=$(POST workdir)
+		action=$(POST action)
+		[ "$action" ] || action=$(GET action)
+		[ -d $workdir ] || workdir=$(dirname $workdir)
+		[ -w $workdir -a "$workdir" ] || workdir=/tmp
+		[ -s "$iso" ] || unset iso
+		echo "<h2>$(_ 'ISO mine')</h2>"
+		[ "$iso" ] || cat <<EOT
+<section>
+Invalid ISO image.
+</section>
+EOT
+		if [ "$iso" -a "$action" -a "$action" != "nop" ]; then
+			case "$action" in
+			install*) dev=$(POST instdev) ;;
+			*) dev=$(POST usbkeydev) ;;
+			esac
+			cat <<EOT
+<section>
+<pre>
+$(taziso $iso $action $dev)
+</pre>
+</section>
+EOT
+		fi
+		cat <<EOT
+<section>
+<form method="post" action="?iso">
+EOT
+		cat <<EOT
+<p>
+ISO image file full path (set /dev/cdrom for a physical CD-ROM)<br />
+<input type="text" name="iso" value="$iso" size="50" />
+</p>
+<p>
+Working directory
+<input type="text" name="workdir" value="$workdir" />
+</p>
+<p>
+Windows partition
+<select name="instdev">
+	<option value="/dev/null">Choose a partition</option>
+EOT
+		blkid | grep -iE "(msdos|vfat|ntfs)" | \
+		sed 's|^/dev/\(.*\):.*LABEL="\([^"]*\).*|\1 "\2"|' | \
+		while read dev label; do
+			echo -n "<option value=\"/dev/$dev\">/dev/$dev $label "
+			echo "$(($(cat /sys/block/${dev:0:3}/$dev/size)/2048))MB</option>"
+		done 
+		cat <<EOT
+</select>
+</p>
+<p>
+USB key device
+<select name="usbkeydev">
+	<option value="/dev/null">Choose an USB key</option>
+EOT
+		grep -l 1 /sys/block/*/removable | \
+		sed 's|/sys/block/\(.*\)/removable|\1|' | while read dev; do
+			grep -qs 1 /sys/block/$DEV/ro && continue
+			echo -n "<option value=\"/dev/$dev\">/dev/$dev "
+			echo "$(($(cat /sys/block/$dev/size)/2048))MB $(cat \
+				/sys/block/$i/device/model 2> /dev/null)</option>"
+		done
+		cat <<EOT
+</select>
+</p>
+<footer>
+EOT
+		if [ "$iso" ]; then
+			cat <<EOT
+<select name="action">
+	<option value="nop">Choose an action</option>
+$(taziso $iso list | sed -e \
+'s/"\(.*\)"[\t ]*"\(.*\)"/<option value="\1\">\2<\/option>/' -e \
+"s|value=\"$action\"|& selected|")
+</select>
+EOT
+		elif [ "$action" ]; then
+			cat <<EOT
+<input type="hidden" name="action" value="$action" />
+EOT
+		fi
+		cat <<EOT
+	<button data-icon="cd" name="mine">Mine</button>
+</footer>
+</form>
+</section>
+EOT
+		;;
 	*)
 		#
 		# Default content with summary
@@ -376,6 +469,9 @@ EOT
 	<button name="log"     data-icon="logs"   >$(_ 'Boot logs')</button>
 	<button name="syslog"  data-icon="logs"   >$(_ 'System logs')</button>
 	<button name="daemons" data-icon="daemons" data-root>$(_ 'Manage daemons')</button>
+EOT
+		[ "$REMOTE_USER" == "root" -a -x /usr/bin/taziso ] && cat <<EOT
+	<button name="iso"     data-icon="cd"      >$(_ 'ISO mine')</button>
 EOT
 		[ -w /boot/grub/menu.lst ] && cat <<EOT
 	<button name="grub"    data-icon="grub"   >$(_ 'Boot loader')</button>
