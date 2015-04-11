@@ -38,6 +38,9 @@ case " $(GET) " in
 		logtype="$(GET syslog)"
 		[ "$logtype" == "syslog" ] && logtype=messages
 		xhtml_header
+		[ -w /etc/syslog.conf ] && cat <<EOT
+<a href="index.cgi?file=/etc/syslog.conf&amp;action=edit" data-img="conf"></a>syslog.conf
+EOT
 		cat <<EOT
 <h2>$(_ 'System logs')</h2>
 
