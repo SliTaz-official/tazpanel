@@ -363,23 +363,20 @@ EOT
 
 	*\ iso\ *)
 		xhtml_header
-		iso=$(POST iso)
+		iso=$(POST iso); [ -s "$iso" ] || unset iso
+		action=$(POST action); [ "$action" ] || action=$(GET action)
 		workdir=$(POST workdir)
-		action=$(POST action)
-		[ "$action" ] || action=$(GET action)
 		[ -d $workdir ] || workdir=$(dirname $workdir)
 		[ -w $workdir -a "$workdir" ] || workdir=/tmp
-		[ -s "$iso" ] || unset iso
+
 		echo "<h2>$(_ 'ISO mine')</h2>"
-		[ "$iso" ] || cat <<EOT
-<section>
-Invalid ISO image.
-</section>
-EOT
+
+		[ "$iso" ] || msg err 'Invalid ISO image.'
+
 		if [ "$iso" -a "$action" -a "$action" != "nop" ]; then
 			case "$action" in
-			install*) dev=$(POST instdev) ;;
-			*) dev=$(POST usbkeydev) ;;
+				install*) dev=$(POST instdev) ;;
+				*) dev=$(POST usbkeydev) ;;
 			esac
 			cd $workdir
 			cat <<EOT
@@ -392,21 +389,19 @@ EOT
 		fi
 		cat <<EOT
 <section>
-<form method="post" action="?iso">
+<form method="post" action="?iso" class="wide">
 EOT
 		cat <<EOT
-<p>
-ISO image file full path (set /dev/cdrom for a physical CD-ROM)<br />
-<input type="text" name="iso" value="$iso" size="50" />
-</p>
-<p>
-Working directory
-<input type="text" name="workdir" value="$workdir" />
-</p>
-<p>
-Windows partition
-<select name="instdev">
-	<option value="/dev/null">Choose a partition (optional)</option>
+<table>
+	<tr><td>ISO image file full path
+			<span data-img="info" title="set /dev/cdrom for a physical CD-ROM"></span>
+		</td>
+		<td><input type="text" name="iso" value="$iso" size="50"/></td></tr>
+	<tr><td>Working directory</td>
+		<td><input type="text" name="workdir" value="$workdir"/></td></tr>
+	<tr><td>Windows partition</td>
+		<td><select name="instdev">
+			<option value="/dev/null">Choose a partition (optional)</option>
 EOT
 		blkid | grep -iE "(msdos|vfat|ntfs)" | \
 		sed 's|^/dev/\(.*\):.*LABEL="\([^"]*\).*|\1 "\2"|' | \
@@ -415,32 +410,31 @@ EOT
 			echo "$(($(cat /sys/block/${dev:0:3}/$dev/size)/2048))MB</option>"
 		done 
 		cat <<EOT
-</select>
-</p>
-<p>
-USB key device
-<select name="usbkeydev">
-	<option value="/dev/null">Choose a USB key (optional)</option>
+			</select></td></tr>
+	<tr><td>USB key device</td>
+		<td><select name="usbkeydev">
+			<option value="/dev/null">Choose a USB key (optional)</option>
 EOT
 		grep -l 1 /sys/block/*/removable | \
 		sed 's|/sys/block/\(.*\)/removable|\1|' | while read dev; do
 			grep -qs 1 /sys/block/$DEV/ro && continue
 			echo -n "<option value=\"/dev/$dev\">/dev/$dev "
 			echo "$(($(cat /sys/block/$dev/size)/2048))MB $(cat \
-				/sys/block/$i/device/model 2> /dev/null)</option>"
+				/sys/block/$i/device/model 2>/dev/null)</option>"
 		done
 		cat <<EOT
-</select>
-</p>
+			</select></td></tr>
+</table>
 <footer>
 EOT
+
 		if [ "$iso" ]; then
 			cat <<EOT
 <select name="action">
 	<option value="nop">Choose an action</option>
-$(taziso $iso list | sed -e \
-'s/"\(.*\)"[\t ]*"\(.*\)"/<option value="\1\">\2<\/option>/' -e \
-"s|value=\"$action\"|& selected|")
+	$(taziso $iso list | sed -e \
+		's/"\(.*\)"[\t ]*"\(.*\)"/<option value="\1\">\2<\/option>/' -e \
+		"s|value=\"$action\"|& selected|")
 </select>
 EOT
 		elif [ "$action" ]; then
@@ -448,6 +442,7 @@ EOT
 <input type="hidden" name="action" value="$action" />
 EOT
 		fi
+
 		cat <<EOT
 	<button data-icon="cd" name="mine">Mine</button>
 </footer>
@@ -455,6 +450,8 @@ EOT
 </section>
 EOT
 		;;
+
+
 	*)
 		#
 		# Default content with summary
