@@ -381,10 +381,11 @@ EOT
 			install*) dev=$(POST instdev) ;;
 			*) dev=$(POST usbkeydev) ;;
 			esac
+			cd $workdir
 			cat <<EOT
 <section>
 <pre>
-$(taziso $iso $action $dev)
+$(taziso $iso $action $dev 2>&1)
 </pre>
 </section>
 EOT
@@ -405,7 +406,7 @@ Working directory
 <p>
 Windows partition
 <select name="instdev">
-	<option value="/dev/null">Choose a partition</option>
+	<option value="/dev/null">Choose a partition (optional)</option>
 EOT
 		blkid | grep -iE "(msdos|vfat|ntfs)" | \
 		sed 's|^/dev/\(.*\):.*LABEL="\([^"]*\).*|\1 "\2"|' | \
@@ -419,7 +420,7 @@ EOT
 <p>
 USB key device
 <select name="usbkeydev">
-	<option value="/dev/null">Choose an USB key</option>
+	<option value="/dev/null">Choose a USB key (optional)</option>
 EOT
 		grep -l 1 /sys/block/*/removable | \
 		sed 's|/sys/block/\(.*\)/removable|\1|' | while read dev; do
