@@ -59,8 +59,8 @@ cat << EOT
     </li>
     <li><a data-icon="logs" href="boot.cgi?syslog">$(_ 'System logs')</a>
     <li><a data-icon="daemons" href="boot.cgi?daemons" data-root>$(_ 'Manage daemons')</a></li>
-    $([ "$REMOTE_USER" == "root" -a -x /usr/bin/taziso ] &&
-	echo "<li><a data-icon=\"cd\" href=\"boot.cgi?iso\">$(_ 'ISO mine')</a>")
+    $([ -x /usr/bin/taziso ] &&
+	echo "<li><a data-icon=\"cd\" href=\"boot.cgi?iso\" data-root>$(_ 'ISO mine')</a>")
     $(for i in menu.d/boot/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>
