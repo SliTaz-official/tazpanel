@@ -98,7 +98,7 @@ case "$username" in
 	      toggle_url="http://$RANDOM:*@$HTTP_HOST/user/";;
 esac
 
-	cat << EOT
+	cat <<EOT
   <a data-img="$icon" title="$(_ 'You are logged in to the TazPanel as user %s.' $username)
 $warn$(_ 'Click to re-login.')" href="$toggle_url$(basename $REQUEST_URI)"></a>
   <a data-img="help" href="help.cgi"></a>
