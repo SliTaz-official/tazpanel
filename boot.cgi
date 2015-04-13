@@ -28,6 +28,15 @@ loghead() {
 EOT
 }
 
+disksize()
+{
+	size=$(($(cat /sys/block/$1/size)/2048))
+	for i in MB GB TB ; do
+		[ $size -lt 2048 ] && break
+		size=$(((512+$size)/1024))
+	done
+	echo "$size$i"
+}
 
 #
 # Commands
@@ -398,20 +407,24 @@ EOT
 		</td>
 		<td><input type="text" name="iso" value="$iso" size="50"/></td></tr>
 	<tr><td>Working directory</td>
-		<td><input type="text" name="workdir" value="$workdir"/></td></tr>
-	<tr><td>Windows partition</td>
+		<td><input type="text" name="workdir" value="$workdir" size="50"/></td></tr>
+	<tr><td>Target partition
+			<span data-img="info" title="For hard disk installation only. Will create /slitaz tree and keep other files. No partitioning and no formatting."></span>
+		</td>
 		<td><select name="instdev">
 			<option value="/dev/null">Choose a partition (optional)</option>
 EOT
-		blkid | grep -iE "(msdos|vfat|ntfs)" | \
-		sed 's|^/dev/\(.*\):.*LABEL="\([^"]*\).*|\1 "\2"|' | \
-		while read dev label; do
+		blkid | grep -iE "(msdos|vfat|ntfs|ext[234]|xfs|btrfs)" | \
+		sed 's|^/dev/\(.*\):.*LABEL="\([^"]*\).* TYPE="\([^"]*\).*|\1 "\2" \3|' | \
+		while read dev label type; do
 			echo -n "<option value=\"/dev/$dev\">/dev/$dev $label "
-			echo "$(($(cat /sys/block/${dev:0:3}/$dev/size)/2048))MB</option>"
+			echo "$(disksize ${dev:0:3}/$dev) $type</option>"
 		done 
 		cat <<EOT
 			</select></td></tr>
-	<tr><td>USB key device</td>
+	<tr><td>USB key device
+			<span data-img="info" title="For USB boot key only. Will erase the full device."></span>
+		</td>
 		<td><select name="usbkeydev">
 			<option value="/dev/null">Choose a USB key (optional)</option>
 EOT
@@ -419,7 +432,7 @@ EOT
 		sed 's|/sys/block/\(.*\)/removable|\1|' | while read dev; do
 			grep -qs 1 /sys/block/$DEV/ro && continue
 			echo -n "<option value=\"/dev/$dev\">/dev/$dev "
-			echo "$(($(cat /sys/block/$dev/size)/2048))MB $(cat \
+			echo "$(disksize $dev) $(cat \
 				/sys/block/$i/device/model 2>/dev/null)</option>"
 		done
 		cat <<EOT
