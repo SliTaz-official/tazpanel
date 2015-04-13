@@ -316,7 +316,7 @@ is_installed() {
 
 
 blk2h() {
-	echo $1 | awk '{
+	[ "$1" ] && echo $1 || cat | awk '{
 	n = $0/2
 	for (i = 1; n > 1024; i++)
 		n /= 1024

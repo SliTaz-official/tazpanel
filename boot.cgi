@@ -28,15 +28,6 @@ loghead() {
 EOT
 }
 
-disksize()
-{
-	size=$(($(cat /sys/block/$1/size)/2048))
-	for i in MB GB TB ; do
-		[ $size -lt 2048 ] && break
-		size=$(((512+$size)/1024))
-	done
-	echo "$size$i"
-}
 
 #
 # Commands
@@ -418,7 +409,7 @@ EOT
 		sed 's|^/dev/\(.*\):.*LABEL="\([^"]*\).* TYPE="\([^"]*\).*|\1 "\2" \3|' | \
 		while read dev label type; do
 			echo -n "<option value=\"/dev/$dev\">/dev/$dev $label "
-			echo "$(disksize ${dev:0:3}/$dev) $type</option>"
+			echo "$(blk2h < /sys/block/${dev:0:3}/$dev/size) $type</option>"
 		done 
 		cat <<EOT
 			</select></td></tr>
@@ -432,7 +423,7 @@ EOT
 		sed 's|/sys/block/\(.*\)/removable|\1|' | while read dev; do
 			grep -qs 1 /sys/block/$DEV/ro && continue
 			echo -n "<option value=\"/dev/$dev\">/dev/$dev "
-			echo "$(disksize $dev) $(cat \
+			echo "$(blk2h < /sys/block/$dev/size) $(cat \
 				/sys/block/$i/device/model 2>/dev/null)</option>"
 		done
 		cat <<EOT
