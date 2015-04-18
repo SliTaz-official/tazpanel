@@ -209,6 +209,8 @@ EOT
 					syntax_highlighter xlog ;;
 				*dmesg.log)
 					syntax_highlighter kernel ;;
+				*/receipt)
+					syntax_highlighter sh ;;
 				*)
 					cat | htmlize ;;
 			esac < $file

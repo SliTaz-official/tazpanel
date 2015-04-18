@@ -184,6 +184,9 @@ body.dark  { background: #3C3C3C; }
  * Buttons with icons *
  **********************/
 
+.light a[data-icon]::before, .light button[data-icon]::before
+{ color: #333; }
+
 .light button[data-icon]::before {
 	text-shadow: 0 1px 0 hsla(0, 0%, 100%, 0.9); }
 
@@ -193,24 +196,27 @@ body.dark  { background: #3C3C3C; }
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
-/*.light a[data-icon]:before { color: #333; }*/
+
 a[data-icon] { white-space: pre-line; }
 
 [data-icon="cancel"]::before, [data-icon="delete"]::before,
 [data-icon="remove"]::before, [data-icon="stop"]:not([disabled])::before,
 [data-img="help"]::before,    [data-img="man"]::before,
 [data-img="off"]::before,     [data-img="remove"]::before,
-[data-img="stop"]::before,    [data-icon="pkgib"]::before {color:#dc322f} /*red*/
+[data-img="stop"]::before,    [data-icon="pkgib"]::before
+{color:#dc322f!important} /*red*/
 
 [data-icon="restart"]:not([disabled])::before, [data-img="conf"]::before,
-[data-img="slitaz"]::before {color:#cb4b16} /*orange*/
+[data-img="slitaz"]::before
+{color:#cb4b16!important} /*orange*/
 
 [data-icon="ok"]::before,    [data-icon="run"]::before,
 [data-icon="start"]:not([disabled])::before, [data-img="on"]::before,
 [data-img="opt"]::before, [data-img="run"]::before, [data-icon="pkgi"]::before,
-[data-img="user"]::before {color:#859900} /*green*/
+[data-img="user"]::before {color:#859900!important} /*green*/
 
-[data-img="web"]::before {color:#268bd2}, [data-icon="pkg"]::before /*blue*/
+[data-img="web"]::before, [data-icon="pkg"]::before
+{color:#268bd2!important} /*blue*/
 
 /* disabled buttons with gray icons */
 /*.light [disabled][data-icon]::before {color:#888}
