@@ -359,13 +359,6 @@ EOT
 					ENC_SIMPLE="$(_ 'None')"; ENC_ICON='seclo' # low
 				fi
 
-				# 
-				#if echo $SCAN | grep -q 'Mode:Managed'; then
-				#	AP="&amp;ap=$(echo $SCAN | sed 's/.*Address: \([^ ]*\).*/\1/')"
-				#else
-				#	AP=''
-				#fi
-
 				# Connected or not connected...
 				if  ifconfig $WIFI_INTERFACE | fgrep -q inet && \
 					iwconfig $WIFI_INTERFACE | fgrep -q "ESSID:\"$ESSID\""; then

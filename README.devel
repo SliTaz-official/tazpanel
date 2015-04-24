@@ -61,7 +61,7 @@ where we can store all our networks settings, including passwords. It is handy
 when you have one network at home, other - at work, and another - at your
 friends home. Really, you shouldn't to re-enter all these passwords again.
 
-We can read a lot of useful information in the wpa_cupplicant.conf file
+We can read a lot of useful information in the wpa_supplicant.conf file
 (/etc/wpa/wpa_supplicant.conf):
 
 # psk: WPA preshared key; 256-bit pre-shared key
@@ -150,7 +150,9 @@ Here example of that script on the html page:
 ];
 </script>
 
-Here we need to escape ('"&<>) symbols as described above.
+Here we need to escape ('"&<>) symbols but in the slightly another manner:
+\ → \\
+" → \"
 
 
 So, what do you think about this very special password? :=D
