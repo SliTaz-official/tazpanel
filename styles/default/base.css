@@ -23,7 +23,7 @@ body > header {
 body > header h1 {
 	margin: 0;
 	color: #fff;
-	font-size: 20px; line-height: 40px; /* center vertical */
+	font-size: 18px; line-height: 40px; /* center vertical */
 	font-style: italic;
 	white-space: nowrap; overflow: hidden;
 	vertical-align: middle;
@@ -211,11 +211,11 @@ fieldset[disabled] { background-color: hsla(0, 0%, 50%, 0.1);}
 
 
 /* Page content container */
-#content { margin: 1ex; }
+#content { margin: 0; padding: 1ex; }
 
 
 /* Page first header */
-h2 { font-size: 1.5rem; padding: 0.5rem 0 0 0; margin: 0; }
+h2 { font-size: 1.5rem; height: 1.5rem; padding: 0; margin: 0; }
 
 
 /* Additional headers (obsolete) */
@@ -224,7 +224,7 @@ h4 { font-size: 1.1rem; margin: 0; }
 
 
 /* Plain paragraph */
-p { margin: 1ex 0; }
+p { margin: 0.5ex 0; }
 
 
 #actions p { margin: 6px 0; }
@@ -364,7 +364,7 @@ pre { margin: 0; padding: 0; color: CaptionText; }
 body > footer {
 	border-top: 1px solid;
 	text-align: center;
-	padding: 0.5em;
+	height: 1rem;
 	font-size: smaller;
 }
 
@@ -740,3 +740,18 @@ textarea { display: block; color: CaptionText; font-family: monospace; box-sizin
 /* Disable some links to root actions */
 button:not([disabled]) { cursor: pointer; }
 .user [data-root] { pointer-events: none; cursor: default !important; }
+
+
+html,body { height: 100%; width: 100%; margin: 0; padding: 0; }
+body > header { position: absolute; top: 0; }
+body > footer { position: absolute; bottom: 0; left: 0; right: 0; }
+#content, #content-sidebar {
+	position: absolute; top: 63px; bottom: 1rem; left: 0; right: 0;
+	overflow-y: auto; overflow-x: hidden;
+}
+
+.bigNoScrollable { position: absolute; top: 0; bottom: 0; left: 0; right: 0; overflow: hidden; }
+section.bigNoScrollable { margin: 0.5rem; }
+
+.bigScrollable { position: absolute; top: 0; bottom: 0; left: 0; right: 0; overflow: auto; }
+#fileContent.bigScrollable { margin: 0.2rem; top: 2.5rem; }

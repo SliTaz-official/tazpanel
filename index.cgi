@@ -112,6 +112,7 @@ EOT
 		header
 		file="$(GET file)"
 		action="$(POST action)"; [ -z "$action" ] && action="$(GET action)" # receive 'action' both on POST or GET
+		title="$(POST title)";   [ -z "$title"  ] && title="$(GET title)"   # (optional)
 
 		case $file in
 			*.html)
@@ -125,8 +126,8 @@ EOT
 				cat <<EOT
 <section>
 	<header>
-		<span data-icon="edit">$file</span>
-		<form id="editform" method="post" action="?file=$file" class="nogap">
+		<span data-icon="edit">${title:-$file}</span>
+		<form id="editform" method="post" action="?file=$file">
 			<button data-icon="save">$(_ 'Save')</button>
 			<button name="action" value="diff" data-icon="diff">$(_ 'Differences')</button>
 		</form>
@@ -173,17 +174,22 @@ EOT
 			fi
 
 			cat <<EOT
-<section>
+<section class="bigNoScrollable">
 	<header>
-		<span data-icon="text">$file</span>
+		<span data-icon="text">${title:-$file}</span>
 EOT
 			if [ -w "$file" ]; then
 				cat <<EOT
-		<form>
+		<span class="float-right">
+			<button onclick='editFile()' id="edit_button" data-icon="edit">$(_ 'Edit')</button>
+			<button onclick='saveFile("$file", "$title")' id="save_button" 
+				data-icon="save" style="display:none">$(_ 'Save')</button>
+		</span>
+		<!--form>
 			<input type="hidden" name="file" value="$file"/>
 			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button><!--
 			-->$(file_is_modified $file button)
-		</form>
+		</form-->
 EOT
 			elif [ -r "$file" ]; then
 				cat <<EOT
@@ -197,25 +203,28 @@ EOT
 	</header>
 
 	<div>
-		<pre>
+		<pre id="fileContent" class="bigScrollable">
 EOT
+			end_code=''
 			# Handle file type by extension as a Web Server does it.
 			case "$file" in
+				*.sh|*.cgi|*/receipt|*.conf)
+					echo '<code class="language-bash">'; end_code='</code>'
+					cat | htmlize ;;
+				*.ini)
+					echo '<code class="language-ini">'; end_code='</code>'
+					cat | htmlize ;;
 				*.conf|*.lst)
 					syntax_highlighter conf ;;
-				*.sh|*.cgi)
-					syntax_highlighter sh ;;
 				*Xorg.0.log)
 					syntax_highlighter xlog ;;
 				*dmesg.log)
 					syntax_highlighter kernel ;;
-				*/receipt)
-					syntax_highlighter sh ;;
 				*)
 					cat | htmlize ;;
 			esac < $file
 			cat <<EOT
-		</pre>
+$end_code</pre>
 	</div>
 </section>
 EOT
@@ -295,7 +304,7 @@ EOT
 		case "$cmd" in
 		usage|help)
 			_ 'Small non-interactive terminal emulator.'; echo
-			_ 'Run any command at your own risk, avoid interactive commands (%s)' "nano, mc, ..."; echo
+			_ 'Run any command at your own risk, avoid interactive commands (%s)' 'nano, mc, ...'; echo
 			;;
 		wget*)
 			dl=/var/cache/downloads
@@ -398,7 +407,7 @@ EOT
 		fi
 
 		cat <<EOT
-<section>
+<section style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: 0.5rem;">
 	<header>
 		$(_ 'Terminal settings')
 		<form>

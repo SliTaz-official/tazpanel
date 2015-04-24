@@ -184,8 +184,9 @@ body.dark  { background: #3C3C3C; }
  * Buttons with icons *
  **********************/
 
-.light a[data-icon]::before, .light button[data-icon]::before
-{ color: #333; }
+/*.light a[data-icon]:not([disabled])::before,
+.light button[data-icon]:not([disabled])::before
+{ color: #333; }*/
 
 .light button[data-icon]::before {
 	text-shadow: 0 1px 0 hsla(0, 0%, 100%, 0.9); }

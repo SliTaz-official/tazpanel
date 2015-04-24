@@ -25,31 +25,12 @@ start_wifi() {
 	ifconfig $WIFI_INTERFACE up
 	iwconfig $WIFI_INTERFACE txpower auto
 	/etc/init.d/network.sh restart | log
-	# Sleep until connection established (max 20 seconds)
-	for i in $(seq 20); do
+
+	# Sleep until connection established (max 5 seconds)
+	for i in $(seq 5); do
 		[ -n "$(iwconfig 2>/dev/null | fgrep Link)" ] && break
 		sleep 1
 	done
-}
-
-
-# Connect to a Wi-Fi network
-connect_wifi() {
-	/etc/init.d/network.sh stop | log
-	sed -i \
-		-e "s|^WIFI_ESSID=.*|WIFI_ESSID=\"$(GET essid)\"|" \
-		-e "s|^WIFI_BSSID=.*|WIFI_BSSID=\"$(GET bssid)\"|" \
-		-e "s|^WIFI_KEY_TYPE=.*|WIFI_KEY_TYPE=\"$(GET keyType)\"|" \
-		-e "s|^WIFI_KEY=.*|WIFI_KEY=\"$(GET password)\"|" \
-		-e "s|^WIFI_EAP_METHOD=.*|WIFI_EAP_METHOD=\"$(GET eap)\"|" \
-		-e "s|^WIFI_CA_CERT=.*|WIFI_CA_CERT=\"$(GET caCert)\"|" \
-		-e "s|^WIFI_CLIENT_CERT=.*|WIFI_CLIENT_CERT=\"$(GET clientCert)\"|" \
-		-e "s|^WIFI_IDENTITY=.*|WIFI_IDENTITY=\"$(GET identity)\"|" \
-		-e "s|^WIFI_ANONYMOUS_IDENTITY=.*|WIFI_ANONYMOUS_IDENTITY=\"$(GET anonymousIdentity)\"|" \
-		-e "s|^WIFI_PHASE2=.*|WIFI_PHASE2=\"$(GET phase2)\"|" \
-		/etc/network.conf
-	. /etc/network.conf
-	start_wifi
 }
 
 
@@ -95,11 +76,24 @@ parse_wpa_conf() {
 			if ($0 ~ "=") {
 				if (begin_obj == 0) printf ", ";
 				begin_obj = 0;
-				split($0, a, "=");
-				if (a[2] ~ "\"")
-					printf "%s:%s", a[1], a[2];
-				else
-					printf "%s:\"%s\"", a[1], a[2];
+
+				# split line into variable and value (note "=" can appear in the value)
+				split($0, a, "="); variable = a[1];
+				value = gensub(variable "=", "", "");
+
+				# escape html entities
+				value = gensub("\\\\", "\\\\",    "g", value);
+				value = gensub("&",    "\\&amp;", "g", value);
+				value = gensub("<",    "\\&lt;",  "g", value);
+				value = gensub(">",    "\\&gt;",  "g", value);
+				value = gensub("\"",   "\\\"",    "g", value);
+
+				# if value was already quoted - remove \" from begin and end
+				if (substr(value, 1, 2) == "\\\"")
+					value = substr(value, 3, length(value) - 4);
+
+				# output in form: variable:"escaped value"
+				printf "%s:\"%s\"", variable, value;
 			}
 		}
 		if (network == 1 && $0 ~ "}") { printf "}"; network = 0; next; }
@@ -112,10 +106,11 @@ parse_wpa_conf() {
 # Waiting for network link up
 
 wait_up() {
-	for i in $(seq 10); do
+	for i in $(seq 5); do
 		[ -z "$(cat /sys/class/net/*/operstate | fgrep up)"] && sleep 1
 	done
 }
+
 
 # Actions commands before page is displayed
 
@@ -134,12 +129,36 @@ case " $(GET) " in
 		start_wifi ;;
 	*\ start_eth\ *)
 		start_eth ;;
-	*\ connect_wifi\ *)
-		connect_wifi ;;
 	*\ host\ *)
 		get_hostname="$(GET host)"
 		echo $(_ 'Changed hostname: %s' $get_hostname) | log
 		echo "$get_hostname" > /etc/hostname ;;
+esac
+
+case " $(POST) " in
+	*\ connect_wifi\ *)
+		# Connect to a Wi-Fi network
+		/etc/init.d/network.sh stop | log
+		password="$(POST password)"
+
+		# Escape special characters to use with sed substitutions
+		password="$(echo -n "$password" | sed 's|\\|\\\\|g; s|&|\\\&|g' | sed "s|'|'\"'\"'|g")"
+
+		sed -i \
+			-e "s|^WIFI_ESSID=.*|WIFI_ESSID=\"$(POST essid)\"|" \
+			-e "s|^WIFI_BSSID=.*|WIFI_BSSID=\"$(POST bssid)\"|" \
+			-e "s|^WIFI_KEY_TYPE=.*|WIFI_KEY_TYPE=\"$(POST keyType)\"|" \
+			-e "s|^WIFI_KEY=.*|WIFI_KEY='$password'|" \
+			-e "s|^WIFI_EAP_METHOD=.*|WIFI_EAP_METHOD=\"$(POST eap)\"|" \
+			-e "s|^WIFI_CA_CERT=.*|WIFI_CA_CERT=\"$(POST caCert)\"|" \
+			-e "s|^WIFI_CLIENT_CERT=.*|WIFI_CLIENT_CERT=\"$(POST clientCert)\"|" \
+			-e "s|^WIFI_IDENTITY=.*|WIFI_IDENTITY=\"$(POST identity)\"|" \
+			-e "s|^WIFI_ANONYMOUS_IDENTITY=.*|WIFI_ANONYMOUS_IDENTITY=\"$(POST anonymousIdentity)\"|" \
+			-e "s|^WIFI_PHASE2=.*|WIFI_PHASE2=\"$(POST phase2)\"|" \
+			/etc/network.conf
+		. /etc/network.conf
+		start_wifi
+		;;
 esac
 
 
@@ -412,18 +431,14 @@ EOT
 </script>
 EOT
 
-			# ESSID names are clickable
-			#SELECT="$(GET select)"
-			#if [ -n "$SELECT" ]; then
-			#	[ "$SELECT" != "$WIFI_ESSID" ] && WIFI_KEY=''
-			#	WIFI_ESSID="$SELECT"
-			#fi
+		# Escape html characters in the WIFI_KEY
+		WIFI_KEY_ESCAPED="$(echo -n "$WIFI_KEY" | sed 's|&|\&amp;|g; s|<|\&lt;|g; s|>|\&gt;|g; s|"|\&quot;|g')"
 
 			cat <<EOT
 <section>
 	<header>$(_ 'Connection')</header>
 	<div>
-		<form id="connection">
+		<form method="post" action="?wifi" id="connection">
 			<input type="hidden" name="connect_wifi"/>
 			<input type="hidden" name="bssid" id="bssid"/>
 			<table>
@@ -487,7 +502,7 @@ EOT
 				<tr class="wep wpa eap">
 					<td><div>$(_ 'Password')</div></td>
 					<td><div>
-						<input type="password" name="password" value="$WIFI_KEY" id="password"/>
+						<input type="password" name="password" value="$WIFI_KEY_ESCAPED" id="password"/>
 						<span data-img="view" title="$(_ 'Show password')"
 							onmousedown="document.getElementById('password').type='text'; return false"
 							  onmouseup="document.getElementById('password').type='password'"
@@ -495,13 +510,6 @@ EOT
 						></span>
 					</div></td>
 				</tr>
-
-
-<!--
-				<tr><td>$(_ 'Access point')</td>
-					<td><input type="text" name="ap" value="$WIFI_AP"/></td>
-				</tr>
--->
 
 				<script type="text/javascript">
 function wifiSettingsChange() {
@@ -556,7 +564,7 @@ EOT
 		cat <<EOT
 	</header>
 	<div>$(_ "These values are the wifi settings in the main /etc/network.conf configuration file")</div>
-	<pre>$(grep ^WIFI /etc/network.conf | sed '/WIFI_KEY=/s|".*"|"********"|' | syntax_highlighter conf)</pre>
+	<pre>$(grep ^WIFI /etc/network.conf | sed 's|WIFI_KEY=.*|WIFI_KEY="********"|' | syntax_highlighter conf)</pre>
 </section>
 
 

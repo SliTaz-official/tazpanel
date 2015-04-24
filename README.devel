@@ -1,0 +1,159 @@
+Various Development Notes
+=========================
+
+--------------------------------------------------------------------------------
+
+network.cgi
+-----------
+
+Goal: allow ANY symbols in the WPA PSK (Wi-Fi password).
+We can find WPA PSK in the different places, and there are different
+restrictions to write it.
+
+a) /etc/network.conf: SliTaz system wide networking configuration;
+b) /etc/wpa/wpa.conf: wpa_supplicant configuration file;
+c) html input form in the TazPanel > Network > Wireless;
+d) saved passwords for known networks in the javascript in the same place.
+
+Let's see all that files/places one by one.
+
+
+a) network.conf
+
+Really "network.conf" is a shell script. It contains variables definitions, and
+it sourced into other shell scripts to define all Wi-Fi configuration variables.
+By default, we can see variable and its content in the double quotes:
+
+WIFI_KEY="mypassword"
+
+There are many pitfalls if we allow ANY symbols here:
+
+Variable expansion:
+WIFI_KEY="123$HOME"
+WIFI_KEY="$0$#$? *"
+
+Command expansion:
+WIFI_KEY="123$(echo 456)789"
+WIFI_KEY="`rm -rf /`"
+
+Quoting problem:
+WIFI_KEY="abc"def'ghi"
+
+Seems, we'll solve the problem when escape some symbols:
+\ → \\
+" → \"
+$ → \$
+` → \`
+
+Another solution exists (and currently I stick to it): single quotes. We need no
+escape anything but single quotes (') in the single quotes terminated string.
+And yes, this quoting is a pain for brain:
+
+Password: abc"def'ghi
+String  : WIFI_KEY='abc"def'"'"'ghi'
+But it is simple work for sed command.
+
+
+b) wpa.conf
+
+wpa_supplicant actually connects us to our Wi-Fi networks, and it is a file
+where we can store all our networks settings, including passwords. It is handy
+when you have one network at home, other - at work, and another - at your
+friends home. Really, you shouldn't to re-enter all these passwords again.
+
+We can read a lot of useful information in the wpa_cupplicant.conf file
+(/etc/wpa/wpa_supplicant.conf):
+
+# psk: WPA preshared key; 256-bit pre-shared key
+# The key used in WPA-PSK mode can be entered either as 64 hex-digits, i.e.,
+# 32 bytes or as an ASCII passphrase (in which case, the real PSK will be
+# generated using the passphrase and SSID). ASCII passphrase must be between
+# 8 and 63 characters (inclusive). ext:<name of external PSK field> format can
+# be used to indicate that the PSK/passphrase is stored in external storage.
+# This field is not needed, if WPA-EAP is used.
+# Note: Separate tool, wpa_passphrase, can be used to generate 256-bit keys
+# from ASCII passphrase. This process uses lot of CPU and wpa_supplicant
+# startup and reconfiguration time can be optimized by generating the PSK only
+# only when the passphrase or SSID has actually changed.
+
+
+Interesting and good method to use 64 symbols "passwords", maybe we switch to it
+sometimes. Example of using "wpa_passphrase":
+Let network name is: my_wifi
+Let password is    : abc'def"ghi
+Let's run utility twice - with different quoting style:
+
+tux@slitaz:~$ wpa_passphrase my_wifi "abc'def\"ghi"
+network={
+	ssid="my_wifi"
+	#psk="abc'def"ghi"
+	psk=e99c121a998a0c35419b16fd56beb38d2b471fd5519518c056af933e9daf3e30
+}
+tux@slitaz:~$ wpa_passphrase my_wifi 'abc'"'"'def"ghi'
+network={
+	ssid="my_wifi"
+	#psk="abc'def"ghi"
+	psk=e99c121a998a0c35419b16fd56beb38d2b471fd5519518c056af933e9daf3e30
+}
+
+Here psk are identical, so we can use this method.
+
+But I can't find advanced info about quoting style in the wpa_supplicant
+configuration file. So, I ended with little experiment. I've created new
+network connection in my Android smartphone and viewed my
+/data/misc/wifi/wpa_supplicant.conf file using Root Explorer application:
+
+network={
+  ssid="my_wifi"
+  scan_ssid=1
+  psk="abc'def"ghi"
+  key_mgmt=WPA-PSK
+}
+
+Yes, we can see unpaired quotes. Really don't know is it right. Maybe,
+wpa_supplicant just readed line content between first and last quotes. Need to
+dig into sources... And now I not quote psk in any manner.
+
+
+c) network.cgi form input
+
+Piece of html code:
+
+<input type="password" name="password" value="$WIFI_KEY" id="password"/>
+
+Here we free to use single quotes or double quotes, but we should escape them
+in the html manner:
+' → &apos;
+" → &quot;
+
+Also, don't forget about these symbols:
+& → &amp;
+< → &lt;
+> → &gt;
+
+
+d) network.cgi javascript database
+
+Also, we store passwords in the known networks database in the form of
+javascript to gain user experience without page to be reloaded: you can click
+Wi-Fi network name and script will fill its password for you.
+
+Here example of that script on the html page:
+
+<script type="text/javascript">
+	ajax('network.cgi?wifi_list', '1', 'wifiList');
+	networks = [
+{ssid:"my_wifi", scan_ssid:"1", psk:"my_password", key_mgmt:"WPA-PSK",
+ priority:"1"},
+{ssid:"your_wifi", scan_ssid:"1", key_mgmt:"NONE", auth_alg:"OPEN SHARED",
+ wep_key0:"01234567890123456789abcdef", priority:"3"}
+];
+</script>
+
+Here we need to escape ('"&<>) symbols as described above.
+
+
+So, what do you think about this very special password? :=D
+a'b"c $(echo  2)=$HOME`date`\t&#x
+
+--------------------------------------------------------------------------------

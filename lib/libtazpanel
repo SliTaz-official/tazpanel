@@ -7,6 +7,16 @@
 
 . /lib/libtaz.sh
 
+
+# Redefine gettext functions
+
+_()  { local T="$1"; shift; printf "$(gettext "$T")" "$@"; echo; }
+_n() { local T="$1"; shift; printf "$(gettext "$T")" "$@"; }
+_p() {
+	local S="$1" P="$2" N="$3"; shift 3;
+	printf "$(ngettext "$S" "$P" "$N")" "$@"; }
+
+
 [ "$(id -un)" == "${REMOTE_USER:=nobody}" ] || exec su -s /bin/sh -c "$(realpath $0) $@" $REMOTE_USER
 
 
