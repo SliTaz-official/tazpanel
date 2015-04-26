@@ -92,8 +92,6 @@ case " $(GET) " in
 	*\ apply_xorg_kbd\ *)
 		sed -i "s/XkbLayout.*/XkbLayout \" \"$(GET apply_xorg_kbd)\"/" \
 			/etc/X11/xorg.conf.d/40-Keyboard.conf ;;
-	*\ panel_pass*)
-		sed -i s@/:root:.*@/:root:$(GET panel_pass)@ $HTTPD_CONF ;;
 	*\ style*)
 		sed -i s/'^STYLE.*'/"STYLE=\"$(GET style)\""/ $CONFIG
 		. $CONFIG ;;
@@ -540,11 +538,6 @@ EOT
 		<fieldset><legend>$(_ 'Style:')</legend>
 			<select name="style">$(list_styles)</select>
 			<button data-icon="ok">$(_ 'Activate')</button>
-		</fieldset>
-
-		<fieldset><legend>$(_ 'Panel password:')</legend>
-			<input type="password" name="panel_pass"/>
-			<button data-icon="ok">$(_ 'Change')</button>
 		</fieldset>
 	</form>
 
