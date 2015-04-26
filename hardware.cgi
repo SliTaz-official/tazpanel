@@ -269,7 +269,7 @@ EOT
 					remtimef=$(printf "%d:%02d" $(($remtime/60)) $(($remtime%60)))
 					_ 'Charging %d%% - %s' $rempct $remtimef ;;
 				"charged")
-					_ 'Charged 100%' ;;
+					_ 'Charged 100%%' ;;
 				esac
 				cat <<EOT
 

@@ -608,8 +608,8 @@ msgid "Charging %d%% - %s"
 msgstr "Chargement %d%% - %s"
 
 #: hardware.cgi:272
-msgid "Charged 100%"
-msgstr "Chargée à 100%"
+msgid "Charged 100%%"
+msgstr "Chargée à 100%%"
 
 #: hardware.cgi:291
 msgid "Temperature:"

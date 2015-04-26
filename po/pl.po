@@ -614,7 +614,7 @@ msgstr "Ładowanie %d%% - %s"
 
 #: hardware.cgi:272
 #, fuzzy
-msgid "Charged 100%"
+msgid "Charged 100%%"
 msgstr "Naładowana w 100%%"
 
 #: hardware.cgi:291

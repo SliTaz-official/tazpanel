@@ -641,7 +641,7 @@ msgid "Charging %d%% - %s"
 msgstr "Заряжается: %d %% — осталось %s"
 
 #: hardware.cgi:272
-msgid "Charged 100%"
+msgid "Charged 100%%"
 msgstr "Полностью заряжена"
 
 #: hardware.cgi:291

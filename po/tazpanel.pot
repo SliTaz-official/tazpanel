@@ -595,7 +595,7 @@ msgid "Charging %d%% - %s"
 msgstr ""
 
 #: hardware.cgi:272
-msgid "Charged 100%"
+msgid "Charged 100%%"
 msgstr ""
 
 #: hardware.cgi:291
