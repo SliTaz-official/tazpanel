@@ -267,7 +267,7 @@ EOT
 				"charging")
 					remtime=$(( ($full - $remain) * 60 / $rate ))
 					remtimef=$(printf "%d:%02d" $(($remtime/60)) $(($remtime%60)))
-					eval_gettext 'Charging %d%% - %s' $rempct $remtimef ;;
+					_ 'Charging %d%% - %s' $rempct $remtimef ;;
 				"charged")
 					_ 'Charged 100%' ;;
 				esac
