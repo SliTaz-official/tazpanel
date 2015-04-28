@@ -47,6 +47,10 @@ nav {
 /* menu panel */
 #toolbarMenu { margin: 0; padding: 0; height: 100%; font: menu; }
 
+/* shadows */
+#toolbar { z-index: 10; box-shadow: 0 0 8px #000; }
+menu.opened, menu.opened li:hover menu { z-index: 9; box-shadow: 2px 2px 8px hsla(0, 0%, 0%, 0.3); }
+
 /* menu items */
 #toolbarMenu li {
 	list-style: none;
@@ -118,9 +122,10 @@ nav {
 /* Clicking this layer close menu */
 #noMenu {
 	position: fixed;
+	position: absolute; top: 63px; bottom: 0; left: 0; right: 0;
 	background-color: transparent;
 	display: none;
-	height: 100%; width: 100%;
+	z-index: 9;
 }
 
 
