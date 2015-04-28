@@ -286,19 +286,27 @@ EOT
 		</footer>
 	</form>
 </section>
+EOT
 
-
+		# `who` output is empty in the Live mode
+		if [ -n "$(who)" ]; then
+			cat <<EOT
 <section>
 	<header>$(_ 'Current user sessions')</header>
 	<pre>$(who)</pre>
 </section>
+EOT
+		fi
 
-
+		# `last` output is empty (just header) in the Live mode
+		if [ "$(last | wc -l)" != "1" ]; then
+			cat <<EOT
 <section>
 	<header>$(_ 'Last user sessions')</header>
 	<div class="scroll"><pre>$(last)</pre></div>
 </section>
 EOT
+		fi
 		;;
 
 

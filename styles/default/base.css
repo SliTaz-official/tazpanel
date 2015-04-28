@@ -139,7 +139,7 @@ section header {
 	display: table; width: 100%;
 	border-radius: 0.3rem 0.3rem 0 0;
 	font-weight: bold; font-size: 1.1rem;/* line-height: 0;*/
-	text-shadow: 0 1px 1px hsla(0, 0%, 0%, 0.5);
+	text-shadow: 0 1px 1px hsla(0, 0%, 0%, 0.2);
 	overflow: auto; /* provide break after floated objects */
 	vertical-align: baseline;
 }
