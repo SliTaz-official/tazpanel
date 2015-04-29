@@ -38,11 +38,22 @@ case " $(GET) " in
 		logtype="$(GET syslog)"
 		[ "${logtype:-syslog}" == "syslog" ] && logtype=messages
 		xhtml_header
-		[ -w /etc/syslog.conf ] && cat <<EOT
-<a href="index.cgi?file=/etc/syslog.conf&amp;action=edit" data-img="conf"></a>syslog.conf
-EOT
+
 		cat <<EOT
-<h2>$(_ 'System logs')</h2>
+<section>
+	<header>
+		$(_ 'System logs')
+EOT
+
+		[ -w /etc/syslog.conf ] && cat <<EOT
+		<form action="index.cgi">
+			<input type="hidden" name="file" value="/etc/syslog.conf"/>
+			<button name="action" value="edit" data-icon="edit">syslog.conf</button>
+		</form>
+EOT
+
+		cat <<EOT
+	</header>
 
 <ul id="tabs">
 EOT
@@ -56,14 +67,13 @@ EOT
 		cat <<EOT
 </ul>
 
-<section>
-	<div>
-		<pre>$(syntax_highlighter kernel < /var/log/$logtype | \
-					   loghead /var/log/$logtype)</pre>
-	</div>
+	<pre style="overflow-x: auto">$(syntax_highlighter kernel < /var/log/$logtype | \
+		loghead /var/log/$logtype)</pre>
 </section>
 EOT
 		;;
+
+
 	*\ log\ *)
 		unset actboot actslim actxlog actkernel colors
 		case "$(GET log)" in
@@ -94,7 +104,7 @@ EOT
 
 <section>
 	<div>
-		<pre$colors>$output</pre>
+		<pre$colors style="overflow-x: auto">$output</pre>
 	</div>
 </section>
 EOT
@@ -513,7 +523,7 @@ EOT
 		cat <<EOT
 		</form>
 	</header>
-	<pre>$(cat /etc/init.d/local.sh | syntax_highlighter sh)</pre>
+	<pre><code class="language-bash">$(cat /etc/init.d/local.sh | htmlize)</code></pre>
 </section>
 EOT
 		;;

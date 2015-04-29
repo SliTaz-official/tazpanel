@@ -180,16 +180,14 @@ EOT
 EOT
 			if [ -w "$file" ]; then
 				cat <<EOT
-		<span class="float-right">
-			<button onclick='editFile()' id="edit_button" data-icon="edit">$(_ 'Edit')</button>
-			<button onclick='saveFile("$file", "$title")' id="save_button" 
-				data-icon="save" style="display:none">$(_ 'Save')</button>
-		</span>
-		<!--form>
+		<form>
 			<input type="hidden" name="file" value="$file"/>
-			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button><!--
+			<button onclick='editFile(); return false' id="edit_button" 
+				data-icon="edit">$(_ 'Edit')</button><!--
+			--><button onclick='saveFile("$file", "$title"); return false' id="save_button" 
+				data-icon="save" style="display:none">$(_ 'Save')</button><!--
 			-->$(file_is_modified $file button)
-		</form-->
+		</form>
 EOT
 			elif [ -r "$file" ]; then
 				cat <<EOT
