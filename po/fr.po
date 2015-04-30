@@ -657,7 +657,7 @@ msgstr ""
 
 #: hardware.cgi:480
 msgid "Pass"
-msgstr "Mot de passe :"
+msgstr "Passe"
 
 #: hardware.cgi:502
 msgid "Loop devices"

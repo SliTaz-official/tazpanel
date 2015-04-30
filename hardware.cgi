@@ -27,6 +27,25 @@ disk_info() {
 	done 2> /dev/null | sed 's/  */ /g'
 }
 
+lsusb_vd() {
+	if lsusb --help 2>&1 | grep -qi busybox ; then
+		for i in /sys/class/usb_device/*/device ; do
+			grep -qs ${1%:*} $i/idVendor || continue
+			grep -qs ${1#*:} $i/idProduct || continue
+			( cd $i ; for j in * ; do
+				[ -f $j -a -r $j ] || continue
+				case "$j" in
+				descriptors|remove) continue
+				esac
+				printf "%-20s %s\n" $j "$(xargs echo < $j)"
+			  done  )
+			break
+		done
+	else
+		lsusb -vd $1 | syntax_highlighter lsusb
+	fi
+}
+
 lsusb_table() {
 	cat <<EOT
 <table class="wide zebra">
@@ -40,11 +59,12 @@ lsusb_table() {
 	</thead>
 <tbody>
 EOT
-	lsusb | sed 's|^Bus \([0-9]*\)|<tr><td>\1</td>|;
-			s|</td> Device \([0-9]*\):|</td><td>\1</td>|;
-			s|</td> ID \([^:]*:[^ ]*\)|</td><td><a href="?lsusb=\1">\1</a></td>|;
-			s| |<td>|2;
-			s|.*$|\0</td></tr>|'
+	lsusb | while read x b y d z id name ; do
+		echo "<tr><td>$b</td><td>${d%:}</td><td><a href=\"?lsusb=$id"
+		p=$(printf "class/usb_device/usbdev%d.%d" $b ${d%:})
+		grep -qs 0 /sys/$p/device/authorized && id="<del>$id</del>"
+		echo "\">$id</td><td>$name</td></tr>"
+	done
 	echo "</tbody></table>"
 }
 
@@ -185,7 +205,7 @@ EOT
 EOT
 		[ "$vidpid" != 'lsusb' ] && cat <<EOT
 <section>
-	<pre style="white-space: pre-wrap">$(lsusb -vd $vidpid | syntax_highlighter lsusb)</pre>
+	<pre style="white-space: pre-wrap">$(lsusb_vd $vidpid)</pre>
 </section>
 EOT
 		;;
@@ -407,9 +427,11 @@ EOT
 			1) disktype="cd" ;;
 			esac
 
+			radio="<input type=\"radio\" name=\"device\" value=\"$action $fs\" id=\"${fs#/dev/}\"/>"
+			[ "$REMOTE_USER" == "root" ] || radio=""
 			cat <<EOT
 			<tr>
-				<td><input type="radio" name="device" value="$action $fs" id="${fs#/dev/}"/><!--
+				<td>$radio<!--
 					--><label for="${fs#/dev/}" data-icon="$disktype">&thinsp;${fs#/dev/}</label></td>
 				<td>$(blkid $fs | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/\1/')</td>
 				<td>$type</td>
