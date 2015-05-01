@@ -12,7 +12,6 @@
 
 . lib/libtazpanel
 get_config
-header
 
 TITLE=$(_ 'TazPanel - Settings')
 
@@ -95,6 +94,76 @@ case " $(GET) " in
 	*\ style*)
 		sed -i s/'^STYLE.*'/"STYLE=\"$(GET style)\""/ $CONFIG
 		. $CONFIG ;;
+
+
+	*\ tweak\ *)
+		HOME="$(awk -F: -vu=$REMOTE_USER '$1==u{print $6}' /etc/passwd)"
+		[ -z "$HOME" ] && exit 0
+
+		case $REMOTE_USER in
+			root) color=31; ind='#';;
+			*)    color=32; ind='$';;
+		esac
+
+		case $(GET tweak) in
+			monochrome)
+				# PS1='\u@\h:\w\$ '
+				sed -i "s|^PS1=.*|PS1='\\\\u@\\\\h:\\\\w\\\\$ind '|" $HOME/.profile;;
+			colored)
+				# PS1='\[\e[0;32m\]\u@\h\[\e[0m\]:\[\e[0;33m\]\w\[\e[0m\]\$ '
+				sed -i "s|^PS1=.*|PS1='\\\\\\[\\\\e\[0;${color}m\\\\\\]\\\\u@\\\\h\\\\\\[\\\\e\\[0m\\\\\\]:\\\\\\[\\\\e\\[0;33m\\\\\\]\\\\w\\\\\\[\\\\e\\[0m\\\\\\]\\\\$ind '|" $HOME/.profile;;
+			slitaz-*)
+				lxpanel="$HOME/.config/lxpanel"
+				if [ ! -e "$lxpanel" ]; then
+					mkdir -p "$lxpanel"; cp /etc/lxpanel/default /etc/lxpanel/slitaz $lxpanel
+				fi
+				for panel in $(find /home/tux/.config/lxpanel -type f -iname panel); do
+					awk -vicon="/usr/share/pixmaps/$(GET tweak).png" '
+					BEGIN{ found = "0"; }
+					{
+						if ($1 == "Plugin") { found = "1"; }
+
+						if (found == "1" && $1 == "type") {
+							if ($3 == "menu") found = "2"; else found = "0";
+						}
+
+						if (found == "2" && $1 == "Plugin") { found = "0"; }
+
+						if (found == "2" && index($1, "image")) {
+							printf "        image=%s\n", icon;
+							found = 0;
+						} else {
+							print;
+						}
+					}
+					' $panel > $panel.new
+					mv -f $panel.new $panel
+				done
+
+				# `lxpanelctl restart` exists, but it breaks often leaving us without any panel
+				killall lxpanel; DISPLAY=':0.0' lxpanel &
+				;;
+			menu-notext)
+				dd="$HOME/.local/share/desktop-directories"
+				mkdir -p $dd
+				echo -e '[Desktop Entry]\nType=Directory\nName=' > $dd/SliTazMenu.directory
+				killall lxpanel; DISPLAY=':0.0' lxpanel &
+				;;
+			menu-text)
+				dd="$HOME/.local/share/desktop-directories/SliTazMenu.directory"
+				[ -f "$dd" ] && rm "$dd"
+				killall lxpanel; DISPLAY=':0.0' lxpanel &
+				;;
+		esac
+		exit 0
+		;;
+
+
+	*\ menuIcon\ *)
+		icon="/usr/share/pixmaps/$(GET menuIcon).png"
+		[ ! -r $icon ] && exit 0
+		header "Content-Type: image/png"; cat $icon; exit 0
+		;;
 esac
 
 
@@ -105,14 +174,16 @@ esac
 # Default xHTML content
 #
 
+header
 xhtml_header
-check_root_tazpanel
 
 case " $(GET) " in
 	*\ group*)
 		#
 		# Groups management
 		#
+		check_root_tazpanel
+
 		cat <<EOT
 <h2 id="groups">$(_ 'Manage groups')</h2>
 
@@ -206,6 +277,8 @@ EOT
 		#
 		# Users management
 		#
+		check_root_tazpanel
+
 		cat <<EOT
 <h2 id="users">$(_ 'Manage users')</h2>
 
@@ -314,6 +387,8 @@ EOT
 		#
 		# Choose locale
 		#
+		check_root_tazpanel
+
 		LOADING_MSG="$(_ 'Please wait...')"; loading_msg
 
 		cur_loc=$(locale | grep LANG | cut -d= -f2)
@@ -388,10 +463,123 @@ EOT
 		;;
 
 
+	*\ tweaks\ *)
+		#
+		# Small tweaks for user
+		#
+
+		user="$REMOTE_USER"; host="$(hostname)"
+		HOME="$(awk -F: -vu=$user '$1==u{print $6}' /etc/passwd)"
+		font="${TERM_FONT:-monospace}"; palette=$(echo $TERM_PALETTE | tr A-Z a-z)
+		case $user in
+			root) color=31; ind="#";;
+			*)    color=32; ind="$";;
+		esac
+
+		prompt_bw="$user@$host:/usr/bin$ind"
+		prompt_c="<span class=\"color$color\">$user@$host</span>:<span class=\"color33\">/usr/bin</span>$ind"
+		cursor="<span class=\"color47\">_</span>"
+		cat <<EOT
+<script type="text/javascript">
+function tweak(tweakName) {
+	// Send request to the server
+	var hiddenImg = document.createElement('IMG');
+	hiddenImg.src = "settings.cgi?tweak=" + tweakName;
+}
+</script>
+
+<section>
+	<header>$(_ 'Small quick tweaks for user %s' "$user")</header>
+
+	<fieldset><legend>$(_ 'Terminal prompt')</legend>
+		<table class="wide">
+			<tr>
+				<td>
+					<label>
+						<input type="radio" name="termPrompt" onclick="tweak('monochrome')"/>
+						$(_ 'Monochrome')
+					</label>
+					<pre class="term $palette" style="font-family: '$font'; height: 5rem;">
+$prompt_bw uname -r<br/>$(uname -r)<br/>$prompt_bw date<br/>$(date)<br/>$prompt_bw $cursor
+</pre>
+				</td>
+				<td>
+					<label>
+						<input type="radio" name="termPrompt" onclick="tweak('colored')"/>
+						$(_ 'Colored')
+					</label>
+					<pre class="term $palette" style="font-family: '$font'; height: 5rem;">
+$prompt_c uname -r<br/>$(uname -r)<br/>$prompt_c date<br/>$(date)<br/>$prompt_c $cursor
+</pre>
+				</td>
+			</tr>
+		</table>
+
+		<p>$(_ 'Manual edit: %s' "<a data-icon=\"conf\" href="index.cgi?file=$HOME/.profile">~/.profile</a>")<br/>
+$(_ 'To take effect: log out and log in to system or execute command in the terminal:')</p>
+
+		<pre>. ~/.profile</pre>
+	</fieldset>
+
+	<br/>
+
+	<fieldset>
+		<legend>$(_ 'Menu button appearance')</legend>
+		<table class="wide">
+			<tr>
+				<td style="vertical-align: top">
+					<fieldset>
+						<legend>$(_ 'Icon:')</legend>
+						<label>
+							<input type="radio" name="menuIcon" onclick="tweak('slitaz-menu-empty')"/>
+							$(_ 'Do not show')
+						</label><br/>
+						<label>
+							<input type="radio" name="menuIcon" onclick="tweak('slitaz-button-red')"/>
+							<img src="?menuIcon=slitaz-button-red"/>
+						</label><br/>
+						<label>
+							<input type="radio" name="menuIcon" onclick="tweak('slitaz-menu')"/>
+							<img src="?menuIcon=slitaz-menu"/>
+						</label><br/>
+						<label>
+							<input type="radio" name="menuIcon" onclick="tweak('slitaz-button')"/>
+							<img src="?menuIcon=slitaz-button"/>
+						</label>
+					</fieldset>
+				</td>
+				<td style="vertical-align: top">
+					<fieldset>
+						<legend>$(_ 'Text:')</legend>
+						<label>
+							<input type="radio" name="menuText" onclick="tweak('menu-notext')"/>
+							$(_ 'Do not show')
+						</label><br/>
+						<label>
+							<input type="radio" name="menuText" onclick="tweak('menu-text')"/>
+							$(_ 'Show text')
+						</label>
+					</fieldset>
+				</td>
+			</tr>
+		</table>
+		<p>$(_ 'Manual edit: %s' \
+			"<a data-icon=\"conf\" href=\"index.cgi?file=$HOME/.local/share/desktop-directories/SliTazMenu.directory\">~/.local/share/desktop-directories/SliTazMenu.directory</a>
+			$(
+				find $HOME/.config/lxpanel -type f -name panel | awk -vh="$HOME" \
+				'{ printf "<a data-icon=\"conf\" href=\"index.cgi?file=%s\">%s</a> ", $1, gensub(h, "~", "")}'
+			)")</p>
+	</fieldset>
+</section>
+EOT
+		;;
+
+
 	*)
 		#
 		# Default system settings page
 		#
+		check_root_tazpanel
 
 		cat <<EOT
 <h2>$(_ 'System settings')</h2>

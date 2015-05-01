@@ -78,9 +78,10 @@ cat << EOT
   <li tabindex="5">
    <span>$(_ 'Settings')</span>
    <menu>
-    <li><a data-icon="info"  href="settings.cgi" data-root>$(_ 'Summary')</a></li>
-    <li><a data-icon="user"  href="settings.cgi?users" data-root>$(_ 'Users')</a></li>
-    <li><a data-icon="group" href="settings.cgi?groups" data-root>$(_ 'Groups')</a></li>
+    <li><a data-icon="info"     href="settings.cgi" data-root>$(_ 'Summary')</a></li>
+    <li><a data-icon="user"     href="settings.cgi?users" data-root>$(_ 'Users')</a></li>
+    <li><a data-icon="group"    href="settings.cgi?groups" data-root>$(_ 'Groups')</a></li>
+    <li><a data-icon="settings" href="settings.cgi?tweaks">$(_ 'Tweaks')</a></li>
     $(for i in menu.d/settings/* ; do [ -f $i ] && sh $i menu $i ; done)
    </menu>
   </li>
