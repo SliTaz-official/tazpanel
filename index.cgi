@@ -65,17 +65,6 @@ term_prompt() {
 
 
 #
-# Things to do before displaying the page
-#
-
-[ -n "$(GET panel_pass)" ] &&
-	sed -i s@/:root:.*@/:root:$(GET panel_pass)@ $HTTPD_CONF
-
-
-
-
-
-#
 # Commands
 #
 

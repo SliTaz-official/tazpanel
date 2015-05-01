@@ -179,13 +179,16 @@ EOT
 				httpd)
 					_ 'Small and fast web server with CGI support' ;;
 				ntpd)
+					cfg="man|help|edit::/etc/ntp.conf|options"
 					_ 'Network time protocol daemon' ;;
 				ftpd)
 					cfg="man|help|edit::/etc/inetd.conf"
 					_ 'Anonymous FTP server' ;;
 				udhcpd)
+					cfg="man|help|edit|options"
 					_ 'Busybox DHCP server' ;;
 				syslogd|klogd)
+					cfg="man|help|edit::/etc/syslog.conf|options"
 					_ 'Linux Kernel log daemon' ;;
 				crond)
 					# FIXME crontab
@@ -194,8 +197,11 @@ EOT
 					cfg="man|help|edit|options::-d"
 					_ 'Small static DNS server daemon' ;;
 				tftpd)
-					cfg="man|help|edit::/etc/inetd.conf"
+					cfg="man|help|edit::/etc/inetd.conf|options"
 					_ 'Transfer a file on tftp request' ;;
+				lpd)
+					cfg="man|help|options"
+					_ 'Printer daemon' ;;
 				inetd)
 					_ 'Listen for network connections and launch programs' ;;
 				zcip)
@@ -236,7 +242,7 @@ EOT
 					case "$1" in
 					edit)
 						cat <<EOT
-<a href="index.cgi?file=${3:-/etc/$name.conf}&amp;action=edit" title="${2:-$name Configuration}" data-img="conf"></a>
+<a href="index.cgi?file=${3:-/etc/$name.conf}&amp;action=edit" title="${2:-$name Configuration} in ${3:-/etc/$name.conf}" data-img="conf"></a>
 EOT
 						;;
 					options)

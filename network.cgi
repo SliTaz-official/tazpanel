@@ -129,6 +129,16 @@ case " $(GET) " in
 		start_wifi ;;
 	*\ start_eth\ *)
 		start_eth ;;
+	*\ dowakeup\ *)
+		mac="$(GET macwakup)"
+		unset pass
+		[ "$(GET pass)" ] && pass="-p $(GET pass)"
+		if [ "$mac" ]; then
+			ether-wake $(GET iface) $mac $pass
+		else
+			ether-wake -b $(GET iface) $pass
+		fi
+		;;
 	*\ host\ *)
 		get_hostname="$(GET host)"
 		echo $(_ 'Changed hostname: %s' $get_hostname) | log
@@ -249,25 +259,40 @@ automatically get a random IP or configure a static/fixed IP")</p>
 				<tr id="st4"><td>$(_ 'DNS server')</td>
 					<td><input type="text" name="dns"     value="$DNS_SERVER" $PAR/></td>
 				</tr>
+				<tr><td>$(_ 'Wake up')</td>
+					<td><label><input type="checkbox" name="wakeup" id="wakeup" />
+						$(_ 'Wake up machines by network')</td>
+				</tr>
+				<tr id="wk1"><td>$(_ 'MAC address to wake up')</td>
+					<td><input type="text" name="macwakup" title="$(_ 'Leave empty for a general wakeup')" $PAR/><!--
+					<button name="ethers" value="/etc/ethers" data-icon="view">$(_ 'View')</button -->
+					</td>
+				</tr>
 			</table>
 		</div>
 	</form>
 	<footer><!--
 		--><button form="conf" type="submit" name="start_eth" data-icon="start" $start_disabled>$(_ 'Start'  )</button><!--
 		--><button form="conf" type="submit" name="stop"      data-icon="stop"  $stop_disabled >$(_ 'Stop'   )</button><!--
+		--><button form="conf" type="submit" name="dowakeup"  data-icon="clock" $stop_disabled >$(_ 'Wake up')</button><!--
 	--></footer>
 </section>
 
 <script type="text/javascript">
-function static_change() {
-	staticip = document.getElementById('staticip').checked;
+function check_change() {
+	enabled = document.getElementById('staticip').checked;
 	for (i = 1; i < 5; i++) {
-		document.getElementById('st' + i).style.display = staticip ? '' : 'none';
+		document.getElementById('st' + i).style.display = enabled ? '' : 'none';
+	}
+	enabled = document.getElementById('wakeup').checked;
+	for (i = 1; i < 2; i++) {
+		document.getElementById('wk' + i).style.display = enabled ? '' : 'none';
 	}
 }
 
-document.getElementById('staticip').onchange = static_change;
-static_change();
+document.getElementById('staticip').onchange = check_change;
+document.getElementById('wakeup').onchange = check_change;
+check_change();
 </script>
 EOT
 		cat <<EOT
