@@ -28,7 +28,10 @@ listdb() {
 	done
 }
 
-
+restart_lxpanel() {
+	# `lxpanelctl restart` exists, but it breaks often leaving us without any panel
+	killall lxpanel; DISPLAY=':0.0' lxpanel &
+}
 
 
 
@@ -100,6 +103,8 @@ case " $(GET) " in
 		HOME="$(awk -F: -vu=$REMOTE_USER '$1==u{print $6}' /etc/passwd)"
 		[ -z "$HOME" ] && exit 0
 
+		dd="$HOME/.local/share/desktop-directories"; sd="$dd/SliTazMenu.directory"
+
 		case $REMOTE_USER in
 			root) color=31; ind='#';;
 			*)    color=32; ind='$';;
@@ -117,7 +122,7 @@ case " $(GET) " in
 				if [ ! -e "$lxpanel" ]; then
 					mkdir -p "$lxpanel"; cp /etc/lxpanel/default /etc/lxpanel/slitaz $lxpanel
 				fi
-				for panel in $(find /home/tux/.config/lxpanel -type f -iname panel); do
+				for panel in $(find $lxpanel -type f -iname panel); do
 					awk -vicon="/usr/share/pixmaps/$(GET tweak).png" '
 					BEGIN{ found = "0"; }
 					{
@@ -140,20 +145,14 @@ case " $(GET) " in
 					mv -f $panel.new $panel
 				done
 
-				# `lxpanelctl restart` exists, but it breaks often leaving us without any panel
-				killall lxpanel; DISPLAY=':0.0' lxpanel &
-				;;
+				restart_lxpanel;;
 			menu-notext)
-				dd="$HOME/.local/share/desktop-directories"
 				mkdir -p $dd
-				echo -e '[Desktop Entry]\nType=Directory\nName=' > $dd/SliTazMenu.directory
-				killall lxpanel; DISPLAY=':0.0' lxpanel &
-				;;
+				echo -e '[Desktop Entry]\nType=Directory\nName=' > $sd
+				restart_lxpanel;;
 			menu-text)
-				dd="$HOME/.local/share/desktop-directories/SliTazMenu.directory"
-				[ -f "$dd" ] && rm "$dd"
-				killall lxpanel; DISPLAY=':0.0' lxpanel &
-				;;
+				[ -f "$sd" ] && rm "$sd"
+				restart_lxpanel;;
 		esac
 		exit 0
 		;;
