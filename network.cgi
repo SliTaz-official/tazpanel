@@ -132,7 +132,7 @@ case " $(GET) " in
 	*\ dowakeup\ *)
 		mac="$(GET macwakup)"
 		unset pass
-		[ "$(GET pass)" ] && pass="-p $(GET pass)"
+		[ "$(GET macpass)" ] && pass="-p $(GET macpass)"
 		if [ "$mac" ]; then
 			ether-wake $(GET iface) $mac $pass
 		else
@@ -222,6 +222,7 @@ EOT
 			stop_disabled='disabled'
 		fi
 
+		[ -s /etc/ethers ] || echo "#01:02:03:04:05:06 mystation" > /etc/ethers
 		cat <<EOT
 <h2>$(_ 'Ethernet connection')</h2>
 EOT
@@ -231,6 +232,7 @@ automatically get a random IP or configure a static/fixed IP")</p>
 
 <section>
 	<header>$(_ 'Configuration')</header>
+	<form action="index.cgi" id="indexform"></form>
 	<form id="conf">
 		<input type="hidden" name="eth"/>
 		<div>
@@ -265,7 +267,12 @@ automatically get a random IP or configure a static/fixed IP")</p>
 				</tr>
 				<tr id="wk1"><td>$(_ 'MAC address to wake up')</td>
 					<td><input type="text" name="macwakup" title="$(_ 'Leave empty for a general wakeup')" $PAR/><!--
-					<button name="ethers" value="/etc/ethers" data-icon="view">$(_ 'View')</button -->
+					--><button form="indexform" name="file" value="/etc/ethers" data-icon="view">$(_ 'List')</button>
+					</td>
+				</tr>
+				<tr id="wk2"><td>$(_ 'MAC/IP address password')</td>
+					<td><input type="text" name="macpass" title="$(_ 'Leave empty for a general wakeup')" $PAR/><!--
+					--><button form="indexform" name="exec" value="ether-wake --help" data-icon="help">$(_ 'Help')</button>
 					</td>
 				</tr>
 			</table>
@@ -285,7 +292,7 @@ function check_change() {
 		document.getElementById('st' + i).style.display = enabled ? '' : 'none';
 	}
 	enabled = document.getElementById('wakeup').checked;
-	for (i = 1; i < 2; i++) {
+	for (i = 1; i < 3; i++) {
 		document.getElementById('wk' + i).style.display = enabled ? '' : 'none';
 	}
 }
