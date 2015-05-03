@@ -6,7 +6,8 @@ extra_menu() {
 	for i in menu.d/$1/* ; do
 		[ -f $i ] && sh $i menu $i
 		[ -d $i ] || continue
-		echo -e "<li><a data-icon=\"add\">$(gettext "$(basename $i)")</a>\n<menu>"
+		icon="$(sed '/data-icon/!d;s/.*data-icon="\([^"]*\).*/\1/;q' $i/*)"
+		echo -e "<li><a data-icon=\"${icon:-add}\">$(gettext "$(basename $i)")</a>\n<menu>"
 		extra_menu ${i#menu.d/}
 		echo -e "</menu>\n</li>"
 	done
