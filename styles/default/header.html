@@ -2,13 +2,17 @@ rootclass='user'; [ $(id -u) == '0' ] && rootclass='root'
 export TEXTDOMAIN='tazpanel'
 
 extra_menu() {
-	local i j
-	for i in menu.d/$1/* ; do
-		[ -f $i ] && sh $i menu $i
-		[ -d $i ] || continue
-		icon="$(sed '/data-icon/!d;s/.*data-icon="\([^"]*\).*/\1/;q' $i/*)"
-		echo -e "<li><a data-icon=\"${icon:-add}\">$(gettext "$(basename $i)")</a>\n<menu>"
-		extra_menu ${i#menu.d/}
+	local x
+	case "$1" in
+	*/*)	filter="s/data-icon=\\\"[^\\\"]*\\\"/data-icon=\\\"\\\"/" ;;
+	*)	filter= ;;
+	esac
+	for x in menu.d/$1/* ; do
+		[ -f $x ] && sh $x menu $x | sed "$filter"
+		[ -d $x ] || continue
+		icon="$(sed '/data-icon/!d;s/.*data-icon="\([^"]*\).*/\1/;q' $x/*)"
+		echo -e "<li><a data-icon=\"${icon:-add}\">$(_ "$(basename $x)")</a>\n<menu>"
+		extra_menu ${x#menu.d/}
 		echo -e "</menu>\n</li>"
 	done
 }
