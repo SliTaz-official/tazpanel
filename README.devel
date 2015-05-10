@@ -7,7 +7,7 @@ network.cgi
 -----------
 
 Goal: allow ANY symbols in the WPA PSK (Wi-Fi password).
-We can find WPA PSK in the different places, and there are different
+We can find WPA PSK in all the different places, and there are different
 restrictions to write it.
 
 a) /etc/network.conf: SliTaz system wide networking configuration;
@@ -15,17 +15,16 @@ b) /etc/wpa/wpa.conf: wpa_supplicant configuration file;
 c) html input form in the TazPanel > Network > Wireless;
 d) saved passwords for known networks in the javascript in the same place.
 
-Let's see all that files/places one by one.
+Let's see all those files/places one by one.
 
 
 a) network.conf
 
-Really "network.conf" is a shell script. It contains variables definitions, and
-it sourced into other shell scripts to define all Wi-Fi configuration variables.
-By default, we can see variable and its content in the double quotes:
+Really "network.conf" is a shell script. It contains variables definitions and
+is sourced into other shell scripts to define all Wi-Fi configuration variables.
+By default, we can see variables and their contents in the double quotes:
 
 WIFI_KEY="mypassword"
-
 There are many pitfalls if we allow ANY symbols here:
 
 Variable expansion:
@@ -39,13 +38,13 @@ WIFI_KEY="`rm -rf /`"
 Quoting problem:
 WIFI_KEY="abc"def'ghi"
 
-Seems, we'll solve the problem when escape some symbols:
+Seems, we'll solve the problem when escaping some symbols:
 \ → \\
 " → \"
 $ → \$
 ` → \`
 
-Another solution exists (and currently I stick to it): single quotes. We need no
+Another solution exists (and currently I stick to it): single quotes. We need not
 escape anything but single quotes (') in the single quotes terminated string.
 And yes, this quoting is a pain for brain:
 
@@ -56,10 +55,10 @@ But it is simple work for sed command.
 
 b) wpa.conf
 
-wpa_supplicant actually connects us to our Wi-Fi networks, and it is a file
+wpa_supplicant actually connects us to our Wi-Fi networks and it is a file
 where we can store all our networks settings, including passwords. It is handy
 when you have one network at home, other - at work, and another - at your
-friends home. Really, you shouldn't to re-enter all these passwords again.
+friends home. Really, you shouldn't need to re-enter all these passwords again.
 
 We can read a lot of useful information in the wpa_supplicant.conf file
 (/etc/wpa/wpa_supplicant.conf):
@@ -72,16 +71,16 @@ We can read a lot of useful information in the wpa_supplicant.conf file
 # be used to indicate that the PSK/passphrase is stored in external storage.
 # This field is not needed, if WPA-EAP is used.
 # Note: Separate tool, wpa_passphrase, can be used to generate 256-bit keys
-# from ASCII passphrase. This process uses lot of CPU and wpa_supplicant
+# from ASCII passphrase. This process uses lots of CPU and wpa_supplicant
 # startup and reconfiguration time can be optimized by generating the PSK only
 # only when the passphrase or SSID has actually changed.
 
 
-Interesting and good method to use 64 symbols "passwords", maybe we switch to it
+Interesting and good method to use 64 symbols "passwords", maybe we can switch to it
 sometimes. Example of using "wpa_passphrase":
-Let network name is: my_wifi
-Let password is    : abc'def"ghi
-Let's run utility twice - with different quoting style:
+Let network name be: my_wifi
+Let password be  : abc'def"ghi
+Let's run utility twice - with a different quoting style:
 
 tux@slitaz:~$ wpa_passphrase my_wifi "abc'def\"ghi"
 network={
@@ -96,10 +95,10 @@ network={
 	psk=e99c121a998a0c35419b16fd56beb38d2b471fd5519518c056af933e9daf3e30
 }
 
-Here psk are identical, so we can use this method.
+Here the psk are identical, so we can use this method.
 
 But I can't find advanced info about quoting style in the wpa_supplicant
-configuration file. So, I ended with little experiment. I've created new
+configuration file. So, I ended with a little experiment. I've created a new
 network connection in my Android smartphone and viewed my
 /data/misc/wifi/wpa_supplicant.conf file using Root Explorer application:
 
@@ -110,9 +109,9 @@ network={
   key_mgmt=WPA-PSK
 }
 
-Yes, we can see unpaired quotes. Really don't know is it right. Maybe,
-wpa_supplicant just readed line content between first and last quotes. Need to
-dig into sources... And now I not quote psk in any manner.
+Yes, we can see unpaired quotes. Really I don't know if it is right. Maybe,
+wpa_supplicant just reads line content between first and last quotes. Need to
+dig into sources... And now I will not quote psk in any manner.
 
 
 c) network.cgi form input
@@ -121,7 +120,7 @@ Piece of html code:
 
 <input type="password" name="password" value="$WIFI_KEY" id="password"/>
 
-Here we free to use single quotes or double quotes, but we should escape them
+Here we are free to use single quotes or double quotes, but we should escape them
 in the html manner:
 ' → &apos;
 " → &quot;
@@ -135,8 +134,8 @@ Also, don't forget about these symbols:
 d) network.cgi javascript database
 
 Also, we store passwords in the known networks database in the form of
-javascript to gain user experience without page to be reloaded: you can click
-Wi-Fi network name and script will fill its password for you.
+javascript to gain user experience without pages having to be reloaded: you can click
+Wi-Fi network name and the script will fill its password for you.
 
 Here example of that script on the html page:
 
@@ -150,7 +149,7 @@ Here example of that script on the html page:
 ];
 </script>
 
-Here we need to escape ('"&<>) symbols but in the slightly another manner:
+Here we need to escape ('"&<>) symbols but in another manner slightly:
 \ → \\
 " → \"
 
