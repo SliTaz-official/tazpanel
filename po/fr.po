@@ -1248,3 +1248,6 @@ msgstr " License BSD"
 
 #~ msgid "Console keymap"
 #~ msgstr "Type de clavier de la console"
+
+msgid "Tweaks"
+msgstr "Réglages"
