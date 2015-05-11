@@ -179,7 +179,7 @@ EOT
 				echo "		<tr><td><a data-icon='wifi' href='network.cgi?wifi'>$i</a></td>
 					<td>Wireless</td> $(interface_status $i)</tr>" ;;
 			ppp*)
-				echo "		<tr><td><span data-icon='removable'>$i</span></td>
+				echo "		<tr><td><a data-icon='removable' href='ppp.cgi'>$i</a></td>
 					<td>Point to point</td> $(interface_status $i)</tr>" ;;
 			lo)
 				echo "		<tr><td><span data-icon='loopback'>$i</span></td>
