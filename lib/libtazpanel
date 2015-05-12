@@ -151,7 +151,7 @@ interface_status() {
 			scan="<a data-icon=\"scan\" href='network.cgi?scan=$ip&amp;back=network.cgi'>$(_ 'Scan')</a>"
 		fi
 	fi
-	echo "<td>$ip</td><td>$status</td><td>$scan</td>"
+	echo "<td>$status</td><td>$ip</td><td>$scan</td>"
 }
 
 
