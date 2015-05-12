@@ -439,6 +439,7 @@ EOT
 		grep -l 1 /sys/block/*/removable | \
 		sed 's|/sys/block/\(.*\)/removable|\1|' | while read dev; do
 			grep -qs 1 /sys/block/$DEV/ro && continue
+			[ -d /sys/block/$DEV/device/scsi_disk ] || continue
 			echo -n "<option value=\"/dev/$dev\">/dev/$dev "
 			echo "$(blk2h < /sys/block/$dev/size) $(cat \
 				/sys/block/$i/device/model 2>/dev/null)</option>"
