@@ -111,6 +111,13 @@ wait_up() {
 	done
 }
 
+select_if() {
+	echo '<select name="interface">'
+	for i in $(ls /sys/class/net); do
+		echo "<option>$i"
+	done
+	echo '</select>'
+}
 
 # Actions commands before page is displayed
 
@@ -143,6 +150,12 @@ case " $(GET) " in
 		get_hostname="$(GET host)"
 		echo $(_ 'Changed hostname: %s' $get_hostname) | log
 		echo "$get_hostname" > /etc/hostname ;;
+	*\ rmarp\ *)
+		arp -d $(urldecode "$(GET entry)") ;;
+	*\ addarp\ *)
+		arp -i $(GET interface) -s $(GET ip) $(GET mac) ;;
+	*\ proxyarp\ *)
+		arp -i $(GET interface) -Ds $(GET ip) $(GET interface) ;;
 esac
 
 case " $(POST) " in
@@ -644,18 +657,20 @@ EOT
 
 
 <section>
-	<header id="hosts">$(_ 'Hosts')</header>
-	<pre>$(cat /etc/hosts)</pre>
+	<header id="hosts">
+		$(_ 'Hosts')
 EOT
 		[ -w /etc/hosts ] && cat <<EOT
-	<footer>
 		<form action="index.cgi">
 			<input type="hidden" name="file" value="/etc/hosts"/>
 			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
 		</form>
-	</footer>
 EOT
 		cat <<EOT
+	</header>
+	<footer>
+		<pre>$(cat /etc/hosts)</pre>
+	</footer>
 </section>
 
 
@@ -681,32 +696,72 @@ EOT
 
 <section>
 	<header id="ifconfig">$(_ 'Output of ifconfig')</header>
-	<pre>$(ifconfig)</pre>
+	<footer><pre>$(ifconfig)</pre></footer>
 </section>
 
 
 <section>
 	<header id="routing">$(_ 'Routing table')</header>
-	<pre>$(route -n)</pre>
+	<footer><pre>$(route -n)</pre></footer>
 </section>
 
 
 <section>
-	<header id="dns">$(_ 'Domain name resolution')</header>
-	<pre>$(cat /etc/resolv.conf)</pre>
+	<header id="dns">
+		$(_ 'Domain name resolution')
+EOT
+		[ -w /etc/resolv.conf ] && cat <<EOT
+		<form action="index.cgi">
+			<input type="hidden" name="file" value="/etc/resolv.conf"/>
+			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
+		</form>
+EOT
+		cat <<EOT
+	</header>
+	<footer><pre>$(cat /etc/resolv.conf)</pre></footer>
 </section>
 
 
 <section>
 	<header id="arp">$(_ 'ARP table')</header>
-	<pre>$(arp)</pre>
+	<footer>
+EOT
+		if [ "$REMOTE_USER" == "root" ]; then
+			echo "<table>"
+			arp -n | while read line ; do
+				cat <<EOT
+<form>
+	<tr><td>
+	<input type="hidden" name="entry" value="$(urlencode "$(echo $line | \
+		sed 's/) .* on/ -i/;s/.*(//')")">
+	<button type="submit" data-icon="remove" name="rmarp"></button>
+	</td><td><pre>$line</pre></td></tr>
+</form>
+EOT
+			done
+			cat <<EOT
+			</table>
+		<form>
+			IP <input type="text" name="ip" value="10.20.30.40" size="12" /> on $(select_if)<!--
+			--><button type="submit" data-icon="upgrade" name="proxyarp">$(_ 'Proxy')</button>
+			or <button type="submit" data-icon="add" name="addarp">$(_ 'Add')</button>
+			 MAC <input type="text" name="mac" value="11:22:33:44:55:66" size="16" />
+		</form>
+EOT
+		else
+			echo "<pre>$(arp -n)</pre>"
+		fi
+		cat <<EOT
+	</footer>
 </section>
 
 
 <section>
 	<header id="connections">$(_ 'IP Connections')</header>
+	<footer>
 	<pre>$(netstat -anp 2>/dev/null | sed -e '/UNIX domain sockets/,$d' \
 -e 's#\([0-9]*\)/#<a href="boot.cgi?daemons=pid=\1">\1</a>/#')</pre>
+	</footer>
 </section>
 EOT
 		;;
