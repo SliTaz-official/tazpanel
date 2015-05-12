@@ -422,10 +422,11 @@ EOT
 			<option value="/dev/null">Choose a partition (optional)</option>
 EOT
 		blkid | grep -iE "(msdos|vfat|ntfs|ext[234]|xfs|btrfs)" | \
-		sed 's|^/dev/\(.*\):.*LABEL="\([^"]*\).* TYPE="\([^"]*\).*|\1 "\2" \3|' | \
+		sed -e 's|[A-Z]*ID="[^"]*"||g;s| SEC[^ ]*||;s|LABEL=||;s|:||' \
+		    -e 's|TYPE="\([^"]*\)"|\1|;s|/dev/||' | \
 		while read dev label type; do
-			echo -n "<option value=\"/dev/$dev\">/dev/$dev $label "
-			echo "$(blk2h < /sys/block/${dev:0:3}/$dev/size) $type</option>"
+			echo -n "<option value=\"/dev/$dev\">/dev/$dev $label $type "
+			echo "$(blk2h < /sys/block/${dev:0:3}/$dev/size)</option>"
 		done 
 		cat <<EOT
 			</select></td></tr>
