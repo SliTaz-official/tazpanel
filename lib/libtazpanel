@@ -181,6 +181,9 @@ EOT
 			ppp*)
 				echo "		<tr><td><a data-icon='removable' href='ppp.cgi'>$i</a></td>
 					<td>Point to point</td> $(interface_status $i)</tr>" ;;
+			tap[0-9]*|tun[0-9]*)
+				echo "		<tr><td><span data-icon='removable'>$i</span></td>
+					<td>User space</td> $(interface_status $i)</tr>" ;;
 			lo)
 				echo "		<tr><td><span data-icon='loopback'>$i</span></td>
 					<td>Loopback</td> $(interface_status $i)</tr>" ;;
