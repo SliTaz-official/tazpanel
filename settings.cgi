@@ -30,7 +30,14 @@ listdb() {
 
 restart_lxpanel() {
 	# `lxpanelctl restart` exists, but it breaks often leaving us without any panel
-	killall lxpanel; DISPLAY=':0.0' lxpanel &
+	lxpanel_pid="$(ps -o comm,pid | fgrep lxpanel | awk '{print $2}')"
+	lxpanel_user="$(ps -o comm,user | fgrep lxpanel | awk '{print $2}')"
+	lxpanel_comm="$(ps -o pid,args | grep -e "^\ *$lxpanel_pid " | awk '{$1="";print}')"
+
+	if [ "$USER" == "$lxpanel_user" ]; then
+		kill $lxpanel_pid
+		DISPLAY=':0.0' XAUTHORITY='/var/run/slim.auth' $lxpanel_comm 1>/tmp/debug1 2>/tmp/debug2 &
+	fi
 }
 
 
@@ -122,6 +129,7 @@ case " $(GET) " in
 				if [ ! -e "$lxpanel" ]; then
 					mkdir -p "$lxpanel"; cp /etc/lxpanel/default /etc/lxpanel/slitaz $lxpanel
 				fi
+
 				for panel in $(find $lxpanel -type f -iname panel); do
 					awk -vicon="/usr/share/pixmaps/$(GET tweak).png" '
 					BEGIN{ found = "0"; }
