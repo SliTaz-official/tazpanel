@@ -146,11 +146,11 @@ interface_status() {
 	scan=""
 	if ifconfig | grep -A1 $1 | grep -q inet; then
 		ip=$(ifconfig | grep -A1 $1 | grep inet | awk '{ print $2 }' | cut -d: -f2)
-		if [ "$(cat /sys/class/net/$1/carrier)" == "1" ]; then
-			status="$(_ 'connected')"
-			scan="<a data-icon=\"scan\" href='network.cgi?scan=$ip&amp;back=network.cgi'>$(_ 'Scan')</a>"
-		fi
+		[ "$(cat /sys/class/net/$1/carrier)" == "1" ] &&
+		scan="<a data-icon=\"scan\" href='network.cgi?scan=$ip&amp;back=network.cgi'>$(_ 'Scan')</a>"
 	fi
+	[ "$(cat /sys/class/net/$1/carrier)" == "1" ] &&
+	status="$(_ 'connected')"
 	echo "<td>$status</td><td>$ip</td><td>$scan</td>"
 }
 
