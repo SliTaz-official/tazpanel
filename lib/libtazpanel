@@ -141,16 +141,17 @@ ok_status() {
 # Network interface status
 
 interface_status() {
+	ip="----"
+	status="----"
+	scan=""
 	if ifconfig | grep -A1 $1 | grep -q inet; then
 		ip=$(ifconfig | grep -A1 $1 | grep inet | awk '{ print $2 }' | cut -d: -f2)
-		cat <<EOT
-	<td>$(_ 'connected')</td>
-	<td>$ip</td>
-	<td><a data-icon="scan" href='network.cgi?scan=$ip&amp;back=network.cgi'>$(_ 'Scan')</a></td>
-EOT
-	else
-		echo "<td>----</td><td>----</td><td></td>"
+		if [ "$(cat /sys/class/net/$1/carrier)" == "1" ]; then
+			status="$(_ 'connected')"
+			scan="<a data-icon=\"scan\" href='network.cgi?scan=$ip&amp;back=network.cgi'>$(_ 'Scan')</a>"
+		fi
 	fi
+	echo "<td>$ip</td><td>$status</td><td>$scan</td>"
 }
 
 
