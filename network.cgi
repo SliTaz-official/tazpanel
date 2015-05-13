@@ -777,7 +777,17 @@ EOT
 -e 's#\([0-9]*\)/#<a href="boot.cgi?daemons=pid=\1">\1</a>/#')</pre>
 	</footer>
 </section>
+
 EOT
+		[ "$REMOTE_USER" == "root" -a "$(which iptables-save)" ] && cat <<EOT
+<section>
+	<header id="iptables">$(_ 'Firewall')</header>
+	<footer>
+	<pre>$(iptables-save)</pre>
+	</footer>
+</section>
+EOT
+		
 		;;
 esac
 
