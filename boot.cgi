@@ -170,7 +170,9 @@ EOT
 			echo -n "<td>"
 			grep -qi "^${name}_OPTIONS=" /etc/daemons.conf && cfg="options|$cfg"
 			for i in /etc/slitaz /etc /etc/$name ; do
-				[ -s $i/$name.conf ] && cfg="edit::$i/$name.conf|$cfg"
+				for j in $i/$name.conf $i/${name}d.conf ; do
+					[ -s $j ] && cfg="edit::$j|$cfg"
+				done
 			done
 			[ -n "$(which $name)" ] && cfg="man|help|$cfg"
 			case "$name" in
@@ -242,7 +244,7 @@ EOT
 					case "$1" in
 					edit)
 						cat <<EOT
-<a href="index.cgi?file=${3:-/etc/$name.conf}&amp;action=edit" title="${2:-$name Configuration} in ${3:-/etc/$name.conf}" data-img="conf"></a>
+<a href="index.cgi?file=${3:-/etc/$name.conf}&amp;action=edit" title="${2:-$name configuration} in ${3:-/etc/$name.conf}" data-img="conf"></a>
 EOT
 						;;
 					options)
