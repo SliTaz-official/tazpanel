@@ -663,7 +663,7 @@ EOT
 EOT
 		_ 'forward packets between interfaces'
 		[ "$REMOTE_USER" == "root" ] && cat <<EOT
-		<button form="mainform" name="toggleipforward" data-icon="refresh">$(_ 'Change')</button>
+		<button form="mainform" name="toggleipforward" data-icon="ok">$(_ 'Change')</button>
 EOT
 		cat <<EOT
 	</footer>
