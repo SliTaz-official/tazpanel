@@ -14,6 +14,7 @@ header
 
 TITLE=$(_ 'TazPanel - Network')
 
+ip_forward=/proc/sys/net/ipv4/ip_forward
 
 # Start a Wi-Fi connection
 
@@ -155,7 +156,9 @@ case " $(GET) " in
 	*\ addarp\ *)
 		arp -i $(GET interface) -s $(GET ip) $(GET mac) ;;
 	*\ proxyarp\ *)
-		arp -i $(GET interface) -Ds $(GET ip) $(GET interface) ;;
+		arp -i $(GET interface) -Ds $(GET ip) $(GET interface) pub ;;
+	*\ toggleipforward\ *)
+		echo $((1 - $(cat $ip_forward))) > $ip_forward ;;
 esac
 
 case " $(POST) " in
@@ -653,6 +656,17 @@ EOT
 <section>
 	<header>$(_ 'Network interfaces')</header>
 	$(list_network_interfaces)
+	<footer>
+		<input form="mainform" type="checkbox" name="opt" value="ipforward" $(
+		[ "$REMOTE_USER" == "root" ] || echo " disabled" ;
+		[ $(cat $ip_forward) -eq 1 ] && echo checked)/>
+EOT
+		_ 'forward packets between interfaces'
+		[ "$REMOTE_USER" == "root" ] && cat <<EOT
+		<button form="mainform" name="toggleipforward" data-icon="refresh">$(_ 'Change')</button>
+EOT
+		cat <<EOT
+	</footer>
 </section>
 
 
