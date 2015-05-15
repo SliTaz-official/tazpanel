@@ -530,6 +530,7 @@ EOT
 				<tr>
 					<td>$(_ 'Device')</td>
 					<td>$(_ 'Backing file')</td>
+					<td>$(_ 'Size')</td>
 					<td>$(_ 'Access')</td>
 					<td>$(_ 'Offset')</td>
 				</tr>
@@ -538,16 +539,20 @@ EOT
 EOT
 for devloop in $(ls /dev/*loop[0-9]*); do
 	loop="${devloop#/dev/}"
-	case "$(cat /sys/block/$loop/ro 2>/dev/null)" in
+	dir=/sys/block/$loop
+	case "$(cat $dir/ro 2>/dev/null)" in
 	0) ro="$(_ "read/write")" ;;
 	1) ro="$(_ "read only")" ;;
 	*) ro="" ;;
 	esac
-	set -- $(losetup | grep ^$devloop:) ${ro// /&nbsp;}
+	size=$(blk2h $(cat $dir/size))
+	[ "$size" == "0.0K" ] && size="" && ro=""
+	set -- $(losetup $devloop)
+	set -- "${3:-$(cat $dir/loop/backing_file)}" "${2:-$(cat $dir/loop/offset)}" ${ro// /&nbsp;}
 	cat <<EOT
 				<tr><td><input type="radio" name="loopdev" value="$devloop" id="$loop"/><!--
 					--><label for="$loop" data-icon="loopback">$loop</label></td>
-					<td>$3</td><td align="center">$4</td><td align="right">$2</td>
+					<td>$1</td><td>$size</td><td align="center">$3</td><td align="right">$2</td>
 				</tr>
 EOT
 done
