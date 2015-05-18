@@ -30,7 +30,6 @@ body > header h1 {
 }
 
 
-
 /**
  * Toolbar with menu
  */
@@ -368,10 +367,21 @@ pre { margin: 0; padding: 0; color: CaptionText; }
 body > footer {
 	border-top: 1px solid;
 	text-align: center;
-	height: 1rem;
-	font-size: smaller;
+	height: 19px; margin: 0; padding: 0;
+	line-height: 16px; vertical-align: middle;
+	z-index: 10;
 }
+#defaultStatus, #statusBar { font-size: smaller; }
 
+#content { z-index: 5; }
+
+#ajaxStatus {
+	position: absolute; right: 0;
+	display: inline-block;
+	line-height: 16px; vertical-align: middle;
+	padding: 0; margin: 0;
+	height: 16px;
+}
 
 /***************
  * HTML5 Meter *
@@ -539,7 +549,7 @@ button[data-icon]::before { font-size: 16px; line-height: 16px; width: 16px; }
 
 [data-icon="tazpanel"]::before {
 	display: inline-block;
-	content: '\f13d';
+	content: '\f151';
 	color: #EBEBEB;
 	border: 1pt solid hsl(5, 85%, 35%); border-radius: 0.2rem;
 	font-size: 32px; line-height: 32px;
@@ -750,7 +760,7 @@ html,body { height: 100%; width: 100%; margin: 0; padding: 0; }
 body > header { position: absolute; top: 0; }
 body > footer { position: absolute; bottom: 0; left: 0; right: 0; }
 #content, #content-sidebar {
-	position: absolute; top: 63px; bottom: 1rem; left: 0; right: 0;
+	position: absolute; top: 63px; bottom: 20px; left: 0; right: 0;
 	overflow-y: auto; overflow-x: hidden;
 }
 

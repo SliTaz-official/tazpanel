@@ -202,8 +202,7 @@ EOT
 # Get the list of panel styles
 
 list_styles() {
-	for style in $PANEL/styles/*
-	do
+	for style in $PANEL/styles/*; do
 		style=$(basename $style)
 		echo "<option value='$style'>$style</option>"
 	done
@@ -239,8 +238,9 @@ list_keymaps() {
 
 loading_msg() {
 	local MSG=${1:-$LOADING_MSG}
+	[ -z "$MSG" ] && MSG="$(_ 'Please wait')"
 	cat <<EOT
-<div id="loading"><img src="/styles/default/images/loader.gif"/>$MSG</div>
+<script type="text/javascript">statusbar("$MSG", 1)</script>
 EOT
 }
 

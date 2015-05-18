@@ -164,7 +164,7 @@ for LOC in en_US fr_CA be_BY ca_IT el_CY fr_CH ru_RU ru_UA; do
 		iso*|translit*) ;;
 		*)
 			#echo -e "$LOC:\t$(parse_date $LOC $(get_locale_info_date_time $LOC c | sed 's|&|\\\&|g'))";;
-			FMT="$(get_locale_info_date_time $LOC c)"
+			FMT="$(get_locale_info_date_time $LOC x)"
 			echo "<tr><td>$LOC</td><td>$FMT</td><td>"
 			parse_date $LOC "$FMT"
 			echo "</td><td>"

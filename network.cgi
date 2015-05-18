@@ -206,7 +206,7 @@ case " $(GET) " in
 		# Scan open ports
 		scan=$(GET scan); back=$(GET back)
 		xhtml_header
-		LOADING_MSG=$(_ 'Scanning open ports...'); loading_msg
+		loading_msg "$(_ 'Scanning open ports...')"
 
 		cat <<EOT
 <section>
@@ -463,7 +463,7 @@ EOT
 		if [ -n "$start_disabled" ]; then
 			cat <<EOT
 <section id="wifiList">
-	<div style="text-align: center;"><span id="ajaxStatus"></span>$(_ 'Scanning wireless interface...')</div>
+	<div style="text-align: center;"><span data-icon="clock">$(_ 'Scanning wireless interface...')</span></div>
 </section>
 
 <script type="text/javascript">

@@ -169,14 +169,14 @@ body.dark  { background: #3C3C3C; }
  * Page footer *
  ***************/
 
-.light > footer { border-color: #C1C1C1; background-color: #EBEBEB; color: #888; }
-.dark  > footer { border-color: #313131; background-color: #3C3C3C; color: #666; }
+.light > footer { border-color: #C1C1C1; background-color: #EBEBEB; color: #444; }
+.dark  > footer { border-color: #313131; background-color: #3C3C3C; color: #CCC; }
 
-.light > footer a       { color: #666; }
-.light > footer a:hover { color: #888; }
+.light > footer a       { color: #555; }
+.light > footer a:hover { color: #666; }
 
-.dark  > footer a       { color: #bbb; }
-.dark  > footer a:hover { color: #555; }
+.dark  > footer a       { color: #BBB; }
+.dark  > footer a:hover { color: #AAA; }
 
 
 
