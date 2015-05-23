@@ -674,7 +674,7 @@ Date.prototype.timeNow = function() {
 }
 setInterval(function(){
 	document.getElementById('time').innerText = new Date().timeNow();
-	ajax('settings.cgi?do=gethwclock', '1', 'hwclocks');
+	//ajax('settings.cgi?do=gethwclock', '1', 'hwclocks');
 }, 1000);
 
 
