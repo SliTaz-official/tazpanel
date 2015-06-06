@@ -150,7 +150,9 @@ interface_status() {
 		scan="<a data-icon=\"scan\" href='network.cgi?scan=$ip&amp;back=network.cgi'>$(_ 'Scan')</a>"
 	fi
 	[ "$(cat /sys/class/net/$1/carrier)" == "1" ] &&
-	status="$(_ 'connected')"
+	status="$(_ 'connected')" &&
+	speed="$(cat /sys/class/net/$1/speed 2> /dev/null)" &&
+	[ "$speed" ] && status="$status ${speed}M"
 	echo "<td>$status</td><td>$ip</td><td>$scan</td>"
 }
 
