@@ -10,7 +10,7 @@
 get_config
 header
 
-TITLE=$(_ 'TazPanel - Hardware')
+TITLE=$(_ 'Hardware')
 
 # Call an optional module
 lib() {
@@ -105,28 +105,26 @@ EOT
 	*\ detect\ *)
 		# Front end for Tazhw
 		# TODO: Add button to detect webcam, etc. Like in tazhw box.
-		xhtml_header
+		xhtml_header "$(_ 'Detect hardware')"
 		cat <<EOT
-<h2>$(_ 'Detect hardware')</h2>
 <p>$(_ 'Detect PCI and USB hardware')</p>
-
-<section>
-	<pre>$(tazhw detect-pci | sed 's|^>|\&gt;|g')</pre>
-	<pre>$(tazhw detect-usb | sed 's|^>|\&gt;|g')</pre>
-</section>
 EOT
+		tazhw detect-pci | sed 's|^>|\&gt;|g'
+		tazhw detect-usb | sed 's|^>|\&gt;|g'
 		;;
 
 
 	*\ modules\ *|*\ modinfo\ *)
-		xhtml_header
+		xhtml_header "$(_ 'Kernel modules')"
+
+		search="$(GET search)"
 		cat <<EOT
-<h2>$(_ 'Kernel modules')</h2>
 <p>$(_ 'Manage, search or get information about the Linux kernel modules')</p>
 
-<form>
+<form class="search">
 	<input type="hidden" name="modules"/>
-	<input type="search" name="search" class="float-right" placeholder="$(_ 'Modules search')" results="5" autosave="modsearch" autocomplete="on"/>
+	<input type="search" name="search" value="$search" placeholder="$(_ 'Modules search')" results="5" autosave="modsearch" autocomplete="on"/>
+	<button type="submit">$(_n 'Search')</button>
 </form>
 EOT
 		# Request may be modinfo output that we want in the page itself
@@ -135,6 +133,7 @@ EOT
 			cat <<EOT
 <section>
 	<header>$(_ 'Detailed information for module: %s' $get_modinfo)</header>
+	<div class="scroll">
 
 EOT
 		modinfo $get_modinfo | awk 'BEGIN{print "<table class=\"wide zebra\">"}
@@ -142,7 +141,7 @@ EOT
 			printf("<tr><td><b>%s</b></td>", $1)
 			$1=""; printf("<td>%s</td></tr>", $0)
 		}
-		END{print "</table></section>"}'
+		END{print "</table></div></section>"}'
 		fi
 
 		if [ -n "$(GET modprobe)" ]; then
@@ -152,18 +151,23 @@ EOT
 			echo "Removing"
 			rmmod -w $(GET rmmod)
 		fi
-		get_search="$(GET search)"
-		if [ -n "$get_search" ]; then
-			_ 'Matching result(s) for: %s' $get_search
-			echo '<pre>'
-			modprobe -l | grep "$(GET search)" | while read line
+
+		# Module search
+		if [ -n "$search" ]; then
+			cat <<EOT
+<section>
+	<header>$(_ 'Matching result(s) for: %s' $search)</header>
+	<pre class="scroll">
+EOT
+			busybox modprobe -l | grep "$search" | while read line
 			do
 				name=$(basename $line)
-				mod=${name%.ko.gz}
-				echo "$(_ 'Module:') <a href='?modinfo=$mod'>$mod</a>"
+				mod=${name%.ko.xz}
+				echo "<span data-icon=\"modules\">$(_ 'Module:')</span> <a href='?modinfo=$mod'>$mod</a>"
 			done
-			echo '</pre>'
+			echo '</pre></section>'
 		fi
+
 		cat <<EOT
 <section>
 	<table class="zebra">
@@ -236,9 +240,8 @@ EOT
 		#
 		# Default to summary with mounted filesystem, loaded modules
 		#
-		xhtml_header
+		xhtml_header "$(_ 'Drivers &amp; Devices')"
 		cat <<EOT
-<h2>$(_ 'Drivers &amp; Devices')</h2>
 <p>$(_ 'Manage your computer hardware')</p>
 
 <form><!--

@@ -13,7 +13,7 @@
 . lib/libtazpanel
 get_config
 
-TITLE="TazPanel"
+TITLE='TazPanel'
 
 
 
@@ -39,7 +39,6 @@ file_is_modified() {
 		break
 	done
 }
-
 
 
 # OK status in table
@@ -74,7 +73,7 @@ case " $(GET) " in
 	*\ exec\ *)
 		# Execute command and display its result in a terminal-like window
 
-		header; TITLE=$(_ 'TazPanel - exec'); xhtml_header
+		header; xhtml_header "$(_ 'exec')"
 
 		exec="$(GET exec)"
 		font="${TERM_FONT:-monospace}"
@@ -107,7 +106,7 @@ EOT
 			*.html)
 				cat $file; exit 0 ;;
 			*)
-				TITLE=$(_ 'TazPanel - File'); xhtml_header ;;
+				xhtml_header "$(_ 'File')";;
 		esac
 
 		case "$action" in
@@ -223,7 +222,7 @@ EOT
 	*\ terminal\ *|*\ cmd\ *)
 		# Cmdline terminal
 
-		header; TITLE=$(_ 'TazPanel - Terminal'); xhtml_header
+		header; xhtml_header "$(_ 'Terminal')"
 
 		user="$REMOTE_USER"
 		HOME="$(awk -F: -vu=$user '$1==u{print $6}' /etc/passwd)"
@@ -251,18 +250,20 @@ EOT
 		<input type="hidden" name="path" value="$path"/>
 		<pre class="term $palette" style="font-family: '$font'">
 EOT
-			htmlize < $historyfile | awk -vrun="$(_ 'run')" -vpath="$path" '
-			BEGIN { num=1 }
-			{
-			printf("%3d ", num);
-			cmd = $0
-			gsub("%",  "%25", cmd); gsub("+",  "%2B", cmd); gsub(" ",    "+",   cmd);
-			gsub("\"", "%22", cmd); gsub("!",  "%21", cmd); gsub("'\''", "%27", cmd);
-			printf("<a data-icon=\"run\" href=\"?cmd=%s&path=%s\">%s</a> ", cmd, path, run);
-			printf("<input type=\"checkbox\" name=\"rm\" value=\"%d\" id=\"hist%d\">", num, num);
-			printf("<label for=\"hist%d\">%s</label>\n", num, $0);
-			num++
-			}'
+
+			htmlize < $historyfile | awk -vrun="$(_ 'run')" -vpath="$path" -vq="'" '
+BEGIN { num = 1; }
+{
+	printf("%3d ", num);
+	cmd = $0;
+	gsub("%",  "%25", cmd); gsub("+",  "%2B", cmd); gsub(" ",    "+",   cmd);
+	gsub("\"", "%22", cmd); gsub("!",  "%21", cmd); gsub(q, "%27", cmd);
+	printf("<a data-icon=\"run\" href=\"?cmd=%s&path=%s\">%s</a> ", cmd, path, run);
+	printf("<input type=\"checkbox\" name=\"rm\" value=\"%d\" id=\"hist%d\">", num, num);
+	printf("<label for=\"hist%d\">%s</label>\n", num, $0);
+	num++;
+}'
+
 			cat <<EOT
 		</pre>
 		<footer>
@@ -294,7 +295,7 @@ EOT
 			_ 'Run any command at your own risk, avoid interactive commands (%s)' 'nano, mc, ...'; echo
 			;;
 		wget*)
-			dl=/var/cache/downloads
+			dl='/var/cache/downloads'
 			[ ! -d "$dl" ] && mkdir -p $dl
 			_ 'Downloading to: %s' $dl; echo
 			cd $dl; $cmd 2>&1 ;;
@@ -357,7 +358,7 @@ EOT
 	*\ rmhistory\ *)
 		# Manage shell commandline history
 		user="$REMOTE_USER"
-		[ -z "$HOME" ] && HOME="$(awk -F: -vu=$user '$1==u{print $6}' /etc/passwd)"
+		HOME="$(awk -F: -vu="$user" '$1==u{print $6}' /etc/passwd)"
 		historyfile="$HOME/.ash_history"
 
 		# Return sed command for removing history lines ('8d12d' to remove 8 and 12 lines)
@@ -375,7 +376,7 @@ EOT
 
 	*\ termsettings\ *)
 		# Terminal settings
-		TITLE=$(_ 'TazPanel - Terminal'); header; xhtml_header;
+		header; xhtml_header "$(_ 'Terminal')"
 		user="$REMOTE_USER"
 		font="$(GET font)"; font="${font:-$TERM_FONT}"
 		palette="$(GET palette)"; palette="${palette:-$TERM_PALETTE}"
@@ -441,7 +442,7 @@ EOT
 
 
 	*\ top\ *)
-		header; TITLE=$(_ 'TazPanel - Process activity'); xhtml_header
+		header; xhtml_header "$(_ 'Process activity')"
 
 		r=$(GET refresh)
 		cat <<EOT
@@ -469,7 +470,7 @@ EOT
 
 
 	*\ debug\ *)
-		header; TITLE=$(_ 'TazPanel - Debug'); xhtml_header
+		header; xhtml_header "$(_ 'Debug')"
 
 		cat <<EOT
 <h2>$(_ 'HTTP Environment')</h2>
@@ -484,13 +485,12 @@ EOT
 
 
 	*\ report\ *)
-		header; TITLE=$(_ 'TazPanel - System report'); xhtml_header
+		header; xhtml_header "$(_ 'System report')"
 
-		[ -d /var/cache/slitaz ] || mkdir -p /var/cache/slitaz
-		output=/var/cache/slitaz/sys-report.html
+		[ -d '/var/cache/slitaz' ] || mkdir -p /var/cache/slitaz
+		output='/var/cache/slitaz/sys-report.html'
 
 		cat <<EOT
-
 <section>
 	<header>$(_ 'Reporting to: %s' "$output")</header>
 	<table class="wide zebra">
@@ -620,15 +620,12 @@ EOT
 		#
 		# Default xHTML content
 		#
-		header; xhtml_header
+		header; xhtml_header "$(_ 'SliTaz administration and configuration Panel')"
 		[ -n "$(GET gen_locale)" ] && new_locale=$(GET gen_locale)
 		[ -n "$(GET rdate)" ] && echo ""
 		hostname=$(hostname)
 
 		cat <<EOT
-<h2>$(_ 'Host: %s' $hostname)</h2>
-<p>$(_ 'SliTaz administration and configuration Panel')<p>
-
 <form class="nogap"><!--
 	--><button name="terminal" data-icon="terminal">$(_ 'Terminal')</button><!--
 	--><button name="top"      data-icon="proc"    >$(_ 'Process activity')</button><!--
@@ -638,6 +635,7 @@ EOT
 <section>
 	<header>$(_ 'Summary')</header>
 	<table>
+		<tr><td>$(_ 'Host:')</td><td>$hostname</td></tr>
 		<tr><td>$(_ 'Uptime:')</td>
 			<td id="uptime">$(uptime | sed 's|\([0-9.:][0-9.:]*\)|<b>\1</b>|g')</td>
 		</tr>

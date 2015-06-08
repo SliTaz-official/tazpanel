@@ -10,9 +10,9 @@
 get_config
 header
 
-TITLE='TazPanel - Test'
+TITLE='Test'
 
-xhtml_header
+xhtml_header 'Show icons and styles'
 
 cat <<EOT
 
@@ -51,6 +51,10 @@ cat <<EOT
 --><button data-icon="unlock"     >Unlock     </button><button data-icon="upgrade" >Upgrade </button><!--
 --><button data-icon="user"       >User       </button><button data-icon="view"    >View    </button><!--
 --><button data-icon="web"        >Web        </button><button data-icon="wifi"    >Wi-Fi   </button><!--
+--><button data-icon="toggle"     >Toggle     </button><button data-icon="chlock"  >ChLock  </button><!--
+--><button data-icon="calendar"   >Calendar   </button><button data-icon="modem"   >Modem   </button><!--
+--><button data-icon="vpn"        >VPN        </button><button data-icon="display" >Display </button><!--
+--><button data-icon="cpu"        >CPU        </button><button data-icon="display" >Display </button><!--
 -->
 </section>
 
@@ -95,6 +99,48 @@ cat <<EOT
 <a data-img="web"    href="#"></a>Web    <a data-img="slitaz" href="#"></a>SliTaz <a data-img="user" href="#"></a>User
 </p>
 </section>
+
+
+<section>
+	<header><span data-img="sechi"></span>Status icons</header>
+	<div>
+<span data-icon="lvl0">lvl0</span> <span data-icon="lvl1">lvl1</span> <span data-icon="lvl2">lvl2</span>
+<span data-icon="lvl3">lvl3</span> <span data-icon="lvl4">lvl4, lvl5</span>
+<span data-icon="online">online</span> <span data-icon="offline">offline</span>
+<span data-icon="sechi">sechi</span> <span data-icon="secmi">secmi</span> <span data-icon="seclo">seclo</span>
+<span data-icon="pkg">pkg</span> <span data-icon="pkgi">pkgi</span> <span data-icon="pkgib">pkgib</span>
+	</div>
+	<div>
+<span data-icon="msg">msg</span> <span data-icon="msgerr">msgerr</span>
+<span data-icon="msgwarn">msgwarn</span> <span data-icon="msgup">msgup</span>
+<span data-icon="msgtip">msgtip</span>
+	</div>
+</section>
+
+
+<section>
+	<header><span data-img="&#xf20a;"></span>Font components</header>
+	<div>
+<span data-icon="&#xf200;">#f200</span> <span data-icon="&#xf201;">#f201</span>
+<span data-icon="&#xf202;">#f202</span> <span data-icon="&#xf203;">#f203</span>
+<span data-icon="&#xf204;">#f204</span> <span data-icon="&#xf205;">#f205</span>
+<span data-icon="&#xf206;">#f206</span> <span data-icon="&#xf207;">#f207</span>
+<span data-icon="&#xf208;">#f208</span> <span data-icon="&#xf209;">#f209</span>
+<span data-icon="&#xf20a;">#f20a</span> <span data-icon="&#xf20b;">#f20b</span>
+<span data-icon="&#xf20c;">#f20c</span> <span data-icon="&#xf20d;">#f20d</span>
+	</div>
+</section>
+
+
+<section>
+	<header>Message boxes</header>
+	$(msg msg  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+	$(msg tip  "Fusce volutpat est a euismod malesuada.")
+	$(msg warn "Aenean elementum augue et nisl sollicitudin, ut pellentesque leo rutrum.")
+	$(msg err  "Etiam nisi elit, fringilla sit amet consectetur quis, efficitur eu ligula.")
+	$(msg up   "Sed pharetra ex ligula, nec commodo erat suscipit eu.")
+</section>
+
 
 <section>
 	<header><span data-img="check"></span>User input elements</header>
@@ -147,7 +193,6 @@ cat <<EOT
 	</table>
 	</form></div>
 </section>
-
 EOT
 xhtml_footer
 exit 0

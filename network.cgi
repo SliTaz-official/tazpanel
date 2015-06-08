@@ -12,7 +12,7 @@
 get_config
 header
 
-TITLE=$(_ 'TazPanel - Network')
+TITLE=$(_ 'Network')
 
 ip_forward=/proc/sys/net/ipv4/ip_forward
 
@@ -222,7 +222,7 @@ EOT
 
 	*\ eth\ *)
 		# Wired connections settings
-		xhtml_header
+		xhtml_header "$(_ 'Ethernet connection')"
 
 		PAR1="size=\"20\" required"; PAR="$PAR1 pattern=\"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\""
 
@@ -239,9 +239,6 @@ EOT
 		fi
 
 		[ -s /etc/ethers ] || echo "#01:02:03:04:05:06 mystation" > /etc/ethers
-		cat <<EOT
-<h2>$(_ 'Ethernet connection')</h2>
-EOT
 		[ -w /etc/network.conf ] && cat <<EOT
 <p>$(_ "Here you can configure a wired connection using DHCP to \
 automatically get a random IP or configure a static/fixed IP")</p>
@@ -436,12 +433,9 @@ EOT
 
 	*\ wifi\ *)
 		# Wireless connections settings
-		xhtml_header
+		xhtml_header "$(_ 'Wireless connection')"
 
 		. /etc/network.conf
-		cat <<EOT
-<h2>$(_ 'Wireless connection')</h2>
-EOT
 
 		start_disabled=''; stop_disabled=''
 		if iwconfig 2>/dev/null | grep -q 'Tx-Power=off'; then
@@ -619,7 +613,7 @@ EOT
 
 	*)
 		# Main Network page starting with a summary
-		xhtml_header
+		xhtml_header "$(_ 'Manage network connections and services')"
 
 		stop_disabled=''; start_disabled=''
 		if cat /sys/class/net/*/operstate | fgrep -q up; then
@@ -628,15 +622,11 @@ EOT
 			stop_disabled='disabled'
 		fi
 
-		if [ ! -w /etc/network.conf ]; then
+		if [ ! -w '/etc/network.conf' ]; then
 			start_disabled='disabled'; stop_disabled='disabled'
 		fi
 
 		cat <<EOT
-<h2>$(_ 'Networking')</h2>
-
-<p>$(_ 'Manage network connections and services')</p>
-
 <form action="index.cgi" id="indexform"></form>
 
 <form id="mainform"><!--
@@ -658,11 +648,11 @@ EOT
 	$(list_network_interfaces)
 	<footer>
 		<input form="mainform" type="checkbox" name="opt" value="ipforward" $(
-		[ "$REMOTE_USER" == "root" ] || echo " disabled" ;
-		[ $(cat $ip_forward) -eq 1 ] && echo checked)/>
+		[ "$REMOTE_USER" != 'root' ] && echo ' disabled' ;
+		[ $(cat $ip_forward) -eq 1 ] && echo ' checked')/>
 EOT
 		_ 'forward packets between interfaces'
-		[ "$REMOTE_USER" == "root" ] && cat <<EOT
+		[ "$REMOTE_USER" == 'root' ] && cat <<EOT
 		<button form="mainform" name="toggleipforward" data-icon="ok">$(_ 'Change')</button>
 EOT
 		cat <<EOT
@@ -674,7 +664,7 @@ EOT
 	<header id="hosts">
 		$(_ 'Hosts')
 EOT
-		[ -w /etc/hosts ] && cat <<EOT
+		[ -w '/etc/hosts' ] && cat <<EOT
 		<form action="index.cgi">
 			<input type="hidden" name="file" value="/etc/hosts"/>
 			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
@@ -683,7 +673,7 @@ EOT
 		cat <<EOT
 	</header>
 	<footer>
-		<pre>$(cat /etc/hosts)</pre>
+		<pre>$(cat '/etc/hosts')</pre>
 	</footer>
 </section>
 
@@ -692,10 +682,10 @@ EOT
 	<header>$(_ 'Hostname')</header>
 	<footer>
 EOT
-		if [ -w /etc/hostname ]; then
+		if [ -w '/etc/hostname' ]; then
+			# was: name="hostname"; please don't use 'name' in name: unwanted webkit styling
 			cat <<EOT
 		<form>
-			<!-- was: name="hostname"; please don't use 'name' in name: unwanted webkit styling -->
 			<input type="text" name="host" value="$(cat /etc/hostname)"/><!--
 			--><button type="submit" data-icon="ok">$(_ 'Change')</button>
 		</form>

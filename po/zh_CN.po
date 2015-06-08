@@ -54,12 +54,12 @@ msgid "Differences"
 msgstr "差异"
 
 #: index.cgi:66
-msgid "TazPanel - exec"
-msgstr "TazPanel - 执行"
+msgid "exec"
+msgstr "执行"
 
 #: index.cgi:84
-msgid "TazPanel - File"
-msgstr "TazPanel - 文件"
+msgid "File"
+msgstr "文件"
 
 #: index.cgi:93 index.cgi:108
 msgid "Save"
@@ -70,8 +70,8 @@ msgid "Edit"
 msgstr "编辑"
 
 #: index.cgi:156
-msgid "TazPanel - Terminal"
-msgstr "TazPanel - 终端"
+msgid "Terminal"
+msgstr "终端"
 
 #: index.cgi:170
 msgid "Small terminal emulator, commands options are supported."
@@ -94,8 +94,8 @@ msgid "Unknown command: %s"
 msgstr "未知的命令：%s"
 
 #: index.cgi:196
-msgid "TazPanel - Process activity"
-msgstr "TazPanel - 活动过程（Process activity）"
+msgid "Process activity"
+msgstr "活动过程（Process activity）"
 
 #: index.cgi:198
 msgid "Refresh:"
@@ -118,16 +118,16 @@ msgid "none"
 msgstr "无"
 
 #: index.cgi:223
-msgid "TazPanel - Debug"
-msgstr "TazPanel - 调试"
+msgid "Debug"
+msgstr "调试"
 
 #: index.cgi:226
 msgid "HTTP Environment"
 msgstr "HTTP环境"
 
 #: index.cgi:234
-msgid "TazPanel - System report"
-msgstr "TazPanel - 系统报告"
+msgid "System report"
+msgstr "系统报告"
 
 #: index.cgi:239
 msgid "Reporting to: %s"
@@ -238,8 +238,8 @@ msgid "Panel Activity"
 msgstr "活动过程（Process activity）"
 
 #: network.cgi:13
-msgid "TazPanel - Network"
-msgstr "TazPanel - 网络"
+msgid "Network"
+msgstr "网络"
 
 #: network.cgi:23 network.cgi:160 network.cgi:256 boot.cgi:85 settings.cgi:221
 #: lib/libtazpanel:108
@@ -450,8 +450,8 @@ msgid "IP Connections"
 msgstr "IP连接"
 
 #: boot.cgi:14
-msgid "TazPanel - Boot"
-msgstr "TazPanel - 启动"
+msgid "Boot"
+msgstr "启动"
 
 #: boot.cgi:25
 msgid "Boot log files"
@@ -618,8 +618,8 @@ msgid "Edit script"
 msgstr "编辑脚本"
 
 #: hardware.cgi:13
-msgid "TazPanel - Hardware"
-msgstr "TazPanel - 硬件"
+msgid "Hardware"
+msgstr "硬件"
 
 #: hardware.cgi:66
 msgid "Detect hardware"
@@ -758,8 +758,8 @@ msgid "System memory"
 msgstr "系统内存"
 
 #: settings.cgi:15
-msgid "TazPanel - Settings"
-msgstr "TazPanel - 设置"
+msgid "Settings"
+msgstr "设置"
 
 #: settings.cgi:120 settings.cgi:383
 msgid "Manage groups"
@@ -1044,8 +1044,8 @@ msgid "Manual"
 msgstr "手册"
 
 #: help.cgi:28
-msgid "TazPanel - Help &amp; Doc"
-msgstr "TazPanel - 帮助 &amp; 文档"
+msgid "Help &amp; Doc"
+msgstr "帮助 &amp; 文档"
 
 #: styles/default/header.html:40
 msgid "Processes"

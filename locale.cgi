@@ -12,7 +12,7 @@
 get_config
 header
 
-TITLE=$(_ 'TazPanel - Locale')
+TITLE=$(_ 'Locale')
 
 
 

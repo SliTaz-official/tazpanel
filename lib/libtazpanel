@@ -248,12 +248,11 @@ EOT
 
 
 xhtml_header() {
+	SUBTITLE="$1"
 	. ${PANEL}$HEADER
-	if [ $DEBUG == "1" ]; then
-		local i
-		local j
-		local x
-		args=""
+	if [ "$DEBUG" -eq 1 ]; then
+		local i j x
+		args=''
 		for x in GET POST COOKIE; do
 			for i in $($x); do
 				if [ $($x $i count) -gt 1 ]; then
@@ -284,14 +283,8 @@ xhtml_footer() {
 }
 
 
-table_start() {
-	echo '<table>'
-}
-
-
-table_end() {
-	echo '</table>'
-}
+table_start() { echo '<table>';  }
+table_end()   { echo '</table>'; }
 
 
 df_thead() {
@@ -315,16 +308,14 @@ EOT
 msg() {
 	msgtype="$1"; shift
 	case "$msgtype" in
-		tip)			MSG_ICON="$IMAGES/msg-tip.png" ;;
-		warn|warning)	MSG_ICON="$IMAGES/msg-warn.png" ;;
-		err|error)		MSG_ICON="$IMAGES/msg-err.png" ;;
-		up)				MSG_ICON="$IMAGES/msg-up.png" ;;
-		*)				MSG_ICON="$IMAGES/msg.png" ;;
+		tip)			MSG_ICON='msgtip';;
+		warn|warning)	MSG_ICON='msgwarn';;
+		err|error)		MSG_ICON='msgerr';;
+		up)				MSG_ICON='msgup';;
+		*)				MSG_ICON='msg';;
 	esac
 	cat <<EOT
-	<section class="box"><img src="$MSG_ICON" alt="$msgtype"/>
-		$@
-	</section>
+	<section class="box"><span data-icon="$MSG_ICON"></span>$@</section>
 EOT
 }
 

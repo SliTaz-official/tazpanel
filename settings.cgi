@@ -13,7 +13,7 @@
 . lib/libtazpanel
 get_config
 
-TITLE=$(_ 'TazPanel - Settings')
+TITLE=$(_ 'System settings')
 
 
 # Get system database. LDAP compatible.
@@ -199,20 +199,17 @@ esac
 #
 
 header
-xhtml_header
 
 case " $(GET) " in
 	*\ group*)
 		#
 		# Groups management
 		#
+		xhtml_header "$(_ 'Manage groups')"
 		check_root_tazpanel
 
 		cat <<EOT
-<h2 id="groups">$(_ 'Manage groups')</h2>
-
-
-<section>
+<section id="groups">
 	<form class="wide">
 		<header>
 			<input type="hidden" name="groups"/>
@@ -286,12 +283,11 @@ EOT
 		#
 		# Users management
 		#
+		xhtml_header "$(_ 'Manage users')"
 		check_root_tazpanel
 
 		cat <<EOT
-<h2 id="users">$(_ 'Manage users')</h2>
-
-<section>
+<section id="users">
 	<form class="wide">
 		<header>
 			<!--$(_ 'Selection:')-->
@@ -396,17 +392,14 @@ EOT
 		#
 		# Choose locale
 		#
+		xhtml_header "$(_ 'Choose locale')"
 		check_root_tazpanel
 
 		loading_msg "$(_ 'Please wait...')"
 
 		cur_loc=$(locale | grep LANG | cut -d= -f2)
 		cat <<EOT
-
-
-<h2 id="locale">$(_ 'Choose locale')</h2>
-
-<section>
+<section id="locale">
 	<header>$(_ 'Current locale settings:')</header>
 	<div>
 		<pre>$(locale)</pre>
@@ -478,8 +471,9 @@ EOT
 		#
 		# Small tweaks for user
 		#
-
 		user="$REMOTE_USER"; host="$(hostname)"
+		xhtml_header "$(_ 'Small quick tweaks for user %s' "$user")"
+
 		HOME="$(awk -F: -vu=$user '$1==u{print $6}' /etc/passwd)"
 		font="${TERM_FONT:-monospace}"; palette=$(echo $TERM_PALETTE | tr A-Z a-z)
 		case $user in
@@ -592,13 +586,10 @@ EOT
 		#
 		# Default system settings page
 		#
+		xhtml_header "$(_ 'Manage system time, users or language settings')"
 		check_root_tazpanel
 
 		cat <<EOT
-<h2>$(_ 'System settings')</h2>
-
-<p>$(_ 'Manage system time, users or language settings')<p>
-
 <form><!--
 	--><button name="users"  data-icon="user" >$(_ 'Manage users' )</button><!--
 	--><button name="groups" data-icon="group">$(_ 'Manage groups')</button>

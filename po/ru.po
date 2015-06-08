@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-09 22:58+0200\n"
-"PO-Revision-Date: 2015-04-10 01:27+0300\n"
+"POT-Creation-Date: 2015-06-05 20:42+0300\n"
+"PO-Revision-Date: 2015-06-05 19:00+0300\n"
 "Last-Translator: Aleksej Bobylev <al.bobylev@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -20,1026 +20,1247 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: tazpanel:53
+#: tazpanel:52
 msgid "TazPanel is already running."
 msgstr "TazPanel уже запущена."
 
-#: tazpanel:56
+#: tazpanel:55
 msgid "Starting TazPanel web server on port %d..."
-msgstr "Веб-сервер TazPanel запускается на порту %d..."
+msgstr "Веб-сервер TazPanel запускается на порту %d…"
 
-#: tazpanel:58
+#: tazpanel:57
 msgid "TazPanel Authentication - Default: root:root"
 msgstr "Аутентификация TazPanel (по умолчанию root:root)"
 
-#: tazpanel:65
+#: tazpanel:64
 msgid "TazPanel is not running."
 msgstr "TazPanel не была запущена."
 
-#: tazpanel:68
+#: tazpanel:67
 msgid "Stopping TazPanel web server..."
 msgstr "Остановка веб-сервера TazPanel…"
 
-#: tazpanel:76
-msgid "Changing password for TazPanel"
-msgstr "Изменение пароля TazPanel"
-
-#: tazpanel:77
-msgid "New password: "
-msgstr "Новый пароль: "
-
-#: tazpanel:79
-msgid "Password changed successfully"
-msgstr "Пароль успешно изменён"
-
-#: index.cgi:37
-#: index.cgi:131
+#: index.cgi:37 index.cgi:120
 msgid "Differences"
 msgstr "Различия"
 
-#: index.cgi:88
-msgid "TazPanel - exec"
-msgstr "Команда | TazPanel"
+#: index.cgi:76
+msgid "exec"
+msgstr "Команда"
 
-#: index.cgi:120
-msgid "TazPanel - File"
-msgstr "Файл | TazPanel"
+#: index.cgi:109
+msgid "File"
+msgstr "Файл"
 
-#: index.cgi:130
-#: index.cgi:149
+#: index.cgi:119 index.cgi:138 index.cgi:176
 msgid "Save"
 msgstr "Сохранить"
 
-#: index.cgi:184
-#: network.cgi:262
-#: network.cgi:553
-#: network.cgi:621
-#: boot.cgi:382
-#: hardware.cgi:467
-#: settings.cgi:667
+#: index.cgi:174 network.cgi:326 network.cgi:596 network.cgi:670
+#: network.cgi:720 boot.cgi:531 hardware.cgi:483 settings.cgi:766
 msgid "Edit"
 msgstr "Правка"
 
-#: index.cgi:228
-msgid "TazPanel - Terminal"
-msgstr "Терминал | TazPanel"
+#: index.cgi:225 index.cgi:379 index.cgi:402 index.cgi:630
+#: styles/default/header.html:46
+msgid "Terminal"
+msgstr "Терминал"
 
-#: index.cgi:249
+#: index.cgi:246 index.cgi:331
 msgid "History"
 msgstr "Журнал"
 
-#: index.cgi:250
-#: lib/libtazpanel:334
+#: index.cgi:247 lib/libtazpanel:348
 msgid "Back"
 msgstr "Назад"
 
-#: index.cgi:256
+#: index.cgi:254
 msgid "run"
 msgstr "запустить"
 
-#: index.cgi:271
+#: index.cgi:270
 msgid "Clear"
 msgstr "Очистить"
 
-#: network.cgi:15
-msgid "TazPanel - Network"
-msgstr "Сети | TazPanel"
+#: index.cgi:294
+msgid "Small non-interactive terminal emulator."
+msgstr "Маленький неинтерактивный эмулятор терминала."
 
-#: network.cgi:141
-msgid "Changed hostname: %s"
-msgstr "Изменённое название хоста: %s"
+#: index.cgi:295
+msgid "Run any command at your own risk, avoid interactive commands (%s)"
+msgstr ""
+"Выполняйте любые команды на свой страх и риск, избегайте интерактивных "
+"команд (%s)"
 
-#: network.cgi:164
-msgid "Scanning open ports..."
-msgstr "Сканирование открытых портов…"
+#: index.cgi:300
+msgid "Downloading to: %s"
+msgstr "Загрузка в: %s"
 
-#: network.cgi:169
-msgid "Port scanning for %s"
-msgstr "Сканирование портов адреса %s"
+#: index.cgi:309
+msgid "%s needs an argument"
+msgstr "Команда %s требует аргумент"
 
-#: network.cgi:170
-#: styles/default/header.html:33
+#: index.cgi:312
+msgid "Please, don't run interactive command \"%s\""
+msgstr "Пожалуйста, не выполняйте интерактивную команду «%s»"
+
+#: index.cgi:330 styles/default/header.html:98
+msgid "Settings"
+msgstr "Параметры"
+
+#: index.cgi:400
+msgid "Terminal settings"
+msgstr "Параметры терминала"
+
+#: index.cgi:421
+msgid "Font:"
+msgstr "Шрифт:"
+
+#: index.cgi:423
+msgid "Default"
+msgstr "По умолчанию"
+
+#: index.cgi:429
+msgid "Palette:"
+msgstr "Палитра:"
+
+#: index.cgi:435
+msgid "Apply"
+msgstr "Применить"
+
+#: index.cgi:445 index.cgi:631
+msgid "Process activity"
+msgstr "Процессы"
+
+#: index.cgi:450
+msgid "Refresh:"
+msgstr "Обновление:"
+
+#: index.cgi:453
+msgid "1s"
+msgstr "1 с"
+
+#: index.cgi:455
+msgid "5s"
+msgstr "5 с"
+
+#: index.cgi:457
+msgid "10s"
+msgstr "10 с"
+
+#: index.cgi:459
+msgid "none"
+msgstr "нет"
+
+#: index.cgi:473
+msgid "Debug"
+msgstr "Отладка"
+
+#: index.cgi:476
+msgid "HTTP Environment"
+msgstr "Переменные окружения HTTP"
+
+#: index.cgi:488
+msgid "System report"
+msgstr "Системный отчёт"
+
+#: index.cgi:495
+msgid "Reporting to: %s"
+msgstr "Файл отчёта: %s"
+
+#: index.cgi:498
+msgid "Creating report header..."
+msgstr "Создание заголовка отчёта…"
+
+#: index.cgi:505 index.cgi:522
+msgid "SliTaz system report"
+msgstr "Системный отчёт SliTaz"
+
+#: index.cgi:519
+msgid "Creating system summary..."
+msgstr "Получение сводки о системе…"
+
+#: index.cgi:523
+msgid "Date:"
+msgstr "Дата:"
+
+#: index.cgi:534
+msgid "Getting hardware info..."
+msgstr "Получение информации об оборудовании…"
+
+#: index.cgi:552
+msgid "Getting networking info..."
+msgstr "Получение информации о сетях…"
+
+#: index.cgi:566
+msgid "Getting filesystems info..."
+msgstr "Получение информации о файловых системах…"
+
+#: index.cgi:586
+msgid "Getting boot logs..."
+msgstr "Получение журналов загрузки…"
+
+#: index.cgi:589 boot.cgi:99 styles/default/header.html:74
+msgid "Kernel messages"
+msgstr "Сообщения ядра"
+
+#: index.cgi:592 boot.cgi:100 styles/default/header.html:75
+msgid "Boot scripts"
+msgstr "Загрузочные скрипты"
+
+#: index.cgi:597
+msgid "Creating report footer..."
+msgstr "Завершение создание отчёта…"
+
+#: index.cgi:608 index.cgi:704 boot.cgi:510 boot.cgi:512
+msgid "View"
+msgstr "Смотреть"
+
+#: index.cgi:613
+msgid "This report can be attached with a bug report on:"
+msgstr "Этот отчёт можно прикрепить к баг-репорту здесь:"
+
+#: index.cgi:623
+msgid "SliTaz administration and configuration Panel"
+msgstr "Панель администрирования и настройки SliTaz"
+
+#: index.cgi:632
+msgid "Create a report"
+msgstr "Создать отчёт"
+
+#: index.cgi:636 styles/default/header.html:44 styles/default/header.html:54
+#: styles/default/header.html:64 styles/default/header.html:90
+#: styles/default/header.html:100
+msgid "Summary"
+msgstr "Сводка"
+
+#: index.cgi:638
+msgid "Host:"
+msgstr "Хост:"
+
+#: index.cgi:639
+msgid "Uptime:"
+msgstr "Время работы:"
+
+#: index.cgi:642
+msgid "Memory in Mb:"
+msgstr "Память в МБ:"
+
+#: index.cgi:644
+msgid "Total: %d, Used: %d, Free: %d"
+msgstr "Всего: %d, занято: %d, свободно: %d"
+
+#: index.cgi:648
+msgid "Linux kernel:"
+msgstr "Ядро Linux:"
+
+#: index.cgi:657
+msgid "Network status"
+msgstr "Состояние сети"
+
+#: index.cgi:659 network.cgi:15 network.cgi:215 styles/default/header.html:52
 msgid "Network"
 msgstr "Сети"
 
-#: network.cgi:197
+#: index.cgi:668 hardware.cgi:340
+msgid "Filesystem usage statistics"
+msgstr "Статистика использования файловых систем"
+
+#: index.cgi:670 styles/default/header.html:93
+msgid "Disks"
+msgstr "Диски"
+
+#: index.cgi:702
+msgid "Panel Activity"
+msgstr "Действия панели"
+
+#: network.cgi:152
+msgid "Changed hostname: %s"
+msgstr "Изменённое название хоста: %s"
+
+#: network.cgi:209
+msgid "Scanning open ports..."
+msgstr "Сканирование открытых портов…"
+
+#: network.cgi:214
+msgid "Port scanning for %s"
+msgstr "Сканирование портов адреса %s"
+
+#: network.cgi:225
 msgid "Ethernet connection"
 msgstr "Соединение Ethernet"
 
-#: network.cgi:200
-msgid "Here you can configure a wired connection using DHCP to automatically get a random IP or configure a static/fixed IP"
-msgstr "Здесь вы можете настроить проводное соединение, использующее DHCP для автоматического получения случайного IP, или указать статический (фиксированный) IP"
+#: network.cgi:243
+msgid ""
+"Here you can configure a wired connection using DHCP to automatically get a "
+"random IP or configure a static/fixed IP"
+msgstr ""
+"Здесь вы можете настроить проводное соединение, использующее DHCP для "
+"автоматического получения случайного IP, или указать статический "
+"(фиксированный) IP"
 
-#: network.cgi:204
-#: boot.cgi:112
+#: network.cgi:247 boot.cgi:152
 msgid "Configuration"
 msgstr "Настройки"
 
-#: network.cgi:209
-#: lib/libtazpanel:154
+#: network.cgi:253 lib/libtazpanel:165
 msgid "Interface"
 msgstr "Интерфейс"
 
-#: network.cgi:217
+#: network.cgi:261
 msgid "Static IP"
 msgstr "Статический IP"
 
-#: network.cgi:219
+#: network.cgi:263
 msgid "Use static IP"
 msgstr "Использовать статический IP"
 
-#: network.cgi:221
+#: network.cgi:265
 msgid "IP address"
 msgstr "Адрес IP"
 
-#: network.cgi:224
+#: network.cgi:268
 msgid "Netmask"
 msgstr "Маска сети"
 
-#: network.cgi:227
+#: network.cgi:271
 msgid "Gateway"
 msgstr "Шлюз"
 
-#: network.cgi:230
+#: network.cgi:274
 msgid "DNS server"
 msgstr "Сервер DNS"
 
-#: network.cgi:237
-#: network.cgi:396
-#: network.cgi:594
-#: boot.cgi:244
+#: network.cgi:277 network.cgi:297
+msgid "Wake up"
+msgstr "«Разбудить»"
+
+#: network.cgi:279
+msgid "Wake up machines by network"
+msgstr "«Разбудить» компьютер по сети"
+
+#: network.cgi:281
+msgid "MAC address to wake up"
+msgstr "MAC-адрес пробуждаемого компьютера"
+
+#: network.cgi:282 network.cgi:287
+msgid "Leave empty for a general wakeup"
+msgstr "Оставьте пустым, чтобы «разбудить» всех"
+
+#: network.cgi:283
+msgid "List"
+msgstr "Список"
+
+#: network.cgi:286
+msgid "MAC/IP address password"
+msgstr "MAC/IP-адрес пароль"
+
+#: network.cgi:288
+msgid "Help"
+msgstr "Справка"
+
+#: network.cgi:295 network.cgi:450 network.cgi:633 boot.cgi:292
 msgid "Start"
 msgstr "Запустить"
 
-#: network.cgi:238
-#: network.cgi:397
-#: network.cgi:595
-#: boot.cgi:233
+#: network.cgi:296 network.cgi:451 network.cgi:634 boot.cgi:281
 msgid "Stop"
 msgstr "Остановить"
 
-#: network.cgi:257
-#: network.cgi:548
+#: network.cgi:321 network.cgi:591
 msgid "Configuration file"
 msgstr "Файл настроек"
 
-#: network.cgi:267
-msgid "These values are the ethernet settings in the main /etc/network.conf configuration file"
-msgstr "Эти значения — параметры Ethernet из основного конфигурационного файла /etc/network.conf"
+#: network.cgi:331
+msgid ""
+"These values are the ethernet settings in the main /etc/network.conf "
+"configuration file"
+msgstr ""
+"Эти значения — параметры Ethernet из основного конфигурационного файла /etc/"
+"network.conf"
 
-#: network.cgi:279
+#: network.cgi:343
 msgid "(hidden)"
 msgstr "(скрыто)"
 
-#: network.cgi:285
-#: boot.cgi:110
-#: hardware.cgi:38
-#: settings.cgi:375
-#: lib/libtazpanel:155
+#: network.cgi:349 boot.cgi:150 hardware.cgi:57 lib/libtazpanel:166
 msgid "Name"
 msgstr "Название"
 
-#: network.cgi:286
+#: network.cgi:350
 msgid "Signal level"
 msgstr "Уровень сигнала"
 
-#: network.cgi:287
+#: network.cgi:351
 msgid "Channel"
 msgstr "Канал"
 
-#: network.cgi:288
+#: network.cgi:352
 msgid "Encryption"
 msgstr "Шифрование"
 
-#: network.cgi:289
-#: boot.cgi:113
-#: lib/libtazpanel:156
+#: network.cgi:353 boot.cgi:153 lib/libtazpanel:167
 msgid "Status"
 msgstr "Состояние"
 
-#: network.cgi:340
-#: network.cgi:436
-#: network.cgi:458
+#: network.cgi:404 network.cgi:486 network.cgi:508
 msgid "None"
 msgstr "Нет"
 
-#: network.cgi:353
+#: network.cgi:410
 msgid "Connected"
 msgstr "Соединено"
 
-#: network.cgi:383
+#: network.cgi:436
 msgid "Wireless connection"
 msgstr "Беспроводное соединение"
 
-#: network.cgi:398
-#: lib/libtazpanel:139
+#: network.cgi:452 lib/libtazpanel:150
 msgid "Scan"
 msgstr "Сканировать"
 
-#: network.cgi:406
+#: network.cgi:460
 msgid "Scanning wireless interface..."
 msgstr "Сканирование беспроводного интерфейса…"
 
-#: network.cgi:424
+#: network.cgi:474
 msgid "Connection"
 msgstr "Соединение"
 
-#: network.cgi:430
+#: network.cgi:480
 msgid "Network SSID"
 msgstr "Имя сети (SSID)"
 
-#: network.cgi:434
+#: network.cgi:484
 msgid "Security"
 msgstr "Безопасность"
 
-#: network.cgi:445
+#: network.cgi:495
 msgid "EAP method"
 msgstr "Метод EAP"
 
-#: network.cgi:456
+#: network.cgi:506
 msgid "Phase 2 authentication"
 msgstr "2-й этап аутентификации"
 
-#: network.cgi:468
+#: network.cgi:518
 msgid "CA certificate"
 msgstr "Сертификат центра сертификации"
 
-#: network.cgi:473
+#: network.cgi:523
 msgid "User certificate"
 msgstr "Сертификат пользователя"
 
-#: network.cgi:478
+#: network.cgi:528
 msgid "Identity"
 msgstr "Пользователь"
 
-#: network.cgi:483
+#: network.cgi:533
 msgid "Anonymous identity"
 msgstr "Неизвестный"
 
-#: network.cgi:488
+#: network.cgi:538
 msgid "Password"
 msgstr "Пароль"
 
-#: network.cgi:491
+#: network.cgi:541
 msgid "Show password"
 msgstr "Показать пароль"
 
-#: network.cgi:501
-msgid "Access point"
-msgstr "Точка доступа"
-
-#: network.cgi:539
+#: network.cgi:582
 msgid "Configure"
 msgstr "Настроить"
 
-#: network.cgi:558
-msgid "These values are the wifi settings in the main /etc/network.conf configuration file"
-msgstr "Эти значения — параметры Wi-Fi из основного конфигурационного файла /etc/network.conf"
+#: network.cgi:601
+msgid ""
+"These values are the wifi settings in the main /etc/network.conf "
+"configuration file"
+msgstr ""
+"Эти значения — параметры Wi-Fi из основного конфигурационного файла /etc/"
+"network.conf"
 
-#: network.cgi:564
+#: network.cgi:607
 msgid "Output of iwconfig"
 msgstr "Вывод команды iwconfig"
 
-#: network.cgi:587
-msgid "Networking"
-msgstr "Сети"
-
-#: network.cgi:589
+#: network.cgi:616
 msgid "Manage network connections and services"
 msgstr "Управление сетевыми соединениями и службами"
 
-#: network.cgi:596
+#: network.cgi:635
 msgid "Restart"
 msgstr "Перезапуск"
 
-#: network.cgi:600
+#: network.cgi:639
 msgid "Configuration:"
 msgstr "Настройки:"
 
-#: network.cgi:608
+#: network.cgi:647
 msgid "Network interfaces"
 msgstr "Сетевые интерфейсы"
 
-#: network.cgi:614
+#: network.cgi:654
+msgid "forward packets between interfaces"
+msgstr "включить форвардинг пакетов между интерфейсами"
+
+#: network.cgi:656 network.cgi:690 boot.cgi:336 settings.cgi:608
+#: settings.cgi:722
+msgid "Change"
+msgstr "Изменить"
+
+#: network.cgi:665
 msgid "Hosts"
 msgstr "Хосты"
 
-#: network.cgi:630
+#: network.cgi:682
 msgid "Hostname"
 msgstr "Имя хоста"
 
-#: boot.cgi:16
-msgid "TazPanel - Boot"
-msgstr "Загрузка | TazPanel"
+#: network.cgi:702
+msgid "Output of ifconfig"
+msgstr "Вывод команды ifconfig"
+
+#: network.cgi:708
+msgid "Routing table"
+msgstr "Таблица маршрутизации"
+
+#: network.cgi:715
+msgid "Domain name resolution"
+msgstr "Разрешение доменных имён"
+
+#: network.cgi:730
+msgid "ARP table"
+msgstr "Таблица ARP"
+
+#: network.cgi:750
+msgid "Proxy"
+msgstr "Прокси"
+
+#: network.cgi:751
+msgid "Add"
+msgstr "Добавить"
+
+#: network.cgi:764
+msgid "IP Connections"
+msgstr "Соединения IP"
+
+#: network.cgi:774
+msgid "Firewall"
+msgstr "Брандмауэр"
+
+#: boot.cgi:16 styles/default/header.html:62
+msgid "Boot"
+msgstr "Загрузка"
 
 #: boot.cgi:27
 msgid "Show more..."
 msgstr "Показать больше…"
 
-#: boot.cgi:56
+#: boot.cgi:45 boot.cgi:492 styles/default/header.html:80
+msgid "System logs"
+msgstr "Системные журналы"
+
+#: boot.cgi:96
 msgid "Boot log files"
 msgstr "Журналы загрузки"
 
-#: boot.cgi:59
-#: styles/default/header.html:53
-msgid "Kernel messages"
-msgstr "Сообщения ядра"
-
-#: boot.cgi:60
-#: styles/default/header.html:54
-msgid "Boot scripts"
-msgstr "Загрузочные скрипты"
-
-#: boot.cgi:61
-#: styles/default/header.html:55
+#: boot.cgi:101 styles/default/header.html:76
 msgid "X server"
 msgstr "X-сервер"
 
-#: boot.cgi:62
-#: styles/default/header.html:56
+#: boot.cgi:102 styles/default/header.html:77
 msgid "X session"
 msgstr "Сеанс X"
 
-#: boot.cgi:84
-#: boot.cgi:347
-#: styles/default/header.html:59
+#: boot.cgi:124 boot.cgi:493 styles/default/header.html:81
 msgid "Manage daemons"
 msgstr "Управление службами"
 
-#: boot.cgi:86
+#: boot.cgi:126
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Проверка, запуск и остановка служб SliTaz"
 
-#: boot.cgi:111
-#: hardware.cgi:153
-#: settings.cgi:496
+#: boot.cgi:151 hardware.cgi:168 settings.cgi:434
 msgid "Description"
 msgstr "Описание"
 
-#: boot.cgi:114
+#: boot.cgi:154
 msgid "Action"
 msgstr "Действие"
 
-#: boot.cgi:115
+#: boot.cgi:155
 msgid "PID"
 msgstr "PID"
 
-#: boot.cgi:138
+#: boot.cgi:180
 msgid "SliTaz Firewall with iptable rules"
 msgstr "Брандмауэр SliTaz с правилами iptable"
 
-#: boot.cgi:140
+#: boot.cgi:182
 msgid "Small and fast web server with CGI support"
 msgstr "Маленький и быстрый веб-сервер с поддержкой CGI"
 
-#: boot.cgi:142
+#: boot.cgi:185
 msgid "Network time protocol daemon"
 msgstr "Служба протокола сетевого времени"
 
-#: boot.cgi:145
+#: boot.cgi:188
 msgid "Anonymous FTP server"
 msgstr "Анонимный сервер FTP"
 
-#: boot.cgi:147
+#: boot.cgi:191
 msgid "Busybox DHCP server"
 msgstr "Сервер DHCP из Busybox"
 
-#: boot.cgi:149
+#: boot.cgi:194
 msgid "Linux Kernel log daemon"
 msgstr "Служба журнала ядра Linux"
 
-#: boot.cgi:152
+#: boot.cgi:197
 msgid "Execute scheduled commands"
 msgstr "Выполнение запланированных команд"
 
-#: boot.cgi:155
+#: boot.cgi:200
 msgid "Small static DNS server daemon"
 msgstr "Служба маленького статического сервера DNS"
 
-#: boot.cgi:158
+#: boot.cgi:203
 msgid "Transfer a file on tftp request"
 msgstr "Передача файлов по запросу TFTP"
 
-#: boot.cgi:160
+#: boot.cgi:206
+msgid "Printer daemon"
+msgstr "Служба печати"
+
+#: boot.cgi:208
 msgid "Listen for network connections and launch programs"
 msgstr "Прослушивание сетевых соединений и запуск программ"
 
-#: boot.cgi:163
+#: boot.cgi:211
 msgid "Manage a ZeroConf IPv4 link-local address"
 msgstr "Управление присоединенным-локальным адресом ZeroConf IPv4"
 
-#: boot.cgi:232
+#: boot.cgi:280
 msgid "Started"
 msgstr "Запущен"
 
-#: boot.cgi:243
+#: boot.cgi:291
 msgid "Stopped"
 msgstr "Остановлен"
 
-#: boot.cgi:270
+#: boot.cgi:318
 msgid "GRUB Boot loader"
 msgstr "Загрузчик GRUB"
 
-#: boot.cgi:272
+#: boot.cgi:320
 msgid "The first application started when the computer powers on"
 msgstr "Первое приложение, запускаемое при включении питания"
 
-#: boot.cgi:279
+#: boot.cgi:327
 msgid "Default entry:"
 msgstr "Пункт по умолчанию:"
 
-#: boot.cgi:281
+#: boot.cgi:329
 msgid "Timeout:"
 msgstr "Таймаут:"
 
-#: boot.cgi:283
+#: boot.cgi:331
 msgid "Splash image:"
 msgstr "Загрузочная картинка:"
 
-#: boot.cgi:288
-#: settings.cgi:557
-#: settings.cgi:623
-#: settings.cgi:694
-msgid "Change"
-msgstr "Изменить"
-
-#: boot.cgi:295
+#: boot.cgi:343
 msgid "View or edit menu.lst"
 msgstr "Просмотр и правка menu.lst"
 
-#: boot.cgi:300
+#: boot.cgi:348
 msgid "Boot entries"
 msgstr "Загрузочные пункты"
 
-#: boot.cgi:307
+#: boot.cgi:355
 msgid "Entry"
 msgstr "Пункт"
 
-#: boot.cgi:328
+#: boot.cgi:376
 msgid "Web boot is available with gPXE"
 msgstr "Доступна веб-загрузка с gPXE"
 
-#: boot.cgi:341
+#: boot.cgi:390 boot.cgi:496 styles/default/header.html:83
+msgid "ISO mine"
+msgstr "Создание ISO-образов"
+
+#: boot.cgi:486
 msgid "Boot &amp; Start services"
 msgstr "Загрузка и запуск служб"
 
-#: boot.cgi:343
+#: boot.cgi:488
 msgid "Everything that happens before user login"
 msgstr "Всё, что происходит перед входом пользователя в систему"
 
-#: boot.cgi:346
-#: styles/default/header.html:51
+#: boot.cgi:491 styles/default/header.html:72
 msgid "Boot logs"
 msgstr "Журналы загрузки"
 
-#: boot.cgi:350
-#: styles/default/header.html:48
+#: boot.cgi:499 styles/default/header.html:68
 msgid "Boot loader"
 msgstr "Загрузчик"
 
-#: boot.cgi:357
+#: boot.cgi:506
 msgid "Configuration files"
 msgstr "Файлы настроек"
 
-#: boot.cgi:360
+#: boot.cgi:509
 msgid "Main configuration file:"
 msgstr "Главный файл настроек:"
 
-#: boot.cgi:361
-#: boot.cgi:363
-msgid "View"
-msgstr "Смотреть"
-
-#: boot.cgi:362
+#: boot.cgi:511
 msgid "Login manager settings:"
 msgstr "Настройки менеджера входа в систему:"
 
-#: boot.cgi:370
+#: boot.cgi:519
 msgid "Kernel cmdline"
 msgstr "Командная строка ядра"
 
-#: boot.cgi:377
+#: boot.cgi:526
 msgid "Local startup commands"
 msgstr "Локальные команды запуска"
 
-#: hardware.cgi:13
-msgid "TazPanel - Hardware"
-msgstr "Оборудование | TazPanel"
+#: hardware.cgi:13 styles/default/header.html:88
+msgid "Hardware"
+msgstr "Оборудование"
 
-#: hardware.cgi:35
+#: hardware.cgi:54
 msgid "Bus"
 msgstr "Шина"
 
-#: hardware.cgi:36
-#: hardware.cgi:509
+#: hardware.cgi:55 hardware.cgi:525
 msgid "Device"
 msgstr "Устройство"
 
-#: hardware.cgi:37
+#: hardware.cgi:56
 msgid "ID"
 msgstr "ID"
 
-#: hardware.cgi:90
+#: hardware.cgi:108
 msgid "Detect hardware"
 msgstr "Поиск оборудования"
 
-#: hardware.cgi:91
+#: hardware.cgi:110
 msgid "Detect PCI and USB hardware"
 msgstr "Определение оборудования PCI и USB"
 
-#: hardware.cgi:104
-#: hardware.cgi:225
-#: styles/default/header.html:67
+#: hardware.cgi:118 hardware.cgi:239 styles/default/header.html:91
 msgid "Kernel modules"
 msgstr "Модули ядра"
 
-#: hardware.cgi:105
+#: hardware.cgi:120
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Управление, поиск и сведения о модулях ядра Linux"
 
-#: hardware.cgi:109
+#: hardware.cgi:124
 msgid "Modules search"
 msgstr "Поиск модулей"
 
-#: hardware.cgi:117
+#: hardware.cgi:132
 msgid "Detailed information for module: %s"
 msgstr "Подробности о модуле %s"
 
-#: hardware.cgi:137
+#: hardware.cgi:152
 msgid "Matching result(s) for: %s"
 msgstr "Результаты поиска %s"
 
-#: hardware.cgi:143
+#: hardware.cgi:158
 msgid "Module:"
 msgstr "Модуль:"
 
-#: hardware.cgi:152
+#: hardware.cgi:167
 msgid "Module"
 msgstr "Модуль"
 
-#: hardware.cgi:154
-#: lib/libtazpanel:285
+#: hardware.cgi:169 hardware.cgi:527 lib/libtazpanel:295
 msgid "Size"
 msgstr "Размер"
 
-#: hardware.cgi:155
-#: hardware.cgi:563
-#: lib/libtazpanel:287
+#: hardware.cgi:170 hardware.cgi:584 lib/libtazpanel:297
 msgid "Used"
 msgstr "Используется"
 
-#: hardware.cgi:156
+#: hardware.cgi:171
 msgid "by"
 msgstr "кем"
 
-#: hardware.cgi:180
+#: hardware.cgi:195
 msgid "Information for USB Device %s"
 msgstr "Информация о USB-устройстве %s"
 
-#: hardware.cgi:182
-#: hardware.cgi:200
+#: hardware.cgi:197 hardware.cgi:215
 msgid "Detailed information about specified device."
 msgstr "Подробная информация о выбранном устройстве."
 
-#: hardware.cgi:198
+#: hardware.cgi:213
 msgid "Information for PCI Device %s"
 msgstr "Информация о PCI-устройстве %s"
 
-#: hardware.cgi:221
+#: hardware.cgi:234
 msgid "Drivers &amp; Devices"
 msgstr "Драйверы и устройства"
 
-#: hardware.cgi:222
+#: hardware.cgi:236
 msgid "Manage your computer hardware"
 msgstr "Управление вашим компьютерным оборудованием"
 
-#: hardware.cgi:226
-#: styles/default/header.html:68
+#: hardware.cgi:240 styles/default/header.html:92
 msgid "Detect PCI/USB"
 msgstr "Определить PCI/USB"
 
-#: hardware.cgi:227
+#: hardware.cgi:241
 msgid "Auto-install Xorg video driver"
 msgstr "Авто-установка видео-драйвера Xorg"
 
-#: hardware.cgi:237
-#: hardware.cgi:254
+#: hardware.cgi:251 hardware.cgi:268
 msgid "Battery"
 msgstr "Батарея"
 
-#: hardware.cgi:257
+#: hardware.cgi:271
 msgid "health"
 msgstr "здоровье"
 
-#: hardware.cgi:266
+#: hardware.cgi:280
 msgid "Discharging %d%% - %s"
 msgstr "Разряжается: %d %% — осталось %s"
 
-#: hardware.cgi:270
-#, sh-format
+#: hardware.cgi:284
 msgid "Charging %d%% - %s"
 msgstr "Заряжается: %d %% — осталось %s"
 
-#: hardware.cgi:272
+#: hardware.cgi:286
 msgid "Charged 100%%"
 msgstr "Полностью заряжена"
 
-#: hardware.cgi:291
+#: hardware.cgi:305
 msgid "Temperature:"
 msgstr "Температура:"
 
-#: hardware.cgi:306
+#: hardware.cgi:320
 msgid "Brightness"
 msgstr "Яркость"
 
-#: hardware.cgi:326
-msgid "Filesystem usage statistics"
-msgstr "Статистика использования файловых систем"
-
-#: hardware.cgi:446
+#: hardware.cgi:462
 msgid "new mount point:"
 msgstr "новая точка монтирования:"
 
-#: hardware.cgi:447
+#: hardware.cgi:463
 msgid "read-only"
 msgstr "только-чтение"
 
-#: hardware.cgi:462
+#: hardware.cgi:478
 msgid "Filesystems table"
 msgstr "Таблица файловых систем"
 
-#: hardware.cgi:475
-#: lib/libtazpanel:282
+#: hardware.cgi:491 lib/libtazpanel:292
 msgid "Disk"
 msgstr "Диск"
 
-#: hardware.cgi:476
-#: lib/libtazpanel:288
+#: hardware.cgi:492 lib/libtazpanel:298
 msgid "Mount point"
 msgstr "Точка монтирования"
 
-#: hardware.cgi:477
-#: lib/libtazpanel:284
+#: hardware.cgi:493 lib/libtazpanel:294
 msgid "Type"
 msgstr "Тип"
 
-#: hardware.cgi:478
+#: hardware.cgi:494
 msgid "Options"
 msgstr "Параметры"
 
-#: hardware.cgi:479
+#: hardware.cgi:495
 msgid "Freq"
 msgstr "Резерв."
 
-#: hardware.cgi:480
+#: hardware.cgi:496
 msgid "Pass"
 msgstr "Проверка"
 
-#: hardware.cgi:502
+#: hardware.cgi:518
 msgid "Loop devices"
 msgstr "Устройства loop"
 
-#: hardware.cgi:510
+#: hardware.cgi:526
 msgid "Backing file"
 msgstr "Файл образа"
 
-#: hardware.cgi:511
+#: hardware.cgi:528
 msgid "Access"
 msgstr "Доступ"
 
-#: hardware.cgi:512
+#: hardware.cgi:529
 msgid "Offset"
 msgstr "Смещение"
 
-#: hardware.cgi:520
+#: hardware.cgi:538
 msgid "read/write"
 msgstr "чтение/запись"
 
-#: hardware.cgi:521
-#: hardware.cgi:543
+#: hardware.cgi:539 hardware.cgi:564
 msgid "read only"
 msgstr "только чтение"
 
-#: hardware.cgi:540
+#: hardware.cgi:561
 msgid "Setup"
 msgstr "Установить"
 
-#: hardware.cgi:541
+#: hardware.cgi:562
 msgid "new backing file:"
 msgstr "новый файл образа:"
 
-#: hardware.cgi:542
+#: hardware.cgi:563
 msgid "offset in bytes:"
 msgstr "смещение в байтах:"
 
-#: hardware.cgi:560
+#: hardware.cgi:581
 msgid "System memory"
 msgstr "Системная память"
 
-#: hardware.cgi:566
+#: hardware.cgi:587
 msgid "Buffers"
 msgstr "Буферы"
 
-#: hardware.cgi:569
+#: hardware.cgi:590
 msgid "Free"
 msgstr "Свободно"
 
-#: settings.cgi:17
-msgid "TazPanel - Settings"
-msgstr "Параметры | TazPanel"
-
-#: settings.cgi:83
-msgid "US"
-msgstr "США"
-
-#: settings.cgi:85
-msgid "metric"
-msgstr "метрическая"
-
-#: settings.cgi:266
-#: settings.cgi:544
-msgid "Manage groups"
-msgstr "Управление группами"
-
-#: settings.cgi:273
-#: settings.cgi:364
-msgid "Selection:"
-msgstr "Отмеченное:"
-
-#: settings.cgi:274
-msgid "Delete group"
-msgstr "Удалить группу"
-
-#: settings.cgi:281
-msgid "Group"
-msgstr "Группа"
-
-#: settings.cgi:282
-msgid "Group ID"
-msgstr "ID группы"
-
-#: settings.cgi:283
-msgid "Members"
-msgstr "Участники"
-
-#: settings.cgi:312
-msgid "Add a new group"
-msgstr "Добавить новую группу"
-
-#: settings.cgi:316
-#: settings.cgi:333
-msgid "Group name:"
-msgstr "Название группы:"
-
-#: settings.cgi:320
-msgid "Create group"
-msgstr "Создать группу"
-
-#: settings.cgi:328
-msgid "Manage group membership"
-msgstr "Участие в группах"
-
-#: settings.cgi:335
-#: settings.cgi:427
-msgid "User name:"
-msgstr "Имя пользователя:"
-
-#: settings.cgi:340
-msgid "Add user"
-msgstr "Добавить пользователя"
-
-#: settings.cgi:343
-msgid "Remove user"
-msgstr "Удалить пользователя"
-
-#: settings.cgi:359
-#: settings.cgi:543
-msgid "Manage users"
-msgstr "Управление пользователями"
-
-#: settings.cgi:365
-msgid "Delete user"
-msgstr "Удалить пользователя"
-
-#: settings.cgi:366
-msgid "Lock user"
-msgstr "Заблокировать пользователя"
-
-#: settings.cgi:367
-msgid "Unlock user"
-msgstr "Разблокировать пользователя"
-
-#: settings.cgi:373
-msgid "Login"
-msgstr "Логин"
-
-#: settings.cgi:374
-msgid "User ID"
-msgstr "ID пользователя"
-
-#: settings.cgi:376
-msgid "Home"
-msgstr "Домашняя папка"
-
-#: settings.cgi:377
-msgid "Shell"
-msgstr "Оболочка"
-
-#: settings.cgi:410
-msgid "Password:"
-msgstr "Пароль:"
-
-#: settings.cgi:412
-msgid "Change password"
-msgstr "Изменить пароль"
-
-#: settings.cgi:420
-msgid "Add a new user"
-msgstr "Добавить нового пользователя"
-
-#: settings.cgi:425
-msgid "User login:"
-msgstr "Логин пользователя:"
-
-#: settings.cgi:429
-msgid "User password:"
-msgstr "Пароль пользователя:"
-
-#: settings.cgi:434
-msgid "Create user"
-msgstr "Создать пользователя"
-
-#: settings.cgi:441
-msgid "Current user sessions"
-msgstr "Текущие сессии пользователя"
-
-#: settings.cgi:447
-msgid "Last user sessions"
-msgstr "Последние сессии пользователя"
-
-#: settings.cgi:458
-msgid "Please wait..."
-msgstr "Пожалуйста, подождите…"
-
-#: settings.cgi:462
-msgid "Choose locale"
-msgstr "Выбор локали"
-
-#: settings.cgi:465
-msgid "Current locale settings:"
-msgstr "Текущие параметры локали:"
-
-#: settings.cgi:472
-msgid "Locales that are currently installed on the machine:"
-msgstr "Локали, уже установленные в системе:"
-
-#: settings.cgi:482
-msgid "Can't see your language?<br/>You can <a href='pkgs.cgi?do=Install&amp;glibc-locale'>install glibc-locale</a> to see a larger list of available locales."
-msgstr "Не видите вашего языка?<br/>Вы можете <a href='pkgs.cgi?do=Install&amp;glibc-locale'>установить glibc-locale</a> для того, чтобы получить большой список доступных локалей."
-
-#: settings.cgi:489
-msgid "Available locales:"
-msgstr "Доступные локали:"
-
-#: settings.cgi:493
-msgid "Code"
-msgstr "Код"
-
-#: settings.cgi:494
-msgid "Language"
-msgstr "Язык"
-
-#: settings.cgi:495
-msgid "Territory"
-msgstr "Территория"
-
-#: settings.cgi:512
-#: settings.cgi:513
-msgid "-d"
-msgstr "-d"
-
-#: settings.cgi:524
-#: settings.cgi:666
-#: settings.cgi:677
-#: settings.cgi:689
-msgid "Activate"
-msgstr "Активировать"
-
-#: settings.cgi:538
+#: settings.cgi:16
 msgid "System settings"
 msgstr "Параметры системы"
 
-#: settings.cgi:540
-msgid "Manage system time, users or language settings"
-msgstr "Управление системным временем, пользователями и языками"
-
-#: settings.cgi:548
-msgid "System time"
-msgstr "Системное время"
-
-#: settings.cgi:551
-msgid "Time zone:"
-msgstr "Часовой пояс:"
-
-#: settings.cgi:560
-msgid "System time:"
-msgstr "Системное время:"
-
-#: settings.cgi:562
-msgid "Sync online"
-msgstr "Синхронизировать онлайн"
-
-#: settings.cgi:565
-msgid "Hardware clock:"
-msgstr "Часы оборудования:"
-
-#: settings.cgi:567
-msgid "Set hardware clock"
-msgstr "Установить часы оборудования"
-
-#: settings.cgi:570
-#: settings.cgi:582
+#: settings.cgi:82 settings.cgi:621 settings.cgi:648 settings.cgi:653
 msgid "Set date"
 msgstr "Установить дату"
 
-#: settings.cgi:605
+#: settings.cgi:208 settings.cgi:595
+msgid "Manage groups"
+msgstr "Управление группами"
+
+#: settings.cgi:216 settings.cgi:293
+msgid "Selection:"
+msgstr "Отмеченное:"
+
+#: settings.cgi:217
+msgid "Delete group"
+msgstr "Удалить группу"
+
+#: settings.cgi:224
+msgid "Group"
+msgstr "Группа"
+
+#: settings.cgi:225
+msgid "Group ID"
+msgstr "ID группы"
+
+#: settings.cgi:226
+msgid "Members"
+msgstr "Участники"
+
+#: settings.cgi:253
+msgid "Add a new group"
+msgstr "Добавить новую группу"
+
+#: settings.cgi:256 settings.cgi:268
+msgid "Group name:"
+msgstr "Название группы:"
+
+#: settings.cgi:257
+msgid "Create group"
+msgstr "Создать группу"
+
+#: settings.cgi:264
+msgid "Manage group membership"
+msgstr "Участие в группах"
+
+#: settings.cgi:269 settings.cgi:356
+msgid "User name:"
+msgstr "Имя пользователя:"
+
+#: settings.cgi:272
+msgid "Add user"
+msgstr "Добавить пользователя"
+
+#: settings.cgi:273
+msgid "Remove user"
+msgstr "Удалить пользователя"
+
+#: settings.cgi:286 settings.cgi:594
+msgid "Manage users"
+msgstr "Управление пользователями"
+
+#: settings.cgi:294
+msgid "Delete user"
+msgstr "Удалить пользователя"
+
+#: settings.cgi:295
+msgid "Lock user"
+msgstr "Заблокировать пользователя"
+
+#: settings.cgi:296
+msgid "Unlock user"
+msgstr "Разблокировать пользователя"
+
+#: settings.cgi:302
+msgid "Login"
+msgstr "Логин"
+
+#: settings.cgi:303
+msgid "User ID"
+msgstr "ID пользователя"
+
+#: settings.cgi:304
+msgid "User Name"
+msgstr "Имя пользователя"
+
+#: settings.cgi:305
+msgid "Home"
+msgstr "Домашняя папка"
+
+#: settings.cgi:306
+msgid "Shell"
+msgstr "Оболочка"
+
+#: settings.cgi:340
+msgid "Password:"
+msgstr "Пароль:"
+
+#: settings.cgi:342
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: settings.cgi:349
+msgid "Add a new user"
+msgstr "Добавить нового пользователя"
+
+#: settings.cgi:354
+msgid "User login:"
+msgstr "Логин пользователя:"
+
+#: settings.cgi:358
+msgid "User password:"
+msgstr "Пароль пользователя:"
+
+#: settings.cgi:363
+msgid "Create user"
+msgstr "Создать пользователя"
+
+#: settings.cgi:373
+msgid "Current user sessions"
+msgstr "Текущие сессии пользователя"
+
+#: settings.cgi:383
+msgid "Last user sessions"
+msgstr "Последние сессии пользователя"
+
+#: settings.cgi:395
+msgid "Choose locale"
+msgstr "Выбор локали"
+
+#: settings.cgi:398
+msgid "Please wait..."
+msgstr "Пожалуйста, подождите…"
+
+#: settings.cgi:403
+msgid "Current locale settings:"
+msgstr "Текущие параметры локали:"
+
+#: settings.cgi:410
+msgid "Locales that are currently installed on the machine:"
+msgstr "Локали, уже установленные в системе:"
+
+#: settings.cgi:420
+msgid ""
+"Can't see your language?<br/>You can <a href='pkgs.cgi?do=Install&amp;glibc-"
+"locale'>install glibc-locale</a> to see a larger list of available locales."
+msgstr ""
+"Не видите вашего языка?<br/>Вы можете <a href='pkgs.cgi?do=Install&amp;glibc-"
+"locale'>установить glibc-locale</a> для того, чтобы получить большой список "
+"доступных локалей."
+
+#: settings.cgi:427
+msgid "Available locales:"
+msgstr "Доступные локали:"
+
+#: settings.cgi:431
+msgid "Code"
+msgstr "Код"
+
+#: settings.cgi:432
+msgid "Language"
+msgstr "Язык"
+
+#: settings.cgi:433
+msgid "Territory"
+msgstr "Территория"
+
+#: settings.cgi:450 settings.cgi:451
+msgid "-d"
+msgstr "-d"
+
+#: settings.cgi:462 settings.cgi:765 settings.cgi:776 settings.cgi:788
+msgid "Activate"
+msgstr "Активировать"
+
+#: settings.cgi:474 settings.cgi:497
+msgid "Small quick tweaks for user %s"
+msgstr "Быстрые настройки для пользователя %s"
+
+#: settings.cgi:500
+msgid "Terminal prompt"
+msgstr "Приглашение терминала"
+
+#: settings.cgi:506
+msgid "Monochrome"
+msgstr "Монохромное"
+
+#: settings.cgi:515
+msgid "Colored"
+msgstr "Цветное"
+
+#: settings.cgi:524 settings.cgi:572
+msgid "Manual edit: %s"
+msgstr "Ручная правка: %s"
+
+#: settings.cgi:525
+msgid ""
+"To take effect: log out and log in to system or execute command in the "
+"terminal:"
+msgstr ""
+"Чтобы применить изменения, выйдите из системы и повторно войдите, либо "
+"выполните команду в терминале:"
+
+#: settings.cgi:533
+msgid "Menu button appearance"
+msgstr "Внешний вид кнопки меню"
+
+#: settings.cgi:538
+msgid "Icon:"
+msgstr "Значок:"
+
+#: settings.cgi:541 settings.cgi:562
+msgid "Do not show"
+msgstr "Не показывать"
+
+#: settings.cgi:559
+msgid "Text:"
+msgstr "Текст:"
+
+#: settings.cgi:566
+msgid "Show text"
+msgstr "Показывать текст"
+
+#: settings.cgi:589
+msgid "Manage system time, users or language settings"
+msgstr "Управление системным временем, пользователями и языками"
+
+#: settings.cgi:599
+msgid "System time"
+msgstr "Системное время"
+
+#: settings.cgi:602
+msgid "Time zone:"
+msgstr "Часовой пояс:"
+
+#: settings.cgi:611
+msgid "System time:"
+msgstr "Системное время:"
+
+#: settings.cgi:613
+msgid "Sync online"
+msgstr "Синхронизировать онлайн"
+
+#: settings.cgi:616
+msgid "Hardware clock:"
+msgstr "Часы оборудования:"
+
+#: settings.cgi:618
+msgid "Set hardware clock"
+msgstr "Установить часы оборудования"
+
+#: settings.cgi:704
 msgid "System language"
 msgstr "Язык системы"
 
-#: settings.cgi:618
-msgid "You must logout and login again to your current session to use %s locale."
-msgstr "Вам необходимо выйти из системы и войти повторно, чтобы использовать локаль «%s»."
+#: settings.cgi:717
+msgid ""
+"You must logout and login again to your current session to use %s locale."
+msgstr ""
+"Вам необходимо выйти из системы и войти повторно, чтобы использовать локаль "
+"«%s»."
 
-#: settings.cgi:621
+#: settings.cgi:720
 msgid "Current system locale:"
 msgstr "Текущая локаль системы:"
 
-#: settings.cgi:633
+#: settings.cgi:732
 msgid "Keyboard layout"
 msgstr "Раскладка клавиатуры"
 
-#: settings.cgi:647
+#: settings.cgi:746
 msgid "Current console keymap: %s"
 msgstr "Текущая консольная раскладка: %s"
 
-#: settings.cgi:665
+#: settings.cgi:764
 msgid "Suggested keymap for Xorg:"
-msgstr "Предлагаемая раскладка клавиатуры для XOrg:"
+msgstr "Предлагаемая раскладка клавиатуры для Xorg:"
 
-#: settings.cgi:673
+#: settings.cgi:772
 msgid "Available keymaps:"
 msgstr "Доступные раскладки:"
 
-#: settings.cgi:684
+#: settings.cgi:783
 msgid "Panel configuration"
 msgstr "Настройка панели"
 
-#: settings.cgi:687
+#: settings.cgi:786
 msgid "Style:"
 msgstr "Стиль:"
 
-#: settings.cgi:692
-msgid "Panel password:"
-msgstr "Пароль панели:"
-
-#: settings.cgi:698
+#: settings.cgi:792
 msgid "Configuration files:"
 msgstr "Файлы настроек:"
 
-#: settings.cgi:699
-#: styles/default/header.html:23
+#: settings.cgi:793 styles/default/header.html:42
 msgid "Panel"
 msgstr "Панель"
 
-#: settings.cgi:700
+#: settings.cgi:794
 msgid "Server"
 msgstr "Сервер"
 
-#: settings.cgi:703
+#: settings.cgi:797
 msgid "TazPanel provides a debugging mode and page:"
 msgstr "TazPanel поддерживает отладочный режим и страницу:"
 
-#: lib/libtazpanel:137
+#: lib/libtazpanel:153
 msgid "connected"
 msgstr "соединён"
 
-#: lib/libtazpanel:157
+#: lib/libtazpanel:168
 msgid "IP Address"
 msgstr "Адрес IP"
 
-#: lib/libtazpanel:158
+#: lib/libtazpanel:169
 msgid "Scan ports"
 msgstr "Сканировать порты"
 
-#: lib/libtazpanel:283
+#: lib/libtazpanel:241
+msgid "Please wait"
+msgstr "Пожалуйста, подождите"
+
+#: lib/libtazpanel:293
 msgid "Label"
 msgstr "Метка"
 
-#: lib/libtazpanel:286
+#: lib/libtazpanel:296
 msgid "Available"
 msgstr "Доступно"
 
-#: lib/libtazpanel:353
+#: lib/libtazpanel:367
 msgid "You must be root to show this page."
 msgstr "Вы должны обладать правами root для просмотра этой страницы."
 
@@ -1048,189 +1269,79 @@ msgid "Manual"
 msgstr "Руководство"
 
 #: help.cgi:28
-msgid "TazPanel - Help &amp; Doc"
-msgstr "Справка и документация | TazPanel"
+msgid "Help &amp; Doc"
+msgstr "Справка и документация"
 
-#: styles/default/header.html:25
-#: styles/default/header.html:35
+#: styles/default/header.html:32
+msgid "Confirm break"
+msgstr "Прервать процесс?"
+
 #: styles/default/header.html:45
-#: styles/default/header.html:66
-#: styles/default/header.html:76
-msgid "Summary"
-msgstr "Сводка"
-
-#: styles/default/header.html:26
 msgid "Processes"
 msgstr "Процессы"
 
-#: styles/default/header.html:27
-msgid "Terminal"
-msgstr "Терминал"
-
-#: styles/default/header.html:28
+#: styles/default/header.html:47
 msgid "Create Report"
 msgstr "Создать отчёт"
 
-#: styles/default/header.html:36
+#: styles/default/header.html:55
 msgid "Config file"
 msgstr "Файл настроек"
 
-#: styles/default/header.html:37
+#: styles/default/header.html:56
 msgid "Ethernet"
 msgstr "Ethernet"
 
-#: styles/default/header.html:38
+#: styles/default/header.html:57
 msgid "Wireless"
 msgstr "Беспроводные"
 
-#: styles/default/header.html:43
-msgid "Boot"
-msgstr "Загрузка"
-
-#: styles/default/header.html:64
-msgid "Hardware"
-msgstr "Оборудование"
-
-#: styles/default/header.html:69
-msgid "Disks"
-msgstr "Диски"
-
-#: styles/default/header.html:74
-msgid "Settings"
-msgstr "Настройки"
-
-#: styles/default/header.html:77
+#: styles/default/header.html:101
 msgid "Users"
 msgstr "Пользователи"
 
-#: styles/default/header.html:78
+#: styles/default/header.html:102
 msgid "Groups"
 msgstr "Группы"
 
-#: styles/default/header.html:93
+#: styles/default/header.html:103
+msgid "Tweaks"
+msgstr "Маленькие настройки"
+
+#: styles/default/header.html:119
 msgid "Some features are disabled."
 msgstr "Некоторые возможности отключены."
 
-#: styles/default/header.html:98
+#: styles/default/header.html:124
 msgid "You are logged in to the TazPanel as user %s."
 msgstr "TazPanel открыта под учетной записью пользователя %s."
 
-#: styles/default/header.html:99
+#: styles/default/header.html:125
 msgid "Click to re-login."
 msgstr "Нажмите для повторного входа."
 
-#: styles/default/footer.html:7
+#: styles/default/header.html:135
 msgid "Copyright"
 msgstr "Авторское право"
 
-#: styles/default/footer.html:9
+#: styles/default/header.html:137
 msgid "BSD License"
 msgstr "Лицензия BSD"
 
-#~ msgid "Small terminal emulator, commands options are supported."
-#~ msgstr "Маленький эмулятор терминала; поддерживаются параметры команд."
+#~ msgid "Groups management"
+#~ msgstr "Управление группами"
 
-#~ msgid "Commands: %s"
-#~ msgstr "Команды: %s"
+#~ msgid "Networking"
+#~ msgstr "Сети"
 
-#~ msgid "Downloading to: %s"
-#~ msgstr "Загрузка в: %s"
+#~ msgid "Access point"
+#~ msgstr "Точка доступа"
 
-#~ msgid "%s needs an argument"
-#~ msgstr "Команда %s требует аргумент"
+#~ msgid "US"
+#~ msgstr "США"
 
-#~ msgid "Unknown command: %s"
-#~ msgstr "Неизвестная команда: %s"
-
-#~ msgid "TazPanel - Process activity"
-#~ msgstr "Процессы | TazPanel"
-
-#~ msgid "Refresh:"
-#~ msgstr "Обновить:"
-
-#~ msgid "1s"
-#~ msgstr "1 с"
-
-#~ msgid "5s"
-#~ msgstr "5 с"
-
-#~ msgid "10s"
-#~ msgstr "10 с"
-
-#~ msgid "none"
-#~ msgstr "нет"
-
-#~ msgid "TazPanel - Debug"
-#~ msgstr "Отладка | TazPanel"
-
-#~ msgid "HTTP Environment"
-#~ msgstr "Переменные окружения HTTP"
-
-#~ msgid "TazPanel - System report"
-#~ msgstr "Системный отчёт | TazPanel"
-
-#~ msgid "Reporting to: %s"
-#~ msgstr "Файл отчёта: %s"
-
-#~ msgid "Creating report header..."
-#~ msgstr "Создание заголовка отчёта…"
-
-#~ msgid "SliTaz system report"
-#~ msgstr "Системный отчёт SliTaz"
-
-#~ msgid "Creating system summary..."
-#~ msgstr "Получение сводки о системе…"
-
-#~ msgid "Date:"
-#~ msgstr "Дата:"
-
-#~ msgid "Getting hardware info..."
-#~ msgstr "Получение информации об оборудовании…"
-
-#~ msgid "Getting networking info..."
-#~ msgstr "Получение информации о сетях…"
-
-#~ msgid "Getting filesystems info..."
-#~ msgstr "Получение информации о файловых системах…"
-
-#~ msgid "Getting boot logs..."
-#~ msgstr "Получение журналов загрузки…"
-
-#~ msgid "Creating report footer..."
-#~ msgstr "Завершение создание отчёта…"
-
-#~ msgid "View report"
-#~ msgstr "Просмотреть отчёт"
-
-#~ msgid "This report can be attached with a bug report on:"
-#~ msgstr "Этот отчёт можно прикрепить к баг-репорту здесь:"
-
-#~ msgid "Host: %s"
-#~ msgstr "Хост: %s"
-
-#~ msgid "SliTaz administration and configuration Panel"
-#~ msgstr "Панель администрирования и настройки SliTaz"
-
-#~ msgid "Process activity"
-#~ msgstr "Процессы"
-
-#~ msgid "Create a report"
-#~ msgstr "Создать отчёт"
-
-#~ msgid "Uptime:"
-#~ msgstr "Время работы:"
-
-#~ msgid "Memory in Mb:"
-#~ msgstr "Память в МБ:"
-
-#~ msgid "Total: %d, Used: %d, Free: %d"
-#~ msgstr "Всего: %d, занято: %d, свободно: %d"
-
-#~ msgid "Linux kernel:"
-#~ msgstr "Ядро Linux:"
-
-#~ msgid "Panel Activity"
-#~ msgstr "Действия панели"
+#~ msgid "metric"
+#~ msgstr "метрическая"
 
 #~ msgid "Quality"
 #~ msgstr "Уровень сигнала"
@@ -1241,17 +1352,8 @@ msgstr "Лицензия BSD"
 #~ msgid "Value"
 #~ msgstr "Значение"
 
-#~ msgid "Activate (static)"
-#~ msgstr "Запустить (статический IP)"
-
-#~ msgid "Activate (DHCP)"
-#~ msgstr "Запустить (DHCP)"
-
 #~ msgid "Disable"
 #~ msgstr "Остановить"
-
-#~ msgid "Manual Edit"
-#~ msgstr "Ручная правка"
 
 #~ msgid "Wifi name (ESSID)"
 #~ msgstr "Название Wi-Fi (ESSID)"
@@ -1267,21 +1369,6 @@ msgstr "Лицензия BSD"
 
 #~ msgid "Change hostname"
 #~ msgstr "Изменить имя хоста"
-
-#~ msgid "Output of ifconfig"
-#~ msgstr "Вывод команды ifconfig"
-
-#~ msgid "Routing table"
-#~ msgstr "Таблица маршрутизации"
-
-#~ msgid "Domain name resolution"
-#~ msgstr "Разрешение доменных имён"
-
-#~ msgid "ARP table"
-#~ msgstr "Таблица ARP"
-
-#~ msgid "IP Connections"
-#~ msgstr "Соединения IP"
 
 #~ msgid "Edit script"
 #~ msgstr "Править скрипт"

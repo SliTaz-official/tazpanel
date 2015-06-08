@@ -13,7 +13,7 @@
 get_config
 header
 
-TITLE=$(_ 'TazPanel - Boot')
+TITLE=$(_ 'Boot')
 
 
 # Print last 40 lines of given file with "more" link
@@ -36,8 +36,8 @@ EOT
 case " $(GET) " in
 	*\ syslog\ *)
 		logtype="$(GET syslog)"
-		[ "${logtype:-syslog}" == "syslog" ] && logtype=messages
-		xhtml_header
+		[ "${logtype:-syslog}" == 'syslog' ] && logtype='messages'
+		xhtml_header "$(_ 'System logs')"
 
 		cat <<EOT
 <section>
@@ -91,10 +91,9 @@ EOT
 				actkernel=' class="active"'
 				output="$(syntax_highlighter kernel < /var/log/dmesg.log | loghead /var/log/dmesg.log)" ;;
 		esac
-		xhtml_header
-		cat <<EOT
-<h2>$(_ 'Boot log files')</h2>
 
+		xhtml_header "$(_ 'Boot log files')"
+		cat <<EOT
 <ul id="tabs">
 	<li$actkernel><a href="?log=kernel">$(_ 'Kernel messages')</a></li>
 	<li$actboot  ><a href="?log=boot"  >$(_ 'Boot scripts'   )</a></li>
@@ -118,11 +117,9 @@ EOT
 		# Start and stop a daemon.
 		# (I think we don't need a 'restart' since 2 clicks and you are done)
 		. /etc/rcS.conf
-		xhtml_header
+		xhtml_header "$(_ 'Manage daemons')"
 
 		cat <<EOT
-<h2>$(_ 'Manage daemons')</h2>
-
 <p>$(_ 'Check, start and stop daemons on SliTaz')</p>
 EOT
 		daemon=$(GET daemons)
@@ -313,10 +310,9 @@ EOT
 		default=$(cat $GRUBMENU | grep ^default     | cut -d' ' -f2)
 		timeout=$(cat $GRUBMENU | grep ^timeout     | cut -d' ' -f2)
 		 splash=$(cat $GRUBMENU | grep ^splashimage | cut -d' ' -f2)
-		xhtml_header
-				cat <<EOT
-<h2>$(_ 'GRUB Boot loader')</h2>
 
+		xhtml_header "$(_ 'GRUB Boot loader')"
+				cat <<EOT
 <p>$(_ 'The first application started when the computer powers on')</p>
 
 <form class="wide">
@@ -481,10 +477,8 @@ EOT
 		# Default content with summary
 		#
 		. /etc/rcS.conf
-		xhtml_header
+		xhtml_header "$(_ 'Boot &amp; Start services')"
 		cat <<EOT
-<h2>$(_ 'Boot &amp; Start services')</h2>
-
 <p>$(_ 'Everything that happens before user login')</p>
 
 <form>

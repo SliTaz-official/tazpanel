@@ -16,15 +16,24 @@ body { color: CaptionText; font: caption; margin: 72px 0 0 0; }
 
 body > header {
 	position: fixed; top: 0; left: 0;
-	width: 100%;
+	width: 100%; height: 40px;
 	background-color: #222;
 }
 
 body > header h1 {
 	margin: 0;
-	color: #fff;
-	font-size: 18px; line-height: 40px; /* center vertical */
-	font-style: italic;
+	color: #CCC;
+	font-size: 18px; line-height: 21px;
+	font-weight: 300;
+	white-space: nowrap; overflow: hidden;
+	vertical-align: middle;
+}
+
+body > header div {
+	position: absolute; left: 40px; top: 21px;
+	color: #FFF; background: transparent;
+	font-size: 14px; line-height: 19px;
+	font-weight: 300;
 	white-space: nowrap; overflow: hidden;
 	vertical-align: middle;
 }
@@ -258,7 +267,7 @@ li { padding: 4px 0; }
 	padding: 1em;
 	width: 50%; margin: 0.5em auto;
 }
-.box img { float: left; }
+.box span { display: inline-block; margin-right: 0.5rem; float: left; }
 
 .box ul { list-style-type: none; padding: 0; }
 
@@ -551,20 +560,16 @@ button[data-icon]::before { font-size: 16px; line-height: 16px; width: 16px; }
 [data-icon="tazpanel"]::before {
 	display: inline-block;
 	content: '\f151';
-	color: #EBEBEB;
-	border: 1pt solid hsl(5, 85%, 35%); border-radius: 0.2rem;
+	border: 1pt solid; border-radius: 0.2rem;
 	font-size: 32px; line-height: 32px;
 
 	height: 32px; width: 32px;
 	margin: 0.2rem;
 	padding: 0;
 	vertical-align: top;
-	background-image: -webkit-linear-gradient(top, hsl(10, 100%, 40%), hsl(0, 70%, 30%));
-}
-.light [data-icon="tazpanel"]::before {
-	text-shadow: 0 1pt 2pt hsla(0, 0%, 0%, 0.9), 0 0 2pt hsla(0, 0%, 0%, 0.6);
 }
 
+[data-icon^=msg]::before { height: 32px; width: 32px; font-size: 32px; line-height: 32px; }
 
 
 /*******************
@@ -770,3 +775,5 @@ section.bigNoScrollable { margin: 0.5rem; }
 
 .bigScrollable { position: absolute; top: 0; bottom: 0; left: 0; right: 0; overflow: auto; }
 #fileContent.bigScrollable { margin: 0.2rem; top: 2.5rem; }
+
+section section { margin: 0.2rem; }

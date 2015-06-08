@@ -14,6 +14,7 @@ all: msgfmt
 
 pot:
 	xgettext -o po/tazpanel.pot -L Shell -k_ -k_n -k_p:1,2 \
+		--from-code="UTF-8" \
 		--package-name="TazPanel" \
 		--package-version="$(VERSION)" \
 		./tazpanel ./index.cgi ./network.cgi ./boot.cgi \
