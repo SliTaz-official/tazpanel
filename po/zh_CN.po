@@ -1,1043 +1,1253 @@
-# Simplified Chinese translation for Tazpanel.
-# Copyright (C) 2014 SliTaz GNU/Linux
-# This file is distributed under the same license as the Tazpanel package.
-# 张文宇 <jame987165702@gmail.com>, 2014.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Wenyu Zhang <jame987165702@gmail.com>
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: TazPanel 1.4.3\n"
+"Project-Id-Version: TazPanel 1.8.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-24 01:07+0100\n"
-"PO-Revision-Date: 2014-07-04 11:51+0800\n"
-"Last-Translator: 张文宇 <jame987165702@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: zh_CN\n"
+"POT-Creation-Date: 2015-07-10 15:21+0800\n"
+"PO-Revision-Date: 2015-07-10 16:32+0800\n"
+"Last-Translator: Wenyu Zhang <jame987165702@gmail.com>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.8.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: zh_CN\n"
 
-#: tazpanel:37
+#: tazpanel:52
 msgid "TazPanel is already running."
 msgstr "tazpanel已经运行。"
 
-#: tazpanel:40
+#: tazpanel:55
 msgid "Starting TazPanel web server on port %d..."
 msgstr "在端口 %d 启动Tazpanel Web服务器中..."
 
-#: tazpanel:42
+#: tazpanel:57
 msgid "TazPanel Authentication - Default: root:root"
 msgstr "Tazpanel认证-默认 root：root"
 
-#: tazpanel:48
+#: tazpanel:64
 msgid "TazPanel is not running."
 msgstr "Tazpanel没有运行。"
 
-#: tazpanel:51
+#: tazpanel:67
 msgid "Stopping TazPanel web server..."
 msgstr "停止Tazpanel Web服务器中…"
 
-#: tazpanel:57
-msgid "Changing password for TazPanel"
-msgstr "为Tazpanel改变密码"
-
-#: tazpanel:58
-msgid "New password: "
-msgstr "新密码："
-
-#: tazpanel:60
-msgid "Password changed successfully"
-msgstr "密码修改成功"
-
-#: index.cgi:38 index.cgi:95
+#: index.cgi:37 index.cgi:120
 msgid "Differences"
 msgstr "差异"
 
-#: index.cgi:66
+#: index.cgi:76
 msgid "exec"
 msgstr "执行"
 
-#: index.cgi:84
+#: index.cgi:109
 msgid "File"
 msgstr "文件"
 
-#: index.cgi:93 index.cgi:108
+#: index.cgi:119 index.cgi:138 index.cgi:176
 msgid "Save"
 msgstr "保存"
 
-#: index.cgi:132 settings.cgi:494
+#: index.cgi:174 network.cgi:326 network.cgi:596 network.cgi:670
+#: network.cgi:720 boot.cgi:531 hardware.cgi:483 settings.cgi:766
 msgid "Edit"
 msgstr "编辑"
 
-#: index.cgi:156
+#: index.cgi:225 index.cgi:379 index.cgi:402 index.cgi:630
+#: styles/default/header.html:46
 msgid "Terminal"
 msgstr "终端"
 
-#: index.cgi:170
-msgid "Small terminal emulator, commands options are supported."
-msgstr "小型终端仿真器，支持命令选项。"
+#: index.cgi:246 index.cgi:331
+msgid "History"
+msgstr "历史"
 
-#: index.cgi:172 index.cgi:189
-msgid "Commands: %s"
-msgstr "命令： %s"
+#: index.cgi:247 lib/libtazpanel:348
+msgid "Back"
+msgstr "返回"
 
-#: index.cgi:177
+#: index.cgi:254
+msgid "run"
+msgstr "运行"
+
+#: index.cgi:270
+msgid "Clear"
+msgstr "清除"
+
+#: index.cgi:294
+msgid "Small non-interactive terminal emulator."
+msgstr "小非交互式终端模拟器。"
+
+#: index.cgi:295
+msgid "Run any command at your own risk, avoid interactive commands (%s)"
+msgstr "运行任何命令时需要您自担风险，不要输入交互命令（%s）"
+
+#: index.cgi:300
 msgid "Downloading to: %s"
 msgstr "下载到：%s"
 
-#: index.cgi:184
+#: index.cgi:309
 msgid "%s needs an argument"
 msgstr "%s需要一个参数"
 
-#: index.cgi:188
-msgid "Unknown command: %s"
-msgstr "未知的命令：%s"
+#: index.cgi:312
+msgid "Please, don't run interactive command \"%s\""
+msgstr "请不要运行交互式命令“%s”"
 
-#: index.cgi:196
+#: index.cgi:330 styles/default/header.html:98
+msgid "Settings"
+msgstr "设置"
+
+#: index.cgi:400
+msgid "Terminal settings"
+msgstr "终端设置"
+
+#: index.cgi:421
+msgid "Font:"
+msgstr "字体："
+
+#: index.cgi:423
+msgid "Default"
+msgstr "默认选项"
+
+#: index.cgi:429
+msgid "Palette:"
+msgstr "调色板"
+
+#: index.cgi:435
+msgid "Apply"
+msgstr "应用"
+
+#: index.cgi:445 index.cgi:631
 msgid "Process activity"
 msgstr "活动过程（Process activity）"
 
-#: index.cgi:198
+#: index.cgi:450
 msgid "Refresh:"
 msgstr "刷新："
 
-#: index.cgi:203
+#: index.cgi:453
 msgid "1s"
 msgstr "1s"
 
-#: index.cgi:204
+#: index.cgi:455
 msgid "5s"
 msgstr "5s"
 
-#: index.cgi:205
+#: index.cgi:457
 msgid "10s"
 msgstr "10s"
 
-#: index.cgi:206
+#: index.cgi:459
 msgid "none"
 msgstr "无"
 
-#: index.cgi:223
+#: index.cgi:473
 msgid "Debug"
 msgstr "调试"
 
-#: index.cgi:226
+#: index.cgi:476
 msgid "HTTP Environment"
 msgstr "HTTP环境"
 
-#: index.cgi:234
+#: index.cgi:488
 msgid "System report"
 msgstr "系统报告"
 
-#: index.cgi:239
+#: index.cgi:495
 msgid "Reporting to: %s"
 msgstr "汇报给：%s"
 
-#: index.cgi:242
+#: index.cgi:498
 msgid "Creating report header..."
 msgstr "创建报表页眉中…"
 
-#: index.cgi:249 index.cgi:266
+#: index.cgi:505 index.cgi:522
 msgid "SliTaz system report"
 msgstr "SliTaz系统报告"
 
-#: index.cgi:263
+#: index.cgi:519
 msgid "Creating system summary..."
 msgstr "创建系统综述中..."
 
-#: index.cgi:267
+#: index.cgi:523
 msgid "Date:"
 msgstr "日期："
 
-#: index.cgi:278
+#: index.cgi:534
 msgid "Getting hardware info..."
 msgstr "获取硬件信息中…"
 
-#: index.cgi:296
+#: index.cgi:552
 msgid "Getting networking info..."
 msgstr "获取网络信息中…"
 
-#: index.cgi:310
+#: index.cgi:566
 msgid "Getting filesystems info..."
 msgstr "获取文件信息中…"
 
-#: index.cgi:330
+#: index.cgi:586
 msgid "Getting boot logs..."
 msgstr "获取启动日志中…"
 
-#: index.cgi:333 boot.cgi:29 boot.cgi:34 styles/default/header.html:73
+#: index.cgi:589 boot.cgi:99 styles/default/header.html:74
 msgid "Kernel messages"
 msgstr "内核信息"
 
-#: index.cgi:336 boot.cgi:30 boot.cgi:38 styles/default/header.html:74
+#: index.cgi:592 boot.cgi:100 styles/default/header.html:75
 msgid "Boot scripts"
 msgstr "启动脚本"
 
-#: index.cgi:341
+#: index.cgi:597
 msgid "Creating report footer..."
 msgstr "创建报表页脚中…"
 
-#: index.cgi:353
-msgid "View report"
-msgstr "查看报告"
+#: index.cgi:608 index.cgi:704 boot.cgi:510 boot.cgi:512
+msgid "View"
+msgstr "查看"
 
-#: index.cgi:354
+#: index.cgi:613
 msgid "This report can be attached with a bug report on:"
 msgstr "这份报告可附带一个BUG报告："
 
-#: index.cgi:370
-msgid "Host: %s"
-msgstr "主机：%s"
-
-#: index.cgi:371
+#: index.cgi:623
 msgid "SliTaz administration and configuration Panel"
 msgstr "SliTaz管理和配置面板"
 
-#: index.cgi:375 styles/default/header.html:38
-msgid "Terminal"
-msgstr "终端"
-
-#: index.cgi:377
-msgid "Process activity"
-msgstr "活动过程（Process activity）"
-
-#: index.cgi:379
+#: index.cgi:632
 msgid "Create a report"
-msgstr "创建一个报告"
+msgstr "创建报告"
 
-#: index.cgi:383
+#: index.cgi:636 styles/default/header.html:44 styles/default/header.html:54
+#: styles/default/header.html:64 styles/default/header.html:90
+#: styles/default/header.html:100
 msgid "Summary"
 msgstr "摘要"
 
-#: index.cgi:386
+#: index.cgi:638
+msgid "Host:"
+msgstr "主机："
+
+#: index.cgi:639
 msgid "Uptime:"
 msgstr "正常运行时间："
 
-#: index.cgi:389
+#: index.cgi:642
 msgid "Memory in Mb:"
 msgstr "内存（MB）："
 
-#: index.cgi:394
+#: index.cgi:644
 msgid "Total: %d, Used: %d, Free: %d"
 msgstr "总计：%d，使用的：%d，空闲的：%d"
 
-#: index.cgi:399
+#: index.cgi:648
 msgid "Linux kernel:"
 msgstr "Linux内核："
 
-#: index.cgi:408
+#: index.cgi:657
 msgid "Network status"
 msgstr "网络状态"
 
-#: index.cgi:413 hardware.cgi:266
-msgid "Filesystem usage statistics"
-msgstr "文件系统使用情况统计"
-
-#: index.cgi:446
-msgid "Panel Activity"
-msgstr "活动过程（Process activity）"
-
-#: network.cgi:13
+#: index.cgi:659 network.cgi:15 network.cgi:215 styles/default/header.html:52
 msgid "Network"
 msgstr "网络"
 
-#: network.cgi:23 network.cgi:160 network.cgi:256 boot.cgi:85 settings.cgi:221
-#: lib/libtazpanel:108
-msgid "Name"
-msgstr "名称"
+#: index.cgi:668 hardware.cgi:340
+msgid "Filesystem usage statistics"
+msgstr "文件系统使用情况统计"
 
-#: network.cgi:24
-msgid "Quality"
-msgstr "质量"
+#: index.cgi:670 styles/default/header.html:93
+msgid "Disks"
+msgstr "盘"
 
-#: network.cgi:25
-msgid "Encryption"
-msgstr "加密"
+#: index.cgi:702
+msgid "Panel Activity"
+msgstr "活动过程（Process activity）"
 
-#: network.cgi:26 boot.cgi:88 lib/libtazpanel:109
-msgid "Status"
-msgstr "状态"
-
-#: network.cgi:56
-msgid "Connected"
-msgstr "连接完毕"
-
-#: network.cgi:99
+#: network.cgi:152
 msgid "Changed hostname: %s"
 msgstr "已更改主机名: %s"
 
-#: network.cgi:115
+#: network.cgi:209
 msgid "Scanning open ports..."
 msgstr "探索开放的端口中…"
 
-#: network.cgi:118
+#: network.cgi:214
 msgid "Port scanning for %s"
 msgstr "端口扫描为%s"
 
-#: network.cgi:132
-msgid "Setting up IP..."
-msgstr "设置IP中…"
-
-#: network.cgi:148
+#: network.cgi:225
 msgid "Ethernet connection"
 msgstr "以太网连接"
 
-#: network.cgi:150
+#: network.cgi:243
 msgid ""
 "Here you can configure a wired connection using DHCP to automatically get a "
 "random IP or configure a static/fixed IP"
 msgstr ""
 "在这里您可以配置一个有线连接使用DHCP自动获得一个随机的IP或配置静态/固定IP"
 
-#: network.cgi:154 boot.cgi:87
+#: network.cgi:247 boot.cgi:152
 msgid "Configuration"
 msgstr "配置"
 
-#: network.cgi:161 network.cgi:257
-msgid "Value"
-msgstr "值"
-
-#: network.cgi:166 lib/libtazpanel:107
+#: network.cgi:253 lib/libtazpanel:165
 msgid "Interface"
 msgstr "接口"
 
-#: network.cgi:170
+#: network.cgi:261
+msgid "Static IP"
+msgstr "静态IP"
+
+#: network.cgi:263
+msgid "Use static IP"
+msgstr "使用静态IP"
+
+#: network.cgi:265
 msgid "IP address"
 msgstr "IP地址"
 
-#: network.cgi:174
+#: network.cgi:268
 msgid "Netmask"
 msgstr "子网掩码"
 
-#: network.cgi:178
+#: network.cgi:271
 msgid "Gateway"
 msgstr "网关"
 
-#: network.cgi:182
+#: network.cgi:274
 msgid "DNS server"
 msgstr "DNS服务器"
 
-#: network.cgi:187
-msgid "Activate (static)"
-msgstr "激活（静态）"
+#: network.cgi:277 network.cgi:297
+msgid "Wake up"
+msgstr "唤醒"
 
-#: network.cgi:188
-msgid "Activate (DHCP)"
-msgstr "激活（DHCP）"
+#: network.cgi:279
+msgid "Wake up machines by network"
+msgstr "通过网络唤醒计算机"
 
-#: network.cgi:189
-msgid "Disable"
-msgstr "禁用"
+#: network.cgi:281
+msgid "MAC address to wake up"
+msgstr "唤醒电脑的MAC地址"
 
-#: network.cgi:194 network.cgi:282
+#: network.cgi:282 network.cgi:287
+msgid "Leave empty for a general wakeup"
+msgstr "留空为一般唤醒"
+
+#: network.cgi:283
+msgid "List"
+msgstr "列表"
+
+#: network.cgi:286
+msgid "MAC/IP address password"
+msgstr "对应MAC/IP地址电脑的密码"
+
+#: network.cgi:288
+msgid "Help"
+msgstr "帮助"
+
+#: network.cgi:295 network.cgi:450 network.cgi:633 boot.cgi:292
+msgid "Start"
+msgstr "启动"
+
+#: network.cgi:296 network.cgi:451 network.cgi:634 boot.cgi:281
+msgid "Stop"
+msgstr "停止"
+
+#: network.cgi:321 network.cgi:591
 msgid "Configuration file"
 msgstr "配置文件"
 
-#: network.cgi:196
+#: network.cgi:331
 msgid ""
 "These values are the ethernet settings in the main /etc/network.conf "
 "configuration file"
 msgstr "这些以太网设置值是在/etc/network.conf配置文件中"
 
-#: network.cgi:202 network.cgi:290 hardware.cgi:393
-msgid "Manual Edit"
-msgstr "手动编辑"
+#: network.cgi:343
+msgid "(hidden)"
+msgstr "（隐藏）"
 
-#: network.cgi:209
-msgid "Scanning wireless interface..."
-msgstr "扫描无线通信接口中…"
+#: network.cgi:349 boot.cgi:150 hardware.cgi:57 lib/libtazpanel:166
+msgid "Name"
+msgstr "名称"
 
-#: network.cgi:213
+#: network.cgi:350
+msgid "Signal level"
+msgstr "信号质量"
+
+#: network.cgi:351
+msgid "Channel"
+msgstr "信道"
+
+#: network.cgi:352
+msgid "Encryption"
+msgstr "加密"
+
+#: network.cgi:353 boot.cgi:153 lib/libtazpanel:167
+msgid "Status"
+msgstr "状态"
+
+#: network.cgi:404 network.cgi:486 network.cgi:508
+msgid "None"
+msgstr "无"
+
+#: network.cgi:410
+msgid "Connected"
+msgstr "连接完毕"
+
+#: network.cgi:436
 msgid "Wireless connection"
 msgstr "无线连接"
 
-#: network.cgi:216 network.cgi:313 boot.cgi:222
-msgid "Start"
-msgstr "启动"
-
-#: network.cgi:218 network.cgi:315 boot.cgi:210
-msgid "Stop"
-msgstr "停止"
-
-#: network.cgi:220
+#: network.cgi:452 lib/libtazpanel:150
 msgid "Scan"
 msgstr "扫描"
 
-#: network.cgi:250
+#: network.cgi:460
+msgid "Scanning wireless interface..."
+msgstr "扫描无线通信接口中…"
+
+#: network.cgi:474
 msgid "Connection"
 msgstr "连接"
 
-#: network.cgi:261
-msgid "Wifi name (ESSID)"
-msgstr "无线网络名称(ESSID)："
+#: network.cgi:480
+msgid "Network SSID"
+msgstr "网络SSID"
 
-#: network.cgi:265
-msgid "Password (Wifi key)"
-msgstr "密码(Wifi key)："
+#: network.cgi:484
+msgid "Security"
+msgstr "安全"
 
-#: network.cgi:269
-msgid "Encryption type"
-msgstr "加密类型"
+#: network.cgi:495
+msgid "EAP method"
+msgstr "EAP 身份验证方法"
 
-#: network.cgi:273
-msgid "Access point"
-msgstr "接入点"
+#: network.cgi:506
+msgid "Phase 2 authentication"
+msgstr "第2阶段认证"
 
-#: network.cgi:277
+#: network.cgi:518
+msgid "CA certificate"
+msgstr "CA证书"
+
+#: network.cgi:523
+msgid "User certificate"
+msgstr "用户证书"
+
+#: network.cgi:528
+msgid "Identity"
+msgstr "身份"
+
+#: network.cgi:533
+msgid "Anonymous identity"
+msgstr "匿名身份"
+
+#: network.cgi:538
+msgid "Password"
+msgstr "密码"
+
+#: network.cgi:541
+msgid "Show password"
+msgstr "显示密码"
+
+#: network.cgi:582
 msgid "Configure"
 msgstr "配置"
 
-#: network.cgi:284
+#: network.cgi:601
 msgid ""
 "These values are the wifi settings in the main /etc/network.conf "
 "configuration file"
 msgstr "这些WI-FI设置值是在/etc/network.conf配置文件中"
 
-#: network.cgi:294
+#: network.cgi:607
 msgid "Output of iwconfig"
 msgstr "输出iwconfig"
 
-#: network.cgi:305
-msgid "Networking"
-msgstr "网络"
-
-#: network.cgi:307
+#: network.cgi:616
 msgid "Manage network connections and services"
 msgstr "管理网络连接和服务"
 
-#: network.cgi:317
+#: network.cgi:635
 msgid "Restart"
 msgstr "重新启动"
 
-#: network.cgi:320
+#: network.cgi:639
 msgid "Configuration:"
 msgstr "配置："
 
-#: network.cgi:331
-msgid "Hosts"
-msgstr "Hosts"
+#: network.cgi:647
+msgid "Network interfaces"
+msgstr "网络接口"
 
-#: network.cgi:336
-msgid "Edit hosts"
-msgstr "编辑hosts"
+#: network.cgi:654
+msgid "forward packets between interfaces"
+msgstr "接口之间转发数据包"
 
-#: network.cgi:340
-msgid "Hostname"
-msgstr "主机名："
-
-#: network.cgi:344
-msgid "Change hostname"
-msgstr "改变主机名"
-
-#: network.cgi:349
-msgid "Output of ifconfig"
-msgstr "输出ifconfig"
-
-#: network.cgi:355
-msgid "Routing table"
-msgstr "路由表"
-
-#: network.cgi:361
-msgid "Domain name resolution"
-msgstr "域名解析"
-
-#: network.cgi:367
-msgid "ARP table"
-msgstr "ARP表"
-
-#: network.cgi:373
-msgid "IP Connections"
-msgstr "IP连接"
-
-#: boot.cgi:14
-msgid "Boot"
-msgstr "启动"
-
-#: boot.cgi:25
-msgid "Boot log files"
-msgstr "引导记录文件"
-
-#: boot.cgi:31 boot.cgi:42 styles/default/header.html:75
-msgid "X server"
-msgstr "X服务器"
-
-#: boot.cgi:46
-msgid "Show more..."
-msgstr "显示更多…"
-
-#: boot.cgi:61 boot.cgi:307 styles/default/header.html:79
-msgid "Manage daemons"
-msgstr "管理程序"
-
-#: boot.cgi:62
-msgid "Check, start and stop daemons on SliTaz"
-msgstr "检查，启动和停止SliTaz守护进程"
-
-#: boot.cgi:86 settings.cgi:331
-msgid "Description"
-msgstr "描述"
-
-#: boot.cgi:89
-msgid "Action"
-msgstr "动作"
-
-#: boot.cgi:90
-msgid "PID"
-msgstr "PID"
-
-#: boot.cgi:118
-msgid "SliTaz Firewall with iptable rules"
-msgstr "SliTaz IPTable防火墙与规则"
-
-#: boot.cgi:120
-msgid "Small and fast web server with CGI support"
-msgstr "小而快的Web服务器与CGI支持"
-
-#: boot.cgi:122
-msgid "Network time protocol daemon"
-msgstr "网络时间协议守护进程"
-
-#: boot.cgi:125
-msgid "Anonymous FTP server"
-msgstr "匿名FTP服务器"
-
-#: boot.cgi:127
-msgid "Busybox DHCP server"
-msgstr "BusyBox的DHCP服务器"
-
-#: boot.cgi:129
-msgid "Linux Kernel log daemon"
-msgstr "Linux内核日志守护进程"
-
-#: boot.cgi:132
-msgid "Execute scheduled commands"
-msgstr "执行调度命令"
-
-#: boot.cgi:135
-msgid "Small static DNS server daemon"
-msgstr "小型静态DNS服务器守护进程"
-
-#: boot.cgi:138
-msgid "Transfer a file on tftp request"
-msgstr "转移TFTP请求文件"
-
-#: boot.cgi:140
-msgid "Listen for network connections and launch programs"
-msgstr "监听网络连接并启动程序"
-
-#: boot.cgi:143
-msgid "Manage a ZeroConf IPv4 link-local address"
-msgstr "管理一个零配置网络服务规范IPv4本地链接地址"
-
-#: boot.cgi:208
-msgid "Started"
-msgstr "已起动"
-
-#: boot.cgi:220
-msgid "Stopped"
-msgstr "已停止"
-
-#: boot.cgi:248
-msgid "GRUB Boot loader"
-msgstr "GRUB引导装载程序"
-
-#: boot.cgi:250
-msgid "The first application started when the computer powers on"
-msgstr "第一个应用程序启动时，计算机开机"
-
-#: boot.cgi:256
-msgid "Default entry:"
-msgstr "默认条目："
-
-#: boot.cgi:258
-msgid "Timeout:"
-msgstr "超时："
-
-#: boot.cgi:260
-msgid "Splash image:"
-msgstr "Splash镜像："
-
-#: boot.cgi:263 settings.cgi:401 settings.cgi:457 settings.cgi:524
+#: network.cgi:656 network.cgi:690 boot.cgi:336 settings.cgi:608
+#: settings.cgi:722
 msgid "Change"
 msgstr "改变"
 
-#: boot.cgi:265
+#: network.cgi:665
+msgid "Hosts"
+msgstr "Hosts"
+
+#: network.cgi:682
+msgid "Hostname"
+msgstr "主机名："
+
+#: network.cgi:702
+msgid "Output of ifconfig"
+msgstr "输出ifconfig"
+
+#: network.cgi:708
+msgid "Routing table"
+msgstr "路由表"
+
+#: network.cgi:715
+msgid "Domain name resolution"
+msgstr "域名解析"
+
+#: network.cgi:730
+msgid "ARP table"
+msgstr "ARP表"
+
+#: network.cgi:750
+msgid "Proxy"
+msgstr "代理服务器"
+
+#: network.cgi:751
+msgid "Add"
+msgstr "添加"
+
+#: network.cgi:764
+msgid "IP Connections"
+msgstr "IP连接"
+
+#: network.cgi:774
+msgid "Firewall"
+msgstr "防火墙"
+
+#: boot.cgi:16 styles/default/header.html:62
+msgid "Boot"
+msgstr "启动"
+
+#: boot.cgi:27
+msgid "Show more..."
+msgstr "显示更多…"
+
+#: boot.cgi:45 boot.cgi:492 styles/default/header.html:80
+msgid "System logs"
+msgstr "系统日志"
+
+#: boot.cgi:96
+msgid "Boot log files"
+msgstr "引导记录文件"
+
+#: boot.cgi:101 styles/default/header.html:76
+msgid "X server"
+msgstr "X服务器"
+
+#: boot.cgi:102 styles/default/header.html:77
+msgid "X session"
+msgstr "X会话"
+
+#: boot.cgi:124 boot.cgi:493 styles/default/header.html:81
+msgid "Manage daemons"
+msgstr "管理程序"
+
+#: boot.cgi:126
+msgid "Check, start and stop daemons on SliTaz"
+msgstr "检查，启动和停止SliTaz守护进程"
+
+#: boot.cgi:151 hardware.cgi:168 settings.cgi:434
+msgid "Description"
+msgstr "描述"
+
+#: boot.cgi:154
+msgid "Action"
+msgstr "动作"
+
+#: boot.cgi:155
+msgid "PID"
+msgstr "PID"
+
+#: boot.cgi:180
+msgid "SliTaz Firewall with iptable rules"
+msgstr "SliTaz IPTable防火墙与规则"
+
+#: boot.cgi:182
+msgid "Small and fast web server with CGI support"
+msgstr "小而快的Web服务器与CGI支持"
+
+#: boot.cgi:185
+msgid "Network time protocol daemon"
+msgstr "网络时间协议守护进程"
+
+#: boot.cgi:188
+msgid "Anonymous FTP server"
+msgstr "匿名FTP服务器"
+
+#: boot.cgi:191
+msgid "Busybox DHCP server"
+msgstr "BusyBox的DHCP服务器"
+
+#: boot.cgi:194
+msgid "Linux Kernel log daemon"
+msgstr "Linux内核日志守护进程"
+
+#: boot.cgi:197
+msgid "Execute scheduled commands"
+msgstr "执行调度命令"
+
+#: boot.cgi:200
+msgid "Small static DNS server daemon"
+msgstr "小型静态DNS服务器守护进程"
+
+#: boot.cgi:203
+msgid "Transfer a file on tftp request"
+msgstr "转移TFTP请求文件"
+
+#: boot.cgi:206
+msgid "Printer daemon"
+msgstr "打印机驱动的后台程序"
+
+#: boot.cgi:208
+msgid "Listen for network connections and launch programs"
+msgstr "监听网络连接并启动程序"
+
+#: boot.cgi:211
+msgid "Manage a ZeroConf IPv4 link-local address"
+msgstr "管理一个零配置网络服务规范IPv4本地链接地址"
+
+#: boot.cgi:280
+msgid "Started"
+msgstr "已起动"
+
+#: boot.cgi:291
+msgid "Stopped"
+msgstr "已停止"
+
+#: boot.cgi:318
+msgid "GRUB Boot loader"
+msgstr "GRUB引导装载程序"
+
+#: boot.cgi:320
+msgid "The first application started when the computer powers on"
+msgstr "第一个应用程序启动时，计算机开机"
+
+#: boot.cgi:327
+msgid "Default entry:"
+msgstr "默认条目："
+
+#: boot.cgi:329
+msgid "Timeout:"
+msgstr "超时："
+
+#: boot.cgi:331
+msgid "Splash image:"
+msgstr "Splash镜像："
+
+#: boot.cgi:343
 msgid "View or edit menu.lst"
 msgstr "查看或编辑menu.lst。"
 
-#: boot.cgi:268
+#: boot.cgi:348
 msgid "Boot entries"
 msgstr "开机启动项"
 
-#: boot.cgi:274
+#: boot.cgi:355
 msgid "Entry"
 msgstr "进入"
 
-#: boot.cgi:290
+#: boot.cgi:376
 msgid "Web boot is available with gPXE"
 msgstr "网站提供gPXE启动"
 
-#: boot.cgi:300
+#: boot.cgi:390 boot.cgi:496 styles/default/header.html:83
+msgid "ISO mine"
+msgstr "ISO（mine）"
+
+#: boot.cgi:486
 msgid "Boot &amp; Start services"
 msgstr "启动&amp；启动服务"
 
-#: boot.cgi:301
+#: boot.cgi:488
 msgid "Everything that happens before user login"
 msgstr "所有发生在用户登录之前"
 
-#: boot.cgi:305 styles/default/header.html:71
+#: boot.cgi:491 styles/default/header.html:72
 msgid "Boot logs"
 msgstr "启动日志"
 
-#: boot.cgi:308 styles/default/header.html:69
+#: boot.cgi:499 styles/default/header.html:68
 msgid "Boot loader"
 msgstr "引导装载程序"
 
-#: boot.cgi:311
+#: boot.cgi:506
 msgid "Configuration files"
 msgstr "配置文件"
 
-#: boot.cgi:313
+#: boot.cgi:509
 msgid "Main configuration file:"
 msgstr "主要配置文件："
 
-#: boot.cgi:315
+#: boot.cgi:511
 msgid "Login manager settings:"
 msgstr "登录管理器设置："
 
-#: boot.cgi:319
+#: boot.cgi:519
 msgid "Kernel cmdline"
 msgstr "内核命令行"
 
-#: boot.cgi:323
+#: boot.cgi:526
 msgid "Local startup commands"
 msgstr "本地启动命令"
 
-#: boot.cgi:328
-msgid "Edit script"
-msgstr "编辑脚本"
-
-#: hardware.cgi:13
+#: hardware.cgi:13 styles/default/header.html:88
 msgid "Hardware"
 msgstr "硬件"
 
-#: hardware.cgi:66
+#: hardware.cgi:54
+msgid "Bus"
+msgstr "I/O总线"
+
+#: hardware.cgi:55 hardware.cgi:525
+msgid "Device"
+msgstr "设备"
+
+#: hardware.cgi:56
+msgid "ID"
+msgstr "ID"
+
+#: hardware.cgi:108
 msgid "Detect hardware"
 msgstr "检测硬件"
 
-#: hardware.cgi:67
+#: hardware.cgi:110
 msgid "Detect PCI and USB hardware"
 msgstr "PCI和USB硬件检测"
 
-#: hardware.cgi:79 hardware.cgi:182 styles/default/header.html:86
+#: hardware.cgi:118 hardware.cgi:239 styles/default/header.html:91
 msgid "Kernel modules"
 msgstr "内核模块"
 
-#: hardware.cgi:83
-msgid "Modules search"
-msgstr "模块搜索"
-
-#: hardware.cgi:86
+#: hardware.cgi:120
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "管理，搜索和获取关于Linux内核模块的信息"
 
-#: hardware.cgi:93
+#: hardware.cgi:124
+msgid "Modules search"
+msgstr "模块搜索"
+
+#: hardware.cgi:132
 msgid "Detailed information for module: %s"
 msgstr "有关模块的详细信息：%s"
 
-#: hardware.cgi:107
+#: hardware.cgi:152
 msgid "Matching result(s) for: %s"
 msgstr "匹配结果为：%s"
 
-#: hardware.cgi:113
+#: hardware.cgi:158
 msgid "Module:"
 msgstr "模块："
 
-#: hardware.cgi:120
+#: hardware.cgi:167
 msgid "Module"
 msgstr "模块"
 
-#: hardware.cgi:121 lib/libtazpanel:227
+#: hardware.cgi:169 hardware.cgi:527 lib/libtazpanel:295
 msgid "Size"
 msgstr "大小"
 
-#: hardware.cgi:122 lib/libtazpanel:229
+#: hardware.cgi:170 hardware.cgi:584 lib/libtazpanel:297
 msgid "Used"
 msgstr "已使用"
 
-#: hardware.cgi:123
+#: hardware.cgi:171
 msgid "by"
-msgstr "由"
+msgstr "by"
 
-#: hardware.cgi:144
+#: hardware.cgi:195
 msgid "Information for USB Device %s"
 msgstr "USB设备%s的信息"
 
-#: hardware.cgi:145 hardware.cgi:159
+#: hardware.cgi:197 hardware.cgi:215
 msgid "Detailed information about specified device."
 msgstr "有关指定的设备的详细信息。"
 
-#: hardware.cgi:158
+#: hardware.cgi:213
 msgid "Information for PCI Device %s"
 msgstr "PCI设备的信息%s"
 
-#: hardware.cgi:177
+#: hardware.cgi:234
 msgid "Drivers &amp; Devices"
 msgstr "驱动程序&amp；设备"
 
-#: hardware.cgi:178
+#: hardware.cgi:236
 msgid "Manage your computer hardware"
 msgstr "管理您的计算机的硬件"
 
-#: hardware.cgi:184 styles/default/header.html:88
+#: hardware.cgi:240 styles/default/header.html:92
 msgid "Detect PCI/USB"
 msgstr "检测到PCI / USB"
 
-#: hardware.cgi:204
+#: hardware.cgi:241
+msgid "Auto-install Xorg video driver"
+msgstr "自动安装Xorg视频驱动程序"
+
+#: hardware.cgi:251 hardware.cgi:268
 msgid "Battery"
 msgstr "电池"
 
-#: hardware.cgi:206
+#: hardware.cgi:271
 msgid "health"
 msgstr "健康"
 
-#: hardware.cgi:215
+#: hardware.cgi:280
 msgid "Discharging %d%% - %s"
-msgstr "放电 %d%% - %s"
+msgstr "放电中 %d%% - %s"
 
-#: hardware.cgi:219
+#: hardware.cgi:284
 msgid "Charging %d%% - %s"
-msgstr "充电 %d%% - %s"
+msgstr "充电中 %d%% - %s"
 
-#: hardware.cgi:221
+#: hardware.cgi:286
 msgid "Charged 100%%"
 msgstr "已充满"
 
-#: hardware.cgi:229
+#: hardware.cgi:305
 msgid "Temperature:"
 msgstr "温度："
 
-#: hardware.cgi:244
+#: hardware.cgi:320
 msgid "Brightness"
 msgstr "亮度"
 
-#: hardware.cgi:380
+#: hardware.cgi:462
+msgid "new mount point:"
+msgstr "新的挂载点："
+
+#: hardware.cgi:463
+msgid "read-only"
+msgstr "只读"
+
+#: hardware.cgi:478
 msgid "Filesystems table"
 msgstr "文件表"
 
-#: hardware.cgi:384 lib/libtazpanel:224
+#: hardware.cgi:491 lib/libtazpanel:292
 msgid "Disk"
 msgstr "盘"
 
-#: hardware.cgi:384 lib/libtazpanel:230
+#: hardware.cgi:492 lib/libtazpanel:298
 msgid "Mount point"
 msgstr "挂载点"
 
-#: hardware.cgi:385 lib/libtazpanel:226
+#: hardware.cgi:493 lib/libtazpanel:294
 msgid "Type"
 msgstr "类型"
 
-#: hardware.cgi:385
+#: hardware.cgi:494
 msgid "Options"
 msgstr "选项"
 
-#: hardware.cgi:386
+#: hardware.cgi:495
 msgid "Freq"
 msgstr "频率"
 
-#: hardware.cgi:386
+#: hardware.cgi:496
 msgid "Pass"
 msgstr "通过"
 
-#: hardware.cgi:396
+#: hardware.cgi:518
 msgid "Loop devices"
 msgstr "环路（Loop ）设备"
 
-#: hardware.cgi:436
+#: hardware.cgi:526
+msgid "Backing file"
+msgstr "备份文件"
+
+#: hardware.cgi:528
+msgid "Access"
+msgstr "访问"
+
+#: hardware.cgi:529
+msgid "Offset"
+msgstr "补偿"
+
+#: hardware.cgi:538
+msgid "read/write"
+msgstr "读/写"
+
+#: hardware.cgi:539 hardware.cgi:564
+msgid "read only"
+msgstr "只读"
+
+#: hardware.cgi:561
+msgid "Setup"
+msgstr "安裝"
+
+#: hardware.cgi:562
+msgid "new backing file:"
+msgstr "新的备份文件："
+
+#: hardware.cgi:563
+msgid "offset in bytes:"
+msgstr "字节偏移："
+
+#: hardware.cgi:581
 msgid "System memory"
 msgstr "系统内存"
 
-#: settings.cgi:15
-msgid "Settings"
-msgstr "设置"
+#: hardware.cgi:587
+msgid "Buffers"
+msgstr "缓冲区"
 
-#: settings.cgi:120 settings.cgi:383
-msgid "Manage groups"
-msgstr "管理组"
+#: hardware.cgi:590
+msgid "Free"
+msgstr "自由的"
 
-#: settings.cgi:126 settings.cgi:209
-msgid "Selection:"
-msgstr "选择："
-
-#: settings.cgi:127
-msgid "Delete group"
-msgstr "删除组"
-
-#: settings.cgi:134
-msgid "Group"
-msgstr "组"
-
-#: settings.cgi:135
-msgid "Group ID"
-msgstr "组 ID"
-
-#: settings.cgi:136
-msgid "Members"
-msgstr "成员"
-
-#: settings.cgi:163
-msgid "Add a new group"
-msgstr "添加一个新的组"
-
-#: settings.cgi:168 settings.cgi:182
-msgid "Group name:"
-msgstr "组名："
-
-#: settings.cgi:171
-msgid "Create group"
-msgstr "创建组"
-
-#: settings.cgi:177
-msgid "Manage group membership"
-msgstr "组成员管理"
-
-#: settings.cgi:186
-msgid "User name:"
-msgstr "用户名称："
-
-#: settings.cgi:190
-msgid "Add user"
-msgstr "添加用户"
-
-#: settings.cgi:191
-msgid "Remove user"
-msgstr "清除用户"
-
-#: settings.cgi:204 settings.cgi:381
-msgid "Manage users"
-msgstr "管理用户"
-
-#: settings.cgi:210
-msgid "Delete user"
-msgstr "删除用户"
-
-#: settings.cgi:211
-msgid "Lock user"
-msgstr "锁定用户"
-
-#: settings.cgi:212
-msgid "Unlock user"
-msgstr "用户"
-
-#: settings.cgi:219
-msgid "Login"
-msgstr "登录"
-
-#: settings.cgi:220
-msgid "User ID"
-msgstr "用户 ID"
-
-#: settings.cgi:222
-msgid "Home"
-msgstr "家（home）"
-
-#: settings.cgi:223
-msgid "Shell"
-msgstr "SHell"
-
-#: settings.cgi:260
-msgid "Password:"
-msgstr "密码："
-
-#: settings.cgi:262
-msgid "Change password"
-msgstr "更改密码"
-
-#: settings.cgi:267
-msgid "Add a new user"
-msgstr "添加一个新用户"
-
-#: settings.cgi:272
-msgid "User login:"
-msgstr "用户登录："
-
-#: settings.cgi:274
-msgid "User password:"
-msgstr "用户密码："
-
-#: settings.cgi:277
-msgid "Create user"
-msgstr "创建用户"
-
-#: settings.cgi:283
-msgid "Current user sessions"
-msgstr "当前用户会话"
-
-#: settings.cgi:289
-msgid "Last user sessions"
-msgstr "最后一个用户会话"
-
-#: settings.cgi:301
-msgid "Please wait..."
-msgstr "请您稍候..."
-
-#: settings.cgi:305
-msgid "Choose locale"
-msgstr "选择区域设置"
-
-#: settings.cgi:307
-msgid "Current locale settings:"
-msgstr "当前的区域设置："
-
-#: settings.cgi:310
-msgid "Locales that are currently installed on the machine:"
-msgstr "区域设置目前正在配置在电脑："
-
-#: settings.cgi:313
-msgid "Available locales:"
-msgstr "可用区域设置："
-
-#: settings.cgi:319
-msgid ""
-"Can't see your language?<br/>You can <a href='/pkgs.cgi?do=Install&glibc-"
-"locale'>install glibc-locale</a> to see a larger list of available locales."
-msgstr ""
-"不能看到您的语言？<br/>你可以<a href='/pkgs.cgi?do=Install&glibc-locale'>安"
-"装 glibc-locale。</a> "
-
-#: settings.cgi:328
-msgid "Code"
-msgstr "代码"
-
-#: settings.cgi:329
-msgid "Language"
-msgstr "语言"
-
-#: settings.cgi:330
-msgid "Territory"
-msgstr "领土"
-
-#: settings.cgi:352 settings.cgi:353
-msgid "-d"
-msgstr "-d"
-
-#: settings.cgi:364 settings.cgi:504 settings.cgi:517
-msgid "Activate"
-msgstr "激活"
-
-#: settings.cgi:376
+#: settings.cgi:16
 msgid "System settings"
 msgstr "系统设置"
 
-#: settings.cgi:377
-msgid "Manage system time, users or language settings"
-msgstr "管理系统时间，用户或用户的语言设置"
-
-#: settings.cgi:387
-msgid "System time"
-msgstr "系统时间"
-
-#: settings.cgi:391
-msgid "Time zone:"
-msgstr "时区："
-
-#: settings.cgi:402
-msgid "System time:"
-msgstr "系统时间："
-
-#: settings.cgi:403
-msgid "Hardware clock:"
-msgstr "硬件时钟："
-
-#: settings.cgi:407
+#: settings.cgi:82 settings.cgi:621 settings.cgi:648 settings.cgi:653
 msgid "Set date"
 msgstr "设置日期"
 
-#: settings.cgi:430
+#: settings.cgi:208 settings.cgi:595
+msgid "Manage groups"
+msgstr "管理组"
+
+#: settings.cgi:216 settings.cgi:293
+msgid "Selection:"
+msgstr "选择:"
+
+#: settings.cgi:217
+msgid "Delete group"
+msgstr "删除组"
+
+#: settings.cgi:224
+msgid "Group"
+msgstr "组"
+
+#: settings.cgi:225
+msgid "Group ID"
+msgstr "组 ID"
+
+#: settings.cgi:226
+msgid "Members"
+msgstr "成员"
+
+#: settings.cgi:253
+msgid "Add a new group"
+msgstr "添加一个新的组"
+
+#: settings.cgi:256 settings.cgi:268
+msgid "Group name:"
+msgstr "组名："
+
+#: settings.cgi:257
+msgid "Create group"
+msgstr "创建组"
+
+#: settings.cgi:264
+msgid "Manage group membership"
+msgstr "组成员管理"
+
+#: settings.cgi:269 settings.cgi:356
+msgid "User name:"
+msgstr "用户名称："
+
+#: settings.cgi:272
+msgid "Add user"
+msgstr "添加用户"
+
+#: settings.cgi:273
+msgid "Remove user"
+msgstr "清除用户"
+
+#: settings.cgi:286 settings.cgi:594
+msgid "Manage users"
+msgstr "管理用户"
+
+#: settings.cgi:294
+msgid "Delete user"
+msgstr "删除用户"
+
+#: settings.cgi:295
+msgid "Lock user"
+msgstr "锁定用户"
+
+#: settings.cgi:296
+msgid "Unlock user"
+msgstr "用户"
+
+#: settings.cgi:302
+msgid "Login"
+msgstr "登录"
+
+#: settings.cgi:303
+msgid "User ID"
+msgstr "用户 ID"
+
+#: settings.cgi:304
+msgid "User Name"
+msgstr "用户名"
+
+#: settings.cgi:305
+msgid "Home"
+msgstr "家（home）"
+
+#: settings.cgi:306
+msgid "Shell"
+msgstr "SHell"
+
+#: settings.cgi:340
+msgid "Password:"
+msgstr "密码:"
+
+#: settings.cgi:342
+msgid "Change password"
+msgstr "更改密码"
+
+#: settings.cgi:349
+msgid "Add a new user"
+msgstr "添加一个新用户"
+
+#: settings.cgi:354
+msgid "User login:"
+msgstr "用户登录："
+
+#: settings.cgi:358
+msgid "User password:"
+msgstr "用户密码："
+
+#: settings.cgi:363
+msgid "Create user"
+msgstr "创建用户"
+
+#: settings.cgi:373
+msgid "Current user sessions"
+msgstr "当前用户会话"
+
+#: settings.cgi:383
+msgid "Last user sessions"
+msgstr "最后一个用户会话"
+
+#: settings.cgi:395
+msgid "Choose locale"
+msgstr "选择区域设置"
+
+#: settings.cgi:398
+msgid "Please wait..."
+msgstr "请您稍候..."
+
+#: settings.cgi:403
+msgid "Current locale settings:"
+msgstr "当前的区域设置："
+
+#: settings.cgi:410
+msgid "Locales that are currently installed on the machine:"
+msgstr "区域设置目前正在配置在电脑："
+
+#: settings.cgi:420
+msgid ""
+"Can't see your language?<br/>You can <a href='pkgs.cgi?do=Install&amp;glibc-"
+"locale'>install glibc-locale</a> to see a larger list of available locales."
+msgstr ""
+"看不到你的语言？ <br/>您可以在<a href='pkgs.cgi?do=Install&amp;glibc-"
+"locale'>安装glibc-locale</a>查看可用区域设置的名单。"
+
+#: settings.cgi:427
+msgid "Available locales:"
+msgstr "可用区域设置："
+
+#: settings.cgi:431
+msgid "Code"
+msgstr "代码"
+
+#: settings.cgi:432
+msgid "Language"
+msgstr "语言"
+
+#: settings.cgi:433
+msgid "Territory"
+msgstr "领土"
+
+#: settings.cgi:450 settings.cgi:451
+msgid "-d"
+msgstr "-d"
+
+#: settings.cgi:462 settings.cgi:765 settings.cgi:776 settings.cgi:788
+msgid "Activate"
+msgstr "激活"
+
+#: settings.cgi:474 settings.cgi:497
+msgid "Small quick tweaks for user %s"
+msgstr "对用户%s的微调"
+
+#: settings.cgi:500
+msgid "Terminal prompt"
+msgstr "终端提示"
+
+#: settings.cgi:506
+msgid "Monochrome"
+msgstr "单色"
+
+#: settings.cgi:515
+msgid "Colored"
+msgstr "有色"
+
+#: settings.cgi:524 settings.cgi:572
+msgid "Manual edit: %s"
+msgstr "手动编辑：%s"
+
+#: settings.cgi:525
+msgid ""
+"To take effect: log out and log in to system or execute command in the "
+"terminal:"
+msgstr "要使当前配置生效，需要注销再登录到系统或在终端执行命令："
+
+#: settings.cgi:533
+msgid "Menu button appearance"
+msgstr "菜单按钮的外观"
+
+#: settings.cgi:538
+msgid "Icon:"
+msgstr "图标："
+
+#: settings.cgi:541 settings.cgi:562
+msgid "Do not show"
+msgstr "不显示"
+
+#: settings.cgi:559
+msgid "Text:"
+msgstr "文本:"
+
+#: settings.cgi:566
+msgid "Show text"
+msgstr "显示文本"
+
+#: settings.cgi:589
+msgid "Manage system time, users or language settings"
+msgstr "管理系统时间，用户或用户的语言设置"
+
+#: settings.cgi:599
+msgid "System time"
+msgstr "系统时间"
+
+#: settings.cgi:602
+msgid "Time zone:"
+msgstr "时区："
+
+#: settings.cgi:611
+msgid "System time:"
+msgstr "系统时间："
+
+#: settings.cgi:613
 msgid "Sync online"
 msgstr "在线同步"
 
-#: settings.cgi:431
+#: settings.cgi:616
+msgid "Hardware clock:"
+msgstr "硬件时钟："
+
+#: settings.cgi:618
 msgid "Set hardware clock"
 msgstr "设置硬件时钟"
 
-#: settings.cgi:439
+#: settings.cgi:704
 msgid "System language"
 msgstr "系统语言"
 
-#: settings.cgi:451
+#: settings.cgi:717
 msgid ""
-"You must logout and login again to your current session to use %s "
-"locale."
+"You must logout and login again to your current session to use %s locale."
 msgstr "请您的当前会话注销并再次登录来使用新的（%s）地区设置。"
 
-#: settings.cgi:453
+#: settings.cgi:720
 msgid "Current system locale:"
 msgstr "当前的系统区域设置："
 
-#: settings.cgi:461
-msgid "Console keymap"
-msgstr "鍵映射"
+#: settings.cgi:732
+msgid "Keyboard layout"
+msgstr "键盘布局"
 
-#: settings.cgi:474
+#: settings.cgi:746
 msgid "Current console keymap: %s"
 msgstr "当前控制台键盘映射：%s"
 
-#: settings.cgi:491
+#: settings.cgi:764
 msgid "Suggested keymap for Xorg:"
 msgstr "建议的键映射为异或门："
 
-#: settings.cgi:500
+#: settings.cgi:772
 msgid "Available keymaps:"
 msgstr "可用的布局："
 
-#: settings.cgi:509
+#: settings.cgi:783
 msgid "Panel configuration"
 msgstr "面板配置"
 
-#: settings.cgi:513
+#: settings.cgi:786
 msgid "Style:"
 msgstr "风格："
 
-#: settings.cgi:522
-msgid "Panel password:"
-msgstr "面板的密码："
-
-#: settings.cgi:528
+#: settings.cgi:792
 msgid "Configuration files:"
 msgstr "配置文件："
 
-#: settings.cgi:530 styles/default/header.html:35
+#: settings.cgi:793 styles/default/header.html:42
 msgid "Panel"
 msgstr "面板"
 
-#: settings.cgi:532
+#: settings.cgi:794
 msgid "Server"
 msgstr "服务器"
 
-#: settings.cgi:535
+#: settings.cgi:797
 msgid "TazPanel provides a debugging mode and page:"
 msgstr "tazpanel提供调试模式和页面："
 
-#: lib/libtazpanel:93
+#: lib/libtazpanel:153
 msgid "connected"
 msgstr "已连接"
 
-#: lib/libtazpanel:110
+#: lib/libtazpanel:168
 msgid "IP Address"
 msgstr "IP地址"
 
-#: lib/libtazpanel:111
+#: lib/libtazpanel:169
 msgid "Scan ports"
 msgstr "探索端口"
 
-#: lib/libtazpanel:225
+#: lib/libtazpanel:241
+msgid "Please wait"
+msgstr "请您稍候..."
+
+#: lib/libtazpanel:293
 msgid "Label"
 msgstr "标签"
 
-#: lib/libtazpanel:228
+#: lib/libtazpanel:296
 msgid "Available"
 msgstr "效用"
+
+#: lib/libtazpanel:367
+msgid "You must be root to show this page."
+msgstr "您必须使用root账户登录才能访问此页面。"
 
 #: help.cgi:20
 msgid "Manual"
@@ -1047,58 +1257,58 @@ msgstr "手册"
 msgid "Help &amp; Doc"
 msgstr "帮助 &amp; 文档"
 
-#: styles/default/header.html:40
+#: styles/default/header.html:32
+msgid "Confirm break"
+msgstr "确认中断（Confirm break）"
+
+#: styles/default/header.html:45
 msgid "Processes"
 msgstr "过程"
 
-#: styles/default/header.html:42
+#: styles/default/header.html:47
 msgid "Create Report"
 msgstr "创建报告"
 
-#: styles/default/header.html:46
-msgid "Network"
-msgstr "网络"
-
-#: styles/default/header.html:49
+#: styles/default/header.html:55
 msgid "Config file"
 msgstr "配置文件"
 
-#: styles/default/header.html:51
+#: styles/default/header.html:56
 msgid "Ethernet"
 msgstr "以太网"
 
-#: styles/default/header.html:53
+#: styles/default/header.html:57
 msgid "Wireless"
 msgstr "无线"
 
-#: styles/default/header.html:57
-msgid "Settings"
-msgstr "设置"
-
-#: styles/default/header.html:60
+#: styles/default/header.html:101
 msgid "Users"
 msgstr "用户"
 
-#: styles/default/header.html:62
+#: styles/default/header.html:102
 msgid "Groups"
 msgstr "组"
 
-#: styles/default/header.html:66
-msgid "Boot"
-msgstr "启动"
+#: styles/default/header.html:103
+msgid "Tweaks"
+msgstr "调整"
 
-#: styles/default/header.html:83
-msgid "Hardware"
-msgstr "硬件"
+#: styles/default/header.html:119
+msgid "Some features are disabled."
+msgstr "有些功能被禁用。"
 
-#: styles/default/header.html:90
-msgid "Disks"
-msgstr "盘"
+#: styles/default/header.html:124
+msgid "You are logged in to the TazPanel as user %s."
+msgstr "现在作为用户%s登录到TazPanel"
 
-#: styles/default/footer.html:6
+#: styles/default/header.html:125
+msgid "Click to re-login."
+msgstr "点此重新登录。"
+
+#: styles/default/header.html:135
 msgid "Copyright"
 msgstr "版权所有"
 
-#: styles/default/footer.html:8
+#: styles/default/header.html:137
 msgid "BSD License"
 msgstr "BSD许可证"
