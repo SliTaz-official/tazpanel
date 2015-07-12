@@ -86,7 +86,7 @@ msgstr "Terminal simpliste non interactif"
 
 #: index.cgi:295
 msgid "Run any command at your own risk, avoid interactive commands (%s)"
-msgstr "Lance à vos risques et périls une commande non interactive (pas %s)"
+msgstr "Lance à vos risques et périls une commande non interactive (pas de %s)"
 
 #: index.cgi:300
 msgid "Downloading to: %s"
@@ -717,7 +717,7 @@ msgid ""
 "files. No partitioning and no formatting."
 msgstr ""
 "Seulement pour l'installation sur disque. Créera l'arborescence /slitaz "
-"et conservera les autres fichiers. Ni repartionnage, ni formatage"
+"et conservera les autres fichiers. Ni repartionnage, ni formatage."
 
 #: boot.cgi:420
 msgid "Choose a partition (optional)"
@@ -736,9 +736,8 @@ msgid "Choose a USB key (optional)"
 msgstr "Choisissez une clé USB (optionnel)"
 
 #: boot.cgi:454
-#, fuzzy
 msgid "Choose an action"
-msgstr "Connexion"
+msgstr "Choisissez une action"
 
 #: boot.cgi:467
 msgid "Mine"
@@ -820,7 +819,7 @@ msgstr "Recherche de modules"
 
 #: hardware.cgi:127
 msgid "Search"
-msgstr ""
+msgstr "Recherche"
 
 #: hardware.cgi:135
 msgid "Detailed information for module: %s"
