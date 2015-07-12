@@ -437,8 +437,10 @@ EOT
 			grep -qs 1 /sys/block/$dev/ro && continue
 			[ -d /sys/block/$dev/device/scsi_disk ] || continue
 			echo -n "<option value=\"/dev/$dev\">/dev/$dev "
-			echo "$(blk2h < /sys/block/$dev/size) $(cat \
-				/sys/block/$i/device/model 2>/dev/null)</option>"
+			echo -n "$(blk2h < /sys/block/$dev/size) "
+			echo -n "$(cat /sys/block/$dev/device/model 2>/dev/null) "
+			blkid | grep $dev | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/"\1"/;q'
+			echo "</option>"
 		done
 		cat <<EOT
 			</select></td></tr>
