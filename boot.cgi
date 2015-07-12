@@ -385,7 +385,7 @@ EOT
 
 		echo "<h2>$(_ 'ISO mine')</h2>"
 
-		[ "$iso" ] || msg err "$(_ 'Invalid ISO image.')
+		[ "$iso" ] || msg err "$(_ 'Invalid ISO image.')"
 
 		if [ "$iso" -a "$action" -a "$action" != "nop" ]; then
 			case "$action" in
@@ -404,8 +404,6 @@ EOT
 		cat <<EOT
 <section>
 <form method="post" action="?iso" class="wide">
-EOT
-		cat <<EOT
 <table>
 	<tr><td>$(_ 'ISO image file full path')
 			<span data-img="info" title="$(_ 'set /dev/cdrom for a physical CD-ROM')"></span>
