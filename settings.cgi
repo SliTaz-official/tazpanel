@@ -16,13 +16,6 @@ get_config
 TITLE=$(_ 'System settings')
 
 
-# Get system database. LDAP compatible.
-
-getdb() {
-	getent $1 2>/dev/null || cat /etc/$1
-}
-
-
 listdb() {
 	for item in $(getdb $1 | cut -d: -f1); do
 		echo "<option>$item</option>\n"
@@ -124,8 +117,8 @@ case " $(GET) " in
 
 
 	*\ tweak\ *)
-		HOME="$(awk -F: -vu=$REMOTE_USER '$1==u{print $6}' /etc/passwd)"
-		[ -z "$HOME" ] && exit 0
+		HOME="$(getdb passwd | awk -F: -vu=$REMOTE_USER '$1==u{print $6}')"
+		[ -d "$HOME" ] && exit 0
 
 		dd="$HOME/.local/share/desktop-directories"; sd="$dd/SliTazMenu.directory"
 
@@ -311,7 +304,7 @@ EOT
 		for login in $(getdb passwd | cut -d: -f1); do
 			if [ -d "/home/$login" ]; then
 				blocked=''; usericon='user'
-				if grep -qs "^$login:!" /etc/shadow; then
+				if getdb shadow | grep -qs "^$login:!"; then
 					blocked='class="color31"'
 					usericon="lock"
 				fi
@@ -474,7 +467,7 @@ EOT
 		user="$REMOTE_USER"; host="$(hostname)"
 		xhtml_header "$(_ 'Small quick tweaks for user %s' "$user")"
 
-		HOME="$(awk -F: -vu=$user '$1==u{print $6}' /etc/passwd)"
+		HOME="$(getdb passwd | awk -F: -vu=$user '$1==u{print $6}')"
 		font="${TERM_FONT:-monospace}"; palette=$(echo $TERM_PALETTE | tr A-Z a-z)
 		case $user in
 			root) color=31; ind="#";;

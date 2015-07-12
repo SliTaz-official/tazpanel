@@ -225,7 +225,7 @@ EOT
 		header; xhtml_header "$(_ 'Terminal')"
 
 		user="$REMOTE_USER"
-		HOME="$(awk -F: -vu=$user '$1==u{print $6}' /etc/passwd)"
+		HOME="$(getdb passwd | awk -F: -vu=$user '$1==u{print $6}')"
 		historyfile="$HOME/.ash_history"
 
 		cmd=$(GET cmd)
@@ -358,7 +358,7 @@ EOT
 	*\ rmhistory\ *)
 		# Manage shell commandline history
 		user="$REMOTE_USER"
-		HOME="$(awk -F: -vu="$user" '$1==u{print $6}' /etc/passwd)"
+		HOME="$(getdb passwd | awk -F: -vu="$user" '$1==u{print $6}')"
 		historyfile="$HOME/.ash_history"
 
 		# Return sed command for removing history lines ('8d12d' to remove 8 and 12 lines)

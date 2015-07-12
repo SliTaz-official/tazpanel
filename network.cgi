@@ -673,7 +673,7 @@ EOT
 		cat <<EOT
 	</header>
 	<footer>
-		<pre>$(cat '/etc/hosts')</pre>
+		<pre>$(getdb hosts)</pre>
 	</footer>
 </section>
 

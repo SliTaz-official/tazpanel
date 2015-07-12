@@ -368,3 +368,10 @@ check_root_tazpanel() {
 		xhtml_footer; exit 0
 	fi
 }
+
+# Get system database. NSS compatible.
+
+getdb() {
+	getent $1 2>/dev/null || cat /etc/$1
+}
+

@@ -1169,7 +1169,7 @@ msgstr "Activer"
 
 #: settings.cgi:475 settings.cgi:497
 msgid "Small quick tweaks for user %s"
-msgstr "Ajustements pour l'utilisateur %s"
+msgstr "Réglages pour l'utilisateur %s"
 
 #: settings.cgi:500
 #, fuzzy
@@ -1182,7 +1182,7 @@ msgstr ""
 
 #: settings.cgi:515
 msgid "Colored"
-msgstr "Multicolor"
+msgstr "Multicolore"
 
 #: settings.cgi:524 settings.cgi:572
 #, fuzzy
@@ -1194,7 +1194,7 @@ msgid ""
 "To take effect: log out and log in to system or execute command in the "
 "terminal:"
 msgstr ""
-"Pour prendre effet, reconnectez vous ou exécutez une commande dans le "
+"Pour prendre effet, reconnectez vous ou exécutez cette commande dans le "
 "terminal :"
 
 #: settings.cgi:533
