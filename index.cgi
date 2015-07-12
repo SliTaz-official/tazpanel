@@ -120,7 +120,7 @@ EOT
 			<button name="action" value="diff" data-icon="diff">$(_ 'Differences')</button>
 		</form>
 	</header>
-	<textarea form="editform" name="content" class="wide" rows="30" autofocus>$(cat $file | htmlize)</textarea>
+	<textarea form="editform" name="content" class="wide" rows="30" autofocus>$(htmlize < $file)</textarea>
 </section>
 EOT
 #The space before textarea gets muddled when the form is submitted.
@@ -196,10 +196,10 @@ EOT
 			case "$file" in
 				*.sh|*.cgi|*/receipt|*.conf)
 					echo '<code class="language-bash">'; end_code='</code>'
-					cat | htmlize ;;
+					htmlize ;;
 				*.ini)
 					echo '<code class="language-ini">'; end_code='</code>'
-					cat | htmlize ;;
+					htmlize ;;
 				*.conf|*.lst)
 					syntax_highlighter conf ;;
 				*Xorg.0.log)
@@ -207,7 +207,7 @@ EOT
 				*dmesg.log)
 					syntax_highlighter kernel ;;
 				*)
-					cat | htmlize ;;
+					htmlize ;;
 			esac < $file
 			cat <<EOT
 $end_code</pre>
@@ -590,13 +590,13 @@ EOT
 <pre>$(cat /var/log/dmesg.log)</pre>
 
 <h2>$(_ 'Boot scripts')</h2>
-<pre>$(cat /var/log/boot.log | filter_taztools_msgs)</pre>
+<pre>$(filter_taztools_msgs < /var/log/boot.log)</pre>
 EOT
 		cat <<EOT
 	$(ok_status_t)
 	<tr><td>$(_ 'Creating report footer...')</td>
 EOT
-		cat cat >> $output <<EOT
+		cat >> $output <<EOT
 </body>
 </html>
 EOT
@@ -706,7 +706,7 @@ EOT
 	</header>
 	<div>
 		<pre id="panel-activity">
-$(cat $LOG_FILE | tail -n 8 | sort -r | syntax_highlighter activity)</pre>
+$(tail -n 8 < $LOG_FILE | sort -r | syntax_highlighter activity)</pre>
 	</div>
 </section>
 EOT

@@ -307,9 +307,9 @@ EOT
 				-e s"|splashimage=.*|splashimage=$splash|" \
 				$GRUBMENU
 		fi
-		default=$(cat $GRUBMENU | grep ^default     | cut -d' ' -f2)
-		timeout=$(cat $GRUBMENU | grep ^timeout     | cut -d' ' -f2)
-		 splash=$(cat $GRUBMENU | grep ^splashimage | cut -d' ' -f2)
+		default=$(grep ^default     $GRUBMENU | cut -d' ' -f2)
+		timeout=$(grep ^timeout     $GRUBMENU | cut -d' ' -f2)
+		 splash=$(grep ^splashimage $GRUBMENU | cut -d' ' -f2)
 
 		xhtml_header "$(_ 'GRUB Boot loader')"
 				cat <<EOT
@@ -385,7 +385,7 @@ EOT
 
 		echo "<h2>$(_ 'ISO mine')</h2>"
 
-		[ "$iso" ] || msg err 'Invalid ISO image.'
+		[ "$iso" ] || msg err "$(_ 'Invalid ISO image.')
 
 		if [ "$iso" -a "$action" -a "$action" != "nop" ]; then
 			case "$action" in
@@ -407,17 +407,17 @@ EOT
 EOT
 		cat <<EOT
 <table>
-	<tr><td>ISO image file full path
-			<span data-img="info" title="set /dev/cdrom for a physical CD-ROM"></span>
+	<tr><td>$(_ 'ISO image file full path')
+			<span data-img="info" title="$(_ 'set /dev/cdrom for a physical CD-ROM')"></span>
 		</td>
 		<td><input type="text" name="iso" value="$iso" size="50"/></td></tr>
-	<tr><td>Working directory</td>
+	<tr><td>$(_ 'Working directory')</td>
 		<td><input type="text" name="workdir" value="$workdir" size="50"/></td></tr>
-	<tr><td>Target partition
-			<span data-img="info" title="For hard disk installation only. Will create /slitaz tree and keep other files. No partitioning and no formatting."></span>
+	<tr><td>$(_ 'Target partition')
+			<span data-img="info" title="$(_ 'For hard disk installation only. Will create /slitaz tree and keep other files. No partitioning and no formatting.')"></span>
 		</td>
 		<td><select name="instdev">
-			<option value="/dev/null">Choose a partition (optional)</option>
+			<option value="/dev/null">$(_ 'Choose a partition (optional)')</option>
 EOT
 		blkid | grep -iE "(msdos|vfat|ntfs|ext[234]|xfs|btrfs)" | \
 		sed -e 's|[A-Z]*ID="[^"]*"||g;s| SEC[^ ]*||;s|LABEL=||;s|:||' \
@@ -428,11 +428,11 @@ EOT
 		done 
 		cat <<EOT
 			</select></td></tr>
-	<tr><td>USB key device
-			<span data-img="info" title="For USB boot key only. Will erase the full device."></span>
+	<tr><td>$(_ 'USB key device')
+			<span data-img="info" title="$(_ 'For USB boot key only. Will erase the full device.')"></span>
 		</td>
 		<td><select name="usbkeydev">
-			<option value="/dev/null">Choose a USB key (optional)</option>
+			<option value="/dev/null">$(_ 'Choose a USB key (optional)')</option>
 EOT
 		grep -l 1 /sys/block/*/removable | \
 		sed 's|/sys/block/\(.*\)/removable|\1|' | while read dev; do
@@ -451,7 +451,7 @@ EOT
 		if [ "$iso" ]; then
 			cat <<EOT
 <select name="action">
-	<option value="nop">Choose an action</option>
+	<option value="nop">$(_ 'Choose an action')</option>
 	$(taziso $iso list | sed -e \
 		's/"\(.*\)"[\t ]*"\(.*\)"/<option value="\1\">\2<\/option>/' -e \
 		"s|value=\"$action\"|& selected|")
@@ -464,7 +464,7 @@ EOT
 		fi
 
 		cat <<EOT
-	<button data-icon="cd" name="mine">Mine</button>
+	<button data-icon="cd" name="mine">$(_ 'Mine')</button>
 </footer>
 </form>
 </section>
@@ -527,7 +527,7 @@ EOT
 		cat <<EOT
 		</form>
 	</header>
-	<pre><code class="language-bash">$(cat /etc/init.d/local.sh | htmlize)</code></pre>
+	<pre><code class="language-bash">$(htmlize < /etc/init.d/local.sh)</code></pre>
 </section>
 EOT
 		;;

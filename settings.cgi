@@ -764,6 +764,7 @@ EOT
 		$(_ 'Suggested keymap for Xorg:') $keymap
 		<button form="settings" name="apply_xorg_kbd" value="$keymap" data-icon="ok">$(_ 'Activate')</button>
 		<button form="index" name="file" value="$keyboard_config" data-icon="edit">$(_ 'Edit')</button>
+		<input form="index" type="hidden" name="action" value="edit" />
 		<br/>
 EOT
 		fi

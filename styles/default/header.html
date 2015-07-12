@@ -52,7 +52,7 @@ $(printf '\t<script type="text/javascript" src="/%s"></script>\n' $(cd /var/www/
    <span>$(_ 'Network')</span>
    <menu>
     <li><a data-icon="info" href="network.cgi">$(_ 'Summary')</a></li>
-    <li><a data-icon="conf" href="index.cgi?file=/etc/network.conf">$(_ 'Config file')</a></li>
+    <li><a data-icon="conf" href="index.cgi?file=/etc/network.conf&action=edit">$(_ 'Config file')</a></li>
     <li><a data-icon="eth"  href="network.cgi?eth">$(_ 'Ethernet')</a></li>
     <li><a data-icon="wifi" href="network.cgi?wifi">$(_ 'Wireless')</a></li>
     $(extra_menu network)

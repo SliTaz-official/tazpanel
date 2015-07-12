@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-05 20:42+0300\n"
+"POT-Creation-Date: 2015-07-12 12:25+0200\n"
 "PO-Revision-Date: 2013-07-23 12:33+0100\n"
 "Last-Translator: Paweł Pyrczak <tkr.tkr.pl@gmail.com>\n"
 "Language-Team: \n"
@@ -58,7 +58,7 @@ msgid "Save"
 msgstr "Zapisz"
 
 #: index.cgi:174 network.cgi:326 network.cgi:596 network.cgi:670
-#: network.cgi:720 boot.cgi:531 hardware.cgi:483 settings.cgi:766
+#: network.cgi:720 boot.cgi:525 hardware.cgi:492 settings.cgi:766
 msgid "Edit"
 msgstr "Edytuj"
 
@@ -202,11 +202,11 @@ msgstr "Pobieranie informacji o systemie plików..."
 msgid "Getting boot logs..."
 msgstr "Pobieranie logów uruchamiania..."
 
-#: index.cgi:589 boot.cgi:99 styles/default/header.html:74
+#: index.cgi:589 boot.cgi:98 styles/default/header.html:74
 msgid "Kernel messages"
 msgstr "Komunikaty Jadra Linux (Kernel messages)"
 
-#: index.cgi:592 boot.cgi:100 styles/default/header.html:75
+#: index.cgi:592 boot.cgi:99 styles/default/header.html:75
 msgid "Boot scripts"
 msgstr "Skrypty uruchamiania"
 
@@ -214,7 +214,7 @@ msgstr "Skrypty uruchamiania"
 msgid "Creating report footer..."
 msgstr "Tworzenie stopki raportu..."
 
-#: index.cgi:608 index.cgi:704 boot.cgi:510 boot.cgi:512
+#: index.cgi:608 index.cgi:704 boot.cgi:504 boot.cgi:506
 msgid "View"
 msgstr ""
 
@@ -266,7 +266,7 @@ msgstr "Status sieci"
 msgid "Network"
 msgstr "Sieć"
 
-#: index.cgi:668 hardware.cgi:340
+#: index.cgi:668 hardware.cgi:349
 msgid "Filesystem usage statistics"
 msgstr "Statystyka użycia systemu plików"
 
@@ -303,11 +303,11 @@ msgstr ""
 "automatycznie pobierać losowy adres IP, albo skonfigurować dla połączenia "
 "statyczny/stały adres IP"
 
-#: network.cgi:247 boot.cgi:152
+#: network.cgi:247 boot.cgi:149
 msgid "Configuration"
 msgstr "Konfiguracja"
 
-#: network.cgi:253 lib/libtazpanel:165
+#: network.cgi:253 lib/libtazpanel:167
 msgid "Interface"
 msgstr "Interfejs"
 
@@ -364,11 +364,11 @@ msgstr "Zmień hasło"
 msgid "Help"
 msgstr ""
 
-#: network.cgi:295 network.cgi:450 network.cgi:633 boot.cgi:292
+#: network.cgi:295 network.cgi:450 network.cgi:633 boot.cgi:289
 msgid "Start"
 msgstr "Start"
 
-#: network.cgi:296 network.cgi:451 network.cgi:634 boot.cgi:281
+#: network.cgi:296 network.cgi:451 network.cgi:634 boot.cgi:278
 msgid "Stop"
 msgstr "Stop"
 
@@ -388,7 +388,7 @@ msgstr ""
 msgid "(hidden)"
 msgstr ""
 
-#: network.cgi:349 boot.cgi:150 hardware.cgi:57 lib/libtazpanel:166
+#: network.cgi:349 boot.cgi:147 hardware.cgi:57 lib/libtazpanel:168
 msgid "Name"
 msgstr "Nazwa"
 
@@ -405,7 +405,7 @@ msgstr "Zmień"
 msgid "Encryption"
 msgstr "Szyfrowanie"
 
-#: network.cgi:353 boot.cgi:153 lib/libtazpanel:167
+#: network.cgi:353 boot.cgi:150 lib/libtazpanel:169
 msgid "Status"
 msgstr "Status"
 
@@ -513,7 +513,7 @@ msgstr "Status sieci"
 msgid "forward packets between interfaces"
 msgstr ""
 
-#: network.cgi:656 network.cgi:690 boot.cgi:336 settings.cgi:608
+#: network.cgi:656 network.cgi:690 boot.cgi:332 settings.cgi:608
 #: settings.cgi:722
 msgid "Change"
 msgstr "Zmień"
@@ -566,173 +566,224 @@ msgstr "Uruchamianie"
 msgid "Show more..."
 msgstr "Pokaż więcej..."
 
-#: boot.cgi:45 boot.cgi:492 styles/default/header.html:80
+#: boot.cgi:40 boot.cgi:45 boot.cgi:486 styles/default/header.html:80
 #, fuzzy
 msgid "System logs"
 msgstr "Język systemu"
 
-#: boot.cgi:96
+#: boot.cgi:95
 msgid "Boot log files"
 msgstr "Logi uruchamiania"
 
-#: boot.cgi:101 styles/default/header.html:76
+#: boot.cgi:100 styles/default/header.html:76
 msgid "X server"
 msgstr "Serwer X"
 
-#: boot.cgi:102 styles/default/header.html:77
+#: boot.cgi:101 styles/default/header.html:77
 msgid "X session"
 msgstr ""
 
-#: boot.cgi:124 boot.cgi:493 styles/default/header.html:81
+#: boot.cgi:120 boot.cgi:487 styles/default/header.html:81
 msgid "Manage daemons"
 msgstr "Zarządzaj usługami (daemons)"
 
-#: boot.cgi:126
+#: boot.cgi:123
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Sprawdź, uruchom i wyłącz usługi (daemons) w SliTaz"
 
-#: boot.cgi:151 hardware.cgi:168 settings.cgi:434
+#: boot.cgi:148 hardware.cgi:177 settings.cgi:434
 msgid "Description"
 msgstr "Opis"
 
-#: boot.cgi:154
+#: boot.cgi:151
 msgid "Action"
 msgstr "Akcja"
 
-#: boot.cgi:155
+#: boot.cgi:152
 msgid "PID"
 msgstr "PID"
 
-#: boot.cgi:180
+#: boot.cgi:177
 msgid "SliTaz Firewall with iptable rules"
 msgstr "Firewall i ustawienia iptables w SliTaz"
 
-#: boot.cgi:182
+#: boot.cgi:179
 msgid "Small and fast web server with CGI support"
 msgstr "Niewielki i szybki serwer web z obsługą CGI"
 
-#: boot.cgi:185
+#: boot.cgi:182
 msgid "Network time protocol daemon"
 msgstr "Usługa protokołu czasu sieciowego (NTP)"
 
-#: boot.cgi:188
+#: boot.cgi:185
 msgid "Anonymous FTP server"
 msgstr "Annimowy serwer FTP"
 
-#: boot.cgi:191
+#: boot.cgi:188
 msgid "Busybox DHCP server"
 msgstr "Serwer DHCP Busybox"
 
-#: boot.cgi:194
+#: boot.cgi:191
 msgid "Linux Kernel log daemon"
 msgstr "Usługa logów Jadra Linux"
 
-#: boot.cgi:197
+#: boot.cgi:194
 msgid "Execute scheduled commands"
 msgstr "Wykonuje zaplanowane polecenia"
 
-#: boot.cgi:200
+#: boot.cgi:197
 msgid "Small static DNS server daemon"
 msgstr "Usługa statycznego, niewielkiego serwera DNS"
 
-#: boot.cgi:203
+#: boot.cgi:200
 msgid "Transfer a file on tftp request"
 msgstr "Przesyła pliki przy pomocy protokołu TFTP (np web boot)"
 
-#: boot.cgi:206
+#: boot.cgi:203
 #, fuzzy
 msgid "Printer daemon"
 msgstr "Zarządzaj usługami (daemons)"
 
-#: boot.cgi:208
+#: boot.cgi:205
 msgid "Listen for network connections and launch programs"
 msgstr "Nasłuchuje połączeń sieciowych i uruchamia odpowiednie usługi"
 
-#: boot.cgi:211
+#: boot.cgi:208
 msgid "Manage a ZeroConf IPv4 link-local address"
 msgstr "Zarządzaj ZeroConf IPv4 link-local address"
 
-#: boot.cgi:280
+#: boot.cgi:277
 msgid "Started"
 msgstr "Uruchomiony"
 
-#: boot.cgi:291
+#: boot.cgi:288
 msgid "Stopped"
 msgstr "Zatrzymany"
 
-#: boot.cgi:318
+#: boot.cgi:314
 msgid "GRUB Boot loader"
 msgstr "Boot loader GRUB"
 
-#: boot.cgi:320
+#: boot.cgi:316
 msgid "The first application started when the computer powers on"
 msgstr "Pierwsza aplikacja uruchamiana tuż po włączeniu komputera"
 
-#: boot.cgi:327
+#: boot.cgi:323
 msgid "Default entry:"
 msgstr "Domyślny wpis:"
 
-#: boot.cgi:329
+#: boot.cgi:325
 msgid "Timeout:"
 msgstr "Timeout:"
 
-#: boot.cgi:331
+#: boot.cgi:327
 msgid "Splash image:"
 msgstr "Obraz powitalny:"
 
-#: boot.cgi:343
+#: boot.cgi:339
 msgid "View or edit menu.lst"
 msgstr "Zobacz albo edytuj menu.lst"
 
-#: boot.cgi:348
+#: boot.cgi:344
 msgid "Boot entries"
 msgstr "Wpisy boot"
 
-#: boot.cgi:355
+#: boot.cgi:351
 msgid "Entry"
 msgstr "Wpis"
 
-#: boot.cgi:376
+#: boot.cgi:372
 msgid "Web boot is available with gPXE"
 msgstr "Uruchamianie przez sieć jest dostępne poprzez gPXE"
 
-#: boot.cgi:390 boot.cgi:496 styles/default/header.html:83
+#: boot.cgi:386 boot.cgi:490 styles/default/header.html:83
 msgid "ISO mine"
 msgstr ""
 
-#: boot.cgi:486
+#: boot.cgi:388
+msgid "Invalid ISO image."
+msgstr ""
+
+#: boot.cgi:410
+msgid "ISO image file full path"
+msgstr ""
+
+#: boot.cgi:411
+msgid "set /dev/cdrom for a physical CD-ROM"
+msgstr ""
+
+#: boot.cgi:414
+msgid "Working directory"
+msgstr ""
+
+#: boot.cgi:416
+msgid "Target partition"
+msgstr ""
+
+#: boot.cgi:417
+msgid ""
+"For hard disk installation only. Will create /slitaz tree and keep other "
+"files. No partitioning and no formatting."
+msgstr ""
+
+#: boot.cgi:420
+msgid "Choose a partition (optional)"
+msgstr ""
+
+#: boot.cgi:431
+msgid "USB key device"
+msgstr ""
+
+#: boot.cgi:432
+msgid "For USB boot key only. Will erase the full device."
+msgstr ""
+
+#: boot.cgi:435
+msgid "Choose a USB key (optional)"
+msgstr ""
+
+#: boot.cgi:454
+#, fuzzy
+msgid "Choose an action"
+msgstr "Połączenie"
+
+#: boot.cgi:467
+msgid "Mine"
+msgstr ""
+
+#: boot.cgi:480
 msgid "Boot &amp; Start services"
 msgstr "Uruchamianie i Start Usług"
 
-#: boot.cgi:488
+#: boot.cgi:482
 msgid "Everything that happens before user login"
 msgstr "Wszystko co się wydarzyło przed zalogowaniem uzytkownika"
 
-#: boot.cgi:491 styles/default/header.html:72
+#: boot.cgi:485 styles/default/header.html:72
 msgid "Boot logs"
 msgstr "Logi uruchamiania (boot)"
 
-#: boot.cgi:499 styles/default/header.html:68
+#: boot.cgi:493 styles/default/header.html:68
 msgid "Boot loader"
 msgstr "Program rozruchowy (boot loader)"
 
-#: boot.cgi:506
+#: boot.cgi:500
 msgid "Configuration files"
 msgstr "Pliki konfiguracyjne"
 
-#: boot.cgi:509
+#: boot.cgi:503
 msgid "Main configuration file:"
 msgstr "Główny plik konfiguracyjny:"
 
-#: boot.cgi:511
+#: boot.cgi:505
 msgid "Login manager settings:"
 msgstr "Ustawienia menadżera logowania:"
 
-#: boot.cgi:519
+#: boot.cgi:513
 msgid "Kernel cmdline"
 msgstr "Wiersz poleceń jądra"
 
-#: boot.cgi:526
+#: boot.cgi:520
 msgid "Local startup commands"
 msgstr "Lokalne polecenia podczas uruchamiania"
 
@@ -744,7 +795,7 @@ msgstr "Sprzęt"
 msgid "Bus"
 msgstr ""
 
-#: hardware.cgi:55 hardware.cgi:525
+#: hardware.cgi:55 hardware.cgi:534
 msgid "Device"
 msgstr ""
 
@@ -761,189 +812,193 @@ msgstr "Wykryj urządzenia"
 msgid "Detect PCI and USB hardware"
 msgstr "Wykryj urządzenia PCI i USB"
 
-#: hardware.cgi:118 hardware.cgi:239 styles/default/header.html:91
+#: hardware.cgi:118 hardware.cgi:248 styles/default/header.html:91
 msgid "Kernel modules"
 msgstr "Moduły jądra Linux"
 
-#: hardware.cgi:120
+#: hardware.cgi:122
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Zarządzaj, szukaj albo pobierz informacje na temat modułów jądra Linux"
 
-#: hardware.cgi:124
+#: hardware.cgi:126
 msgid "Modules search"
 msgstr "Szukaj moduły"
 
-#: hardware.cgi:132
+#: hardware.cgi:127
+msgid "Search"
+msgstr ""
+
+#: hardware.cgi:135
 msgid "Detailed information for module: %s"
 msgstr "Szczegółowe informacje dla modułu: %s"
 
-#: hardware.cgi:152
+#: hardware.cgi:159
 msgid "Matching result(s) for: %s"
 msgstr "Pasujące rezultat(y) dla: %s"
 
-#: hardware.cgi:158
+#: hardware.cgi:166
 msgid "Module:"
 msgstr "Moduł:"
 
-#: hardware.cgi:167
+#: hardware.cgi:176
 msgid "Module"
 msgstr "Moduł"
 
-#: hardware.cgi:169 hardware.cgi:527 lib/libtazpanel:295
+#: hardware.cgi:178 hardware.cgi:536 lib/libtazpanel:297
 msgid "Size"
 msgstr "Rozmiar"
 
-#: hardware.cgi:170 hardware.cgi:584 lib/libtazpanel:297
+#: hardware.cgi:179 hardware.cgi:593 lib/libtazpanel:299
 msgid "Used"
 msgstr "Używany"
 
-#: hardware.cgi:171
+#: hardware.cgi:180
 msgid "by"
 msgstr "przez"
 
-#: hardware.cgi:195
+#: hardware.cgi:204
 msgid "Information for USB Device %s"
 msgstr "Informacje i urządzeniu USB %s"
 
-#: hardware.cgi:197 hardware.cgi:215
+#: hardware.cgi:206 hardware.cgi:224
 msgid "Detailed information about specified device."
 msgstr "Szczegółowe informacje o wybranym urządzeniu."
 
-#: hardware.cgi:213
+#: hardware.cgi:222
 msgid "Information for PCI Device %s"
 msgstr "Informacje o urządzeniu PCI %s"
 
-#: hardware.cgi:234
+#: hardware.cgi:243
 msgid "Drivers &amp; Devices"
 msgstr "Sterowniki i Urządzenia"
 
-#: hardware.cgi:236
+#: hardware.cgi:245
 msgid "Manage your computer hardware"
 msgstr "Zarządzanie sprzętem i podłączonymi urządzeniami"
 
-#: hardware.cgi:240 styles/default/header.html:92
+#: hardware.cgi:249 styles/default/header.html:92
 msgid "Detect PCI/USB"
 msgstr "Wykryj urządzenia PCI/USB"
 
-#: hardware.cgi:241
+#: hardware.cgi:250
 msgid "Auto-install Xorg video driver"
 msgstr ""
 
-#: hardware.cgi:251 hardware.cgi:268
+#: hardware.cgi:260 hardware.cgi:277
 msgid "Battery"
 msgstr "Bateria"
 
-#: hardware.cgi:271
+#: hardware.cgi:280
 msgid "health"
 msgstr "zużycie"
 
-#: hardware.cgi:280
+#: hardware.cgi:289
 msgid "Discharging %d%% - %s"
 msgstr "Rozładowywanie %d%% - %s"
 
-#: hardware.cgi:284
+#: hardware.cgi:293
 msgid "Charging %d%% - %s"
 msgstr "Ładowanie %d%% - %s"
 
-#: hardware.cgi:286
+#: hardware.cgi:295
 #, fuzzy
 msgid "Charged 100%%"
 msgstr "Naładowana w 100%%"
 
-#: hardware.cgi:305
+#: hardware.cgi:314
 msgid "Temperature:"
 msgstr "Temperatura:"
 
-#: hardware.cgi:320
+#: hardware.cgi:329
 msgid "Brightness"
 msgstr "Jasność ekranu"
 
-#: hardware.cgi:462
+#: hardware.cgi:471
 #, fuzzy
 msgid "new mount point:"
 msgstr "Punkt montowania"
 
-#: hardware.cgi:463
+#: hardware.cgi:472
 msgid "read-only"
 msgstr ""
 
-#: hardware.cgi:478
+#: hardware.cgi:487
 msgid "Filesystems table"
 msgstr "Tabela systemów plików"
 
-#: hardware.cgi:491 lib/libtazpanel:292
+#: hardware.cgi:500 lib/libtazpanel:294
 msgid "Disk"
 msgstr "Dysk"
 
-#: hardware.cgi:492 lib/libtazpanel:298
+#: hardware.cgi:501 lib/libtazpanel:300
 msgid "Mount point"
 msgstr "Punkt montowania"
 
-#: hardware.cgi:493 lib/libtazpanel:294
+#: hardware.cgi:502 lib/libtazpanel:296
 msgid "Type"
 msgstr "Typ"
 
-#: hardware.cgi:494
+#: hardware.cgi:503
 #, fuzzy
 msgid "Options"
 msgstr "Akcja"
 
-#: hardware.cgi:495
+#: hardware.cgi:504
 msgid "Freq"
 msgstr ""
 
-#: hardware.cgi:496
+#: hardware.cgi:505
 #, fuzzy
 msgid "Pass"
 msgstr "Hasło:"
 
-#: hardware.cgi:518
+#: hardware.cgi:527
 msgid "Loop devices"
 msgstr ""
 
-#: hardware.cgi:526
+#: hardware.cgi:535
 #, fuzzy
 msgid "Backing file"
 msgstr "Plik konfiguracyjny"
 
-#: hardware.cgi:528
+#: hardware.cgi:537
 #, fuzzy
 msgid "Access"
 msgstr "Punkt dostępowy"
 
-#: hardware.cgi:529
+#: hardware.cgi:538
 msgid "Offset"
 msgstr ""
 
-#: hardware.cgi:538
+#: hardware.cgi:547
 msgid "read/write"
 msgstr ""
 
-#: hardware.cgi:539 hardware.cgi:564
+#: hardware.cgi:548 hardware.cgi:573
 msgid "read only"
 msgstr ""
 
-#: hardware.cgi:561
+#: hardware.cgi:570
 msgid "Setup"
 msgstr ""
 
-#: hardware.cgi:562
+#: hardware.cgi:571
 msgid "new backing file:"
 msgstr ""
 
-#: hardware.cgi:563
+#: hardware.cgi:572
 msgid "offset in bytes:"
 msgstr ""
 
-#: hardware.cgi:581
+#: hardware.cgi:590
 msgid "System memory"
 msgstr "Pamięć systemowa"
 
-#: hardware.cgi:587
+#: hardware.cgi:596
 msgid "Buffers"
 msgstr ""
 
-#: hardware.cgi:590
+#: hardware.cgi:599
 msgid "Free"
 msgstr ""
 
@@ -1122,11 +1177,11 @@ msgstr "Terytorium"
 msgid "-d"
 msgstr "-d"
 
-#: settings.cgi:462 settings.cgi:765 settings.cgi:776 settings.cgi:788
+#: settings.cgi:462 settings.cgi:765 settings.cgi:777 settings.cgi:789
 msgid "Activate"
 msgstr "Aktywuj"
 
-#: settings.cgi:474 settings.cgi:497
+#: settings.cgi:475 settings.cgi:497
 msgid "Small quick tweaks for user %s"
 msgstr ""
 
@@ -1230,31 +1285,31 @@ msgstr "Aktualny układ klawiatury dla konsoli: %s"
 msgid "Suggested keymap for Xorg:"
 msgstr "Sugerowany układ klawiatury dla Xorg:"
 
-#: settings.cgi:772
+#: settings.cgi:773
 msgid "Available keymaps:"
 msgstr "Dostępne układy klawiatury:"
 
-#: settings.cgi:783
+#: settings.cgi:784
 msgid "Panel configuration"
 msgstr "Konfiguracja Panelu"
 
-#: settings.cgi:786
+#: settings.cgi:787
 msgid "Style:"
 msgstr "Styl:"
 
-#: settings.cgi:792
+#: settings.cgi:793
 msgid "Configuration files:"
 msgstr "Pliki konfiguracyjne:"
 
-#: settings.cgi:793 styles/default/header.html:42
+#: settings.cgi:794 styles/default/header.html:42
 msgid "Panel"
 msgstr "Panel"
 
-#: settings.cgi:794
+#: settings.cgi:795
 msgid "Server"
 msgstr "Serwer"
 
-#: settings.cgi:797
+#: settings.cgi:798
 #, fuzzy
 msgid "TazPanel provides a debugging mode and page:"
 msgstr "TazPanel udostępnia tryb debugowania i stronę:"
@@ -1263,24 +1318,24 @@ msgstr "TazPanel udostępnia tryb debugowania i stronę:"
 msgid "connected"
 msgstr "połączony"
 
-#: lib/libtazpanel:168
+#: lib/libtazpanel:170
 msgid "IP Address"
 msgstr "Adres IP"
 
-#: lib/libtazpanel:169
+#: lib/libtazpanel:171
 msgid "Scan ports"
 msgstr "Skanuj porty"
 
-#: lib/libtazpanel:241
+#: lib/libtazpanel:243
 #, fuzzy
 msgid "Please wait"
 msgstr "Proszę czekać..."
 
-#: lib/libtazpanel:293
+#: lib/libtazpanel:295
 msgid "Label"
 msgstr "Etykieta"
 
-#: lib/libtazpanel:296
+#: lib/libtazpanel:298
 msgid "Available"
 msgstr "Dostepny"
 
