@@ -44,7 +44,7 @@ msgstr "Différences"
 
 #: index.cgi:76
 msgid "exec"
-msgstr ""
+msgstr "exécuter"
 
 #: index.cgi:109
 msgid "File"
@@ -74,19 +74,19 @@ msgstr "Retour"
 
 #: index.cgi:254
 msgid "run"
-msgstr ""
+msgstr "lancer"
 
 #: index.cgi:270
 msgid "Clear"
-msgstr ""
+msgstr "Efface"
 
 #: index.cgi:294
 msgid "Small non-interactive terminal emulator."
-msgstr ""
+msgstr "Terminal simpliste non interactif"
 
 #: index.cgi:295
 msgid "Run any command at your own risk, avoid interactive commands (%s)"
-msgstr ""
+msgstr "Lance à vos risques et périls une commande non interactive (%s)"
 
 #: index.cgi:300
 msgid "Downloading to: %s"
@@ -98,7 +98,7 @@ msgstr "La commande %s nécéssite un argument"
 
 #: index.cgi:312
 msgid "Please, don't run interactive command \"%s\""
-msgstr ""
+msgstr "Veuillez ne pas lancer de commande interactive \"%s\""
 
 #: index.cgi:330 styles/default/header.html:98
 msgid "Settings"
@@ -111,7 +111,7 @@ msgstr "Réglages système"
 
 #: index.cgi:421
 msgid "Font:"
-msgstr ""
+msgstr "Font :"
 
 #: index.cgi:423
 #, fuzzy
@@ -120,11 +120,11 @@ msgstr "Entrée par défaut :"
 
 #: index.cgi:429
 msgid "Palette:"
-msgstr ""
+msgstr "Palette :"
 
 #: index.cgi:435
 msgid "Apply"
-msgstr ""
+msgstr "Appliquer"
 
 #: index.cgi:445 index.cgi:631
 msgid "Process activity"
@@ -212,7 +212,7 @@ msgstr "Création du pied de page du rapport..."
 
 #: index.cgi:608 index.cgi:704 boot.cgi:510 boot.cgi:512
 msgid "View"
-msgstr ""
+msgstr "Voir"
 
 #: index.cgi:613
 msgid "This report can be attached with a bug report on:"
@@ -309,11 +309,11 @@ msgstr "Interface"
 
 #: network.cgi:261
 msgid "Static IP"
-msgstr ""
+msgstr "IP statique"
 
 #: network.cgi:263
 msgid "Use static IP"
-msgstr ""
+msgstr "Utiliser une IP statique"
 
 #: network.cgi:265
 msgid "IP address"
@@ -333,23 +333,23 @@ msgstr "Serveur DNS"
 
 #: network.cgi:277 network.cgi:297
 msgid "Wake up"
-msgstr ""
+msgstr "Réveiller"
 
 #: network.cgi:279
 msgid "Wake up machines by network"
-msgstr ""
+msgstr "Réveiller des machines par le réseau"
 
 #: network.cgi:281
 msgid "MAC address to wake up"
-msgstr ""
+msgstr "Adresse MAC à réveiller"
 
 #: network.cgi:282 network.cgi:287
 msgid "Leave empty for a general wakeup"
-msgstr ""
+msgstr "Laissez vide pour un reveil général"
 
 #: network.cgi:283
 msgid "List"
-msgstr ""
+msgstr "Liste"
 
 #: network.cgi:286
 #, fuzzy
@@ -358,7 +358,7 @@ msgstr "Changer le mot de passe"
 
 #: network.cgi:288
 msgid "Help"
-msgstr ""
+msgstr "Aide"
 
 #: network.cgi:295 network.cgi:450 network.cgi:633 boot.cgi:292
 msgid "Start"
@@ -382,7 +382,7 @@ msgstr ""
 
 #: network.cgi:343
 msgid "(hidden)"
-msgstr ""
+msgstr "(caché)"
 
 #: network.cgi:349 boot.cgi:150 hardware.cgi:57 lib/libtazpanel:166
 msgid "Name"
@@ -390,7 +390,7 @@ msgstr "Nom"
 
 #: network.cgi:350
 msgid "Signal level"
-msgstr ""
+msgstr "Puissance du signal"
 
 #: network.cgi:351
 msgid "Channel"
@@ -406,7 +406,7 @@ msgstr "État"
 
 #: network.cgi:404 network.cgi:486 network.cgi:508
 msgid "None"
-msgstr ""
+msgstr "Sans"
 
 #: network.cgi:410
 msgid "Connected"
@@ -430,35 +430,35 @@ msgstr "Connexion"
 
 #: network.cgi:480
 msgid "Network SSID"
-msgstr ""
+msgstr "SSID réseau"
 
 #: network.cgi:484
 msgid "Security"
-msgstr ""
+msgstr "Sécurité"
 
 #: network.cgi:495
 msgid "EAP method"
-msgstr ""
+msgstr "méthode EAP"
 
 #: network.cgi:506
 msgid "Phase 2 authentication"
-msgstr ""
+msgstr "Authentification pour la phase 2"
 
 #: network.cgi:518
 msgid "CA certificate"
-msgstr ""
+msgstr "Certificat CA"
 
 #: network.cgi:523
 msgid "User certificate"
-msgstr ""
+msgstr "Cartificat utilisateur"
 
 #: network.cgi:528
 msgid "Identity"
-msgstr ""
+msgstr "Identité"
 
 #: network.cgi:533
 msgid "Anonymous identity"
-msgstr ""
+msgstr "Identité anonyme"
 
 #: network.cgi:538
 msgid "Password"
@@ -502,7 +502,7 @@ msgstr "Interfaces réseau"
 
 #: network.cgi:654
 msgid "forward packets between interfaces"
-msgstr ""
+msgstr "Echange de paquets entre interfaces"
 
 #: network.cgi:656 network.cgi:690 boot.cgi:336 settings.cgi:608
 #: settings.cgi:722
@@ -536,11 +536,11 @@ msgstr "Table ARP"
 
 #: network.cgi:750
 msgid "Proxy"
-msgstr ""
+msgstr "Mandataire"
 
 #: network.cgi:751
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: network.cgi:764
 msgid "IP Connections"
@@ -548,7 +548,7 @@ msgstr "Connexions IP"
 
 #: network.cgi:774
 msgid "Firewall"
-msgstr ""
+msgstr "Pare feu"
 
 #: boot.cgi:16 styles/default/header.html:62
 msgid "Boot"
@@ -689,7 +689,7 @@ msgstr "Le démarrage réseau est disponible avec gPXE"
 
 #: boot.cgi:390 boot.cgi:496 styles/default/header.html:83
 msgid "ISO mine"
-msgstr ""
+msgstr "Exploiter l'ISO"
 
 #: boot.cgi:486
 msgid "Boot &amp; Start services"
@@ -855,7 +855,7 @@ msgstr "Point de montage"
 
 #: hardware.cgi:463
 msgid "read-only"
-msgstr ""
+msgstr "lecture seule"
 
 #: hardware.cgi:478
 msgid "Filesystems table"
@@ -903,23 +903,23 @@ msgstr ""
 
 #: hardware.cgi:538
 msgid "read/write"
-msgstr ""
+msgstr "lecture/écriture"
 
 #: hardware.cgi:539 hardware.cgi:564
 msgid "read only"
-msgstr ""
+msgstr "lecture seule"
 
 #: hardware.cgi:561
 msgid "Setup"
-msgstr ""
+msgstr "Définir"
 
 #: hardware.cgi:562
 msgid "new backing file:"
-msgstr ""
+msgstr "nouveau fichier associé :"
 
 #: hardware.cgi:563
 msgid "offset in bytes:"
-msgstr ""
+msgstr "offset en octets :"
 
 #: hardware.cgi:581
 msgid "System memory"
@@ -931,7 +931,7 @@ msgstr ""
 
 #: hardware.cgi:590
 msgid "Free"
-msgstr ""
+msgstr "Libre"
 
 #: settings.cgi:16
 msgid "System settings"
@@ -1113,7 +1113,7 @@ msgstr "Activer"
 
 #: settings.cgi:474 settings.cgi:497
 msgid "Small quick tweaks for user %s"
-msgstr ""
+msgstr "Ajustements pour l'utilisateur %s"
 
 #: settings.cgi:500
 #, fuzzy
@@ -1126,7 +1126,7 @@ msgstr ""
 
 #: settings.cgi:515
 msgid "Colored"
-msgstr ""
+msgstr "Multicolor"
 
 #: settings.cgi:524 settings.cgi:572
 #, fuzzy
@@ -1138,26 +1138,28 @@ msgid ""
 "To take effect: log out and log in to system or execute command in the "
 "terminal:"
 msgstr ""
+"Pour prendre effet, reconnectez vous ou exécutez une commande dans le "
+"terminal :"
 
 #: settings.cgi:533
 msgid "Menu button appearance"
-msgstr ""
+msgstr "Apparence du bouton Menu"
 
 #: settings.cgi:538
 msgid "Icon:"
-msgstr ""
+msgstr "Icône :"
 
 #: settings.cgi:541 settings.cgi:562
 msgid "Do not show"
-msgstr ""
+msgstr "Cacher"
 
 #: settings.cgi:559
 msgid "Text:"
-msgstr ""
+msgstr "Texte :"
 
 #: settings.cgi:566
 msgid "Show text"
-msgstr ""
+msgstr "Montrer le texte"
 
 #: settings.cgi:589
 msgid "Manage system time, users or language settings"
@@ -1204,7 +1206,7 @@ msgstr "Locales système actuelles :"
 
 #: settings.cgi:732
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Type de clavier"
 
 #: settings.cgi:746
 msgid "Current console keymap: %s"
@@ -1269,7 +1271,7 @@ msgstr "Disponible"
 
 #: lib/libtazpanel:367
 msgid "You must be root to show this page."
-msgstr ""
+msgstr "Il faut être root pour voir cette page."
 
 #: help.cgi:20
 msgid "Manual"
@@ -1318,15 +1320,15 @@ msgstr "Réglages"
 
 #: styles/default/header.html:119
 msgid "Some features are disabled."
-msgstr ""
+msgstr "Certaines fonctionnalités sont désactivées"
 
 #: styles/default/header.html:124
 msgid "You are logged in to the TazPanel as user %s."
-msgstr ""
+msgstr "Vous êtes connecté à TazPanel comme utilisateur %s."
 
 #: styles/default/header.html:125
 msgid "Click to re-login."
-msgstr ""
+msgstr "Cliquer pour se reconnecter."
 
 #: styles/default/header.html:135
 msgid "Copyright"
