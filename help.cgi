@@ -35,8 +35,9 @@ if [ -n "$(GET manual)" ]; then
 	man $(GET manual)
 	echo "</pre>"
 else
-	cat doc/tazpanel.html
-	cat $PANEL/README.html
+	for i in doc/tazpanel $PANEL/README ; do
+		cat $i.${LANG%_*}.html 2> /dev/null || cat $i.html
+	done
 fi
 
 xhtml_footer
