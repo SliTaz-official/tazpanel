@@ -1,4 +1,5 @@
 rootclass='user'; [ $(id -u) == '0' ] && rootclass='root'
+TEXTDOMAIN_original="${TEXTDOMAIN:-tazpanel}"
 export TEXTDOMAIN='tazpanel'
 
 extra_menu() {
@@ -143,3 +144,4 @@ $warn$(_ 'Click to re-login.')" href="$toggle_url$(basename $REQUEST_URI)"></a>
 <!-- Page content -->
 <div id="content">
 EOT
+export TEXTDOMAIN="$TEXTDOMAIN_original"
