@@ -261,6 +261,7 @@ xhtml_header() {
 	. ${PANEL}$HEADER
 	cat <<EOT
 <script type="text/javascript">
+	document.cookie = "guiuser=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 	document.cookie = "guiuser=$GUI_USER";
 </script>
 EOT
