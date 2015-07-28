@@ -17,10 +17,19 @@ _p() {
 	printf "$(ngettext "$S" "$P" "$N")" "$@"; }
 
 
-[ "$(id -un)" == "${REMOTE_USER:=nobody}" ] || exec su -s /bin/sh -c "$(realpath $0) $@" $REMOTE_USER
+GUI_USER=nobody
+[ "$HTTP_HOST" == "127.0.0.1:82" ] &&
+for i in "$HTTP_COOKIE" "$QUERY_STRING" ; do
+    v="$(echo "$i" | sed '/guiuser=/!d;s/.*guiuser=\([A-Za-z0-9_]*\).*/\1/')"
+    [ "$v" ] || continue
+    ps | sed '/d;/d;/127\.0\.0\.1:82/!d' | grep -q " $v " || continue
+    GUI_USER="$v"
+done
+[ "$REMOTE_USER" ] || REMOTE_USER="$GUI_USER"
+[ "$(id -un)" == "$REMOTE_USER" ] || exec su -s /bin/sh -c "$(realpath $0) $@" $REMOTE_USER
 
 
-# Get parameters with GET, POST and FILE functions
+# Get parameters with GET, POST, COOKIE and FILE functions
 
 . /usr/lib/slitaz/httphelper
 
@@ -250,6 +259,11 @@ EOT
 xhtml_header() {
 	SUBTITLE="$1"
 	. ${PANEL}$HEADER
+	cat <<EOT
+<script type="text/javascript">
+	document.cookie = "guiuser=$GUI_USER";
+</script>
+EOT
 	if [ "$DEBUG" -eq 1 ]; then
 		local i j x
 		args=''

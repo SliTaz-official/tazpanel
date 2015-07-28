@@ -1047,7 +1047,7 @@ msgstr "Ajouter un utilisateur"
 
 #: settings.cgi:273
 msgid "Remove user"
-msgstr "Enléve un utilisateur"
+msgstr "Enlève un utilisateur"
 
 #: settings.cgi:286 settings.cgi:594
 msgid "Manage users"

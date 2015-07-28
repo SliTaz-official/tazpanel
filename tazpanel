@@ -74,12 +74,12 @@ EOT
 		. /etc/slitaz/applications.conf
 		USER_CONFIG="$HOME/.config/slitaz/applications.conf"
 		[ -f "$USER_CONFIG" ] && . $USER_CONFIG
-		[ -n "$1" ] && app="/${1}.cgi"
-		echo http://127.0.0.1:82${app}
+		url="http://127.0.0.1:82/${1:-index}.cgi?guiuser=$(id -un)"
+		echo "$url"
 		case "$BROWSER" in
-			tazweb) tazweb --notoolbar http://127.0.0.1:82${app} & ;;
-			midori) midori --app=http://127.0.0.1:82${app} & ;;
-			*) $BROWSER http://127.0.0.1:82${app} & ;;
+			tazweb) tazweb --notoolbar "$url" & ;;
+			midori) midori "--app=$url" & ;;
+			*) $BROWSER "$url" & ;;
 		esac ;;
 esac
 

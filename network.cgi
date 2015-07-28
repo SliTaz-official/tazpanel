@@ -115,6 +115,7 @@ wait_up() {
 select_if() {
 	echo '<select name="interface">'
 	for i in $(ls /sys/class/net); do
+		grep -qs 1 /sys/class/net/$i/carrier &&
 		echo "<option>$i"
 	done
 	echo '</select>'
