@@ -592,6 +592,15 @@ EOT
 <h2>$(_ 'Boot scripts')</h2>
 <pre>$(filter_taztools_msgs < /var/log/boot.log)</pre>
 EOT
+		if [ "$(ls report.d/* 2> /dev/null)" ]; then
+			cat <<EOT
+	$(ok_status_t)
+	<tr><td>$(_ 'Getting extra reports...')</td>
+EOT
+			for i in report.d/* ; do
+				sh $i $i >> $output
+			done
+		fi
 		cat <<EOT
 	$(ok_status_t)
 	<tr><td>$(_ 'Creating report footer...')</td>
