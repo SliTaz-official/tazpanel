@@ -8,6 +8,15 @@
 # Common functions from libtazpanel
 . lib/libtazpanel
 get_config
+
+case "$1" in
+	menu)
+		cat <<EOT
+<li><a data-icon="display" href="powersaving.cgi" data-root>$(_ 'Power saving')</a></li>
+EOT
+		exit
+esac
+
 header
 
 TITLE=$(_ 'Hardware')

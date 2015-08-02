@@ -5,6 +5,8 @@ SYSCONFDIR?=/etc/slitaz
 DESTDIR?=
 LINGUAS?=el es fr pl pt_BR ru sv
 PANEL?=/var/www/tazpanel
+BASECGI?=boot.cgi hardware.cgi help.cgi index.cgi network.cgi settings.cgi
+EXTRACGI?=floppy.cgi powersaveing.cgi
 
 VERSION:=$(shell grep ^VERSION tazpanel | cut -d '=' -f 2)
 
@@ -46,7 +48,10 @@ install:
 		$(DESTDIR)/var/log
 	cp -a tazpanel $(DESTDIR)$(PREFIX)/bin
 	-[ "$(VERSION)" ] && sed -i 's/^VERSION=[0-9].*/VERSION=$(VERSION)/' $(DESTDIR)$(PREFIX)/bin/tazpanel
-	cp -a *.cgi lib/ styles/ doc/ README* $(DESTDIR)$(PANEL)
+	cp -a lib/ styles/ doc/ README* $(DESTDIR)$(PANEL)
+	@for c in $(BASECGI); do \
+		cp -a $$l $(DESTDIR)$(PANEL); \
+	done;
 	if [ -e $(DESTDIR)$(PANEL)/user ] ; then rm -rf $(DESTDIR)$(PANEL)/user; fi
 	ln -s . $(DESTDIR)$(PANEL)/user
 	cp -a po/mo/*        $(DESTDIR)$(PREFIX)/share/locale
@@ -61,6 +66,17 @@ install:
 	@# Remove this when TazWeb will support OpenType ligatures for web-fonts (maybe, after Webkit upgrade?)
 	mkdir -p $(DESTDIR)/usr/share/fonts/TTF
 	ln -fs $(PANEL)/styles/default/tazpanel.ttf $(DESTDIR)/usr/share/fonts/TTF/tazpanel.ttf
+
+install_extra:
+	mkdir -p \
+		$(DESTDIR)$(PANEL)/menu.d/boot \
+		$(DESTDIR)$(PANEL)/menu.d/hardware
+	@for c in $(EXTRACGI); do \
+		cp -a $$l $(DESTDIR)$(PANEL); \
+	done;
+	cp -a bootloader $(DESTDIR)/usr/bin
+	ln -s ../../floppy.cgi $(DESTDIR)/menu.d/boot/floppy
+	ln -s ../../powersaving.cgi $(DESTDIR)/menu.d/hardware/powersaving
 
 # Clean source
 
