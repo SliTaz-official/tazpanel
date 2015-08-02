@@ -596,7 +596,7 @@ EOT
 EOT
 ( cd /var/lib/tazpkg/installed
 for i in * ; do
-	echo "$i$(. $i/receipt ; echo " $VERSION $DEPENDS" )"
+	echo "$i $(. $i/receipt ; echo "$VERSION $DEPENDS" | xargs echo)"
 done ) | awk '{ pkg[$1]=$0; idx[c++]=$1 }
 function name(n)
 {
