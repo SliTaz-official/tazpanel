@@ -591,7 +591,36 @@ EOT
 
 <h2>$(_ 'Boot scripts')</h2>
 <pre>$(filter_taztools_msgs < /var/log/boot.log)</pre>
+
+<h2>$(_ 'Packages')</h2>
 EOT
+( cd /var/lib/tazpkg/installed
+for i in * ; do
+	echo "$i$(. $i/receipt ; echo " $VERSION $DEPENDS" )"
+done ) | awk '{ pkg[$1]=$0; idx[c++]=$1 }
+function name(n)
+{
+	split(pkg[n], x, " ")
+	return x[1] " (" x[2] ") "
+}
+END {
+	print "<pre>"
+	for (i in pkg) for (j = split(pkg[i], p, " "); j > 2; j--) {
+		if (pkg[p[j]]) kill[p[j]]=1
+		else print "Missing dep " p[j] " for " name(p[1])
+	}
+	print ""
+	n=0
+	for (i=0; i < c; i++) {
+		if (kill[idx[i]]) continue
+		printf "%s" name(idx[i])
+		if (n++ < 3) continue
+		printf "\n"
+		n=0
+	}
+	print "</pre>"
+}
+' >> $output
 		if [ "$(ls report.d/* 2> /dev/null)" ]; then
 			cat <<EOT
 	$(ok_status_t)
