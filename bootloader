@@ -330,7 +330,7 @@ EOT
 		[ $syssz -gt 32768 ] && syssz=$(get 0x1F4 $bs 2)
 		[ $syssz -eq 0 ] && syssz=$((0x7F00))
 		sysszsect=$((($syssz+31)/32))
-		INITRD="${INITRD%%,*}"
+		INITRD="${INITRD%% *}"
 		initrdlen=$(stat -c %s "$INITRD")
 		store 16 $OldRamfsLenOfs $(($initrdlen/1024)) $bs set oldramfs
 		INITRDDISKALIGN=$((0x40000))
