@@ -22,7 +22,7 @@ cat <<EOT
 <!DOCTYPE html>
 <html lang="${LANG%%_*}">
 <head>
-	<title>$TITLE</title>
+	<title>TazPanel</title>
 	<link rel="shortcut icon" href="/styles/$STYLE/favicon.ico"/>
 	<meta name="viewport" content="width=device-width,initial-scale=1"/>
 $(printf '\t<link rel="stylesheet" type="text/css" href="/%s"/>\n' $(cd /var/www/tazpanel; ls styles/$STYLE/*.css))

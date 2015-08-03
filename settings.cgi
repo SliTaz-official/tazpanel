@@ -331,7 +331,7 @@ EOT
 		cat <<EOT
 		<footer>
 			$(_ 'Password:')
-			<input type="password" name="password"/>
+			<input type="password" name="password" placeholder="$(_ 'New password')"/>
 			<button type="submit" name="do" value="chpasswd" data-icon="ok">$(_ 'Change password')</button>
 		</footer>
 	</form>

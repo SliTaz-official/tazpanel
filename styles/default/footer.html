@@ -1,11 +1,11 @@
 export TEXTDOMAIN='tazpanel'
-cat << EOT
+cat <<EOT
 <!-- End of content-->
 </div>
 
 <script type="text/javascript">
 	window.onbeforeunload = null;
-	statusbar('');
+	if (ajaxLoader == 0) statusbar('');
 	dupTableHead();
 </script>
 </body>

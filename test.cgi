@@ -54,8 +54,7 @@ cat <<EOT
 --><button data-icon="toggle"     >Toggle     </button><button data-icon="chlock"  >ChLock  </button><!--
 --><button data-icon="calendar"   >Calendar   </button><button data-icon="modem"   >Modem   </button><!--
 --><button data-icon="vpn"        >VPN        </button><button data-icon="display" >Display </button><!--
---><button data-icon="cpu"        >CPU        </button><button data-icon="display" >Display </button><!--
--->
+--><button data-icon="cpu"        >CPU        </button>
 </section>
 
 

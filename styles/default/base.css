@@ -18,6 +18,7 @@ body > header {
 	position: fixed; top: 0; left: 0;
 	width: 100%; height: 40px;
 	background-color: #222;
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJAQMAAADaX5RTAAAABlBMVEUXFxciIygUb+JNAAAAEUlEQVQIHWNkYGDMFQYhDAYAJbADCjwbCYUAAAAASUVORK5CYII=');
 }
 
 body > header h1 {
@@ -159,6 +160,8 @@ section header form, section footer form {
 	display: table-cell; vertical-align: baseline; line-height: 0; width: 1px; white-space: nowrap;
 }
 section header button, section footer button { margin: 0; }
+
+section header a { float: right; }
 
 section footer {
 	padding: 0 0.3rem 0.2rem; margin: 0;
