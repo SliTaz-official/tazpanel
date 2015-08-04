@@ -591,13 +591,24 @@ EOT
 
 <h2>$(_ 'Boot scripts')</h2>
 <pre>$(filter_taztools_msgs < /var/log/boot.log)</pre>
-
+EOT
+		cat <<EOT
+	$(ok_status_t)
+	<tr><td>$(_ 'Getting package list...')</td>
+EOT
+		cat >> $output <<EOT
 <h2>$(_ 'Packages')</h2>
 EOT
 ( cd /var/lib/tazpkg/installed
 for i in * ; do
-	echo "$i $(. $i/receipt ; echo "$VERSION $DEPENDS" | xargs echo)"
-done ) | awk '{ pkg[$1]=$0; idx[c++]=$1 }
+	echo "$i $(. $i/receipt ; echo "$VERSION $DEPENDS" | xargs echo ; 
+		echo "$PROVIDE" | sed 's/:[^ ]*//g' | xargs echo PROVIDE)"
+done ) | awk '{
+	if ($1 == "PROVIDE") {
+		for (i = 2; i <= NF; i++) alias[$i] = 1
+	}
+	else { pkg[$1]=$0; idx[c++]=$1 }
+}
 function name(n)
 {
 	split(pkg[n], x, " ")
@@ -606,7 +617,7 @@ function name(n)
 END {
 	print "<pre>"
 	for (i in pkg) for (j = split(pkg[i], p, " "); j > 2; j--) {
-		if (pkg[p[j]]) kill[p[j]]=1
+		if (pkg[p[j]] || alias[p[j]]) kill[p[j]]=1
 		else print "Missing dep " p[j] " for " name(p[1])
 	}
 	print ""
@@ -614,7 +625,7 @@ END {
 	for (i=0; i < c; i++) {
 		if (kill[idx[i]]) continue
 		printf "%s" name(idx[i])
-		if (n++ < 3) continue
+		if (n++ < 2) continue
 		printf "\n"
 		n=0
 	}
