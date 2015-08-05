@@ -25,14 +25,39 @@ listdb() {
 
 restart_lxpanel() {
 	# `lxpanelctl restart` exists, but it breaks often leaving us without any panel
-	lxpanel_pid="$(ps -o comm,pid | fgrep lxpanel | awk '{print $2}')"
-	lxpanel_user="$(ps -o comm,user | fgrep lxpanel | awk '{print $2}')"
-	lxpanel_comm="$(ps -o pid,args | grep -e "^\ *$lxpanel_pid " | awk '{$1="";print}')"
 
-	if [ "$USER" == "$lxpanel_user" ]; then
-		kill $lxpanel_pid
-		DISPLAY=':0.0' XAUTHORITY='/var/run/slim.auth' $lxpanel_comm &
+	# parameters needed to run graphical application from script
+	if [ -z "$XAUTHORITY" ]; then
+		if [ -e "$HOME/.Xauthority" ]; then
+			export XAUTHORITY="$HOME/.Xauthority"
+		elif [ -e '/var/run/slim.auth' ]; then
+			export XAUTHORITY='/var/run/slim.auth'
+		fi
 	fi
+	[ -z "$DISPLAY" ] && export DISPLAY=':0.0'
+
+	# find LXPanel ProcessID, filter out zombie '[lxpanel]' (if any)
+	lxpanel_pid="$(ps -o comm,pid,args | fgrep lxpanel | fgrep -v fgrep | fgrep -v '[' | awk '{print $2}')"
+
+	# if LXPanel not running, just run it with default option
+	if [ -z "$lxpanel_pid" ]; then
+		lxpanel -p slitaz &
+	else
+		# who started LXPanel?..
+		lxpanel_user="$(ps -o pid,user | fgrep "$lxpanel_pid " | awk '{print $2}')"
+
+		# ... current user?
+		if [ "$USER" == "$lxpanel_user" ]; then
+			# custom command?
+			lxpanel_comm="$(ps -o pid,args | grep -e "^\ *$lxpanel_pid " | awk '{$1="";print}')"
+			[ -z "$lxpanel_comm" ] && lxpanel_comm='lxpanel -p slitaz'
+
+			# stop LXPanel and start it again with the same command
+			kill $lxpanel_pid
+			$lxpanel_comm &
+		fi
+	fi
+
 }
 
 
@@ -118,7 +143,7 @@ case " $(GET) " in
 
 	*\ tweak\ *)
 		HOME="$(getdb passwd | awk -F: -vu=$REMOTE_USER '$1==u{print $6}')"
-		[ -d "$HOME" ] && exit 0
+		[ ! -d "$HOME" ] && exit 0
 
 		dd="$HOME/.local/share/desktop-directories"; sd="$dd/SliTazMenu.directory"
 
