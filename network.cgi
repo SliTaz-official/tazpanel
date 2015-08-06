@@ -436,6 +436,59 @@ EOT
 		# Wireless connections settings
 		xhtml_header "$(_ 'Wireless connection')"
 
+		cat <<EOT
+<style type="text/css">
+#connection input[type="text"], #connection input[type="password"] { width: 14rem; }
+#connection select { width: 14.4rem; }
+
+#connection td { padding: 0; margin: 0; }
+#connection [class] div {
+	max-height: 0; overflow: hidden; padding: 0; margin: 0;
+	-webkit-transition: all 0.5s ease-in-out;
+	   -moz-transition: all 0.5s ease-in-out;
+	        transition: all 0.5s ease-in-out;
+}
+.wep .wep div, .wpa .wpa div, .eap .eap div,
+.eap.peap .eap1 div, .eap.tls .eap1 div, .eap.ttls .eap1 div {
+	max-height: 2em !important;
+}
+
+#shader {
+	z-index: 100;
+	position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+	background-color: #000;
+	opacity: 0.6;
+}
+#shader.hidden {
+	display: none;
+	opacity: 0;
+}
+
+#popup_qr {
+	z-index: 101;
+	position: fixed;
+	width: 100%;
+	bottom: 2em;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-webkit-transition-delay: 0.3s;
+}
+#popup_qr_inner {
+	display: inline-block;
+	text-align: center;
+	margin: 0.5em;
+	background: #fff; color: #222;
+	border: 0.16em solid ; border-radius: 0.5em;
+
+	padding: 0.5em;
+}
+#popup_qr.hidden {bottom: -100em; }
+
+#qrimg { margin: 3em 1.5em 2em 3em; }
+</style>
+EOT
+
+
 		. /etc/network.conf
 
 		start_disabled=''; stop_disabled=''
@@ -547,7 +600,16 @@ EOT
 					</div></td>
 				</tr>
 
-				<script type="text/javascript">
+			</table>
+		</form>
+	</div>
+	<footer>
+		<button form="connection" type="submit" name="wifi" data-icon="ok">$(_ 'Configure')</button>
+		<button data-icon="user" onclick="shareWiFi(); popup('popup_qr', 'show');">$(_ 'Share')</button>
+	</footer>
+</section>
+
+<script type="text/javascript">
 function wifiSettingsChange() {
 	document.getElementById('connection').className = 
 		document.getElementById('keyType').value.toLowerCase() + ' ' + 
@@ -557,32 +619,40 @@ document.getElementById('keyType').onchange = wifiSettingsChange;
 document.getElementById('eap').onchange = wifiSettingsChange;
 
 document.getElementById('keyType').value = "$WIFI_KEY_TYPE"; wifiSettingsChange();
-				</script>
 
-				<style type="text/css">
-#connection input[type="text"], #connection input[type="password"] { width: 14rem; }
-#connection select { width: 14.4rem; }
+$(cat $PANEL/lib/qr.js.include)
 
-#connection td { padding: 0; margin: 0; }
-#connection [class] div {
-	max-height: 0; overflow: hidden; padding: 0; margin: 0;
-	-webkit-transition: all 0.5s ease-in-out;
-	   -moz-transition: all 0.5s ease-in-out;
-	        transition: all 0.5s ease-in-out;
+function shareWiFi() {
+	// S=<SSID>; T={WPA|WEP|nopass}; P=<password>; H=<hidden?>
+	// Escape ":" and ";" -> "\:" and "\;"
+	// No harm for regular networks marked as hidden
+	var text = "WIFI:" + 
+		"S:" + document.getElementById('essid').value.replace(/:/g, "\\\\:").replace(/;/g, "\\\\;") + ";" +
+		"T:" + document.getElementById('keyType').value.replace("NONE", "nopass") + ";" +
+		"P:" + document.getElementById('password').value.replace(/:/g, "\\\\:").replace(/;/g, "\\\\;") + ";" +
+		"H:true;" +
+		";";
+	document.getElementById('qrimg').title = text;
+	qr.image({
+		image: document.getElementById('qrimg'),
+		value: text,
+		size: 10
+	});
 }
-.wep .wep div, .wpa .wpa div, .eap .eap div,
-.eap.peap .eap1 div, .eap.tls .eap1 div, .eap.ttls .eap1 div {
-	max-height: 2em !important;
-}
-				</style>
+</script>
 
-			</table>
-		</form>
-	</div>
-	<footer>
-		<button form="connection" type="submit" name="wifi" data-icon="ok">$(_ 'Configure')</button>
-	</footer>
-</section>
+<div id="shader" class="hidden" onclick="popup('popup_qr', 'close');"></div>
+
+<table id="popup_qr" class="hidden" onclick="popup('popup_qr', 'close')">
+	<tr>
+		<td style="text-align: center;">
+			<div id="popup_qr_inner">
+				<img id="qrimg" src="#" /><br/>
+				$(_ 'Share Wi-Fi network with your friends')
+			</div>
+		</td>
+	</tr>
+</table>
 EOT
 		fi
 
