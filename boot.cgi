@@ -45,12 +45,7 @@ case " $(GET) " in
 		$(_ 'System logs')
 EOT
 
-		[ -w /etc/syslog.conf ] && cat <<EOT
-		<form action="index.cgi">
-			<input type="hidden" name="file" value="/etc/syslog.conf"/>
-			<button name="action" value="edit" data-icon="edit">syslog.conf</button>
-		</form>
-EOT
+		edit_button /etc/syslog.conf syslog.conf
 
 		cat <<EOT
 	</header>
@@ -518,14 +513,7 @@ EOT
 <section>
 	<header>
 		$(_ 'Local startup commands')
-		<form action="index.cgi">
-			<input type="hidden" name="file" value="/etc/init.d/local.sh"/>
-EOT
-		[ -w /etc/init.d/local.sh ] && cat <<EOT
-			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
-EOT
-		cat <<EOT
-		</form>
+		$(edit_button /etc/init.d/local.sh)
 	</header>
 	<pre><code class="language-bash">$(htmlize < /etc/init.d/local.sh)</code></pre>
 </section>

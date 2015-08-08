@@ -369,6 +369,17 @@ back_button() {
 }
 
 
+# Show "Edit" button
+
+edit_button() {
+	[ -w "$1" ] && cat <<EOT
+		<form action="index.cgi">
+			<input type="hidden" name="file" value="$1"/>
+			<button name="action" value="edit" data-icon="edit">${2:-$(_ 'Edit')}</button>
+		</form>
+EOT
+}
+
 # Mark select option as checked
 
 selected() {

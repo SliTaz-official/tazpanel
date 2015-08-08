@@ -485,14 +485,7 @@ EOT
 <section>
 	<header>
 		$(_ 'Filesystems table')
-EOT
-		[ -w /etc/fstab ] && cat <<EOT
-		<form action="index.cgi">
-			<input type="hidden" name="file" value="/etc/fstab"/>
-			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
-		</form>
-EOT
-		cat <<EOT
+		$(edit_button /etc/fstab)
 	</header>
 	<table class="wide zebra center">
 		<thead>

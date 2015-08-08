@@ -618,9 +618,9 @@ END {
 	print "<pre>"
 	for (i in pkg) for (j = split(pkg[i], p, " "); j > 2; j--) {
 		if (pkg[p[j]] || alias[p[j]]) kill[p[j]]=1
-		else print "Missing dep " p[j] " for " name(p[1])
+		else { miss=1 ; print "Missing dep " p[j] " for " name(p[1]) }
 	}
-	print ""
+	if (miss) print ""
 	n=0
 	for (i=0; i < c; i++) {
 		if (kill[idx[i]]) continue

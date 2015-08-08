@@ -321,12 +321,7 @@ EOT
 	<header>
 		$(_ 'Configuration file')
 EOT
-		[ -w /etc/network.conf ] && cat <<EOT
-		<form action="index.cgi">
-			<input type="hidden" name="file" value="/etc/network.conf"/>
-			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
-		</form>
-EOT
+		edit_button /etc/network.conf
 		cat <<EOT
 	</header>
 	<div>$(_ "These values are the ethernet settings in the main /etc/network.conf configuration file")</div>
@@ -661,12 +656,7 @@ EOT
 	<header>
 		$(_ 'Configuration file')
 EOT
-		[ -w /etc/network.conf ] && cat <<EOT
-		<form action="index.cgi">
-			<input type="hidden" name="file" value="/etc/network.conf"/>
-			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
-		</form>
-EOT
+		edit_button /etc/network.conf
 		cat <<EOT
 	</header>
 	<div>$(_ "These values are the wifi settings in the main /etc/network.conf configuration file")</div>
@@ -735,12 +725,7 @@ EOT
 	<header id="hosts">
 		$(_ 'Hosts')
 EOT
-		[ -w '/etc/hosts' ] && cat <<EOT
-		<form action="index.cgi">
-			<input type="hidden" name="file" value="/etc/hosts"/>
-			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
-		</form>
-EOT
+		edit_button /etc/hosts
 		cat <<EOT
 	</header>
 	<footer>
@@ -785,12 +770,7 @@ EOT
 	<header id="dns">
 		$(_ 'Domain name resolution')
 EOT
-		[ -w /etc/resolv.conf ] && cat <<EOT
-		<form action="index.cgi">
-			<input type="hidden" name="file" value="/etc/resolv.conf"/>
-			<button name="action" value="edit" data-icon="edit">$(_ 'Edit')</button>
-		</form>
-EOT
+		edit_button /etc/resolv.conf
 		cat <<EOT
 	</header>
 	<footer><pre>$(cat /etc/resolv.conf)</pre></footer>
@@ -842,7 +822,9 @@ EOT
 EOT
 		[ "$REMOTE_USER" == "root" -a "$(which iptables-save)" ] && cat <<EOT
 <section>
-	<header id="iptables">$(_ 'Firewall')</header>
+	<header id="iptables">$(_ 'Firewall')
+		$(edit_button /etc/knockd.conf "$(_ 'Port knocker')")
+	</header>
 	<footer>
 	<pre>$(iptables-save)</pre>
 	</footer>
