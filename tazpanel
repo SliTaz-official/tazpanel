@@ -44,6 +44,7 @@ Commands:
   <app>    Open TazPanel page in the browser, where <app> is one of:
            boot, hardware, help, index, installer, live, network, settings, pkgs
            If <app> is empty, index page will open in the browser.
+           You can also open sub-pages, so "pkgs#list" will open packages list.
 
 EOT
 		;;
@@ -74,8 +75,14 @@ EOT
 		. /etc/slitaz/applications.conf
 		USER_CONFIG="$HOME/.config/slitaz/applications.conf"
 		[ -f "$USER_CONFIG" ] && . $USER_CONFIG
-		url="http://127.0.0.1:82/${1:-index}.cgi?guiuser=$(id -un)"
+
+		applet=${1:-index}
+		case $1 in
+			*#*) url="http://127.0.0.1:82/${applet%%#*}.cgi?${applet#*#}&guiuser=$(id -un)";;
+			*)   url="http://127.0.0.1:82/$applet.cgi?guiuser=$(id -un)";;
+		esac
 		echo "$url"
+
 		case "$BROWSER" in
 			tazweb) tazweb --notoolbar "$url" & ;;
 			midori) midori "--app=$url" & ;;
