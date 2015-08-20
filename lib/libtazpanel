@@ -12,18 +12,15 @@
 
 _()  { local T="$1"; shift; printf "$(gettext "$T")" "$@"; echo; }
 _n() { local T="$1"; shift; printf "$(gettext "$T")" "$@"; }
-_p() {
-	local S="$1" P="$2" N="$3"; shift 3;
-	printf "$(ngettext "$S" "$P" "$N")" "$@"; }
 
 
 GUI_USER=nobody
 [ "$HTTP_HOST" == "127.0.0.1:82" ] &&
 for i in "$HTTP_COOKIE" "$QUERY_STRING" ; do
-    v="$(echo "$i" | sed '/guiuser=/!d;s/.*guiuser=\([A-Za-z0-9_]*\).*/\1/')"
-    [ "$v" ] || continue
-    busybox ps | sed '/d;/d;/127\.0\.0\.1:82/!d' | grep -q " $v " || continue
-    GUI_USER="$v"
+	v="$(echo "$i" | sed '/guiuser=/!d;s/.*guiuser=\([A-Za-z0-9_]*\).*/\1/')"
+	[ "$v" ] || continue
+	busybox ps | sed '/d;/d;/127\.0\.0\.1:82/!d' | grep -q " $v " || continue
+	GUI_USER="$v"
 done
 [ "$(id -un)" == "${REMOTE_USER:=$GUI_USER}" ] || exec su -s /bin/sh -c "$(realpath $0) $@" $REMOTE_USER
 
@@ -36,9 +33,7 @@ done
 # I18n
 
 . /etc/locale.conf
-. /usr/bin/gettext.sh
-TEXTDOMAIN='tazpanel'
-export TEXTDOMAIN LANG LC_ALL
+export TEXTDOMAIN='tazpanel' LANG LC_ALL
 
 
 # We need a config file first
@@ -155,7 +150,7 @@ interface_status() {
 	if ifconfig | grep -A1 $1 | grep -q inet; then
 		ip=$(ifconfig | grep -A1 $1 | grep inet | awk '{ print $2 }' | cut -d: -f2)
 		[ "$(cat /sys/class/net/$1/carrier)" == "1" ] &&
-		scan="<a data-icon=\"scan\" href='network.cgi?scan=$ip&amp;back=network.cgi'>$(_ 'Scan')</a>"
+		scan='<a data-icon="scan" href="network.cgi?scan='$ip'&amp;back=network.cgi">'$(_ 'Scan')'</a>'
 	fi
 	[ "$(cat /sys/class/net/$1/carrier)" == "1" ] &&
 	status="$(_ 'connected')" &&
@@ -184,20 +179,20 @@ EOT
 	for i in $(ls /sys/class/net); do
 		case $i in
 			eth*)
-				echo "		<tr><td><a data-icon='eth' href='network.cgi?eth'>$i</a></td>
-					<td>Ethernet</td> $(interface_status $i)</tr>" ;;
+				echo '<tr><td><a data-icon="eth" href="network.cgi?eth">'$i'</a></td>
+					<td>Ethernet</td> '$(interface_status $i)'</tr>';;
 			wlan*|ath*|ra*)
-				echo "		<tr><td><a data-icon='wifi' href='network.cgi?wifi'>$i</a></td>
-					<td>Wireless</td> $(interface_status $i)</tr>" ;;
+				echo '<tr><td><a data-icon="wifi" href="network.cgi?wifi">'$i'</a></td>
+					<td>Wireless</td> '$(interface_status $i)'</tr>';;
 			ppp*)
-				echo "		<tr><td><a data-icon='removable' href='ppp.cgi'>$i</a></td>
-					<td>Point to point</td> $(interface_status $i)</tr>" ;;
+				echo '<tr><td><a data-icon="removable" href="ppp.cgi">'$i'</a></td>
+					<td>Point to point</td> '$(interface_status $i)'</tr>';;
 			tap[0-9]*|tun[0-9]*)
-				echo "		<tr><td><span data-icon='removable'>$i</span></td>
-					<td>User space</td> $(interface_status $i)</tr>" ;;
+				echo '<tr><td><span data-icon="removable">'$i'</span></td>
+					<td>User space</td> '$(interface_status $i)'</tr>';;
 			lo)
-				echo "		<tr><td><span data-icon='loopback'>$i</span></td>
-					<td>Loopback</td> $(interface_status $i)</tr>" ;;
+				echo '<tr><td><span data-icon="loopback">'$i'</span></td>
+					<td>Loopback</td> '$(interface_status $i)'</tr>';;
 			*)
 				continue ;;
 		esac
@@ -224,7 +219,7 @@ list_styles() {
 list_locales() {
 	for locale in $(find /usr/share/i18n/locales -type f -name "[a-z][a-z]_[A-Z][A-Z]")
 	do
-		echo "<option value='$locale'>$locale</option>"
+		echo "<option value=\"$locale\">$locale</option>"
 	done
 }
 
@@ -232,10 +227,12 @@ list_locales() {
 # Get the list of console keymaps
 
 list_keymaps() {
-	if [ -d /usr/share/kbd ]; then			# kbd-base
+	if [ -d /usr/share/kbd ]; then
+		# kbd-base
 		find /usr/share/kbd/keymaps/i386 -type f -name '*.map*' ! -path '*include*' | \
 		awk -F/ '{gsub(/.map.gz/, ""); printf "<option value=\"%s\">%s (%s)\n", $8, $8, $7}' 
-	else						# kbd-busybox
+	else
+		# kbd-busybox
 		ls /usr/share/kmap/*.kmap | \
 		sed 's|.*kmap/\(.*\).kmap|<option value="\1">\1|'
 	fi | sort
@@ -247,6 +244,7 @@ list_keymaps() {
 #
 
 loading_msg() {
+	[ -n "$(GET noheader)" ] && return
 	local MSG=${1:-$LOADING_MSG}
 	[ -z "$MSG" ] && MSG="$(_ 'Please wait')"
 	cat <<EOT
@@ -256,6 +254,7 @@ EOT
 
 
 xhtml_header() {
+	[ -n "$(GET noheader)" ] && return
 	SUBTITLE="$1"
 	. ${PANEL}$HEADER
 	cat <<EOT
@@ -293,6 +292,7 @@ EOT
 
 
 xhtml_footer() {
+	[ -n "$(GET noheader)" ] && return
 	export TEXTDOMAIN='tazpkg'
 	. ${PANEL}$FOOTER
 }
@@ -323,15 +323,13 @@ EOT
 msg() {
 	msgtype="$1"; shift
 	case "$msgtype" in
-		tip)			MSG_ICON='msgtip';;
-		warn|warning)	MSG_ICON='msgwarn';;
-		err|error)		MSG_ICON='msgerr';;
-		up)				MSG_ICON='msgup';;
-		*)				MSG_ICON='msg';;
+		tip)			I='data-icon="msgtip"';;
+		warn|warning)	I='data-icon="msgwarn"';;
+		err|error)		I='data-icon="msgerr"';;
+		up)				I='data-icon="msgup"';;
+		*)				I='data-icon="msg"';;
 	esac
-	cat <<EOT
-	<section class="box"><span data-icon="$MSG_ICON"></span>$@</section>
-EOT
+	echo "<section class=\"box\"><span $I></span>$@</section>"
 }
 
 
@@ -361,6 +359,7 @@ blk2h() {
 
 back_button() {
 	local URL="$1" default_caption="$(_ 'Back')"
+	#FIXME: can't encode data-icon
 	local caption="${2:-$default_caption}" icon="${3:-back}"
 
 	if [ -n "$1" ]; then

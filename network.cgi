@@ -431,59 +431,6 @@ EOT
 		# Wireless connections settings
 		xhtml_header "$(_ 'Wireless connection')"
 
-		cat <<EOT
-<style type="text/css">
-#connection input[type="text"], #connection input[type="password"] { width: 14rem; }
-#connection select { width: 14.4rem; }
-
-#connection td { padding: 0; margin: 0; }
-#connection [class] div {
-	max-height: 0; overflow: hidden; padding: 0; margin: 0;
-	-webkit-transition: all 0.5s ease-in-out;
-	   -moz-transition: all 0.5s ease-in-out;
-	        transition: all 0.5s ease-in-out;
-}
-.wep .wep div, .wpa .wpa div, .eap .eap div,
-.eap.peap .eap1 div, .eap.tls .eap1 div, .eap.ttls .eap1 div {
-	max-height: 2em !important;
-}
-
-#shader {
-	z-index: 100;
-	position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-	background-color: #000;
-	opacity: 0.6;
-}
-#shader.hidden {
-	display: none;
-	opacity: 0;
-}
-
-#popup_qr {
-	z-index: 101;
-	position: fixed;
-	width: 100%;
-	bottom: 2em;
-	transition: all 0.5s;
-	-webkit-transition: all 0.5s;
-	-webkit-transition-delay: 0.3s;
-}
-#popup_qr_inner {
-	display: inline-block;
-	text-align: center;
-	margin: 0.5em;
-	background: #fff; color: #222;
-	border: 0.16em solid ; border-radius: 0.5em;
-
-	padding: 0.5em;
-}
-#popup_qr.hidden {bottom: -100em; }
-
-#qrimg { margin: 3em 1.5em 2em 3em; }
-</style>
-EOT
-
-
 		. /etc/network.conf
 
 		start_disabled=''; stop_disabled=''
@@ -615,8 +562,6 @@ document.getElementById('eap').onchange = wifiSettingsChange;
 
 document.getElementById('keyType').value = "$WIFI_KEY_TYPE"; wifiSettingsChange();
 
-$(cat $PANEL/lib/qr.js.include)
-
 function shareWiFi() {
 	// S=<SSID>; T={WPA|WEP|nopass}; P=<password>; H=<hidden?>
 	// Escape ":" and ";" -> "\:" and "\;"
@@ -642,7 +587,7 @@ function shareWiFi() {
 	<tr>
 		<td style="text-align: center;">
 			<div id="popup_qr_inner">
-				<img id="qrimg" src="#" /><br/>
+				<img id="qrimg"/><br/>
 				$(_ 'Share Wi-Fi network with your friends')
 			</div>
 		</td>
@@ -722,15 +667,8 @@ EOT
 
 
 <section>
-	<header id="hosts">
-		$(_ 'Hosts')
-EOT
-		edit_button /etc/hosts
-		cat <<EOT
-	</header>
-	<footer>
-		<pre>$(getdb hosts)</pre>
-	</footer>
+	<header id="hosts">$(_ 'Hosts'; edit_button /etc/hosts)</header>
+	<pre class="scroll">$(getdb hosts)</pre>
 </section>
 
 
@@ -756,30 +694,24 @@ EOT
 
 <section>
 	<header id="ifconfig">$(_ 'Output of ifconfig')</header>
-	<footer><pre>$(ifconfig)</pre></footer>
+	<pre>$(ifconfig)</pre>
 </section>
 
 
 <section>
 	<header id="routing">$(_ 'Routing table')</header>
-	<footer><pre>$(route -n)</pre></footer>
+	<pre>$(route -n)</pre>
 </section>
 
 
 <section>
-	<header id="dns">
-		$(_ 'Domain name resolution')
-EOT
-		edit_button /etc/resolv.conf
-		cat <<EOT
-	</header>
-	<footer><pre>$(cat /etc/resolv.conf)</pre></footer>
+	<header id="dns">$(_ 'Domain name resolution'; edit_button /etc/resolv.conf)</header>
+	<pre>$(cat /etc/resolv.conf)</pre>
 </section>
 
 
 <section>
 	<header id="arp">$(_ 'ARP table')</header>
-	<footer>
 EOT
 		if [ "$REMOTE_USER" == "root" ]; then
 			echo "<table>"
@@ -795,7 +727,8 @@ EOT
 EOT
 			done
 			cat <<EOT
-			</table>
+	</table>
+	<footer>
 		<form>
 			IP <input type="text" name="ip" value="10.20.30.40" size="12" /> on $(select_if)<!--
 			--><button type="submit" data-icon="upgrade" name="proxyarp">$(_ 'Proxy')</button>
@@ -813,10 +746,8 @@ EOT
 
 <section>
 	<header id="connections">$(_ 'IP Connections')</header>
-	<footer>
 	<pre>$(netstat -anp 2>/dev/null | sed -e '/UNIX domain sockets/,$d' \
 -e 's#\([0-9]*\)/#<a href="boot.cgi?daemons=pid=\1">\1</a>/#')</pre>
-	</footer>
 </section>
 
 EOT
@@ -825,9 +756,7 @@ EOT
 	<header id="iptables">$(_ 'Firewall')
 		$(edit_button /etc/knockd.conf "$(_ 'Port knocker')")
 	</header>
-	<footer>
 	<pre>$(iptables-save)</pre>
-	</footer>
 </section>
 EOT
 		

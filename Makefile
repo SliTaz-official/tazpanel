@@ -8,9 +8,15 @@ PANEL?=/var/www/tazpanel
 BASECGI?=boot.cgi hardware.cgi help.cgi index.cgi network.cgi settings.cgi
 EXTRACGI?=floppy.cgi powersaving.cgi
 
-VERSION:=$(shell grep ^VERSION tazpanel | cut -d '=' -f 2)
+VERSION:=$(shell grep ^VERSION tazpanel | cut -d= -f2)
 
 all: msgfmt
+	mkdir build
+	cp -a *.cgi bootloader tazpanel \
+		lib/libtazpanel lib/*.js \
+		styles/default/*.html styles/default/*.css \
+		build
+	./stripall.sh
 
 # i18n
 
@@ -45,23 +51,29 @@ install:
 		$(DESTDIR)$(PREFIX)/share/applications \
 		$(DESTDIR)$(SYSCONFDIR) \
 		$(DESTDIR)$(PANEL)/menu.d \
-		$(DESTDIR)/var/log
-	cp -a tazpanel $(DESTDIR)$(PREFIX)/bin
+		$(DESTDIR)/var/log \
+		$(DESTDIR)$(PANEL)/lib \
+		$(DESTDIR)$(PANEL)/styles/default
+
+	cp -a build/tazpanel $(DESTDIR)$(PREFIX)/bin
 	-[ "$(VERSION)" ] && sed -i 's/^VERSION=[0-9].*/VERSION=$(VERSION)/' $(DESTDIR)$(PREFIX)/bin/tazpanel
-	cp -a lib/ styles/ doc/ README* $(DESTDIR)$(PANEL)
+
+	cp -a doc/ README README.html $(DESTDIR)$(PANEL)
+	cp -a build/libtazpanel build/gz/*.js.gz $(DESTDIR)$(PANEL)/lib
+	cp -a build/gz/*.css.gz build/*.html styles/default/*.ico styles/default/*.ttf $(DESTDIR)$(PANEL)/styles/default
+
 	@for c in $(BASECGI); do \
-		cp -a $$c $(DESTDIR)$(PANEL); \
+		cp -a build/$$c $(DESTDIR)$(PANEL); \
 	done;
+
 	if [ -e $(DESTDIR)$(PANEL)/user ] ; then rm -rf $(DESTDIR)$(PANEL)/user; fi
 	ln -s . $(DESTDIR)$(PANEL)/user
+
 	cp -a po/mo/*        $(DESTDIR)$(PREFIX)/share/locale
 	cp -a data/*.conf    $(DESTDIR)$(SYSCONFDIR)
 	cp -a data/*.desktop $(DESTDIR)$(PREFIX)/share/applications
 	cp -a data/icons     $(DESTDIR)$(PREFIX)/share
 	touch $(DESTDIR)/var/log/tazpanel.log
-
-	@# Clean comments in production release
-	sed -i '/^\t*\/\//d' $(DESTDIR)$(PANEL)/lib/tazpanel.js
 
 	@# Remove this when TazWeb will support OpenType ligatures for web-fonts (maybe, after Webkit upgrade?)
 	mkdir -p $(DESTDIR)/usr/share/fonts/TTF
@@ -73,15 +85,16 @@ install_extra:
 		$(DESTDIR)$(PANEL)/menu.d/hardware \
 		$(DESTDIR)/usr/bin
 	@for c in $(EXTRACGI); do \
-		cp -a $$c $(DESTDIR)$(PANEL); \
+		cp -a build/$$c $(DESTDIR)$(PANEL); \
 	done;
-	cp -a bootloader $(DESTDIR)/usr/bin
+	cp -a build/bootloader $(DESTDIR)/usr/bin
 	ln -s ../../floppy.cgi $(DESTDIR)$(PANEL)/menu.d/boot/floppy
 	ln -s ../../powersaving.cgi $(DESTDIR)$(PANEL)/menu.d/hardware/powersaving
 
 # Clean source
 
 clean:
+	rm -rf build
 	rm -rf po/mo
 	rm -f po/*.mo
 	rm -f po/*.*~
