@@ -120,7 +120,7 @@ case "$username" in
 	root) icon='data-img="slitaz"'; warn=''
 	      toggle_url="http://$HTTP_HOST/";;
 	*)    icon='data-img="user"';   warn="$(_ 'Some features are disabled.')"$'\n'
-	      toggle_url="http://$HTTP_HOST/user/";;
+	      toggle_url="http://$RANDOM:*@$HTTP_HOST/user/";;
 esac
 
 cat <<EOT

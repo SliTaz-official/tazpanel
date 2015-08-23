@@ -7,6 +7,18 @@
 substitute_icons() {
 	grep -q 'data-icon="\|data-img"' $1 || return
 
+	# Customize sed script
+	cp "$sed_script" "$sed_script.do"
+	sed -i "s|@@@|$1|" "$sed_script.do"
+	# Run sed script
+	sh "$sed_script.do"
+	rm "$sed_script.do"
+}
+
+
+# Make script for substitution
+	sed_script="$(mktemp)"
+	echo -n "sed -i '" > "$sed_script"
 	echo -e "\
 	add				\n	admin			\n	back			\n	battery	
 	brightness		\n	cancel			\n	cd				\n	check	
@@ -32,18 +44,17 @@ substitute_icons() {
 	msg				\n	msgerr			\n	msgwarn			\n	msgup	
 	msgtip			\n	vpn			" | \
 	while read icon symbol; do
-		echo -n "."
-		sed -i "s|data-icon=\"$icon\"|data-icon=\"$symbol\"|g" $1
-		sed -i "s|data-img=\"$icon\"|data-img=\"$symbol\"|g" $1
+		echo -n "s|data-icon=\"$icon\"|data-icon=\"$symbol\"|g; " >> "$sed_script"
+		echo -n "s|data-img=\"$icon\"|data-img=\"$symbol\"|g; " >> "$sed_script"
 	done
-}
+	echo "' @@@" >> "$sed_script"
 
 
 cd build
 
 echo -e "\nStrip shell scripts"
 for CGI in *.cgi tazpanel libtazpanel bootloader *.html; do
-	echo -en "\nProcessing $CGI"
+	echo "Processing $CGI"
 
 	mv $CGI $CGI.old
 	# Copy initial comment (down to empty line)
@@ -65,7 +76,7 @@ done
 
 echo -e "\n\nStrip CSS stylesheets"
 for CSS in *.css; do
-	echo -en "\nProcessing $CSS"
+	echo "Processing $CSS"
 
 	mv $CSS $CSS.old
 	tr '\n' ' ' < $CSS.old > $CSS
@@ -97,4 +108,5 @@ done
 cat *.js > gz/tazpanel.js
 gzip -9 gz/tazpanel.js
 
+rm "$sed_script"
 echo

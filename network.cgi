@@ -148,10 +148,10 @@ case " $(GET) " in
 			ether-wake -b $(GET iface) $pass
 		fi
 		;;
-	*\ host\ *)
-		get_hostname="$(GET host)"
-		echo $(_ 'Changed hostname: %s' $get_hostname) | log
-		echo "$get_hostname" > /etc/hostname ;;
+	*\ hostname\ *)
+		hostname="$(GET hostname)"
+		echo $(_ 'Changed hostname: %s' "$hostname") | log
+		echo "$hostname" > /etc/hostname;;
 	*\ rmarp\ *)
 		arp -d $(urldecode "$(GET entry)") ;;
 	*\ addarp\ *)
@@ -617,6 +617,100 @@ EOT
 		;;
 
 
+	*\ hosts\ *)
+		# Configure to use hosts as Ad blocker
+		xhtml_header "$(_ 'Use hosts file as Ad blocker')"
+
+		term=$(GET term)
+		found=$(mktemp)
+
+		# Find the hosts list
+		hosts=$(echo "$QUERY_STRING&" | awk '
+			BEGIN { RS="&"; FS="=" }
+			$1=="host" { printf "%s ", $2 }
+		')
+		hosts=$(httpd -d "${hosts% }")
+		# now hosts='host1 host2 ... hostn'
+
+		if [ -n "$(GET add)" ]; then
+			# Add given host
+
+			host="$(GET add)"
+
+			echo "0.0.0.0 $host #U" >> /etc/hosts
+			echo -n '<p><span data-img="info"></span>'
+			_ 'Host "%s" added to /etc/hosts.' "$host"
+			echo '</p>'
+
+		elif [ -n "$hosts" ]; then
+			# Disable given hosts
+
+			for host in $hosts; do
+				sed -i "s|^0.0.0.0[ \t][ \t]*$host\$|#\0|" /etc/hosts
+				sed -i "s|^0.0.0.0[ \t][ \t]*$host .*|#\0|" /etc/hosts
+			done
+			r=$(echo "$hosts" | tr ' ' '\n' | wc -l)
+			echo -n '<p><span data-img="info"></span>'
+			_p  '%d record disabled' \
+				'%d records disabled' "$r"   "$r"
+			echo '</p>'
+		fi
+
+		# When search term given
+		if [ -z "$term" ]; then
+			getdb hosts | fgrep 0.0.0.0 > "$found"
+			r=$(wc -l < "$found")
+			echo -n '<p><span data-img="info"></span>'
+			_p  '%d record used for Ad blocking' \
+				'%d records used for Ad blocking' "$r"   "$r"
+		else
+			getdb hosts | fgrep 0.0.0.0 | fgrep "$term" > "$found"
+			r=$(wc -l < "$found")
+			echo -n '<p><span data-img="info"></span>'
+			_p  '%d record found for "%s"' \
+				'%d records found for "%s"' "$r"   "$r" "$term"
+		fi
+
+		[ "$r" -gt 100 ] && _ ' (The list is limited to the first 100 entries.)'
+		echo '</p>'
+
+		cat <<EOT
+	<section>
+		<header>
+			<span data-icon="list">$(_ 'Hosts')</span>
+			<form id="hosts">
+				<input type="hidden" name="hosts" value=""/>
+				<input type="search" name="term" value="$(GET term)" results="5" autosave="hosts" autocomplete="on"/>
+			</form>
+		</header>
+		<pre class="scroll">
+EOT
+		sort "$found" | head -n100 | awk '{
+			printf "<label><input type=\"checkbox\" name=\"host\" value=\"%s\" form=\"hosts\"/> %s</label>\n", $2, $2;
+		}'
+		rm "$found"
+		cat <<EOT
+</pre>
+		<footer>
+			<button form="hosts" data-icon="delete" data-root>$(_ 'Disable selected')</button>
+		</footer>
+	</section>
+
+	<section>
+		<header><span data-icon="add">$(_ 'Add')</span></header>
+		<form class="wide">
+			<div>
+				<input type="hidden" name="hosts"/>
+				$(_ 'Host:')
+				<input type="text" name="add"/>
+				<button type="submit" data-icon="add" data-root>$(_ 'Add')</button>
+			</div>
+		</form>
+	</section>
+EOT
+		;;
+
+
 	*)
 		# Main Network page starting with a summary
 		xhtml_header "$(_ 'Manage network connections and services')"
@@ -668,7 +762,17 @@ EOT
 
 <section>
 	<header id="hosts">$(_ 'Hosts'; edit_button /etc/hosts)</header>
-	<pre class="scroll">$(getdb hosts)</pre>
+	<span data-icon="info">$(r=$(getdb hosts | wc -l); 
+		_p '%s record in the hosts DB' \
+			'%s records in the hosts DB' "$r" \
+			"$r")</span>
+	<pre class="scroll">$(getdb hosts | fgrep -v 0.0.0.0)</pre>
+	<footer>
+		<form>
+			<button name="hosts" data-icon="admin" data-root>$(_ 'Configure')</button>
+			$(_ 'Use hosts file as Ad blocker')
+		</form>
+	</footer>
 </section>
 
 
@@ -677,10 +781,9 @@ EOT
 	<footer>
 EOT
 		if [ -w '/etc/hostname' ]; then
-			# was: name="hostname"; please don't use 'name' in name: unwanted webkit styling
 			cat <<EOT
 		<form>
-			<input type="text" name="host" value="$(cat /etc/hostname)"/><!--
+			<input type="text" name="hostname" value="$(hostname)"/><!--
 			--><button type="submit" data-icon="ok">$(_ 'Change')</button>
 		</form>
 EOT

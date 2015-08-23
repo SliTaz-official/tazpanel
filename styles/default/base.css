@@ -159,7 +159,7 @@ section header {
 section header form, section footer form {
 	display: table-cell; vertical-align: baseline; line-height: 0; width: 1px; white-space: nowrap;
 }
-section header button, section footer button { margin: 0; }
+section header button, section header input, section footer button, section footer input { margin: 0; }
 
 section header a { float: right; }
 
