@@ -5,7 +5,7 @@ SYSCONFDIR?=/etc/slitaz
 DESTDIR?=
 LINGUAS?=el es fr pl pt_BR ru sv
 PANEL?=/var/www/tazpanel
-BASECGI?=boot.cgi hardware.cgi help.cgi index.cgi network.cgi settings.cgi
+BASECGI?=boot.cgi hardware.cgi help.cgi index.cgi network.cgi hosts.cgi settings.cgi
 EXTRACGI?=floppy.cgi powersaving.cgi
 
 VERSION:=$(shell grep ^VERSION tazpanel | cut -d= -f2)
@@ -25,7 +25,7 @@ pot:
 		--from-code="UTF-8" \
 		--package-name="TazPanel" \
 		--package-version="$(VERSION)" \
-		./tazpanel ./index.cgi ./network.cgi ./boot.cgi \
+		./tazpanel ./index.cgi ./network.cgi ./hosts.cgi ./boot.cgi \
 		./hardware.cgi ./settings.cgi ./lib/libtazpanel ./help.cgi \
 		./styles/default/header.html ./styles/default/footer.html
 

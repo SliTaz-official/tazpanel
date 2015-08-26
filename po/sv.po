@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-12 12:25+0200\n"
+"POT-Creation-Date: 2015-08-26 05:27+0300\n"
 "PO-Revision-Date: 2012-07-11 11:33-0000\n"
 "Last-Translator: Emil Eklund <emileklund123@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: tazpanel:52
+#: tazpanel:54
 msgid "TazPanel is already running."
 msgstr ""
 
-#: tazpanel:55
+#: tazpanel:57
 msgid "Starting TazPanel web server on port %d..."
 msgstr "Startar TazPanel web server på port %d..."
 
-#: tazpanel:57
+#: tazpanel:59
 msgid "TazPanel Authentication - Default: root:root"
 msgstr "TazPanel Autensiering - Standard: root:root"
 
-#: tazpanel:64
+#: tazpanel:66
 msgid "TazPanel is not running."
 msgstr ""
 
-#: tazpanel:67
+#: tazpanel:69
 msgid "Stopping TazPanel web server..."
 msgstr "Stoppar TazPanel web server..."
 
@@ -53,13 +53,12 @@ msgstr "Fil"
 msgid "Save"
 msgstr "Spara"
 
-#: index.cgi:174 network.cgi:326 network.cgi:596 network.cgi:670
-#: network.cgi:720 boot.cgi:525 hardware.cgi:492 settings.cgi:766
+#: index.cgi:174 settings.cgi:784 lib/libtazpanel:378
 msgid "Edit"
 msgstr "Ändra"
 
-#: index.cgi:225 index.cgi:379 index.cgi:402 index.cgi:630
-#: styles/default/header.html:46
+#: index.cgi:225 index.cgi:379 index.cgi:402 index.cgi:679
+#: styles/default/header.html:49
 msgid "Terminal"
 msgstr "Terminal"
 
@@ -68,7 +67,7 @@ msgstr "Terminal"
 msgid "History"
 msgstr "Territorium"
 
-#: index.cgi:247 lib/libtazpanel:348
+#: index.cgi:247 lib/libtazpanel:361
 msgid "Back"
 msgstr ""
 
@@ -100,7 +99,7 @@ msgstr "%s behöver ett argument"
 msgid "Please, don't run interactive command \"%s\""
 msgstr ""
 
-#: index.cgi:330 styles/default/header.html:98
+#: index.cgi:330 styles/default/header.html:101
 msgid "Settings"
 msgstr "Inställningar"
 
@@ -126,7 +125,7 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
-#: index.cgi:445 index.cgi:631
+#: index.cgi:445 index.cgi:680
 msgid "Process activity"
 msgstr "Process aktivitet"
 
@@ -198,99 +197,114 @@ msgstr "Skaffar filsystemsinformation..."
 msgid "Getting boot logs..."
 msgstr "Skaffar start loggar..."
 
-#: index.cgi:589 boot.cgi:98 styles/default/header.html:74
+#: index.cgi:589 boot.cgi:93 styles/default/header.html:77
 msgid "Kernel messages"
 msgstr "Meddelanden från kärnan"
 
-#: index.cgi:592 boot.cgi:99 styles/default/header.html:75
+#: index.cgi:592 boot.cgi:94 styles/default/header.html:78
 msgid "Boot scripts"
 msgstr "Start skript"
 
 #: index.cgi:597
+#, fuzzy
+msgid "Getting package list..."
+msgstr "Skaffar hårdvaruinformation..."
+
+#: index.cgi:600
+msgid "Packages"
+msgstr ""
+
+#: index.cgi:638
+#, fuzzy
+msgid "Getting extra reports..."
+msgstr "Skaffar start loggar..."
+
+#: index.cgi:646
 msgid "Creating report footer..."
 msgstr "Skapar rapport fot..."
 
-#: index.cgi:608 index.cgi:704 boot.cgi:504 boot.cgi:506
+#: index.cgi:657 index.cgi:753 boot.cgi:499 boot.cgi:501
 msgid "View"
 msgstr ""
 
-#: index.cgi:613
+#: index.cgi:662
 msgid "This report can be attached with a bug report on:"
 msgstr "Den här rapporten kan bifogas med en bug rapport på:"
 
-#: index.cgi:623
+#: index.cgi:672
 msgid "SliTaz administration and configuration Panel"
 msgstr "SliTaz administration och konfigurations panel"
 
-#: index.cgi:632
+#: index.cgi:681
 msgid "Create a report"
 msgstr "Skapa en rapport"
 
-#: index.cgi:636 styles/default/header.html:44 styles/default/header.html:54
-#: styles/default/header.html:64 styles/default/header.html:90
-#: styles/default/header.html:100
+#: index.cgi:685 styles/default/header.html:47 styles/default/header.html:57
+#: styles/default/header.html:67 styles/default/header.html:93
+#: styles/default/header.html:103
 msgid "Summary"
 msgstr "Summering"
 
-#: index.cgi:638
+#: index.cgi:687 hosts.cgi:203
 #, fuzzy
 msgid "Host:"
 msgstr "Värdar"
 
-#: index.cgi:639
+#: index.cgi:688
 msgid "Uptime:"
 msgstr "Har varit igång i:"
 
-#: index.cgi:642
+#: index.cgi:691
 msgid "Memory in Mb:"
 msgstr "Minne i Mb:"
 
-#: index.cgi:644
+#: index.cgi:693
 msgid "Total: %d, Used: %d, Free: %d"
 msgstr "Totalt: %d, Använt: %d, Ledigt: %d"
 
-#: index.cgi:648
+#: index.cgi:697
 msgid "Linux kernel:"
 msgstr "Linux kärna:"
 
-#: index.cgi:657
+#: index.cgi:706
 #, fuzzy
 msgid "Network status"
 msgstr "Nätverks status"
 
-#: index.cgi:659 network.cgi:15 network.cgi:215 styles/default/header.html:52
+#: index.cgi:708 network.cgi:15 network.cgi:216 hosts.cgi:15
+#: styles/default/header.html:55
 msgid "Network"
 msgstr "Nätverk"
 
-#: index.cgi:668 hardware.cgi:349
+#: index.cgi:717 hardware.cgi:349
 msgid "Filesystem usage statistics"
 msgstr "Filsystemsanvändning"
 
-#: index.cgi:670 styles/default/header.html:93
+#: index.cgi:719 styles/default/header.html:96
 msgid "Disks"
 msgstr ""
 
-#: index.cgi:702
+#: index.cgi:751
 msgid "Panel Activity"
 msgstr "Panel Aktivitet"
 
-#: network.cgi:152
+#: network.cgi:153
 msgid "Changed hostname: %s"
 msgstr "Ändrat värdnamn: %s"
 
-#: network.cgi:209
+#: network.cgi:210
 msgid "Scanning open ports..."
 msgstr "Skannar öppna portar..."
 
-#: network.cgi:214
+#: network.cgi:215
 msgid "Port scanning for %s"
 msgstr "Port skanning för %s"
 
-#: network.cgi:225
+#: network.cgi:226
 msgid "Ethernet connection"
 msgstr "Ethernet Anslutning"
 
-#: network.cgi:243
+#: network.cgi:244
 msgid ""
 "Here you can configure a wired connection using DHCP to automatically get a "
 "random IP or configure a static/fixed IP"
@@ -298,80 +312,80 @@ msgstr ""
 "Här kan du konfigurera en trådbunden anslutning med DHCP för att automatiskt "
 "få en slumpmässig IP eller konfigurera en statisk/fast IP"
 
-#: network.cgi:247 boot.cgi:149
+#: network.cgi:248 boot.cgi:144
 msgid "Configuration"
 msgstr "Konfiguration"
 
-#: network.cgi:253 lib/libtazpanel:167
+#: network.cgi:254 lib/libtazpanel:170
 msgid "Interface"
 msgstr "Enhet"
 
-#: network.cgi:261
+#: network.cgi:262
 msgid "Static IP"
 msgstr ""
 
-#: network.cgi:263
+#: network.cgi:264
 msgid "Use static IP"
 msgstr ""
 
-#: network.cgi:265
+#: network.cgi:266
 msgid "IP address"
 msgstr "IP adress"
 
-#: network.cgi:268
+#: network.cgi:269
 msgid "Netmask"
 msgstr "Netmask"
 
-#: network.cgi:271
+#: network.cgi:272
 msgid "Gateway"
 msgstr "Gateway"
 
-#: network.cgi:274
+#: network.cgi:275
 msgid "DNS server"
 msgstr "DNS server"
 
-#: network.cgi:277 network.cgi:297
+#: network.cgi:278 network.cgi:298
 msgid "Wake up"
 msgstr ""
 
-#: network.cgi:279
+#: network.cgi:280
 msgid "Wake up machines by network"
 msgstr ""
 
-#: network.cgi:281
+#: network.cgi:282
 msgid "MAC address to wake up"
 msgstr ""
 
-#: network.cgi:282 network.cgi:287
+#: network.cgi:283 network.cgi:288
 msgid "Leave empty for a general wakeup"
 msgstr ""
 
-#: network.cgi:283
+#: network.cgi:284
 msgid "List"
 msgstr ""
 
-#: network.cgi:286
+#: network.cgi:287
 #, fuzzy
 msgid "MAC/IP address password"
 msgstr "Byt lösenord"
 
-#: network.cgi:288
+#: network.cgi:289
 msgid "Help"
 msgstr ""
 
-#: network.cgi:295 network.cgi:450 network.cgi:633 boot.cgi:289
+#: network.cgi:296 network.cgi:446 network.cgi:639 boot.cgi:284
 msgid "Start"
 msgstr "Start"
 
-#: network.cgi:296 network.cgi:451 network.cgi:634 boot.cgi:278
+#: network.cgi:297 network.cgi:447 network.cgi:640 boot.cgi:273
 msgid "Stop"
 msgstr "Stop"
 
-#: network.cgi:321 network.cgi:591
+#: network.cgi:322 network.cgi:602
 msgid "Configuration file"
 msgstr "Konfigurations fil"
 
-#: network.cgi:331
+#: network.cgi:327
 msgid ""
 "These values are the ethernet settings in the main /etc/network.conf "
 "configuration file"
@@ -379,180 +393,299 @@ msgstr ""
 "Dessa värden är ethernet inställningarna för \"/etc/network.conf\" "
 "konfigurations filen"
 
-#: network.cgi:343
+#: network.cgi:339
 msgid "(hidden)"
 msgstr ""
 
-#: network.cgi:349 boot.cgi:147 hardware.cgi:57 lib/libtazpanel:168
+#: network.cgi:345 hosts.cgi:219 boot.cgi:142 hardware.cgi:57
+#: lib/libtazpanel:171
 msgid "Name"
 msgstr "Namn"
 
-#: network.cgi:350
+#: network.cgi:346
 msgid "Signal level"
 msgstr ""
 
-#: network.cgi:351
+#: network.cgi:347
 #, fuzzy
 msgid "Channel"
 msgstr "Ändra"
 
-#: network.cgi:352
+#: network.cgi:348
 msgid "Encryption"
 msgstr "Kryptering"
 
-#: network.cgi:353 boot.cgi:150 lib/libtazpanel:169
+#: network.cgi:349 boot.cgi:145 lib/libtazpanel:172
 msgid "Status"
 msgstr "Status"
 
-#: network.cgi:404 network.cgi:486 network.cgi:508
+#: network.cgi:400 network.cgi:482 network.cgi:504
 msgid "None"
 msgstr ""
 
-#: network.cgi:410
+#: network.cgi:406
 msgid "Connected"
 msgstr "Ansluten"
 
-#: network.cgi:436
+#: network.cgi:432
 msgid "Wireless connection"
 msgstr "Trådlös Anslutning"
 
-#: network.cgi:452 lib/libtazpanel:150
+#: network.cgi:448 lib/libtazpanel:153
 msgid "Scan"
 msgstr "Skanna"
 
-#: network.cgi:460
+#: network.cgi:456
 msgid "Scanning wireless interface..."
 msgstr "Skannar trådlös anslutning..."
 
-#: network.cgi:474
+#: network.cgi:470
 msgid "Connection"
 msgstr "Anslutning"
 
-#: network.cgi:480
+#: network.cgi:476
 #, fuzzy
 msgid "Network SSID"
 msgstr "Nätverk"
 
-#: network.cgi:484
+#: network.cgi:480
 msgid "Security"
 msgstr ""
 
-#: network.cgi:495
+#: network.cgi:491
 msgid "EAP method"
 msgstr ""
 
-#: network.cgi:506
+#: network.cgi:502
 msgid "Phase 2 authentication"
 msgstr ""
 
-#: network.cgi:518
+#: network.cgi:514
 msgid "CA certificate"
 msgstr ""
 
-#: network.cgi:523
+#: network.cgi:519
 msgid "User certificate"
 msgstr ""
 
-#: network.cgi:528
+#: network.cgi:524
 msgid "Identity"
 msgstr ""
 
-#: network.cgi:533
+#: network.cgi:529
 msgid "Anonymous identity"
 msgstr ""
 
-#: network.cgi:538
+#: network.cgi:534
 #, fuzzy
 msgid "Password"
 msgstr "Lösenord:"
 
-#: network.cgi:541
+#: network.cgi:537
 #, fuzzy
 msgid "Show password"
 msgstr "Nytt lösenord: "
 
-#: network.cgi:582
+#: network.cgi:549 network.cgi:678
 msgid "Configure"
 msgstr "Konfigurera"
 
-#: network.cgi:601
+#: network.cgi:550
+msgid "Share"
+msgstr ""
+
+#: network.cgi:591
+msgid "Share Wi-Fi network with your friends"
+msgstr ""
+
+#: network.cgi:607
 msgid ""
 "These values are the wifi settings in the main /etc/network.conf "
 "configuration file"
 msgstr ""
 "Dessa värden är WIFI inställningarna i /etc/network.conf konfigurerings filen"
 
-#: network.cgi:607
+#: network.cgi:613
 msgid "Output of iwconfig"
 msgstr "Svar från iwconfig"
 
-#: network.cgi:616
+#: network.cgi:622
 msgid "Manage network connections and services"
 msgstr "Hantera nätverksanslutningar och tjänster"
 
-#: network.cgi:635
+#: network.cgi:641
 msgid "Restart"
 msgstr "Starta om"
 
-#: network.cgi:639
+#: network.cgi:645
 msgid "Configuration:"
 msgstr "Konfiguration:"
 
-#: network.cgi:647
+#: network.cgi:653
 #, fuzzy
 msgid "Network interfaces"
 msgstr "Nätverks status"
 
-#: network.cgi:654
+#: network.cgi:660
 msgid "forward packets between interfaces"
 msgstr ""
 
-#: network.cgi:656 network.cgi:690 boot.cgi:332 settings.cgi:608
-#: settings.cgi:722
+#: network.cgi:662 network.cgi:693 boot.cgi:327 settings.cgi:626
+#: settings.cgi:740
 msgid "Change"
 msgstr "Ändra"
 
-#: network.cgi:665
+#: network.cgi:670 hosts.cgi:179
 msgid "Hosts"
 msgstr "Värdar"
 
-#: network.cgi:682
+#: network.cgi:672
+msgid "%d record in the hosts DB"
+msgid_plural "%d records in the hosts DB"
+msgstr[0] ""
+msgstr[1] ""
+
+#: network.cgi:679 hosts.cgi:16
+msgid "Use hosts file as Ad blocker"
+msgstr ""
+
+#: network.cgi:686
 msgid "Hostname"
 msgstr "Värdnamn"
 
-#: network.cgi:702
+#: network.cgi:705
 msgid "Output of ifconfig"
 msgstr "Svar av ifconfig"
 
-#: network.cgi:708
+#: network.cgi:711
 msgid "Routing table"
 msgstr "dirigeringsbord"
 
-#: network.cgi:715
+#: network.cgi:717
 msgid "Domain name resolution"
 msgstr "Domän namns upplösning"
 
-#: network.cgi:730
+#: network.cgi:723
 msgid "ARP table"
 msgstr "ARP bord"
 
-#: network.cgi:750
+#: network.cgi:743
 msgid "Proxy"
 msgstr ""
 
-#: network.cgi:751
+#: network.cgi:744 hosts.cgi:200 hosts.cgi:207
 msgid "Add"
 msgstr ""
 
-#: network.cgi:764
+#: network.cgi:757
 msgid "IP Connections"
 msgstr "IP Anslutningar"
 
-#: network.cgi:774
+#: network.cgi:765
 msgid "Firewall"
 msgstr ""
 
-#: boot.cgi:16 styles/default/header.html:62
+#: network.cgi:766
+msgid "Port knocker"
+msgstr ""
+
+#: hosts.cgi:107
+msgid "Host \"%s\" added to /etc/hosts."
+msgstr ""
+
+#: hosts.cgi:120
+msgid "%d record disabled"
+msgid_plural "%d records disabled"
+msgstr[0] ""
+msgstr[1] ""
+
+#: hosts.cgi:130
+msgid "Installing the \"%s\"..."
+msgstr ""
+
+#: hosts.cgi:132 hosts.cgi:142 hosts.cgi:152
+msgid "Done"
+msgstr ""
+
+#: hosts.cgi:140
+msgid "Updating the \"%s\"..."
+msgstr ""
+
+#: hosts.cgi:150
+#, fuzzy
+msgid "Removing the \"%s\"..."
+msgstr "Rapporterar till: %s"
+
+#: hosts.cgi:163
+msgid "%d record used for Ad blocking"
+msgid_plural "%d records used for Ad blocking"
+msgstr[0] ""
+msgstr[1] ""
+
+#: hosts.cgi:169
+msgid "%d record found for \"%s\""
+msgid_plural "%d records found for \"%s\""
+msgstr[0] ""
+msgstr[1] ""
+
+#: hosts.cgi:173
+msgid " (The list is limited to the first 100 entries.)"
+msgstr ""
+
+#: hosts.cgi:194
+#, fuzzy
+msgid "Disable selected"
+msgstr "Inaktivera"
+
+#: hosts.cgi:213
+#, fuzzy
+msgid "Manage lists"
+msgstr "Hantera användare"
+
+#: hosts.cgi:214
+msgid ""
+"You can use one or more prepared hosts files to block advertisements, "
+"malware and other irritants."
+msgstr ""
+
+#: hosts.cgi:220
+msgid "Details"
+msgstr ""
+
+#: hosts.cgi:221
+msgid "Updates"
+msgstr ""
+
+#: hosts.cgi:222
+#, fuzzy
+msgid "Actions"
+msgstr "Handling"
+
+#: hosts.cgi:235
+msgid "info"
+msgstr ""
+
+#: hosts.cgi:237
+msgid "Updated monthly"
+msgstr ""
+
+#: hosts.cgi:238
+msgid "Updated regularly"
+msgstr ""
+
+#: hosts.cgi:276
+msgid "Upgrade"
+msgstr ""
+
+#: hosts.cgi:281
+msgid "Remove"
+msgstr ""
+
+#: hosts.cgi:287
+msgid "Install"
+msgstr ""
+
+#: boot.cgi:16 styles/default/header.html:65
 msgid "Boot"
 msgstr "Boot"
 
@@ -560,228 +693,228 @@ msgstr "Boot"
 msgid "Show more..."
 msgstr "Visa mer..."
 
-#: boot.cgi:40 boot.cgi:45 boot.cgi:486 styles/default/header.html:80
+#: boot.cgi:40 boot.cgi:45 boot.cgi:481 styles/default/header.html:83
 #, fuzzy
 msgid "System logs"
 msgstr "System språk"
 
-#: boot.cgi:95
+#: boot.cgi:90
 msgid "Boot log files"
 msgstr "Start log filer"
 
-#: boot.cgi:100 styles/default/header.html:76
+#: boot.cgi:95 styles/default/header.html:79
 msgid "X server"
 msgstr "X server"
 
-#: boot.cgi:101 styles/default/header.html:77
+#: boot.cgi:96 styles/default/header.html:80
 msgid "X session"
 msgstr ""
 
-#: boot.cgi:120 boot.cgi:487 styles/default/header.html:81
+#: boot.cgi:115 boot.cgi:482 styles/default/header.html:84
 msgid "Manage daemons"
 msgstr "Hantera daemoner"
 
-#: boot.cgi:123
+#: boot.cgi:118
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Konstrollera, starta och stopa daemoner i SliTaz"
 
-#: boot.cgi:148 hardware.cgi:177 settings.cgi:434
+#: boot.cgi:143 hardware.cgi:177 settings.cgi:452
 msgid "Description"
 msgstr "Beskrivning"
 
-#: boot.cgi:151
+#: boot.cgi:146
 msgid "Action"
 msgstr "Handling"
 
-#: boot.cgi:152
+#: boot.cgi:147
 msgid "PID"
 msgstr "PID"
 
-#: boot.cgi:177
+#: boot.cgi:172
 msgid "SliTaz Firewall with iptable rules"
 msgstr "Slitaz Brandvägg med iptable regler"
 
-#: boot.cgi:179
+#: boot.cgi:174
 msgid "Small and fast web server with CGI support"
 msgstr "Liten och snabb webbserver med CGI stöd"
 
-#: boot.cgi:182
+#: boot.cgi:177
 msgid "Network time protocol daemon"
 msgstr "Nätverkstids protokoll daemon"
 
-#: boot.cgi:185
+#: boot.cgi:180
 msgid "Anonymous FTP server"
 msgstr "Anonymous FTP server"
 
-#: boot.cgi:188
+#: boot.cgi:183
 msgid "Busybox DHCP server"
 msgstr "Busybox DHCP server"
 
-#: boot.cgi:191
+#: boot.cgi:186
 msgid "Linux Kernel log daemon"
 msgstr "Linux Kärna log daemon"
 
-#: boot.cgi:194
+#: boot.cgi:189
 msgid "Execute scheduled commands"
 msgstr "Utför schemalagda kommandon"
 
-#: boot.cgi:197
+#: boot.cgi:192
 msgid "Small static DNS server daemon"
 msgstr "Liten statisk DNS server daemon"
 
-#: boot.cgi:200
+#: boot.cgi:195
 msgid "Transfer a file on tftp request"
 msgstr "Överför en fil via tftp begäran"
 
-#: boot.cgi:203
+#: boot.cgi:198
 #, fuzzy
 msgid "Printer daemon"
 msgstr "Hantera daemoner"
 
-#: boot.cgi:205
+#: boot.cgi:200
 msgid "Listen for network connections and launch programs"
 msgstr "Lysnna efter nätverksanslutningar och starta pogram"
 
-#: boot.cgi:208
+#: boot.cgi:203
 msgid "Manage a ZeroConf IPv4 link-local address"
 msgstr "Hantera en ZeroConf IPv4 link-lokal adress"
 
-#: boot.cgi:277
+#: boot.cgi:272
 msgid "Started"
 msgstr "Startade"
 
-#: boot.cgi:288
+#: boot.cgi:283
 msgid "Stopped"
 msgstr "Stannade"
 
-#: boot.cgi:314
+#: boot.cgi:309
 msgid "GRUB Boot loader"
 msgstr "GRUB Boot loader"
 
-#: boot.cgi:316
+#: boot.cgi:311
 msgid "The first application started when the computer powers on"
 msgstr "Den första applikationen startade när datorn startar"
 
-#: boot.cgi:323
+#: boot.cgi:318
 msgid "Default entry:"
 msgstr "Standard svar:"
 
-#: boot.cgi:325
+#: boot.cgi:320
 msgid "Timeout:"
 msgstr "Timeout:"
 
-#: boot.cgi:327
+#: boot.cgi:322
 msgid "Splash image:"
 msgstr "Splash image:"
 
-#: boot.cgi:339
+#: boot.cgi:334
 msgid "View or edit menu.lst"
 msgstr "Visa eller ändra menu.lst"
 
-#: boot.cgi:344
+#: boot.cgi:339
 msgid "Boot entries"
 msgstr "Start up bidrag"
 
-#: boot.cgi:351
+#: boot.cgi:346
 msgid "Entry"
 msgstr "Bidrag"
 
-#: boot.cgi:372
+#: boot.cgi:367
 msgid "Web boot is available with gPXE"
 msgstr "Nät start är tillgänglig med gPXE"
 
-#: boot.cgi:386 boot.cgi:490 styles/default/header.html:83
+#: boot.cgi:381 boot.cgi:485 styles/default/header.html:86
 msgid "ISO mine"
 msgstr ""
 
-#: boot.cgi:388
+#: boot.cgi:383
 msgid "Invalid ISO image."
 msgstr ""
 
-#: boot.cgi:410
+#: boot.cgi:403
 msgid "ISO image file full path"
 msgstr ""
 
-#: boot.cgi:411
+#: boot.cgi:404
 msgid "set /dev/cdrom for a physical CD-ROM"
 msgstr ""
 
-#: boot.cgi:414
+#: boot.cgi:407
 msgid "Working directory"
 msgstr ""
 
-#: boot.cgi:416
+#: boot.cgi:409
 msgid "Target partition"
 msgstr ""
 
-#: boot.cgi:417
+#: boot.cgi:410
 msgid ""
 "For hard disk installation only. Will create /slitaz tree and keep other "
 "files. No partitioning and no formatting."
 msgstr ""
 
-#: boot.cgi:420
+#: boot.cgi:413
 msgid "Choose a partition (optional)"
 msgstr ""
 
-#: boot.cgi:431
+#: boot.cgi:424
 msgid "USB key device"
 msgstr ""
 
-#: boot.cgi:432
+#: boot.cgi:425
 msgid "For USB boot key only. Will erase the full device."
 msgstr ""
 
-#: boot.cgi:435
+#: boot.cgi:428
 msgid "Choose a USB key (optional)"
 msgstr ""
 
-#: boot.cgi:454
+#: boot.cgi:449
 #, fuzzy
 msgid "Choose an action"
 msgstr "Anslutning"
 
-#: boot.cgi:467
+#: boot.cgi:462
 msgid "Mine"
 msgstr ""
 
-#: boot.cgi:480
+#: boot.cgi:475
 msgid "Boot &amp; Start services"
 msgstr "Starta &amp; Starta tjänster"
 
-#: boot.cgi:482
+#: boot.cgi:477
 msgid "Everything that happens before user login"
 msgstr "Allting som händer innan användaren loggar in"
 
-#: boot.cgi:485 styles/default/header.html:72
+#: boot.cgi:480 styles/default/header.html:75
 msgid "Boot logs"
 msgstr "Start uo loggar"
 
-#: boot.cgi:493 styles/default/header.html:68
+#: boot.cgi:488 styles/default/header.html:71
 msgid "Boot loader"
 msgstr "Start laddare"
 
-#: boot.cgi:500
+#: boot.cgi:495
 msgid "Configuration files"
 msgstr "Configurations filer"
 
-#: boot.cgi:503
+#: boot.cgi:498
 msgid "Main configuration file:"
 msgstr "Huvud konfigureringsfil:"
 
-#: boot.cgi:505
+#: boot.cgi:500
 msgid "Login manager settings:"
 msgstr "Login hanterar inställningar:"
 
-#: boot.cgi:513
+#: boot.cgi:508
 msgid "Kernel cmdline"
 msgstr "Kärn kommando linje"
 
-#: boot.cgi:520
+#: boot.cgi:515
 msgid "Local startup commands"
 msgstr "Lokala start kommandon"
 
-#: hardware.cgi:13 styles/default/header.html:88
+#: hardware.cgi:13 styles/default/header.html:91
 msgid "Hardware"
 msgstr "Hårdava"
 
@@ -789,7 +922,7 @@ msgstr "Hårdava"
 msgid "Bus"
 msgstr ""
 
-#: hardware.cgi:55 hardware.cgi:534
+#: hardware.cgi:55 hardware.cgi:527
 msgid "Device"
 msgstr ""
 
@@ -806,7 +939,7 @@ msgstr "Upptäck hårdvara"
 msgid "Detect PCI and USB hardware"
 msgstr "Upptäck PCI och USB hårdvara"
 
-#: hardware.cgi:118 hardware.cgi:248 styles/default/header.html:91
+#: hardware.cgi:118 hardware.cgi:248 styles/default/header.html:94
 msgid "Kernel modules"
 msgstr "Kärn moduler"
 
@@ -838,11 +971,11 @@ msgstr "Modul:"
 msgid "Module"
 msgstr "Modul"
 
-#: hardware.cgi:178 hardware.cgi:536 lib/libtazpanel:297
+#: hardware.cgi:178 hardware.cgi:529 lib/libtazpanel:312
 msgid "Size"
 msgstr "Storlek"
 
-#: hardware.cgi:179 hardware.cgi:593 lib/libtazpanel:299
+#: hardware.cgi:179 hardware.cgi:586 lib/libtazpanel:314
 msgid "Used"
 msgstr "Använd"
 
@@ -870,7 +1003,7 @@ msgstr "Drivrutiner &amp; Enheter"
 msgid "Manage your computer hardware"
 msgstr "Hantera din dators hårdvara"
 
-#: hardware.cgi:249 styles/default/header.html:92
+#: hardware.cgi:249 styles/default/header.html:95
 msgid "Detect PCI/USB"
 msgstr "Upptäckt PCI/USB"
 
@@ -920,79 +1053,79 @@ msgstr ""
 msgid "Filesystems table"
 msgstr ""
 
-#: hardware.cgi:500 lib/libtazpanel:294
+#: hardware.cgi:493 lib/libtazpanel:309
 msgid "Disk"
 msgstr "Disk"
 
-#: hardware.cgi:501 lib/libtazpanel:300
+#: hardware.cgi:494 lib/libtazpanel:315
 msgid "Mount point"
 msgstr "Monteringspunkt"
 
-#: hardware.cgi:502 lib/libtazpanel:296
+#: hardware.cgi:495 lib/libtazpanel:311
 msgid "Type"
 msgstr "Sort"
 
-#: hardware.cgi:503
+#: hardware.cgi:496
 #, fuzzy
 msgid "Options"
 msgstr "Handling"
 
-#: hardware.cgi:504
+#: hardware.cgi:497
 msgid "Freq"
 msgstr ""
 
-#: hardware.cgi:505
+#: hardware.cgi:498
 #, fuzzy
 msgid "Pass"
 msgstr "Lösenord:"
 
-#: hardware.cgi:527
+#: hardware.cgi:520
 msgid "Loop devices"
 msgstr ""
 
-#: hardware.cgi:535
+#: hardware.cgi:528
 #, fuzzy
 msgid "Backing file"
 msgstr "Konfigurerings fil"
 
-#: hardware.cgi:537
+#: hardware.cgi:530
 #, fuzzy
 msgid "Access"
 msgstr "Åtkomst punkt"
 
-#: hardware.cgi:538
+#: hardware.cgi:531
 msgid "Offset"
 msgstr ""
 
-#: hardware.cgi:547
+#: hardware.cgi:540
 msgid "read/write"
 msgstr ""
 
-#: hardware.cgi:548 hardware.cgi:573
+#: hardware.cgi:541 hardware.cgi:566
 msgid "read only"
 msgstr ""
 
-#: hardware.cgi:570
+#: hardware.cgi:563
 msgid "Setup"
 msgstr ""
 
-#: hardware.cgi:571
+#: hardware.cgi:564
 msgid "new backing file:"
 msgstr ""
 
-#: hardware.cgi:572
+#: hardware.cgi:565
 msgid "offset in bytes:"
 msgstr ""
 
-#: hardware.cgi:590
+#: hardware.cgi:583
 msgid "System memory"
 msgstr "System minne"
 
-#: hardware.cgi:596
+#: hardware.cgi:589
 msgid "Buffers"
 msgstr ""
 
-#: hardware.cgi:599
+#: hardware.cgi:592
 msgid "Free"
 msgstr ""
 
@@ -1000,148 +1133,153 @@ msgstr ""
 msgid "System settings"
 msgstr "System inställningar"
 
-#: settings.cgi:82 settings.cgi:621 settings.cgi:648 settings.cgi:653
+#: settings.cgi:100 settings.cgi:639 settings.cgi:666 settings.cgi:671
 msgid "Set date"
 msgstr ""
 
-#: settings.cgi:208 settings.cgi:595
+#: settings.cgi:226 settings.cgi:613
 msgid "Manage groups"
 msgstr ""
 
-#: settings.cgi:216 settings.cgi:293
+#: settings.cgi:234 settings.cgi:311
 msgid "Selection:"
 msgstr "Val:"
 
-#: settings.cgi:217
+#: settings.cgi:235
 msgid "Delete group"
 msgstr ""
 
-#: settings.cgi:224
+#: settings.cgi:242
 msgid "Group"
 msgstr ""
 
-#: settings.cgi:225
+#: settings.cgi:243
 msgid "Group ID"
 msgstr ""
 
-#: settings.cgi:226
+#: settings.cgi:244
 msgid "Members"
 msgstr ""
 
-#: settings.cgi:253
+#: settings.cgi:271
 msgid "Add a new group"
 msgstr ""
 
-#: settings.cgi:256 settings.cgi:268
+#: settings.cgi:274 settings.cgi:286
 msgid "Group name:"
 msgstr ""
 
-#: settings.cgi:257
+#: settings.cgi:275
 msgid "Create group"
 msgstr ""
 
-#: settings.cgi:264
+#: settings.cgi:282
 msgid "Manage group membership"
 msgstr ""
 
-#: settings.cgi:269 settings.cgi:356
+#: settings.cgi:287 settings.cgi:374
 msgid "User name:"
 msgstr ""
 
-#: settings.cgi:272
+#: settings.cgi:290
 msgid "Add user"
 msgstr ""
 
-#: settings.cgi:273
+#: settings.cgi:291
 msgid "Remove user"
 msgstr ""
 
-#: settings.cgi:286 settings.cgi:594
+#: settings.cgi:304 settings.cgi:612
 msgid "Manage users"
 msgstr "Hantera användare"
 
-#: settings.cgi:294
+#: settings.cgi:312
 msgid "Delete user"
 msgstr "Ta bort användare"
 
-#: settings.cgi:295
+#: settings.cgi:313
 msgid "Lock user"
 msgstr "Lås användare"
 
-#: settings.cgi:296
+#: settings.cgi:314
 msgid "Unlock user"
 msgstr "Lås upp användare"
 
-#: settings.cgi:302
+#: settings.cgi:320
 msgid "Login"
 msgstr "Logga in"
 
-#: settings.cgi:303
+#: settings.cgi:321
 msgid "User ID"
 msgstr "Användar ID"
 
-#: settings.cgi:304
+#: settings.cgi:322
 #, fuzzy
 msgid "User Name"
 msgstr "Användar ID"
 
-#: settings.cgi:305
+#: settings.cgi:323
 msgid "Home"
 msgstr "Hem"
 
-#: settings.cgi:306
+#: settings.cgi:324
 msgid "Shell"
 msgstr "Shell"
 
-#: settings.cgi:340
+#: settings.cgi:358
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: settings.cgi:342
+#: settings.cgi:359
+#, fuzzy
+msgid "New password"
+msgstr "Nytt lösenord: "
+
+#: settings.cgi:360
 msgid "Change password"
 msgstr "Byt lösenord"
 
-#: settings.cgi:349
+#: settings.cgi:367
 msgid "Add a new user"
 msgstr "Lägg till ny användare"
 
-#: settings.cgi:354
+#: settings.cgi:372
 msgid "User login:"
 msgstr "Användar inloggning:"
 
-#: settings.cgi:358
+#: settings.cgi:376
 msgid "User password:"
 msgstr "Användar lösenord:"
 
-#: settings.cgi:363
+#: settings.cgi:381
 msgid "Create user"
 msgstr "Skapa användare"
 
-#: settings.cgi:373
+#: settings.cgi:391
 msgid "Current user sessions"
 msgstr "Nuvarande användarsessioner"
 
-#: settings.cgi:383
+#: settings.cgi:401
 msgid "Last user sessions"
 msgstr "Senaste användar sessioner"
 
-#: settings.cgi:395
+#: settings.cgi:413
 msgid "Choose locale"
 msgstr "Välj språk"
 
-#: settings.cgi:398
+#: settings.cgi:416
 msgid "Please wait..."
 msgstr "Var god vänta..."
 
-#: settings.cgi:403
+#: settings.cgi:421
 msgid "Current locale settings:"
 msgstr "Nuvarande språkinställningar:"
 
-#: settings.cgi:410
+#: settings.cgi:428
 msgid "Locales that are currently installed on the machine:"
 msgstr "Språk som är nuvarande installerade på maskinen:"
 
-#: settings.cgi:420
+#: settings.cgi:438
 #, fuzzy
 msgid ""
 "Can't see your language?<br/>You can <a href='pkgs.cgi?do=Install&amp;glibc-"
@@ -1151,188 +1289,188 @@ msgstr ""
 "locale'>installera glibc-locale</a> för att se en större lista av "
 "tillgängliga språk."
 
-#: settings.cgi:427
+#: settings.cgi:445
 msgid "Available locales:"
 msgstr "Tillgängliga språk:"
 
-#: settings.cgi:431
+#: settings.cgi:449
 msgid "Code"
 msgstr "Kod"
 
-#: settings.cgi:432
+#: settings.cgi:450
 msgid "Language"
 msgstr "Språk"
 
-#: settings.cgi:433
+#: settings.cgi:451
 msgid "Territory"
 msgstr "Territorium"
 
-#: settings.cgi:450 settings.cgi:451
+#: settings.cgi:468 settings.cgi:469
 msgid "-d"
 msgstr "-d"
 
-#: settings.cgi:462 settings.cgi:765 settings.cgi:777 settings.cgi:789
+#: settings.cgi:480 settings.cgi:783 settings.cgi:795 settings.cgi:807
 msgid "Activate"
 msgstr "Aktivera"
 
-#: settings.cgi:475 settings.cgi:497
+#: settings.cgi:493 settings.cgi:515
 msgid "Small quick tweaks for user %s"
 msgstr ""
 
-#: settings.cgi:500
+#: settings.cgi:518
 #, fuzzy
 msgid "Terminal prompt"
 msgstr "Terminal"
 
-#: settings.cgi:506
+#: settings.cgi:524
 msgid "Monochrome"
 msgstr ""
 
-#: settings.cgi:515
+#: settings.cgi:533
 msgid "Colored"
 msgstr ""
 
-#: settings.cgi:524 settings.cgi:572
+#: settings.cgi:542 settings.cgi:590
 #, fuzzy
 msgid "Manual edit: %s"
 msgstr "Manuell Ändring"
 
-#: settings.cgi:525
+#: settings.cgi:543
 msgid ""
 "To take effect: log out and log in to system or execute command in the "
 "terminal:"
 msgstr ""
 
-#: settings.cgi:533
+#: settings.cgi:551
 msgid "Menu button appearance"
 msgstr ""
 
-#: settings.cgi:538
+#: settings.cgi:556
 msgid "Icon:"
 msgstr ""
 
-#: settings.cgi:541 settings.cgi:562
+#: settings.cgi:559 settings.cgi:580
 msgid "Do not show"
 msgstr ""
 
-#: settings.cgi:559
+#: settings.cgi:577
 msgid "Text:"
 msgstr ""
 
-#: settings.cgi:566
+#: settings.cgi:584
 msgid "Show text"
 msgstr ""
 
-#: settings.cgi:589
+#: settings.cgi:607
 msgid "Manage system time, users or language settings"
 msgstr "Hantera system tid, användare eller språk inställningar"
 
-#: settings.cgi:599
+#: settings.cgi:617
 msgid "System time"
 msgstr "System tid"
 
-#: settings.cgi:602
+#: settings.cgi:620
 msgid "Time zone:"
 msgstr "Tid zon:"
 
-#: settings.cgi:611
+#: settings.cgi:629
 msgid "System time:"
 msgstr "System tid:"
 
-#: settings.cgi:613
+#: settings.cgi:631
 msgid "Sync online"
 msgstr "Synkronisera online"
 
-#: settings.cgi:616
+#: settings.cgi:634
 msgid "Hardware clock:"
 msgstr "Hårdvaru klocka:"
 
-#: settings.cgi:618
+#: settings.cgi:636
 msgid "Set hardware clock"
 msgstr "Ställ in hårdvaru klocka"
 
-#: settings.cgi:704
+#: settings.cgi:722
 msgid "System language"
 msgstr "System språk"
 
-#: settings.cgi:717
+#: settings.cgi:735
 msgid ""
 "You must logout and login again to your current session to use %s locale."
 msgstr ""
 "Du måste logga ut och logga in till din nuvarande session för att använda %s "
 "språk."
 
-#: settings.cgi:720
+#: settings.cgi:738
 msgid "Current system locale:"
 msgstr "Nuvarande system språk:"
 
-#: settings.cgi:732
+#: settings.cgi:750
 msgid "Keyboard layout"
 msgstr ""
 
-#: settings.cgi:746
+#: settings.cgi:764
 msgid "Current console keymap: %s"
 msgstr "Nuvarande tangentbordsspråk: %s"
 
-#: settings.cgi:764
+#: settings.cgi:782
 msgid "Suggested keymap for Xorg:"
 msgstr "Föreslaget tangentbordsspråk för Xorg:"
 
-#: settings.cgi:773
+#: settings.cgi:791
 msgid "Available keymaps:"
 msgstr "Tillgängliga tangentbordsspråk:"
 
-#: settings.cgi:784
+#: settings.cgi:802
 msgid "Panel configuration"
 msgstr "Panel konfiguration"
 
-#: settings.cgi:787
+#: settings.cgi:805
 msgid "Style:"
 msgstr "Stil:"
 
-#: settings.cgi:793
+#: settings.cgi:811
 msgid "Configuration files:"
 msgstr "Konfigurations filer:"
 
-#: settings.cgi:794 styles/default/header.html:42
+#: settings.cgi:812 styles/default/header.html:45
 msgid "Panel"
 msgstr "Panel"
 
-#: settings.cgi:795
+#: settings.cgi:813
 msgid "Server"
 msgstr "Server"
 
-#: settings.cgi:798
+#: settings.cgi:816
 #, fuzzy
 msgid "TazPanel provides a debugging mode and page:"
 msgstr "TazPanel förser ett debugging läge och sida:"
 
-#: lib/libtazpanel:153
+#: lib/libtazpanel:156
 msgid "connected"
 msgstr "ansluten"
 
-#: lib/libtazpanel:170
+#: lib/libtazpanel:173
 msgid "IP Address"
 msgstr "IP adress"
 
-#: lib/libtazpanel:171
+#: lib/libtazpanel:174
 msgid "Scan ports"
 msgstr "Skanna portar"
 
-#: lib/libtazpanel:243
+#: lib/libtazpanel:249
 #, fuzzy
 msgid "Please wait"
 msgstr "Var god vänta..."
 
-#: lib/libtazpanel:295
+#: lib/libtazpanel:310
 msgid "Label"
 msgstr "Etikett"
 
-#: lib/libtazpanel:298
+#: lib/libtazpanel:313
 msgid "Available"
 msgstr "Tillgängligt"
 
-#: lib/libtazpanel:367
+#: lib/libtazpanel:392
 msgid "You must be root to show this page."
 msgstr ""
 
@@ -1344,60 +1482,60 @@ msgstr "Manual"
 msgid "Help &amp; Doc"
 msgstr "Hjälp &amp; Dokument"
 
-#: styles/default/header.html:32
+#: styles/default/header.html:35
 #, fuzzy
 msgid "Confirm break"
 msgstr "Konfigurera"
 
-#: styles/default/header.html:45
+#: styles/default/header.html:48
 msgid "Processes"
 msgstr "Processer"
 
-#: styles/default/header.html:47
+#: styles/default/header.html:50
 msgid "Create Report"
 msgstr "Skapa Rapport"
 
-#: styles/default/header.html:55
+#: styles/default/header.html:58
 msgid "Config file"
 msgstr "Konfigurerings fil"
 
-#: styles/default/header.html:56
+#: styles/default/header.html:59
 msgid "Ethernet"
 msgstr "Ethernet"
 
-#: styles/default/header.html:57
+#: styles/default/header.html:60
 msgid "Wireless"
 msgstr "Trådlöst"
 
-#: styles/default/header.html:101
+#: styles/default/header.html:104
 msgid "Users"
 msgstr "Användare"
 
-#: styles/default/header.html:102
+#: styles/default/header.html:105
 msgid "Groups"
 msgstr ""
 
-#: styles/default/header.html:103
+#: styles/default/header.html:106
 msgid "Tweaks"
 msgstr ""
 
-#: styles/default/header.html:119
+#: styles/default/header.html:122
 msgid "Some features are disabled."
 msgstr ""
 
-#: styles/default/header.html:124
+#: styles/default/header.html:127
 msgid "You are logged in to the TazPanel as user %s."
 msgstr ""
 
-#: styles/default/header.html:125
+#: styles/default/header.html:128
 msgid "Click to re-login."
 msgstr ""
 
-#: styles/default/header.html:135
+#: styles/default/header.html:138
 msgid "Copyright"
 msgstr "Copyright"
 
-#: styles/default/header.html:137
+#: styles/default/header.html:140
 msgid "BSD License"
 msgstr "BSD License"
 
@@ -1406,9 +1544,6 @@ msgstr "BSD License"
 
 #~ msgid "Changing password for TazPanel"
 #~ msgstr "Byter lösenord för TazPanel"
-
-#~ msgid "New password: "
-#~ msgstr "Nytt lösenord: "
 
 #~ msgid "Password changed successfully"
 #~ msgstr "Lösenordet byttes"
@@ -1448,9 +1583,6 @@ msgstr "BSD License"
 
 #~ msgid "Activate (DHCP)"
 #~ msgstr "Aktivera (DHCP)"
-
-#~ msgid "Disable"
-#~ msgstr "Inaktivera"
 
 #~ msgid "Wifi name (ESSID)"
 #~ msgstr "WIFI namn (ESSID)"
