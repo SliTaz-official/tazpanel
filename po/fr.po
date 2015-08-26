@@ -104,16 +104,14 @@ msgid "Settings"
 msgstr "Paramètres"
 
 #: index.cgi:400
-#, fuzzy
 msgid "Terminal settings"
-msgstr "Réglages système"
+msgstr "Réglages de terminal"
 
 #: index.cgi:421
 msgid "Font:"
 msgstr "Font :"
 
 #: index.cgi:423
-#, fuzzy
 msgid "Default"
 msgstr "Entrée par défaut :"
 
@@ -206,18 +204,16 @@ msgid "Boot scripts"
 msgstr "Scripts de démarrage"
 
 #: index.cgi:597
-#, fuzzy
 msgid "Getting package list..."
-msgstr "Collecte d'informations sur le matériel..."
+msgstr "Liste les paquets installés..."
 
 #: index.cgi:600
 msgid "Packages"
-msgstr ""
+msgstr "Paquets"
 
 #: index.cgi:638
-#, fuzzy
 msgid "Getting extra reports..."
-msgstr "Collecte des journaux de démarrage..."
+msgstr "Collecte de journaux supplémentaires..."
 
 #: index.cgi:646
 msgid "Creating report footer..."
@@ -246,9 +242,8 @@ msgid "Summary"
 msgstr "Résumé"
 
 #: index.cgi:687 hosts.cgi:203
-#, fuzzy
 msgid "Host:"
-msgstr "Hôtes"
+msgstr "Hôte :"
 
 #: index.cgi:688
 msgid "Uptime:"
@@ -267,9 +262,8 @@ msgid "Linux kernel:"
 msgstr "Noyau Linux :"
 
 #: index.cgi:706
-#, fuzzy
 msgid "Network status"
-msgstr "Interfaces réseau"
+msgstr "Etat du réseau"
 
 #: index.cgi:708 network.cgi:15 network.cgi:216 hosts.cgi:15
 #: styles/default/header.html:55
@@ -366,9 +360,8 @@ msgid "List"
 msgstr "Liste"
 
 #: network.cgi:287
-#, fuzzy
 msgid "MAC/IP address password"
-msgstr "Changer le mot de passe"
+msgstr "Mot de passe MAC/IP"
 
 #: network.cgi:289
 msgid "Help"
@@ -489,11 +482,11 @@ msgstr "Configurer"
 
 #: network.cgi:550
 msgid "Share"
-msgstr ""
+msgstr "Partager"
 
 #: network.cgi:591
 msgid "Share Wi-Fi network with your friends"
-msgstr ""
+msgstr "Partager le réseau Wi-Fi avec vos amis"
 
 #: network.cgi:607
 msgid ""
@@ -539,21 +532,20 @@ msgstr "Hôtes"
 #: network.cgi:672
 msgid "%d record in the hosts DB"
 msgid_plural "%d records in the hosts DB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d entrée dans la base d'hôtes"
+msgstr[1] "%d entrées dans la base d'hôtes"
 
 #: network.cgi:679 hosts.cgi:16
 msgid "Use hosts file as Ad blocker"
-msgstr ""
+msgstr "Utiliser le fichier d'hôtes comme bloqueur de pub"
 
 #: network.cgi:686
 msgid "Hostname"
 msgstr "Nom de l'hôte"
 
 #: network.cgi:705
-#, fuzzy
 msgid "Output of ifconfig"
-msgstr "Sortie de la commande ifconfig"
+msgstr "Résultat de la commande ifconfig"
 
 #: network.cgi:711
 msgid "Routing table"
@@ -589,62 +581,61 @@ msgstr ""
 
 #: hosts.cgi:107
 msgid "Host \"%s\" added to /etc/hosts."
-msgstr ""
+msgstr "Hôte \"%s\" ajouté à /etc/hosts."
 
 #: hosts.cgi:120
 msgid "%d record disabled"
 msgid_plural "%d records disabled"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d enregistrement désactivé"
+msgstr[1] "%d enregistrements désactivés"
 
 #: hosts.cgi:130
 msgid "Installing the \"%s\"..."
-msgstr ""
+msgstr "Installation de \"%s\"..."
 
 #: hosts.cgi:132 hosts.cgi:142 hosts.cgi:152
 msgid "Done"
-msgstr ""
+msgstr "Fait"
 
 #: hosts.cgi:140
 msgid "Updating the \"%s\"..."
-msgstr ""
+msgstr "Mise à jour de \"%s\"..."
 
 #: hosts.cgi:150
-#, fuzzy
 msgid "Removing the \"%s\"..."
-msgstr "Création du rapport vers : %s"
+msgstr "Retrait de \"%s\"..."
 
 #: hosts.cgi:163
 msgid "%d record used for Ad blocking"
 msgid_plural "%d records used for Ad blocking"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d enregistrement utilisé pour bloquer la pub"
+msgstr[1] "%d enregistrements utilisés pour bloquer la pub"
 
 #: hosts.cgi:169
 msgid "%d record found for \"%s\""
 msgid_plural "%d records found for \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d enregistrement pour \"%s\""
+msgstr[1] "%d enregistrements pour \"%s\""
 
 #: hosts.cgi:173
 msgid " (The list is limited to the first 100 entries.)"
-msgstr ""
+msgstr " (La liste est limitée aux 100 premières entrées.)"
 
 #: hosts.cgi:194
-#, fuzzy
 msgid "Disable selected"
 msgstr "Désactiver"
 
 #: hosts.cgi:213
-#, fuzzy
 msgid "Manage lists"
-msgstr "Gérer les utilisateurs"
+msgstr "Gérer les listes"
 
 #: hosts.cgi:214
 msgid ""
 "You can use one or more prepared hosts files to block advertisements, "
 "malware and other irritants."
 msgstr ""
+"Vous pouvez utiliser un ou plusieurs fichiers d'hôtes pour bloquer les "
+"pubs, malware et autre indésirables."
 
 #: hosts.cgi:220
 msgid "Details"
@@ -652,12 +643,11 @@ msgstr ""
 
 #: hosts.cgi:221
 msgid "Updates"
-msgstr ""
+msgstr "Mises à jour"
 
 #: hosts.cgi:222
-#, fuzzy
 msgid "Actions"
-msgstr "Action"
+msgstr "Actions"
 
 #: hosts.cgi:235
 msgid "info"
@@ -665,24 +655,23 @@ msgstr ""
 
 #: hosts.cgi:237
 msgid "Updated monthly"
-msgstr ""
+msgstr "Mise è jour mensuelle"
 
 #: hosts.cgi:238
 msgid "Updated regularly"
-msgstr ""
+msgstr "Mise à jour régulière"
 
 #: hosts.cgi:276
 msgid "Upgrade"
-msgstr ""
+msgstr "Mise à jour"
 
 #: hosts.cgi:281
-#, fuzzy
 msgid "Remove"
-msgstr "Enlève un utilisateur"
+msgstr "Retire"
 
 #: hosts.cgi:287
 msgid "Install"
-msgstr ""
+msgstr "Installe"
 
 #: boot.cgi:16 styles/default/header.html:65
 msgid "Boot"
@@ -765,9 +754,8 @@ msgid "Transfer a file on tftp request"
 msgstr "Transférer un fichier à travers une requête TFTP"
 
 #: boot.cgi:198
-#, fuzzy
 msgid "Printer daemon"
-msgstr "Gérer les démons"
+msgstr "Démon d'impression"
 
 #: boot.cgi:200
 msgid "Listen for network connections and launch programs"
@@ -926,9 +914,8 @@ msgid "Device"
 msgstr ""
 
 #: hardware.cgi:56
-#, fuzzy
 msgid "ID"
-msgstr "PID"
+msgstr "ID"
 
 #: hardware.cgi:108
 msgid "Detect hardware"
@@ -1208,9 +1195,8 @@ msgid "User ID"
 msgstr "Id utilisateur"
 
 #: settings.cgi:322
-#, fuzzy
 msgid "User Name"
-msgstr "Identifiant de l'utilisateur :"
+msgstr "Nom de l'utilisateur"
 
 #: settings.cgi:323
 msgid "Home"
@@ -1225,9 +1211,8 @@ msgid "Password:"
 msgstr "Mot de passe :"
 
 #: settings.cgi:359
-#, fuzzy
 msgid "New password"
-msgstr "Nouveau mot de passe : "
+msgstr "Nouveau mot de passe"
 
 #: settings.cgi:360
 msgid "Change password"
@@ -1311,9 +1296,8 @@ msgid "Small quick tweaks for user %s"
 msgstr "Réglages pour l'utilisateur %s"
 
 #: settings.cgi:518
-#, fuzzy
 msgid "Terminal prompt"
-msgstr "Terminal"
+msgstr "Invite du terminal"
 
 #: settings.cgi:524
 msgid "Monochrome"
@@ -1324,9 +1308,8 @@ msgid "Colored"
 msgstr "Multicolore"
 
 #: settings.cgi:542 settings.cgi:590
-#, fuzzy
 msgid "Manual edit: %s"
-msgstr "Édition manuelle"
+msgstr "Édition manuelle de %s"
 
 #: settings.cgi:543
 msgid ""
@@ -1452,9 +1435,8 @@ msgid "Scan ports"
 msgstr "Scan des ports"
 
 #: lib/libtazpanel:249
-#, fuzzy
 msgid "Please wait"
-msgstr "merci de patientier..."
+msgstr "Veuillez patientier"
 
 #: lib/libtazpanel:310
 msgid "Label"
@@ -1477,9 +1459,8 @@ msgid "Help &amp; Doc"
 msgstr "Aide &amp; Support"
 
 #: styles/default/header.html:35
-#, fuzzy
 msgid "Confirm break"
-msgstr "Configurer"
+msgstr "Confirmer l'interruption"
 
 #: styles/default/header.html:48
 msgid "Processes"
@@ -1533,9 +1514,8 @@ msgstr "Licence d'utilisation"
 msgid "BSD License"
 msgstr " License BSD"
 
-#, fuzzy
 #~ msgid "Groups management"
-#~ msgstr "Nom du groupe :"
+#~ msgstr "Gestion des groupes"
 
 #~ msgid "Networking"
 #~ msgstr "Gestion du réseau"
