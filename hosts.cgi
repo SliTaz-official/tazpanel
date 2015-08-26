@@ -26,7 +26,7 @@ hosts=$(httpd -d "${hosts% }")
 # now hosts='host1 host2 ... hostn'
 
 # Folder to save downloaded and installed hosts lists
-HOSTSDIR='/var/cache/tazpanel/hosts'
+HOSTSDIR='/var/run/tazpanel/hosts'
 mkdir -p "$HOSTSDIR"
 
 
@@ -54,7 +54,7 @@ getlistspec() {
 
 # Install the list
 instlist() {
-	# Input: list=code letter, url=download url
+	# Input: list=code letter, url=download URL
 	file="$HOSTSDIR/$list"
 	[ -f "$file" ] && rm "$file"
 	busybox wget -O "$file" "$url"
@@ -240,8 +240,11 @@ listlist | while read name info url updated letter; do
 	<td>
 EOT
 
-	if [ -e "$HOSTSDIR/$letter" ]; then
+	if [ -e "$HOSTSDIR/$letter" -o -n "$(grep -m1 "#$letter\$" /etc/hosts)" ]; then
 		# List installed
+
+		# If /var/run/tazpkg/hosts/ was mistakenly cleaned
+		[ ! -f "$HOSTSDIR/$letter" ] && touch "$HOSTSDIR/$letter"
 
 		# Check for upgrades (once a day)
 		if [ -f "$HOSTSDIR/$letter.up" ]; then
@@ -262,10 +265,10 @@ EOT
 			# Check for update (not really download)
 			busybox wget -s --header "If-Modified-Since: $(date -Rur "$HOSTSDIR/$letter")" "$url"
 			if [ "$?" -eq 0 ]; then
-				# Upgrade available
+				# Update available
 				touch "$HOSTSDIR/$letter.avail"
 			else
-				# Upgrade not available
+				# Update not available
 				rm "$HOSTSDIR/$letter.avail" 2>/dev/null
 			fi
 			touch "$HOSTSDIR/$letter.up"
