@@ -477,7 +477,7 @@ EOT
 			[ $(id -u) -eq 0 ] || values="+19 +10 +5 +1"
 			for i in $values ; do
 				cat <<EOT
-	<input type="radio" name="renice" value="+19 $(GET pid)" onchange="this.form.submit()"/>
+	<input type="radio" name="renice" value="$i $(GET pid)" onchange="this.form.submit()"/>
 	<label>$i</label>
 EOT
 			done
