@@ -462,8 +462,34 @@ EOT
 EOT
 		[ -n "$r" ] && echo "<meta http-equiv=\"refresh\" content=\"$r\">"
 
+		[ "$(GET renice)" ] && renice $(GET renice)
+		if [ "$(GET pid)" ]; then
+			cat <<EOT
+<section>
+<p>
+$(ps auxww | sed "/^ *$(GET pid) /!d")
+</p>
+<form>
+	<p>$(_ 'Renice:')
+	<input type="hidden" name="top"/>
+EOT
+			values="+19 +10 +5 +1 -1 -5 -10 -19"
+			[ $(id -u) -eq 0 ] || values="+19 +10 +5 +1"
+			for i in $values ; do
+				cat <<EOT
+	<input type="radio" name="renice" value="+19 $(GET pid)" onchange="this.form.submit()"/>
+	<label>$i</label>
+EOT
+			done
+			cat <<EOT
+	</p>
+</form>
+</section>
+EOT
+		fi
 		echo '<section><div><pre class="term log">'
-		top -n1 -b | htmlize | sed \
+		busybox top -n1 -b | htmlize | sed \
+			-e 's|^\( *\)\([0-9][0-9]*\)|\1<a href="?top\&amp;pid=\2">\2</a>|' \
 			-e 's|^[A-Z].*:|<span class="color1 color31">\0</span>|g' \
 			-e 's|^\ *PID|<span class="color1 color32">\0</span>|g'
 		echo '</pre></div></section>' ;;
