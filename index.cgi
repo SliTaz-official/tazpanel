@@ -473,7 +473,7 @@ $(ps auxww | sed "/^ *$(GET pid) /!d")
 	<p>$(_ 'Renice:')
 	<input type="hidden" name="top"/>
 EOT
-			values="+19 +10 +5 +1 -1 -5 -10 -19"
+			values="+19 +10 +5 +1 0 -1 -5 -10 -19"
 			[ $(id -u) -eq 0 ] || values="+19 +10 +5 +1"
 			for i in $values ; do
 				cat <<EOT
