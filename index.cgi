@@ -463,21 +463,28 @@ EOT
 		[ -n "$r" ] && echo "<meta http-equiv=\"refresh\" content=\"$r\">"
 
 		[ "$(GET renice)" ] && renice $(GET renice)
-		if [ "$(GET pid)" ]; then
+		[ "$(GET kill)" ] && kill $(GET kill)
+		if [ "$(GET pid)" ] && [ -d /proc/$(GET pid)/ ]; then
+			curpid=$(GET pid)
+			curnice=$(awk '{ print $19 }' /proc/$curpid/stat)
 			cat <<EOT
 <section>
-<p>
-$(ps auxww | sed "/^ *$(GET pid) /!d")
-</p>
+	<header>
+		$(ps auxww | sed "/^ *$curpid /!d")
+		<form>
+		<input type="hidden" name="top"/>
+		<button type="submit" data-icon="remove" name="kill" value="$curpid">$(_ 'Kill')</button>
+		</form>
+	</header>
 <form>
-	<p>$(_ 'Renice:')
+	<p>$(_ 'Renice')[$curnice]
 	<input type="hidden" name="top"/>
 EOT
-			values="+19 +10 +5 +1 0 -1 -5 -10 -19"
-			[ $(id -u) -eq 0 ] || values="+19 +10 +5 +1"
+			values="+19 +15 +10 +5 +3 +1 0 -1 -3 -5 -10 -15 -19"
+			[ $(id -u) -eq 0 ] || values="+19 +15 +10 +5 +3 +1"
 			for i in $values ; do
 				cat <<EOT
-	<input type="radio" name="renice" value="$i $(GET pid)" onchange="this.form.submit()"/>
+	<input type="radio" name="renice" value="$i $curpid" $([ $curnice -eq $i ] && echo checked) onchange="this.form.submit()"/>
 	<label>$i</label>
 EOT
 			done
