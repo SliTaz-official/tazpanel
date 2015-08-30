@@ -281,11 +281,11 @@ automatically get a random IP or configure a static/fixed IP")</p>
 				</tr>
 				<tr id="wk1"><td>$(_ 'MAC address to wake up')</td>
 					<td><input type="text" name="macwakup" title="$(_ 'Leave empty for a general wakeup')" $PAR/><!--
-					--><button form="indexform" name="file" title="$(_ 'Optional')" value="/etc/ethers" data-icon="view">$(_ 'List')</button>
+					--><button form="indexform" name="file" value="/etc/ethers" data-icon="view">$(_ 'List')</button>
 					</td>
 				</tr>
 				<tr id="wk2"><td>$(_ 'MAC/IP address password')</td>
-					<td><input type="text" name="macpass" $PAR/><!--
+					<td><input type="text" name="macpass" title="$(_ 'Optional')" $PAR/><!--
 					--><button form="indexform" name="exec" value="ether-wake --help" data-icon="help">$(_ 'Help')</button>
 					</td>
 				</tr>
