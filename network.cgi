@@ -281,11 +281,11 @@ automatically get a random IP or configure a static/fixed IP")</p>
 				</tr>
 				<tr id="wk1"><td>$(_ 'MAC address to wake up')</td>
 					<td><input type="text" name="macwakup" title="$(_ 'Leave empty for a general wakeup')" $PAR/><!--
-					--><button form="indexform" name="file" value="/etc/ethers" data-icon="view">$(_ 'List')</button>
+					--><button form="indexform" name="file" title="$(_ 'Optional')" value="/etc/ethers" data-icon="view">$(_ 'List')</button>
 					</td>
 				</tr>
 				<tr id="wk2"><td>$(_ 'MAC/IP address password')</td>
-					<td><input type="text" name="macpass" title="$(_ 'Leave empty for a general wakeup')" $PAR/><!--
+					<td><input type="text" name="macpass" $PAR/><!--
 					--><button form="indexform" name="exec" value="ether-wake --help" data-icon="help">$(_ 'Help')</button>
 					</td>
 				</tr>
@@ -295,7 +295,7 @@ automatically get a random IP or configure a static/fixed IP")</p>
 	<footer><!--
 		--><button form="conf" type="submit" name="start_eth" data-icon="start" $start_disabled>$(_ 'Start'  )</button><!--
 		--><button form="conf" type="submit" name="stop"      data-icon="stop"  $stop_disabled >$(_ 'Stop'   )</button><!--
-		--><button form="conf" type="submit" name="dowakeup"  data-icon="clock" $stop_disabled >$(_ 'Wake up')</button><!--
+		--><button id="wk3" form="conf" type="submit" name="dowakeup"  data-icon="clock" $stop_disabled >$(_ 'Wake up')</button><!--
 	--></footer>
 </section>
 
@@ -306,7 +306,7 @@ function check_change() {
 		document.getElementById('st' + i).style.display = enabled ? '' : 'none';
 	}
 	enabled = document.getElementById('wakeup').checked;
-	for (i = 1; i < 3; i++) {
+	for (i = 1; i < 4; i++) {
 		document.getElementById('wk' + i).style.display = enabled ? '' : 'none';
 	}
 }
