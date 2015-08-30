@@ -46,6 +46,7 @@ Commands:
            boot, hardware, help, index, installer, live, network, settings, pkgs
            If <app> is empty, index page will open in the browser.
            You can also open sub-pages, so "pkgs#list" will open packages list.
+  cc       Clean cache: remove interface's header from cache
 
 EOT
 		;;
@@ -72,6 +73,8 @@ EOT
 		status ;;
 	restart)
 		tazpanel stop; sleep 1; tazpanel start;;
+	cc)
+		find /var/cache/tazpanel -name 'header.*' -delete;;
 	*)
 		. /etc/slitaz/applications.conf
 		USER_CONFIG="$HOME/.config/slitaz/applications.conf"

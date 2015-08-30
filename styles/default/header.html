@@ -1,6 +1,6 @@
 # Header of TazPanel html page
 
-rootclass='user'; [ $(id -u) == '0' ] && rootclass='root'
+rootclass='user'; [ $(id -u) -eq 0 ] && rootclass='root'
 TEXTDOMAIN_original="${TEXTDOMAIN:-tazpanel}"
 export TEXTDOMAIN='tazpanel'
 

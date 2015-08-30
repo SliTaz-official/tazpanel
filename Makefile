@@ -79,6 +79,10 @@ install:
 	mkdir -p $(DESTDIR)/usr/share/fonts/TTF
 	ln -fs $(PANEL)/styles/default/tazpanel.ttf $(DESTDIR)/usr/share/fonts/TTF/tazpanel.ttf
 
+	# TazPanel cache directory, rw access for all
+	install -m 0777 -d $(DESTDIR)/var/cache/tazpanel
+
+
 install_extra:
 	mkdir -p \
 		$(DESTDIR)$(PANEL)/menu.d/boot \

@@ -255,14 +255,23 @@ EOT
 
 xhtml_header() {
 	[ -n "$(GET noheader)" ] && return
-	SUBTITLE="$1"
-	. ${PANEL}$HEADER
-	cat <<EOT
+
+	local subtitle="$1" header="/var/cache/tazpanel/header.$(id -un)"
+
+	# Cache header
+	if [ ! -f "$header" ]; then
+		SUBTITLE='@@SUBTITLE@@'
+		. ${PANEL}$HEADER > "$header"
+		cat >> "$header" <<EOT
 <script type="text/javascript">
 	document.cookie = "guiuser=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 	document.cookie = "guiuser=$GUI_USER";
 </script>
 EOT
+	fi
+	sed "s|@@SUBTITLE@@|$subtitle|" "$header"
+
+	# Show debug output
 	if [ "$DEBUG" -eq 1 ]; then
 		local i j x
 		args=''
@@ -293,6 +302,7 @@ EOT
 
 xhtml_footer() {
 	[ -n "$(GET noheader)" ] && return
+
 	export TEXTDOMAIN='tazpkg'
 	. ${PANEL}$FOOTER
 }
