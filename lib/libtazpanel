@@ -358,14 +358,9 @@ blk2h() {
 # Show "Back" button
 
 back_button() {
-	local URL="$1" default_caption="$(_ 'Back')"
 	#FIXME: can't encode data-icon
-	local caption="${2:-$default_caption}" icon="${3:-back}"
-
-	if [ -n "$1" ]; then
-		printf '<form action="%s" method="post"><button data-icon="%s">%s</button></form>' \
-			"$URL" "$icon" "$caption"
-	fi
+	printf '<form action="%s" method="post"><button data-icon="%s">%s</button></form>' \
+		"${1:-javascript:history.go(-1)}" "${3:-back}" "${2:-$(_ 'Back')}"
 }
 
 

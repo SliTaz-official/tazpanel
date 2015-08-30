@@ -119,6 +119,7 @@ EOT
 			<button data-icon="save">$(_ 'Save')</button>
 			<button name="action" value="diff" data-icon="diff">$(_ 'Differences')</button>
 		</form>
+		$(back_button)
 	</header>
 	<textarea form="editform" name="content" class="wide" rows="30" autofocus>$(htmlize < $file)</textarea>
 </section>
@@ -144,6 +145,7 @@ EOT
 		diff)
 			cat <<EOT
 <section>
+	$(back_button)
 	<pre id="diff">$(file_is_modified $file diff | syntax_highlighter diff)</pre>
 </section>
 EOT
