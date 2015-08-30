@@ -26,7 +26,7 @@ hosts=$(httpd -d "${hosts% }")
 # now hosts='host1 host2 ... hostn'
 
 # Folder to save downloaded and installed hosts lists
-HOSTSDIR='/var/run/tazpanel/hosts'
+HOSTSDIR='/var/lib/tazpanel/hosts'
 mkdir -p "$HOSTSDIR"
 
 
@@ -70,7 +70,7 @@ instlist() {
 	awk -vl="$list" '$1=="0.0.0.0"||$1=="127.0.0.1"{printf "0.0.0.0 %s #%s\n", $2, l}' "$file" | fgrep -v localhost >> /etc/hosts
 	# Clean the list
 	echo -n > "$file"
-	touch "$file.up"
+	touch "$file.checked"
 
 	# Remove the duplicate entries
 	hostsnew=$(mktemp)
@@ -90,7 +90,7 @@ remlist() {
 	# Input: list=code letter
 	sed -i "/#$list$/d" /etc/hosts
 	file="$HOSTSDIR/$list"
-	rm "$file" "$file.up" "$file.avail"
+	rm "$file" "$file.checked" "$file.avail"
 }
 
 
@@ -130,6 +130,8 @@ case " $(GET) " in
 		echo "<p>$(_ 'Installing the "%s"...' "$name") "
 		instlist
 		echo "$(_ 'Done')</p>"
+		# Don't show diff because it's huge
+		rm "$HOSTSDIR/diff"
 		;;
 
 	*\ uplist\ *)
@@ -138,8 +140,30 @@ case " $(GET) " in
 		list="$(GET uplist)"
 		getlistspec "$list"
 		echo "<p>$(_ 'Updating the "%s"...' "$name") "
+
+		old_sublist=$(mktemp)
+		# Note, old sublist already sorted. Only hostnames here
+		awk -vlist="#$list" '$3 == list {print $2}' /etc/hosts > "$old_sublist"
+
 		remlist; instlist
+
+		new_sublist=$(mktemp)
+		awk -vlist="#$list" '$3 == list {print $2}' /etc/hosts > "$new_sublist"
+
+		# The diff: just '+' and '-', no header, no context
+		diff -dU0 "$old_sublist" "$new_sublist" | sed '1,2d;/^@/d' > "$HOSTSDIR/diff"
+
 		echo "$(_ 'Done')</p>"
+
+		# Show diff
+		if [ -s "$HOSTSDIR/diff" ]; then
+			echo '<section><pre class="scroll">'
+			cat "$HOSTSDIR/diff" | syntax_highlighter diff
+			echo '</pre></section>'
+		fi
+
+		# Clean
+		rm "$old_sublist" "$new_sublist" "$HOSTSDIR/diff"
 		;;
 
 	*\ remlist\ *)
@@ -247,9 +271,9 @@ EOT
 		[ ! -f "$HOSTSDIR/$letter" ] && touch "$HOSTSDIR/$letter"
 
 		# Check for upgrades (once a day)
-		if [ -f "$HOSTSDIR/$letter.up" ]; then
+		if [ -f "$HOSTSDIR/$letter.checked" ]; then
 			# Update checked previously
-			if [ "$(($(date -u +%s) - 86400))" -gt "$(date -ur "$HOSTSDIR/$letter.up" +%s)" ]; then
+			if [ "$(($(date -u +%s) - 86400))" -gt "$(date -ur "$HOSTSDIR/$letter.checked" +%s)" ]; then
 				# Update checked more than one day (86400 seconds) ago
 				check='yes'
 			else
@@ -271,7 +295,7 @@ EOT
 				# Update not available
 				rm "$HOSTSDIR/$letter.avail" 2>/dev/null
 			fi
-			touch "$HOSTSDIR/$letter.up"
+			touch "$HOSTSDIR/$letter.checked"
 		fi
 
 		if [ -f "$HOSTSDIR/$letter.avail" ]; then
