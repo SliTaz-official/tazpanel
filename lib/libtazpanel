@@ -260,7 +260,6 @@ xhtml_header() {
 
 	# Cache header
 	if [ ! -f "$header" ]; then
-		SUBTITLE='@@SUBTITLE@@'
 		. ${PANEL}$HEADER > "$header"
 		cat >> "$header" <<EOT
 <script type="text/javascript">
@@ -269,7 +268,7 @@ xhtml_header() {
 </script>
 EOT
 	fi
-	sed "s|@@SUBTITLE@@|$subtitle|" "$header"
+	sed "s|@@TITLE@@|$TITLE|; s|@@SUBTITLE@@|$subtitle|" "$header"
 
 	# Show debug output
 	if [ "$DEBUG" -eq 1 ]; then
