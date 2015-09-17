@@ -79,7 +79,7 @@ instlist() {
 	cat "$hostsnew" >> /etc/hosts
 	rm "$hostsnew"
 
-	# Prevent user-disabled entries to re-appeare
+	# Prevent user-disabled entries to re-appear
 	grep "^#0.0.0.0" /etc/hosts | while read null host; do
 		sed -i "/^0.0.0.0 $host #/d" /etc/hosts
 	done

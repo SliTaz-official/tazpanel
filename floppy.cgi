@@ -112,7 +112,7 @@ EOT
 
 <section>
 	<header>
-		$(_ 'Floppy disk transfert')
+		$(_ 'Floppy disk transfer')
 	</header>
 <table>
 	<tbody>

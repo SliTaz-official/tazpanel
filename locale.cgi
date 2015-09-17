@@ -23,7 +23,7 @@ TITLE=$(_ 'Locale')
 get_locale_info()
 {
 	# Commands like `LC_ALL=fr_FR locale -k LC_MEASUREMENT` will do the job
-	#   only when your locale is generated and exists in the /usr/lib/locale.
+	# only when your locale is generated and exists in the /usr/lib/locale.
 	# Here we manually parse locale definition files from /usr/share/i18n/locales/.
 	# Strange, bloated and not script-friendly format :(
 

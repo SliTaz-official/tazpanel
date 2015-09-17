@@ -72,7 +72,7 @@ We can read a lot of useful information in the wpa_supplicant.conf file
 # This field is not needed, if WPA-EAP is used.
 # Note: Separate tool, wpa_passphrase, can be used to generate 256-bit keys
 # from ASCII passphrase. This process uses lots of CPU and wpa_supplicant
-# startup and reconfiguration time can be optimized by generating the PSK only
+# startup and reconfiguration time can be optimized by generating the PSK
 # only when the passphrase or SSID has actually changed.
 
 
@@ -137,7 +137,7 @@ Also, we store passwords in the known networks database in the form of
 javascript to gain user experience without pages having to be reloaded: you can click
 Wi-Fi network name and the script will fill its password for you.
 
-Here example of that script on the html page:
+Here's an example of that script on the html page:
 
 <script type="text/javascript">
 	ajax('network.cgi?wifi_list', '1', 'wifiList');
