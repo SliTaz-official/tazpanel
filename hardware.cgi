@@ -72,7 +72,11 @@ EOT
 lspci_table() {
 	cat <<EOT
 <table class="wide zebra">
-<thead><tr><td>Slot</td><td>Device</td><td>Name</td></thead>
+<thead><tr>
+	<td>$(_ 'Slot')</td>
+	<td>$(_ 'Device')</td>
+	<td>$(_ 'Name')</td>
+</tr></thead>
 <tbody>
 EOT
 	lspci | sed 's| |</td><td>|;

@@ -284,7 +284,7 @@ EOT
 		<input type="hidden" name="groups"/>
 		<div>
 			$(_ 'Group name:') <select name="group">$(listdb group)</select>
-			$(_ 'User name:') <select name="member">$(listdb passwd)</select>
+			$(_ 'User login:') <select name="member">$(listdb passwd)</select>
 		</div>
 		<footer>
 			<button name="do" value="addmember" data-icon="add">$(_ 'Add user')</button>
