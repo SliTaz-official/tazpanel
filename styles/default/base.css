@@ -155,6 +155,7 @@ section header {
 	text-shadow: 0 1px 1px hsla(0, 0%, 0%, 0.2);
 	overflow: auto; /* provide break after floated objects */
 	vertical-align: baseline;
+	box-sizing: border-box;
 }
 section header form, section footer form {
 	display: table-cell; vertical-align: baseline; line-height: 0; width: 1px; white-space: nowrap;
