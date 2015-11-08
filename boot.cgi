@@ -391,7 +391,7 @@ EOT
 			cat <<EOT
 <section>
 <pre>
-$(taziso $iso $action $dev 2>&1)
+$(taziso $iso $action $dev 2>&1 | htmlize)
 </pre>
 </section>
 EOT
