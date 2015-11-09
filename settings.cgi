@@ -682,7 +682,7 @@ Date.prototype.timeNow = function() {
 	return ((this.getHours() < 10)?"0":"") + this.getHours() + ":" + ((this.getMinutes() < 10)?"0":"") + this.getMinutes() + ":" + ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
 }
 setInterval(function(){
-	document.getElementById('time').innerText = new Date().timeNow();
+	document.getElementById('time').textContent = new Date().timeNow();
 	//ajax('settings.cgi?do=gethwclock', '1', 'hwclocks');
 }, 1000);
 
@@ -698,7 +698,7 @@ function submitSysTimeForm() {
 
 	var dateFull = document.createElement('INPUT');
 	dateFull.name = 'dateFull';
-	dateFull.value = document.getElementById('dateTime').childNodes[1].innerText;
+	dateFull.value = document.getElementById('dateTime').childNodes[1].textContent;
 	dateFull.type = 'hidden';
 	sysTimeForm.appendChild(dateFull);
 
