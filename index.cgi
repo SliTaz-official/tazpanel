@@ -469,6 +469,11 @@ EOT
 		if [ "$(GET pid)" ] && [ -d /proc/$(GET pid)/ ]; then
 			curpid=$(GET pid)
 			curnice=$(awk '{ print $19 }' /proc/$curpid/stat)
+			hz=$(zcat /proc/config.gz | sed '/^CONFIG_HZ=/!d;s/.*=//')
+			bootttime=$(awk -vhz=${hz:-100} '{print int($22/100)}' /proc/$curpid/stat)
+			uptime=$(awk -vhz=$hz '{print int($1)}' /proc/uptime)
+			now=$(date +%s)
+			starttime=$(date -d @$(($now - ($uptime - $bootttime))))
 			cat <<EOT
 <section>
 	<header>
@@ -479,8 +484,8 @@ EOT
 		</form>
 	</header>
 <form>
-	<p>$(_ 'Start time')
-		$(stat -c %y /proc/$curpid)
+	<p>$(_ 'Start time:')
+		$starttime
 	</p>
 	<p>$(_ 'Renice')[$curnice]
 	<input type="hidden" name="top"/>
