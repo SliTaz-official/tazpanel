@@ -27,6 +27,7 @@ pot:
 		--package-version="$(VERSION)" \
 		./tazpanel ./index.cgi ./network.cgi ./hosts.cgi ./boot.cgi \
 		./hardware.cgi ./settings.cgi ./lib/libtazpanel ./help.cgi \
+		./floppy.cgi \
 		./styles/default/header.html ./styles/default/footer.html
 
 msgmerge:
