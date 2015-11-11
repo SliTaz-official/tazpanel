@@ -479,6 +479,9 @@ EOT
 		</form>
 	</header>
 <form>
+	<p>$(_ 'Start time')
+		$(stat -c %y /proc/$curpid)
+	</p>
 	<p>$(_ 'Renice')[$curnice]
 	<input type="hidden" name="top"/>
 EOT
