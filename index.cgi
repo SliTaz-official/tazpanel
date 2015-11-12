@@ -468,10 +468,9 @@ EOT
 		[ "$(GET kill)" ] && kill $(GET kill)
 		if [ "$(GET pid)" ] && [ -d /proc/$(GET pid)/ ]; then
 			curpid=$(GET pid)
-			curnice=$(awk '{ print $19 }' /proc/$curpid/stat)
-			hz=$(zcat /proc/config.gz | sed '/^CONFIG_HZ=/!d;s/.*=//')
-			bootttime=$(awk -vhz=${hz:-100} '{print int($22/100)}' /proc/$curpid/stat)
-			uptime=$(awk -vhz=$hz '{print int($1)}' /proc/uptime)
+			curnice=$(awk '{ print int($19) }' /proc/$curpid/stat)
+			bootttime=$(awk '{print int($22/100)}' /proc/$curpid/stat)
+			uptime=$(awk '{print int($1)}' /proc/uptime)
 			now=$(date +%s)
 			starttime=$(date -d @$(($now - ($uptime - $bootttime))))
 			cat <<EOT
