@@ -56,7 +56,7 @@ EOT
 			exit 1
 		fi
 		_n 'Starting TazPanel web server on port %d...' $HTTPD_PORT
-		httpd -p $HTTPD_PORT -u root -c $HTTPD_CONF \
+		$DAEMON -p $HTTPD_PORT -u root -c $HTTPD_CONF \
 			-r "$(_ 'TazPanel Authentication - Default: root:root')" &
 		ps | grep "httpd -p $HTTPD_PORT " | grep -v grep | \
 			awk '{ print $1 }' > $PIDFILE

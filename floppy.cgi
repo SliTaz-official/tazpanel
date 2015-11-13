@@ -132,6 +132,10 @@ EOT
 </table>
 </section>
 EOT
+case "$HOME" in
+/home/*)	OUTPUTDIR=$HOME ;;
+*)		OUTPUTDIR=/tmp ;;
+esac
 cat <<EOT
 <section>
 	<header>
@@ -157,7 +161,7 @@ cat <<EOT
 	</tr>
 	<tr>
 	<td>$(_ 'Default cmdline:')</td>
-	<td id="cmdline"><input name="cmdline" size="36" type="text"> <input name="edit" checked="checked" type="checkbox">$(_ 'edit')
+	<td id="cmdline"><input name="cmdline" size="36" type="text" value="$(sed 's/^BOOT_IMAGE[^ ]* //;s/initrd=[^ ]* //' /proc/cmdline)" > <input name="edit" checked="checked" type="checkbox">$(_ 'edit')
 	<i>$(_ 'optional')</i></td>
 	</tr>
 	<tr>
@@ -277,7 +281,7 @@ cat <<EOT
 	</tr>
 	<tr>
 	<td>$(_ 'Output directory:')</td>
-	<td id="workdir"><input name="workdir" size="36" type="text" value="/tmp"></td>
+	<td id="workdir"><input name="workdir" size="36" type="text" value="$OUTPUTDIR"></td>
 	</tr>
 	<tr>
 	<td>$(_ 'Floppy size:')</td>
