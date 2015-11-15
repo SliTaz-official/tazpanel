@@ -465,6 +465,7 @@ EOT
 		[ -n "$r" ] && echo "<meta http-equiv=\"refresh\" content=\"$r\">"
 
 		[ "$(GET renice)" ] && renice $(GET renice)
+		[ "$(GET ionice)" ] && ionice $(GET ionice)
 		[ "$(GET kill)" ] && kill $(GET kill)
 		if [ "$(GET pid)" ] && [ -d /proc/$(GET pid)/ ]; then
 			curpid=$(GET pid)
@@ -486,18 +487,43 @@ EOT
 	<p>$(_ 'Start time:')
 		$starttime
 	</p>
-	<p>$(_ 'Renice')[$curnice]
+	<p>$(_ 'Renice')
 	<input type="hidden" name="top"/>
+	<select name "renice" onchange="this.form.submit()">
 EOT
-			values="+19 +15 +10 +5 +3 +1 0 -1 -3 -5 -10 -15 -19"
-			[ $(id -u) -eq 0 ] || values="+19 +15 +10 +5 +3 +1"
+			values="$(seq 20 -1 -20)"
+			[ $(id -u) -eq 0 ] || values="$(seq 20 -1 0)"
 			for i in $values ; do
 				cat <<EOT
-	<input type="radio" name="renice" value="$i $curpid" $([ $curnice -eq $i ] && echo checked) onchange="this.form.submit()"/>
-	<label>$i</label>
+	<option value="$i $curpid" $([ $curnice -eq $i ] && echo selected)>$(printf "%+d" $i)</option>
 EOT
 			done
 			cat <<EOT
+	</select>
+	$(_ 'I/O class')
+	<select name="ionice" onchange="this.form.submit()">
+EOT
+			while read class name max; do
+				if [ "$max" ]; then
+					[ $(id -u) -ne 0 ] && continue
+					for i in $(seq 0 $max); do
+						selected="selected"
+						[ "$(ionice $curpid)" = "$name: prio $i" ] || selected=""
+						echo "		<option value=\"-c $class -n $i -p $curpid\" $selected>$name: prio $i</option>"
+					done
+				else
+					selected="selected"
+					[ "$(ionice $curpid)" = "$name" ] || selected=""
+					echo "		<option value=\"-c $class -p $curpid\" $selected>$name</option>"
+				fi
+			done <<EOT
+0	none
+1	realtime	7
+2	best-effort	7
+3	idle
+EOT
+			cat <<EOT
+	</select>
 	</p>
 </form>
 </section>
