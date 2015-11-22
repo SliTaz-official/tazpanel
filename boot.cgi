@@ -403,9 +403,13 @@ EOT
 	<tr><td>$(_ 'ISO image file full path')
 			<span data-img="info" title="$(_ 'set /dev/cdrom for a physical CD-ROM')"></span>
 		</td>
-		<td><input type="text" name="iso" value="$iso" size="50"/></td></tr>
+		<td><span id="iso"><input type="text" name="iso" value="$iso" /></span>
+		<button data-icon="cd" onclick="ajax('index.cgi?do=file-selection&name=iso', '1', 'iso'); return false"/>
+		</td></tr>
 	<tr><td>$(_ 'Working directory')</td>
-		<td><input type="text" name="workdir" value="$workdir" size="50"/></td></tr>
+		<td><spam id="workdir"><input type="text" id="workdir" name="workdir" value="$workdir" /></spam>
+		<button data-icon="slitaz" onclick="ajax('index.cgi?do=dir-selection&name=workdir', '1', 'workdir'); return false"/>
+		</td></tr>
 	<tr><td>$(_ 'Target partition')
 			<span data-img="info" title="$(_ 'For hard disk installation only. Will create /slitaz tree and keep other files. No partitioning and no formatting.')"></span>
 		</td>

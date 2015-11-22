@@ -69,6 +69,35 @@ term_prompt() {
 
 case " $(GET) " in
 
+	*\ do\ *)
+		case "$(GET do)" in
+
+		*-selection)		# display Yad file/dir picker (AJAX)
+			title="$(_ 'Choose file')"
+			extra=""
+			[ "$(GET do)" == "dir-selection" ] &&
+				title="$(_ 'Choose directory')" &&
+				extra="--directory"
+			while read name arg ; do
+				case "$(GET do)" in
+					*$name*)
+						extra="$extra $arg" ;;
+				esac
+			done <<EOT
+multiple	--multiple
+preview		--add-preview
+EOT
+			header
+			cat <<EOT
+<input type="text" name="$(GET name)" value="$(DISPLAY=':0.0' \
+XAUTHORITY='/var/run/slim.auth' yad --file-selection --on-top --mouse $extra \
+--width=500 --height=350 --title="$title")" />
+EOT
+			exit 0 ;;
+
+		esac
+		;;
+
 
 	*\ exec\ *)
 		# Execute command and display its result in a terminal-like window
