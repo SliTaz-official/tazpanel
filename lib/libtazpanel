@@ -408,3 +408,18 @@ getdb() {
 	fi
 }
 
+# The html 'file' object does not return the full path. Ajax helps on localhost.
+
+file_chooser() {
+	cat <<EOT
+<span id="$1"><input type="text" name="$1" ${2:+value="$2" }/></span>
+<button data-icon="${3:-conf}" onclick="ajax('index.cgi?do=file-selection&name=$1', '1', '$1'); return false"/>
+EOT
+}
+
+dir_chooser() {
+	cat <<EOT
+<span id="$1"><input type="text" name="$1" ${2:+value="$2" }/></span>
+<button data-icon="${3:-slitaz}" onclick="ajax('index.cgi?do=dir-selection&name=$1', '1', '$1'); return false"/>
+EOT
+}
