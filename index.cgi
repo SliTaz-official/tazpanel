@@ -88,11 +88,20 @@ multiple	--multiple
 preview		--add-preview
 EOT
 			header
-			cat <<EOT
+			cd ${HOME:-/}
+			if [ -r $HOME/.Xauthority ]; then
+				cat <<EOT
+<input type="text" name="$(GET name)" value="$(DISPLAY=':0.0' \
+yad --file-selection --on-top --mouse $extra \
+--width=500 --height=350 --title="$title")" />
+EOT
+			else
+				cat <<EOT
 <input type="text" name="$(GET name)" value="$(DISPLAY=':0.0' \
 XAUTHORITY='/var/run/slim.auth' yad --file-selection --on-top --mouse $extra \
 --width=500 --height=350 --title="$title")" />
 EOT
+			fi
 			exit 0 ;;
 
 		esac
