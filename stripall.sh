@@ -42,7 +42,7 @@ substitute_icons() {
 	pkgi			\n	pkgib			\n	toggle			\n	chlock	
 	calendar		\n	modem			\n	cpu				\n	display	
 	msg				\n	msgerr			\n	msgwarn			\n	msgup	
-	msgtip			\n	vpn			" | \
+	msgtip			\n	vpn				\n	floppy			\n	folder	" | \
 	while read icon symbol; do
 		echo -n "s|data-icon=\"$icon\"|data-icon=\"$symbol\"|g; " >> "$sed_script"
 		echo -n "s|data-img=\"$icon\"|data-img=\"$symbol\"|g; " >> "$sed_script"

@@ -54,7 +54,8 @@ cat <<EOT
 --><button data-icon="toggle"     >Toggle     </button><button data-icon="chlock"  >ChLock  </button><!--
 --><button data-icon="calendar"   >Calendar   </button><button data-icon="modem"   >Modem   </button><!--
 --><button data-icon="vpn"        >VPN        </button><button data-icon="display" >Display </button><!--
---><button data-icon="cpu"        >CPU        </button>
+--><button data-icon="cpu"        >CPU        </button><button data-icon="floppy"  >Floppy  </button><!--
+--><button data-icon="folder"     >Folder     </button>
 </section>
 
 
@@ -83,7 +84,7 @@ cat <<EOT
 <a data-icon="temperature">Temperature</a> <a data-icon="terminal"  >Terminal  </a> <a data-icon="text"     >Text     </a>
 <a data-icon="unlink"     >Unlink     </a> <a data-icon="unlock"    >Unlock    </a> <a data-icon="upgrade"  >Upgrade  </a>
 <a data-icon="user"       >User       </a> <a data-icon="view"      >View      </a> <a data-icon="web"      >Web      </a>
-<a data-icon="wifi"       >Wi-Fi      </a>
+<a data-icon="wifi"       >Wi-Fi      </a> <a data-icon="floppy"    >Floppy    </a> <a data-icon="folder"   >Folder   </a>
 </p>
 	</div>
 </section>
@@ -96,7 +97,8 @@ cat <<EOT
 <a data-img="off"    href="#"></a>Off    <a data-img="on"   href="#"></a>On   <a data-img="opt"  href="#"></a>Opt
 <a data-img="remove" href="#"></a>Remove <a data-img="run"  href="#"></a>Run  <a data-img="stop" href="#"></a>Stop
 <a data-img="web"    href="#"></a>Web    <a data-img="slitaz" href="#"></a>SliTaz <a data-img="user" href="#"></a>User
-</p>
+<a data-img="floppy" href="#"></a>Floppy <a data-img="folder" href="#"></a>Folder
+	</p>
 </section>
 
 

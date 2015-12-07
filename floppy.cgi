@@ -17,7 +17,7 @@ case "$1" in
 
 		#which bootloader > /dev/null &&
 		cat <<EOT
-<li><a data-icon="slitaz" href="floppy.cgi">$(_ 'Boot floppy')</a></li>
+<li><a data-icon="floppy" href="floppy.cgi">$(_ 'Boot floppy')</a></li>
 EOT
 		export TEXTDOMAIN=$TEXTDOMAIN_original
 		exit

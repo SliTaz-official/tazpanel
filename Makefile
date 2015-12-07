@@ -6,7 +6,7 @@ DESTDIR?=
 LINGUAS?=el es fr pl pt_BR ru sv
 PANEL?=/var/www/tazpanel
 BASECGI?=boot.cgi hardware.cgi help.cgi index.cgi network.cgi hosts.cgi settings.cgi
-EXTRACGI?=floppy.cgi powersaving.cgi
+EXTRACGI?=floppy.cgi test.cgi
 
 VERSION:=$(shell grep ^VERSION tazpanel | cut -d= -f2)
 
@@ -93,8 +93,8 @@ install_extra:
 		cp -a build/$$c $(DESTDIR)$(PANEL); \
 	done;
 	cp -a build/bootloader $(DESTDIR)/usr/bin
-	ln -s ../../floppy.cgi $(DESTDIR)$(PANEL)/menu.d/boot/floppy
-	ln -s ../../powersaving.cgi $(DESTDIR)$(PANEL)/menu.d/hardware/powersaving
+	ln -sf ../../floppy.cgi $(DESTDIR)$(PANEL)/menu.d/boot/floppy
+	ln -sf ../../powersaving.cgi $(DESTDIR)$(PANEL)/menu.d/hardware/powersaving
 
 # Clean source
 

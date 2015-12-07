@@ -413,13 +413,15 @@ getdb() {
 file_chooser() {
 	cat <<EOT
 <span id="$1"><input type="text" name="$1" ${2:+value="$2" }/></span>
-<button data-icon="${3:-conf}" onclick="ajax('index.cgi?do=file-selection&name=$1', '1', '$1'); return false"/>
+<button data-icon="${3:-conf}" onclick="ajax('index.cgi?do=file-selection&amp;name=$1', '1', '$1'); return false">
+$(_n 'Browse')</button>
 EOT
 }
 
 dir_chooser() {
 	cat <<EOT
 <span id="$1"><input type="text" name="$1" ${2:+value="$2" }/></span>
-<button data-icon="${3:-slitaz}" onclick="ajax('index.cgi?do=dir-selection&name=$1', '1', '$1'); return false"/>
+<button data-icon="${3:-folder}" onclick="ajax('index.cgi?do=dir-selection&amp;name=$1', '1', '$1'); return false">
+$(_n 'Browse')</button>
 EOT
 }

@@ -73,11 +73,13 @@ case " $(GET) " in
 		case "$(GET do)" in
 
 		*-selection)		# display Yad file/dir picker (AJAX)
-			title="$(_ 'Choose file')"
-			extra=""
-			[ "$(GET do)" == "dir-selection" ] &&
-				title="$(_ 'Choose directory')" &&
+			if [ "$(GET do)" == "dir-selection" ]; then
+				title="$(_ 'Choose directory')"
 				extra="--directory"
+			else
+				title="$(_ 'Choose file')"
+				extra=""
+			fi
 			while read name arg ; do
 				case "$(GET do)" in
 					*$name*)
