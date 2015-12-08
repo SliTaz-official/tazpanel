@@ -411,17 +411,21 @@ getdb() {
 # The html 'file' object does not return the full path. Ajax helps on localhost.
 
 file_chooser() {
+	# 1: <input> name; 2: [predefined value]; 3: [button icon]; 4: [MIME type]
+	id="input$RANDOM"
 	cat <<EOT
-<span id="$1"><input type="text" name="$1" ${2:+value="$2" }/></span>
-<button data-icon="${3:-conf}" onclick="ajax('index.cgi?do=file-selection&amp;name=$1', '1', '$1'); return false">
+<span id="$id"><input type="text" name="$1" ${2:+value="$2" }/></span>\
+<button data-icon="${3:-conf}" onclick="ajax('index.cgi?do=file-selection&amp;name=$name&amp;type=$4', '1', '$id'); return false">\
 $(_n 'Browse')</button>
 EOT
 }
 
 dir_chooser() {
+	# 1: <input> name; 2: [predefined value]; 3: [button icon]
+	id="input$RANDOM"
 	cat <<EOT
-<span id="$1"><input type="text" name="$1" ${2:+value="$2" }/></span>
-<button data-icon="${3:-folder}" onclick="ajax('index.cgi?do=dir-selection&amp;name=$1', '1', '$1'); return false">
+<span id="$id"><input type="text" name="$1" ${2:+value="$2" }/></span>\
+<button data-icon="${3:-folder}" onclick="ajax('index.cgi?do=dir-selection&amp;name=$1', '1', '$id'); return false">\
 $(_n 'Browse')</button>
 EOT
 }

@@ -73,12 +73,14 @@ case " $(GET) " in
 		case "$(GET do)" in
 
 		*-selection)		# display Yad file/dir picker (AJAX)
-			if [ "$(GET do)" == "dir-selection" ]; then
+			if [ "$(GET do)" == 'dir-selection' ]; then
 				title="$(_ 'Choose directory')"
-				extra="--directory"
+				extra='--directory'
+				icon='folder'
 			else
 				title="$(_ 'Choose file')"
-				extra=""
+				extra=''
+				icon='text-plain'
 			fi
 			while read name arg ; do
 				case "$(GET do)" in
@@ -89,21 +91,45 @@ case " $(GET) " in
 multiple	--multiple
 preview		--add-preview
 EOT
+
+			if [ -n "$(GET type)" ]; then
+				# Get description and file pattern: yad can select only allowed file types
+				# For example, type='application/x-cd-image'
+				# Note, here implemented simplified code: not use mimetype aliases and generic icons
+				mimefile="/usr/share/mime/$(GET type).xml"
+				if [ -f "$mimefile" ]; then
+					if [ -n "$LANG" ]; then
+						# Localized description
+						desc="$(sed -n "s|^.*xml:lang=\"${LANG%%_*}\">\(.*\)<.*|\1|p" $mimefile)"
+					fi
+					if [ -z "$LANG" -o -z "$desc" ]; then
+						# Default (English) description
+						desc="$(sed -n "s|^.*<comment>\(.*\)<.*|\1|p" $mimefile)"
+					fi
+					# File pattern(s), for example, "*.iso\n*.iso9660"
+					pattern=$(sed -n 's|^.*pattern=\"\(.*\)\".*|\1|p' $mimefile)
+					extra="$extra --file-filter='$desc|$(echo $pattern)'"
+				fi
+				icon="$(echo $(GET type) | tr '/' '-')"
+			fi
+
 			header
 			cd ${HOME:-/}
 			if [ -r $HOME/.Xauthority ]; then
-				cat <<EOT
-<input type="text" name="$(GET name)" value="$(DISPLAY=':0.0' \
-yad --file-selection --on-top --mouse $extra \
---width=500 --height=350 --title="$title")" />
-EOT
+				XAUTHORITY="$HOME/.Xauthority"
 			else
-				cat <<EOT
-<input type="text" name="$(GET name)" value="$(DISPLAY=':0.0' \
-XAUTHORITY='/var/run/slim.auth' yad --file-selection --on-top --mouse $extra \
---width=500 --height=350 --title="$title")" />
-EOT
+				XAUTHORITY='/var/run/slim.auth'
 			fi
+
+			# Problem with inline quoting in the yad option --file-filter
+			# Save temp script into file and execute it
+			tempsh="$(mktemp)"
+			echo "DISPLAY=':0.0' XAUTHORITY=\"$XAUTHORITY\" \
+yad --file-selection --on-top --mouse $extra --width=500 --height=350 \
+--title=\"$title\" --window-icon=\"$icon\"" > "$tempsh"
+			echo "<input type=\"text\" name=\"$(GET name)\" value=\"$(sh $tempsh)\"/>"
+			rm "$tempsh"
+
 			exit 0 ;;
 
 		esac
