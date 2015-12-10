@@ -94,7 +94,8 @@ case " $(GET) " in
 				fi ;;
 
 			# System time
-			calendar) # display Yad date picker (AJAX)
+			calendar)
+				# display Yad date picker (AJAX)
 				new_date="$(DISPLAY=':0.0' XAUTHORITY='/var/run/slim.auth' \
 					yad --calendar --on-top --mouse --undecorated \
 					--window-icon=config-date --title="$(_ 'Set date')" \
@@ -102,10 +103,12 @@ case " $(GET) " in
 				header
 				echo "$new_date"; exit 0;;
 
-			settz) # set timezone
+			settz)
+				# set timezone
 				GET tz > /etc/TZ ;;
 
-			date) # only accepted format is MMDDhhmm[[YY]YY][.ss]
+			date)
+				# only accepted format is MMDDhhmm[[YY]YY][.ss]
 				if [ -n "$(GET dateFull)" ]; then
 					dateFull="$(GET dateFull)" # %F = YYYY-MM-DD
 					date $(printf '%02d%02d%02d%02d%d.%02d' "${dateFull:5:2}" \
@@ -117,13 +120,16 @@ case " $(GET) " in
 						"$(GET sec)") >/dev/null
 				fi;;
 
-			rdate) # get and possibly set the system date/time from a remote host
+			rdate)
+				# get and possibly set the system date/time from a remote host
 				rdate -s tick.greyware.com ;;
 
-			hwclock) # query and set hardware clock (RTC)
+			hwclock)
+				# query and set hardware clock (RTC)
 				hwclock -w -u ;;
 
-			gethwclock) # get date/time from hardware clock (AJAX)
+			gethwclock)
+				# get date/time from hardware clock (AJAX)
 				header; hwclock -ur | sed 's|0.000000 seconds||'; exit 0;;
 
 		esac
@@ -201,7 +207,8 @@ case " $(GET) " in
 		;;
 
 
-	*\ menuIcon\ *) # return specified image (AJAX)
+	*\ menuIcon\ *)
+		# return specified image (AJAX)
 		icon="/usr/share/pixmaps/$(GET menuIcon).png"
 		[ ! -r $icon ] && exit 0
 		header "Content-Type: image/png"; cat $icon; exit 0
@@ -232,7 +239,7 @@ case " $(GET) " in
 		<header>
 			<input type="hidden" name="groups"/>
 			<!-- $(_ 'Selection:') -->
-			<button name="do" value="delgroups" data-icon="delete">$(_ 'Delete group')</button>
+			<button name="do" value="delgroups" data-icon="@delete@">$(_ 'Delete group')</button>
 		</header>
 
 		<div class="scroll">
@@ -253,7 +260,7 @@ EOT
 			cat <<EOT
 					<tr>
 						<td><input type="checkbox" name="group" value="$group" id="$group"/>
-							<label for="$group" data-icon="group">$group</label></td>
+							<label for="$group" data-icon="@group@">$group</label></td>
 						<td>$3</td>
 						<td>${4//,/, }</td>
 					</tr>
@@ -272,7 +279,7 @@ EOT
 	<form class="wide">
 		<input type="hidden" name="groups"/>
 		<footer>$(_ 'Group name:') <input type="text" name="group"/>
-			<button type="submit" name="do" value="addgroup" data-icon="add">$(_ 'Create group')</button>
+			<button type="submit" name="do" value="addgroup" data-icon="@add@">$(_ 'Create group')</button>
 		</footer>
 	</form>
 </section>
@@ -287,8 +294,8 @@ EOT
 			$(_ 'User login:') <select name="member">$(listdb passwd)</select>
 		</div>
 		<footer>
-			<button name="do" value="addmember" data-icon="add">$(_ 'Add user')</button>
-			<button name="do" value="delmember" data-icon="delete">$(_ 'Remove user')</button>
+			<button name="do" value="addmember" data-icon="@add@">$(_ 'Add user')</button>
+			<button name="do" value="delmember" data-icon="@delete@">$(_ 'Remove user')</button>
 		</footer>
 	</form>
 </section>
@@ -309,9 +316,9 @@ EOT
 	<form class="wide">
 		<header>
 			<!--$(_ 'Selection:')-->
-			<button name="do" value="delusers"    data-icon="delete">$(_ 'Delete user')</button>
-			<button name="do" value="lockusers"   data-icon="lock"  >$(_ 'Lock user'  )</button>
-			<button name="do" value="unlockusers" data-icon="unlock">$(_ 'Unlock user')</button>
+			<button name="do" value="delusers"    data-icon="@delete@">$(_ 'Delete user')</button>
+			<button name="do" value="lockusers"   data-icon="@lock@"  >$(_ 'Lock user'  )</button>
+			<button name="do" value="unlockusers" data-icon="@unlock@">$(_ 'Unlock user')</button>
 		</header>
 
 		<table class="wide zebra center">
@@ -328,10 +335,10 @@ EOT
 EOT
 		for login in $(getdb passwd | cut -d: -f1); do
 			if [ -d "/home/$login" ]; then
-				blocked=''; usericon='user'
+				blocked=''; usericon='@user@'
 				if getdb shadow | grep -qs "^$login:!"; then
 					blocked='class="color31"'
-					usericon="lock"
+					usericon='@lock@'
 				fi
 				IFS=':'
 				set -- $(getdb passwd | grep "^$login:")
@@ -357,7 +364,7 @@ EOT
 		<footer>
 			$(_ 'Password:')
 			<input type="password" name="password" placeholder="$(_ 'New password')"/>
-			<button type="submit" name="do" value="chpasswd" data-icon="ok">$(_ 'Change password')</button>
+			<button type="submit" name="do" value="chpasswd" data-icon="@ok@">$(_ 'Change password')</button>
 		</footer>
 	</form>
 </section>
@@ -378,7 +385,7 @@ EOT
 		</table>
 
 		<footer>
-			<button type="submit" name="do" value="adduser" data-icon="add">$(_ 'Create user')</button>
+			<button type="submit" name="do" value="adduser" data-icon="@add@">$(_ 'Create user')</button>
 		</footer>
 	</form>
 </section>
@@ -477,7 +484,7 @@ EOT
 		</table>
 
 		<footer>
-			<button type="submit" data-icon="ok">$(_ 'Activate')</button>
+			<button type="submit" data-icon="@ok@">$(_ 'Activate')</button>
 		</footer>
 	</form>
 </section>
@@ -539,7 +546,7 @@ $prompt_c uname -r<br/>$(uname -r)<br/>$prompt_c date<br/>$(date)<br/>$prompt_c 
 			</tr>
 		</table>
 
-		<p>$(_ 'Manual edit: %s' "<a data-icon=\"conf\" href="index.cgi?file=$HOME/.profile">~/.profile</a>")<br/>
+		<p>$(_ 'Manual edit: %s' "<a data-icon=\"@conf@\" href="index.cgi?file=$HOME/.profile">~/.profile</a>")<br/>
 $(_ 'To take effect: log out and log in to system or execute command in the terminal:')</p>
 
 		<pre>. ~/.profile</pre>
@@ -588,10 +595,10 @@ $(_ 'To take effect: log out and log in to system or execute command in the term
 			</tr>
 		</table>
 		<p>$(_ 'Manual edit: %s' \
-			"<a data-icon=\"conf\" href=\"index.cgi?file=$HOME/.local/share/desktop-directories/SliTazMenu.directory\">~/.local/share/desktop-directories/SliTazMenu.directory</a>
+			"<a data-icon=\"@conf@\" href=\"index.cgi?file=$HOME/.local/share/desktop-directories/SliTazMenu.directory\">~/.local/share/desktop-directories/SliTazMenu.directory</a>
 			$(
 				find $HOME/.config/lxpanel -type f -name panel | awk -vh="$HOME" \
-				'{ printf "<a data-icon=\"conf\" href=\"index.cgi?file=%s\">%s</a> ", $1, gensub(h, "~", "")}'
+				'{ printf "<a data-icon=\"@conf@\" href=\"index.cgi?file=%s\">%s</a> ", $1, gensub(h, "~", "")}'
 			)")</p>
 	</fieldset>
 	</div>
@@ -609,8 +616,8 @@ EOT
 
 		cat <<EOT
 <form><!--
-	--><button name="users"  data-icon="user" >$(_ 'Manage users' )</button><!--
-	--><button name="groups" data-icon="group">$(_ 'Manage groups')</button>
+	--><button name="users"  data-icon="@user@" >$(_ 'Manage users' )</button><!--
+	--><button name="groups" data-icon="@group@">$(_ 'Manage groups')</button>
 </form>
 
 <section>
@@ -623,17 +630,17 @@ EOT
 				awk -vtz="$(cat /etc/TZ)" \
 				'{printf("<option%s>%s</option>", ($1 == tz)?" selected":"", $1)}')
 			</select>
-			<button name="do" value="settz" data-icon="ok">$(_ 'Change')</button>
+			<button name="do" value="settz" data-icon="@ok@">$(_ 'Change')</button>
 		</fieldset>
 
 		<fieldset><legend>$(_ 'System time:')</legend>
 			$(date | sed 's|[0-9][0-9]:[0-9:]*|<span id="time">&</span>|')
-			<button name="do" value="rdate" data-icon="sync">$(_ 'Sync online')</button>
+			<button name="do" value="rdate" data-icon="@sync@">$(_ 'Sync online')</button>
 		</fieldset>
 
 		<fieldset id="hwclock1"><legend>$(_ 'Hardware clock:')</legend>
 			<span id="hwclocks">$(hwclock -ur | sed 's|0.000000 seconds||')</span>
-			<button name="do" value="hwclock" id="hwclock" data-icon="clock">$(_ 'Set hardware clock')</button>
+			<button name="do" value="hwclock" id="hwclock" data-icon="@clock@">$(_ 'Set hardware clock')</button>
 		</fieldset>
 
 		<fieldset><legend>$(_ 'Set date')</legend>
@@ -652,7 +659,7 @@ EOT
 		else
 			cat <<EOT
 			<button onclick="datePicker(); return false">
-				<span id="dateTime" data-icon="calendar">$(date +%x)<span style="display:none">$(date +%F)</span></span>
+				<span id="dateTime" data-icon="@calendar@">$(date +%x)<span style="display:none">$(date +%F)</span></span>
 			</button>
 EOT
 		fi
@@ -663,12 +670,12 @@ EOT
 EOT
 		if [ -z "$(which yad)" ]; then
 			cat <<EOT
-			<button name="do" value="date" data-icon="ok">$(_ 'Set date')</button>
+			<button name="do" value="date" data-icon="@ok@">$(_ 'Set date')</button>
 EOT
 		else
 			cat <<EOT
 
-			<button data-icon="ok" onclick="submitSysTimeForm()">$(_ 'Set date')</button>
+			<button data-icon="@ok@" onclick="submitSysTimeForm()">$(_ 'Set date')</button>
 EOT
 		fi
 		cat <<EOT
@@ -737,7 +744,7 @@ EOT
 			cat <<EOT
 		$(_ 'Current system locale:')
 		<strong>$(locale | grep LANG | cut -d= -f2)</strong>
-		<button name="locale" data-icon="locale">$(_ 'Change')</button>
+		<button name="locale" data-icon="@locale@">$(_ 'Change')</button>
 EOT
 		fi
 		cat <<EOT
@@ -780,8 +787,8 @@ EOT
 		<form id="index" action="index.cgi"></form>
 		<br/>
 		$(_ 'Suggested keymap for Xorg:') $keymap
-		<button form="settings" name="apply_xorg_kbd" value="$keymap" data-icon="ok">$(_ 'Activate')</button>
-		<button form="index" name="file" value="$keyboard_config" data-icon="edit">$(_ 'Edit')</button>
+		<button form="settings" name="apply_xorg_kbd" value="$keymap" data-icon="@ok@">$(_ 'Activate')</button>
+		<button form="index" name="file" value="$keyboard_config" data-icon="@edit@">$(_ 'Edit')</button>
 		<input form="index" type="hidden" name="action" value="edit" />
 		<br/>
 EOT
@@ -792,7 +799,7 @@ EOT
 			<select name="gen_keymap">
 				$(list_keymaps)
 			</select>
-			<button type="submit" data-icon="ok">$(_ 'Activate')</button>
+			<button type="submit" data-icon="@ok@">$(_ 'Activate')</button>
 		</form>
 	</div>
 </section>
@@ -804,13 +811,13 @@ EOT
 	<form class="wide">
 		<fieldset><legend>$(_ 'Style:')</legend>
 			<select name="style">$(list_styles)</select>
-			<button data-icon="ok">$(_ 'Activate')</button>
+			<button data-icon="@ok@">$(_ 'Activate')</button>
 		</fieldset>
 	</form>
 
 	<fieldset><legend>$(_ 'Configuration files:')</legend>
-		<button form="index" name="file" value="$CONFIG" data-icon="edit">$(_ 'Panel')</button>
-		<button form="index" name="file" value="$HTTPD_CONF" data-icon="edit">$(_ 'Server')</button>
+		<button form="index" name="file" value="$CONFIG" data-icon="@edit@">$(_ 'Panel')</button>
+		<button form="index" name="file" value="$HTTPD_CONF" data-icon="@edit@">$(_ 'Server')</button>
 	</fieldset>
 
 	<p>$(_ 'TazPanel provides a debugging mode and page:')

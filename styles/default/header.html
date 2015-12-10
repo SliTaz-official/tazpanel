@@ -14,7 +14,7 @@ extra_menu() {
 		[ -f $x ] && sh $x menu $x | sed "$filter"
 		[ -d $x ] || continue
 		icon="$(sed '/data-icon/!d;s/.*data-icon="\([^"]*\).*/\1/;q' $x/*)"
-		echo -e "<li><a data-icon=\"${icon:-add}\">$(_ "$(basename $x)")</a>\n<menu>"
+		echo -e "<li><a data-icon=\"${icon:-@add@}\">$(_ "$(basename $x)")</a>\n<menu>"
 		extra_menu ${x#menu.d/}
 		echo -e "</menu>\n</li>"
 	done
@@ -44,35 +44,35 @@ $(printf '\t<script type="text/javascript" src="/%s"></script>\n' $(cd /var/www/
   <li tabindex="1">
    <span>$(_ 'Panel')</span>
    <menu>
-    <li><a data-icon="info"     href="index.cgi">$(_ 'Summary')</a></li>
-    <li><a data-icon="proc"     href="index.cgi?top">$(_ 'Processes')</a></li>
-    <li><a data-icon="terminal" href="index.cgi?cmd=help">$(_ 'Terminal')</a></li>
-    <li><a data-icon="report"   href="index.cgi?report" data-root>$(_ 'Create Report')</a></li>
+    <li><a data-icon="@info@"     href="index.cgi">$(_ 'Summary')</a></li>
+    <li><a data-icon="@proc@"     href="index.cgi?top">$(_ 'Processes')</a></li>
+    <li><a data-icon="@terminal@" href="index.cgi?cmd=help">$(_ 'Terminal')</a></li>
+    <li><a data-icon="@report@"   href="index.cgi?report" data-root>$(_ 'Create Report')</a></li>
     $(extra_menu panel)
    </menu>
   </li>
   <li tabindex="2">
    <span>$(_ 'Network')</span>
    <menu>
-    <li><a data-icon="info" href="network.cgi">$(_ 'Summary')</a></li>
-    <li><a data-icon="conf" href="index.cgi?file=/etc/network.conf&amp;action=edit">$(_ 'Config file')</a></li>
-    <li><a data-icon="eth"  href="network.cgi?eth">$(_ 'Ethernet')</a></li>
-    <li><a data-icon="wifi" href="network.cgi?wifi">$(_ 'Wireless')</a></li>
+    <li><a data-icon="@info@" href="network.cgi">$(_ 'Summary')</a></li>
+    <li><a data-icon="@conf@" href="index.cgi?file=/etc/network.conf&amp;action=edit">$(_ 'Config file')</a></li>
+    <li><a data-icon="@eth@"  href="network.cgi?eth">$(_ 'Ethernet')</a></li>
+    <li><a data-icon="@wifi@" href="network.cgi?wifi">$(_ 'Wireless')</a></li>
     $(extra_menu network)
    </menu>
   </li>
   <li tabindex="3">
    <span>$(_ 'Boot')</span>
    <menu>
-    <li><a data-icon="info" href="boot.cgi">$(_ 'Summary')</a></li>
+    <li><a data-icon="@info@" href="boot.cgi">$(_ 'Summary')</a></li>
 EOT
 
 [ -w /boot/grub/menu.lst ] && cat <<EOT
-    <li><a data-icon="grub" href="boot.cgi?grub">$(_ 'Boot loader')</a></li>
+    <li><a data-icon="@grub@" href="boot.cgi?grub">$(_ 'Boot loader')</a></li>
 EOT
 
 cat <<EOT
-    <li><a data-icon="logs" href="boot.cgi?log">$(_ 'Boot logs')</a>
+    <li><a data-icon="@logs@" href="boot.cgi?log">$(_ 'Boot logs')</a>
      <menu>
       <li><a data-icon="" href="boot.cgi?log=kernel">$(_ 'Kernel messages')</a></li>
       <li><a data-icon="" href="boot.cgi?log=boot">$(_ 'Boot scripts')</a></li>
@@ -80,30 +80,30 @@ cat <<EOT
       <li><a data-icon="" href="boot.cgi?log=slim">$(_ 'X session')</a></li>
      </menu>
     </li>
-    <li><a data-icon="logs" href="boot.cgi?syslog">$(_ 'System logs')</a>
-    <li><a data-icon="daemons" href="boot.cgi?daemons" data-root>$(_ 'Manage daemons')</a></li>
+    <li><a data-icon="@logs@" href="boot.cgi?syslog">$(_ 'System logs')</a>
+    <li><a data-icon="@daemons@" href="boot.cgi?daemons" data-root>$(_ 'Manage daemons')</a></li>
     $([ -x /usr/bin/taziso ] &&
-	echo "<li><a data-icon=\"cd\" href=\"boot.cgi?iso\" data-root>$(_ 'ISO mine')</a>")
+	echo "<li><a data-icon=\"@cd@\" href=\"boot.cgi?iso\" data-root>$(_ 'ISO mine')</a>")
     $(extra_menu boot)
    </menu>
   </li>
   <li tabindex="4">
    <span>$(_ 'Hardware')</span>
    <menu>
-    <li><a data-icon="info"    href="hardware.cgi">$(_ 'Summary')</a></li>
-    <li><a data-icon="modules" href="hardware.cgi?modules">$(_ 'Kernel modules')</a></li>
-    <li><a data-icon="detect"  href="hardware.cgi?detect" data-root>$(_ 'Detect PCI/USB')</a></li>
-    <li><a data-icon="hdd"     href="hardware.cgi#disk">$(_ 'Disks')</a></li>
+    <li><a data-icon="@info@"    href="hardware.cgi">$(_ 'Summary')</a></li>
+    <li><a data-icon="@modules@" href="hardware.cgi?modules">$(_ 'Kernel modules')</a></li>
+    <li><a data-icon="@detect@"  href="hardware.cgi?detect" data-root>$(_ 'Detect PCI/USB')</a></li>
+    <li><a data-icon="@hdd@"     href="hardware.cgi#disk">$(_ 'Disks')</a></li>
     $(extra_menu hardware)
    </menu>
   </li>
   <li tabindex="5">
    <span>$(_ 'Settings')</span>
    <menu>
-    <li><a data-icon="info"     href="settings.cgi" data-root>$(_ 'Summary')</a></li>
-    <li><a data-icon="user"     href="settings.cgi?users" data-root>$(_ 'Users')</a></li>
-    <li><a data-icon="group"    href="settings.cgi?groups" data-root>$(_ 'Groups')</a></li>
-    <li><a data-icon="settings" href="settings.cgi?tweaks">$(_ 'Tweaks')</a></li>
+    <li><a data-icon="@info@"     href="settings.cgi" data-root>$(_ 'Summary')</a></li>
+    <li><a data-icon="@user@"     href="settings.cgi?users" data-root>$(_ 'Users')</a></li>
+    <li><a data-icon="@group@"    href="settings.cgi?groups" data-root>$(_ 'Groups')</a></li>
+    <li><a data-icon="@settings@" href="settings.cgi?tweaks">$(_ 'Tweaks')</a></li>
     $(extra_menu settings)
    </menu>
   </li>
@@ -117,16 +117,16 @@ EOT
 
 username="${REMOTE_USER:-root}"
 case "$username" in
-	root) icon='data-img="slitaz"'; warn=''
+	root) icon='data-img="@slitaz@"'; warn=''
 	      toggle_url="http://$HTTP_HOST/";;
-	*)    icon='data-img="user"';   warn="$(_ 'Some features are disabled.')"$'\n'
+	*)    icon='data-img="@user@"';   warn="$(_ 'Some features are disabled.')"$'\n'
 	      toggle_url="http://$RANDOM:*@$HTTP_HOST/user/";;
 esac
 
 cat <<EOT
   <a $icon title="$(_ 'You are logged in to the TazPanel as user %s.' $username)
 $warn$(_ 'Click to re-login.')" href="$toggle_url$(basename $REQUEST_URI)"></a>
-  <a data-img="help" href="help.cgi"></a>
+  <a data-img="@help@" href="help.cgi"></a>
  </span>
 </nav>
 

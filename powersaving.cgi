@@ -12,7 +12,7 @@ get_config
 case "$1" in
 	menu)
 		cat <<EOT
-<li><a data-icon="display" href="powersaving.cgi" data-root>$(_ 'Power saving')</a></li>
+<li><a data-icon="@display@" href="powersaving.cgi" data-root>$(_ 'Power saving')</a></li>
 EOT
 		exit
 esac
@@ -27,7 +27,7 @@ xhtml_header "$(_ 'Power saving')"
 cat <<EOT
 <section>
 	<header>
-		<span data-icon="display">DPMS (Display Power Management Signaling)</span>
+		<span data-icon="@display@">DPMS (Display Power Management Signaling)</span>
 	</header>
 
 	<div>$(_ "DPMS enables power saving behaviour of monitors when the computer is not in use.")</div>
@@ -67,7 +67,7 @@ awk -F\" '{
 	if ($1 ~ /Option/ && $2 ~ /DPMS/) { D = $4; }
 	if ($1 ~ /EndSection/) {
 		if (D == "false") { D = ""; } else { D = "checked"; }
-		printf "<tr><td data-icon=\"display\">%s</td><td>%s</td><td>%s</td><td>", I, V, M;
+		printf "<tr><td data-icon=\"@display@\">%s</td><td>%s</td><td>%s</td><td>", I, V, M;
 		printf "<label><input type=\"checkbox\" name=\"%s\" %s/>DPMS</label>", I, D;
 		printf "</td></tr>\n";
 	}
@@ -97,15 +97,15 @@ cat <<EOT
 				<td style="vertical-align: top">
 					<fieldset>
 						<legend>$(_ 'Manual edit')</legend>
-						<a data-icon="conf" href="index.cgi?file=$monitor_conf">$(basename $monitor_conf)</a><br/>
-						<a data-icon="conf" href="index.cgi?file=$layout_conf">$(basename $layout_conf)</a>
+						<a data-icon="@conf@" href="index.cgi?file=$monitor_conf">$(basename $monitor_conf)</a><br/>
+						<a data-icon="@conf@" href="index.cgi?file=$layout_conf">$(basename $layout_conf)</a>
 					</fieldset>
 					<pre>$(for i in $(POST); do echo "$i: " $(POST $i); done)</pre>
 				</td>
 			</tr>
 		</table>
 		<footer>
-			<button type="submit" data-icon="ok">$(_ 'Change')</button>
+			<button type="submit" data-icon="@ok@">$(_ 'Change')</button>
 		</footer>
 	</form>
 </section>
@@ -117,7 +117,7 @@ EOT
 cpu=$(awk -F: '$1 ~ "model name" {
 	gsub(/\(TM\)/,"™",$2); gsub(/\(R\)/,"®",$2);
 	split($2,c,"@");
-	print "<span data-icon=\"cpu\">" c[1] "</span>";
+	print "<span data-icon=\"@cpu@\">" c[1] "</span>";
 }' /proc/cpuinfo)
 multiplier=$(echo "$cpu" | wc -l)
 [ "$multiplier" -ne 1 ] && cpu="$multiplier × $(echo "$cpu" | head -n1)"
@@ -126,7 +126,7 @@ freq=$(awk -F: 'BEGIN{N=0}$1~"MHz"{printf "%d:<b>%s</b>MHz ",N,$2; N++}' /proc/c
 
 cat <<EOT
 <section>
-	<header><span data-icon="cpu">$(_ 'CPU')</span></header>
+	<header><span data-icon="@cpu@">$(_ 'CPU')</span></header>
 
 	<div>$(_ "CPU frequency scaling enables the operating system to scale the \
 CPU frequency up or down in order to save power. CPU frequencies can be scaled \
@@ -159,7 +159,7 @@ EOT
 
 	for module in $(ls | grep -v 'mperf\|speedstep-lib'); do
 		module="${module%.ko.xz}"; module="${module//-/_}"
-		if echo $lsmod | grep -q " $module "; then icon='ok'; else icon='cancel'; fi
+		if echo $lsmod | grep -q " $module "; then icon='@ok@'; else icon='@cancel@'; fi
 		echo "<tr><td><span data-icon=\"$icon\">$module</span></td><td>"
 		modinfo $module | awk -F: '$1=="description"{
 			gsub(/\(TM\)/,"™",$2); gsub(/\(R\)/,"®",$2);

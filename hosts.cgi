@@ -103,7 +103,7 @@ case " $(GET) " in
 		host="$(GET add)"
 
 		echo "0.0.0.0 $host #U" >> /etc/hosts
-		echo -n '<p><span data-img="info"></span>'
+		echo -n '<p><span data-img="@info@"></span>'
 		_ 'Host "%s" added to /etc/hosts.' "$host"
 		echo '</p>'
 		;;
@@ -116,7 +116,7 @@ case " $(GET) " in
 			sed -i "s|^0.0.0.0[ \t][ \t]*$host .*|#\0|" /etc/hosts
 		done
 		r=$(echo "$hosts" | tr ' ' '\n' | wc -l)
-		echo -n '<p><span data-img="info"></span>'
+		echo -n '<p><span data-img="@info@"></span>'
 		_p  '%d record disabled' \
 			'%d records disabled' "$r"   "$r"
 		echo '</p>'
@@ -183,13 +183,13 @@ term=$(GET term)
 if [ -z "$term" ]; then
 	getdb hosts | fgrep 0.0.0.0 > "$found"
 	r=$(wc -l < "$found")
-	echo -n '<p><span data-img="info"></span>'
+	echo -n '<p><span data-img="@info@"></span>'
 	_p  '%d record used for Ad blocking' \
 		'%d records used for Ad blocking' "$r"   "$r"
 else
 	getdb hosts | fgrep 0.0.0.0 | fgrep "$term" > "$found"
 	r=$(wc -l < "$found")
-	echo -n '<p><span data-img="info"></span>'
+	echo -n '<p><span data-img="@info@"></span>'
 	_p  '%d record found for "%s"' \
 		'%d records found for "%s"' "$r"   "$r" "$term"
 fi
@@ -200,7 +200,7 @@ echo '</p>'
 cat <<EOT
 <section>
 	<header>
-		<span data-icon="list">$(_ 'Hosts')</span>
+		<span data-icon="@list@">$(_ 'Hosts')</span>
 		<form>
 			<input type="search" name="term" value="$(GET term)" results="5" autosave="hosts" autocomplete="on"/>
 		</form>
@@ -215,26 +215,26 @@ rm "$found"
 cat <<EOT
 </pre>
 		<footer>
-			<button type="submit" name="disable" data-icon="delete" data-root>$(_ 'Disable selected')</button>
+			<button type="submit" name="disable" data-icon="@delete@" data-root>$(_ 'Disable selected')</button>
 		</footer>
 	</form>
 </section>
 
 <section>
-	<header><span data-icon="add">$(_ 'Add')</span></header>
+	<header><span data-icon="@add@">$(_ 'Add')</span></header>
 	<form class="wide">
 		<div>
 			$(_ 'Host:')
 			<input type="text" name="add"/>
 		</div>
 		<footer>
-			<button type="submit" data-icon="add" data-root>$(_ 'Add')</button>
+			<button type="submit" data-icon="@add@" data-root>$(_ 'Add')</button>
 		</footer>
 	</form>
 </section>
 
 <section>
-	<header><span data-icon="admin">$(_ 'Manage lists')</span></header>
+	<header><span data-icon="@admin@">$(_ 'Manage lists')</span></header>
 	<div>$(_ 'You can use one or more prepared hosts files to block advertisements, malware and other irritants.')</div>
 	<form class="wide">
 	<table class="wide zebra">
@@ -256,7 +256,7 @@ listlist | while read name info url updated letter; do
 	cat <<EOT
 <tr>
 	<td>$name</td>
-	<td><a data-icon="info" target="_blank" href="$info">$(_ 'info')</a></td>
+	<td><a data-icon="@info@" target="_blank" href="$info">$(_ 'info')</a></td>
 	<td>
 		$([ "$updated" == 'monthly'   ] && _ 'Updated monthly')
 		$([ "$updated" == 'regularly' ] && _ 'Updated regularly')
@@ -300,18 +300,18 @@ EOT
 
 		if [ -f "$HOSTSDIR/$letter.avail" ]; then
 			cat <<EOT
-<button name="uplist" value="$letter" data-icon="upgrade">$(_ 'Upgrade')</button>
+<button name="uplist" value="$letter" data-icon="@upgrade@">$(_ 'Upgrade')</button>
 EOT
 		fi
 
 		cat <<EOT
-<button name="remlist" value="$letter" data-icon="remove">$(_ 'Remove')</button>
+<button name="remlist" value="$letter" data-icon="@remove@">$(_ 'Remove')</button>
 EOT
 
 	else
 		# List not installed
 		cat <<EOT
-<button name="instlist" value="$letter" data-icon="install">$(_ 'Install')</button>
+<button name="instlist" value="$letter" data-icon="@install@">$(_ 'Install')</button>
 EOT
 	fi
 	echo '</td></tr>'

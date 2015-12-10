@@ -281,21 +281,21 @@ automatically get a random IP or configure a static/fixed IP")</p>
 				</tr>
 				<tr id="wk1"><td>$(_ 'MAC address to wake up')</td>
 					<td><input type="text" name="macwakup" title="$(_ 'Leave empty for a general wakeup')" $PAR/><!--
-					--><button form="indexform" name="file" value="/etc/ethers" data-icon="view">$(_ 'List')</button>
+					--><button form="indexform" name="file" value="/etc/ethers" data-icon="@view@">$(_ 'List')</button>
 					</td>
 				</tr>
 				<tr id="wk2"><td>$(_ 'MAC/IP address password')</td>
 					<td><input type="text" name="macpass" title="$(_ 'Optional')" $PAR/><!--
-					--><button form="indexform" name="exec" value="ether-wake --help" data-icon="help">$(_ 'Help')</button>
+					--><button form="indexform" name="exec" value="ether-wake --help" data-icon="@help@">$(_ 'Help')</button>
 					</td>
 				</tr>
 			</table>
 		</div>
 	</form>
 	<footer><!--
-		--><button form="conf" type="submit" name="start_eth" data-icon="start" $start_disabled>$(_ 'Start'  )</button><!--
-		--><button form="conf" type="submit" name="stop"      data-icon="stop"  $stop_disabled >$(_ 'Stop'   )</button><!--
-		--><button id="wk3" form="conf" type="submit" name="dowakeup"  data-icon="clock" $stop_disabled >$(_ 'Wake up')</button><!--
+		--><button form="conf" type="submit" name="start_eth" data-icon="@start@" $start_disabled>$(_ 'Start'  )</button><!--
+		--><button form="conf" type="submit" name="stop"      data-icon="@stop@"  $stop_disabled >$(_ 'Stop'   )</button><!--
+		--><button id="wk3" form="conf" type="submit" name="dowakeup"  data-icon="@clock@" $stop_disabled >$(_ 'Wake up')</button><!--
 	--></footer>
 </section>
 
@@ -363,6 +363,13 @@ EOT
 
 				QUALITY=$(echo "$SCAN" | sed -n 's|.*Quality[:=]\([^ ]*\).*|\1|p')
 				QUALITY_ICON="lvl$(( 5*${QUALITY:-0} ))"		# lvl0 .. lvl4, lvl5
+				case $QUALITY_ICON in
+					lvl0) QUALITY_ICON='@lvl0@';;
+					lvl1) QUALITY_ICON='@lvl1@';;
+					lvl2) QUALITY_ICON='@lvl2@';;
+					lvl3) QUALITY_ICON='@lvl3@';;
+					lvl4|lvl5) QUALITY_ICON='@lvl4@';;
+				esac
 				LEVEL=$(echo "$SCAN" | sed -n 's|.*Signal level[:=]\([^ ]*\).*|\1|p; s|-|−|')
 
 				ENCRYPTION=$(echo "$SCAN" | sed -n 's|.*Encryption key[:=]\([^ ]*\).*|\1|p')		# on/off
@@ -390,14 +397,14 @@ EOT
 					# "WPA" or "WPA2" or "WPA/WPA2" (maybe also "WPA2/WPA")
 					ENC_SIMPLE=$(echo "$SCAN" | sed -n '/.*WPA.*/ s|.*\(WPA[^ ]*\).*|\1|p')
 					ENC_SIMPLE=$(echo $ENC_SIMPLE | sed 's| |/|')
-					ENC_ICON='sechi' # high
+					ENC_ICON='@sechi@' # high
 					if [ -z "$ENC_SIMPLE" ]; then
 						WIFI_KEY_TYPE='WEP'
-						ENC_SIMPLE='WEP'; ENC_ICON='secmi' # middle
+						ENC_SIMPLE='WEP'; ENC_ICON='@secmi@' # middle
 					fi
 				else
 					WIFI_KEY_TYPE='NONE'
-					ENC_SIMPLE="$(_ 'None')"; ENC_ICON='seclo' # low
+					ENC_SIMPLE="$(_ 'None')"; ENC_ICON='@seclo@' # low
 				fi
 
 				# Connected or not connected...
@@ -410,7 +417,7 @@ EOT
 
 				cat <<EOT
 <tr>
-	<td><a data-icon="wifi" onclick="loadcfg('$ESSID', '$BSSID', '$WIFI_KEY_TYPE')">${ESSID:-$HIDDEN}</a></td>
+	<td><a data-icon="@wifi@" onclick="loadcfg('$ESSID', '$BSSID', '$WIFI_KEY_TYPE')">${ESSID:-$HIDDEN}</a></td>
 	<td><span data-icon="$QUALITY_ICON" title="Quality: $QUALITY"> $LEVEL dBm</span></td>
 	<td>$CHANNEL</td>
 	<td><span data-icon="$ENC_ICON">$ENC_SIMPLE</span></td>
@@ -443,9 +450,9 @@ EOT
 		[ -w /etc/network.conf ] && cat <<EOT
 <form>
 	<input type="hidden" name="wifi"/>
-	   <button name="start_wifi" data-icon="start"   $start_disabled>$(_ 'Start')</button><!--
-	--><button name="stop"       data-icon="stop"    $stop_disabled >$(_ 'Stop' )</button><!--
-	--><button type="submit"     data-icon="refresh" $stop_disabled >$(_ 'Scan' )</button>
+	   <button name="start_wifi" data-icon="@start@"   $start_disabled>$(_ 'Start')</button><!--
+	--><button name="stop"       data-icon="@stop@"    $stop_disabled >$(_ 'Stop' )</button><!--
+	--><button type="submit"     data-icon="@refresh@" $stop_disabled >$(_ 'Scan' )</button>
 </form>
 EOT
 
@@ -453,7 +460,7 @@ EOT
 		if [ -n "$start_disabled" ]; then
 			cat <<EOT
 <section id="wifiList">
-	<div style="text-align: center;"><span data-icon="clock">$(_ 'Scanning wireless interface...')</span></div>
+	<div style="text-align: center;"><span data-icon="@clock@">$(_ 'Scanning wireless interface...')</span></div>
 </section>
 
 <script type="text/javascript">
@@ -534,7 +541,7 @@ EOT
 					<td><div>$(_ 'Password')</div></td>
 					<td><div>
 						<input type="password" name="password" value="$WIFI_KEY_ESCAPED" id="password"/>
-						<span data-img="view" title="$(_ 'Show password')"
+						<span data-img="@view@" title="$(_ 'Show password')"
 							onmousedown="document.getElementById('password').type='text'; return false"
 							  onmouseup="document.getElementById('password').type='password'"
 							 onmouseout="document.getElementById('password').type='password'"
@@ -546,8 +553,8 @@ EOT
 		</form>
 	</div>
 	<footer>
-		<button form="connection" type="submit" name="wifi" data-icon="ok">$(_ 'Configure')</button>
-		<button data-icon="user" onclick="shareWiFi(); popup('popup_qr', 'show');">$(_ 'Share')</button>
+		<button form="connection" type="submit" name="wifi" data-icon="@ok@">$(_ 'Configure')</button>
+		<button data-icon="@user@" onclick="shareWiFi(); popup('popup_qr', 'show');">$(_ 'Share')</button>
 	</footer>
 </section>
 
@@ -636,16 +643,16 @@ EOT
 <form action="index.cgi" id="indexform"></form>
 
 <form id="mainform"><!--
-	--><button name="start"   data-icon="start"   $start_disabled>$(_ 'Start'  )</button><!--
-	--><button name="stop"    data-icon="stop"    $stop_disabled >$(_ 'Stop'   )</button><!--
-	--><button name="restart" data-icon="restart" $stop_disabled >$(_ 'Restart')</button>
+	--><button name="start"   data-icon="@start@"   $start_disabled>$(_ 'Start'  )</button><!--
+	--><button name="stop"    data-icon="@stop@"    $stop_disabled >$(_ 'Stop'   )</button><!--
+	--><button name="restart" data-icon="@restart@" $stop_disabled >$(_ 'Restart')</button>
 </form>
 
 <div class="float-right"><!--
 	-->$(_ 'Configuration:')<!--
-	--><button form="indexform" name="file" value="/etc/network.conf" data-icon="conf">network.conf</button><!--
-	--><button form="mainform" name="eth" data-icon="eth">Ethernet</button><!--
-	--><button form="mainform" name="wifi" data-icon="wifi">Wireless</button>
+	--><button form="indexform" name="file" value="/etc/network.conf" data-icon="@conf@">network.conf</button><!--
+	--><button form="mainform" name="eth" data-icon="@eth@">Ethernet</button><!--
+	--><button form="mainform" name="wifi" data-icon="@wifi@">Wireless</button>
 </div>
 
 
@@ -659,7 +666,7 @@ EOT
 EOT
 		_ 'forward packets between interfaces'
 		[ "$REMOTE_USER" == 'root' ] && cat <<EOT
-		<button form="mainform" name="toggleipforward" data-icon="ok">$(_ 'Change')</button>
+		<button form="mainform" name="toggleipforward" data-icon="@ok@">$(_ 'Change')</button>
 EOT
 		cat <<EOT
 	</footer>
@@ -668,14 +675,14 @@ EOT
 
 <section>
 	<header id="hosts">$(_ 'Hosts'; edit_button /etc/hosts)</header>
-	<span data-icon="info">$(r=$(getdb hosts | wc -l); 
+	<span data-icon="@info@">$(r=$(getdb hosts | wc -l); 
 		_p '%d record in the hosts DB' \
 			'%d records in the hosts DB' "$r" \
 			"$r")</span>
 	<pre class="scroll">$(getdb hosts | fgrep -v 0.0.0.0)</pre>
 	<footer>
 		<form action="hosts.cgi">
-			<button data-icon="admin" data-root>$(_ 'Configure')</button>
+			<button data-icon="@admin@" data-root>$(_ 'Configure')</button>
 			$(_ 'Use hosts file as Ad blocker')
 		</form>
 	</footer>
@@ -690,7 +697,7 @@ EOT
 			cat <<EOT
 		<form>
 			<input type="text" name="hostname" value="$(hostname)"/><!--
-			--><button type="submit" data-icon="ok">$(_ 'Change')</button>
+			--><button type="submit" data-icon="@ok@">$(_ 'Change')</button>
 		</form>
 EOT
 		else
@@ -730,7 +737,7 @@ EOT
 	<tr><td>
 	<input type="hidden" name="entry" value="$(urlencode "$(echo $line | \
 		sed 's/) .* on/ -i/;s/.*(//')")">
-	<button type="submit" data-icon="remove" name="rmarp"></button>
+	<button type="submit" data-icon="@remove@" name="rmarp"></button>
 	</td><td><pre>$line</pre></td></tr>
 </form>
 EOT
@@ -740,8 +747,8 @@ EOT
 	<footer>
 		<form>
 			IP <input type="text" name="ip" value="10.20.30.40" size="12" /> on $(select_if)<!--
-			--><button type="submit" data-icon="upgrade" name="proxyarp">$(_ 'Proxy')</button>
-			or <button type="submit" data-icon="add" name="addarp">$(_ 'Add')</button>
+			--><button type="submit" data-icon="@upgrade@" name="proxyarp">$(_ 'Proxy')</button>
+			or <button type="submit" data-icon="@add@" name="addarp">$(_ 'Add')</button>
 			 MAC <input type="text" name="mac" value="11:22:33:44:55:66" size="16" />
 		</form>
 EOT

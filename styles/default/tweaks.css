@@ -200,26 +200,26 @@ body.dark  { background: #3C3C3C; }
 
 a[data-icon] { white-space: pre-line; }
 
-[data-icon="cancel"]::before, [data-icon="delete"]::before,
-[data-icon="remove"]::before, [data-icon="stop"]:not([disabled])::before,
-[data-img="help"]::before,    [data-img="man"]::before,
-[data-img="off"]::before,     [data-img="remove"]::before,
-[data-img="stop"]::before,    [data-icon="pkgib"]::before,
-[data-icon="msgerr"]::before, [data-icon="msgwarn"]::before
+[data-icon="@cancel@"]::before, [data-icon="@delete@"]::before,
+[data-icon="@remove@"]::before, [data-icon="@stop@"]:not([disabled])::before,
+[data-img="@help@"]::before,    [data-img="@man@"]::before,
+[data-img="@off@"]::before,     [data-img="@remove@"]::before,
+[data-img="@stop@"]::before,    [data-icon="@pkgib@"]::before,
+[data-icon="@msgerr@"]::before, [data-icon="@msgwarn@"]::before
 {color:#dc322f!important} /*red*/
 
-[data-icon="restart"]:not([disabled])::before, [data-img="conf"]::before,
-[data-img="slitaz"]::before, [data-icon="msgup"]::before
+[data-icon="@restart@"]:not([disabled])::before, [data-img="@conf@"]::before,
+[data-img="@slitaz@"]::before, [data-icon="@msgup@"]::before
 {color:#cb4b16!important} /*orange*/
 
-[data-icon="ok"]::before,    [data-icon="run"]::before,
-[data-icon="start"]:not([disabled])::before, [data-img="on"]::before,
-[data-img="opt"]::before, [data-img="run"]::before, [data-icon="pkgi"]::before,
-[data-img="user"]::before, [data-icon="msgtip"]::before
+[data-icon="@ok@"]::before,    [data-icon="@run@"]::before,
+[data-icon="@start@"]:not([disabled])::before, [data-img="@on@"]::before,
+[data-img="@opt@"]::before, [data-img="@run@"]::before, [data-icon="@pkgi@"]::before,
+[data-img="@user@"]::before, [data-icon="@msgtip@"]::before
 {color:#859900!important} /*green*/
 
-[data-img="web"]::before, [data-icon="pkg"]::before,
-[data-icon="msg"]::before
+[data-img="@web@"]::before, [data-icon="@pkg@"]::before,
+[data-icon="@msg@"]::before
 {color:#268bd2!important} /*blue*/
 
 /* disabled buttons with gray icons */

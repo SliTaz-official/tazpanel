@@ -24,7 +24,7 @@ loghead() {
 		*)       tail -n40;;
 	esac
 	[ $(wc -l < $1) -gt 40 ] && cat <<EOT
-<hr/><a data-icon="view" href="index.cgi?file=$1">$(_ 'Show more...')</a>
+<hr/><a data-icon="@view@" href="index.cgi?file=$1">$(_ 'Show more...')</a>
 EOT
 }
 
@@ -236,18 +236,18 @@ EOT
 					case "$1" in
 					edit)
 						cat <<EOT
-<a href="index.cgi?file=${3:-/etc/$name.conf}&amp;action=edit" title="${2:-$name configuration} in ${3:-/etc/$name.conf}" data-img="conf"></a>
+<a href="index.cgi?file=${3:-/etc/$name.conf}&amp;action=edit" title="${2:-$name configuration} in ${3:-/etc/$name.conf}" data-img="@conf@"></a>
 EOT
 						;;
 					options)
 						key=$(echo -n $name | tr [a-z] [A-Z])_OPTIONS
 						cat <<EOT
-<a href="index.cgi?file=/etc/daemons.conf&amp;action=setvar&amp;var=$key&amp;default=$3" title="${2:-$key}" data-img="opt"></a>
+<a href="index.cgi?file=/etc/daemons.conf&amp;action=setvar&amp;var=$key&amp;default=$3" title="${2:-$key}" data-img="@opt@"></a>
 EOT
 						;;
 					man)
 						cat <<EOT
-<a href="index.cgi?exec=man ${3:-$name}&amp;back=boot.cgi%3Fdaemons" title="${2:-$name Manual}" data-img="man"></a>
+<a href="index.cgi?exec=man ${3:-$name}&amp;back=boot.cgi%3Fdaemons" title="${2:-$name Manual}" data-img="@man@"></a>
 EOT
 						;;
 					help)
@@ -256,11 +256,11 @@ EOT
 							cupsd|dropbear|gpm|slim|wpa_supplicant) help='-h'
 						esac
 						cat <<EOT
-<a href="index.cgi?exec=$(which ${3:-$name}) $help&amp;back=boot.cgi%3Fdaemons" title="${2:-$name Help}" data-img="help"></a>
+<a href="index.cgi?exec=$(which ${3:-$name}) $help&amp;back=boot.cgi%3Fdaemons" title="${2:-$name Help}" data-img="@help@"></a>
 EOT
 						;;
 					web)	cat <<EOT
-<a href="${i#$1:$2:}" title="${2:-$name website:} ${i#$1:$2:}" target="_blank" data-img="web"></a>
+<a href="${i#$1:$2:}" title="${2:-$name website:} ${i#$1:$2:}" target="_blank" data-img="@web@"></a>
 EOT
 						;;
 					esac
@@ -269,8 +269,8 @@ EOT
 			echo "</td>"
 			if [ "$pid" ]; then
 				cat <<EOT
-<td><span title="$(_ 'Started')" data-img="on"></span></td>
-<td><a href="?daemons=stop=$name" title="$(_ 'Stop')" data-img="stop"></a></td>
+<td><span title="$(_ 'Started')" data-img="@on@"></span></td>
+<td><a href="?daemons=stop=$name" title="$(_ 'Stop')" data-img="@stop@"></a></td>
 <td>
 EOT
 				for i in $pid; do
@@ -280,8 +280,8 @@ EOT
 				done
 			else
 				cat <<EOT
-<td><span title="$(_ 'Stopped')" data-img="off"></span></td>
-<td><a href="?daemons=start=$name" title="$(_ 'Start')" data-img="start"></a></td>
+<td><span title="$(_ 'Stopped')" data-img="@off@"></span></td>
+<td><a href="?daemons=start=$name" title="$(_ 'Start')" data-img="@start@"></a></td>
 <td>-----
 EOT
 			fi
@@ -324,14 +324,14 @@ EOT
 			</table>
 		</div>
 		<footer>
-			<button type="submit" data-icon="ok">$(_ 'Change')</button>
+			<button type="submit" data-icon="@ok@">$(_ 'Change')</button>
 		</footer>
 	</section>
 </form>
 
 <form action="index.cgi">
 	<input type="hidden" name="file" value="$GRUBMENU"/>
-	<button data-icon="text">$(_ 'View or edit menu.lst')</button>
+	<button data-icon="@text@">$(_ 'View or edit menu.lst')</button>
 </form>
 
 
@@ -401,14 +401,14 @@ EOT
 <form method="post" action="?iso" class="wide">
 <table>
 	<tr><td>$(_ 'ISO image file full path')
-			<span data-img="info" title="$(_ 'set /dev/cdrom for a physical CD-ROM')"></span>
+			<span data-img="@info@" title="$(_ 'set /dev/cdrom for a physical CD-ROM')"></span>
 		</td>
 		<td>$(file_chooser "iso" "$iso")</td></tr>
 	<tr><td>$(_ 'Working directory')</td>
 		<td>$(dir_chooser "workdir" "$workdir")</td></tr>
 		</td></tr>
 	<tr><td>$(_ 'Target partition')
-			<span data-img="info" title="$(_ 'For hard disk installation only. Will create /slitaz tree and keep other files. No partitioning and no formatting.')"></span>
+			<span data-img="@info@" title="$(_ 'For hard disk installation only. Will create /slitaz tree and keep other files. No partitioning and no formatting.')"></span>
 		</td>
 		<td><select name="instdev">
 			<option value="/dev/null">$(_ 'Choose a partition (optional)')</option>
@@ -423,7 +423,7 @@ EOT
 		cat <<EOT
 			</select></td></tr>
 	<tr><td>$(_ 'USB key device')
-			<span data-img="info" title="$(_ 'For USB boot key only. Will erase the full device.')"></span>
+			<span data-img="@info@" title="$(_ 'For USB boot key only. Will erase the full device.')"></span>
 		</td>
 		<td><select name="usbkeydev">
 			<option value="/dev/null">$(_ 'Choose a USB key (optional)')</option>
@@ -460,7 +460,7 @@ EOT
 		fi
 
 		cat <<EOT
-	<button data-icon="cd" name="mine">$(_ 'Mine')</button>
+	<button data-icon="@cd@" name="mine">$(_ 'Mine')</button>
 </footer>
 </form>
 </section>
@@ -478,15 +478,15 @@ EOT
 <p>$(_ 'Everything that happens before user login')</p>
 
 <form>
-	<button name="log"     data-icon="logs"   >$(_ 'Boot logs')</button>
-	<button name="syslog"  data-icon="logs"   >$(_ 'System logs')</button>
-	<button name="daemons" data-icon="daemons" data-root>$(_ 'Manage daemons')</button>
+	<button name="log"     data-icon="@logs@">$(_ 'Boot logs')</button>
+	<button name="syslog"  data-icon="@logs@">$(_ 'System logs')</button>
+	<button name="daemons" data-icon="@daemons@" data-root>$(_ 'Manage daemons')</button>
 EOT
 		[ "$REMOTE_USER" == "root" -a -x /usr/bin/taziso ] && cat <<EOT
-	<button name="iso"     data-icon="cd"      >$(_ 'ISO mine')</button>
+	<button name="iso"     data-icon="@cd@">$(_ 'ISO mine')</button>
 EOT
 		[ -w /boot/grub/menu.lst ] && cat <<EOT
-	<button name="grub"    data-icon="grub"   >$(_ 'Boot loader')</button>
+	<button name="grub"    data-icon="@grub@">$(_ 'Boot loader')</button>
 EOT
 		cat <<EOT
 </form>
@@ -497,9 +497,9 @@ EOT
 	<form action="index.cgi" class="wide">
 		<table>
 			<tr><td>$(_ 'Main configuration file:') <b>rcS.conf</b></td>
-				<td><button name="file" value="/etc/rcS.conf" data-icon="view">$(_ 'View')</button></td></tr>
+				<td><button name="file" value="/etc/rcS.conf" data-icon="@view@">$(_ 'View')</button></td></tr>
 			<tr><td>$(_ 'Login manager settings:') <b>slim.conf</b></td>
-				<td><button name="file" value="/etc/slim.conf" data-icon="view">$(_ 'View')</button></td></tr>
+				<td><button name="file" value="/etc/slim.conf" data-icon="@view@">$(_ 'View')</button></td></tr>
 		</table>
 	</form>
 </section>

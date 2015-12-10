@@ -167,7 +167,7 @@ EOT
 			do
 				name=$(basename $line)
 				mod=${name%.ko.xz}
-				echo "<span data-icon=\"modules\">$(_ 'Module:')</span> <a href='?modinfo=$mod'>$mod</a>"
+				echo "<span data-icon=\"@modules@\">$(_ 'Module:')</span> <a href='?modinfo=$mod'>$mod</a>"
 			done
 			echo '</pre></section>'
 		fi
@@ -249,9 +249,9 @@ EOT
 <p>$(_ 'Manage your computer hardware')</p>
 
 <form><!--
-	--><button name="modules" data-icon="modules">$(_ 'Kernel modules')</button><!--
-	--><button name="detect"  data-icon="detect" data-root>$(_ 'Detect PCI/USB')</button><!--
-	--><button name="tazx"    data-icon="tazx"   data-root>$(_ 'Auto-install Xorg video driver')</button><!--
+	--><button name="modules" data-icon="@modules@">$(_ 'Kernel modules')</button><!--
+	--><button name="detect"  data-icon="@detect@" data-root>$(_ 'Detect PCI/USB')</button><!--
+	--><button name="tazx"    data-icon="@tazx@"   data-root>$(_ 'Auto-install Xorg video driver')</button><!--
 --></form>
 
 EOT
@@ -278,7 +278,7 @@ EOT
 				rempct=$(( $remain * 100 / $full ))
 				cat <<EOT
 			<tr>
-				<td><span data-icon="battery">$(_ 'Battery')</span>
+				<td><span data-icon="@battery@">$(_ 'Battery')</span>
 					$(grep "^battery type" $dev/info | sed 's/.*: *//')
 					$(grep "^design capacity:" $dev/info | sed 's/.*: *//') </td>
 				<td>$(_ 'health') $(( (100*$full)/$design))%</td>
@@ -315,7 +315,7 @@ EOT
 
 		# Thermal sensors
 		if [ -n "$(ls /sys/devices/virtual/thermal/*/temp 2>/dev/null)" ]; then
-			echo "<p><span data-icon=\"temperature\">$(_ 'Temperature:')</span>"
+			echo "<p><span data-icon=\"@temperature@\">$(_ 'Temperature:')</span>"
 			for temp in /sys/devices/virtual/thermal/*/temp; do
 				awk '{ print $1/1000 "℃" }' < $temp
 			done
@@ -330,7 +330,7 @@ EOT
 				name=$(echo $dev | sed 's|.*/backlight/\([^/]*\).*|\1|')
 				cat <<EOT
 <input type="hidden" name="dev" value="$name"/>
-<span data-icon="brightness">$(_ 'Brightness')</span> \
+<span data-icon="@brightness@">$(_ 'Brightness')</span> \
 $(sed 's/.*\.//;s/_*$//' < /sys/devices/virtual/backlight/$name/device/path):
 <select name="brightness" onchange="submit();">
 EOT
@@ -424,14 +424,14 @@ EOT
 			size="$(blk2h $(cat /sys/block/${fs#/dev/}/size /sys/block/*/${fs#/dev/}/size))"
 
 			# image
-			disktype="hdd"
+			disktype="@hdd@"
 			case "$(cat /sys/block/${fs#/dev/}/removable 2>/dev/null ||
 				cat /sys/block/${fs:5:3}/removable 2>/dev/null)" in
-			1) disktype="removable" ;;
+			1) disktype="@removable@" ;;
 			esac
 			case "$(cat /sys/block/${fs#/dev/}/ro 2>/dev/null ||
 				cat /sys/block/${fs:5:3}/ro 2>/dev/null)" in
-			1) disktype="cd" ;;
+			1) disktype="@cd@" ;;
 			esac
 
 			radio="<input type=\"radio\" name=\"device\" value=\"$action $fs\" id=\"${fs#/dev/}\"/>"
@@ -551,7 +551,7 @@ for devloop in $(ls /dev/*loop[0-9]*); do
 	set -- "${3:-$(cat $dir/loop/backing_file)}" "${2:-$(cat $dir/loop/offset)}" ${ro// /&nbsp;}
 	cat <<EOT
 				<tr><td><input type="radio" name="loopdev" value="$devloop" id="$loop"/><!--
-					--><label for="$loop" data-icon="loopback">$loop</label></td>
+					--><label for="$loop" data-icon="@loopback@">$loop</label></td>
 					<td>$1</td><td>$size</td><td align="center">$3</td><td align="right">$2</td>
 				</tr>
 EOT
@@ -564,7 +564,7 @@ done
 $(lib crypto input)
 
 		<footer>
-			<button type="submit" data-icon="ok">$(_ 'Setup')</button> -
+			<button type="submit" data-icon="@ok@">$(_ 'Setup')</button> -
 			$(_ 'new backing file:') <input type="text" name="backingfile"/> -
 			$(_ 'offset in bytes:') <input type="text" name="offset" value="0" size="8"/> -
 			<input type="checkbox" name="readonly" id="ro"/><label for="ro">$(_ 'read only')</label>

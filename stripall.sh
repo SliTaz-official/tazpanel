@@ -5,8 +5,6 @@
 
 
 substitute_icons() {
-	grep -q 'data-icon="\|data-img"' $1 || return
-
 	# Customize sed script
 	cp "$sed_script" "$sed_script.do"
 	sed -i "s|@@@|$1|" "$sed_script.do"
@@ -44,8 +42,7 @@ substitute_icons() {
 	msg				\n	msgerr			\n	msgwarn			\n	msgup	
 	msgtip			\n	vpn				\n	floppy			\n	folder	" | \
 	while read icon symbol; do
-		echo -n "s|data-icon=\"$icon\"|data-icon=\"$symbol\"|g; " >> "$sed_script"
-		echo -n "s|data-img=\"$icon\"|data-img=\"$symbol\"|g; " >> "$sed_script"
+		echo -n "s|@$icon@|$symbol|g; " >> "$sed_script"
 	done
 	echo "' @@@" >> "$sed_script"
 
@@ -56,20 +53,33 @@ echo -e "\nStrip shell scripts"
 for CGI in *.cgi tazpanel libtazpanel bootloader *.html; do
 	echo "Processing $CGI"
 
-	mv $CGI $CGI.old
-	# Copy initial comment (down to empty line)
-	sed '1,/^$/!d' $CGI.old > $CGI
-	# Remove initial tabs, other comments and empty lines
-	sed 's|^[\t ]*||;/^#/d;/^$/d' $CGI.old >> $CGI
-	rm $CGI.old
+	case $CGI in
+		tazpanel.*.html)
+			# doc/tazpanel.*.html
+			substitute_icons $CGI
+			if [ -n "$(which tidy)" ]; then
+				tidy  -m  -q  -w 0  -utf8  --show-body-only y  --quote-nbsp n  $CGI
+			else
+				sed -i 's|[ 	][ 	]*| |g; s|^ ||' $CGI
+			fi
+			;;
+		*)
+			mv $CGI $CGI.old
+			# Copy initial comment (down to empty line)
+			sed '1,/^$/!d' $CGI.old > $CGI
+			# Remove initial tabs, other comments and empty lines
+			sed 's|^[\t ]*||;/^#/d;/^$/d' $CGI.old >> $CGI
+			rm $CGI.old
 
-	substitute_icons $CGI
+			substitute_icons $CGI
 
-	sed -i 's|" *>|">|g' $CGI
-	sed -i "s|' *)|')|g" $CGI
-	sed -i 's| *;;|;;|g' $CGI
+			sed -i 's|" *>|">|g' $CGI
+			sed -i "s|' *)|')|g" $CGI
+			sed -i 's| *;;|;;|g' $CGI
 
-	chmod a+x $CGI
+			chmod a+x $CGI
+			;;
+	esac
 
 done
 
@@ -96,6 +106,7 @@ echo -e "\n\nStrip JS scripts"
 for JS in *.js; do
 	echo -en "\nProcessing $JS"
 
+	substitute_icons $JS
 	sed -i 's|^[\t ]*||; /^$/d; /^\/\//d; /console\./d' $JS
 
 	# Try "jsmin"

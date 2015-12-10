@@ -34,7 +34,7 @@ file_is_modified() {
 				diff -abu $tmp$1 $1 | sed "s|$tmp||"
 				rm -rf $tmp;;
 			button)
-				echo -n '<button name="action" value="diff" data-icon="diff">'$(_ 'Differences')'</button>';;
+				echo -n '<button name="action" value="diff" data-icon="@diff@">'$(_ 'Differences')'</button>';;
 		esac
 		break
 	done
@@ -44,7 +44,7 @@ file_is_modified() {
 # OK status in table
 
 ok_status_t() {
-	echo '<td><span class="diff-add" data-img="ok"></span></td></tr>'
+	echo '<td><span class="diff-add" data-img="@ok@"></span></td></tr>'
 }
 
 
@@ -180,10 +180,10 @@ EOT
 				cat <<EOT
 <section>
 	<header>
-		<span data-icon="edit">${title:-$file}</span>
+		<span data-icon="@edit@">${title:-$file}</span>
 		<form id="editform" method="post" action="?file=$file">
-			<button data-icon="save">$(_ 'Save')</button>
-			<button name="action" value="diff" data-icon="diff">$(_ 'Differences')</button>
+			<button data-icon="@save@">$(_ 'Save')</button>
+			<button name="action" value="diff" data-icon="@diff@">$(_ 'Differences')</button>
 		</form>
 		$(back_button)
 	</header>
@@ -202,7 +202,7 @@ EOT
 	<form method="post" action="?file=$file" class="nogap">
 		<input type="hidden" name="var" value="$(GET var)">
 		<input type="text" name="content" value="${data:-$(GET default)}">
-		<button type="submit" data-icon="save">$(_ 'Save')</button>
+		<button type="submit" data-icon="@save@">$(_ 'Save')</button>
 	</form>
 </section>
 EOT
@@ -232,16 +232,16 @@ EOT
 			cat <<EOT
 <section class="bigNoScrollable">
 	<header>
-		<span data-icon="text">${title:-$file}</span>
+		<span data-icon="@text@">${title:-$file}</span>
 EOT
 			if [ -w "$file" ]; then
 				cat <<EOT
 		<form>
 			<input type="hidden" name="file" value="$file"/>
 			<button onclick='editFile(); return false' id="edit_button" 
-				data-icon="edit">$(_ 'Edit')</button><!--
+				data-icon="@edit@">$(_ 'Edit')</button><!--
 			--><button onclick='saveFile("$file", "$title"); return false' id="save_button" 
-				data-icon="save" style="display:none">$(_ 'Save')</button><!--
+				data-icon="@save@" style="display:none">$(_ 'Save')</button><!--
 			-->$(file_is_modified $file button)
 		</form>
 EOT
@@ -312,7 +312,7 @@ EOT
 <section>
 	<header>
 		$(_ 'History')
-		<form><button name="terminal" data-icon="terminal">$(_ 'Back')</button></form>
+		<form><button name="terminal" data-icon="@terminal@">$(_ 'Back')</button></form>
 	</header>
 	<form>
 		<input type="hidden" name="path" value="$path"/>
@@ -326,7 +326,7 @@ BEGIN { num = 1; }
 	cmd = $0;
 	gsub("%",  "%25", cmd); gsub("+",  "%2B", cmd); gsub(" ",    "+",   cmd);
 	gsub("\"", "%22", cmd); gsub("!",  "%21", cmd); gsub(q, "%27", cmd);
-	printf("<a data-icon=\"run\" href=\"?cmd=%s&path=%s\">%s</a> ", cmd, path, run);
+	printf("<a data-icon=\"@run@\" href=\"?cmd=%s&path=%s\">%s</a> ", cmd, path, run);
 	printf("<input type=\"checkbox\" name=\"rm\" value=\"%d\" id=\"hist%d\">", num, num);
 	printf("<label for=\"hist%d\">%s</label>\n", num, $0);
 	num++;
@@ -335,7 +335,7 @@ BEGIN { num = 1; }
 			cat <<EOT
 		</pre>
 		<footer>
-			<button name="rmhistory" data-icon="remove">$(_ 'Clear')</button>
+			<button name="rmhistory" data-icon="@remove@">$(_ 'Clear')</button>
 		</footer>
 	</form>
 </section>
@@ -395,8 +395,8 @@ EOT
 </section>
 
 <form>
-	<button name="termsettings" data-icon="settings">$(_ 'Settings')</button>
-	<button name="cmd" value="history" data-icon="history">$(_ 'History')</button>
+	<button name="termsettings" data-icon="@settings@">$(_ 'Settings')</button>
+	<button name="cmd" value="history" data-icon="@history@">$(_ 'History')</button>
 </form>
 
 <script type="text/javascript">
@@ -467,7 +467,7 @@ EOT
 	<header>
 		$(_ 'Terminal settings')
 		<form>
-			<button name="terminal" data-icon="terminal">$(_ 'Terminal')</button>
+			<button name="terminal" data-icon="@terminal@">$(_ 'Terminal')</button>
 		</form>
 	</header>
 	<pre class="term $pal" style="height: auto; font-family: '$font'">
@@ -500,7 +500,7 @@ $(
 				printf("<option value=\"%s\"%s>%s</option>\n", $0, ($0 == pal)?" selected":"", $0)
 				}')
 			</select>
-			<button name="termsettings" data-icon="ok">$(_ 'Apply')</button>
+			<button name="termsettings" data-icon="@ok@">$(_ 'Apply')</button>
 		</form>
 	</footer>
 </section>
@@ -546,7 +546,7 @@ EOT
 		$(ps auxww | sed "/^ *$curpid /!d")
 		<form>
 		<input type="hidden" name="top"/>
-		<button type="submit" data-icon="remove" name="kill" value="$curpid">$(_ 'Kill')</button>
+		<button type="submit" data-icon="@remove@" name="kill" value="$curpid">$(_ 'Kill')</button>
 		</form>
 	</header>
 <form>
@@ -788,7 +788,7 @@ EOT
 		</tbody>
 	</table>
 	<footer>
-		<form><button name="file" value="$output" data-icon="view">$(_ 'View')</button></form>
+		<form><button name="file" value="$output" data-icon="@view@">$(_ 'View')</button></form>
 	</footer>
 </section>
 
@@ -810,9 +810,9 @@ EOT
 
 		cat <<EOT
 <form class="nogap"><!--
-	--><button name="terminal" data-icon="terminal">$(_ 'Terminal')</button><!--
-	--><button name="top"      data-icon="proc"    >$(_ 'Process activity')</button><!--
-	--><button name="report"   data-icon="report"  data-root>$(_ 'Create a report')</button><!--
+	--><button name="terminal" data-icon="@terminal@">$(_ 'Terminal')</button><!--
+	--><button name="top"      data-icon="@proc@">$(_ 'Process activity')</button><!--
+	--><button name="report"   data-icon="@report@" data-root>$(_ 'Create a report')</button><!--
 --></form>
 
 <section>
@@ -839,7 +839,7 @@ EOT
 	<header>
 		$(_ 'Network status')
 		<form action="network.cgi">
-			<button data-icon="wifi">$(_ 'Network')</button>
+			<button data-icon="@wifi@">$(_ 'Network')</button>
 		</form>
 	</header>
 	$(list_network_interfaces)
@@ -850,7 +850,7 @@ EOT
 	<header>
 		$(_ 'Filesystem usage statistics')
 		<form action="hardware.cgi">
-			<button data-icon="hdd">$(_ 'Disks')</button>
+			<button data-icon="@hdd@">$(_ 'Disks')</button>
 		</form>
 	</header>
 	<table class="wide zebra center">
@@ -861,7 +861,7 @@ EOT
 		df -h | grep ^/dev | while read fs size used av pct mp; do
 				cat <<EOT
 			<tr>
-				<td><span data-icon="hdd">${fs#/dev/}</span></td>
+				<td><span data-icon="@hdd@">${fs#/dev/}</span></td>
 				<td>$(blkid $fs | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/\1/')</td>
 				<td>$(blkid $fs | sed '/TYPE=/!d;s/.*TYPE="\([^"]*\).*/\1/')</td>
 				<td>$size</td>
@@ -884,7 +884,7 @@ EOT
 	<header>
 		$(_ 'Panel Activity')
 		<form>
-			<button name="file" value="$LOG_FILE" data-icon="view">$(_ 'View')</button>
+			<button name="file" value="$LOG_FILE" data-icon="@view@">$(_ 'View')</button>
 		</form>
 	</header>
 	<div>

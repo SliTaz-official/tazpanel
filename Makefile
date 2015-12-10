@@ -15,7 +15,7 @@ all: msgfmt
 	cp -a *.cgi bootloader tazpanel \
 		lib/libtazpanel lib/*.js \
 		styles/default/*.html styles/default/*.css \
-		build
+		doc/tazpanel.*.html build
 	./stripall.sh
 
 # i18n
@@ -54,12 +54,15 @@ install:
 		$(DESTDIR)$(PANEL)/menu.d \
 		$(DESTDIR)/var/log \
 		$(DESTDIR)$(PANEL)/lib \
-		$(DESTDIR)$(PANEL)/styles/default
+		$(DESTDIR)$(PANEL)/styles/default \
+		$(DESTDIR)$(PANEL)/doc
 
 	cp -a build/tazpanel $(DESTDIR)$(PREFIX)/bin
 	-[ "$(VERSION)" ] && sed -i 's/^VERSION=[0-9].*/VERSION=$(VERSION)/' $(DESTDIR)$(PREFIX)/bin/tazpanel
 
-	cp -a doc/ README README.html $(DESTDIR)$(PANEL)
+	cp -a README README.html $(DESTDIR)$(PANEL)
+	cp -a build/tazpanel.*.html $(DESTDIR)$(PANEL)/doc
+	ln -sf tazpanel.en.html $(DESTDIR)$(PANEL)/doc/tazpanel.html
 	cp -a build/libtazpanel build/gz/*.js.gz $(DESTDIR)$(PANEL)/lib
 	cp -a build/gz/*.css.gz build/*.html styles/default/*.ico styles/default/*.ttf $(DESTDIR)$(PANEL)/styles/default
 

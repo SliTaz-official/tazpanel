@@ -17,104 +17,76 @@ xhtml_header 'Show icons and styles'
 cat <<EOT
 
 <section>
-	<header><span data-img="info"></span>Buttons with font icons</header>
-<!--
---><button data-icon="add"        >Add        </button><button data-icon="admin"   >Admin   </button><!--
---><button data-icon="back"       >Back       </button><button data-icon="battery" >Battery </button><!--
---><button data-icon="brightness" >Brightness </button><button data-icon="cancel"  >Cancel  </button><!--
---><button data-icon="cd"         >CD         </button><button data-icon="check"   >Check   </button><!--
---><button data-icon="clock"      >Clock      </button><button data-icon="conf"    >Conf    </button><!--
---><button data-icon="daemons"    >Daemons    </button><button data-icon="delete"  >Delete  </button><!--
---><button data-icon="detect"     >Detect     </button><button data-icon="diff"    >Diff    </button><!--
---><button data-icon="download"   >Download   </button><button data-icon="edit"    >Edit    </button><!--
---><button data-icon="eth"        >Eth        </button><button data-icon="group"   >Group   </button><!--
---><button data-icon="grub"       >GRUB       </button><button data-icon="hdd"     >HDD     </button><!--
---><button data-icon="help"       >Help       </button><button data-icon="history" >History </button><!--
---><button data-icon="info"       >Info       </button><button data-icon="install" >Install </button><!--
---><button data-icon="link"       >Link       </button><button data-icon="list"    >List    </button><!--
---><button data-icon="locale"     >Locale     </button><button data-icon="lock"    >Lock    </button><!--
---><button data-icon="logs"       >Logs       </button><button data-icon="loopback">Loopback</button><!--
---><button data-icon="man"        >Man        </button><button data-icon="modules" >Modules </button><!--
---><button data-icon="off"        >Off        </button><button data-icon="ok"      >OK      </button><!--
---><button data-icon="on"         >On         </button><button data-icon="opt"     >Opt     </button><!--
---><button data-icon="proc"       >Proc       </button><button data-icon="refresh" >Refresh </button><!--
---><button data-icon="removable"  >Removable  </button><button data-icon="remove"  >Remove  </button><!--
---><button data-icon="repack"     >Repack     </button><button data-icon="report"  >Report  </button><!--
---><button data-icon="restart"    >Restart    </button><button data-icon="run"     >Run     </button><!--
---><button data-icon="save"       >Save       </button><button data-icon="scan"    >Scan    </button><!--
---><button data-icon="settings"   >Settings   </button><button data-icon="slitaz"  >SliTaz  </button><!--
---><button data-icon="start"      >Start      </button><button data-icon="stop"    >Stop    </button><!--
---><button data-icon="sync"       >Sync       </button><button data-icon="tags"    >Tags    </button><!--
---><button data-icon="tag"        >Tag        </button><button data-icon="tazx"    >TazX    </button><!--
---><button data-icon="temperature">Temperature</button><button data-icon="terminal">Terminal</button><!--
---><button data-icon="text"       >Text       </button><button data-icon="unlink"  >Unlink  </button><!--
---><button data-icon="unlock"     >Unlock     </button><button data-icon="upgrade" >Upgrade </button><!--
---><button data-icon="user"       >User       </button><button data-icon="view"    >View    </button><!--
---><button data-icon="web"        >Web        </button><button data-icon="wifi"    >Wi-Fi   </button><!--
---><button data-icon="toggle"     >Toggle     </button><button data-icon="chlock"  >ChLock  </button><!--
---><button data-icon="calendar"   >Calendar   </button><button data-icon="modem"   >Modem   </button><!--
---><button data-icon="vpn"        >VPN        </button><button data-icon="display" >Display </button><!--
---><button data-icon="cpu"        >CPU        </button><button data-icon="floppy"  >Floppy  </button><!--
---><button data-icon="folder"     >Folder     </button>
+	<header><span data-img="@info@"></span>Buttons with font icons</header>
+EOT
+
+icons="@add@:add @admin@:admin @back@:back @battery@:battery @brightness@:brightness \
+@cancel@:cancel @cd@:cd @check@:check @clock@:clock @conf@:conf @daemons@:daemons @delete@:delete \
+@detect@:detect @diff@:diff @download@:download @edit@:edit @eth@:eth @group@:group @grub@:grub \
+@hdd@:hdd @help@:help @history@:history @info@:info @install@:install @link@:link @list@:list \
+@locale@:locale @lock@:lock @logs@:logs @loopback@:loopback @man@:man @modules@:modules @off@:off \
+@ok@:ok @on@:on @opt@:opt @proc@:proc @refresh@:refresh @removable@:removable @remove@:remove \
+@repack@:repack @report@:report @restart@:restart @run@:run @save@:save @scan@:scan \
+@settings@:settings @slitaz@:slitaz @start@:start @stop@:stop @sync@:sync @tags@:tags @tag@:tag \
+@tazx@:tazx @temperature@:temperature @terminal@:terminal @text@:text @unlink@:unlink \
+@unlock@:unlock @upgrade@:upgrade @user@:user @view@:view @web@:web @wifi@:wifi @toggle@:toggle \
+@chlock@:chlock @calendar@:calendar @modem@:modem @vpn@:vpn @display@:display @cpu@:cpu \
+@floppy@:floppy @folder@:folder"
+
+echo "$icons" | \
+awk 'BEGIN{RS=" "; FS=":"} {
+	printf "<button data-icon=\"%s\">%s</button>", $1, $2;
+}'
+
+cat <<EOT
 </section>
 
 
 <section>
-	<header><span data-img="link"></span>Links with font icons</header>
+	<header><span data-img="@link@"></span>Links with font icons</header>
 	<div>
 <p>
-<a data-icon="add"        >Add        </a> <a data-icon="admin"     >Admin     </a> <a data-icon="back"     >Back     </a>
-<a data-icon="battery"    >Battery    </a> <a data-icon="brightness">Brightness</a> <a data-icon="cancel"   >Cancel   </a>
-<a data-icon="cd"         >CD         </a> <a data-icon="check"     >Check     </a> <a data-icon="clock"    >Clock    </a>
-<a data-icon="conf"       >Conf       </a> <a data-icon="daemons"   >Daemons   </a> <a data-icon="delete"   >Delete   </a>
-<a data-icon="detect"     >Detect     </a> <a data-icon="diff"      >Diff      </a> <a data-icon="download" >Download </a>
-<a data-icon="edit"       >Edit       </a> <a data-icon="eth"       >Eth       </a> <a data-icon="group"    >Group    </a>
-<a data-icon="grub"       >GRUB       </a> <a data-icon="hdd"       >HDD       </a> <a data-icon="help"     >Help     </a>
-<a data-icon="history"    >History    </a> <a data-icon="info"      >Info      </a> <a data-icon="install"  >Install  </a>
-<a data-icon="link"       >Link       </a> <a data-icon="list"      >List      </a> <a data-icon="locale"   >Locale   </a>
-<a data-icon="lock"       >Lock       </a> <a data-icon="logs"      >Logs      </a> <a data-icon="loopback" >Loopback </a>
-<a data-icon="man"        >Man        </a> <a data-icon="modules"   >Modules   </a> <a data-icon="off"      >Off      </a>
-<a data-icon="ok"         >OK         </a> <a data-icon="on"        >On        </a> <a data-icon="opt"      >Opt      </a>
-<a data-icon="proc"       >Proc       </a> <a data-icon="refresh"   >Refresh   </a> <a data-icon="removable">Removable</a>
-<a data-icon="remove"     >Remove     </a> <a data-icon="repack"    >Repack    </a> <a data-icon="report"   >Report   </a>
-<a data-icon="restart"    >Restart    </a> <a data-icon="run"       >Run       </a> <a data-icon="save"     >Save     </a>
-<a data-icon="scan"       >Scan       </a> <a data-icon="settings"  >Settings  </a> <a data-icon="slitaz"   >SliTaz   </a>
-<a data-icon="start"      >Start      </a> <a data-icon="stop"      >Stop      </a> <a data-icon="sync"     >Sync     </a>
-<a data-icon="tags"       >Tags       </a> <a data-icon="tag"       >Tag       </a> <a data-icon="tazx"     >TazX     </a>
-<a data-icon="temperature">Temperature</a> <a data-icon="terminal"  >Terminal  </a> <a data-icon="text"     >Text     </a>
-<a data-icon="unlink"     >Unlink     </a> <a data-icon="unlock"    >Unlock    </a> <a data-icon="upgrade"  >Upgrade  </a>
-<a data-icon="user"       >User       </a> <a data-icon="view"      >View      </a> <a data-icon="web"      >Web      </a>
-<a data-icon="wifi"       >Wi-Fi      </a> <a data-icon="floppy"    >Floppy    </a> <a data-icon="folder"   >Folder   </a>
+EOT
+
+echo "$icons" | \
+awk 'BEGIN{RS=" "; FS=":"} {
+	printf "<a data-icon=\"%s\" href=\"#\">%s</a> ", $1, $2;
+}'
+
+cat <<EOT
 </p>
 	</div>
 </section>
 
 
 <section>
-	<header><span data-img="view"></span>Links with font icons only (small buttons)</header>
+	<header><span data-img="@view@"></span>Links with font icons only (small buttons)</header>
 	<p>
-<a data-img="conf"   href="#"></a>Conf   <a data-img="help" href="#"></a>Help <a data-img="man"  href="#"></a>Man
-<a data-img="off"    href="#"></a>Off    <a data-img="on"   href="#"></a>On   <a data-img="opt"  href="#"></a>Opt
-<a data-img="remove" href="#"></a>Remove <a data-img="run"  href="#"></a>Run  <a data-img="stop" href="#"></a>Stop
-<a data-img="web"    href="#"></a>Web    <a data-img="slitaz" href="#"></a>SliTaz <a data-img="user" href="#"></a>User
-<a data-img="floppy" href="#"></a>Floppy <a data-img="folder" href="#"></a>Folder
+EOT
+
+echo "$icons" | \
+awk 'BEGIN{RS=" "; FS=":"} {
+	printf "<a data-img=\"%s\" href=\"#\"></a>%s ", $1, $2;
+}'
+
+cat <<EOT
 	</p>
 </section>
 
 
 <section>
-	<header><span data-img="sechi"></span>Status icons</header>
+	<header><span data-img="@sechi@"></span>Status icons</header>
 	<div>
-<span data-icon="lvl0">lvl0</span> <span data-icon="lvl1">lvl1</span> <span data-icon="lvl2">lvl2</span>
-<span data-icon="lvl3">lvl3</span> <span data-icon="lvl4">lvl4, lvl5</span>
-<span data-icon="online">online</span> <span data-icon="offline">offline</span>
-<span data-icon="sechi">sechi</span> <span data-icon="secmi">secmi</span> <span data-icon="seclo">seclo</span>
-<span data-icon="pkg">pkg</span> <span data-icon="pkgi">pkgi</span> <span data-icon="pkgib">pkgib</span>
+<span data-icon="@lvl0@">lvl0</span> <span data-icon="@lvl1@">lvl1</span> <span data-icon="@lvl2@">lvl2</span>
+<span data-icon="@lvl3@">lvl3</span> <span data-icon="@lvl4@">lvl4, lvl5</span>
+<span data-icon="@online@">online</span> <span data-icon="@offline@">offline</span>
+<span data-icon="@sechi@">sechi</span> <span data-icon="@secmi@">secmi</span> <span data-icon="@seclo@">seclo</span>
+<span data-icon="@pkg@">pkg</span> <span data-icon="@pkgi@">pkgi</span> <span data-icon="@pkgib@">pkgib</span>
 	</div>
 	<div>
-<span data-icon="msg">msg</span> <span data-icon="msgerr">msgerr</span>
-<span data-icon="msgwarn">msgwarn</span> <span data-icon="msgup">msgup</span>
-<span data-icon="msgtip">msgtip</span>
+<span data-icon="@msg@">msg</span> <span data-icon="@msgerr@">msgerr</span>
+<span data-icon="@msgwarn@">msgwarn</span> <span data-icon="@msgup@">msgup</span>
+<span data-icon="@msgtip@">msgtip</span>
 	</div>
 </section>
 
@@ -144,7 +116,7 @@ cat <<EOT
 
 
 <section>
-	<header><span data-img="check"></span>User input elements</header>
+	<header><span data-img="@check@"></span>User input elements</header>
 	<div><form>
 	<table>
 		<tr><td>Text:</td>
@@ -154,7 +126,7 @@ cat <<EOT
 			<td><input type="password" placeholder="Password"/></td>
 		</tr>
 		<tr><td>Button:</td>
-			<td><input type="button" value="Button" data-icon="ok"/></td>
+			<td><input type="button" value="Button" data-icon="@ok@"/></td>
 		</tr>
 		<tr><td>Checkbox:</td>
 			<td><input type="checkbox" id="chk"/><label for="chk">Check it</label></td>
@@ -175,7 +147,7 @@ cat <<EOT
 		<tr><td>Reset:</td><td><input type="reset"/></td></tr>
 		<tr><td>Submit:</td><td><input type="submit"/></td></tr>
 		<tr><td>Select:</td>
-			<td><select><option data-icon="user">Option 1<option>Option 2<option>Option 3</select></td>
+			<td><select><option data-icon="@user@">Option 1<option>Option 2<option>Option 3</select></td>
 		</tr>
 		<tr><td colspan="2"><b>HTML 5 inputs:</b></td></tr>
 		<tr><td>Search:</td><td><input type="search" results="5" autosave="pkgsearch" autocomplete="on"/></td></tr>
