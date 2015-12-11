@@ -1,0 +1,172 @@
+TazPanel icons
+==============
+
+The default TazPanel theme includes monochrome icons. Currently, there is no
+other themes (note, 'sandfive' theme designed for TazPanel in SliTaz-4.0).
+
+
+Add an icon to the element
+--------------------------
+
+To add an ordinary png icon to the button, link, span or any other item, we can
+use the following technique:
+
+  1. In the HTML source code we add custom 'data-icon' attribute to the element:
+
+        <button data-icon="slitaz">Continue...</button>
+
+  2. In the CSS we assign an icon for the item:
+
+        [data-icon="slitaz"]::before {
+            content: url('images/slitaz.png');
+        }
+
+You will see the 'images/slitaz.png' icon in the button to the left of its
+label.
+
+We can use 'data-img' attribute in addition to the 'data-icon' when we need
+**only** image without label:
+
+    <a href="?back" data-img="back"></a>
+
+    [data-img="back"]:: before {
+        content: url('images/back.png');
+    }
+
+
+Iconic font
+-----------
+
+It was designed font that contains all the icons needed for TazPanel and all its
+scripts. If necessary, the font can be expanded with new icons. All available
+icons are in [Private Use Area]
+(<https://en.wikipedia.org/wiki/Private_Use_Areas>), starting from U+F100.
+
+To view the icons you can use `gucharmap`:
+
+  1. Select font 'TazPanel'.
+  2. Click menu View - By Unicode Block.
+  3. Click menu View - Show only glyphs from this font.
+  4. In the 'Unicode Block' select 'Private Use Area'.
+  5. Scroll right pane up to U+F100.
+
+(Starting from U+F200 you'll see additional font elements used to combine with
+some font icons.)
+
+Now we can change our CSS rules to display icons from our font:
+
+    @font-face {
+        font-family: TazPanelWeb;
+        src: url('/styles/default/tazpanel.ttf');
+    }
+    [data-icon]:before, [data-img] {
+        vertical-align: baseline;
+        padding: 0;
+        margin: 0;
+        font-size: 1.2em;
+        font-family: TazPanelWeb;
+    }
+    [data-img="back"]:: before {
+        content: '\f102';
+    }
+
+In the first rule we defined web-font we name 'TazPanelWeb' and use it in the
+second rule. In the third rule we print 'back' icon using its Unicode number.
+
+**First pitfall:** not all web browsers can display web fonts :-( Solution: make
+our web-font system-wide available via putting it to the `/usr/share/fonts/` and
+forge our second rule a bit:
+
+    [data-icon]:before, [data-img] {
+        . . .
+        font-family: TazPanel, TazPanelWeb;
+    }
+
+
+Ligatures
+---------
+
+Fortunately, we can use [ligatures]
+(https://en.wikipedia.org/wiki/Typographic_ligature#Stylistic_ligatures) in our
+font and considerably simplify the CSS rules. One rule for all data-icons:
+
+    [data-icon]::before {
+        content: attr(data-icon);
+    }
+
+For example, for `data-icon="back"` we just type word "back" using our web-font,
+and font rendering application automatically changed word "back" into icon
+"back" (U+F102) and we see icon.
+
+**Second pitfall:** Opera web browser used original Presto engine not supported
+font ligatures. Solutions: at first package "tazpanel-ttf-css" was created, that
+added CSS rules to use with the Opera web browser. Then we have been made the
+global replacement throughout TazPanel code and code of its applets:
+
+  1. For example, where we need 'back' icon, we mark it in the TazPanel sources:
+     `@back@`.
+  2. When we `make` tazpanel package, special script `stripall.sh` changes all
+     the `@icon@` entries to the Unicode symbols representing icon itself.
+
+Sources are available in the [repository](http://hg.slitaz.org/tazpanel), and
+compiled scripts you can see in your SliTaz in `/var/www/tazpanel/`.
+
+We have some colors in the icons: for example, `cancel`, `remove`, and `delete`
+icons are red, while `ok` is green. Note that because CSS rules change at
+"compile" time, the icon color will be appointed by its Unicode value; you need
+to use `stripall.sh` on your TazPanel applets too to change "ligatures" values
+into icon symbol itself, or you'll lose colors.
+
+
+Font development
+----------------
+
+To develop icon font you need FontForge and Inkscape (both are available in our
+repository). You can draw your icons or grab few free icons from the place like
+[Fontello](http://fontello.com/).
+
+My workflow:
+
+  1. Open icon font (probably, saved from Fontello) in FontForge, and export
+     icon you need into SVG file.
+  2. Open SVG in Inkscape (it is more suitable for editing vectors).
+  3. Change icon:
+     * Make sure the canvas is 1024x1024, scale your icon if need;
+     * Simplify curves, remove excess points;
+     * Snap straight elements to the 16x16 grid (for best icon look while icon
+       is displayed in 16x16px size in the most cases).
+  4. Save SVG and import it into web font using FontForge (note, [TrueType uses
+     quadratic Bézier splines](https://fontforge.github.io/bezier.html), while
+     Inkscape uses cubic Bézier splines, so your curves are changed after you
+     export SVG into TTF).
+  5. Save web font as TTF.
+  6. Don't forget to add your new icon into `test.cgi` to see how it looks in
+     the TazPanel interface.
+
+TazPanel font sources are now available among other TazPanel stuff.
+
+
+Regular icons theme development
+-------------------------------
+
+You can create your own TazPanel theme with the png icons.
+Let name it "colorful".
+
+  1. Make new folder `/var/www/tazpanel/styles/colorful`.
+  2. Copy all stuff from default TazPanel theme:
+
+         cp /var/www/tazpanel/styles/default/* /var/www/tazpanel/styles/colorful
+
+  3. Put your icons into sub-folder (for example, `icons`).
+  4. Edit CSS styles relating to the icons in the `base.css` and `tweaks.css`:
+     change all the CSS rules with "data-icon" or "data-img" to your rules as it
+     was shown before:
+
+         [data-icon="back"]::before, [data-img="back"]::before {
+             content: url('icons/back.png');
+         }
+
+     And so on.
+  5. Change icon theme to 'colorful' inside the TazPanel and open test.cgi
+     (available in the "tazpanel-extra" package): <http://tazpanel:82/test.cgi>
+  6. Share your theme with other SliTaz users :-)
