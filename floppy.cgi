@@ -212,7 +212,7 @@ cat <<EOT
 		</tr>
 		<tr>
 			<td>$(_ 'Output directory:')</td>
-			<td id="workdir"><input name="workdir" size="36" type="text" value="$OUTPUTDIR"></td>
+			<td>$(dir_chooser "workdir" "$OUTPUTDIR")</td>
 		</tr>
 		<tr>
 			<td>$(_ 'Floppy size:')</td>
