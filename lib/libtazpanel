@@ -414,7 +414,7 @@ file_chooser() {
 	id="input$RANDOM"
 	cat <<EOT
 <span id="$id"><input type="text" name="$1" ${2:+value="$2" }/></span>\
-<button data-icon="${3:-@conf@}" onclick="ajax('index.cgi?do=file-selection&amp;name=$name&amp;type=$4', '1', '$id'); return false">\
+<button data-icon="${3:-@conf@}" onclick="ajax('index.cgi?do=file-selection&amp;name=$1&amp;type=$4', '1', '$id'); return false">\
 $(_n 'Browse')</button>
 EOT
 }

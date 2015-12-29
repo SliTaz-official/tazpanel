@@ -82,8 +82,8 @@ EOT
 
 		applet=${1:-index}
 		case $1 in
-			*#*) url="http://127.0.0.1:82/${applet%%#*}.cgi?${applet#*#}&guiuser=$(id -un)";;
-			*)   url="http://127.0.0.1:82/$applet.cgi?guiuser=$(id -un)";;
+			*#*) url="http://127.0.0.1:$HTTPD_PORT/${applet%%#*}.cgi?${applet#*#}&guiuser=$(id -un)";;
+			*)   url="http://127.0.0.1:$HTTPD_PORT/$applet.cgi?guiuser=$(id -un)";;
 		esac
 		echo "$url"
 
