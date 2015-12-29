@@ -15,11 +15,11 @@ _n() { local T="$1"; shift; printf "$(gettext "$T")" "$@"; }
 
 
 GUI_USER=nobody
-[ "$HTTP_HOST" == "127.0.0.1:82" ] &&
+[ "${HTTP_HOST/:*/:}" == "127.0.0.1:" ] &&
 for i in "$HTTP_COOKIE" "$QUERY_STRING" ; do
 	v="$(echo "$i" | sed '/guiuser=/!d;s/.*guiuser=\([A-Za-z0-9_]*\).*/\1/')"
 	[ "$v" ] || continue
-	busybox ps | sed '/d;/d;/127\.0\.0\.1:82/!d' | grep -q " $v " || continue
+	busybox ps | sed '/d;/d;/127\.0\.0\.1:/!d' | grep -q " $v " || continue
 	GUI_USER="$v"
 done
 [ "$(id -un)" == "${REMOTE_USER:=$GUI_USER}" ] || exec su -s /bin/sh -c "$(realpath $0) $@" $REMOTE_USER
