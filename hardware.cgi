@@ -63,7 +63,7 @@ EOT
 		echo "<tr><td>$b</td><td>${d%:}</td><td><a href=\"?lsusb=$id"
 		p=$(printf "class/usb_device/usbdev%d.%d" $b ${d%:})
 		grep -qs 0 /sys/$p/device/authorized && id="<del>$id</del>"
-		echo "\">$id</td><td>${name:-$(sed 's/ .*//' $sys/$p/device/manufacturer) $(cat /sys/$p/device/product)}</td></tr>"
+		echo "\">$id</td><td>${name:-$(sed 's/ .*//' /sys/$p/device/manufacturer) $(cat /sys/$p/device/product)}</td></tr>"
 	done
 	echo "</tbody></table>"
 }
