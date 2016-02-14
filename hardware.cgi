@@ -113,8 +113,8 @@ EOT
 		cat <<EOT
 <p>$(_ 'Detect PCI and USB hardware')</p>
 EOT
-		tazhw detect-pci | sed 's|^>|\&gt;|g'
-		tazhw detect-usb | sed 's|^>|\&gt;|g'
+		tazhw detect-pci | htmlize
+		tazhw detect-usb | htmlize | filter_taztools_msgs
 		;;
 
 
