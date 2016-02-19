@@ -871,7 +871,7 @@ msgstr "Доступна веб-загрузка с gPXE"
 #: boot.cgi:485
 #: styles/default/header.html:86
 msgid "ISO mine"
-msgstr "Создание ISO-образов"
+msgstr "Установка ISO-образов"
 
 #: boot.cgi:383
 msgid "Invalid ISO image."
