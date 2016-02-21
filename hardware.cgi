@@ -37,7 +37,7 @@ lsusb_vd() {
 				case "$j" in
 				descriptors|remove) continue
 				esac
-				printf "%-20s %s\n" $j "$(xargs echo < $j)"
+				awk -vn=$j '{printf "%-20s %s\n",n,$0;n=""}' <$j
 			  done  )
 			break
 		done

@@ -805,7 +805,7 @@ msgstr "Le démarrage réseau est disponible avec gPXE"
 
 #: boot.cgi:381 boot.cgi:485 styles/default/header.html:86
 msgid "ISO mine"
-msgstr "Exploitation d'ISO"
+msgstr "Exploitation de l'image ISO"
 
 #: boot.cgi:383
 msgid "Invalid ISO image."
