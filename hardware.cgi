@@ -407,7 +407,8 @@ EOT
 			# action
 			action="mount"
 			[ -n "$mp" ] && action="umount"
-			type=$(blkid $fs | sed '/TYPE=/!d;s/.* TYPE="\([^"]*\).*/\1/')
+			type=$(blkid $fs | sed '/ TYPE=/!d;s/.* TYPE="\([^"]*\).*/\1/')
+			[ -n "$type" ] || continue
 			[ "$type" == "swap" ] && action="swapon"
 			if grep -q "^$fs " /proc/swaps; then
 				action="swapoff"
