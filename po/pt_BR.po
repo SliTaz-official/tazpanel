@@ -8,14 +8,15 @@ msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-26 05:27+0300\n"
-"PO-Revision-Date: 2014-03-06 22:24-0300\n"
-"Last-Translator: Claudinei Pereira <claudinei@slitaz.org>, 2014\n"
+"PO-Revision-Date: 2016-03-27 03:58-0300\n"
+"Last-Translator: Leonardo Laporte <hackdorte@sapo.pt>\n"
 "Language-Team: Portuguese <i18n@slitaz.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #: tazpanel:54
 msgid "TazPanel is already running."
@@ -63,29 +64,28 @@ msgid "Terminal"
 msgstr "Terminal"
 
 #: index.cgi:246 index.cgi:331
-#, fuzzy
 msgid "History"
-msgstr "Território"
+msgstr "Histórico"
 
 #: index.cgi:247 lib/libtazpanel:361
 msgid "Back"
-msgstr ""
+msgstr "Voltar"
 
 #: index.cgi:254
 msgid "run"
-msgstr ""
+msgstr "executar"
 
 #: index.cgi:270
 msgid "Clear"
-msgstr ""
+msgstr "Claro"
 
 #: index.cgi:294
 msgid "Small non-interactive terminal emulator."
-msgstr ""
+msgstr "Pequeno emulador não interativo de terminal."
 
 #: index.cgi:295
 msgid "Run any command at your own risk, avoid interactive commands (%s)"
-msgstr ""
+msgstr "Execute comandos por seu próprio risco, evite comando interativos (%s)"
 
 #: index.cgi:300
 msgid "Downloading to: %s"
@@ -97,33 +97,31 @@ msgstr "%s necessida de um argumento"
 
 #: index.cgi:312
 msgid "Please, don't run interactive command \"%s\""
-msgstr ""
+msgstr "Por favor, não execute comandos interativos \"%s\""
 
 #: index.cgi:330 styles/default/header.html:101
 msgid "Settings"
 msgstr "Configurações"
 
 #: index.cgi:400
-#, fuzzy
 msgid "Terminal settings"
-msgstr "Configurações do sistema"
+msgstr "Configuração do terminal"
 
 #: index.cgi:421
 msgid "Font:"
-msgstr ""
+msgstr "Font:"
 
 #: index.cgi:423
-#, fuzzy
 msgid "Default"
-msgstr "Entrada padrão:"
+msgstr "Padrão"
 
 #: index.cgi:429
 msgid "Palette:"
-msgstr ""
+msgstr "Paleta:"
 
 #: index.cgi:435
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 #: index.cgi:445 index.cgi:680
 msgid "Process activity"
@@ -206,18 +204,16 @@ msgid "Boot scripts"
 msgstr "Scripts de boot"
 
 #: index.cgi:597
-#, fuzzy
 msgid "Getting package list..."
-msgstr "Obtendo informação do sistema..."
+msgstr "Obtendo lista de pacotes..."
 
 #: index.cgi:600
 msgid "Packages"
-msgstr ""
+msgstr "Pacotes"
 
 #: index.cgi:638
-#, fuzzy
 msgid "Getting extra reports..."
-msgstr "Gerando logs de boot..."
+msgstr "Obtendo relatórios extras..."
 
 #: index.cgi:646
 msgid "Creating report footer..."
@@ -225,7 +221,7 @@ msgstr "Criando rodapé do relatório..."
 
 #: index.cgi:657 index.cgi:753 boot.cgi:499 boot.cgi:501
 msgid "View"
-msgstr ""
+msgstr "Visão"
 
 #: index.cgi:662
 msgid "This report can be attached with a bug report on:"
@@ -246,9 +242,8 @@ msgid "Summary"
 msgstr "Sumário"
 
 #: index.cgi:687 hosts.cgi:203
-#, fuzzy
 msgid "Host:"
-msgstr "Hosts"
+msgstr "Host:"
 
 #: index.cgi:688
 msgid "Uptime:"
@@ -267,9 +262,8 @@ msgid "Linux kernel:"
 msgstr "Kernel Linux:"
 
 #: index.cgi:706
-#, fuzzy
 msgid "Network status"
-msgstr "Status da Rede"
+msgstr "Estado da Rede"
 
 #: index.cgi:708 network.cgi:15 network.cgi:216 hosts.cgi:15
 #: styles/default/header.html:55
@@ -322,11 +316,11 @@ msgstr "Interface"
 
 #: network.cgi:262
 msgid "Static IP"
-msgstr ""
+msgstr "IP Estático"
 
 #: network.cgi:264
 msgid "Use static IP"
-msgstr ""
+msgstr "Use IP estático"
 
 #: network.cgi:266
 msgid "IP address"
@@ -346,32 +340,31 @@ msgstr "Servidor DNS"
 
 #: network.cgi:278 network.cgi:298
 msgid "Wake up"
-msgstr ""
+msgstr "Levantar"
 
 #: network.cgi:280
 msgid "Wake up machines by network"
-msgstr ""
+msgstr "Levantar máquinas pela rede"
 
 #: network.cgi:282
 msgid "MAC address to wake up"
-msgstr ""
+msgstr "Endereço MAC para levantar"
 
 #: network.cgi:283 network.cgi:288
 msgid "Leave empty for a general wakeup"
-msgstr ""
+msgstr "Deixe em branco para levantar geral"
 
 #: network.cgi:284
 msgid "List"
-msgstr ""
+msgstr "Lista"
 
 #: network.cgi:287
-#, fuzzy
 msgid "MAC/IP address password"
-msgstr "Alterar senha"
+msgstr "Senha do MAC/IP"
 
 #: network.cgi:289
 msgid "Help"
-msgstr ""
+msgstr "Ajuda"
 
 #: network.cgi:296 network.cgi:446 network.cgi:639 boot.cgi:284
 msgid "Start"
@@ -395,7 +388,7 @@ msgstr ""
 
 #: network.cgi:339
 msgid "(hidden)"
-msgstr ""
+msgstr "(oculto)"
 
 #: network.cgi:345 hosts.cgi:219 boot.cgi:142 hardware.cgi:57
 #: lib/libtazpanel:171
@@ -404,12 +397,11 @@ msgstr "Nome"
 
 #: network.cgi:346
 msgid "Signal level"
-msgstr ""
+msgstr "Nível do sinal"
 
 #: network.cgi:347
-#, fuzzy
 msgid "Channel"
-msgstr "Alterar"
+msgstr "Canal"
 
 #: network.cgi:348
 msgid "Encryption"
@@ -421,7 +413,7 @@ msgstr "Status"
 
 #: network.cgi:400 network.cgi:482 network.cgi:504
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 #: network.cgi:406
 msgid "Connected"
@@ -444,59 +436,56 @@ msgid "Connection"
 msgstr "Conexão"
 
 #: network.cgi:476
-#, fuzzy
 msgid "Network SSID"
-msgstr "Rede"
+msgstr "SSID da rede"
 
 #: network.cgi:480
 msgid "Security"
-msgstr ""
+msgstr "Segurança"
 
 #: network.cgi:491
 msgid "EAP method"
-msgstr ""
+msgstr "Método EAP"
 
 #: network.cgi:502
 msgid "Phase 2 authentication"
-msgstr ""
+msgstr "Fase de autenticação"
 
 #: network.cgi:514
 msgid "CA certificate"
-msgstr ""
+msgstr "Certificado CA"
 
 #: network.cgi:519
 msgid "User certificate"
-msgstr ""
+msgstr "Certificado de usuário"
 
 #: network.cgi:524
 msgid "Identity"
-msgstr ""
+msgstr "Identidade"
 
 #: network.cgi:529
 msgid "Anonymous identity"
-msgstr ""
+msgstr "Identidade anônima"
 
 #: network.cgi:534
-#, fuzzy
 msgid "Password"
-msgstr "Senha:"
+msgstr "Senha"
 
 #: network.cgi:537
-#, fuzzy
 msgid "Show password"
-msgstr "Nova senha: "
+msgstr "Mostra senha"
 
 #: network.cgi:549 network.cgi:678
 msgid "Configure"
-msgstr "Configuração"
+msgstr "Configurar"
 
 #: network.cgi:550
 msgid "Share"
-msgstr ""
+msgstr "Compartilhar"
 
 #: network.cgi:591
 msgid "Share Wi-Fi network with your friends"
-msgstr ""
+msgstr "Compartilhar rede WI-FI com os amigos"
 
 #: network.cgi:607
 msgid ""
@@ -523,13 +512,12 @@ msgid "Configuration:"
 msgstr "Configuração:"
 
 #: network.cgi:653
-#, fuzzy
 msgid "Network interfaces"
-msgstr "Status da Rede"
+msgstr "Interfaces da rede"
 
 #: network.cgi:660
 msgid "forward packets between interfaces"
-msgstr ""
+msgstr "encaminhar pacotes com as interfaces"
 
 #: network.cgi:662 network.cgi:693 boot.cgi:327 settings.cgi:626
 #: settings.cgi:740
@@ -543,12 +531,12 @@ msgstr "Hosts"
 #: network.cgi:672
 msgid "%d record in the hosts DB"
 msgid_plural "%d records in the hosts DB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d registro no hosts"
+msgstr[1] "%d registros no hosts"
 
 #: network.cgi:679 hosts.cgi:16
 msgid "Use hosts file as Ad blocker"
-msgstr ""
+msgstr "Usar arquivo hosts para bloquaer anúncios"
 
 #: network.cgi:686
 msgid "Hostname"
@@ -572,11 +560,11 @@ msgstr "Tabela ARP"
 
 #: network.cgi:743
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: network.cgi:744 hosts.cgi:200 hosts.cgi:207
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 #: network.cgi:757
 msgid "IP Connections"
@@ -584,108 +572,105 @@ msgstr "Conexões IP"
 
 #: network.cgi:765
 msgid "Firewall"
-msgstr ""
+msgstr "Firewall"
 
 #: network.cgi:766
 msgid "Port knocker"
-msgstr ""
+msgstr "Porta batente"
 
 #: hosts.cgi:107
 msgid "Host \"%s\" added to /etc/hosts."
-msgstr ""
+msgstr "Host \"%s\" adicionado para /etc/hosts."
 
 #: hosts.cgi:120
 msgid "%d record disabled"
 msgid_plural "%d records disabled"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d registro desativado"
+msgstr[1] "%d registros desativados"
 
 #: hosts.cgi:130
 msgid "Installing the \"%s\"..."
-msgstr ""
+msgstr "Instalando o \"%s\"..."
 
 #: hosts.cgi:132 hosts.cgi:142 hosts.cgi:152
 msgid "Done"
-msgstr ""
+msgstr "Feito"
 
 #: hosts.cgi:140
 msgid "Updating the \"%s\"..."
-msgstr ""
+msgstr "Atualizando o \"%s\"..."
 
 #: hosts.cgi:150
-#, fuzzy
 msgid "Removing the \"%s\"..."
-msgstr "Reportando a: %s"
+msgstr "Removendo o \"%s\"..."
 
 #: hosts.cgi:163
 msgid "%d record used for Ad blocking"
 msgid_plural "%d records used for Ad blocking"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d registro bloqueando anúncio"
+msgstr[1] "%d registros bloqueando anúncios"
 
 #: hosts.cgi:169
 msgid "%d record found for \"%s\""
 msgid_plural "%d records found for \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d registro encontrado para \"%s\""
+msgstr[1] "%d registros encontrados para \"%s\""
 
 #: hosts.cgi:173
 msgid " (The list is limited to the first 100 entries.)"
-msgstr ""
+msgstr "(A lista é limitada para as primeiras 100 entradas)."
 
 #: hosts.cgi:194
-#, fuzzy
 msgid "Disable selected"
-msgstr "Desabilitar"
+msgstr "Desabilitar selecionado"
 
 #: hosts.cgi:213
-#, fuzzy
 msgid "Manage lists"
-msgstr "Gerenciar usuários"
+msgstr "Gerenciar listas"
 
 #: hosts.cgi:214
 msgid ""
 "You can use one or more prepared hosts files to block advertisements, "
 "malware and other irritants."
 msgstr ""
+"Você pode usar um ou mais arquivos de hosts preparado para bloquear "
+"anúncios, malware e outros irritantes."
 
 #: hosts.cgi:220
 msgid "Details"
-msgstr ""
+msgstr "Detalhes"
 
 #: hosts.cgi:221
 msgid "Updates"
-msgstr ""
+msgstr "Atualizações"
 
 #: hosts.cgi:222
-#, fuzzy
 msgid "Actions"
-msgstr "Ação"
+msgstr "Ações"
 
 #: hosts.cgi:235
 msgid "info"
-msgstr ""
+msgstr "Informação"
 
 #: hosts.cgi:237
 msgid "Updated monthly"
-msgstr ""
+msgstr "Atualizado mensalmente"
 
 #: hosts.cgi:238
 msgid "Updated regularly"
-msgstr ""
+msgstr "Atualizado regularmente"
 
 #: hosts.cgi:276
 msgid "Upgrade"
-msgstr ""
+msgstr "Atualização"
 
 #: hosts.cgi:281
-#, fuzzy
 msgid "Remove"
-msgstr "Remover usuário"
+msgstr "Remover"
 
 #: hosts.cgi:287
 msgid "Install"
-msgstr ""
+msgstr "Instalar"
 
 #: boot.cgi:16 styles/default/header.html:65
 msgid "Boot"
@@ -696,13 +681,12 @@ msgid "Show more..."
 msgstr "Mostrar mais..."
 
 #: boot.cgi:40 boot.cgi:45 boot.cgi:481 styles/default/header.html:83
-#, fuzzy
 msgid "System logs"
-msgstr "Linguagem do sistema"
+msgstr "Logs do sistema"
 
 #: boot.cgi:90
 msgid "Boot log files"
-msgstr "Arquivos de log de boot"
+msgstr "Logs do boot"
 
 #: boot.cgi:95 styles/default/header.html:79
 msgid "X server"
@@ -710,7 +694,7 @@ msgstr "Servidor X"
 
 #: boot.cgi:96 styles/default/header.html:80
 msgid "X session"
-msgstr ""
+msgstr "X session"
 
 #: boot.cgi:115 boot.cgi:482 styles/default/header.html:84
 msgid "Manage daemons"
@@ -769,9 +753,8 @@ msgid "Transfer a file on tftp request"
 msgstr "Transferir um arquivo por requisição tftp"
 
 #: boot.cgi:198
-#, fuzzy
 msgid "Printer daemon"
-msgstr "Gerenciar daemons"
+msgstr "Impressora daemon"
 
 #: boot.cgi:200
 msgid "Listen for network connections and launch programs"
@@ -827,58 +810,59 @@ msgstr "Boot via web está disponível pelo gPXE"
 
 #: boot.cgi:381 boot.cgi:485 styles/default/header.html:86
 msgid "ISO mine"
-msgstr ""
+msgstr "ISO mime"
 
 #: boot.cgi:383
 msgid "Invalid ISO image."
-msgstr ""
+msgstr "Imagem ISO inválida."
 
 #: boot.cgi:403
 msgid "ISO image file full path"
-msgstr ""
+msgstr "Caminho completo da imagem ISO"
 
 #: boot.cgi:404
 msgid "set /dev/cdrom for a physical CD-ROM"
-msgstr ""
+msgstr "defina /dev/cdrom para um CD-ROM fisíco"
 
 #: boot.cgi:407
 msgid "Working directory"
-msgstr ""
+msgstr "Diretório de trabalho"
 
 #: boot.cgi:409
 msgid "Target partition"
-msgstr ""
+msgstr "Partição de destino"
 
 #: boot.cgi:410
 msgid ""
 "For hard disk installation only. Will create /slitaz tree and keep other "
 "files. No partitioning and no formatting."
 msgstr ""
+"Para instalação no HD apenas. irá criar caminho /slitaz e manter outros "
+"arquivos. Não particionar e nem formatar."
 
 #: boot.cgi:413
 msgid "Choose a partition (optional)"
-msgstr ""
+msgstr "Escolha uma partição (opcional)"
 
 #: boot.cgi:424
 msgid "USB key device"
-msgstr ""
+msgstr "Dispositivo USB"
 
 #: boot.cgi:425
 msgid "For USB boot key only. Will erase the full device."
-msgstr ""
+msgstr "Para dispositivo USB. Todos os dados serão apagados por completo."
 
 #: boot.cgi:428
 msgid "Choose a USB key (optional)"
-msgstr ""
+msgstr "Escolha a entrada USB (opcional)"
 
 #: boot.cgi:449
-#, fuzzy
 msgid "Choose an action"
-msgstr "Conexão"
+msgstr "Escolha uma ação"
 
 #: boot.cgi:462
 msgid "Mine"
-msgstr ""
+msgstr "Meu"
 
 #: boot.cgi:475
 msgid "Boot &amp; Start services"
@@ -922,16 +906,15 @@ msgstr "Hardware"
 
 #: hardware.cgi:54
 msgid "Bus"
-msgstr ""
+msgstr "Bus"
 
 #: hardware.cgi:55 hardware.cgi:527
 msgid "Device"
-msgstr ""
+msgstr "Dispositivo"
 
 #: hardware.cgi:56
-#, fuzzy
 msgid "ID"
-msgstr "PID"
+msgstr "ID"
 
 #: hardware.cgi:108
 msgid "Detect hardware"
@@ -955,7 +938,7 @@ msgstr "Busca de módulos"
 
 #: hardware.cgi:127
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: hardware.cgi:135
 msgid "Detailed information for module: %s"
@@ -1011,7 +994,7 @@ msgstr "Detectar PCI/USB"
 
 #: hardware.cgi:250
 msgid "Auto-install Xorg video driver"
-msgstr ""
+msgstr "Auto instalar Xorg vídeo driver"
 
 #: hardware.cgi:260 hardware.cgi:277
 msgid "Battery"
@@ -1030,9 +1013,8 @@ msgid "Charging %d%% - %s"
 msgstr "Carregando %d%% - %s"
 
 #: hardware.cgi:295
-#, fuzzy
 msgid "Charged 100%%"
-msgstr "Carregada 100%%"
+msgstr "Completa 100%%"
 
 #: hardware.cgi:314
 msgid "Temperature:"
@@ -1043,13 +1025,12 @@ msgid "Brightness"
 msgstr "Brilho"
 
 #: hardware.cgi:471
-#, fuzzy
 msgid "new mount point:"
-msgstr "Ponto de montagem"
+msgstr "novo ponto de montagem:"
 
 #: hardware.cgi:472
 msgid "read-only"
-msgstr ""
+msgstr "apenas leitura"
 
 #: hardware.cgi:487
 msgid "Filesystems table"
@@ -1084,38 +1065,36 @@ msgid "Loop devices"
 msgstr "Dispositivos em loop"
 
 #: hardware.cgi:528
-#, fuzzy
 msgid "Backing file"
-msgstr "Arquivo de configuração"
+msgstr "Arquivo de backup"
 
 #: hardware.cgi:530
-#, fuzzy
 msgid "Access"
-msgstr "Ponto de acesso"
+msgstr "Acesso"
 
 #: hardware.cgi:531
 msgid "Offset"
-msgstr ""
+msgstr "Deslocamento"
 
 #: hardware.cgi:540
 msgid "read/write"
-msgstr ""
+msgstr "leitura/gravação"
 
 #: hardware.cgi:541 hardware.cgi:566
 msgid "read only"
-msgstr ""
+msgstr "apenas leitura"
 
 #: hardware.cgi:563
 msgid "Setup"
-msgstr ""
+msgstr "Configurar"
 
 #: hardware.cgi:564
 msgid "new backing file:"
-msgstr ""
+msgstr "novo arquivo de backup:"
 
 #: hardware.cgi:565
 msgid "offset in bytes:"
-msgstr ""
+msgstr "deslocamento em bytes:"
 
 #: hardware.cgi:583
 msgid "System memory"
@@ -1123,11 +1102,11 @@ msgstr "Memória do sistema"
 
 #: hardware.cgi:589
 msgid "Buffers"
-msgstr ""
+msgstr "Buffers"
 
 #: hardware.cgi:592
 msgid "Free"
-msgstr ""
+msgstr "Livre"
 
 #: settings.cgi:16
 msgid "System settings"
@@ -1214,9 +1193,8 @@ msgid "User ID"
 msgstr "ID de usuário"
 
 #: settings.cgi:322
-#, fuzzy
 msgid "User Name"
-msgstr "Nome de usuário:"
+msgstr "Nome de usuário"
 
 #: settings.cgi:323
 msgid "Home"
@@ -1231,9 +1209,8 @@ msgid "Password:"
 msgstr "Senha:"
 
 #: settings.cgi:359
-#, fuzzy
 msgid "New password"
-msgstr "Nova senha: "
+msgstr "Nova senha"
 
 #: settings.cgi:360
 msgid "Change password"
@@ -1280,18 +1257,17 @@ msgid "Locales that are currently installed on the machine:"
 msgstr "Locales instalados na máquina:"
 
 #: settings.cgi:438
-#, fuzzy
 msgid ""
 "Can't see your language?<br/>You can <a href='pkgs.cgi?do=Install&amp;glibc-"
 "locale'>install glibc-locale</a> to see a larger list of available locales."
 msgstr ""
-"Não encontra seu locale?<br />Você pode instalar o pacote <a href='/pkgs.cgi?"
+"Não encontra seu idioma?<br />Você pode instalar o pacote <a href='/pkgs.cgi?"
 "do=Install&glibc-locale'>glibc-locale</a> para obter uma listagem maior de "
-"locales."
+"idiomas."
 
 #: settings.cgi:445
 msgid "Available locales:"
-msgstr "Locales disponíveis:"
+msgstr "Idiomas disponíveis:"
 
 #: settings.cgi:449
 msgid "Code"
@@ -1315,51 +1291,51 @@ msgstr "Ativar"
 
 #: settings.cgi:493 settings.cgi:515
 msgid "Small quick tweaks for user %s"
-msgstr ""
+msgstr "Pequeno ajuste do usuário %s"
 
 #: settings.cgi:518
-#, fuzzy
 msgid "Terminal prompt"
 msgstr "Terminal"
 
 #: settings.cgi:524
 msgid "Monochrome"
-msgstr ""
+msgstr "Monocromático"
 
 #: settings.cgi:533
 msgid "Colored"
-msgstr ""
+msgstr "Colorido"
 
 #: settings.cgi:542 settings.cgi:590
-#, fuzzy
 msgid "Manual edit: %s"
-msgstr "Edição manual"
+msgstr "Edição manual: %s"
 
 #: settings.cgi:543
 msgid ""
 "To take effect: log out and log in to system or execute command in the "
 "terminal:"
 msgstr ""
+"Para registrar: sair e entrar na sua sessão ou executar o comando no "
+"terminal:"
 
 #: settings.cgi:551
 msgid "Menu button appearance"
-msgstr ""
+msgstr "Aparência do botão menu"
 
 #: settings.cgi:556
 msgid "Icon:"
-msgstr ""
+msgstr "Ícone:"
 
 #: settings.cgi:559 settings.cgi:580
 msgid "Do not show"
-msgstr ""
+msgstr "Não mostrar"
 
 #: settings.cgi:577
 msgid "Text:"
-msgstr ""
+msgstr "Texto:"
 
 #: settings.cgi:584
 msgid "Show text"
-msgstr ""
+msgstr "Mostrar texto"
 
 #: settings.cgi:607
 msgid "Manage system time, users or language settings"
@@ -1404,7 +1380,7 @@ msgstr "Locale da sessão atual:"
 
 #: settings.cgi:750
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Mapa do teclado"
 
 #: settings.cgi:764
 msgid "Current console keymap: %s"
@@ -1455,9 +1431,8 @@ msgid "Scan ports"
 msgstr "Buscar portas"
 
 #: lib/libtazpanel:249
-#, fuzzy
 msgid "Please wait"
-msgstr "Favor aguardar..."
+msgstr "Aguarde por favor"
 
 #: lib/libtazpanel:310
 msgid "Label"
@@ -1469,7 +1444,7 @@ msgstr "Disponível"
 
 #: lib/libtazpanel:392
 msgid "You must be root to show this page."
-msgstr ""
+msgstr "Você deve ser root para ver esta página."
 
 #: help.cgi:20
 msgid "Manual"
@@ -1480,9 +1455,8 @@ msgid "Help &amp; Doc"
 msgstr "Ajuda &amp; Doc"
 
 #: styles/default/header.html:35
-#, fuzzy
 msgid "Confirm break"
-msgstr "Configuração"
+msgstr "Confirmar parada"
 
 #: styles/default/header.html:48
 msgid "Processes"
@@ -1514,19 +1488,19 @@ msgstr "Grupos"
 
 #: styles/default/header.html:106
 msgid "Tweaks"
-msgstr ""
+msgstr "Ajustes"
 
 #: styles/default/header.html:122
 msgid "Some features are disabled."
-msgstr ""
+msgstr "Alguns recursos estão desativados."
 
 #: styles/default/header.html:127
 msgid "You are logged in to the TazPanel as user %s."
-msgstr ""
+msgstr "Você está usando TazPanel como usuário %s."
 
 #: styles/default/header.html:128
 msgid "Click to re-login."
-msgstr ""
+msgstr "Clique para re-entrar."
 
 #: styles/default/header.html:138
 msgid "Copyright"
