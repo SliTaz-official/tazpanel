@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-26 05:27+0300\n"
-"PO-Revision-Date: 2016-03-27 03:58-0300\n"
+"PO-Revision-Date: 2016-03-27 04:06-0300\n"
 "Last-Translator: Leonardo Laporte <hackdorte@sapo.pt>\n"
 "Language-Team: Portuguese <i18n@slitaz.org>\n"
 "Language: pt_BR\n"
@@ -360,7 +360,7 @@ msgstr "Lista"
 
 #: network.cgi:287
 msgid "MAC/IP address password"
-msgstr "Senha do MAC/IP"
+msgstr "MAC/IP senha"
 
 #: network.cgi:289
 msgid "Help"
