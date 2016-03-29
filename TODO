@@ -13,6 +13,6 @@ TODO for TazPanel
 	* Crond management interface
 	* Firewall PID file and configuration
 	* Bootfloppybox support in boot.cgi (versatile floppy + floppy set)
-	* Slitaz installer support ?
+	* SliTaz installer support ?
 	* Desktopbox support with logout
 

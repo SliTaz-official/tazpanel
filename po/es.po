@@ -734,7 +734,7 @@ msgstr "PID"
 
 #: boot.cgi:172
 msgid "SliTaz Firewall with iptable rules"
-msgstr "Slitaz firewall con reglas iptable"
+msgstr "SliTaz firewall con reglas iptable"
 
 #: boot.cgi:174
 msgid "Small and fast web server with CGI support"
