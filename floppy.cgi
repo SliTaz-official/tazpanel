@@ -275,6 +275,27 @@ cat <<EOT
 	</footer>
 </section>
 </form>
+<section>
+<header>
+	$(_ 'Floppy set from a ISO image')
+</header>
+<footer>
+<form method="post" action="/user/boot.cgi" class="wide">
+	<input type="hidden" name="iso" />
+	<input type="hidden" name="action" value="floppyset" />
+	<table>
+		<tr>
+		<td>$(_ 'ISO image file full path')
+			<span data-img="@info@" title="$(_ 'set /dev/cdrom for a physical CD-ROM')"></span>
+		</td>
+		<td>$(file_chooser "iso" "$iso")</td></tr>
+		<td><button type="submit" name="build" data-icon="@start@" >
+		$(_ 'Build floppy set'  )</button></td>
+		</tr>
+	</table>
+</form>
+</footer>
+</section>
 EOT
 
 xhtml_footer

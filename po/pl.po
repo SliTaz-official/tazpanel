@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 14:11+0200\n"
+"POT-Creation-Date: 2016-04-04 11:13+0200\n"
 "PO-Revision-Date: 2013-07-23 12:33+0100\n"
 "Last-Translator: Paweł Pyrczak <tkr.tkr.pl@gmail.com>\n"
 "Language-Team: \n"
@@ -854,11 +854,11 @@ msgstr ""
 msgid "Invalid ISO image."
 msgstr ""
 
-#: boot.cgi:403
+#: boot.cgi:403 floppy.cgi:288
 msgid "ISO image file full path"
 msgstr ""
 
-#: boot.cgi:404
+#: boot.cgi:404 floppy.cgi:289
 msgid "set /dev/cdrom for a physical CD-ROM"
 msgstr ""
 
@@ -1607,7 +1607,7 @@ msgstr ""
 msgid "RAM used"
 msgstr "Dodaj użytkownika"
 
-#: floppy.cgi:264
+#: floppy.cgi:264 floppy.cgi:293
 msgid "Build floppy set"
 msgstr ""
 
@@ -1623,6 +1623,10 @@ msgstr ""
 msgid ""
 "the keyboard is read for ESC or ENTER on every form feed (ASCII 12) in the "
 "boot message."
+msgstr ""
+
+#: floppy.cgi:280
+msgid "Floppy set from a ISO image"
 msgstr ""
 
 #: styles/default/header.html:35

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 14:11+0200\n"
+"POT-Creation-Date: 2016-04-04 11:13+0200\n"
 "PO-Revision-Date: 2016-04-03 14:11+0200\n"
 "Last-Translator: Pascal Bellard <pascal.bellard@slitaz.org>\n"
 "Language-Team: French\n"
@@ -827,11 +827,11 @@ msgstr "Exploitation de l'image ISO"
 msgid "Invalid ISO image."
 msgstr "Image ISO non valide."
 
-#: boot.cgi:403
+#: boot.cgi:403 floppy.cgi:288
 msgid "ISO image file full path"
 msgstr "Chemin complet de l'image ISO"
 
-#: boot.cgi:404
+#: boot.cgi:404 floppy.cgi:289
 msgid "set /dev/cdrom for a physical CD-ROM"
 msgstr "Mettre /dev/cdrom pour indiquer le lecteur de CD-ROM"
 
@@ -1563,7 +1563,7 @@ msgstr "illimitée"
 msgid "RAM used"
 msgstr "Mémoire utilisée"
 
-#: floppy.cgi:264
+#: floppy.cgi:264 floppy.cgi:293
 msgid "Build floppy set"
 msgstr "Construire les disquettes"
 
@@ -1584,6 +1584,10 @@ msgid ""
 msgstr ""
 "l'appui sur Échap ou Entrée sera attendu pour chaque caractère Form feed "
 "(code ASCII 12) dans le message de démarrage."
+
+#: floppy.cgi:280
+msgid "Floppy set from a ISO image"
+msgstr "Jeu de disquettes à partir d'une image ISO"
 
 #: styles/default/header.html:35
 msgid "Confirm break"

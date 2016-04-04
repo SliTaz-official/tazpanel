@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 14:11+0200\n"
+"POT-Creation-Date: 2016-04-04 11:13+0200\n"
 "PO-Revision-Date: 2016-04-04 03:57+0300\n"
 "Last-Translator: Aleksej Bobylev <al.bobylev@gmail.com>\n"
 "Language-Team: \n"
@@ -835,11 +835,11 @@ msgstr "Установка ISO-образов"
 msgid "Invalid ISO image."
 msgstr "Недопустимый образ ISO."
 
-#: boot.cgi:403
+#: boot.cgi:403 floppy.cgi:288
 msgid "ISO image file full path"
 msgstr "Полный путь к файлу образа ISO"
 
-#: boot.cgi:404
+#: boot.cgi:404 floppy.cgi:289
 msgid "set /dev/cdrom for a physical CD-ROM"
 msgstr "выберите /dev/cdrom для физического CD-ROM"
 
@@ -1573,7 +1573,7 @@ msgstr "неограничен"
 msgid "RAM used"
 msgstr "Использовать ОЗУ"
 
-#: floppy.cgi:264
+#: floppy.cgi:264 floppy.cgi:293
 msgid "Build floppy set"
 msgstr "Создать"
 
@@ -1594,6 +1594,10 @@ msgid ""
 msgstr ""
 "ожидается нажатие клавиш Esc или Enter в ответ на каждый символ Form Feed "
 "(ASCII 12) в загрузочном сообщении."
+
+#: floppy.cgi:280
+msgid "Floppy set from a ISO image"
+msgstr ""
 
 #: styles/default/header.html:35
 msgid "Confirm break"
