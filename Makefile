@@ -6,7 +6,7 @@ DESTDIR?=
 LINGUAS?=el es fr pl pt_BR ru sv
 PANEL?=/var/www/tazpanel
 BASECGI?=boot.cgi hardware.cgi help.cgi index.cgi network.cgi hosts.cgi settings.cgi
-EXTRACGI?=floppy.cgi test.cgi
+EXTRACGI?=floppy.cgi test.cgi powersaving.cgi
 
 VERSION:=$(shell grep ^VERSION tazpanel | cut -d= -f2)
 
