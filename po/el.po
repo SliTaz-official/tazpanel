@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-04 11:13+0200\n"
+"POT-Creation-Date: 2016-04-04 19:03+0100\n"
 "PO-Revision-Date: 2012-06-10 17:15+0200\n"
 "Last-Translator: Douros Dimitris <dourosdimitris@gmail.com>\n"
 "Language-Team: \n"
@@ -1613,7 +1613,7 @@ msgid ""
 msgstr ""
 
 #: floppy.cgi:280
-msgid "Floppy set from a ISO image"
+msgid "Floppy set from an ISO image"
 msgstr ""
 
 #: styles/default/header.html:35

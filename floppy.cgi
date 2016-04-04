@@ -277,7 +277,7 @@ cat <<EOT
 </form>
 <section>
 <header>
-	$(_ 'Floppy set from a ISO image')
+	$(_ 'Floppy set from an ISO image')
 </header>
 <footer>
 <form method="post" action="/user/boot.cgi" class="wide">
