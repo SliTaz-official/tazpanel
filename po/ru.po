@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-03 14:11+0200\n"
-"PO-Revision-Date: 2015-08-26 05:44+0300\n"
+"PO-Revision-Date: 2016-04-04 03:57+0300\n"
 "Last-Translator: Aleksej Bobylev <al.bobylev@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -17,9 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Poedit-Language: Russian\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Basepath: ../\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: index.cgi:37 index.cgi:186
@@ -27,14 +27,12 @@ msgid "Differences"
 msgstr "Различия"
 
 #: index.cgi:77
-#, fuzzy
 msgid "Choose directory"
-msgstr "Рабочая папка"
+msgstr "Выбрать папку"
 
 #: index.cgi:81
-#, fuzzy
 msgid "Choose file"
-msgstr "Выбор локали"
+msgstr "Выбрать файл"
 
 #: index.cgi:142
 msgid "exec"
@@ -145,20 +143,19 @@ msgstr "нет"
 
 #: index.cgi:549
 msgid "Kill"
-msgstr ""
+msgstr "Убить"
 
 #: index.cgi:553
-#, fuzzy
 msgid "Start time:"
-msgstr "Системное время:"
+msgstr "Время запуска:"
 
 #: index.cgi:556
 msgid "Renice"
-msgstr ""
+msgstr "Изменить приоритет"
 
 #: index.cgi:569
 msgid "I/O class"
-msgstr ""
+msgstr "Класс I/O"
 
 #: index.cgi:607
 msgid "Debug"
@@ -377,9 +374,8 @@ msgid "MAC/IP address password"
 msgstr "MAC/IP-адрес пароль"
 
 #: network.cgi:288
-#, fuzzy
 msgid "Optional"
-msgstr "Параметры"
+msgstr "Необязательно"
 
 #: network.cgi:289
 msgid "Help"
@@ -943,7 +939,7 @@ msgstr "ID"
 
 #: hardware.cgi:76
 msgid "Slot"
-msgstr ""
+msgstr "Слот"
 
 #: hardware.cgi:112
 msgid "Detect hardware"
@@ -1479,7 +1475,7 @@ msgstr "Вы должны обладать правами root для просм
 
 #: lib/libtazpanel:418 lib/libtazpanel:428
 msgid "Browse"
-msgstr ""
+msgstr "Обзор"
 
 #: help.cgi:20
 msgid "Manual"
@@ -1490,116 +1486,114 @@ msgid "Help &amp; Doc"
 msgstr "Справка и документация"
 
 #: floppy.cgi:21
-#, fuzzy
 msgid "Boot floppy"
-msgstr "Журналы загрузки"
+msgstr "Загрузочная дискета"
 
 #: floppy.cgi:72
 msgid "TazPanel - floppy"
-msgstr ""
+msgstr "TazPanel — дискета"
 
 #: floppy.cgi:94
 msgid "Floppy disk utilities"
-msgstr ""
+msgstr "Работа с дискетами"
 
 #: floppy.cgi:104
 msgid "Floppy disk format"
-msgstr ""
+msgstr "Форматирование дискет"
 
 #: floppy.cgi:107
 msgid "Format disk"
-msgstr ""
+msgstr "Форматировать"
 
 #: floppy.cgi:118
 msgid "Floppy disk transfer"
-msgstr ""
+msgstr "Перенос дискет"
 
 #: floppy.cgi:123
 msgid "Write image"
-msgstr ""
+msgstr "Записать образ"
 
 #: floppy.cgi:129
-#, fuzzy
 msgid "Read image"
-msgstr "Загрузочная картинка:"
+msgstr "Создать образ"
 
 #: floppy.cgi:146
 msgid "Boot floppy set builder"
-msgstr ""
+msgstr "Набор загрузочных дискет"
 
 #: floppy.cgi:152
 msgid "required"
-msgstr ""
+msgstr "обязательно"
 
 #: floppy.cgi:155
 msgid "Initramfs / Initrd:"
-msgstr ""
+msgstr "Initramfs / Initrd:"
 
 #: floppy.cgi:156 floppy.cgi:160 floppy.cgi:164 floppy.cgi:169
-#, fuzzy
 msgid "optional"
-msgstr "Параметры"
+msgstr "необязательно"
 
 #: floppy.cgi:159
 msgid "Extra initramfs:"
-msgstr ""
+msgstr "Дополнительный initramfs:"
 
 #: floppy.cgi:163
 msgid "Boot message:"
-msgstr ""
+msgstr "Загрузочное сообщение:"
 
 #: floppy.cgi:167
-#, fuzzy
 msgid "Default cmdline:"
-msgstr "Пункт по умолчанию:"
+msgstr "Командная строка по умолчанию:"
 
 #: floppy.cgi:168
 msgid "edit"
-msgstr ""
+msgstr "править"
 
 #: floppy.cgi:172
-#, fuzzy
 msgid "Root device:"
-msgstr "Устройства loop"
+msgstr "Корневое устройство:"
 
 #: floppy.cgi:174
 msgid "Flags:"
-msgstr ""
+msgstr "Флаги:"
 
 #: floppy.cgi:214
 msgid "Output directory:"
-msgstr ""
+msgstr "Создать набор дискет в папке:"
 
 #: floppy.cgi:218
 msgid "Floppy size:"
-msgstr ""
+msgstr "Размер дискеты:"
 
 #: floppy.cgi:247
 msgid "no limit"
-msgstr ""
+msgstr "неограничен"
 
 #: floppy.cgi:249
-#, fuzzy
 msgid "RAM used"
-msgstr "Добавить пользователя"
+msgstr "Использовать ОЗУ"
 
 #: floppy.cgi:264
 msgid "Build floppy set"
-msgstr ""
+msgstr "Создать"
 
 #: floppy.cgi:270 floppy.cgi:273
 msgid "Note"
-msgstr ""
+msgstr "Примечание"
 
 #: floppy.cgi:270
 msgid "the extra initramfs may be useful to add your own configuration files."
 msgstr ""
+"дополнительный initramfs можно использовать, чтобы добавить собственные "
+"конфигурационные файлы."
 
 #: floppy.cgi:273
 msgid ""
 "the keyboard is read for ESC or ENTER on every form feed (ASCII 12) in the "
 "boot message."
 msgstr ""
+"ожидается нажатие клавиш Esc или Enter в ответ на каждый символ Form Feed "
+"(ASCII 12) в загрузочном сообщении."
 
 #: styles/default/header.html:35
 msgid "Confirm break"
