@@ -218,7 +218,7 @@ EOT
 			esac
 			echo "</td>"
 			# Attempt to get daemon status
-			pidfile=$(find /run /var/run -name *$name*.pid)
+			pidfile=$(find /run /var/run -maxdepth 2 -name *$name*.pid)
 			[ "$pidfile" ] && pid=$(cat $pidfile)
 			# Dbus
 			[ -f /var/run/${name}/pid ] && pid=$(cat /var/run/${name}/pid)
