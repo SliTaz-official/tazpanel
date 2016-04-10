@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-04 19:03+0100\n"
+"POT-Creation-Date: 2016-04-10 11:42+0200\n"
 "PO-Revision-Date: 2016-04-05 09:57+0300\n"
 "Last-Translator: Aleksej Bobylev <al.bobylev@gmail.com>\n"
 "Language-Team: \n"
@@ -21,6 +21,498 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: boot.cgi:16 floppy.cgi:11 styles/default/header.html:65
+msgid "Boot"
+msgstr "Загрузка"
+
+#: boot.cgi:27
+msgid "Show more..."
+msgstr "Показать больше…"
+
+#: boot.cgi:40 boot.cgi:45 boot.cgi:482 styles/default/header.html:83
+msgid "System logs"
+msgstr "Системные журналы"
+
+#: boot.cgi:90
+msgid "Boot log files"
+msgstr "Журналы загрузки"
+
+#: boot.cgi:93 index.cgi:723 styles/default/header.html:77
+msgid "Kernel messages"
+msgstr "Сообщения ядра"
+
+#: boot.cgi:94 index.cgi:726 styles/default/header.html:78
+msgid "Boot scripts"
+msgstr "Загрузочные скрипты"
+
+#: boot.cgi:95 styles/default/header.html:79
+msgid "X server"
+msgstr "X-сервер"
+
+#: boot.cgi:96 styles/default/header.html:80
+msgid "X session"
+msgstr "Сеанс X"
+
+#: boot.cgi:115 boot.cgi:483 styles/default/header.html:84
+msgid "Manage daemons"
+msgstr "Управление службами"
+
+#: boot.cgi:118
+msgid "Check, start and stop daemons on SliTaz"
+msgstr "Проверка, запуск и остановка служб SliTaz"
+
+#: boot.cgi:142 hardware.cgi:57 hardware.cgi:78 network.cgi:345 hosts.cgi:243
+msgid "Name"
+msgstr "Название"
+
+#: boot.cgi:143 hardware.cgi:181 settings.cgi:459 powersaving.cgi:154
+msgid "Description"
+msgstr "Описание"
+
+#: boot.cgi:144 network.cgi:248
+msgid "Configuration"
+msgstr "Настройки"
+
+#: boot.cgi:145 network.cgi:349
+msgid "Status"
+msgstr "Состояние"
+
+#: boot.cgi:146
+msgid "Action"
+msgstr "Действие"
+
+#: boot.cgi:147
+msgid "PID"
+msgstr "PID"
+
+#: boot.cgi:172
+msgid "SliTaz Firewall with iptable rules"
+msgstr "Брандмауэр SliTaz с правилами iptable"
+
+#: boot.cgi:174
+msgid "Small and fast web server with CGI support"
+msgstr "Маленький и быстрый веб-сервер с поддержкой CGI"
+
+#: boot.cgi:177
+msgid "Network time protocol daemon"
+msgstr "Служба протокола сетевого времени"
+
+#: boot.cgi:180
+msgid "Anonymous FTP server"
+msgstr "Анонимный сервер FTP"
+
+#: boot.cgi:183
+msgid "Busybox DHCP server"
+msgstr "Сервер DHCP из Busybox"
+
+#: boot.cgi:186
+msgid "Linux Kernel log daemon"
+msgstr "Служба журнала ядра Linux"
+
+#: boot.cgi:189
+msgid "Execute scheduled commands"
+msgstr "Выполнение запланированных команд"
+
+#: boot.cgi:192
+msgid "Small static DNS server daemon"
+msgstr "Служба маленького статического сервера DNS"
+
+#: boot.cgi:195
+msgid "Transfer a file on tftp request"
+msgstr "Передача файлов по запросу TFTP"
+
+#: boot.cgi:198
+msgid "Printer daemon"
+msgstr "Служба печати"
+
+#: boot.cgi:200
+msgid "Listen for network connections and launch programs"
+msgstr "Прослушивание сетевых соединений и запуск программ"
+
+#: boot.cgi:203
+msgid "Manage a ZeroConf IPv4 link-local address"
+msgstr "Управление присоединенным-локальным адресом ZeroConf IPv4"
+
+#: boot.cgi:272
+msgid "Started"
+msgstr "Запущен"
+
+#: boot.cgi:273 network.cgi:297 network.cgi:454 network.cgi:647
+msgid "Stop"
+msgstr "Остановить"
+
+#: boot.cgi:283
+msgid "Stopped"
+msgstr "Остановлен"
+
+#: boot.cgi:284 network.cgi:296 network.cgi:453 network.cgi:646
+msgid "Start"
+msgstr "Запустить"
+
+#: boot.cgi:309
+msgid "GRUB Boot loader"
+msgstr "Загрузчик GRUB"
+
+#: boot.cgi:311
+msgid "The first application started when the computer powers on"
+msgstr "Первое приложение, запускаемое при включении питания"
+
+#: boot.cgi:318
+msgid "Default entry:"
+msgstr "Пункт по умолчанию:"
+
+#: boot.cgi:320
+msgid "Timeout:"
+msgstr "Таймаут:"
+
+#: boot.cgi:322
+msgid "Splash image:"
+msgstr "Загрузочная картинка:"
+
+#: boot.cgi:327 network.cgi:669 network.cgi:700 settings.cgi:633
+#: settings.cgi:747 powersaving.cgi:108
+msgid "Change"
+msgstr "Изменить"
+
+#: boot.cgi:334
+msgid "View or edit menu.lst"
+msgstr "Просмотр и правка menu.lst"
+
+#: boot.cgi:339
+msgid "Boot entries"
+msgstr "Загрузочные пункты"
+
+#: boot.cgi:346
+msgid "Entry"
+msgstr "Пункт"
+
+#: boot.cgi:367
+msgid "Web boot is available with gPXE"
+msgstr "Доступна веб-загрузка с gPXE"
+
+#: boot.cgi:381 boot.cgi:486 styles/default/header.html:86
+msgid "ISO mine"
+msgstr "Установка ISO-образов"
+
+#: boot.cgi:383
+msgid "Invalid ISO image."
+msgstr "Недопустимый образ ISO."
+
+#: boot.cgi:403 floppy.cgi:288
+msgid "ISO image file full path"
+msgstr "Полный путь к файлу образа ISO"
+
+#: boot.cgi:404 floppy.cgi:289
+msgid "set /dev/cdrom for a physical CD-ROM"
+msgstr "выберите /dev/cdrom для физического CD-ROM"
+
+#: boot.cgi:407
+msgid "Working directory"
+msgstr "Рабочая папка"
+
+#: boot.cgi:410
+msgid "Target partition"
+msgstr "Целевой раздел"
+
+#: boot.cgi:411
+msgid ""
+"For hard disk installation only. Will create /slitaz tree and keep other "
+"files. No partitioning and no formatting."
+msgstr ""
+"Только для установки на жесткий диск. Будет создано дерево файлов в /slitaz "
+"и сохранены прочие файлы. Изменение разделов и форматирование не "
+"производятся."
+
+#: boot.cgi:414
+msgid "Choose a partition (optional)"
+msgstr "Выберите раздел (необязательный)"
+
+#: boot.cgi:425
+msgid "USB key device"
+msgstr "USB-накопитель"
+
+#: boot.cgi:426
+msgid "For USB boot key only. Will erase the full device."
+msgstr ""
+"Только для загрузочных USB-накопителей. Устройство будет полностью очищено."
+
+#: boot.cgi:429
+msgid "Choose a USB key (optional)"
+msgstr "Выберите USB-накопитель (необязательный)"
+
+#: boot.cgi:450
+msgid "Choose an action"
+msgstr "Выберите действие"
+
+#: boot.cgi:463
+msgid "Mine"
+msgstr "Производство"
+
+#: boot.cgi:476
+msgid "Boot &amp; Start services"
+msgstr "Загрузка и запуск служб"
+
+#: boot.cgi:478
+msgid "Everything that happens before user login"
+msgstr "Всё, что происходит перед входом пользователя в систему"
+
+#: boot.cgi:481 styles/default/header.html:75
+msgid "Boot logs"
+msgstr "Журналы загрузки"
+
+#: boot.cgi:489 styles/default/header.html:71
+msgid "Boot loader"
+msgstr "Загрузчик"
+
+#: boot.cgi:496
+msgid "Configuration files"
+msgstr "Файлы настроек"
+
+#: boot.cgi:499
+msgid "Main configuration file:"
+msgstr "Главный файл настроек:"
+
+#: boot.cgi:500 boot.cgi:502 index.cgi:791 index.cgi:887
+msgid "View"
+msgstr "Смотреть"
+
+#: boot.cgi:501
+msgid "Login manager settings:"
+msgstr "Настройки менеджера входа в систему:"
+
+#: boot.cgi:509
+msgid "Kernel cmdline"
+msgstr "Командная строка ядра"
+
+#: boot.cgi:516
+msgid "Local startup commands"
+msgstr "Локальные команды запуска"
+
+#: hardware.cgi:13 powersaving.cgi:22 styles/default/header.html:91
+msgid "Hardware"
+msgstr "Оборудование"
+
+#: hardware.cgi:54
+msgid "Bus"
+msgstr "Шина"
+
+#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:532
+msgid "Device"
+msgstr "Устройство"
+
+#: hardware.cgi:56
+msgid "ID"
+msgstr "ID"
+
+#: hardware.cgi:76
+msgid "Slot"
+msgstr "Слот"
+
+#: hardware.cgi:112
+msgid "Detect hardware"
+msgstr "Поиск оборудования"
+
+#: hardware.cgi:114
+msgid "Detect PCI and USB hardware"
+msgstr "Определение оборудования PCI и USB"
+
+#: hardware.cgi:122 hardware.cgi:252 powersaving.cgi:150
+#: styles/default/header.html:94
+msgid "Kernel modules"
+msgstr "Модули ядра"
+
+#: hardware.cgi:126
+msgid "Manage, search or get information about the Linux kernel modules"
+msgstr "Управление, поиск и сведения о модулях ядра Linux"
+
+#: hardware.cgi:130
+msgid "Modules search"
+msgstr "Поиск модулей"
+
+#: hardware.cgi:131
+msgid "Search"
+msgstr "Искать"
+
+#: hardware.cgi:139
+msgid "Detailed information for module: %s"
+msgstr "Подробности о модуле %s"
+
+#: hardware.cgi:163
+msgid "Matching result(s) for: %s"
+msgstr "Результаты поиска %s"
+
+#: hardware.cgi:170
+msgid "Module:"
+msgstr "Модуль:"
+
+#: hardware.cgi:180 powersaving.cgi:153
+msgid "Module"
+msgstr "Модуль"
+
+#: hardware.cgi:182 hardware.cgi:534
+msgid "Size"
+msgstr "Размер"
+
+#: hardware.cgi:183 hardware.cgi:591
+msgid "Used"
+msgstr "Используется"
+
+#: hardware.cgi:184
+msgid "by"
+msgstr "кем"
+
+#: hardware.cgi:208
+msgid "Information for USB Device %s"
+msgstr "Информация о USB-устройстве %s"
+
+#: hardware.cgi:210 hardware.cgi:228
+msgid "Detailed information about specified device."
+msgstr "Подробная информация о выбранном устройстве."
+
+#: hardware.cgi:226
+msgid "Information for PCI Device %s"
+msgstr "Информация о PCI-устройстве %s"
+
+#: hardware.cgi:247
+msgid "Drivers &amp; Devices"
+msgstr "Драйверы и устройства"
+
+#: hardware.cgi:249
+msgid "Manage your computer hardware"
+msgstr "Управление вашим компьютерным оборудованием"
+
+#: hardware.cgi:253 styles/default/header.html:95
+msgid "Detect PCI/USB"
+msgstr "Определить PCI/USB"
+
+#: hardware.cgi:254
+msgid "Auto-install Xorg video driver"
+msgstr "Авто-установка видео-драйвера Xorg"
+
+#: hardware.cgi:264 hardware.cgi:281
+msgid "Battery"
+msgstr "Батарея"
+
+#: hardware.cgi:284
+msgid "health"
+msgstr "здоровье"
+
+#: hardware.cgi:293
+msgid "Discharging %d%% - %s"
+msgstr "Разряжается: %d %% — осталось %s"
+
+#: hardware.cgi:297
+msgid "Charging %d%% - %s"
+msgstr "Заряжается: %d %% — осталось %s"
+
+#: hardware.cgi:299
+msgid "Charged 100%%"
+msgstr "Полностью заряжена"
+
+#: hardware.cgi:318
+msgid "Temperature:"
+msgstr "Температура:"
+
+#: hardware.cgi:333
+msgid "Brightness"
+msgstr "Яркость"
+
+#: hardware.cgi:353 index.cgi:851
+msgid "Filesystem usage statistics"
+msgstr "Статистика использования файловых систем"
+
+#: hardware.cgi:476
+msgid "new mount point:"
+msgstr "новая точка монтирования:"
+
+#: hardware.cgi:477
+msgid "read-only"
+msgstr "только-чтение"
+
+#: hardware.cgi:492
+msgid "Filesystems table"
+msgstr "Таблица файловых систем"
+
+#: hardware.cgi:498
+msgid "Disk"
+msgstr "Диск"
+
+#: hardware.cgi:499
+msgid "Mount point"
+msgstr "Точка монтирования"
+
+#: hardware.cgi:500
+msgid "Type"
+msgstr "Тип"
+
+#: hardware.cgi:501
+msgid "Options"
+msgstr "Параметры"
+
+#: hardware.cgi:502
+msgid "Freq"
+msgstr "Резерв."
+
+#: hardware.cgi:503
+msgid "Pass"
+msgstr "Проверка"
+
+#: hardware.cgi:525
+msgid "Loop devices"
+msgstr "Устройства loop"
+
+#: hardware.cgi:533
+msgid "Backing file"
+msgstr "Файл образа"
+
+#: hardware.cgi:535
+msgid "Access"
+msgstr "Доступ"
+
+#: hardware.cgi:536
+msgid "Offset"
+msgstr "Смещение"
+
+#: hardware.cgi:545
+msgid "read/write"
+msgstr "чтение/запись"
+
+#: hardware.cgi:546 hardware.cgi:571
+msgid "read only"
+msgstr "только чтение"
+
+#: hardware.cgi:568
+msgid "Setup"
+msgstr "Установить"
+
+#: hardware.cgi:569
+msgid "new backing file:"
+msgstr "новый файл образа:"
+
+#: hardware.cgi:570
+msgid "offset in bytes:"
+msgstr "смещение в байтах:"
+
+#: hardware.cgi:588
+msgid "System memory"
+msgstr "Системная память"
+
+#: hardware.cgi:594
+msgid "Buffers"
+msgstr "Буферы"
+
+#: hardware.cgi:597
+msgid "Free"
+msgstr "Свободно"
+
+#: help.cgi:20
+msgid "Manual"
+msgstr "Руководство"
+
+#: help.cgi:28
+msgid "Help &amp; Doc"
+msgstr "Справка и документация"
 
 #: index.cgi:37 index.cgi:186
 msgid "Differences"
@@ -46,7 +538,7 @@ msgstr "Файл"
 msgid "Save"
 msgstr "Сохранить"
 
-#: index.cgi:242 settings.cgi:791 lib/libtazpanel:381
+#: index.cgi:242 settings.cgi:791
 msgid "Edit"
 msgstr "Правка"
 
@@ -59,7 +551,7 @@ msgstr "Терминал"
 msgid "History"
 msgstr "Журнал"
 
-#: index.cgi:315 lib/libtazpanel:371
+#: index.cgi:315
 msgid "Back"
 msgstr "Назад"
 
@@ -205,14 +697,6 @@ msgstr "Получение информации о файловых систем
 msgid "Getting boot logs..."
 msgstr "Получение журналов загрузки…"
 
-#: index.cgi:723 boot.cgi:93 styles/default/header.html:77
-msgid "Kernel messages"
-msgstr "Сообщения ядра"
-
-#: index.cgi:726 boot.cgi:94 styles/default/header.html:78
-msgid "Boot scripts"
-msgstr "Загрузочные скрипты"
-
 #: index.cgi:731
 msgid "Getting package list..."
 msgstr "Получение информации о пакетах…"
@@ -228,10 +712,6 @@ msgstr "Получение дополнительных отчётов…"
 #: index.cgi:780
 msgid "Creating report footer..."
 msgstr "Завершение создание отчёта…"
-
-#: index.cgi:791 index.cgi:887 boot.cgi:500 boot.cgi:502
-msgid "View"
-msgstr "Смотреть"
 
 #: index.cgi:796
 msgid "This report can be attached with a bug report on:"
@@ -280,10 +760,6 @@ msgstr "Состояние сети"
 msgid "Network"
 msgstr "Сети"
 
-#: index.cgi:851 hardware.cgi:353
-msgid "Filesystem usage statistics"
-msgstr "Статистика использования файловых систем"
-
 #: index.cgi:853 styles/default/header.html:96
 msgid "Disks"
 msgstr "Диски"
@@ -317,11 +793,7 @@ msgstr ""
 "автоматического получения случайного IP, или указать статический "
 "(фиксированный) IP"
 
-#: network.cgi:248 boot.cgi:144
-msgid "Configuration"
-msgstr "Настройки"
-
-#: network.cgi:254 lib/libtazpanel:170
+#: network.cgi:254
 msgid "Interface"
 msgstr "Интерфейс"
 
@@ -381,14 +853,6 @@ msgstr "Необязательно"
 msgid "Help"
 msgstr "Справка"
 
-#: network.cgi:296 network.cgi:453 network.cgi:646 boot.cgi:284
-msgid "Start"
-msgstr "Запустить"
-
-#: network.cgi:297 network.cgi:454 network.cgi:647 boot.cgi:273
-msgid "Stop"
-msgstr "Остановить"
-
 #: network.cgi:322 network.cgi:609
 msgid "Configuration file"
 msgstr "Файл настроек"
@@ -405,11 +869,6 @@ msgstr ""
 msgid "(hidden)"
 msgstr "(скрыто)"
 
-#: network.cgi:345 hosts.cgi:243 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
-#: lib/libtazpanel:171
-msgid "Name"
-msgstr "Название"
-
 #: network.cgi:346
 msgid "Signal level"
 msgstr "Уровень сигнала"
@@ -421,10 +880,6 @@ msgstr "Канал"
 #: network.cgi:348
 msgid "Encryption"
 msgstr "Шифрование"
-
-#: network.cgi:349 boot.cgi:145 lib/libtazpanel:172
-msgid "Status"
-msgstr "Состояние"
 
 #: network.cgi:407 network.cgi:489 network.cgi:511
 msgid "None"
@@ -438,7 +893,7 @@ msgstr "Соединено"
 msgid "Wireless connection"
 msgstr "Беспроводное соединение"
 
-#: network.cgi:455 lib/libtazpanel:153
+#: network.cgi:455
 msgid "Scan"
 msgstr "Сканировать"
 
@@ -533,11 +988,6 @@ msgstr "Сетевые интерфейсы"
 #: network.cgi:667
 msgid "forward packets between interfaces"
 msgstr "включить форвардинг пакетов между интерфейсами"
-
-#: network.cgi:669 network.cgi:700 boot.cgi:327 settings.cgi:633
-#: settings.cgi:747
-msgid "Change"
-msgstr "Изменить"
 
 #: network.cgi:677 hosts.cgi:203
 msgid "Hosts"
@@ -690,448 +1140,6 @@ msgstr "Удалить"
 #: hosts.cgi:314
 msgid "Install"
 msgstr "Установить"
-
-#: boot.cgi:16 floppy.cgi:11 styles/default/header.html:65
-msgid "Boot"
-msgstr "Загрузка"
-
-#: boot.cgi:27
-msgid "Show more..."
-msgstr "Показать больше…"
-
-#: boot.cgi:40 boot.cgi:45 boot.cgi:482 styles/default/header.html:83
-msgid "System logs"
-msgstr "Системные журналы"
-
-#: boot.cgi:90
-msgid "Boot log files"
-msgstr "Журналы загрузки"
-
-#: boot.cgi:95 styles/default/header.html:79
-msgid "X server"
-msgstr "X-сервер"
-
-#: boot.cgi:96 styles/default/header.html:80
-msgid "X session"
-msgstr "Сеанс X"
-
-#: boot.cgi:115 boot.cgi:483 styles/default/header.html:84
-msgid "Manage daemons"
-msgstr "Управление службами"
-
-#: boot.cgi:118
-msgid "Check, start and stop daemons on SliTaz"
-msgstr "Проверка, запуск и остановка служб SliTaz"
-
-#: boot.cgi:143 hardware.cgi:181 settings.cgi:459
-msgid "Description"
-msgstr "Описание"
-
-#: boot.cgi:146
-msgid "Action"
-msgstr "Действие"
-
-#: boot.cgi:147
-msgid "PID"
-msgstr "PID"
-
-#: boot.cgi:172
-msgid "SliTaz Firewall with iptable rules"
-msgstr "Брандмауэр SliTaz с правилами iptable"
-
-#: boot.cgi:174
-msgid "Small and fast web server with CGI support"
-msgstr "Маленький и быстрый веб-сервер с поддержкой CGI"
-
-#: boot.cgi:177
-msgid "Network time protocol daemon"
-msgstr "Служба протокола сетевого времени"
-
-#: boot.cgi:180
-msgid "Anonymous FTP server"
-msgstr "Анонимный сервер FTP"
-
-#: boot.cgi:183
-msgid "Busybox DHCP server"
-msgstr "Сервер DHCP из Busybox"
-
-#: boot.cgi:186
-msgid "Linux Kernel log daemon"
-msgstr "Служба журнала ядра Linux"
-
-#: boot.cgi:189
-msgid "Execute scheduled commands"
-msgstr "Выполнение запланированных команд"
-
-#: boot.cgi:192
-msgid "Small static DNS server daemon"
-msgstr "Служба маленького статического сервера DNS"
-
-#: boot.cgi:195
-msgid "Transfer a file on tftp request"
-msgstr "Передача файлов по запросу TFTP"
-
-#: boot.cgi:198
-msgid "Printer daemon"
-msgstr "Служба печати"
-
-#: boot.cgi:200
-msgid "Listen for network connections and launch programs"
-msgstr "Прослушивание сетевых соединений и запуск программ"
-
-#: boot.cgi:203
-msgid "Manage a ZeroConf IPv4 link-local address"
-msgstr "Управление присоединенным-локальным адресом ZeroConf IPv4"
-
-#: boot.cgi:272
-msgid "Started"
-msgstr "Запущен"
-
-#: boot.cgi:283
-msgid "Stopped"
-msgstr "Остановлен"
-
-#: boot.cgi:309
-msgid "GRUB Boot loader"
-msgstr "Загрузчик GRUB"
-
-#: boot.cgi:311
-msgid "The first application started when the computer powers on"
-msgstr "Первое приложение, запускаемое при включении питания"
-
-#: boot.cgi:318
-msgid "Default entry:"
-msgstr "Пункт по умолчанию:"
-
-#: boot.cgi:320
-msgid "Timeout:"
-msgstr "Таймаут:"
-
-#: boot.cgi:322
-msgid "Splash image:"
-msgstr "Загрузочная картинка:"
-
-#: boot.cgi:334
-msgid "View or edit menu.lst"
-msgstr "Просмотр и правка menu.lst"
-
-#: boot.cgi:339
-msgid "Boot entries"
-msgstr "Загрузочные пункты"
-
-#: boot.cgi:346
-msgid "Entry"
-msgstr "Пункт"
-
-#: boot.cgi:367
-msgid "Web boot is available with gPXE"
-msgstr "Доступна веб-загрузка с gPXE"
-
-#: boot.cgi:381 boot.cgi:486 styles/default/header.html:86
-msgid "ISO mine"
-msgstr "Установка ISO-образов"
-
-#: boot.cgi:383
-msgid "Invalid ISO image."
-msgstr "Недопустимый образ ISO."
-
-#: boot.cgi:403 floppy.cgi:288
-msgid "ISO image file full path"
-msgstr "Полный путь к файлу образа ISO"
-
-#: boot.cgi:404 floppy.cgi:289
-msgid "set /dev/cdrom for a physical CD-ROM"
-msgstr "выберите /dev/cdrom для физического CD-ROM"
-
-#: boot.cgi:407
-msgid "Working directory"
-msgstr "Рабочая папка"
-
-#: boot.cgi:410
-msgid "Target partition"
-msgstr "Целевой раздел"
-
-#: boot.cgi:411
-msgid ""
-"For hard disk installation only. Will create /slitaz tree and keep other "
-"files. No partitioning and no formatting."
-msgstr ""
-"Только для установки на жесткий диск. Будет создано дерево файлов в /slitaz "
-"и сохранены прочие файлы. Изменение разделов и форматирование не "
-"производятся."
-
-#: boot.cgi:414
-msgid "Choose a partition (optional)"
-msgstr "Выберите раздел (необязательный)"
-
-#: boot.cgi:425
-msgid "USB key device"
-msgstr "USB-накопитель"
-
-#: boot.cgi:426
-msgid "For USB boot key only. Will erase the full device."
-msgstr ""
-"Только для загрузочных USB-накопителей. Устройство будет полностью очищено."
-
-#: boot.cgi:429
-msgid "Choose a USB key (optional)"
-msgstr "Выберите USB-накопитель (необязательный)"
-
-#: boot.cgi:450
-msgid "Choose an action"
-msgstr "Выберите действие"
-
-#: boot.cgi:463
-msgid "Mine"
-msgstr "Производство"
-
-#: boot.cgi:476
-msgid "Boot &amp; Start services"
-msgstr "Загрузка и запуск служб"
-
-#: boot.cgi:478
-msgid "Everything that happens before user login"
-msgstr "Всё, что происходит перед входом пользователя в систему"
-
-#: boot.cgi:481 styles/default/header.html:75
-msgid "Boot logs"
-msgstr "Журналы загрузки"
-
-#: boot.cgi:489 styles/default/header.html:71
-msgid "Boot loader"
-msgstr "Загрузчик"
-
-#: boot.cgi:496
-msgid "Configuration files"
-msgstr "Файлы настроек"
-
-#: boot.cgi:499
-msgid "Main configuration file:"
-msgstr "Главный файл настроек:"
-
-#: boot.cgi:501
-msgid "Login manager settings:"
-msgstr "Настройки менеджера входа в систему:"
-
-#: boot.cgi:509
-msgid "Kernel cmdline"
-msgstr "Командная строка ядра"
-
-#: boot.cgi:516
-msgid "Local startup commands"
-msgstr "Локальные команды запуска"
-
-#: hardware.cgi:13 styles/default/header.html:91
-msgid "Hardware"
-msgstr "Оборудование"
-
-#: hardware.cgi:54
-msgid "Bus"
-msgstr "Шина"
-
-#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:532
-msgid "Device"
-msgstr "Устройство"
-
-#: hardware.cgi:56
-msgid "ID"
-msgstr "ID"
-
-#: hardware.cgi:76
-msgid "Slot"
-msgstr "Слот"
-
-#: hardware.cgi:112
-msgid "Detect hardware"
-msgstr "Поиск оборудования"
-
-#: hardware.cgi:114
-msgid "Detect PCI and USB hardware"
-msgstr "Определение оборудования PCI и USB"
-
-#: hardware.cgi:122 hardware.cgi:252 styles/default/header.html:94
-msgid "Kernel modules"
-msgstr "Модули ядра"
-
-#: hardware.cgi:126
-msgid "Manage, search or get information about the Linux kernel modules"
-msgstr "Управление, поиск и сведения о модулях ядра Linux"
-
-#: hardware.cgi:130
-msgid "Modules search"
-msgstr "Поиск модулей"
-
-#: hardware.cgi:131
-msgid "Search"
-msgstr "Искать"
-
-#: hardware.cgi:139
-msgid "Detailed information for module: %s"
-msgstr "Подробности о модуле %s"
-
-#: hardware.cgi:163
-msgid "Matching result(s) for: %s"
-msgstr "Результаты поиска %s"
-
-#: hardware.cgi:170
-msgid "Module:"
-msgstr "Модуль:"
-
-#: hardware.cgi:180
-msgid "Module"
-msgstr "Модуль"
-
-#: hardware.cgi:182 hardware.cgi:534 lib/libtazpanel:321
-msgid "Size"
-msgstr "Размер"
-
-#: hardware.cgi:183 hardware.cgi:591 lib/libtazpanel:323
-msgid "Used"
-msgstr "Используется"
-
-#: hardware.cgi:184
-msgid "by"
-msgstr "кем"
-
-#: hardware.cgi:208
-msgid "Information for USB Device %s"
-msgstr "Информация о USB-устройстве %s"
-
-#: hardware.cgi:210 hardware.cgi:228
-msgid "Detailed information about specified device."
-msgstr "Подробная информация о выбранном устройстве."
-
-#: hardware.cgi:226
-msgid "Information for PCI Device %s"
-msgstr "Информация о PCI-устройстве %s"
-
-#: hardware.cgi:247
-msgid "Drivers &amp; Devices"
-msgstr "Драйверы и устройства"
-
-#: hardware.cgi:249
-msgid "Manage your computer hardware"
-msgstr "Управление вашим компьютерным оборудованием"
-
-#: hardware.cgi:253 styles/default/header.html:95
-msgid "Detect PCI/USB"
-msgstr "Определить PCI/USB"
-
-#: hardware.cgi:254
-msgid "Auto-install Xorg video driver"
-msgstr "Авто-установка видео-драйвера Xorg"
-
-#: hardware.cgi:264 hardware.cgi:281
-msgid "Battery"
-msgstr "Батарея"
-
-#: hardware.cgi:284
-msgid "health"
-msgstr "здоровье"
-
-#: hardware.cgi:293
-msgid "Discharging %d%% - %s"
-msgstr "Разряжается: %d %% — осталось %s"
-
-#: hardware.cgi:297
-msgid "Charging %d%% - %s"
-msgstr "Заряжается: %d %% — осталось %s"
-
-#: hardware.cgi:299
-msgid "Charged 100%%"
-msgstr "Полностью заряжена"
-
-#: hardware.cgi:318
-msgid "Temperature:"
-msgstr "Температура:"
-
-#: hardware.cgi:333
-msgid "Brightness"
-msgstr "Яркость"
-
-#: hardware.cgi:476
-msgid "new mount point:"
-msgstr "новая точка монтирования:"
-
-#: hardware.cgi:477
-msgid "read-only"
-msgstr "только-чтение"
-
-#: hardware.cgi:492
-msgid "Filesystems table"
-msgstr "Таблица файловых систем"
-
-#: hardware.cgi:498 lib/libtazpanel:318
-msgid "Disk"
-msgstr "Диск"
-
-#: hardware.cgi:499 lib/libtazpanel:324
-msgid "Mount point"
-msgstr "Точка монтирования"
-
-#: hardware.cgi:500 lib/libtazpanel:320
-msgid "Type"
-msgstr "Тип"
-
-#: hardware.cgi:501
-msgid "Options"
-msgstr "Параметры"
-
-#: hardware.cgi:502
-msgid "Freq"
-msgstr "Резерв."
-
-#: hardware.cgi:503
-msgid "Pass"
-msgstr "Проверка"
-
-#: hardware.cgi:525
-msgid "Loop devices"
-msgstr "Устройства loop"
-
-#: hardware.cgi:533
-msgid "Backing file"
-msgstr "Файл образа"
-
-#: hardware.cgi:535
-msgid "Access"
-msgstr "Доступ"
-
-#: hardware.cgi:536
-msgid "Offset"
-msgstr "Смещение"
-
-#: hardware.cgi:545
-msgid "read/write"
-msgstr "чтение/запись"
-
-#: hardware.cgi:546 hardware.cgi:571
-msgid "read only"
-msgstr "только чтение"
-
-#: hardware.cgi:568
-msgid "Setup"
-msgstr "Установить"
-
-#: hardware.cgi:569
-msgid "new backing file:"
-msgstr "новый файл образа:"
-
-#: hardware.cgi:570
-msgid "offset in bytes:"
-msgstr "смещение в байтах:"
-
-#: hardware.cgi:588
-msgid "System memory"
-msgstr "Системная память"
-
-#: hardware.cgi:594
-msgid "Buffers"
-msgstr "Буферы"
-
-#: hardware.cgi:597
-msgid "Free"
-msgstr "Свободно"
 
 #: settings.cgi:16
 msgid "System settings"
@@ -1445,46 +1453,6 @@ msgstr "Сервер"
 msgid "TazPanel provides a debugging mode and page:"
 msgstr "TazPanel поддерживает отладочный режим и страницу:"
 
-#: lib/libtazpanel:156
-msgid "connected"
-msgstr "соединён"
-
-#: lib/libtazpanel:173
-msgid "IP Address"
-msgstr "Адрес IP"
-
-#: lib/libtazpanel:174
-msgid "Scan ports"
-msgstr "Сканировать порты"
-
-#: lib/libtazpanel:249
-msgid "Please wait"
-msgstr "Пожалуйста, подождите"
-
-#: lib/libtazpanel:319
-msgid "Label"
-msgstr "Метка"
-
-#: lib/libtazpanel:322
-msgid "Available"
-msgstr "Доступно"
-
-#: lib/libtazpanel:395
-msgid "You must be root to show this page."
-msgstr "Вы должны обладать правами root для просмотра этой страницы."
-
-#: lib/libtazpanel:418 lib/libtazpanel:428
-msgid "Browse"
-msgstr "Обзор"
-
-#: help.cgi:20
-msgid "Manual"
-msgstr "Руководство"
-
-#: help.cgi:28
-msgid "Help &amp; Doc"
-msgstr "Справка и документация"
-
 #: floppy.cgi:21
 msgid "Boot floppy"
 msgstr "Загрузочная дискета"
@@ -1599,6 +1567,68 @@ msgstr ""
 msgid "Floppy set from an ISO image"
 msgstr "Набор дискет из образа ISO"
 
+#: powersaving.cgi:15 powersaving.cgi:24
+msgid "Power saving"
+msgstr ""
+
+#: powersaving.cgi:33
+msgid ""
+"DPMS enables power saving behaviour of monitors when the computer is not in "
+"use."
+msgstr ""
+
+#: powersaving.cgi:54
+#, fuzzy
+msgid "Identifier"
+msgstr "Пользователь"
+
+#: powersaving.cgi:55
+#, fuzzy
+msgid "Vendor name"
+msgstr "Имя пользователя:"
+
+#: powersaving.cgi:56 powersaving.cgi:137
+#, fuzzy
+msgid "Model name"
+msgstr "Имя пользователя:"
+
+#: powersaving.cgi:57
+msgid "DPMS enabled"
+msgstr ""
+
+#: powersaving.cgi:86
+msgid "DPMS times (in minutes):"
+msgstr ""
+
+#: powersaving.cgi:99
+#, fuzzy
+msgid "Manual edit"
+msgstr "Ручная правка: %s"
+
+#: powersaving.cgi:129
+msgid "CPU"
+msgstr ""
+
+#: powersaving.cgi:131
+msgid ""
+"CPU frequency scaling enables the operating system to scale the CPU "
+"frequency up or down in order to save power. CPU frequencies can be scaled "
+"automatically depending on the system load, in responce to ACPI events, or "
+"manually by userspace programs."
+msgstr ""
+
+#: powersaving.cgi:138
+msgid "Current frequency"
+msgstr ""
+
+#: powersaving.cgi:139
+msgid "Current driver"
+msgstr ""
+
+#: powersaving.cgi:140
+msgid "Current governor"
+msgstr ""
+
 #: styles/default/header.html:35
 msgid "Confirm break"
 msgstr "Прервать процесс?"
@@ -1654,6 +1684,30 @@ msgstr "Авторское право"
 #: styles/default/header.html:140
 msgid "BSD License"
 msgstr "Лицензия BSD"
+
+#~ msgid "connected"
+#~ msgstr "соединён"
+
+#~ msgid "IP Address"
+#~ msgstr "Адрес IP"
+
+#~ msgid "Scan ports"
+#~ msgstr "Сканировать порты"
+
+#~ msgid "Please wait"
+#~ msgstr "Пожалуйста, подождите"
+
+#~ msgid "Label"
+#~ msgstr "Метка"
+
+#~ msgid "Available"
+#~ msgstr "Доступно"
+
+#~ msgid "You must be root to show this page."
+#~ msgstr "Вы должны обладать правами root для просмотра этой страницы."
+
+#~ msgid "Browse"
+#~ msgstr "Обзор"
 
 #~ msgid "TazPanel is already running."
 #~ msgstr "TazPanel уже запущена."

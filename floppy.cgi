@@ -288,7 +288,7 @@ cat <<EOT
 		<td>$(_ 'ISO image file full path')
 			<span data-img="@info@" title="$(_ 'set /dev/cdrom for a physical CD-ROM')"></span>
 		</td>
-		<td>$(file_chooser "iso" "$iso")</td></tr>
+		<td>$(file_chooser "iso" "$iso")</td>
 		<td><button type="submit" name="build" data-icon="@start@" >
 		$(_ 'Build floppy set'  )</button></td>
 		</tr>

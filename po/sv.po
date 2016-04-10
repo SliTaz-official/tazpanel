@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-04 19:03+0100\n"
+"POT-Creation-Date: 2016-04-10 11:42+0200\n"
 "PO-Revision-Date: 2012-07-11 11:33-0000\n"
 "Last-Translator: Emil Eklund <emileklund123@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -16,6 +16,504 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: boot.cgi:16 floppy.cgi:11 styles/default/header.html:65
+msgid "Boot"
+msgstr "Boot"
+
+#: boot.cgi:27
+msgid "Show more..."
+msgstr "Visa mer..."
+
+#: boot.cgi:40 boot.cgi:45 boot.cgi:482 styles/default/header.html:83
+#, fuzzy
+msgid "System logs"
+msgstr "System språk"
+
+#: boot.cgi:90
+msgid "Boot log files"
+msgstr "Start log filer"
+
+#: boot.cgi:93 index.cgi:723 styles/default/header.html:77
+msgid "Kernel messages"
+msgstr "Meddelanden från kärnan"
+
+#: boot.cgi:94 index.cgi:726 styles/default/header.html:78
+msgid "Boot scripts"
+msgstr "Start skript"
+
+#: boot.cgi:95 styles/default/header.html:79
+msgid "X server"
+msgstr "X server"
+
+#: boot.cgi:96 styles/default/header.html:80
+msgid "X session"
+msgstr ""
+
+#: boot.cgi:115 boot.cgi:483 styles/default/header.html:84
+msgid "Manage daemons"
+msgstr "Hantera daemoner"
+
+#: boot.cgi:118
+msgid "Check, start and stop daemons on SliTaz"
+msgstr "Konstrollera, starta och stopa daemoner i SliTaz"
+
+#: boot.cgi:142 hardware.cgi:57 hardware.cgi:78 network.cgi:345 hosts.cgi:243
+msgid "Name"
+msgstr "Namn"
+
+#: boot.cgi:143 hardware.cgi:181 settings.cgi:459 powersaving.cgi:154
+msgid "Description"
+msgstr "Beskrivning"
+
+#: boot.cgi:144 network.cgi:248
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: boot.cgi:145 network.cgi:349
+msgid "Status"
+msgstr "Status"
+
+#: boot.cgi:146
+msgid "Action"
+msgstr "Handling"
+
+#: boot.cgi:147
+msgid "PID"
+msgstr "PID"
+
+#: boot.cgi:172
+msgid "SliTaz Firewall with iptable rules"
+msgstr "SliTaz Brandvägg med iptable regler"
+
+#: boot.cgi:174
+msgid "Small and fast web server with CGI support"
+msgstr "Liten och snabb webbserver med CGI stöd"
+
+#: boot.cgi:177
+msgid "Network time protocol daemon"
+msgstr "Nätverkstids protokoll daemon"
+
+#: boot.cgi:180
+msgid "Anonymous FTP server"
+msgstr "Anonymous FTP server"
+
+#: boot.cgi:183
+msgid "Busybox DHCP server"
+msgstr "Busybox DHCP server"
+
+#: boot.cgi:186
+msgid "Linux Kernel log daemon"
+msgstr "Linux Kärna log daemon"
+
+#: boot.cgi:189
+msgid "Execute scheduled commands"
+msgstr "Utför schemalagda kommandon"
+
+#: boot.cgi:192
+msgid "Small static DNS server daemon"
+msgstr "Liten statisk DNS server daemon"
+
+#: boot.cgi:195
+msgid "Transfer a file on tftp request"
+msgstr "Överför en fil via tftp begäran"
+
+#: boot.cgi:198
+#, fuzzy
+msgid "Printer daemon"
+msgstr "Hantera daemoner"
+
+#: boot.cgi:200
+msgid "Listen for network connections and launch programs"
+msgstr "Lysnna efter nätverksanslutningar och starta pogram"
+
+#: boot.cgi:203
+msgid "Manage a ZeroConf IPv4 link-local address"
+msgstr "Hantera en ZeroConf IPv4 link-lokal adress"
+
+#: boot.cgi:272
+msgid "Started"
+msgstr "Startade"
+
+#: boot.cgi:273 network.cgi:297 network.cgi:454 network.cgi:647
+msgid "Stop"
+msgstr "Stop"
+
+#: boot.cgi:283
+msgid "Stopped"
+msgstr "Stannade"
+
+#: boot.cgi:284 network.cgi:296 network.cgi:453 network.cgi:646
+msgid "Start"
+msgstr "Start"
+
+#: boot.cgi:309
+msgid "GRUB Boot loader"
+msgstr "GRUB Boot loader"
+
+#: boot.cgi:311
+msgid "The first application started when the computer powers on"
+msgstr "Den första applikationen startade när datorn startar"
+
+#: boot.cgi:318
+msgid "Default entry:"
+msgstr "Standard svar:"
+
+#: boot.cgi:320
+msgid "Timeout:"
+msgstr "Timeout:"
+
+#: boot.cgi:322
+msgid "Splash image:"
+msgstr "Splash image:"
+
+#: boot.cgi:327 network.cgi:669 network.cgi:700 settings.cgi:633
+#: settings.cgi:747 powersaving.cgi:108
+msgid "Change"
+msgstr "Ändra"
+
+#: boot.cgi:334
+msgid "View or edit menu.lst"
+msgstr "Visa eller ändra menu.lst"
+
+#: boot.cgi:339
+msgid "Boot entries"
+msgstr "Start up bidrag"
+
+#: boot.cgi:346
+msgid "Entry"
+msgstr "Bidrag"
+
+#: boot.cgi:367
+msgid "Web boot is available with gPXE"
+msgstr "Nät start är tillgänglig med gPXE"
+
+#: boot.cgi:381 boot.cgi:486 styles/default/header.html:86
+msgid "ISO mine"
+msgstr ""
+
+#: boot.cgi:383
+msgid "Invalid ISO image."
+msgstr ""
+
+#: boot.cgi:403 floppy.cgi:288
+msgid "ISO image file full path"
+msgstr ""
+
+#: boot.cgi:404 floppy.cgi:289
+msgid "set /dev/cdrom for a physical CD-ROM"
+msgstr ""
+
+#: boot.cgi:407
+msgid "Working directory"
+msgstr ""
+
+#: boot.cgi:410
+msgid "Target partition"
+msgstr ""
+
+#: boot.cgi:411
+msgid ""
+"For hard disk installation only. Will create /slitaz tree and keep other "
+"files. No partitioning and no formatting."
+msgstr ""
+
+#: boot.cgi:414
+msgid "Choose a partition (optional)"
+msgstr ""
+
+#: boot.cgi:425
+msgid "USB key device"
+msgstr ""
+
+#: boot.cgi:426
+msgid "For USB boot key only. Will erase the full device."
+msgstr ""
+
+#: boot.cgi:429
+msgid "Choose a USB key (optional)"
+msgstr ""
+
+#: boot.cgi:450
+#, fuzzy
+msgid "Choose an action"
+msgstr "Anslutning"
+
+#: boot.cgi:463
+msgid "Mine"
+msgstr ""
+
+#: boot.cgi:476
+msgid "Boot &amp; Start services"
+msgstr "Starta &amp; Starta tjänster"
+
+#: boot.cgi:478
+msgid "Everything that happens before user login"
+msgstr "Allting som händer innan användaren loggar in"
+
+#: boot.cgi:481 styles/default/header.html:75
+msgid "Boot logs"
+msgstr "Start uo loggar"
+
+#: boot.cgi:489 styles/default/header.html:71
+msgid "Boot loader"
+msgstr "Start laddare"
+
+#: boot.cgi:496
+msgid "Configuration files"
+msgstr "Configurations filer"
+
+#: boot.cgi:499
+msgid "Main configuration file:"
+msgstr "Huvud konfigureringsfil:"
+
+#: boot.cgi:500 boot.cgi:502 index.cgi:791 index.cgi:887
+msgid "View"
+msgstr ""
+
+#: boot.cgi:501
+msgid "Login manager settings:"
+msgstr "Login hanterar inställningar:"
+
+#: boot.cgi:509
+msgid "Kernel cmdline"
+msgstr "Kärn kommando linje"
+
+#: boot.cgi:516
+msgid "Local startup commands"
+msgstr "Lokala start kommandon"
+
+#: hardware.cgi:13 powersaving.cgi:22 styles/default/header.html:91
+msgid "Hardware"
+msgstr "Hårdava"
+
+#: hardware.cgi:54
+msgid "Bus"
+msgstr ""
+
+#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:532
+msgid "Device"
+msgstr ""
+
+#: hardware.cgi:56
+#, fuzzy
+msgid "ID"
+msgstr "PID"
+
+#: hardware.cgi:76
+msgid "Slot"
+msgstr ""
+
+#: hardware.cgi:112
+msgid "Detect hardware"
+msgstr "Upptäck hårdvara"
+
+#: hardware.cgi:114
+msgid "Detect PCI and USB hardware"
+msgstr "Upptäck PCI och USB hårdvara"
+
+#: hardware.cgi:122 hardware.cgi:252 powersaving.cgi:150
+#: styles/default/header.html:94
+msgid "Kernel modules"
+msgstr "Kärn moduler"
+
+#: hardware.cgi:126
+msgid "Manage, search or get information about the Linux kernel modules"
+msgstr "Hantera, sök eller samla information om Linux kärnmoduler"
+
+#: hardware.cgi:130
+msgid "Modules search"
+msgstr "Moduler sökning"
+
+#: hardware.cgi:131
+msgid "Search"
+msgstr ""
+
+#: hardware.cgi:139
+msgid "Detailed information for module: %s"
+msgstr "Detaljerad information för modul: %s"
+
+#: hardware.cgi:163
+msgid "Matching result(s) for: %s"
+msgstr "Matchande resultat för: %s"
+
+#: hardware.cgi:170
+msgid "Module:"
+msgstr "Modul:"
+
+#: hardware.cgi:180 powersaving.cgi:153
+msgid "Module"
+msgstr "Modul"
+
+#: hardware.cgi:182 hardware.cgi:534
+msgid "Size"
+msgstr "Storlek"
+
+#: hardware.cgi:183 hardware.cgi:591
+msgid "Used"
+msgstr "Använd"
+
+#: hardware.cgi:184
+msgid "by"
+msgstr "av"
+
+#: hardware.cgi:208
+msgid "Information for USB Device %s"
+msgstr ""
+
+#: hardware.cgi:210 hardware.cgi:228
+msgid "Detailed information about specified device."
+msgstr ""
+
+#: hardware.cgi:226
+msgid "Information for PCI Device %s"
+msgstr ""
+
+#: hardware.cgi:247
+msgid "Drivers &amp; Devices"
+msgstr "Drivrutiner &amp; Enheter"
+
+#: hardware.cgi:249
+msgid "Manage your computer hardware"
+msgstr "Hantera din dators hårdvara"
+
+#: hardware.cgi:253 styles/default/header.html:95
+msgid "Detect PCI/USB"
+msgstr "Upptäckt PCI/USB"
+
+#: hardware.cgi:254
+msgid "Auto-install Xorg video driver"
+msgstr ""
+
+#: hardware.cgi:264 hardware.cgi:281
+msgid "Battery"
+msgstr "Batteri"
+
+#: hardware.cgi:284
+msgid "health"
+msgstr "hälsa"
+
+#: hardware.cgi:293
+msgid "Discharging %d%% - %s"
+msgstr "Laddar ur %d%% - %s"
+
+#: hardware.cgi:297
+msgid "Charging %d%% - %s"
+msgstr "Laddar %d%% - %s"
+
+#: hardware.cgi:299
+#, fuzzy
+msgid "Charged 100%%"
+msgstr "Laddad 100%%"
+
+#: hardware.cgi:318
+msgid "Temperature:"
+msgstr "Temperatur:"
+
+#: hardware.cgi:333
+msgid "Brightness"
+msgstr "Ljusstyrka"
+
+#: hardware.cgi:353 index.cgi:851
+msgid "Filesystem usage statistics"
+msgstr "Filsystemsanvändning"
+
+#: hardware.cgi:476
+#, fuzzy
+msgid "new mount point:"
+msgstr "Monteringspunkt"
+
+#: hardware.cgi:477
+msgid "read-only"
+msgstr ""
+
+#: hardware.cgi:492
+msgid "Filesystems table"
+msgstr ""
+
+#: hardware.cgi:498
+msgid "Disk"
+msgstr "Disk"
+
+#: hardware.cgi:499
+msgid "Mount point"
+msgstr "Monteringspunkt"
+
+#: hardware.cgi:500
+msgid "Type"
+msgstr "Sort"
+
+#: hardware.cgi:501
+#, fuzzy
+msgid "Options"
+msgstr "Handling"
+
+#: hardware.cgi:502
+msgid "Freq"
+msgstr ""
+
+#: hardware.cgi:503
+#, fuzzy
+msgid "Pass"
+msgstr "Lösenord:"
+
+#: hardware.cgi:525
+msgid "Loop devices"
+msgstr ""
+
+#: hardware.cgi:533
+#, fuzzy
+msgid "Backing file"
+msgstr "Konfigurerings fil"
+
+#: hardware.cgi:535
+#, fuzzy
+msgid "Access"
+msgstr "Åtkomst punkt"
+
+#: hardware.cgi:536
+msgid "Offset"
+msgstr ""
+
+#: hardware.cgi:545
+msgid "read/write"
+msgstr ""
+
+#: hardware.cgi:546 hardware.cgi:571
+msgid "read only"
+msgstr ""
+
+#: hardware.cgi:568
+msgid "Setup"
+msgstr ""
+
+#: hardware.cgi:569
+msgid "new backing file:"
+msgstr ""
+
+#: hardware.cgi:570
+msgid "offset in bytes:"
+msgstr ""
+
+#: hardware.cgi:588
+msgid "System memory"
+msgstr "System minne"
+
+#: hardware.cgi:594
+msgid "Buffers"
+msgstr ""
+
+#: hardware.cgi:597
+msgid "Free"
+msgstr ""
+
+#: help.cgi:20
+msgid "Manual"
+msgstr "Manual"
+
+#: help.cgi:28
+msgid "Help &amp; Doc"
+msgstr "Hjälp &amp; Dokument"
 
 #: index.cgi:37 index.cgi:186
 msgid "Differences"
@@ -43,7 +541,7 @@ msgstr "Fil"
 msgid "Save"
 msgstr "Spara"
 
-#: index.cgi:242 settings.cgi:791 lib/libtazpanel:381
+#: index.cgi:242 settings.cgi:791
 msgid "Edit"
 msgstr "Ändra"
 
@@ -57,7 +555,7 @@ msgstr "Terminal"
 msgid "History"
 msgstr "Territorium"
 
-#: index.cgi:315 lib/libtazpanel:371
+#: index.cgi:315
 msgid "Back"
 msgstr ""
 
@@ -204,14 +702,6 @@ msgstr "Skaffar filsystemsinformation..."
 msgid "Getting boot logs..."
 msgstr "Skaffar start loggar..."
 
-#: index.cgi:723 boot.cgi:93 styles/default/header.html:77
-msgid "Kernel messages"
-msgstr "Meddelanden från kärnan"
-
-#: index.cgi:726 boot.cgi:94 styles/default/header.html:78
-msgid "Boot scripts"
-msgstr "Start skript"
-
 #: index.cgi:731
 #, fuzzy
 msgid "Getting package list..."
@@ -229,10 +719,6 @@ msgstr "Skaffar start loggar..."
 #: index.cgi:780
 msgid "Creating report footer..."
 msgstr "Skapar rapport fot..."
-
-#: index.cgi:791 index.cgi:887 boot.cgi:500 boot.cgi:502
-msgid "View"
-msgstr ""
 
 #: index.cgi:796
 msgid "This report can be attached with a bug report on:"
@@ -283,10 +769,6 @@ msgstr "Nätverks status"
 msgid "Network"
 msgstr "Nätverk"
 
-#: index.cgi:851 hardware.cgi:353
-msgid "Filesystem usage statistics"
-msgstr "Filsystemsanvändning"
-
 #: index.cgi:853 styles/default/header.html:96
 msgid "Disks"
 msgstr ""
@@ -319,11 +801,7 @@ msgstr ""
 "Här kan du konfigurera en trådbunden anslutning med DHCP för att automatiskt "
 "få en slumpmässig IP eller konfigurera en statisk/fast IP"
 
-#: network.cgi:248 boot.cgi:144
-msgid "Configuration"
-msgstr "Konfiguration"
-
-#: network.cgi:254 lib/libtazpanel:170
+#: network.cgi:254
 msgid "Interface"
 msgstr "Enhet"
 
@@ -385,14 +863,6 @@ msgstr "Handling"
 msgid "Help"
 msgstr ""
 
-#: network.cgi:296 network.cgi:453 network.cgi:646 boot.cgi:284
-msgid "Start"
-msgstr "Start"
-
-#: network.cgi:297 network.cgi:454 network.cgi:647 boot.cgi:273
-msgid "Stop"
-msgstr "Stop"
-
 #: network.cgi:322 network.cgi:609
 msgid "Configuration file"
 msgstr "Konfigurations fil"
@@ -409,11 +879,6 @@ msgstr ""
 msgid "(hidden)"
 msgstr ""
 
-#: network.cgi:345 hosts.cgi:243 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
-#: lib/libtazpanel:171
-msgid "Name"
-msgstr "Namn"
-
 #: network.cgi:346
 msgid "Signal level"
 msgstr ""
@@ -427,10 +892,6 @@ msgstr "Ändra"
 msgid "Encryption"
 msgstr "Kryptering"
 
-#: network.cgi:349 boot.cgi:145 lib/libtazpanel:172
-msgid "Status"
-msgstr "Status"
-
 #: network.cgi:407 network.cgi:489 network.cgi:511
 msgid "None"
 msgstr ""
@@ -443,7 +904,7 @@ msgstr "Ansluten"
 msgid "Wireless connection"
 msgstr "Trådlös Anslutning"
 
-#: network.cgi:455 lib/libtazpanel:153
+#: network.cgi:455
 msgid "Scan"
 msgstr "Skanna"
 
@@ -541,11 +1002,6 @@ msgstr "Nätverks status"
 #: network.cgi:667
 msgid "forward packets between interfaces"
 msgstr ""
-
-#: network.cgi:669 network.cgi:700 boot.cgi:327 settings.cgi:633
-#: settings.cgi:747
-msgid "Change"
-msgstr "Ändra"
 
 #: network.cgi:677 hosts.cgi:203
 msgid "Hosts"
@@ -695,454 +1151,6 @@ msgstr ""
 
 #: hosts.cgi:314
 msgid "Install"
-msgstr ""
-
-#: boot.cgi:16 floppy.cgi:11 styles/default/header.html:65
-msgid "Boot"
-msgstr "Boot"
-
-#: boot.cgi:27
-msgid "Show more..."
-msgstr "Visa mer..."
-
-#: boot.cgi:40 boot.cgi:45 boot.cgi:482 styles/default/header.html:83
-#, fuzzy
-msgid "System logs"
-msgstr "System språk"
-
-#: boot.cgi:90
-msgid "Boot log files"
-msgstr "Start log filer"
-
-#: boot.cgi:95 styles/default/header.html:79
-msgid "X server"
-msgstr "X server"
-
-#: boot.cgi:96 styles/default/header.html:80
-msgid "X session"
-msgstr ""
-
-#: boot.cgi:115 boot.cgi:483 styles/default/header.html:84
-msgid "Manage daemons"
-msgstr "Hantera daemoner"
-
-#: boot.cgi:118
-msgid "Check, start and stop daemons on SliTaz"
-msgstr "Konstrollera, starta och stopa daemoner i SliTaz"
-
-#: boot.cgi:143 hardware.cgi:181 settings.cgi:459
-msgid "Description"
-msgstr "Beskrivning"
-
-#: boot.cgi:146
-msgid "Action"
-msgstr "Handling"
-
-#: boot.cgi:147
-msgid "PID"
-msgstr "PID"
-
-#: boot.cgi:172
-msgid "SliTaz Firewall with iptable rules"
-msgstr "SliTaz Brandvägg med iptable regler"
-
-#: boot.cgi:174
-msgid "Small and fast web server with CGI support"
-msgstr "Liten och snabb webbserver med CGI stöd"
-
-#: boot.cgi:177
-msgid "Network time protocol daemon"
-msgstr "Nätverkstids protokoll daemon"
-
-#: boot.cgi:180
-msgid "Anonymous FTP server"
-msgstr "Anonymous FTP server"
-
-#: boot.cgi:183
-msgid "Busybox DHCP server"
-msgstr "Busybox DHCP server"
-
-#: boot.cgi:186
-msgid "Linux Kernel log daemon"
-msgstr "Linux Kärna log daemon"
-
-#: boot.cgi:189
-msgid "Execute scheduled commands"
-msgstr "Utför schemalagda kommandon"
-
-#: boot.cgi:192
-msgid "Small static DNS server daemon"
-msgstr "Liten statisk DNS server daemon"
-
-#: boot.cgi:195
-msgid "Transfer a file on tftp request"
-msgstr "Överför en fil via tftp begäran"
-
-#: boot.cgi:198
-#, fuzzy
-msgid "Printer daemon"
-msgstr "Hantera daemoner"
-
-#: boot.cgi:200
-msgid "Listen for network connections and launch programs"
-msgstr "Lysnna efter nätverksanslutningar och starta pogram"
-
-#: boot.cgi:203
-msgid "Manage a ZeroConf IPv4 link-local address"
-msgstr "Hantera en ZeroConf IPv4 link-lokal adress"
-
-#: boot.cgi:272
-msgid "Started"
-msgstr "Startade"
-
-#: boot.cgi:283
-msgid "Stopped"
-msgstr "Stannade"
-
-#: boot.cgi:309
-msgid "GRUB Boot loader"
-msgstr "GRUB Boot loader"
-
-#: boot.cgi:311
-msgid "The first application started when the computer powers on"
-msgstr "Den första applikationen startade när datorn startar"
-
-#: boot.cgi:318
-msgid "Default entry:"
-msgstr "Standard svar:"
-
-#: boot.cgi:320
-msgid "Timeout:"
-msgstr "Timeout:"
-
-#: boot.cgi:322
-msgid "Splash image:"
-msgstr "Splash image:"
-
-#: boot.cgi:334
-msgid "View or edit menu.lst"
-msgstr "Visa eller ändra menu.lst"
-
-#: boot.cgi:339
-msgid "Boot entries"
-msgstr "Start up bidrag"
-
-#: boot.cgi:346
-msgid "Entry"
-msgstr "Bidrag"
-
-#: boot.cgi:367
-msgid "Web boot is available with gPXE"
-msgstr "Nät start är tillgänglig med gPXE"
-
-#: boot.cgi:381 boot.cgi:486 styles/default/header.html:86
-msgid "ISO mine"
-msgstr ""
-
-#: boot.cgi:383
-msgid "Invalid ISO image."
-msgstr ""
-
-#: boot.cgi:403 floppy.cgi:288
-msgid "ISO image file full path"
-msgstr ""
-
-#: boot.cgi:404 floppy.cgi:289
-msgid "set /dev/cdrom for a physical CD-ROM"
-msgstr ""
-
-#: boot.cgi:407
-msgid "Working directory"
-msgstr ""
-
-#: boot.cgi:410
-msgid "Target partition"
-msgstr ""
-
-#: boot.cgi:411
-msgid ""
-"For hard disk installation only. Will create /slitaz tree and keep other "
-"files. No partitioning and no formatting."
-msgstr ""
-
-#: boot.cgi:414
-msgid "Choose a partition (optional)"
-msgstr ""
-
-#: boot.cgi:425
-msgid "USB key device"
-msgstr ""
-
-#: boot.cgi:426
-msgid "For USB boot key only. Will erase the full device."
-msgstr ""
-
-#: boot.cgi:429
-msgid "Choose a USB key (optional)"
-msgstr ""
-
-#: boot.cgi:450
-#, fuzzy
-msgid "Choose an action"
-msgstr "Anslutning"
-
-#: boot.cgi:463
-msgid "Mine"
-msgstr ""
-
-#: boot.cgi:476
-msgid "Boot &amp; Start services"
-msgstr "Starta &amp; Starta tjänster"
-
-#: boot.cgi:478
-msgid "Everything that happens before user login"
-msgstr "Allting som händer innan användaren loggar in"
-
-#: boot.cgi:481 styles/default/header.html:75
-msgid "Boot logs"
-msgstr "Start uo loggar"
-
-#: boot.cgi:489 styles/default/header.html:71
-msgid "Boot loader"
-msgstr "Start laddare"
-
-#: boot.cgi:496
-msgid "Configuration files"
-msgstr "Configurations filer"
-
-#: boot.cgi:499
-msgid "Main configuration file:"
-msgstr "Huvud konfigureringsfil:"
-
-#: boot.cgi:501
-msgid "Login manager settings:"
-msgstr "Login hanterar inställningar:"
-
-#: boot.cgi:509
-msgid "Kernel cmdline"
-msgstr "Kärn kommando linje"
-
-#: boot.cgi:516
-msgid "Local startup commands"
-msgstr "Lokala start kommandon"
-
-#: hardware.cgi:13 styles/default/header.html:91
-msgid "Hardware"
-msgstr "Hårdava"
-
-#: hardware.cgi:54
-msgid "Bus"
-msgstr ""
-
-#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:532
-msgid "Device"
-msgstr ""
-
-#: hardware.cgi:56
-#, fuzzy
-msgid "ID"
-msgstr "PID"
-
-#: hardware.cgi:76
-msgid "Slot"
-msgstr ""
-
-#: hardware.cgi:112
-msgid "Detect hardware"
-msgstr "Upptäck hårdvara"
-
-#: hardware.cgi:114
-msgid "Detect PCI and USB hardware"
-msgstr "Upptäck PCI och USB hårdvara"
-
-#: hardware.cgi:122 hardware.cgi:252 styles/default/header.html:94
-msgid "Kernel modules"
-msgstr "Kärn moduler"
-
-#: hardware.cgi:126
-msgid "Manage, search or get information about the Linux kernel modules"
-msgstr "Hantera, sök eller samla information om Linux kärnmoduler"
-
-#: hardware.cgi:130
-msgid "Modules search"
-msgstr "Moduler sökning"
-
-#: hardware.cgi:131
-msgid "Search"
-msgstr ""
-
-#: hardware.cgi:139
-msgid "Detailed information for module: %s"
-msgstr "Detaljerad information för modul: %s"
-
-#: hardware.cgi:163
-msgid "Matching result(s) for: %s"
-msgstr "Matchande resultat för: %s"
-
-#: hardware.cgi:170
-msgid "Module:"
-msgstr "Modul:"
-
-#: hardware.cgi:180
-msgid "Module"
-msgstr "Modul"
-
-#: hardware.cgi:182 hardware.cgi:534 lib/libtazpanel:321
-msgid "Size"
-msgstr "Storlek"
-
-#: hardware.cgi:183 hardware.cgi:591 lib/libtazpanel:323
-msgid "Used"
-msgstr "Använd"
-
-#: hardware.cgi:184
-msgid "by"
-msgstr "av"
-
-#: hardware.cgi:208
-msgid "Information for USB Device %s"
-msgstr ""
-
-#: hardware.cgi:210 hardware.cgi:228
-msgid "Detailed information about specified device."
-msgstr ""
-
-#: hardware.cgi:226
-msgid "Information for PCI Device %s"
-msgstr ""
-
-#: hardware.cgi:247
-msgid "Drivers &amp; Devices"
-msgstr "Drivrutiner &amp; Enheter"
-
-#: hardware.cgi:249
-msgid "Manage your computer hardware"
-msgstr "Hantera din dators hårdvara"
-
-#: hardware.cgi:253 styles/default/header.html:95
-msgid "Detect PCI/USB"
-msgstr "Upptäckt PCI/USB"
-
-#: hardware.cgi:254
-msgid "Auto-install Xorg video driver"
-msgstr ""
-
-#: hardware.cgi:264 hardware.cgi:281
-msgid "Battery"
-msgstr "Batteri"
-
-#: hardware.cgi:284
-msgid "health"
-msgstr "hälsa"
-
-#: hardware.cgi:293
-msgid "Discharging %d%% - %s"
-msgstr "Laddar ur %d%% - %s"
-
-#: hardware.cgi:297
-msgid "Charging %d%% - %s"
-msgstr "Laddar %d%% - %s"
-
-#: hardware.cgi:299
-#, fuzzy
-msgid "Charged 100%%"
-msgstr "Laddad 100%%"
-
-#: hardware.cgi:318
-msgid "Temperature:"
-msgstr "Temperatur:"
-
-#: hardware.cgi:333
-msgid "Brightness"
-msgstr "Ljusstyrka"
-
-#: hardware.cgi:476
-#, fuzzy
-msgid "new mount point:"
-msgstr "Monteringspunkt"
-
-#: hardware.cgi:477
-msgid "read-only"
-msgstr ""
-
-#: hardware.cgi:492
-msgid "Filesystems table"
-msgstr ""
-
-#: hardware.cgi:498 lib/libtazpanel:318
-msgid "Disk"
-msgstr "Disk"
-
-#: hardware.cgi:499 lib/libtazpanel:324
-msgid "Mount point"
-msgstr "Monteringspunkt"
-
-#: hardware.cgi:500 lib/libtazpanel:320
-msgid "Type"
-msgstr "Sort"
-
-#: hardware.cgi:501
-#, fuzzy
-msgid "Options"
-msgstr "Handling"
-
-#: hardware.cgi:502
-msgid "Freq"
-msgstr ""
-
-#: hardware.cgi:503
-#, fuzzy
-msgid "Pass"
-msgstr "Lösenord:"
-
-#: hardware.cgi:525
-msgid "Loop devices"
-msgstr ""
-
-#: hardware.cgi:533
-#, fuzzy
-msgid "Backing file"
-msgstr "Konfigurerings fil"
-
-#: hardware.cgi:535
-#, fuzzy
-msgid "Access"
-msgstr "Åtkomst punkt"
-
-#: hardware.cgi:536
-msgid "Offset"
-msgstr ""
-
-#: hardware.cgi:545
-msgid "read/write"
-msgstr ""
-
-#: hardware.cgi:546 hardware.cgi:571
-msgid "read only"
-msgstr ""
-
-#: hardware.cgi:568
-msgid "Setup"
-msgstr ""
-
-#: hardware.cgi:569
-msgid "new backing file:"
-msgstr ""
-
-#: hardware.cgi:570
-msgid "offset in bytes:"
-msgstr ""
-
-#: hardware.cgi:588
-msgid "System memory"
-msgstr "System minne"
-
-#: hardware.cgi:594
-msgid "Buffers"
-msgstr ""
-
-#: hardware.cgi:597
-msgid "Free"
 msgstr ""
 
 #: settings.cgi:16
@@ -1461,47 +1469,6 @@ msgstr "Server"
 msgid "TazPanel provides a debugging mode and page:"
 msgstr "TazPanel förser ett debugging läge och sida:"
 
-#: lib/libtazpanel:156
-msgid "connected"
-msgstr "ansluten"
-
-#: lib/libtazpanel:173
-msgid "IP Address"
-msgstr "IP adress"
-
-#: lib/libtazpanel:174
-msgid "Scan ports"
-msgstr "Skanna portar"
-
-#: lib/libtazpanel:249
-#, fuzzy
-msgid "Please wait"
-msgstr "Var god vänta..."
-
-#: lib/libtazpanel:319
-msgid "Label"
-msgstr "Etikett"
-
-#: lib/libtazpanel:322
-msgid "Available"
-msgstr "Tillgängligt"
-
-#: lib/libtazpanel:395
-msgid "You must be root to show this page."
-msgstr ""
-
-#: lib/libtazpanel:418 lib/libtazpanel:428
-msgid "Browse"
-msgstr ""
-
-#: help.cgi:20
-msgid "Manual"
-msgstr "Manual"
-
-#: help.cgi:28
-msgid "Help &amp; Doc"
-msgstr "Hjälp &amp; Dokument"
-
 #: floppy.cgi:21
 #, fuzzy
 msgid "Boot floppy"
@@ -1616,6 +1583,65 @@ msgstr ""
 msgid "Floppy set from an ISO image"
 msgstr ""
 
+#: powersaving.cgi:15 powersaving.cgi:24
+msgid "Power saving"
+msgstr ""
+
+#: powersaving.cgi:33
+msgid ""
+"DPMS enables power saving behaviour of monitors when the computer is not in "
+"use."
+msgstr ""
+
+#: powersaving.cgi:54
+msgid "Identifier"
+msgstr ""
+
+#: powersaving.cgi:55
+msgid "Vendor name"
+msgstr ""
+
+#: powersaving.cgi:56 powersaving.cgi:137
+msgid "Model name"
+msgstr ""
+
+#: powersaving.cgi:57
+msgid "DPMS enabled"
+msgstr ""
+
+#: powersaving.cgi:86
+msgid "DPMS times (in minutes):"
+msgstr ""
+
+#: powersaving.cgi:99
+#, fuzzy
+msgid "Manual edit"
+msgstr "Manuell Ändring"
+
+#: powersaving.cgi:129
+msgid "CPU"
+msgstr ""
+
+#: powersaving.cgi:131
+msgid ""
+"CPU frequency scaling enables the operating system to scale the CPU "
+"frequency up or down in order to save power. CPU frequencies can be scaled "
+"automatically depending on the system load, in responce to ACPI events, or "
+"manually by userspace programs."
+msgstr ""
+
+#: powersaving.cgi:138
+msgid "Current frequency"
+msgstr ""
+
+#: powersaving.cgi:139
+msgid "Current driver"
+msgstr ""
+
+#: powersaving.cgi:140
+msgid "Current governor"
+msgstr ""
+
 #: styles/default/header.html:35
 #, fuzzy
 msgid "Confirm break"
@@ -1672,6 +1698,25 @@ msgstr "Copyright"
 #: styles/default/header.html:140
 msgid "BSD License"
 msgstr "BSD License"
+
+#~ msgid "connected"
+#~ msgstr "ansluten"
+
+#~ msgid "IP Address"
+#~ msgstr "IP adress"
+
+#~ msgid "Scan ports"
+#~ msgstr "Skanna portar"
+
+#, fuzzy
+#~ msgid "Please wait"
+#~ msgstr "Var god vänta..."
+
+#~ msgid "Label"
+#~ msgstr "Etikett"
+
+#~ msgid "Available"
+#~ msgstr "Tillgängligt"
 
 #~ msgid "Starting TazPanel web server on port %d..."
 #~ msgstr "Startar TazPanel web server på port %d..."

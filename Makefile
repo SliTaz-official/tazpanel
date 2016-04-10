@@ -25,9 +25,7 @@ pot:
 		--from-code="UTF-8" \
 		--package-name="TazPanel" \
 		--package-version="$(VERSION)" \
-		./tazpanel ./index.cgi ./network.cgi ./hosts.cgi ./boot.cgi \
-		./hardware.cgi ./settings.cgi ./lib/libtazpanel ./help.cgi \
-		./floppy.cgi \
+		./tazpanel $(BASECGI) $(EXTRACGI) \
 		./styles/default/header.html ./styles/default/footer.html
 
 msgmerge:
