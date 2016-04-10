@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-10 11:42+0200\n"
+"POT-Creation-Date: 2016-04-10 12:07+0200\n"
 "PO-Revision-Date: 2013-07-23 12:33+0100\n"
 "Last-Translator: Paweł Pyrczak <tkr.tkr.pl@gmail.com>\n"
 "Language-Team: \n"
@@ -20,6 +20,84 @@ msgstr ""
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: POLAND\n"
 "X-Poedit-SourceCharset: utf-8\n"
+
+#: lib/libtazpanel:153 network.cgi:455
+msgid "Scan"
+msgstr "Skanuj"
+
+#: lib/libtazpanel:156
+msgid "connected"
+msgstr "połączony"
+
+#: lib/libtazpanel:170 network.cgi:254
+msgid "Interface"
+msgstr "Interfejs"
+
+#: lib/libtazpanel:171 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
+#: network.cgi:345 hosts.cgi:243
+msgid "Name"
+msgstr "Nazwa"
+
+#: lib/libtazpanel:172 boot.cgi:145 network.cgi:349
+msgid "Status"
+msgstr "Status"
+
+#: lib/libtazpanel:173
+msgid "IP Address"
+msgstr "Adres IP"
+
+#: lib/libtazpanel:174
+msgid "Scan ports"
+msgstr "Skanuj porty"
+
+#: lib/libtazpanel:249
+#, fuzzy
+msgid "Please wait"
+msgstr "Proszę czekać..."
+
+#: lib/libtazpanel:318 hardware.cgi:498
+msgid "Disk"
+msgstr "Dysk"
+
+#: lib/libtazpanel:319
+msgid "Label"
+msgstr "Etykieta"
+
+#: lib/libtazpanel:320 hardware.cgi:500
+msgid "Type"
+msgstr "Typ"
+
+#: lib/libtazpanel:321 hardware.cgi:182 hardware.cgi:534
+msgid "Size"
+msgstr "Rozmiar"
+
+#: lib/libtazpanel:322
+msgid "Available"
+msgstr "Dostepny"
+
+#: lib/libtazpanel:323 hardware.cgi:183 hardware.cgi:591
+msgid "Used"
+msgstr "Używany"
+
+#: lib/libtazpanel:324 hardware.cgi:499
+msgid "Mount point"
+msgstr "Punkt montowania"
+
+#: lib/libtazpanel:371 index.cgi:315
+msgid "Back"
+msgstr ""
+
+#: lib/libtazpanel:381 index.cgi:242 settings.cgi:791
+msgid "Edit"
+msgstr "Edytuj"
+
+#: lib/libtazpanel:395
+msgid "You must be root to show this page."
+msgstr ""
+
+#: lib/libtazpanel:418 lib/libtazpanel:428
+msgid "Browse"
+msgstr ""
 
 #: boot.cgi:16 floppy.cgi:11 styles/default/header.html:65
 msgid "Boot"
@@ -62,10 +140,6 @@ msgstr "Zarządzaj usługami (daemons)"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Sprawdź, uruchom i wyłącz usługi (daemons) w SliTaz"
 
-#: boot.cgi:142 hardware.cgi:57 hardware.cgi:78 network.cgi:345 hosts.cgi:243
-msgid "Name"
-msgstr "Nazwa"
-
 #: boot.cgi:143 hardware.cgi:181 settings.cgi:459 powersaving.cgi:154
 msgid "Description"
 msgstr "Opis"
@@ -73,10 +147,6 @@ msgstr "Opis"
 #: boot.cgi:144 network.cgi:248
 msgid "Configuration"
 msgstr "Konfiguracja"
-
-#: boot.cgi:145 network.cgi:349
-msgid "Status"
-msgstr "Status"
 
 #: boot.cgi:146
 msgid "Action"
@@ -349,14 +419,6 @@ msgstr "Moduł:"
 msgid "Module"
 msgstr "Moduł"
 
-#: hardware.cgi:182 hardware.cgi:534
-msgid "Size"
-msgstr "Rozmiar"
-
-#: hardware.cgi:183 hardware.cgi:591
-msgid "Used"
-msgstr "Używany"
-
 #: hardware.cgi:184
 msgid "by"
 msgstr "przez"
@@ -434,18 +496,6 @@ msgstr ""
 #: hardware.cgi:492
 msgid "Filesystems table"
 msgstr "Tabela systemów plików"
-
-#: hardware.cgi:498
-msgid "Disk"
-msgstr "Dysk"
-
-#: hardware.cgi:499
-msgid "Mount point"
-msgstr "Punkt montowania"
-
-#: hardware.cgi:500
-msgid "Type"
-msgstr "Typ"
 
 #: hardware.cgi:501
 #, fuzzy
@@ -545,10 +595,6 @@ msgstr "Plik"
 msgid "Save"
 msgstr "Zapisz"
 
-#: index.cgi:242 settings.cgi:791
-msgid "Edit"
-msgstr "Edytuj"
-
 #: index.cgi:293 index.cgi:447 index.cgi:470 index.cgi:813
 #: styles/default/header.html:49
 msgid "Terminal"
@@ -558,10 +604,6 @@ msgstr "Terminal"
 #, fuzzy
 msgid "History"
 msgstr "Terytorium"
-
-#: index.cgi:315
-msgid "Back"
-msgstr ""
 
 #: index.cgi:322
 msgid "run"
@@ -806,10 +848,6 @@ msgstr ""
 "automatycznie pobierać losowy adres IP, albo skonfigurować dla połączenia "
 "statyczny/stały adres IP"
 
-#: network.cgi:254
-msgid "Interface"
-msgstr "Interfejs"
-
 #: network.cgi:262
 msgid "Static IP"
 msgstr ""
@@ -908,10 +946,6 @@ msgstr "Połączony"
 #: network.cgi:439
 msgid "Wireless connection"
 msgstr "Połączenie bezprzewodowe"
-
-#: network.cgi:455
-msgid "Scan"
-msgstr "Skanuj"
 
 #: network.cgi:463
 msgid "Scanning wireless interface..."
@@ -1713,25 +1747,6 @@ msgstr "Copyright"
 #: styles/default/header.html:140
 msgid "BSD License"
 msgstr "Licencja BSD"
-
-#~ msgid "connected"
-#~ msgstr "połączony"
-
-#~ msgid "IP Address"
-#~ msgstr "Adres IP"
-
-#~ msgid "Scan ports"
-#~ msgstr "Skanuj porty"
-
-#, fuzzy
-#~ msgid "Please wait"
-#~ msgstr "Proszę czekać..."
-
-#~ msgid "Label"
-#~ msgstr "Etykieta"
-
-#~ msgid "Available"
-#~ msgstr "Dostepny"
 
 #~ msgid "TazPanel is already running."
 #~ msgstr "TazPanel jest już uruchomiony."

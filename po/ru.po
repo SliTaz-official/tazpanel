@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-10 11:42+0200\n"
+"POT-Creation-Date: 2016-04-10 12:07+0200\n"
 "PO-Revision-Date: 2016-04-05 09:57+0300\n"
 "Last-Translator: Aleksej Bobylev <al.bobylev@gmail.com>\n"
 "Language-Team: \n"
@@ -21,6 +21,83 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: lib/libtazpanel:153 network.cgi:455
+msgid "Scan"
+msgstr "Сканировать"
+
+#: lib/libtazpanel:156
+msgid "connected"
+msgstr "соединён"
+
+#: lib/libtazpanel:170 network.cgi:254
+msgid "Interface"
+msgstr "Интерфейс"
+
+#: lib/libtazpanel:171 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
+#: network.cgi:345 hosts.cgi:243
+msgid "Name"
+msgstr "Название"
+
+#: lib/libtazpanel:172 boot.cgi:145 network.cgi:349
+msgid "Status"
+msgstr "Состояние"
+
+#: lib/libtazpanel:173
+msgid "IP Address"
+msgstr "Адрес IP"
+
+#: lib/libtazpanel:174
+msgid "Scan ports"
+msgstr "Сканировать порты"
+
+#: lib/libtazpanel:249
+msgid "Please wait"
+msgstr "Пожалуйста, подождите"
+
+#: lib/libtazpanel:318 hardware.cgi:498
+msgid "Disk"
+msgstr "Диск"
+
+#: lib/libtazpanel:319
+msgid "Label"
+msgstr "Метка"
+
+#: lib/libtazpanel:320 hardware.cgi:500
+msgid "Type"
+msgstr "Тип"
+
+#: lib/libtazpanel:321 hardware.cgi:182 hardware.cgi:534
+msgid "Size"
+msgstr "Размер"
+
+#: lib/libtazpanel:322
+msgid "Available"
+msgstr "Доступно"
+
+#: lib/libtazpanel:323 hardware.cgi:183 hardware.cgi:591
+msgid "Used"
+msgstr "Используется"
+
+#: lib/libtazpanel:324 hardware.cgi:499
+msgid "Mount point"
+msgstr "Точка монтирования"
+
+#: lib/libtazpanel:371 index.cgi:315
+msgid "Back"
+msgstr "Назад"
+
+#: lib/libtazpanel:381 index.cgi:242 settings.cgi:791
+msgid "Edit"
+msgstr "Правка"
+
+#: lib/libtazpanel:395
+msgid "You must be root to show this page."
+msgstr "Вы должны обладать правами root для просмотра этой страницы."
+
+#: lib/libtazpanel:418 lib/libtazpanel:428
+msgid "Browse"
+msgstr "Обзор"
 
 #: boot.cgi:16 floppy.cgi:11 styles/default/header.html:65
 msgid "Boot"
@@ -62,10 +139,6 @@ msgstr "Управление службами"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Проверка, запуск и остановка служб SliTaz"
 
-#: boot.cgi:142 hardware.cgi:57 hardware.cgi:78 network.cgi:345 hosts.cgi:243
-msgid "Name"
-msgstr "Название"
-
 #: boot.cgi:143 hardware.cgi:181 settings.cgi:459 powersaving.cgi:154
 msgid "Description"
 msgstr "Описание"
@@ -73,10 +146,6 @@ msgstr "Описание"
 #: boot.cgi:144 network.cgi:248
 msgid "Configuration"
 msgstr "Настройки"
-
-#: boot.cgi:145 network.cgi:349
-msgid "Status"
-msgstr "Состояние"
 
 #: boot.cgi:146
 msgid "Action"
@@ -350,14 +419,6 @@ msgstr "Модуль:"
 msgid "Module"
 msgstr "Модуль"
 
-#: hardware.cgi:182 hardware.cgi:534
-msgid "Size"
-msgstr "Размер"
-
-#: hardware.cgi:183 hardware.cgi:591
-msgid "Used"
-msgstr "Используется"
-
 #: hardware.cgi:184
 msgid "by"
 msgstr "кем"
@@ -433,18 +494,6 @@ msgstr "только-чтение"
 #: hardware.cgi:492
 msgid "Filesystems table"
 msgstr "Таблица файловых систем"
-
-#: hardware.cgi:498
-msgid "Disk"
-msgstr "Диск"
-
-#: hardware.cgi:499
-msgid "Mount point"
-msgstr "Точка монтирования"
-
-#: hardware.cgi:500
-msgid "Type"
-msgstr "Тип"
 
 #: hardware.cgi:501
 msgid "Options"
@@ -538,10 +587,6 @@ msgstr "Файл"
 msgid "Save"
 msgstr "Сохранить"
 
-#: index.cgi:242 settings.cgi:791
-msgid "Edit"
-msgstr "Правка"
-
 #: index.cgi:293 index.cgi:447 index.cgi:470 index.cgi:813
 #: styles/default/header.html:49
 msgid "Terminal"
@@ -550,10 +595,6 @@ msgstr "Терминал"
 #: index.cgi:314 index.cgi:399
 msgid "History"
 msgstr "Журнал"
-
-#: index.cgi:315
-msgid "Back"
-msgstr "Назад"
 
 #: index.cgi:322
 msgid "run"
@@ -793,10 +834,6 @@ msgstr ""
 "автоматического получения случайного IP, или указать статический "
 "(фиксированный) IP"
 
-#: network.cgi:254
-msgid "Interface"
-msgstr "Интерфейс"
-
 #: network.cgi:262
 msgid "Static IP"
 msgstr "Статический IP"
@@ -892,10 +929,6 @@ msgstr "Соединено"
 #: network.cgi:439
 msgid "Wireless connection"
 msgstr "Беспроводное соединение"
-
-#: network.cgi:455
-msgid "Scan"
-msgstr "Сканировать"
 
 #: network.cgi:463
 msgid "Scanning wireless interface..."
@@ -1684,30 +1717,6 @@ msgstr "Авторское право"
 #: styles/default/header.html:140
 msgid "BSD License"
 msgstr "Лицензия BSD"
-
-#~ msgid "connected"
-#~ msgstr "соединён"
-
-#~ msgid "IP Address"
-#~ msgstr "Адрес IP"
-
-#~ msgid "Scan ports"
-#~ msgstr "Сканировать порты"
-
-#~ msgid "Please wait"
-#~ msgstr "Пожалуйста, подождите"
-
-#~ msgid "Label"
-#~ msgstr "Метка"
-
-#~ msgid "Available"
-#~ msgstr "Доступно"
-
-#~ msgid "You must be root to show this page."
-#~ msgstr "Вы должны обладать правами root для просмотра этой страницы."
-
-#~ msgid "Browse"
-#~ msgstr "Обзор"
 
 #~ msgid "TazPanel is already running."
 #~ msgstr "TazPanel уже запущена."

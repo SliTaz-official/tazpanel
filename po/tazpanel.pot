@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 522\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-10 11:42+0200\n"
+"POT-Creation-Date: 2016-04-10 12:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,83 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: lib/libtazpanel:153 network.cgi:455
+msgid "Scan"
+msgstr ""
+
+#: lib/libtazpanel:156
+msgid "connected"
+msgstr ""
+
+#: lib/libtazpanel:170 network.cgi:254
+msgid "Interface"
+msgstr ""
+
+#: lib/libtazpanel:171 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
+#: network.cgi:345 hosts.cgi:243
+msgid "Name"
+msgstr ""
+
+#: lib/libtazpanel:172 boot.cgi:145 network.cgi:349
+msgid "Status"
+msgstr ""
+
+#: lib/libtazpanel:173
+msgid "IP Address"
+msgstr ""
+
+#: lib/libtazpanel:174
+msgid "Scan ports"
+msgstr ""
+
+#: lib/libtazpanel:249
+msgid "Please wait"
+msgstr ""
+
+#: lib/libtazpanel:318 hardware.cgi:498
+msgid "Disk"
+msgstr ""
+
+#: lib/libtazpanel:319
+msgid "Label"
+msgstr ""
+
+#: lib/libtazpanel:320 hardware.cgi:500
+msgid "Type"
+msgstr ""
+
+#: lib/libtazpanel:321 hardware.cgi:182 hardware.cgi:534
+msgid "Size"
+msgstr ""
+
+#: lib/libtazpanel:322
+msgid "Available"
+msgstr ""
+
+#: lib/libtazpanel:323 hardware.cgi:183 hardware.cgi:591
+msgid "Used"
+msgstr ""
+
+#: lib/libtazpanel:324 hardware.cgi:499
+msgid "Mount point"
+msgstr ""
+
+#: lib/libtazpanel:371 index.cgi:315
+msgid "Back"
+msgstr ""
+
+#: lib/libtazpanel:381 index.cgi:242 settings.cgi:791
+msgid "Edit"
+msgstr ""
+
+#: lib/libtazpanel:395
+msgid "You must be root to show this page."
+msgstr ""
+
+#: lib/libtazpanel:418 lib/libtazpanel:428
+msgid "Browse"
+msgstr ""
 
 #: boot.cgi:16 floppy.cgi:11 styles/default/header.html:65
 msgid "Boot"
@@ -58,20 +135,12 @@ msgstr ""
 msgid "Check, start and stop daemons on SliTaz"
 msgstr ""
 
-#: boot.cgi:142 hardware.cgi:57 hardware.cgi:78 network.cgi:345 hosts.cgi:243
-msgid "Name"
-msgstr ""
-
 #: boot.cgi:143 hardware.cgi:181 settings.cgi:459 powersaving.cgi:154
 msgid "Description"
 msgstr ""
 
 #: boot.cgi:144 network.cgi:248
 msgid "Configuration"
-msgstr ""
-
-#: boot.cgi:145 network.cgi:349
-msgid "Status"
 msgstr ""
 
 #: boot.cgi:146
@@ -342,14 +411,6 @@ msgstr ""
 msgid "Module"
 msgstr ""
 
-#: hardware.cgi:182 hardware.cgi:534
-msgid "Size"
-msgstr ""
-
-#: hardware.cgi:183 hardware.cgi:591
-msgid "Used"
-msgstr ""
-
 #: hardware.cgi:184
 msgid "by"
 msgstr ""
@@ -424,18 +485,6 @@ msgstr ""
 
 #: hardware.cgi:492
 msgid "Filesystems table"
-msgstr ""
-
-#: hardware.cgi:498
-msgid "Disk"
-msgstr ""
-
-#: hardware.cgi:499
-msgid "Mount point"
-msgstr ""
-
-#: hardware.cgi:500
-msgid "Type"
 msgstr ""
 
 #: hardware.cgi:501
@@ -530,10 +579,6 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: index.cgi:242 settings.cgi:791
-msgid "Edit"
-msgstr ""
-
 #: index.cgi:293 index.cgi:447 index.cgi:470 index.cgi:813
 #: styles/default/header.html:49
 msgid "Terminal"
@@ -541,10 +586,6 @@ msgstr ""
 
 #: index.cgi:314 index.cgi:399
 msgid "History"
-msgstr ""
-
-#: index.cgi:315
-msgid "Back"
 msgstr ""
 
 #: index.cgi:322
@@ -780,10 +821,6 @@ msgid ""
 "random IP or configure a static/fixed IP"
 msgstr ""
 
-#: network.cgi:254
-msgid "Interface"
-msgstr ""
-
 #: network.cgi:262
 msgid "Static IP"
 msgstr ""
@@ -876,10 +913,6 @@ msgstr ""
 
 #: network.cgi:439
 msgid "Wireless connection"
-msgstr ""
-
-#: network.cgi:455
-msgid "Scan"
 msgstr ""
 
 #: network.cgi:463

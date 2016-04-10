@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-10 11:42+0200\n"
+"POT-Creation-Date: 2016-04-10 12:07+0200\n"
 "PO-Revision-Date: 2012-07-11 11:33-0000\n"
 "Last-Translator: Emil Eklund <emileklund123@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -16,6 +16,84 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lib/libtazpanel:153 network.cgi:455
+msgid "Scan"
+msgstr "Skanna"
+
+#: lib/libtazpanel:156
+msgid "connected"
+msgstr "ansluten"
+
+#: lib/libtazpanel:170 network.cgi:254
+msgid "Interface"
+msgstr "Enhet"
+
+#: lib/libtazpanel:171 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
+#: network.cgi:345 hosts.cgi:243
+msgid "Name"
+msgstr "Namn"
+
+#: lib/libtazpanel:172 boot.cgi:145 network.cgi:349
+msgid "Status"
+msgstr "Status"
+
+#: lib/libtazpanel:173
+msgid "IP Address"
+msgstr "IP adress"
+
+#: lib/libtazpanel:174
+msgid "Scan ports"
+msgstr "Skanna portar"
+
+#: lib/libtazpanel:249
+#, fuzzy
+msgid "Please wait"
+msgstr "Var god vänta..."
+
+#: lib/libtazpanel:318 hardware.cgi:498
+msgid "Disk"
+msgstr "Disk"
+
+#: lib/libtazpanel:319
+msgid "Label"
+msgstr "Etikett"
+
+#: lib/libtazpanel:320 hardware.cgi:500
+msgid "Type"
+msgstr "Sort"
+
+#: lib/libtazpanel:321 hardware.cgi:182 hardware.cgi:534
+msgid "Size"
+msgstr "Storlek"
+
+#: lib/libtazpanel:322
+msgid "Available"
+msgstr "Tillgängligt"
+
+#: lib/libtazpanel:323 hardware.cgi:183 hardware.cgi:591
+msgid "Used"
+msgstr "Använd"
+
+#: lib/libtazpanel:324 hardware.cgi:499
+msgid "Mount point"
+msgstr "Monteringspunkt"
+
+#: lib/libtazpanel:371 index.cgi:315
+msgid "Back"
+msgstr ""
+
+#: lib/libtazpanel:381 index.cgi:242 settings.cgi:791
+msgid "Edit"
+msgstr "Ändra"
+
+#: lib/libtazpanel:395
+msgid "You must be root to show this page."
+msgstr ""
+
+#: lib/libtazpanel:418 lib/libtazpanel:428
+msgid "Browse"
+msgstr ""
 
 #: boot.cgi:16 floppy.cgi:11 styles/default/header.html:65
 msgid "Boot"
@@ -58,10 +136,6 @@ msgstr "Hantera daemoner"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Konstrollera, starta och stopa daemoner i SliTaz"
 
-#: boot.cgi:142 hardware.cgi:57 hardware.cgi:78 network.cgi:345 hosts.cgi:243
-msgid "Name"
-msgstr "Namn"
-
 #: boot.cgi:143 hardware.cgi:181 settings.cgi:459 powersaving.cgi:154
 msgid "Description"
 msgstr "Beskrivning"
@@ -69,10 +143,6 @@ msgstr "Beskrivning"
 #: boot.cgi:144 network.cgi:248
 msgid "Configuration"
 msgstr "Konfiguration"
-
-#: boot.cgi:145 network.cgi:349
-msgid "Status"
-msgstr "Status"
 
 #: boot.cgi:146
 msgid "Action"
@@ -345,14 +415,6 @@ msgstr "Modul:"
 msgid "Module"
 msgstr "Modul"
 
-#: hardware.cgi:182 hardware.cgi:534
-msgid "Size"
-msgstr "Storlek"
-
-#: hardware.cgi:183 hardware.cgi:591
-msgid "Used"
-msgstr "Använd"
-
 #: hardware.cgi:184
 msgid "by"
 msgstr "av"
@@ -430,18 +492,6 @@ msgstr ""
 #: hardware.cgi:492
 msgid "Filesystems table"
 msgstr ""
-
-#: hardware.cgi:498
-msgid "Disk"
-msgstr "Disk"
-
-#: hardware.cgi:499
-msgid "Mount point"
-msgstr "Monteringspunkt"
-
-#: hardware.cgi:500
-msgid "Type"
-msgstr "Sort"
 
 #: hardware.cgi:501
 #, fuzzy
@@ -541,10 +591,6 @@ msgstr "Fil"
 msgid "Save"
 msgstr "Spara"
 
-#: index.cgi:242 settings.cgi:791
-msgid "Edit"
-msgstr "Ändra"
-
 #: index.cgi:293 index.cgi:447 index.cgi:470 index.cgi:813
 #: styles/default/header.html:49
 msgid "Terminal"
@@ -554,10 +600,6 @@ msgstr "Terminal"
 #, fuzzy
 msgid "History"
 msgstr "Territorium"
-
-#: index.cgi:315
-msgid "Back"
-msgstr ""
 
 #: index.cgi:322
 msgid "run"
@@ -801,10 +843,6 @@ msgstr ""
 "Här kan du konfigurera en trådbunden anslutning med DHCP för att automatiskt "
 "få en slumpmässig IP eller konfigurera en statisk/fast IP"
 
-#: network.cgi:254
-msgid "Interface"
-msgstr "Enhet"
-
 #: network.cgi:262
 msgid "Static IP"
 msgstr ""
@@ -903,10 +941,6 @@ msgstr "Ansluten"
 #: network.cgi:439
 msgid "Wireless connection"
 msgstr "Trådlös Anslutning"
-
-#: network.cgi:455
-msgid "Scan"
-msgstr "Skanna"
 
 #: network.cgi:463
 msgid "Scanning wireless interface..."
@@ -1698,25 +1732,6 @@ msgstr "Copyright"
 #: styles/default/header.html:140
 msgid "BSD License"
 msgstr "BSD License"
-
-#~ msgid "connected"
-#~ msgstr "ansluten"
-
-#~ msgid "IP Address"
-#~ msgstr "IP adress"
-
-#~ msgid "Scan ports"
-#~ msgstr "Skanna portar"
-
-#, fuzzy
-#~ msgid "Please wait"
-#~ msgstr "Var god vänta..."
-
-#~ msgid "Label"
-#~ msgstr "Etikett"
-
-#~ msgid "Available"
-#~ msgstr "Tillgängligt"
 
 #~ msgid "Starting TazPanel web server on port %d..."
 #~ msgstr "Startar TazPanel web server på port %d..."

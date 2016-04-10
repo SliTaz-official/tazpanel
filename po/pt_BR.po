@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-10 11:42+0200\n"
+"POT-Creation-Date: 2016-04-10 12:07+0200\n"
 "PO-Revision-Date: 2016-03-27 04:06-0300\n"
 "Last-Translator: Leonardo Laporte <hackdorte@sapo.pt>\n"
 "Language-Team: Portuguese <i18n@slitaz.org>\n"
@@ -17,6 +17,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 1.8.6\n"
+
+#: lib/libtazpanel:153 network.cgi:455
+msgid "Scan"
+msgstr "Procurar"
+
+#: lib/libtazpanel:156
+msgid "connected"
+msgstr "Conectado"
+
+#: lib/libtazpanel:170 network.cgi:254
+msgid "Interface"
+msgstr "Interface"
+
+#: lib/libtazpanel:171 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
+#: network.cgi:345 hosts.cgi:243
+msgid "Name"
+msgstr "Nome"
+
+#: lib/libtazpanel:172 boot.cgi:145 network.cgi:349
+msgid "Status"
+msgstr "Status"
+
+#: lib/libtazpanel:173
+msgid "IP Address"
+msgstr "Endereço IP"
+
+#: lib/libtazpanel:174
+msgid "Scan ports"
+msgstr "Buscar portas"
+
+#: lib/libtazpanel:249
+msgid "Please wait"
+msgstr "Aguarde por favor"
+
+#: lib/libtazpanel:318 hardware.cgi:498
+msgid "Disk"
+msgstr "Disco"
+
+#: lib/libtazpanel:319
+msgid "Label"
+msgstr "Rótulo"
+
+#: lib/libtazpanel:320 hardware.cgi:500
+msgid "Type"
+msgstr "Tipo"
+
+#: lib/libtazpanel:321 hardware.cgi:182 hardware.cgi:534
+msgid "Size"
+msgstr "Tamanho"
+
+#: lib/libtazpanel:322
+msgid "Available"
+msgstr "Disponível"
+
+#: lib/libtazpanel:323 hardware.cgi:183 hardware.cgi:591
+msgid "Used"
+msgstr "Usado"
+
+#: lib/libtazpanel:324 hardware.cgi:499
+msgid "Mount point"
+msgstr "Ponto de montagem"
+
+#: lib/libtazpanel:371 index.cgi:315
+msgid "Back"
+msgstr "Voltar"
+
+#: lib/libtazpanel:381 index.cgi:242 settings.cgi:791
+msgid "Edit"
+msgstr "Editar"
+
+#: lib/libtazpanel:395
+msgid "You must be root to show this page."
+msgstr "Você deve ser root para ver esta página."
+
+#: lib/libtazpanel:418 lib/libtazpanel:428
+msgid "Browse"
+msgstr ""
 
 #: boot.cgi:16 floppy.cgi:11 styles/default/header.html:65
 msgid "Boot"
@@ -58,10 +135,6 @@ msgstr "Gerenciar daemons"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Checar, iniciar e parar daemons no SliTaz"
 
-#: boot.cgi:142 hardware.cgi:57 hardware.cgi:78 network.cgi:345 hosts.cgi:243
-msgid "Name"
-msgstr "Nome"
-
 #: boot.cgi:143 hardware.cgi:181 settings.cgi:459 powersaving.cgi:154
 msgid "Description"
 msgstr "Descrição"
@@ -69,10 +142,6 @@ msgstr "Descrição"
 #: boot.cgi:144 network.cgi:248
 msgid "Configuration"
 msgstr "Configuração"
-
-#: boot.cgi:145 network.cgi:349
-msgid "Status"
-msgstr "Status"
 
 #: boot.cgi:146
 msgid "Action"
@@ -344,14 +413,6 @@ msgstr "Módulo:"
 msgid "Module"
 msgstr "Módulo"
 
-#: hardware.cgi:182 hardware.cgi:534
-msgid "Size"
-msgstr "Tamanho"
-
-#: hardware.cgi:183 hardware.cgi:591
-msgid "Used"
-msgstr "Usado"
-
 #: hardware.cgi:184
 msgid "by"
 msgstr "por"
@@ -427,18 +488,6 @@ msgstr "apenas leitura"
 #: hardware.cgi:492
 msgid "Filesystems table"
 msgstr "Tabela do sistema de arquivos"
-
-#: hardware.cgi:498
-msgid "Disk"
-msgstr "Disco"
-
-#: hardware.cgi:499
-msgid "Mount point"
-msgstr "Ponto de montagem"
-
-#: hardware.cgi:500
-msgid "Type"
-msgstr "Tipo"
 
 #: hardware.cgi:501
 msgid "Options"
@@ -534,10 +583,6 @@ msgstr "Arquivo"
 msgid "Save"
 msgstr "Salvar"
 
-#: index.cgi:242 settings.cgi:791
-msgid "Edit"
-msgstr "Editar"
-
 #: index.cgi:293 index.cgi:447 index.cgi:470 index.cgi:813
 #: styles/default/header.html:49
 msgid "Terminal"
@@ -546,10 +591,6 @@ msgstr "Terminal"
 #: index.cgi:314 index.cgi:399
 msgid "History"
 msgstr "Histórico"
-
-#: index.cgi:315
-msgid "Back"
-msgstr "Voltar"
 
 #: index.cgi:322
 msgid "run"
@@ -787,10 +828,6 @@ msgstr ""
 "Aqui você pode configurar conexões cabeadas usando DHCP para obter "
 "automaticamente um IP aleatório ou configurar um IP fixo"
 
-#: network.cgi:254
-msgid "Interface"
-msgstr "Interface"
-
 #: network.cgi:262
 msgid "Static IP"
 msgstr "IP Estático"
@@ -887,10 +924,6 @@ msgstr "Conectado"
 #: network.cgi:439
 msgid "Wireless connection"
 msgstr "Conexões sem fio"
-
-#: network.cgi:455
-msgid "Scan"
-msgstr "Procurar"
 
 #: network.cgi:463
 msgid "Scanning wireless interface..."
@@ -1675,27 +1708,6 @@ msgstr "Copyright"
 #: styles/default/header.html:140
 msgid "BSD License"
 msgstr "BSD License"
-
-#~ msgid "connected"
-#~ msgstr "Conectado"
-
-#~ msgid "IP Address"
-#~ msgstr "Endereço IP"
-
-#~ msgid "Scan ports"
-#~ msgstr "Buscar portas"
-
-#~ msgid "Please wait"
-#~ msgstr "Aguarde por favor"
-
-#~ msgid "Label"
-#~ msgstr "Rótulo"
-
-#~ msgid "Available"
-#~ msgstr "Disponível"
-
-#~ msgid "You must be root to show this page."
-#~ msgstr "Você deve ser root para ver esta página."
 
 #~ msgid "TazPanel is already running."
 #~ msgstr "TazPanel já está sendo executado."
