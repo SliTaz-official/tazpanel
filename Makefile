@@ -3,7 +3,7 @@
 PREFIX?=/usr
 SYSCONFDIR?=/etc/slitaz
 DESTDIR?=
-LINGUAS?=el es fr pl pt_BR ru sv
+LINGUAS?=el es fr pl pt_BR ru sv zh_CN
 PANEL?=/var/www/tazpanel
 BASECGI?=boot.cgi hardware.cgi help.cgi index.cgi network.cgi hosts.cgi settings.cgi
 EXTRACGI?=floppy.cgi test.cgi powersaving.cgi
