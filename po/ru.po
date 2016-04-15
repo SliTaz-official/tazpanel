@@ -158,7 +158,7 @@ msgstr "PID"
 #: boot.cgi:172
 #, fuzzy
 msgid "SliTaz Firewall with iptables rules"
-msgstr "Брандмауэр SliTaz с правилами iptable"
+msgstr "Брандмауэр SliTaz с правилами iptables"
 
 #: boot.cgi:174
 msgid "Small and fast web server with CGI support"
