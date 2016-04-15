@@ -169,7 +169,7 @@ EOT
 			[ -n "$(which $name)" ] && cfg="man|help|$cfg"
 			case "$name" in
 				firewall)
-					_ 'SliTaz Firewall with iptable rules' ;;
+					_ 'SliTaz Firewall with iptables rules' ;;
 				httpd)
 					_ 'Small and fast web server with CGI support' ;;
 				ntpd)

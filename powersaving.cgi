@@ -130,7 +130,7 @@ cat <<EOT
 
 	<div>$(_ "CPU frequency scaling enables the operating system to scale the \
 CPU frequency up or down in order to save power. CPU frequencies can be scaled \
-automatically depending on the system load, in responce to ACPI events, or \
+automatically depending on the system load, in response to ACPI events, or \
 manually by userspace programs.")</div>
 
 	<table class="wide zebra">

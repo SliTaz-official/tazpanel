@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-10 12:07+0200\n"
+"POT-Creation-Date: 2016-04-15 20:37+0100\n"
 "PO-Revision-Date: 2016-03-27 04:06-0300\n"
 "Last-Translator: Leonardo Laporte <hackdorte@sapo.pt>\n"
 "Language-Team: Portuguese <i18n@slitaz.org>\n"
@@ -152,7 +152,8 @@ msgid "PID"
 msgstr "PID"
 
 #: boot.cgi:172
-msgid "SliTaz Firewall with iptable rules"
+#, fuzzy
+msgid "SliTaz Firewall with iptables rules"
 msgstr "Firewall do SliTaz com regras do iptables"
 
 #: boot.cgi:174
@@ -1637,7 +1638,7 @@ msgstr ""
 msgid ""
 "CPU frequency scaling enables the operating system to scale the CPU "
 "frequency up or down in order to save power. CPU frequencies can be scaled "
-"automatically depending on the system load, in responce to ACPI events, or "
+"automatically depending on the system load, in response to ACPI events, or "
 "manually by userspace programs."
 msgstr ""
 
