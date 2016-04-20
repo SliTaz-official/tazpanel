@@ -153,7 +153,6 @@ msgid "PID"
 msgstr "PID"
 
 #: boot.cgi:172
-#, fuzzy
 msgid "SliTaz Firewall with iptables rules"
 msgstr "SliTaz firewall con reglas iptables"
 

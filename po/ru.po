@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-15 20:37+0100\n"
-"PO-Revision-Date: 2016-04-05 09:57+0300\n"
+"PO-Revision-Date: 2016-04-20 11:34+0300\n"
 "Last-Translator: Aleksej Bobylev <al.bobylev@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -156,7 +156,6 @@ msgid "PID"
 msgstr "PID"
 
 #: boot.cgi:172
-#, fuzzy
 msgid "SliTaz Firewall with iptables rules"
 msgstr "Брандмауэр SliTaz с правилами iptables"
 
@@ -238,7 +237,7 @@ msgstr "Таймаут:"
 
 #: boot.cgi:322
 msgid "Splash image:"
-msgstr "Загрузочная картинка:"
+msgstr "Заставка:"
 
 #: boot.cgi:327 network.cgi:669 network.cgi:700 settings.cgi:633
 #: settings.cgi:747 powersaving.cgi:108
@@ -296,7 +295,7 @@ msgstr ""
 
 #: boot.cgi:414
 msgid "Choose a partition (optional)"
-msgstr "Выберите раздел (необязательный)"
+msgstr "Выберите раздел (не обязательно)"
 
 #: boot.cgi:425
 msgid "USB key device"
@@ -309,7 +308,7 @@ msgstr ""
 
 #: boot.cgi:429
 msgid "Choose a USB key (optional)"
-msgstr "Выберите USB-накопитель (необязательный)"
+msgstr "Выберите USB-накопитель (не обязательно)"
 
 #: boot.cgi:450
 msgid "Choose an action"
@@ -1603,45 +1602,43 @@ msgstr "Набор дискет из образа ISO"
 
 #: powersaving.cgi:15 powersaving.cgi:24
 msgid "Power saving"
-msgstr ""
+msgstr "Экономия энергии"
 
 #: powersaving.cgi:33
 msgid ""
 "DPMS enables power saving behaviour of monitors when the computer is not in "
 "use."
 msgstr ""
+"DPMS позволяет экономить энергию, отключая монитор, когда компьютер не "
+"используется."
 
 #: powersaving.cgi:54
-#, fuzzy
 msgid "Identifier"
-msgstr "Пользователь"
+msgstr "Идентификатор"
 
 #: powersaving.cgi:55
-#, fuzzy
 msgid "Vendor name"
-msgstr "Имя пользователя:"
+msgstr "Производитель"
 
 #: powersaving.cgi:56 powersaving.cgi:137
-#, fuzzy
 msgid "Model name"
-msgstr "Имя пользователя:"
+msgstr "Модель"
 
 #: powersaving.cgi:57
 msgid "DPMS enabled"
-msgstr ""
+msgstr "DPMS включен"
 
 #: powersaving.cgi:86
 msgid "DPMS times (in minutes):"
-msgstr ""
+msgstr "Время DPMS (в минутах):"
 
 #: powersaving.cgi:99
-#, fuzzy
 msgid "Manual edit"
-msgstr "Ручная правка: %s"
+msgstr "Ручная правка"
 
 #: powersaving.cgi:129
 msgid "CPU"
-msgstr ""
+msgstr "Процессор"
 
 #: powersaving.cgi:131
 msgid ""
@@ -1650,18 +1647,22 @@ msgid ""
 "automatically depending on the system load, in response to ACPI events, or "
 "manually by userspace programs."
 msgstr ""
+"Управление частотой процессора позволяет операционной системе экономить "
+"энергию, увеличивая и уменьшая частоту процессора. Частота процессора может "
+"быть изменена автоматически в зависимости от нагрузки, либо в зависимости от "
+"событий ACPI, либо выставлена вручную программами пользователя."
 
 #: powersaving.cgi:138
 msgid "Current frequency"
-msgstr ""
+msgstr "Текущая частота"
 
 #: powersaving.cgi:139
 msgid "Current driver"
-msgstr ""
+msgstr "Текущий драйвер"
 
 #: powersaving.cgi:140
 msgid "Current governor"
-msgstr ""
+msgstr "Текущий регулятор"
 
 #: styles/default/header.html:35
 msgid "Confirm break"

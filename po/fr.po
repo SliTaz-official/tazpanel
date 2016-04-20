@@ -153,7 +153,6 @@ msgid "PID"
 msgstr "PID"
 
 #: boot.cgi:172
-#, fuzzy
 msgid "SliTaz Firewall with iptables rules"
 msgstr "Pare-feu SliTaz avec règles iptables"
 
@@ -1631,7 +1630,6 @@ msgid "CPU"
 msgstr ""
 
 #: powersaving.cgi:131
-#, fuzzy
 msgid ""
 "CPU frequency scaling enables the operating system to scale the CPU "
 "frequency up or down in order to save power. CPU frequencies can be scaled "

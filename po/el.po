@@ -155,7 +155,6 @@ msgid "PID"
 msgstr ""
 
 #: boot.cgi:172
-#, fuzzy
 msgid "SliTaz Firewall with iptables rules"
 msgstr "Τοίχος προστασίας SliTaz με κανόνες πίνακα IP"
 
