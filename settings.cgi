@@ -37,11 +37,11 @@ restart_lxpanel() {
 	[ -z "$DISPLAY" ] && export DISPLAY=':0.0'
 
 	# find LXPanel ProcessID, filter out zombie '[lxpanel]' (if any)
-	lxpanel_pid="$(ps -o comm,pid,args | fgrep lxpanel | fgrep -v fgrep | fgrep -v '[' | awk '{print $2}')"
+	lxpanel_pid="$(ps -o comm,pid,args | grep lxpanel | grep -v -E 'grep|sh|\[' | awk '{print $2}')"
 
 	# if LXPanel not running, just run it with default option
 	if [ -z "$lxpanel_pid" ]; then
-		lxpanel -p slitaz &
+		sh -l -c "lxpanel -p slitaz" &
 	else
 		# who started LXPanel?..
 		lxpanel_user="$(ps -o pid,user | fgrep "$lxpanel_pid " | awk '{print $2}')"
@@ -54,7 +54,7 @@ restart_lxpanel() {
 
 			# stop LXPanel and start it again with the same command
 			kill $lxpanel_pid
-			$lxpanel_comm &
+			sh -l -c "$lxpanel_comm" &
 		fi
 	fi
 
@@ -122,7 +122,7 @@ case " $(GET) " in
 
 			rdate)
 				# get and possibly set the system date/time from a remote host
-				rdate -s tick.greyware.com ;;
+				sh -l -c "rdate -s tick.greyware.com" ;;
 
 			hwclock)
 				# query and set hardware clock (RTC)
@@ -130,7 +130,7 @@ case " $(GET) " in
 
 			gethwclock)
 				# get date/time from hardware clock (AJAX)
-				header; hwclock -ur | sed 's|0.000000 seconds||'; exit 0;;
+				header; sh -l -c "hwclock -ur | sed 's|0.000000 seconds||'"; exit 0;;
 
 		esac
 		;;
@@ -634,7 +634,7 @@ EOT
 		</fieldset>
 
 		<fieldset><legend>$(_ 'System time:')</legend>
-			$(date | sed 's|[0-9][0-9]:[0-9:]*|<span id="time">&</span>|')
+			$(sh -l -c date | sed 's|[0-9][0-9]:[0-9:]*|<span id="time">&</span>|')
 			<button name="do" value="rdate" data-icon="@sync@">$(_ 'Sync online')</button>
 		</fieldset>
 
