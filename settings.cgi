@@ -41,7 +41,8 @@ restart_lxpanel() {
 
 	# if LXPanel not running, just run it with default option
 	if [ -z "$lxpanel_pid" ]; then
-		sh -l -c "lxpanel -p slitaz" &
+		(pstree | grep -q pcmanfm) && pcmanfm /etc/xdg/autostart/lxpanel.desktop ||
+			sh -l -c "lxpanel -p slitaz" &
 	else
 		# who started LXPanel?..
 		lxpanel_user="$(ps -o pid,user | fgrep "$lxpanel_pid " | awk '{print $2}')"
@@ -54,7 +55,8 @@ restart_lxpanel() {
 
 			# stop LXPanel and start it again with the same command
 			kill $lxpanel_pid
-			sh -l -c "$lxpanel_comm" &
+			(pstree | grep -q pcmanfm) && pcmanfm /etc/xdg/autostart/lxpanel.desktop ||
+				sh -l -c "$lxpanel_comm" &
 		fi
 	fi
 
