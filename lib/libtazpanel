@@ -14,7 +14,8 @@ _()  { local T="$1"; shift; printf "$(gettext "$T")" "$@"; echo; }
 _n() { local T="$1"; shift; printf "$(gettext "$T")" "$@"; }
 
 
-GUI_USER=root
+[ $(busybox ps | grep '127.0.0.1.*guiuser=root' |grep -v grep| awk {'print $2'}) == 'root' ] && REMOTE_USER='root'
+GUI_USER=nobody
 [ "${HTTP_HOST/:*/:}" == "127.0.0.1:" ] &&
 for i in "$HTTP_COOKIE" "$QUERY_STRING" ; do
 	v="$(echo "$i" | sed '/guiuser=/!d;s/.*guiuser=\([A-Za-z0-9_]*\).*/\1/')"
