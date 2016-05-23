@@ -37,7 +37,7 @@ restart_lxpanel() {
 	[ -z "$DISPLAY" ] && export DISPLAY=':0.0'
 
 	# find LXPanel ProcessID, filter out zombie '[lxpanel]' (if any)
-	lxpanel_pid="$(ps -o comm,pid,args | grep lxpanel | grep -v -E 'grep|sh|\[' | awk '{print $2}')"
+	lxpanel_pid="$(ps -o comm,pid,args 2>/dev/null | grep lxpanel | grep -v -E 'grep|sh|\[' | awk '{print $2}')"
 
 	# if LXPanel not running, just run it with default option
 	if [ -z "$lxpanel_pid" ]; then
@@ -45,12 +45,12 @@ restart_lxpanel() {
 			sh -l -c "lxpanel -p slitaz" &
 	else
 		# who started LXPanel?..
-		lxpanel_user="$(ps -o pid,user | fgrep "$lxpanel_pid " | awk '{print $2}')"
+		lxpanel_user="$(ps -o pid,user 2>/dev/null | fgrep "$lxpanel_pid " | awk '{print $2}')"
 
 		# ... current user?
 		if [ "$USER" == "$lxpanel_user" ]; then
 			# custom command?
-			lxpanel_comm="$(ps -o pid,args | grep -e "^\ *$lxpanel_pid " | awk '{$1="";print}')"
+			lxpanel_comm="$(ps -o pid,args 2>/dev/null | grep -e "^\ *$lxpanel_pid " | awk '{$1="";print}')"
 			[ -z "$lxpanel_comm" ] && lxpanel_comm='lxpanel -p slitaz'
 
 			# stop LXPanel and start it again with the same command

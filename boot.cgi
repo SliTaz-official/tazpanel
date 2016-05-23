@@ -126,9 +126,9 @@ EOT
 				/etc/init.d/${daemon#stop=} stop | log ;;
 			pid=*)
 				echo "<pre>"
-				ps ww | sed 1q
+				ps ww 2>/dev/null | sed 1q
 				for i in $(echo ${daemon#pid=} | sed 's/%20/ /g'); do
-					ps ww | sed "/^ $i /!d"
+					ps ww 2>/dev/null | sed "/^ $i /!d"
 				done
 				echo "</pre>" ;;
 		esac

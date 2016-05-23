@@ -543,7 +543,7 @@ EOT
 			cat <<EOT
 <section>
 	<header>
-		$(ps auxww | sed "/^ *$curpid /!d")
+		$(ps auxww 2>/dev/null | sed "/^ *$curpid /!d")
 		<form>
 		<input type="hidden" name="top"/>
 		<button type="submit" data-icon="@remove@" name="kill" value="$curpid">$(_ 'Kill')</button>

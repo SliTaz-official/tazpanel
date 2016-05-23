@@ -58,7 +58,7 @@ EOT
 		_n 'Starting TazPanel web server on port %d...' $HTTPD_PORT
 		$DAEMON -p $HTTPD_PORT -u root -c $HTTPD_CONF \
 			-r "$(_ 'TazPanel Authentication - Default: root:root')" &
-		ps | grep "$DAEMON -p $HTTPD_PORT " | grep -v grep | \
+		ps 2>/dev/null | grep "$DAEMON -p $HTTPD_PORT " | grep -v grep | \
 			awk '{ print $1 }' > $PIDFILE
 		[ ! -f /var/lib/tazpkg/installed.info ] && tazpkg -l>/dev/null&
 		status ;;
