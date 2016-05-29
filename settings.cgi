@@ -549,7 +549,7 @@ $prompt_c uname -r<br/>$(uname -r)<br/>$prompt_c date<br/>$(date)<br/>$prompt_c 
 		</table>
 
 		<p>$(_ 'Manual edit: %s' "<a data-icon=\"@conf@\" href="index.cgi?file=$HOME/.profile">~/.profile</a>")<br/>
-$(_ 'To take effect: log out and log in to system or execute command in the terminal:')</p>
+$(_ 'To take effect: log out and log in to system or execute a command in the terminal:')</p>
 
 		<pre>. ~/.profile</pre>
 	</fieldset>
