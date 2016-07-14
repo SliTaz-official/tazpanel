@@ -223,7 +223,7 @@ EOT
 			# Dbus
 			[ -f /var/run/${name}/pid ] && pid=$(cat /var/run/${name}/pid)
 			# Apache
-			[ "$name" = "apache" ] && pid=$(cat /var/run/$name/httpd.pid)
+			[ "$name" = "apache" ] && pid=$(cat /var/run/$name.pid)
 			# Pidof works for many daemons
 			[ "$pid" ] || pid=$(pidof $name)
 
