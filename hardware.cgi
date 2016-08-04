@@ -79,7 +79,22 @@ lspci_table() {
 </tr></thead>
 <tbody>
 EOT
-	lspci | sed 's| |</td><td>|;
+	lspci | while read a b c id ; do
+		echo -n "$a "
+		if [ $b != "Class" ] || [ ! -s /usr/share/misc/pci.ids.gz ]; then
+			echo "$b $c $id"
+			continue
+		fi
+		zcat /usr/share/misc/pci.ids.gz | \
+		awk -va=${c:0:2} -vb=${c:2:2} -vh=${id:0:4} -vl=${id:5:4} '{
+	if ($1 == "C" && $2 == a) class=substr($0,5)
+	if (class != "" && $1 == b) { class=substr($0,5); exit }
+	if (substr($0,1,4) == h) m=substr($0,7)
+	else if (m == "") next
+	else if (substr($0,2,4) == l) { name=m substr($0,7); m="" }
+	else if ($1 == h && $2 == l) { name=m substr($0,14); m="" }
+} END { print class ": " name }'
+	done | sed 's| |</td><td>|;
 			s|: |</td><td>|;
 			s|^\([^<]*\)|<a href="?lspci=\1">\1</a>|;
 			s|^.*$|<tr><td>\0</td></tr>|'
