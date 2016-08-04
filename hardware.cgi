@@ -93,7 +93,7 @@ EOT
 	else if (m == "") next
 	else if (substr($0,2,4) == l) { name=m substr($0,7); m="" }
 	else if ($1 == h && $2 == l) { name=m substr($0,14); m="" }
-} END { print class ": " name }'
+} END { print "[" a b "] " class ": [" h "/" l "] " name }'
 	done | sed 's| |</td><td>|;
 			s|: |</td><td>|;
 			s|^X\([^<]*\)|<a href="?lspci=\1">\1</a>|;
