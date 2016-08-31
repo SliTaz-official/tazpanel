@@ -1,0 +1,90 @@
+<div id="help">
+
+	<section>
+		<header>Deutsche Hilfe</header>
+		<div>
+
+			<p>
+	TazPanel ist das SliTaz-Verwaltungswerkzeug. Damit kann das ganze System
+	gesteuert werden wie: Pakete verwalten, Benutzer hinzufügen 
+	oder entfernen, "Live"-Systeme erzeugen und vieles mehr. Die verschiedenen
+	Funktionen wählt man
+	über die Werkzeugleiste am oberen Rand des Anwendungsfensters und
+	in einigen Fällen über ein Untermenü oder eine Seitenleiste,  wie z.B. bei der Paketverwaltung.
+			</p>
+
+			<p>
+	In den meisten Fällen gibt es in dem entsprechenden Abschnitt eine Beschreibung und
+	nützliche Informationen.
+	TazPanel verwendet neueste HTML 5 and CSS 3 -Technologie
+	um eine übersichtliche und benutzerfreundliche Bedienoberfläche für alle Verwaltungsaufgaben
+	in SliTaz anzubieten. Bei der Programmierung von TazPanel wurde auch von Anfang an der
+	Schwerpunkt auf	Verarbeitungsgeschwindigkeit und -qualität gelegt. Es unterstützt in vollem Umfang
+	Internationalisierung.
+			</p>
+
+			<p>
+	TazPanel läuft als ein "web server", der standardmäßig an Port 82 Verbindungen akzeptiert
+	und nur von dem lokalen System genutzt werden kann.
+	Wenn das System von einem fernen Rechner administriert werden soll,
+	kann die Konfigurationsdatei des "web server" so geändert werden, dass Verbindungen aus
+	einem lokalen Netzwerk (LAN) oder aus dem ganzen Internet ("world wide web") zugelassen werden.
+	Im letzten Fall sollte sichergestellt sein, dass für den Zugang ein starkes Kennwort gewählt
+	wurde.
+	Die Konfigurationsdatei des "web server" heißt
+	<a data-icon="@text@" href="index.cgi?file=/etc/slitaz/httpd.conf">/etc/slitaz/httpd.conf</a>.
+			</p>
+
+
+			<h3>Terminal</h3>
+
+			<p>
+	TazPanel bietet eine einfache Terminal-Emulation, womit Kommandos mit root-Rechten
+	auf dem fernen oder lokalen System ausgeführt werden können. Da nicht alle verfügbaren Kommandos
+	benutzt werden können, sollte für die meisten Aufgaben eine SSH-Verbindung benutzt werden.
+	Nichtsdestotrotz kann es nützlich sein, über die web-Oberfläche einige Kommandos
+	ausführen zu können. Insbesondere wird <tt>wget</tt> unterstützt, damit
+	Dateien von einem fernen Rechner transferiert werden können. Für den Transfer wird standardmäßig
+	das Verzeichnis <tt>/var/www/downloads</tt> verwendet. In allen Kommandos können Optionen wie
+	<tt>-R</tt> <tt>-l</tt> usw. verwendet werden.
+			</p>
+
+
+			<h3>Unterstützung anfordern</h3>
+
+			<p>
+	Unterstützung gibt es im SliTaz <a data-icon="@web@" href="http://forum.slitaz.org/" target="_blank">forum</a>,
+	bei der "<a data-icon="@web@" href="http://www.slitaz.org/en/mailing-list.php" 
+	target="_blank">mailing list</a>" oder über den "<a data-icon="@web@" href="http://irc.slitaz.org/" 
+	target="_blank">IRC Gesprächskanal</a>". Der offizielle SliTaz IRC Gesprächskanal befindet sich bei
+	Freenode. Als "client" kann LostIRC, Xchat oder Pidgin unter SliTaz benutzt werden. Freenode bietet auch
+	eine schöne IRC <a data-icon="@web@" href="http://webchat.freenode.net/" target="_blank">web-Oberfläche</a>.
+			</p>
+
+
+			<h3>Beteiligen Sie sich!</h3>
+
+			<p>
+	Wenn Sie helfen und sich an der SliTaz-Entwicklung beteiligen wollen, könnte TazPanel das richtige für Sie sein!
+	Wir brauchen Hilfe bei der Übersetzung, Gestaltung, Dokumentation und der Programmierung. Wenn Sie
+	weitere Informationen benötigen oder einen neuer Graphik-Stil veröffentlichen wollen,
+	können Sie die SliTaz <a data-icon="@web@" href="http://scn.slitaz.org/" target="_blank">Nutzergemeinschaft</a>
+	besuchen und an das Entwickler-Forum einsenden oder eine Korrektur mit einer Problemmeldung an einen
+	an SliTaz Mitwirkenden schicken, so dass wir mit Ihnen in Verbindung treten können und Ihren Beitrag
+	in TazPanel integrieren oder in ein separates Stil-Paket packen können.
+			</p>
+
+
+			<h3>Fehler und Funktionen</h3>
+
+			<p>
+	TazPanel ist noch eine junge Anwendung, die im Laufe der Zeit verbessert und aufpoliert werden wird.
+	Wenn Sie einen Fehler finden, melden Sie ihn bitte bei:
+	<a data-icon="@web@" href="http://bugs.slitaz.org/" target="_blank">bugs.slitaz.org</a>. Tazpanel hat einen
+	Fehlerverfolgungsmodus, der in der Konfigurationsdatei <a data-icon="@text@" href="index.cgi?file=/etc/slitaz/tazpanel.conf">tazpanel.conf</a>
+	aktiviert werden kann. Es bietet auch eine <a data-icon="@info@" href="index.cgi?debug">Fehlersuchseite</a>.
+			</p>
+
+		</div>
+	</section>
+</div>
