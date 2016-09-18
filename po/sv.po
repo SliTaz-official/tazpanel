@@ -255,8 +255,8 @@ msgid "Entry"
 msgstr "Bidrag"
 
 #: boot.cgi:367
-msgid "Web boot is available with gPXE"
-msgstr "Nät start är tillgänglig med gPXE"
+msgid "Web boot is available with %s"
+msgstr "Nät start är tillgänglig med %s"
 
 #: boot.cgi:381 boot.cgi:486 styles/default/header.html:86
 msgid "ISO mine"

@@ -359,13 +359,18 @@ menu=$(tail -q -n +$(grep -n ^title $GRUBMENU | head -n1 | cut -d: -f1) $GRUBMEN
 	echo '</section>'
 
 
-	# Here we could check if an entry for gpxe is present if not
+	# Here we could check if an entry for gpxe/ipxe is present if not
 	# display a form to add it.
-	[ -f "/boot/gpxe" ] && cat <<EOT
+	while read bin name ; do
+		[ -f "/boot/$bin" ] && cat <<EOT
 <section>
-	<header>gPXE</header>
-	<div>$(_ 'Web boot is available with gPXE')</div>
+	<header>$name</header>
+	<div>$(_ 'Web boot is available with %s' "$name")</div>
 </section>
+EOT
+	done <<EOT
+gpxe	%s
+ipxe	iPXE
 EOT
 	;;
 

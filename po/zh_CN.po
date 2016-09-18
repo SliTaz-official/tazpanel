@@ -254,8 +254,8 @@ msgid "Entry"
 msgstr "进入"
 
 #: boot.cgi:367
-msgid "Web boot is available with gPXE"
-msgstr "网站提供gPXE启动"
+msgid "Web boot is available with %s"
+msgstr "网站提供%s启动"
 
 #: boot.cgi:381 boot.cgi:486 styles/default/header.html:86
 msgid "ISO mine"

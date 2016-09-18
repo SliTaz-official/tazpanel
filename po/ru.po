@@ -257,8 +257,8 @@ msgid "Entry"
 msgstr "Пункт"
 
 #: boot.cgi:367
-msgid "Web boot is available with gPXE"
-msgstr "Доступна веб-загрузка с gPXE"
+msgid "Web boot is available with %s"
+msgstr "Доступна веб-загрузка с %s"
 
 #: boot.cgi:381 boot.cgi:486 styles/default/header.html:86
 msgid "ISO mine"

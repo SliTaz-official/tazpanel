@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-15 20:37+0100\n"
-"PO-Revision-Date: 2016-04-10 12:07+0200\n"
+"PO-Revision-Date: 2016-09-18 12:07+0200\n"
 "Last-Translator: Pascal Bellard <pascal.bellard@slitaz.org>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -254,8 +254,8 @@ msgid "Entry"
 msgstr "Entrée"
 
 #: boot.cgi:367
-msgid "Web boot is available with gPXE"
-msgstr "Le démarrage réseau est disponible avec gPXE"
+msgid "Web boot is available with %s"
+msgstr "Le démarrage réseau est disponible avec %s"
 
 #: boot.cgi:381 boot.cgi:486 styles/default/header.html:86
 msgid "ISO mine"
@@ -271,7 +271,7 @@ msgstr "Chemin complet de l'image ISO"
 
 #: boot.cgi:404 floppy.cgi:289
 msgid "set /dev/cdrom for a physical CD-ROM"
-msgstr "Mettre /dev/cdrom pour indiquer le lecteur de CD-ROM"
+msgstr "Mettre à jour /dev/cdrom pour indiquer le lecteur de CD-ROM"
 
 #: boot.cgi:407
 msgid "Working directory"
@@ -1498,7 +1498,7 @@ msgstr "Formater la disquette"
 
 #: floppy.cgi:118
 msgid "Floppy disk transfer"
-msgstr "Duplication de disquette"
+msgstr "Transfert sur disquette"
 
 #: floppy.cgi:123
 msgid "Write image"
@@ -1566,7 +1566,7 @@ msgstr "Mémoire utilisée"
 
 #: floppy.cgi:264 floppy.cgi:293
 msgid "Build floppy set"
-msgstr "Construire les disquettes"
+msgstr "Construire un jeu de disquettes"
 
 #: floppy.cgi:270 floppy.cgi:273
 msgid "Note"
@@ -1627,7 +1627,7 @@ msgstr "Édition manuelle"
 
 #: powersaving.cgi:129
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: powersaving.cgi:131
 msgid ""

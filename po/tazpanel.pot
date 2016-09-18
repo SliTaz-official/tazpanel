@@ -253,7 +253,7 @@ msgid "Entry"
 msgstr ""
 
 #: boot.cgi:367
-msgid "Web boot is available with gPXE"
+msgid "Web boot is available with %s"
 msgstr ""
 
 #: boot.cgi:381 boot.cgi:486 styles/default/header.html:86

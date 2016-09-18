@@ -259,8 +259,8 @@ msgid "Entry"
 msgstr "Wpis"
 
 #: boot.cgi:367
-msgid "Web boot is available with gPXE"
-msgstr "Uruchamianie przez sieć jest dostępne poprzez gPXE"
+msgid "Web boot is available with %s"
+msgstr "Uruchamianie przez sieć jest dostępne poprzez %s"
 
 #: boot.cgi:381 boot.cgi:486 styles/default/header.html:86
 msgid "ISO mine"
