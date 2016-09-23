@@ -174,21 +174,32 @@ case " $(GET) " in
 				fi
 
 				for panel in $(find $lxpanel -type f -iname panel); do
+					# Change first icon in "Plugin {" > "type = menu" > "image = *"
 					awk -vicon="/usr/share/pixmaps/$(GET tweak).png" '
-					BEGIN{ found = "0"; }
+					BEGIN{ found = 0; changed = 0; }
 					{
-						if ($1 == "Plugin") { found = "1"; }
+						# First matched icon not changed yet
+						if (changed == 0) {
+							# 1: first line of plugin definition found
+							if ($1 == "Plugin") { found = 1; }
 
-						if (found == "1" && $1 == "type") {
-							if ($3 == "menu") found = "2"; else found = "0";
-						}
+							# 2: plugin is menu type
+							if (found == 1 && $1 == "type") {
+								found = ($3 == "menu") ? 2 : 0;
+							}
 
-						if (found == "2" && $1 == "Plugin") { found = "0"; }
+							# 0: reset, begin of new plugin found
+							if (found == 2 && $1 == "Plugin") { found = 0; }
 
-						if (found == "2" && index($1, "image")) {
-							printf "        image=%s\n", icon;
-							found = 0;
+							# change image in the first menu plugin
+							if (found == 2 && index($1, "image")) {
+								printf "        image=%s\n", icon;
+								changed = 1; found = 0;
+							} else {
+								print;
+							}
 						} else {
+							# just pass input to output
 							print;
 						}
 					}
