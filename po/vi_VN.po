@@ -1,0 +1,1702 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR &lt;EMAIL@ADDRESS&gt;, YEAR.
+#
+#, fuzzy
+msgid ""
+"Project-Id-Version: TazPanel 522\n"
+"Report-msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-15 20:54+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt;\n"
+"Language-Team: LANGUAGE &lt;LL@li.org&gt;\n"
+"Language: Vietnam\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: lib/libtazpanel:153 network.cgi:455
+msgid "Scan"
+msgstr "Quét"
+
+#: lib/libtazpanel:156
+msgid "connected"
+msgstr "Đã kết nối"
+
+#: lib/libtazpanel:170 network.cgi:254
+msgid "Interface"
+msgstr "Giao diện"
+
+#: lib/libtazpanel:171 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
+#: network.cgi:345 hosts.cgi:243
+msgid "Name"
+msgstr "Tên"
+
+#: lib/libtazpanel:172 boot.cgi:145 network.cgi:349
+msgid "Status"
+msgstr "Trạng thái"
+
+#: lib/libtazpanel:173
+msgid "IP Address"
+msgstr "Địa chỉ IP"
+
+#: lib/libtazpanel:174
+msgid "Scan ports"
+msgstr "Quét cổng"
+
+#: lib/libtazpanel:249
+msgid "Please wait"
+msgstr "Xin đợi"
+
+#: lib/libtazpanel:318 hardware.cgi:498
+msgid "Disk"
+msgstr "Disk"
+
+#: lib/libtazpanel:319
+msgid "Label"
+msgstr "Nhãn"
+
+#: lib/libtazpanel:320 hardware.cgi:500
+msgid "Type"
+msgstr "Thể loại"
+
+#: lib/libtazpanel:321 hardware.cgi:182 hardware.cgi:534
+msgid "Size"
+msgstr "Kích cỡ"
+
+#: lib/libtazpanel:322
+msgid "Available"
+msgstr "Có sẵn"
+
+#: lib/libtazpanel:323 hardware.cgi:183 hardware.cgi:591
+msgid "Used"
+msgstr "Đã dùng"
+
+#: lib/libtazpanel:324 hardware.cgi:499
+msgid "Mount point"
+msgstr "Điểm nối"
+
+#: lib/libtazpanel:371 index.cgi:315
+msgid "Back"
+msgstr "Trở lại"
+
+#: lib/libtazpanel:381 index.cgi:242 settings.cgi:791
+msgid "Edit"
+msgstr "Sửa"
+
+#: lib/libtazpanel:395
+msgid "You must be root to show this page."
+msgstr "Bạn phải là root để hiển thị trang này."
+
+#: lib/libtazpanel:418 lib/libtazpanel:428
+msgid "Browse"
+msgstr "Duyệt"
+
+#: boot.cgi:16 floppy.cgi:11 styles/default/header.html:65
+msgid "Boot"
+msgstr "Boot"
+
+#: boot.cgi:27
+msgid "Show more..."
+msgstr "Hiện thêm..."
+
+#: boot.cgi:40 boot.cgi:45 boot.cgi:482 styles/default/header.html:83
+msgid "System logs"
+msgstr "Bản ghi hệ thống"
+
+#: boot.cgi:90
+msgid "Boot log files"
+msgstr "Tệp ghi boot"
+
+#: boot.cgi:93 index.cgi:723 styles/default/header.html:77
+msgid "Kernel messages"
+msgstr "Tin từ nhân"
+
+#: boot.cgi:94 index.cgi:726 styles/default/header.html:78
+msgid "Boot scripts"
+msgstr "Lệnh Boot"
+
+#: boot.cgi:95 styles/default/header.html:79
+msgid "X server"
+msgstr "X server"
+
+#: boot.cgi:96 styles/default/header.html:80
+msgid "X session"
+msgstr "X session"
+
+#: boot.cgi:115 boot.cgi:483 styles/default/header.html:84
+msgid "Manage daemons"
+msgstr "Quản lý khởi chạy (daemon)"
+
+#: boot.cgi:118
+msgid "Check, start and stop daemons on SliTaz"
+msgstr "Kiểm tra, bắt đầu và dừng lại khởi chạy (daemon) trên SliTaz"
+
+#: boot.cgi:143 hardware.cgi:181 settings.cgi:459 powersaving.cgi:154
+msgid "Description"
+msgstr "Miêu tả"
+
+#: boot.cgi:144 network.cgi:248
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#: boot.cgi:146
+msgid "Action"
+msgstr "Hoạt động"
+
+#: boot.cgi:147
+msgid "PID"
+msgstr "PID"
+
+#: boot.cgi:172
+msgid "SliTaz Firewall with iptables rules"
+msgstr "SliTaz Firewall với bảng quy tắc"
+
+#: boot.cgi:174
+msgid "Small and fast web server with CGI support"
+msgstr "Máy chủ web nhỏ và nhanh chóng với sự hỗ trợ CGI"
+
+#: boot.cgi:177
+msgid "Network time protocol daemon"
+msgstr "Giao thức Mạng thời gian daemon"
+
+#: boot.cgi:180
+msgid "Anonymous FTP server"
+msgstr "Anonymous FTP server"
+
+#: boot.cgi:183
+msgid "Busybox DHCP server"
+msgstr "Busybox DHCP server"
+
+#: boot.cgi:186
+msgid "Linux Kernel log daemon"
+msgstr "Linux Kernel log daemon"
+
+#: boot.cgi:189
+msgid "Execute scheduled commands"
+msgstr "Execute scheduled commands"
+
+#: boot.cgi:192
+msgid "Small static DNS server daemon"
+msgstr "Small static DNS server daemon"
+
+#: boot.cgi:195
+msgid "Transfer a file on tftp request"
+msgstr "Chuyển một tập tin theo tftp"
+
+#: boot.cgi:198
+msgid "Printer daemon"
+msgstr "Printer daemon"
+
+#: boot.cgi:200
+msgid "Listen for network connections and launch programs"
+msgstr "Nghe các kết nối mạng và chương trình khởi động"
+
+#: boot.cgi:203
+msgid "Manage a ZeroConf IPv4 link-local address"
+msgstr "Manage a ZeroConf IPv4 link-local address"
+
+#: boot.cgi:272
+msgid "Started"
+msgstr "Bắt đầu"
+
+#: boot.cgi:273 network.cgi:297 network.cgi:454 network.cgi:647
+msgid "Stop"
+msgstr "Dừng lại"
+
+#: boot.cgi:283
+msgid "Stopped"
+msgstr "Đã dừng"
+
+#: boot.cgi:284 network.cgi:296 network.cgi:453 network.cgi:646
+msgid "Start"
+msgstr "Bắt đầu"
+
+#: boot.cgi:309
+msgid "GRUB Boot loader"
+msgstr "GRUB Boot loader"
+
+#: boot.cgi:311
+msgid "The first application started when the computer powers on"
+msgstr "Ứng dụng đầu tiên bắt đầu khi bật máy tính"
+
+#: boot.cgi:318
+msgid "Default entry:"
+msgstr "Mục mặc định:"
+
+#: boot.cgi:320
+msgid "Timeout:"
+msgstr "Hết giờ:"
+
+#: boot.cgi:322
+msgid "Splash image:"
+msgstr "Ảnh Splash:"
+
+#: boot.cgi:327 network.cgi:669 network.cgi:700 settings.cgi:633
+#: settings.cgi:747 powersaving.cgi:108
+msgid "Change"
+msgstr "Thay đổi"
+
+#: boot.cgi:334
+msgid "View or edit menu.lst"
+msgstr "Xem hoặc chỉnh sửa menu.lst"
+
+#: boot.cgi:339
+msgid "Boot entries"
+msgstr "Mục boot"
+
+#: boot.cgi:346
+msgid "Entry"
+msgstr "Mục"
+
+#: boot.cgi:367
+msgid "Web boot is available with %s"
+msgstr "Khởi động qua web có sẵn %s"
+
+#: boot.cgi:381 boot.cgi:486 styles/default/header.html:86
+msgid "ISO mine"
+msgstr "ISO mine"
+
+#: boot.cgi:383
+msgid "Invalid ISO image."
+msgstr "ISO không hợp lệ."
+
+#: boot.cgi:403 floppy.cgi:288
+msgid "ISO image file full path"
+msgstr "Đường dẫn đầy đủ của ISO"
+
+#: boot.cgi:404 floppy.cgi:289
+msgid "set /dev/cdrom for a physical CD-ROM"
+msgstr "Đặt /dev/cdrom cho ổ CD-ROM"
+
+#: boot.cgi:407
+msgid "Working directory"
+msgstr "Thư mục làm việc"
+
+#: boot.cgi:410
+msgid "Target partition"
+msgstr "Phân vùng mục tiêu"
+
+#: boot.cgi:411
+msgid ""
+"For hard disk installation only. Will create /slitaz tree and keep other "
+"files. No partitioning and no formatting."
+msgstr ""
+"Để cài đặt đĩa cứng. Sẽ tạo ra /slitaz và giữ các tệp khác."
+"Không phân vùng và không định dạng."
+
+#: boot.cgi:414
+msgid "Choose a partition (optional)"
+msgstr "Chọn một phân vùng (không bắt buộc)"
+
+#: boot.cgi:425
+msgid "USB key device"
+msgstr "thiết bị USB"
+
+#: boot.cgi:426
+msgid "For USB boot key only. Will erase the full device."
+msgstr "Đối với lựa chọn USB. Sẽ xóa toàn bộ thiết bị."
+
+#: boot.cgi:429
+msgid "Choose a USB key (optional)"
+msgstr "Chọn USB (không bắt buộc)"
+
+#: boot.cgi:450
+msgid "Choose an action"
+msgstr "Chọn hoạt động"
+
+#: boot.cgi:463
+msgid "Mine"
+msgstr "Mine"
+
+#: boot.cgi:476
+msgid "Boot &amp;amp; Start services"
+msgstr "Boot &amp;amp; Start services"
+
+#: boot.cgi:478
+msgid "Everything that happens before user login"
+msgstr "Everything that happens before user login"
+
+#: boot.cgi:481 styles/default/header.html:75
+msgid "Boot logs"
+msgstr "Boot logs"
+
+#: boot.cgi:489 styles/default/header.html:71
+msgid "Boot loader"
+msgstr "Boot loader"
+
+#: boot.cgi:496
+msgid "Configuration files"
+msgstr "Các file cấu hình"
+
+#: boot.cgi:499
+msgid "Main configuration file:"
+msgstr "file cấu hình chính:"
+
+#: boot.cgi:500 boot.cgi:502 index.cgi:791 index.cgi:887
+msgid "View"
+msgstr "xem"
+
+#: boot.cgi:501
+msgid "Login manager settings:"
+msgstr "Cài đặt quản lý đăng nhập:"
+
+#: boot.cgi:509
+msgid "Kernel cmdline"
+msgstr "Kernel cmdline"
+
+#: boot.cgi:516
+msgid "Local startup commands"
+msgstr "lệnh khởi động địa phương"
+
+#: hardware.cgi:13 powersaving.cgi:22 styles/default/header.html:91
+msgid "Hardware"
+msgstr "Phần cứng"
+
+#: hardware.cgi:54
+msgid "Bus"
+msgstr "Bus"
+
+#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:532
+msgid "Device"
+msgstr "thiết bị"
+
+#: hardware.cgi:56
+msgid "ID"
+msgstr "ID"
+
+#: hardware.cgi:76
+msgid "Slot"
+msgstr "Slot"
+
+#: hardware.cgi:112
+msgid "Detect hardware"
+msgstr "Phát hiện phần cứng"
+
+#: hardware.cgi:114
+msgid "Detect PCI and USB hardware"
+msgstr "Phát hiện PCI và USB"
+
+#: hardware.cgi:122 hardware.cgi:252 powersaving.cgi:150
+#: styles/default/header.html:94
+msgid "Kernel modules"
+msgstr "Kernel modules"
+
+#: hardware.cgi:126
+msgid "Manage, search or get information about the Linux kernel modules"
+msgstr "Quản lý, tìm kiếm hoặc nhận thông tin về các mô-đun hạt nhân Linux"
+
+#: hardware.cgi:130
+msgid "Modules search"
+msgstr "Tìm mô-đun"
+
+#: hardware.cgi:131
+msgid "Search"
+msgstr "Tìm"
+
+#: hardware.cgi:139
+msgid "Detailed information for module: %s"
+msgstr "Thông tin chi tiết cho các mô-đun: %s"
+
+#: hardware.cgi:163
+msgid "Matching result(s) for: %s"
+msgstr "kết quả cho: %s"
+
+#: hardware.cgi:170
+msgid "Module:"
+msgstr "Mô-đun:"
+
+#: hardware.cgi:180 powersaving.cgi:153
+msgid "Module"
+msgstr "Mô-đun"
+
+#: hardware.cgi:184
+msgid "by"
+msgstr "bởi"
+
+#: hardware.cgi:208
+msgid "Information for USB Device %s"
+msgstr "Thông tin USB %s"
+
+#: hardware.cgi:210 hardware.cgi:228
+msgid "Detailed information about specified device."
+msgstr "Thông tin chi tiết về thiết bị."
+
+#: hardware.cgi:226
+msgid "Information for PCI Device %s"
+msgstr "Thông tin cho PCI %s"
+
+#: hardware.cgi:247
+msgid "Drivers &amp;amp; Devices"
+msgstr "Drivers &amp;amp; Devices"
+
+#: hardware.cgi:249
+msgid "Manage your computer hardware"
+msgstr "Quản lý phần cứng máy tính của bạn"
+
+#: hardware.cgi:253 styles/default/header.html:95
+msgid "Detect PCI/USB"
+msgstr "Phát hiện PCI/USB"
+
+#: hardware.cgi:254
+msgid "Auto-install Xorg video driver"
+msgstr "Tự cài điều khiển Xorg video"
+
+#: hardware.cgi:264 hardware.cgi:281
+msgid "Battery"
+msgstr "Pin"
+
+#: hardware.cgi:284
+msgid "health"
+msgstr "sức khỏe"
+
+#: hardware.cgi:293
+msgid "Discharging %d%% - %s"
+msgstr "Xả %d%% - %s"
+
+#: hardware.cgi:297
+msgid "Charging %d%% - %s"
+msgstr "Sạc %d%% - %s"
+
+#: hardware.cgi:299
+msgid "Charged 100%%"
+msgstr "Sạc 100%%"
+
+#: hardware.cgi:318
+msgid "Temperature:"
+msgstr "Nhiệt:"
+
+#: hardware.cgi:333
+msgid "Brightness"
+msgstr "Sáng"
+
+#: hardware.cgi:353 index.cgi:851
+msgid "Filesystem usage statistics"
+msgstr "thống kê sử dụng hệ thống tập tin"
+
+#: hardware.cgi:476
+msgid "new mount point:"
+msgstr "Điểm nối mới:"
+
+#: hardware.cgi:477
+msgid "read-only"
+msgstr "Chỉ đọc"
+
+#: hardware.cgi:492
+msgid "Filesystems table"
+msgstr "bảng hệ thống tập tin"
+
+#: hardware.cgi:501
+msgid "Options"
+msgstr "Tùy chọn"
+
+#: hardware.cgi:502
+msgid "Freq"
+msgstr "Thường"
+
+#: hardware.cgi:503
+msgid "Pass"
+msgstr "Vượt qua"
+
+#: hardware.cgi:525
+msgid "Loop devices"
+msgstr "Loop devices"
+
+#: hardware.cgi:533
+msgid "Backing file"
+msgstr "tập tin sao lưu"
+
+#: hardware.cgi:535
+msgid "Access"
+msgstr "Truy cập"
+
+#: hardware.cgi:536
+msgid "Offset"
+msgstr "Offset"
+
+#: hardware.cgi:545
+msgid "read/write"
+msgstr "read/write"
+
+#: hardware.cgi:546 hardware.cgi:571
+msgid "read only"
+msgstr "chỉ đọc"
+
+#: hardware.cgi:568
+msgid "Setup"
+msgstr "Cài đặt"
+
+#: hardware.cgi:569
+msgid "new backing file:"
+msgstr "tập tin sao lưu mới:"
+
+#: hardware.cgi:570
+msgid "offset in bytes:"
+msgstr "offset in bytes:"
+
+#: hardware.cgi:588
+msgid "System memory"
+msgstr "hệ thống bộ nhớ"
+
+#: hardware.cgi:594
+msgid "Buffers"
+msgstr "Buffers"
+
+#: hardware.cgi:597
+msgid "Free"
+msgstr "Trống"
+
+#: help.cgi:20
+msgid "Manual"
+msgstr "Hướng dẫn"
+
+#: help.cgi:28
+msgid "Help &amp;amp; Doc"
+msgstr "Trợ giúp &amp;amp; Tài liệu"
+
+#: index.cgi:37 index.cgi:186
+msgid "Differences"
+msgstr "khác biệt"
+
+#: index.cgi:77
+msgid "Choose directory"
+msgstr "Chọn thư mục"
+
+#: index.cgi:81
+msgid "Choose file"
+msgstr "Chọn tập tin"
+
+#: index.cgi:142
+msgid "exec"
+msgstr "exec"
+
+#: index.cgi:175
+msgid "File"
+msgstr "Tập tin"
+
+#: index.cgi:185 index.cgi:205 index.cgi:244
+msgid "Save"
+msgstr "Lưu"
+
+#: index.cgi:293 index.cgi:447 index.cgi:470 index.cgi:813
+#: styles/default/header.html:49
+msgid "Terminal"
+msgstr "Terminal"
+
+#: index.cgi:314 index.cgi:399
+msgid "History"
+msgstr "Lịch sử"
+
+#: index.cgi:322
+msgid "run"
+msgstr "chạy"
+
+#: index.cgi:338
+msgid "Clear"
+msgstr "Xóa"
+
+#: index.cgi:362
+msgid "Small non-interactive terminal emulator."
+msgstr "Giả lập terminal nhỏ không tương tác."
+
+#: index.cgi:363
+msgid "Run any command at your own risk, avoid interactive commands (%s)"
+msgstr "Chạy bất kỳ lệnh, tránh các lệnh tương tác (%s)"
+
+#: index.cgi:368
+msgid "Downloading to: %s"
+msgstr "Tải: %s"
+
+#: index.cgi:377
+msgid "%s needs an argument"
+msgstr "%s cần một đối số"
+
+#: index.cgi:380
+msgid "Please, don't run interactive command \"%s\""
+msgstr "Xin vui lòng, không chạy lệnh tương tác \"%s\""
+
+#: index.cgi:398 styles/default/header.html:101
+msgid "Settings"
+msgstr "Cài đặt"
+
+#: index.cgi:468
+msgid "Terminal settings"
+msgstr "Cài đặt Terminal"
+
+#: index.cgi:489
+msgid "Font:"
+msgstr "Font:"
+
+#: index.cgi:491
+msgid "Default"
+msgstr "Mặt định"
+
+#: index.cgi:497
+msgid "Palette:"
+msgstr "Palette:"
+
+#: index.cgi:503
+msgid "Apply"
+msgstr "Áp dụng"
+
+#: index.cgi:513 index.cgi:814
+msgid "Process activity"
+msgstr "Tiến trình hoạt động"
+
+#: index.cgi:518
+msgid "Refresh:"
+msgstr "Làm mới:"
+
+#: index.cgi:521
+msgid "1s"
+msgstr "1s"
+
+#: index.cgi:523
+msgid "5s"
+msgstr "5s"
+
+#: index.cgi:525
+msgid "10s"
+msgstr "10s"
+
+#: index.cgi:527 floppy.cgi:110
+msgid "none"
+msgstr "không"
+
+#: index.cgi:549
+msgid "Kill"
+msgstr "Tắt"
+
+#: index.cgi:553
+msgid "Start time:"
+msgstr "Lúc bật:"
+
+#: index.cgi:556
+msgid "Renice"
+msgstr "Renice"
+
+#: index.cgi:569
+msgid "I/O class"
+msgstr "I/O class"
+
+#: index.cgi:607
+msgid "Debug"
+msgstr "Debug"
+
+#: index.cgi:610
+msgid "HTTP Environment"
+msgstr "Môi trường HTTP"
+
+#: index.cgi:622
+msgid "System report"
+msgstr "Báo cáo hệ thống"
+
+#: index.cgi:629
+msgid "Reporting to: %s"
+msgstr "Báo cáo: %s"
+
+#: index.cgi:632
+msgid "Creating report header..."
+msgstr "Đạng tạo đầu báo cáo..."
+
+#: index.cgi:639 index.cgi:656
+msgid "SliTaz system report"
+msgstr "Báo cáo hệt thống SliTaz"
+
+#: index.cgi:653
+msgid "Creating system summary..."
+msgstr "Tạo tóm lược hệ thống..."
+
+#: index.cgi:657
+msgid "Date:"
+msgstr "Ngày:"
+
+#: index.cgi:668
+msgid "Getting hardware info..."
+msgstr "Lấy thông tin phần cứng..."
+
+#: index.cgi:686
+msgid "Getting networking info..."
+msgstr "Lấy thông tin mạng..."
+
+#: index.cgi:700
+msgid "Getting filesystems info..."
+msgstr "Lấy thông tin hệ thống tập tin..."
+
+#: index.cgi:720
+msgid "Getting boot logs..."
+msgstr "Lấy các bản ghi khởi động..."
+
+#: index.cgi:731
+msgid "Getting package list..."
+msgstr "Lấy danh sách gói..."
+
+#: index.cgi:734
+msgid "Packages"
+msgstr "Gói"
+
+#: index.cgi:772
+msgid "Getting extra reports..."
+msgstr "Nhận được báo cáo thêm..."
+
+#: index.cgi:780
+msgid "Creating report footer..."
+msgstr "Tạo báo cáo chân trang..."
+
+#: index.cgi:796
+msgid "This report can be attached with a bug report on:"
+msgstr "Báo cáo này có thể được gắn với một báo cáo lỗi:"
+
+#: index.cgi:806
+msgid "SliTaz administration and configuration Panel"
+msgstr "Quản lý và cấu hình SliTaz"
+
+#: index.cgi:815
+msgid "Create a report"
+msgstr "Tạo một báo cáo"
+
+#: index.cgi:819 styles/default/header.html:47 styles/default/header.html:57
+#: styles/default/header.html:67 styles/default/header.html:93
+#: styles/default/header.html:103
+msgid "Summary"
+msgstr "Tóm lược"
+
+#: index.cgi:821 hosts.cgi:227
+msgid "Host:"
+msgstr "Host:"
+
+#: index.cgi:822
+msgid "Uptime:"
+msgstr "Thời gian hoạt động:"
+
+#: index.cgi:825
+msgid "Memory in Mb:"
+msgstr "Bộ nhớ Mb:"
+
+#: index.cgi:827
+msgid "Total: %d, Used: %d, Free: %d"
+msgstr "Tổng: %d, Đã sử dụng: %d, Còn: %d"
+
+#: index.cgi:831 floppy.cgi:151
+msgid "Total: %d, Used: %d, Free: %d"
+msgstr "Linux kernel:"
+
+#: index.cgi:840
+msgid "Network status"
+msgstr "Tình trạng mạng"
+
+#: index.cgi:842 network.cgi:15 network.cgi:216 hosts.cgi:15
+#: styles/default/header.html:55
+msgid "Network"
+msgstr "Mạng"
+
+#: index.cgi:853 styles/default/header.html:96
+msgid "Disks"
+msgstr "Disks"
+
+#: index.cgi:885
+msgid "Panel Activity"
+msgstr "Panel Hoạt động"
+
+#: network.cgi:153
+msgid "Changed hostname: %s"
+msgstr "Đã thay đổi hostname: %s"
+
+#: network.cgi:210
+msgid "Scanning open ports..."
+msgstr "Quét cổng mở..."
+
+#: network.cgi:215
+msgid "Port scanning for %s"
+msgstr "Quét cổng cho %s"
+
+#: network.cgi:226
+msgid "Ethernet connection"
+msgstr "kết nối Có dây"
+
+#: network.cgi:244
+msgid ""
+"Here you can configure a wired connection using DHCP to automatically get a "
+"random IP or configure a static/fixed IP"
+msgstr ""
+"Ở đây bạn có thể cấu hình một kết nối có dây sử dụng DHCP để tự động nhận được một"
+"IP ngẫu nhiên hoặc TP tĩnh"
+
+#: network.cgi:262
+msgid "Static IP"
+msgstr "IP tĩnh"
+
+#: network.cgi:264
+msgid "Use static IP"
+msgstr "Sử dụng IP tĩnh"
+
+#: network.cgi:266
+msgid "IP address"
+msgstr "IP address"
+
+#: network.cgi:269
+msgid "Netmask"
+msgstr "Netmask"
+
+#: network.cgi:272
+msgid "Gateway"
+msgstr "Cổng vào"
+
+#: network.cgi:275
+msgid "DNS server"
+msgstr "DNS server"
+
+#: network.cgi:278 network.cgi:298
+msgid "Wake up"
+msgstr "Thức dậy"
+
+#: network.cgi:280
+msgid "Wake up machines by network"
+msgstr "Thức dậy máy qua mạng"
+
+#: network.cgi:282
+msgid "MAC address to wake up"
+msgstr "địa chỉ MAC để thức dậy"
+
+#: network.cgi:283
+msgid "Leave empty for a general wakeup"
+msgstr "Để trống cho một wakeup chung"
+
+#: network.cgi:284
+msgid "List"
+msgstr "Danh sách"
+
+#: network.cgi:287
+msgid "MAC/IP address password"
+msgstr "địa chỉ MAC/IP mật khẩu"
+
+#: network.cgi:288
+msgid "Optional"
+msgstr "Không bắt buộc"
+
+#: network.cgi:289
+msgid "Help"
+msgstr "Trợ giúp"
+
+#: network.cgi:322 network.cgi:609
+msgid "Configuration file"
+msgstr "Tập tin cấu hình"
+
+#: network.cgi:327
+msgid ""
+"These values are the ethernet settings in the main /etc/network.conf "
+"configuration file"
+msgstr ""
+"Những giá trị này là cài đặt có dây trong tập tin cấu hình /etc/network.conf "
+
+
+#: network.cgi:339
+msgid "(hidden)"
+msgstr "(ẩn)"
+
+#: network.cgi:346
+msgid "Signal level"
+msgstr "Tín hiệu"
+
+#: network.cgi:347
+msgid "Channel"
+msgstr "Kênh"
+
+#: network.cgi:348
+msgid "Encryption"
+msgstr "Mã hóa"
+
+#: network.cgi:407 network.cgi:489 network.cgi:511
+msgid "None"
+msgstr "Không"
+
+#: network.cgi:413
+msgid "Connected"
+msgstr "Đã Kết nối"
+
+#: network.cgi:439
+msgid "Wireless connection"
+msgstr "Kết nối không dây"
+
+#: network.cgi:463
+msgid "Scanning wireless interface..."
+msgstr "Đang quét Kết nối không dây..."
+
+#: network.cgi:477
+msgid "Connection"
+msgstr "Kết nối"
+
+#: network.cgi:483
+msgid "Network SSID"
+msgstr "Network SSID"
+
+#: network.cgi:487
+msgid "Security"
+msgstr "Bảo vệ"
+
+#: network.cgi:498
+msgid "EAP method"
+msgstr "Phương pháp EAP"
+
+#: network.cgi:509
+msgid "Phase 2 authentication"
+msgstr "Xác thực giai đoạn 2"
+
+#: network.cgi:521
+msgid "CA certificate"
+msgstr "Chứng chỉ CA"
+
+#: network.cgi:526
+msgid "User certificate"
+msgstr "Chứng chỉ người dùng"
+
+#: network.cgi:531
+msgid "Identity"
+msgstr "Danh tính"
+
+#: network.cgi:536
+msgid "Anonymous identity"
+msgstr "Danh tính ẩn danh"
+
+#: network.cgi:541
+msgid "Password"
+msgstr "Mật khẩu"
+
+#: network.cgi:544
+msgid "Show password"
+msgstr "Hiển thị mật khẩu"
+
+#: network.cgi:556 network.cgi:685
+msgid "Configure"
+msgstr "cấu hình"
+
+#: network.cgi:557
+msgid "Share"
+msgstr "Chia sẻ"
+
+#: network.cgi:598
+msgid "Share Wi-Fi network with your friends"
+msgstr "Chia sẻ mạng  Wi-Fi với bạn bè của bạn"
+
+#: network.cgi:614
+msgid ""
+"These values are the wifi settings in the main /etc/network.conf "
+"configuration file"
+msgstr ""
+"Những giá trị này là cài đặt wifi trong tập tin cấu hình /etc/network.conf"
+
+#: network.cgi:620
+msgid "Output of iwconfig"
+msgstr "Đầu ra của iwconfig"
+
+#: network.cgi:629
+msgid "Manage network connections and services"
+msgstr "Quản lý kết nối mạng và dịch vụ"
+
+#: network.cgi:648
+msgid "Restart"
+msgstr "Khởi động lại"
+
+#: network.cgi:652
+msgid "Configuration:"
+msgstr "Cấu hình:"
+
+#: network.cgi:660
+msgid "Network interfaces"
+msgstr "Giao diện mạng"
+
+#: network.cgi:667
+msgid "forward packets between interfaces"
+msgstr "các gói tin chuyển tiếp giữa các giao diện"
+
+#: network.cgi:677 hosts.cgi:203
+msgid "Hosts"
+msgstr "Hosts"
+
+#: network.cgi:679
+msgid "%d record in the hosts DB"
+msgid_plural "%d records in the hosts DB"
+msgstr[0] ""
+msgstr[1] ""
+
+#: network.cgi:686 hosts.cgi:16
+msgid "Use hosts file as Ad blocker"
+msgstr "Sử dụng tập tin host như chặn quảng cáo"
+
+#: network.cgi:693
+msgid "Hostname"
+msgstr "Hostname"
+
+#: network.cgi:712
+msgid "Output of ifconfig"
+msgstr "Đầu ra của ifconfig"
+
+#: network.cgi:718
+msgid "Routing table"
+msgstr "Bảng định tuyến"
+
+#: network.cgi:724
+msgid "Domain name resolution"
+msgstr "Phân giải tên miền"
+
+#: network.cgi:730
+msgid "ARP table"
+msgstr "ARP table"
+
+#: network.cgi:750
+msgid "Proxy"
+msgstr "Proxy"
+
+#: network.cgi:751 hosts.cgi:224 hosts.cgi:231
+msgid "Add"
+msgstr "Thêm"
+
+#: network.cgi:764
+msgid "IP Connections"
+msgstr "Kết nối IP"
+
+#: network.cgi:772
+msgid "Firewall"
+msgstr "Tường lửa"
+
+#: network.cgi:773
+msgid "Port knocker"
+msgstr "Cổng knocker"
+
+#: hosts.cgi:107
+msgid "Host \"%s\" added to /etc/hosts."
+msgstr "Host \"%s\" thêm vào /etc/hosts."
+
+#: hosts.cgi:120
+msgid "%d record disabled"
+msgid_plural "%d records disabled"
+msgstr[0] "%d vô hiệu hóa"
+msgstr[1] "%d vô hiệu hóa"
+
+#: hosts.cgi:130
+msgid "Installing the \"%s\"..."
+msgstr "Cài đặt \"%s\"..."
+
+#: hosts.cgi:132 hosts.cgi:156 hosts.cgi:176
+msgid "Done"
+msgstr "Hoàn thành"
+
+#: hosts.cgi:142
+msgid "Updating the \"%s\"..."
+msgstr "Cập nhật \"%s\"..."
+
+#: hosts.cgi:174
+msgid "Removing the \"%s\"..."
+msgstr "Xóa \"%s\"..."
+
+#: hosts.cgi:187
+msgid "%d record used for Ad blocking"
+msgid_plural "%d records used for Ad blocking"
+msgstr[0] "%d đã dùng để chặn quảng cáo"
+msgstr[1] "%d đã dùng để chặn quảng cáo"
+
+#: hosts.cgi:193
+msgid "%d record found for \"%s\""
+msgid_plural "%d records found for \"%s\""
+msgstr[0] "%d  tìm thấy trong \"%s\""
+msgstr[1] "%d  tìm thấy trong \"%s\""
+
+#: hosts.cgi:197
+msgid " (The list is limited to the first 100 entries.)"
+msgstr " (Danh sách này được giới hạn ở 100 mục đầu tiên.)"
+
+#: hosts.cgi:218
+msgid "Disable selected"0
+msgstr "Vô hiệu hoá đã lựa chọn"
+
+#: hosts.cgi:237
+msgid "Manage lists"
+msgstr "Quản lý danh sách"
+
+#: hosts.cgi:238
+msgid ""
+"You can use one or more prepared hosts files to block advertisements, "
+"malware and other irritants."
+msgstr ""
+"Bạn có thể sử dụng một hoặc chuẩn bị nhiều hơn các file host để chặn quảng cáo, "
+"phần mềm độc hại và các chất kích thích khác."
+
+#: hosts.cgi:244
+msgid "Details"
+msgstr "Chi tiết"
+
+#: hosts.cgi:245
+msgid "Updates"
+msgstr "Cập nhật"
+
+#: hosts.cgi:246
+msgid "Actions"
+msgstr "Hoạt động"
+
+#: hosts.cgi:259
+msgid "info"
+msgstr "Thông tin"
+
+#: hosts.cgi:261
+msgid "Updated monthly"
+msgstr "Cập nhật hàng tháng"
+
+#: hosts.cgi:262
+msgid "Updated regularly"
+msgstr "Cập nhật thường xuyên"
+
+#: hosts.cgi:303
+msgid "Upgrade"
+msgstr "Nâng cấp"
+
+#: hosts.cgi:308
+msgid "Remove"
+msgstr "Xóa"
+
+#: hosts.cgi:314
+msgid "Install"
+msgstr "Cài đặt"
+
+#: settings.cgi:16
+msgid "System settings"
+msgstr "Cài đặt hệ thống"
+
+#: settings.cgi:101 settings.cgi:646 settings.cgi:673 settings.cgi:678
+msgid "Set date"
+msgstr "Đặt ngày"
+
+#: settings.cgi:233 settings.cgi:620
+msgid "Manage groups"
+msgstr "Quản lý các nhóm"
+
+#: settings.cgi:241 settings.cgi:318
+msgid "Selection:"
+msgstr "Lựa chọn:"
+
+#: settings.cgi:242
+msgid "Delete group"
+msgstr "xóa nhóm"
+
+#: settings.cgi:249
+msgid "Group"
+msgstr "Nhóm"
+
+#: settings.cgi:250
+msgid "Group ID"
+msgstr "Nhóm ID"
+
+#: settings.cgi:251
+msgid "Members"
+msgstr "Các thành viên"
+
+#: settings.cgi:278
+msgid "Add a new group"
+msgstr "Thêm một nhóm mới"
+
+#: settings.cgi:281 settings.cgi:293
+msgid "Group name:"
+msgstr "Tên nhóm:"
+
+#: settings.cgi:282
+msgid "Create group"
+msgstr "Tạo nhóm"
+
+#: settings.cgi:289
+msgid "Manage group membership"
+msgstr "Quản lý thành viên nhóm"
+
+#: settings.cgi:294 settings.cgi:379
+msgid "User login:"
+msgstr "Đăng nhập người dùng:"
+
+#: settings.cgi:297
+msgid "Add user"
+msgstr "Thêm người dùng"
+
+#: settings.cgi:298
+msgid "Remove user"
+msgstr "Di chuyển người dùng"
+
+#: settings.cgi:311 settings.cgi:619
+msgid "Manage users"
+msgstr "Quản lý người dùng"
+
+#: settings.cgi:319
+msgid "Delete user"
+msgstr "Xóa người dùng"
+
+#: settings.cgi:320
+msgid "Lock user"
+msgstr "Khóa người dùng"
+
+#: settings.cgi:321
+msgid "Unlock user"
+msgstr "Mở khóa người dùng"
+
+#: settings.cgi:327
+msgid "Login"
+msgstr "Đăng nhập"
+
+#: settings.cgi:328
+msgid "User ID"
+msgstr "ID người dùng"
+
+#: settings.cgi:329
+msgid "User Name"
+msgstr "Tên người dùng"
+
+#: settings.cgi:330
+msgid "Home"
+msgstr "Nhà"
+
+#: settings.cgi:331
+msgid "Shell"
+msgstr "Shell"
+
+#: settings.cgi:365
+msgid "Password:"
+msgstr "Mật khẩu:"
+
+#: settings.cgi:366
+msgid "New password"
+msgstr "Mật khẩu mới"
+
+#: settings.cgi:367
+msgid "Change password"
+msgstr "Đổi mật khẩu"
+
+#: settings.cgi:374
+msgid "Add a new user"
+msgstr "Thêm một người dùng mới"
+
+#: settings.cgi:381
+msgid "User name:"
+msgstr "Tên người dùng:"
+
+#: settings.cgi:383
+msgid "User password:"
+msgstr "Mật khẩu người dùng:"
+
+#: settings.cgi:388
+msgid "Create user"
+msgstr "Tạo người dùng"
+
+#: settings.cgi:398
+msgid "Current user sessions"
+msgstr "Người sử dụng phiên hiện tại"
+
+#: settings.cgi:408
+msgid "Last user sessions"
+msgstr "Người sử dụng phiên cuối"
+
+#: settings.cgi:420
+msgid "Choose locale"
+msgstr "Chọn địa phương"
+
+#: settings.cgi:423
+msgid "Please wait..."
+msgstr "Xin vui lòng chờ..."
+
+#: settings.cgi:428
+msgid "Current locale settings:"
+msgstr "Thiết lập miền địa phương hiện tại:"
+
+#: settings.cgi:435
+msgid "Locales that are currently installed on the machine:"
+msgstr "Miền địa phương hiện đang được cài đặt trên máy tính này:"
+
+#: settings.cgi:445
+msgid ""
+"Can't see your language?&lt;br/&gt;You can &lt;a href='pkgs.cgi?do=Install&amp;amp;glibc-"
+"locale'&gt;install glibc-locale&lt;/a&gt; to see a larger list of available locales."
+msgstr ""
+"Không thể nhìn thấy ngôn ngữ của bạn?&lt;br/&gt;Bạn có thể &lt;a href='pkgs.cgi?do=Install&amp;amp;glibc-"
+"locale'&gt;cài đặt glibc-locale&lt;/a&gt; để xem một danh sách lớn của miền địa phương có sẵn."
+
+#: settings.cgi:452
+msgid "Available locales:"
+msgstr "Địa phương có sẵn:"
+
+#: settings.cgi:456
+msgid "Code"
+msgstr "Mã"
+
+#: settings.cgi:457
+msgid "Language"
+msgstr "Ngôn ngữ"
+
+#: settings.cgi:458
+msgid "Territory"
+msgstr "Territory"
+
+#: settings.cgi:475 settings.cgi:476
+msgid "-d"
+msgstr "-d"
+
+#: settings.cgi:487 settings.cgi:790 settings.cgi:802 settings.cgi:814
+msgid "Activate"
+msgstr "Kích hoạt"
+
+#: settings.cgi:500 settings.cgi:522
+msgid "Small quick tweaks for user %s"
+msgstr "Chỉnh nhanh cho người sử dụng %s"
+
+#: settings.cgi:525
+msgid "Terminal prompt"
+msgstr "Terminal prompt"
+
+#: settings.cgi:531
+msgid "Monochrome"
+msgstr "Đơn sắc"
+
+#: settings.cgi:540
+msgid "Colored"
+msgstr "Màu"
+
+#: settings.cgi:549 settings.cgi:597
+msgid "Manual edit: %s"
+msgstr "chỉnh sửa bằng tay: %s"
+
+#: settings.cgi:550
+msgid ""
+"To take effect: log out and log in to system or execute command in the "
+"terminal:"
+msgstr ""
+"Để có hiệu lực: đăng xuất và đăng nhập vào hệ thống hoặc thực hiện lệnh trong"
+"terminal:"
+
+#: settings.cgi:558
+msgid "Menu button appearance"
+msgstr "Nút menu xuất hiện"
+
+#: settings.cgi:563
+msgid "Icon:"
+msgstr "Biểu tượng:"
+
+#: settings.cgi:566 settings.cgi:587
+msgid "Do not show"
+msgstr "Không hiển thị"
+
+#: settings.cgi:584
+msgid "Text:"
+msgstr "Bản văn:"
+
+#: settings.cgi:591
+msgid "Show text"
+msgstr "Hiển thị văn bản"
+
+#: settings.cgi:614
+msgid "Manage system time, users or language settings"
+msgstr "Quản lý thời gian hệ thống, người sử dụng hoặc cài đặt ngôn ngữ"
+
+#: settings.cgi:624
+msgid "System time"
+msgstr "Thời gian hệ thống"
+
+#: settings.cgi:627
+msgid "Time zone:"
+msgstr "Múi giờ:"
+
+#: settings.cgi:636
+msgid "System time:"
+msgstr "Thời gian hệ thống:"
+
+#: settings.cgi:638
+msgid "Sync online"
+msgstr "Đồng bộ hóa trực tuyến"
+
+#: settings.cgi:641
+msgid "Hardware clock:"
+msgstr "Đồng hồ phần cứng:"
+
+#: settings.cgi:643
+msgid "Set hardware clock"
+msgstr "Đặt đồng hồ phần cứng"
+
+#: settings.cgi:729
+msgid "System language"
+msgstr "Hệ thống ngôn ngữ"
+
+#: settings.cgi:742
+msgid ""
+"You must logout and login again to your current session to use %s locale."
+msgstr ""
+"Bạn phải đăng xuất và đăng nhập lại để phiên hiện tại của bạn để sử dụng %s."
+
+#: settings.cgi:745
+msgid "Current system locale:"
+msgstr "Hệ thống địa phương hiện tại:"
+
+#: settings.cgi:757
+msgid "Keyboard layout"
+msgstr "Bố trí Keyboard"
+
+#: settings.cgi:771
+msgid "Current console keymap: %s"
+msgstr "Console keymap hiện tại: %s"
+
+#: settings.cgi:789
+msgid "Suggested keymap for Xorg:"
+msgstr "Đề xuất keymap cho Xorg:"
+
+#: settings.cgi:798
+msgid "Available keymaps:"
+msgstr "Có sẵn keymaps:"
+
+#: settings.cgi:809
+msgid "Panel configuration"
+msgstr "Panel cấu hình"
+
+#: settings.cgi:812
+msgid "Style:"
+msgstr "Phong cách:"
+
+#: settings.cgi:818
+msgid "Configuration files:"
+msgstr "Các file cấu hình:"
+
+#: settings.cgi:819 styles/default/header.html:45
+msgid "Panel"
+msgstr "Panel"
+
+#: settings.cgi:820
+msgid "Server"
+msgstr "Máy chủ"
+
+#: settings.cgi:823
+msgid "TazPanel provides a debugging mode and page:"
+msgstr "TazPanel cung cấp một chế độ gỡ lỗi và trang:"
+
+#: floppy.cgi:21
+msgid "Boot floppy"
+msgstr "Boot floppy"
+
+#: floppy.cgi:72
+msgid "TazPanel - floppy"
+msgstr "TazPanel - floppy"
+
+#: floppy.cgi:94
+msgid "Floppy disk utilities"
+msgstr "Công cụ đĩa mềm"
+
+#: floppy.cgi:104
+msgid "Floppy disk format"
+msgstr "Định dạng đĩa mềm"
+
+#: floppy.cgi:107
+msgid "Format disk"
+msgstr "Định dạng đĩa"
+
+#: floppy.cgi:118
+msgid "Floppy disk transfer"
+msgstr "Floppy disk transfer"
+
+#: floppy.cgi:123
+msgid "Write image"
+msgstr "viết image"
+
+#: floppy.cgi:129
+msgid "Read image"
+msgstr "Đọc image"
+
+#: floppy.cgi:146
+msgid "Boot floppy set builder"
+msgstr "Boot floppy set builder"
+
+#: floppy.cgi:152
+msgid "required"
+msgstr "cần thiết"
+
+#: floppy.cgi:155
+msgid "Initramfs / Initrd:"
+msgstr "Initramfs / Initrd:"
+
+#: floppy.cgi:156 floppy.cgi:160 floppy.cgi:164 floppy.cgi:169
+msgid "optional"
+msgstr "không bắt buộc"
+
+#: floppy.cgi:159
+msgid "Extra initramfs:"
+msgstr "initramfs thêm:"
+
+#: floppy.cgi:163
+msgid "Boot message:"
+msgstr "Thông tin khởi động:"
+
+#: floppy.cgi:167
+msgid "Default cmdline:"
+msgstr "Mặc định cmdline:"
+
+#: floppy.cgi:168
+msgid "edit"
+msgstr "chỉnh sửa"
+
+#: floppy.cgi:172
+msgid "Root device:"
+msgstr "Gốc thiết bị:"
+
+#: floppy.cgi:174
+msgid "Flags:"
+msgstr "Flags:"
+
+#: floppy.cgi:214
+msgid "Output directory:"
+msgstr "Thư mục đầu ra:"
+
+#: floppy.cgi:218
+msgid "Floppy size:"
+msgstr "Kích cỡ đĩa mềm:"
+
+#: floppy.cgi:247
+msgid "no limit"
+msgstr "không giới hạn"
+
+#: floppy.cgi:249
+msgid "RAM used"
+msgstr "RAM được sử dụng"
+
+#: floppy.cgi:264 floppy.cgi:293
+msgid "Build floppy set"
+msgstr "Xây dựng bộ đĩa mềm"
+
+#: floppy.cgi:270 floppy.cgi:273
+msgid "Note"
+msgstr "Chú thích"
+
+#: floppy.cgi:270
+msgid "the extra initramfs may be useful to add your own configuration files."
+msgstr "initramfs thêm có thể hữu ích để thêm các tập tin cấu hình của riêng bạn."
+
+#: floppy.cgi:273
+msgid ""
+"the keyboard is read for ESC or ENTER on every form feed (ASCII 12) in the "
+"boot message."
+msgstr ""
+"the keyboard is read for ESC or ENTER on every form feed (ASCII 12) in the "
+"boot message."
+
+#: floppy.cgi:280
+msgid "Floppy set from an ISO image"
+msgstr "Đĩa mềm thiết lập từ tệp ISO"
+
+#: powersaving.cgi:15 powersaving.cgi:24
+msgid "Power saving"
+msgstr "Tiết kiệm năng lượng"
+
+#: powersaving.cgi:33
+msgid ""
+"DPMS enables power saving behaviour of monitors when the computer is not in "
+"use."
+msgstr ""
+"DPMS cho phép tiết kiệm điện màn hình khi máy tính không "
+"sử dụng."
+
+#: powersaving.cgi:54
+msgid "Identifier"
+msgstr "Xác định"
+
+#: powersaving.cgi:55
+msgid "Vendor name"
+msgstr "Tên hãng"
+
+#: powersaving.cgi:56 powersaving.cgi:137
+msgid "Model name"
+msgstr "Tên Model"
+
+#: powersaving.cgi:57
+msgid "DPMS enabled"
+msgstr "DPMS kích hoạt"
+
+#: powersaving.cgi:86
+msgid "DPMS times (in minutes):"
+msgstr "Thời gian DPMS (phút):"
+
+#: powersaving.cgi:99
+msgid "Manual edit"
+msgstr "Chỉnh sửa bằng tay"
+
+#: powersaving.cgi:129
+msgid "CPU"
+msgstr "CPU"
+
+#: powersaving.cgi:131
+msgid ""
+"CPU frequency scaling enables the operating system to scale the CPU "
+"frequency up or down in order to save power. CPU frequencies can be scaled "
+"automatically depending on the system load, in response to ACPI events, or "
+"manually by userspace programs."
+msgstr ""
+"tần số CPU rộng cho phép hệ điều hành để mở rộng quy mô các tần số CPU "
+"lên hoặc xuống để tiết kiệm điện. tần số CPU có thể được thu nhỏ "
+"tự động tùy thuộc vào tải của hệ thống, để đáp ứng với các sự kiện ACPI, hoặc "
+"bằng tay bởi các chương trình người dùng."
+
+#: powersaving.cgi:138
+msgid "Current frequency"
+msgstr "Tần số hiện tại"
+
+#: powersaving.cgi:139
+msgid "Current driver"
+msgstr "driver hiện tại"
+
+#: powersaving.cgi:140
+msgid "Current governor"
+msgstr "governor hiện tại"
+
+#: styles/default/header.html:35
+msgid "Confirm break"
+msgstr "Xác nhận ngắt"
+
+#: styles/default/header.html:48
+msgid "Processes"
+msgstr "Tiến trình"
+
+#: styles/default/header.html:50
+msgid "Create Report"
+msgstr "Tạo báo cáo"
+
+#: styles/default/header.html:58
+msgid "Config file"
+msgstr "Tập tin cấu hình"
+
+#: styles/default/header.html:59
+msgid "Ethernet"
+msgstr "Mạng dây"
+
+#: styles/default/header.html:60
+msgid "Wireless"
+msgstr "Không dây"
+
+#: styles/default/header.html:104
+msgid "Users"
+msgstr "Người dùng"
+
+#: styles/default/header.html:105
+msgid "Groups"
+msgstr "Các nhóm"
+
+#: styles/default/header.html:106
+msgid "Tweaks"
+msgstr "Tweaks"
+
+#: styles/default/header.html:122
+msgid "Some features are disabled."
+msgstr "Một số tính năng bị vô hiệu hóa."
+
+#: styles/default/header.html:127
+msgid "You are logged in to the TazPanel as user %s."
+msgstr "Bạn đang đăng nhập vào TazPanel như người sử dụng %s."
+
+#: styles/default/header.html:128
+msgid "Click to re-login." 
+msgstr "Nhấn vào đây để đăng nhập lại."
+
+#: styles/default/header.html:138
+msgid "Copyright"
+msgstr "Bản quyền"
+
+#: styles/default/header.html:140
+msgid "BSD License"
+msgstr "Giấy phép BSD"
