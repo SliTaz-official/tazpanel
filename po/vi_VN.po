@@ -3,8 +3,8 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR &lt;EMAIL@ADDRESS&gt;, YEAR.
 #
-#, fuzzy
 msgid ""
+msgstr ""
 "Project-Id-Version: TazPanel 522\n"
 "Report-msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-15 20:54+0100\n"
@@ -779,10 +779,6 @@ msgstr "Bộ nhớ Mb:"
 msgid "Total: %d, Used: %d, Free: %d"
 msgstr "Tổng: %d, Đã sử dụng: %d, Còn: %d"
 
-#: index.cgi:831 floppy.cgi:151
-msgid "Total: %d, Used: %d, Free: %d"
-msgstr "Linux kernel:"
-
 #: index.cgi:840
 msgid "Network status"
 msgstr "Tình trạng mạng"
@@ -1108,7 +1104,7 @@ msgid " (The list is limited to the first 100 entries.)"
 msgstr " (Danh sách này được giới hạn ở 100 mục đầu tiên.)"
 
 #: hosts.cgi:218
-msgid "Disable selected"0
+msgid "Disable selected"
 msgstr "Vô hiệu hoá đã lựa chọn"
 
 #: hosts.cgi:237
