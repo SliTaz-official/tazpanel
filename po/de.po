@@ -1,0 +1,1720 @@
+# German translations for TazPanel package
+# Deutsche Übersetzungen für das Paket TazPanel.
+# Copyright (C) 2016 SliTaz
+# This file is distributed under the same license as the TazPanel package.
+# Hans-Günter Theisgen, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: TazPanel 522\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-15 20:54+0100\n"
+"PO-Revision-Date: 2016-10-15 10:40+0100\n"
+"Last-Translator: Hans-Günter Theisgen\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: lib/libtazpanel:153 network.cgi:455
+msgid "Scan"
+msgstr "Absuchen"
+
+#: lib/libtazpanel:156
+msgid "connected"
+msgstr "verbunden"
+
+#: lib/libtazpanel:170 network.cgi:254
+msgid "Interface"
+msgstr "Schnittstelle"
+
+#: lib/libtazpanel:171 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
+#: network.cgi:345 hosts.cgi:243
+msgid "Name"
+msgstr "Name"
+
+#: lib/libtazpanel:172 boot.cgi:145 network.cgi:349
+msgid "Status"
+msgstr "Status"
+
+#: lib/libtazpanel:173
+msgid "IP Address"
+msgstr "IP-Adresse"
+
+#: lib/libtazpanel:174
+msgid "Scan ports"
+msgstr "Ports absuchen"
+
+#: lib/libtazpanel:249
+msgid "Please wait"
+msgstr "Bitte warten"
+
+#: lib/libtazpanel:318 hardware.cgi:498
+msgid "Disk"
+msgstr "Platte"
+
+#: lib/libtazpanel:319
+msgid "Label"
+msgstr "Kennsatz"
+
+#: lib/libtazpanel:320 hardware.cgi:500
+msgid "Type"
+msgstr "Typ"
+
+#: lib/libtazpanel:321 hardware.cgi:182 hardware.cgi:534
+msgid "Size"
+msgstr "Größe"
+
+#: lib/libtazpanel:322
+msgid "Available"
+msgstr "Verfügbar"
+
+#: lib/libtazpanel:323 hardware.cgi:183 hardware.cgi:591
+msgid "Used"
+msgstr "Belegt"
+
+#: lib/libtazpanel:324 hardware.cgi:499
+msgid "Mount point"
+msgstr "Einhängepunkt"
+
+#: lib/libtazpanel:371 index.cgi:315
+msgid "Back"
+msgstr "Zurück"
+
+#: lib/libtazpanel:381 index.cgi:242 settings.cgi:791
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: lib/libtazpanel:395
+msgid "You must be root to show this page."
+msgstr "Diese Seite kann nur mit root-Berechtigung angezeigt werden"
+
+#: lib/libtazpanel:418 lib/libtazpanel:428
+msgid "Browse"
+msgstr "Durchsuchen"
+
+#: boot.cgi:16 floppy.cgi:11 styles/default/header.html:65
+msgid "Boot"
+msgstr "Systemladen"
+
+#: boot.cgi:27
+msgid "Show more..."
+msgstr "Anzeige fortsetzen..."
+
+#: boot.cgi:40 boot.cgi:45 boot.cgi:482 styles/default/header.html:83
+msgid "System logs"
+msgstr "Systemprotokolle"
+
+#: boot.cgi:90
+msgid "Boot log files"
+msgstr "Protokolldateien des Systemladens"
+
+#: boot.cgi:93 index.cgi:723 styles/default/header.html:77
+msgid "Kernel messages"
+msgstr "Meldungen des Systemkerns"
+
+#: boot.cgi:94 index.cgi:726 styles/default/header.html:78
+msgid "Boot scripts"
+msgstr "Systemladeprozeduren"
+
+#: boot.cgi:95 styles/default/header.html:79
+msgid "X server"
+msgstr "X-Server"
+
+#: boot.cgi:96 styles/default/header.html:80
+msgid "X session"
+msgstr "X-Sitzung"
+
+#: boot.cgi:115 boot.cgi:483 styles/default/header.html:84
+msgid "Manage daemons"
+msgstr "Hintergrundprozesse verwalten"
+
+#: boot.cgi:118
+msgid "Check, start and stop daemons on SliTaz"
+msgstr "Hintergrundprozesse von SliTaz prüfen, starten oder beenden"
+
+#: boot.cgi:143 hardware.cgi:181 settings.cgi:459 powersaving.cgi:154
+msgid "Description"
+msgstr "Beschreibung"
+
+#: boot.cgi:144 network.cgi:248
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: boot.cgi:146
+msgid "Action"
+msgstr "Aktion"
+
+#: boot.cgi:147
+msgid "PID"
+msgstr "PID"
+
+#: boot.cgi:172
+msgid "SliTaz Firewall with iptables rules"
+msgstr "SliTaz-Zugangsschutzsystem mit 'iptables'-Regeln"
+
+#: boot.cgi:174
+msgid "Small and fast web server with CGI support"
+msgstr "Kleiner und schneller 'web server' mit CGI-Unterstützung"
+
+#: boot.cgi:177
+msgid "Network time protocol daemon"
+msgstr "Hintergrundprozess für Netzwerkzeit-Protokoll"
+
+#: boot.cgi:180
+msgid "Anonymous FTP server"
+msgstr "Server für anonymes FTP"
+
+#: boot.cgi:183
+msgid "Busybox DHCP server"
+msgstr "Busybox DHCP-Server"
+
+#: boot.cgi:186
+msgid "Linux Kernel log daemon"
+msgstr "Hintergrundprozess zur Protollierung der Meldungen des Linux-Kerns"
+
+#: boot.cgi:189
+msgid "Execute scheduled commands"
+msgstr "Kommandos termingemäß ausführen"
+
+#: boot.cgi:192
+msgid "Small static DNS server daemon"
+msgstr "Hintergrundprozess für einen kleinen, statischen DNS-Server"
+
+#: boot.cgi:195
+msgid "Transfer a file on tftp request"
+msgstr "Eine Datei auf tftp-Anforderung transferieren"
+
+#: boot.cgi:198
+msgid "Printer daemon"
+msgstr "Hintergrundprozess zur Druckerbedienung"
+
+#: boot.cgi:200
+msgid "Listen for network connections and launch programs"
+msgstr "Auf Netzwerkverbindungsaufbau warten und Programme starten"
+
+#: boot.cgi:203
+msgid "Manage a ZeroConf IPv4 link-local address"
+msgstr "'ZeroConf'-IPv4-'link local'-Adressen verwalten"
+
+#: boot.cgi:272
+msgid "Started"
+msgstr "Gestartet"
+
+#: boot.cgi:273 network.cgi:297 network.cgi:454 network.cgi:647
+msgid "Stop"
+msgstr "Beenden"
+
+#: boot.cgi:283
+msgid "Stopped"
+msgstr "Beendet"
+
+#: boot.cgi:284 network.cgi:296 network.cgi:453 network.cgi:646
+msgid "Start"
+msgstr "Starten"
+
+#: boot.cgi:309
+msgid "GRUB Boot loader"
+msgstr "Urlader GRUB"
+
+#: boot.cgi:311
+msgid "The first application started when the computer powers on"
+msgstr "Die erste Anwendung, die nach Einschalten des Rechners gestartet werden soll"
+
+#: boot.cgi:318
+msgid "Default entry:"
+msgstr "Standardeintrag:"
+
+#: boot.cgi:320
+msgid "Timeout:"
+msgstr "Zeitablauf:"
+
+#: boot.cgi:322
+msgid "Splash image:"
+msgstr "Startbildschirm:"
+
+#: boot.cgi:327 network.cgi:669 network.cgi:700 settings.cgi:633
+#: settings.cgi:747 powersaving.cgi:108
+msgid "Change"
+msgstr "Ändern"
+
+#: boot.cgi:334
+msgid "View or edit menu.lst"
+msgstr "menu.lst ansehen oder ändern"
+
+#: boot.cgi:339
+msgid "Boot entries"
+msgstr "Systemlade-Einträge"
+
+#: boot.cgi:346
+msgid "Entry"
+msgstr "Eintrag"
+
+#: boot.cgi:367
+msgid "Web boot is available with %s"
+msgstr "Systemladen über Netzwerk ist möglich mit %s"
+
+#: boot.cgi:381 boot.cgi:486 styles/default/header.html:86
+msgid "ISO mine"
+msgstr "ISO-Abbild-Quelle"
+
+#: boot.cgi:383
+msgid "Invalid ISO image."
+msgstr "Ungültiges ISO-Abbild"
+
+#: boot.cgi:403 floppy.cgi:288
+msgid "ISO image file full path"
+msgstr "Vollständiger Pfadname des ISO-Abbildes"
+
+#: boot.cgi:404 floppy.cgi:289
+msgid "set /dev/cdrom for a physical CD-ROM"
+msgstr "für einen optischen Datenträger, /dev/cdrom einstellen"
+
+#: boot.cgi:407
+msgid "Working directory"
+msgstr "Aktuelles Verzeichnis"
+
+#: boot.cgi:410
+msgid "Target partition"
+msgstr "Zielpartition"
+
+#: boot.cgi:411
+# Wo gibt es ein Verzeichnis /slitaz ?
+# Ist vielleicht gemeint: Erzeugt nur Systemdateien, läßt alle anderen Dateien unverändert?
+msgid ""
+"For hard disk installation only. Will create /slitaz tree and keep other "
+"files. No partitioning and no formatting."
+msgstr ""
+"Nur für Installation auf Platte. /slitaz-Verzeichnisbaum wird erzeugt, andere "
+"Dateien bleiben erhalten. Keine Partitionierung und keine Formatierung."
+
+#: boot.cgi:414
+msgid "Choose a partition (optional)"
+msgstr "Eine Partition auswählen (optional)"
+
+#: boot.cgi:425
+msgid "USB key device"
+msgstr "USB-Speichermedium"
+
+#: boot.cgi:426
+msgid "For USB boot key only. Will erase the full device."
+msgstr "Nur für USB-Speichermedium. Das Speichermedium wird vollständig gelöscht."
+
+#: boot.cgi:429
+msgid "Choose a USB key (optional)"
+msgstr "Ein USB-Speichermedium auswählen (optional)"
+
+#: boot.cgi:450
+msgid "Choose an action"
+msgstr "Eine Aktion auswählen"
+
+#: boot.cgi:463
+msgid "Mine"
+msgstr "Quelle"
+
+#: boot.cgi:476
+msgid "Boot &amp; Start services"
+msgstr "Urlade- und Start-Dienste"
+
+#: boot.cgi:478
+msgid "Everything that happens before user login"
+msgstr "Alles was vor der Benutzeranmeldung geschieht"
+
+#: boot.cgi:481 styles/default/header.html:75
+msgid "Boot logs"
+msgstr "Systemlade-Protokolle"
+
+#: boot.cgi:489 styles/default/header.html:71
+msgid "Boot loader"
+msgstr "Urlader"
+
+#: boot.cgi:496
+msgid "Configuration files"
+msgstr "Konfigurationsdateien"
+
+#: boot.cgi:499
+msgid "Main configuration file:"
+msgstr "Zentrale Konfigurationsdatei:"
+
+#: boot.cgi:500 boot.cgi:502 index.cgi:791 index.cgi:887
+msgid "View"
+msgstr "Anzeigen"
+
+#: boot.cgi:501
+msgid "Login manager settings:"
+msgstr "Einstellungen der Anmeldeverwaltung:"
+
+#: boot.cgi:509
+msgid "Kernel cmdline"
+msgstr "Linux-Kern-Parameter"
+
+#: boot.cgi:516
+msgid "Local startup commands"
+msgstr "Eigene Kommandos zur Systemeinleitung"
+
+#: hardware.cgi:13 powersaving.cgi:22 styles/default/header.html:91
+msgid "Hardware"
+msgstr ""
+
+#: hardware.cgi:54
+msgid "Bus"
+msgstr ""
+
+#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:532
+msgid "Device"
+msgstr "Gerät"
+
+#: hardware.cgi:56
+msgid "ID"
+msgstr "Bezeichner"
+
+#: hardware.cgi:76
+msgid "Slot"
+msgstr "Einschub"
+
+#: hardware.cgi:112
+msgid "Detect hardware"
+msgstr "Hardware ermitteln"
+
+#: hardware.cgi:114
+msgid "Detect PCI and USB hardware"
+msgstr "PCI- und USB-Hardware ermitteln"
+
+#: hardware.cgi:122 hardware.cgi:252 powersaving.cgi:150
+#: styles/default/header.html:94
+msgid "Kernel modules"
+msgstr "Module des Linux-Kerns"
+
+#: hardware.cgi:126
+msgid "Manage, search or get information about the Linux kernel modules"
+msgstr "Verwalten, suchen oder Informationen ermitteln von Modulen des Linux-Kerns"
+
+#: hardware.cgi:130
+msgid "Modules search"
+msgstr "Module suchen"
+
+#: hardware.cgi:131
+msgid "Search"
+msgstr "Suchen"
+
+#: hardware.cgi:139
+msgid "Detailed information for module: %s"
+msgstr "Ausführliche Informationen über den Modul: %s"
+
+#: hardware.cgi:163
+# Singular und Plural sollten getrennt werden!
+msgid "Matching result(s) for: %s"
+msgstr "Passende(s) Ergebnis(se) für: %s"
+
+#: hardware.cgi:170
+msgid "Module:"
+msgstr "Modul:"
+
+#: hardware.cgi:180 powersaving.cgi:153
+msgid "Module"
+msgstr "Modul"
+
+#: hardware.cgi:184
+msgid "by"
+msgstr "von"
+
+#: hardware.cgi:208
+msgid "Information for USB Device %s"
+msgstr "Information über das USB-Gerät %s"
+
+#: hardware.cgi:210 hardware.cgi:228
+msgid "Detailed information about specified device."
+msgstr "Ausführliche Information über das angegebene Gerät"
+
+#: hardware.cgi:226
+msgid "Information for PCI Device %s"
+msgstr "Information über das PCI-Gerät %s"
+
+#: hardware.cgi:247
+msgid "Drivers &amp; Devices"
+msgstr "Treiber und Geräte"
+
+#: hardware.cgi:249
+msgid "Manage your computer hardware"
+msgstr "Computer-Hardware verwalten"
+
+#: hardware.cgi:253 styles/default/header.html:95
+msgid "Detect PCI/USB"
+msgstr "PCI- und USB-Geräte ermitteln"
+
+#: hardware.cgi:254
+msgid "Auto-install Xorg video driver"
+msgstr "Selbsttätige Installation der Xorg-Video-Treiber"
+
+#: hardware.cgi:264 hardware.cgi:281
+msgid "Battery"
+msgstr "Batterie"
+
+#: hardware.cgi:284
+msgid "health"
+msgstr "Zustand"
+
+#: hardware.cgi:293
+msgid "Discharging %d%% - %s"
+msgstr "Entladen %d%% - %s"
+
+#: hardware.cgi:297
+msgid "Charging %d%% - %s"
+msgstr "Laden %d%% - %s"
+
+#: hardware.cgi:299
+msgid "Charged 100%%"
+msgstr "100%% geladen"
+
+#: hardware.cgi:318
+msgid "Temperature:"
+msgstr "Temperatur:"
+
+#: hardware.cgi:333
+msgid "Brightness"
+msgstr "Helligkeit"
+
+#: hardware.cgi:353 index.cgi:851
+msgid "Filesystem usage statistics"
+msgstr "Belegung des Dateisystems"
+
+#: hardware.cgi:476
+msgid "new mount point:"
+msgstr "neuer Einhängepunkt:"
+
+#: hardware.cgi:477
+msgid "read-only"
+msgstr "nur zum Lesen"
+
+#: hardware.cgi:492
+msgid "Filesystems table"
+msgstr "Tabelle der Dateisysteme"
+
+#: hardware.cgi:501
+msgid "Options"
+msgstr "Optionen"
+
+#: hardware.cgi:502
+# bei fstab-Einträgen
+msgid "Freq"
+msgstr "Sicherungshäufigkeit"
+
+#: hardware.cgi:503
+# bei fstab-Einträgen
+msgid "Pass"
+msgstr "Durchgang"
+
+#: hardware.cgi:525
+msgid "Loop devices"
+msgstr "Virtuelle Geräte"
+
+#: hardware.cgi:533
+msgid "Backing file"
+msgstr "Zugrundeliegende Datei"
+
+#: hardware.cgi:535
+msgid "Access"
+msgstr "Zugriff"
+
+#: hardware.cgi:536
+msgid "Offset"
+msgstr "Versatz"
+
+#: hardware.cgi:545
+msgid "read/write"
+msgstr "lesen und schreiben"
+
+#: hardware.cgi:546 hardware.cgi:571
+msgid "read only"
+msgstr "nur lesen"
+
+#: hardware.cgi:568
+msgid "Setup"
+msgstr "Einstellung"
+
+#: hardware.cgi:569
+msgid "new backing file:"
+msgstr "neue Datei:"
+
+#: hardware.cgi:570
+msgid "offset in bytes:"
+msgstr "Versatz in Bytes:"
+
+#: hardware.cgi:588
+msgid "System memory"
+msgstr "Arbeitsspeicher"
+
+#: hardware.cgi:594
+msgid "Buffers"
+msgstr "Puffer"
+
+#: hardware.cgi:597
+msgid "Free"
+msgstr "Frei"
+
+#: help.cgi:20
+msgid "Manual"
+msgstr "Handbuch"
+
+#: help.cgi:28
+msgid "Help &amp; Doc"
+msgstr "Anleitungen und Dokumentation"
+
+#: index.cgi:37 index.cgi:186
+msgid "Differences"
+msgstr "Unterschiede"
+
+#: index.cgi:77
+msgid "Choose directory"
+msgstr "Verzeichnis wählen"
+
+#: index.cgi:81
+msgid "Choose file"
+msgstr "Datei wählen"
+
+#: index.cgi:142
+msgid "exec"
+msgstr "ausführen"
+
+#: index.cgi:175
+msgid "File"
+msgstr "Datei"
+
+#: index.cgi:185 index.cgi:205 index.cgi:244
+msgid "Save"
+msgstr "Sichern"
+
+#: index.cgi:293 index.cgi:447 index.cgi:470 index.cgi:813
+#: styles/default/header.html:49
+msgid "Terminal"
+msgstr "Terminal"
+
+#: index.cgi:314 index.cgi:399
+msgid "History"
+msgstr "Verlauf"
+
+#: index.cgi:322
+msgid "run"
+msgstr "starten"
+
+#: index.cgi:338
+msgid "Clear"
+msgstr "Löschen"
+
+#: index.cgi:362
+msgid "Small non-interactive terminal emulator."
+msgstr "Kleine nicht-interaktive Terminal-Emulation."
+
+#: index.cgi:363
+msgid "Run any command at your own risk, avoid interactive commands (%s)"
+msgstr ""
+"Irgendwelche Kommandos können auf eigenes Risiko ausgeführt werden, "
+"interaktive Kommandos vermeiden (%s)"
+
+#: index.cgi:368
+msgid "Downloading to: %s"
+msgstr "Transferiere nach: %s"
+
+#: index.cgi:377
+msgid "%s needs an argument"
+msgstr "Für %s wird ein Parameter benötigt"
+
+#: index.cgi:380
+msgid "Please, don't run interactive command \"%s\""
+msgstr "Bitte keine interaktiven Kommandos ausführen \"%s\""
+
+#: index.cgi:398 styles/default/header.html:101
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: index.cgi:468
+msgid "Terminal settings"
+msgstr "Terminal-Einstellungen"
+
+#: index.cgi:489
+msgid "Font:"
+msgstr "Font:"
+
+#: index.cgi:491
+msgid "Default"
+msgstr "Standard"
+
+#: index.cgi:497
+msgid "Palette:"
+msgstr "Palette:"
+
+#: index.cgi:503
+msgid "Apply"
+msgstr "Anwenden"
+
+#: index.cgi:513 index.cgi:814
+msgid "Process activity"
+msgstr "Prozesse"
+
+#: index.cgi:518
+msgid "Refresh:"
+msgstr "Erneuern:"
+
+#: index.cgi:521
+msgid "1s"
+msgstr ""
+
+#: index.cgi:523
+msgid "5s"
+msgstr ""
+
+#: index.cgi:525
+msgid "10s"
+msgstr ""
+
+#: index.cgi:527 floppy.cgi:110
+# Erneuerungszyklus
+msgid "none"
+msgstr "nie"
+
+#: index.cgi:549
+msgid "Kill"
+msgstr "Abbrechen"
+
+#: index.cgi:553
+msgid "Start time:"
+msgstr "Startzeit:"
+
+#: index.cgi:556
+msgid "Renice"
+msgstr "Priorität ändern"
+
+#: index.cgi:569
+msgid "I/O class"
+msgstr "Ein-Ausgabe-Klasse"
+
+#: index.cgi:607
+msgid "Debug"
+msgstr "Testhilfe"
+
+#: index.cgi:610
+msgid "HTTP Environment"
+msgstr "HTTP-Umgebung"
+
+#: index.cgi:622
+msgid "System report"
+msgstr "System-Bericht"
+
+#: index.cgi:629
+msgid "Reporting to: %s"
+msgstr "Berichte nach: %s"
+
+#: index.cgi:632
+msgid "Creating report header..."
+msgstr "Kopfzeilen für Bericht erstellen..."
+
+#: index.cgi:639 index.cgi:656
+msgid "SliTaz system report"
+msgstr "SliTaz-System-Bericht"
+
+#: index.cgi:653
+msgid "Creating system summary..."
+msgstr "System-Übersicht erzeugen..."
+
+#: index.cgi:657
+msgid "Date:"
+msgstr "Datum:"
+
+#: index.cgi:668
+msgid "Getting hardware info..."
+msgstr "Hardware-Information sammeln..."
+
+#: index.cgi:686
+msgid "Getting networking info..."
+msgstr "Netzwerk-Information sammeln..."
+
+#: index.cgi:700
+msgid "Getting filesystems info..."
+msgstr "Information über Dateisysteme sammeln..."
+
+#: index.cgi:720
+msgid "Getting boot logs..."
+msgstr "Systemladeprotokolle sammeln..."
+
+#: index.cgi:731
+msgid "Getting package list..."
+msgstr "Paketliste lesen..."
+
+#: index.cgi:734
+msgid "Packages"
+msgstr "Pakete"
+
+#: index.cgi:772
+msgid "Getting extra reports..."
+msgstr "Extra-Berichte sammeln..."
+
+#: index.cgi:780
+msgid "Creating report footer..."
+msgstr "Fußzeilen für Bericht erstellen..."
+
+#: index.cgi:796
+msgid "This report can be attached with a bug report on:"
+msgstr "Dieser Bericht kann einem Fehlerbericht angehängt werden auf:"
+
+#: index.cgi:806
+msgid "SliTaz administration and configuration Panel"
+msgstr "SliTaz-Verwaltungs- und Konfigurationsoberfläche"
+
+#: index.cgi:815
+msgid "Create a report"
+msgstr "Einen Bericht erstellen"
+
+#: index.cgi:819 styles/default/header.html:47 styles/default/header.html:57
+#: styles/default/header.html:67 styles/default/header.html:93
+#: styles/default/header.html:103
+msgid "Summary"
+msgstr "Übersicht"
+
+#: index.cgi:821 hosts.cgi:227
+msgid "Host:"
+msgstr "Rechnername:"
+
+#: index.cgi:822
+msgid "Uptime:"
+msgstr "Betriebsdauer:"
+
+#: index.cgi:825
+msgid "Memory in Mb:"
+msgstr "Arbeitsspeicher in MB"
+
+#: index.cgi:827
+msgid "Total: %d, Used: %d, Free: %d"
+msgstr "Gesamt: %d, Belegt: %d, Frei: %d"
+
+#: index.cgi:831 floppy.cgi:151
+msgid "Linux kernel:"
+msgstr "Linux-Kern:"
+
+#: index.cgi:840
+msgid "Network status"
+msgstr "Netzwerk-Zustand"
+
+#: index.cgi:842 network.cgi:15 network.cgi:216 hosts.cgi:15
+#: styles/default/header.html:55
+msgid "Network"
+msgstr "Netzwerk"
+
+#: index.cgi:853 styles/default/header.html:96
+msgid "Disks"
+msgstr "Platten"
+
+#: index.cgi:885
+msgid "Panel Activity"
+msgstr "Protokoll"
+
+#: network.cgi:153
+msgid "Changed hostname: %s"
+msgstr "Geänderter Rechnername: %s"
+
+#: network.cgi:210
+msgid "Scanning open ports..."
+msgstr "Suche offene Ports..."
+
+#: network.cgi:215
+msgid "Port scanning for %s"
+msgstr "Port-Überprüfung für %s"
+
+#: network.cgi:226
+msgid "Ethernet connection"
+msgstr "Ethernet-Verbindung"
+
+#: network.cgi:244
+msgid ""
+"Here you can configure a wired connection using DHCP to automatically get a "
+"random IP or configure a static/fixed IP"
+msgstr ""
+"Hier kann eine kabelgebundene Verbindung konfiguriert werden; dabei kann DHCP "
+"verwendet werden, wenn automatisch eine beliebige IP-Adresse zugewiesen werden "
+"soll, oder es kann statisch eine feste IP-Adresse zugewiesen werden"
+
+#: network.cgi:262
+msgid "Static IP"
+msgstr "Statische IP-Adresse"
+
+#: network.cgi:264
+msgid "Use static IP"
+msgstr "Statische IP-Adresse verwenden"
+
+#: network.cgi:266
+msgid "IP address"
+msgstr "IP-Adresse"
+
+#: network.cgi:269
+msgid "Netmask"
+msgstr "Netzmaske"
+
+#: network.cgi:272
+msgid "Gateway"
+msgstr "Netzkoppler"
+
+#: network.cgi:275
+msgid "DNS server"
+msgstr "DNS-Server"
+
+#: network.cgi:278 network.cgi:298
+msgid "Wake up"
+msgstr "Aufwecken"
+
+#: network.cgi:280
+msgid "Wake up machines by network"
+msgstr "Rechner über das Netzwerk aufwecken"
+
+#: network.cgi:282
+msgid "MAC address to wake up"
+msgstr "MAC-Adresse für das Aufwecken"
+
+#: network.cgi:283
+msgid "Leave empty for a general wakeup"
+msgstr "Freilassen für generelles Aufwecken"
+
+#: network.cgi:284
+msgid "List"
+msgstr "Liste"
+
+#: network.cgi:287
+msgid "MAC/IP address password"
+msgstr "Kennwort für die MAC- oder IP-Adresse"
+
+#: network.cgi:288
+msgid "Optional"
+msgstr "Optional"
+
+#: network.cgi:289
+msgid "Help"
+msgstr "Anleitung"
+
+#: network.cgi:322 network.cgi:609
+msgid "Configuration file"
+msgstr "Konfigurationsdatei"
+
+#: network.cgi:327
+msgid ""
+"These values are the ethernet settings in the main /etc/network.conf "
+"configuration file"
+msgstr ""
+"Dies sind die Ethernet-Einstellungen aus der zentralen Konfigurationsdatei "
+"/etc/network.conf"
+
+#: network.cgi:339
+msgid "(hidden)"
+msgstr "(versteckt)"
+
+#: network.cgi:346
+msgid "Signal level"
+msgstr "Signal-Stufe"
+
+#: network.cgi:347
+msgid "Channel"
+msgstr "Kanal"
+
+#: network.cgi:348
+msgid "Encryption"
+msgstr "Verschlüsselung"
+
+#: network.cgi:407 network.cgi:489 network.cgi:511
+msgid "None"
+msgstr "Keine"
+
+#: network.cgi:413
+msgid "Connected"
+msgstr "Verbunden"
+
+#: network.cgi:439
+msgid "Wireless connection"
+msgstr "Drahtlose Verbindung"
+
+#: network.cgi:463
+msgid "Scanning wireless interface..."
+msgstr "Überprüfe Drahtlos-Netzwerkschnittstelle..."
+
+#: network.cgi:477
+msgid "Connection"
+msgstr "Verbindung"
+
+#: network.cgi:483
+msgid "Network SSID"
+msgstr "Netzwerk-SSID"
+
+#: network.cgi:487
+msgid "Security"
+msgstr "Sicherheit"
+
+#: network.cgi:498
+msgid "EAP method"
+msgstr "EAP-Methode"
+
+#: network.cgi:509
+msgid "Phase 2 authentication"
+msgstr "Phase-2-Authentifizierung"
+
+#: network.cgi:521
+msgid "CA certificate"
+msgstr "CA-Zertifikat"
+
+#: network.cgi:526
+msgid "User certificate"
+msgstr "Benutzer-Zertifikat"
+
+#: network.cgi:531
+msgid "Identity"
+msgstr "Identität"
+
+#: network.cgi:536
+msgid "Anonymous identity"
+msgstr "Anonyme Identität"
+
+#: network.cgi:541
+msgid "Password"
+msgstr "Kennwort"
+
+#: network.cgi:544
+msgid "Show password"
+msgstr "Kennwort anzeigen"
+
+#: network.cgi:556 network.cgi:685
+msgid "Configure"
+msgstr "Konfigurieren"
+
+#: network.cgi:557
+msgid "Share"
+msgstr "Teilen"
+
+#: network.cgi:598
+msgid "Share Wi-Fi network with your friends"
+msgstr "Drahtlos-Netzwerk mit Freunden teilen"
+
+#: network.cgi:614
+msgid ""
+"These values are the wifi settings in the main /etc/network.conf "
+"configuration file"
+msgstr ""
+"Dies sind die Drahtlos-Netzwerk-Einstellungen aus der zentralen Konfigurationsdatei "
+"/etc/network.conf"
+
+#: network.cgi:620
+msgid "Output of iwconfig"
+msgstr "Ausgabe von iwconfig"
+
+#: network.cgi:629
+msgid "Manage network connections and services"
+msgstr "Netzwerk-Verbindungen und -Dienste verwalten"
+
+#: network.cgi:648
+msgid "Restart"
+msgstr "Neu starten"
+
+#: network.cgi:652
+msgid "Configuration:"
+msgstr "Konfiguration:"
+
+#: network.cgi:660
+msgid "Network interfaces"
+msgstr "Netzwerkschnittstellen"
+
+#: network.cgi:667
+msgid "forward packets between interfaces"
+msgstr "Pakete zwischen Schnittstellen weiterleiten"
+
+#: network.cgi:677 hosts.cgi:203
+msgid "Hosts"
+msgstr "Rechner"
+
+#: network.cgi:679
+msgid "%d record in the hosts DB"
+msgid_plural "%d records in the hosts DB"
+msgstr[0] "%d Satz in der hosts-Datenbank"
+msgstr[1] "%d Sätze in der hosts-Datenbank"
+
+#: network.cgi:686 hosts.cgi:16
+msgid "Use hosts file as Ad blocker"
+msgstr "Die hosts-Datei zum Blockieren von Werbung verwenden"
+
+#: network.cgi:693
+msgid "Hostname"
+msgstr "Rechnername"
+
+#: network.cgi:712
+msgid "Output of ifconfig"
+msgstr "Ausgabe von ifconfig"
+
+#: network.cgi:718
+msgid "Routing table"
+msgstr "Routing-Tabelle"
+
+#: network.cgi:724
+msgid "Domain name resolution"
+msgstr "Auflösung von Domänennamen"
+
+#: network.cgi:730
+msgid "ARP table"
+msgstr "ARP-Tabelle"
+
+#: network.cgi:750
+msgid "Proxy"
+msgstr "Proxy"
+
+#: network.cgi:751 hosts.cgi:224 hosts.cgi:231
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: network.cgi:764
+msgid "IP Connections"
+msgstr "IP-Verbindungen"
+
+#: network.cgi:772
+msgid "Firewall"
+msgstr "Zugangsschutzsystem"
+
+#: network.cgi:773
+#, fuzzy
+# Gibt es dafür ein deutsches Wort?
+msgid "Port knocker"
+msgstr ""
+
+#: hosts.cgi:107
+msgid "Host \"%s\" added to /etc/hosts."
+msgstr "Rechner \"%s\" in die Datei /etc/hosts eingefügt."
+
+#: hosts.cgi:120
+msgid "%d record disabled"
+msgid_plural "%d records disabled"
+msgstr[0] "%d Satz deaktiviert"
+msgstr[1] "%d Sätze deaktiviert"
+
+#: hosts.cgi:130
+msgid "Installing the \"%s\"..."
+msgstr "Installiere \"%s\"..."
+
+#: hosts.cgi:132 hosts.cgi:156 hosts.cgi:176
+msgid "Done"
+msgstr "Fertig"
+
+#: hosts.cgi:142
+msgid "Updating the \"%s\"..."
+msgstr "Aktualisiere \"%s\"..."
+
+#: hosts.cgi:174
+msgid "Removing the \"%s\"..."
+msgstr "Entferne \"%s\"..."
+
+#: hosts.cgi:187
+msgid "%d record used for Ad blocking"
+msgid_plural "%d records used for Ad blocking"
+msgstr[0] "%d Satz zur Blockierung von Werbung verwendet"
+msgstr[1] "%d Sätze zur Blockierung von Werbung verwendet"
+
+#: hosts.cgi:193
+msgid "%d record found for \"%s\""
+msgid_plural "%d records found for \"%s\""
+msgstr[0] "%d Satz gefunden für \"%s\""
+msgstr[1] "%d Sätze gefunden für \"%s\""
+
+#: hosts.cgi:197
+msgid " (The list is limited to the first 100 entries.)"
+msgstr " (Die Liste ist auf die ersten 100 Einträge beschränkt.)"
+
+#: hosts.cgi:218
+msgid "Disable selected"
+msgstr "Ausgewählte deaktivieren"
+
+#: hosts.cgi:237
+msgid "Manage lists"
+msgstr "Listen verwalten"
+
+#: hosts.cgi:238
+msgid ""
+"You can use one or more prepared hosts files to block advertisements, "
+"malware and other irritants."
+msgstr ""
+"Es können eine oder mehrere 'hosts'-Dateien verwendet werden, um "
+"Werbung, Schadsoftware oder andere Störungen zu blockieren."
+
+#: hosts.cgi:244
+msgid "Details"
+msgstr "Einzelheiten"
+
+#: hosts.cgi:245
+msgid "Updates"
+msgstr "Aktualisierungen"
+
+#: hosts.cgi:246
+msgid "Actions"
+msgstr "Aktionen"
+
+#: hosts.cgi:259
+msgid "info"
+msgstr "Informationen"
+
+#: hosts.cgi:261
+msgid "Updated monthly"
+msgstr "Monatlich aktualisiert"
+
+#: hosts.cgi:262
+msgid "Updated regularly"
+msgstr "Regelmäßig aktualisiert"
+
+#: hosts.cgi:303
+msgid "Upgrade"
+msgstr "Aktualisierung"
+
+#: hosts.cgi:308
+msgid "Remove"
+msgstr "Deinstallieren"
+
+#: hosts.cgi:314
+msgid "Install"
+msgstr "Installieren"
+
+#: settings.cgi:16
+msgid "System settings"
+msgstr "Systemeinstellungen"
+
+#: settings.cgi:101 settings.cgi:646 settings.cgi:673 settings.cgi:678
+msgid "Set date"
+msgstr "Datum einstellen"
+
+#: settings.cgi:233 settings.cgi:620
+msgid "Manage groups"
+msgstr "Benutzergruppen verwalten"
+
+#: settings.cgi:241 settings.cgi:318
+msgid "Selection:"
+msgstr "Auswahl:"
+
+#: settings.cgi:242
+msgid "Delete group"
+msgstr "Benutzergruppe löschen"
+
+#: settings.cgi:249
+msgid "Group"
+msgstr "Gruppe"
+
+#: settings.cgi:250
+msgid "Group ID"
+msgstr "Gruppennummer"
+
+#: settings.cgi:251
+msgid "Members"
+msgstr "Mitglieder"
+
+#: settings.cgi:278
+msgid "Add a new group"
+msgstr "Neue Benutzergruppe hinzufügen"
+
+#: settings.cgi:281 settings.cgi:293
+msgid "Group name:"
+msgstr "Name der Benutzergruppe:"
+
+#: settings.cgi:282
+msgid "Create group"
+msgstr "Benutzergruppe erzeugen"
+
+#: settings.cgi:289
+msgid "Manage group membership"
+msgstr "Benutzergruppenmitgliedschaft verwalten"
+
+#: settings.cgi:294 settings.cgi:379
+msgid "User login:"
+msgstr "Benutzername:"
+
+#: settings.cgi:297
+msgid "Add user"
+msgstr "Benutzer hinzufügen"
+
+#: settings.cgi:298
+msgid "Remove user"
+msgstr "Benutzer entfernen"
+
+#: settings.cgi:311 settings.cgi:619
+msgid "Manage users"
+msgstr "Benutzer verwalten"
+
+#: settings.cgi:319
+msgid "Delete user"
+msgstr "Benutzer löschen"
+
+#: settings.cgi:320
+msgid "Lock user"
+msgstr "Benutzer sperren"
+
+#: settings.cgi:321
+msgid "Unlock user"
+msgstr "Benutzer entsperren"
+
+#: settings.cgi:327
+msgid "Login"
+msgstr "Benutzername"
+
+#: settings.cgi:328
+msgid "User ID"
+msgstr "Benutzernr:Gruppennr"
+
+#: settings.cgi:329
+msgid "User Name"
+msgstr "vollständiger Name"
+
+#: settings.cgi:330
+msgid "Home"
+msgstr "Stammverzeichnis"
+
+#: settings.cgi:331
+msgid "Shell"
+msgstr "Kommandointerpreter"
+
+#: settings.cgi:365
+msgid "Password:"
+msgstr "Kennwort:"
+
+#: settings.cgi:366
+msgid "New password"
+msgstr "Neues Kennwort"
+
+#: settings.cgi:367
+msgid "Change password"
+msgstr "Kennwort ändern"
+
+#: settings.cgi:374
+msgid "Add a new user"
+msgstr "Neue Benutzerkennung einrichten"
+
+#: settings.cgi:381
+msgid "User name:"
+msgstr "vollständiger Name:"
+
+#: settings.cgi:383
+msgid "User password:"
+msgstr "Kennwort:"
+
+#: settings.cgi:388
+msgid "Create user"
+msgstr "Benutzerkennung einrichten"
+
+#: settings.cgi:398
+msgid "Current user sessions"
+msgstr "Aktuelle Benutzersitzungen"
+
+#: settings.cgi:408
+msgid "Last user sessions"
+msgstr "Vorherige Benutzersitzungen"
+
+#: settings.cgi:420
+msgid "Choose locale"
+msgstr "Lokalisierung wählen"
+
+#: settings.cgi:423
+msgid "Please wait..."
+msgstr "Bitte warten..."
+
+#: settings.cgi:428
+msgid "Current locale settings:"
+msgstr "Aktuelle Lokalisierung:"
+
+#: settings.cgi:435
+msgid "Locales that are currently installed on the machine:"
+msgstr "Im System installierte Lokalisierungen:"
+
+#: settings.cgi:445
+#, fuzzy
+msgid ""
+"Can't see your language?<br/>You can <a href='pkgs.cgi?do=Install&amp;glibc-"
+"locale'>install glibc-locale</a> to see a larger list of available locales."
+msgstr ""
+"Ihre Sprache ist nicht dabei?<br/>Sie können <a href='pkgs.cgi?do=Install&amp;glibc-"
+"locale'>glibc-locale installieren</a> um mehr Lokalisierungen zu erhalten."
+
+#: settings.cgi:452
+msgid "Available locales:"
+msgstr "Verfügbare Lokalisierungen:"
+
+#: settings.cgi:456
+msgid "Code"
+msgstr "Kürzel"
+
+#: settings.cgi:457
+msgid "Language"
+msgstr "Sprache"
+
+#: settings.cgi:458
+msgid "Territory"
+msgstr "Land"
+
+#: settings.cgi:475 settings.cgi:476
+msgid "-d"
+msgstr "-d"
+
+#: settings.cgi:487 settings.cgi:790 settings.cgi:802 settings.cgi:814
+msgid "Activate"
+msgstr "Aktivieren"
+
+#: settings.cgi:500 settings.cgi:522
+msgid "Small quick tweaks for user %s"
+msgstr "Kleine Anpassungen für den Benutzer %s"
+
+#: settings.cgi:525
+msgid "Terminal prompt"
+msgstr "Eingabeaufforderung"
+
+#: settings.cgi:531
+msgid "Monochrome"
+msgstr "Einfarbig"
+
+#: settings.cgi:540
+msgid "Colored"
+msgstr "Farbig"
+
+#: settings.cgi:549 settings.cgi:597
+msgid "Manual edit: %s"
+msgstr "Manuell bearbeiten: %s"
+
+#: settings.cgi:550
+msgid ""
+"To take effect: log out and log in to system or execute a command in the "
+"terminal:"
+msgstr ""
+"Damit die Änderungen wirksam werden, müssen Sie sich ab- und wieder anmelden "
+"oder das folgende Kommando ausführen:"
+
+#: settings.cgi:558
+msgid "Menu button appearance"
+msgstr "Erscheinungsbild der Schaltflächen"
+
+#: settings.cgi:563
+msgid "Icon:"
+msgstr "Symbol:"
+
+#: settings.cgi:566 settings.cgi:587
+msgid "Do not show"
+msgstr "Nicht anzeigen"
+
+#: settings.cgi:584
+msgid "Text:"
+msgstr "Text:"
+
+#: settings.cgi:591
+msgid "Show text"
+msgstr "Text anzeigen"
+
+#: settings.cgi:614
+msgid "Manage system time, users or language settings"
+msgstr "Systemzeit, Benutzerkennungen oder Spracheinstellungen verwalten"
+
+#: settings.cgi:624
+msgid "System time"
+msgstr "Systemzeit"
+
+#: settings.cgi:627
+msgid "Time zone:"
+msgstr "Zeitzone:"
+
+#: settings.cgi:636
+msgid "System time:"
+msgstr "Systemzeit:"
+
+#: settings.cgi:638
+msgid "Sync online"
+msgstr "Mit der Netzwerkzeit synchronisieren"
+
+#: settings.cgi:641
+msgid "Hardware clock:"
+msgstr "Hardware-Uhr:"
+
+#: settings.cgi:643
+msgid "Set hardware clock"
+msgstr "Hardware-Uhr stellen"
+
+#: settings.cgi:729
+msgid "System language"
+msgstr "Systemsprache"
+
+#: settings.cgi:742
+msgid ""
+"You must logout and login again to your current session to use %s locale."
+msgstr ""
+"Damit die Lokalisierung %s aktiviert wird, müssen Sie sich ab- und wieder anmelden."
+
+#: settings.cgi:745
+msgid "Current system locale:"
+msgstr "Aktuelle Lokalisierung des Systems:"
+
+#: settings.cgi:757
+msgid "Keyboard layout"
+msgstr "Tastaturbelegung"
+
+#: settings.cgi:771
+msgid "Current console keymap: %s"
+msgstr "Aktuelle Tastaturbelegung der Konsole: %s"
+
+#: settings.cgi:789
+msgid "Suggested keymap for Xorg:"
+msgstr "Für Xorg vorgeschlagene Tastaturbelegung:"
+
+#: settings.cgi:798
+msgid "Available keymaps:"
+msgstr "Verfügbare Tastaturbelegungen:"
+
+#: settings.cgi:809
+msgid "Panel configuration"
+msgstr "Konfigurierung der Oberfläche"
+
+#: settings.cgi:812
+msgid "Style:"
+msgstr "Stil:"
+
+#: settings.cgi:818
+msgid "Configuration files:"
+msgstr "Konfigurationsdateien:"
+
+#: settings.cgi:819 styles/default/header.html:45
+msgid "Panel"
+msgstr "Oberfläche"
+
+#: settings.cgi:820
+msgid "Server"
+msgstr "Server"
+
+#: settings.cgi:823
+#, fuzzy
+# was heißt "and page"?
+msgid "TazPanel provides a debugging mode and page:"
+msgstr "TazPanel bietet einen Testhilfe-Modus:"
+
+#: floppy.cgi:21
+msgid "Boot floppy"
+msgstr "Ladediskette"
+
+#: floppy.cgi:72
+msgid "TazPanel - floppy"
+msgstr "TazPanel - Diskette"
+
+#: floppy.cgi:94
+msgid "Floppy disk utilities"
+msgstr "Disketten-Dienstprogramme"
+
+#: floppy.cgi:104
+msgid "Floppy disk format"
+msgstr "Diskette formatieren"
+
+#: floppy.cgi:107
+msgid "Format disk"
+msgstr "Platte formatieren"
+
+#: floppy.cgi:118
+#, fuzzy
+# Was bedeutet das? Kopieren auf Diskette? Diskettentransfer?
+msgid "Floppy disk transfer"
+msgstr ""
+
+#: floppy.cgi:123
+msgid "Write image"
+msgstr "Abbild schreiben"
+
+#: floppy.cgi:129
+msgid "Read image"
+msgstr "Abbild lesen"
+
+#: floppy.cgi:146
+# Ist das gemeint?
+msgid "Boot floppy set builder"
+msgstr "Diskettensatzerzeuger laden"
+
+#: floppy.cgi:152
+msgid "required"
+msgstr "benötigt"
+
+#: floppy.cgi:155
+msgid "Initramfs / Initrd:"
+msgstr ""
+
+#: floppy.cgi:156 floppy.cgi:160 floppy.cgi:164 floppy.cgi:169
+msgid "optional"
+msgstr "optional"
+
+#: floppy.cgi:159
+msgid "Extra initramfs:"
+msgstr "Extra initramfs:"
+
+#: floppy.cgi:163
+msgid "Boot message:"
+msgstr "Lade-Meldung:"
+
+#: floppy.cgi:167
+msgid "Default cmdline:"
+msgstr "Standard-Kommando:"
+
+#: floppy.cgi:168
+msgid "edit"
+msgstr "bearbeiten"
+
+#: floppy.cgi:172
+msgid "Root device:"
+msgstr "'Root'-Gerät"
+
+#: floppy.cgi:174
+msgid "Flags:"
+msgstr "Kennzeichen:"
+
+#: floppy.cgi:214
+msgid "Output directory:"
+msgstr "Ausgabe-Verzeichnis:"
+
+#: floppy.cgi:218
+msgid "Floppy size:"
+msgstr "Diskettengröße:"
+
+#: floppy.cgi:247
+msgid "no limit"
+msgstr "unbegrenzt"
+
+#: floppy.cgi:249
+msgid "RAM used"
+msgstr "benutzter Arbeitsspeicher"
+
+#: floppy.cgi:264 floppy.cgi:293
+msgid "Build floppy set"
+msgstr "Erzeuge Diskettensatz"
+
+#: floppy.cgi:270 floppy.cgi:273
+msgid "Note"
+msgstr "Bemerkung"
+
+#: floppy.cgi:270
+msgid "the extra initramfs may be useful to add your own configuration files."
+msgstr "Ein extra 'initramfs' kann benutzt werden, um eigene Konfigurationsdateien hinzuzufügen."
+
+#: floppy.cgi:273
+msgid ""
+"the keyboard is read for ESC or ENTER on every form feed (ASCII 12) in the "
+"boot message."
+msgstr ""
+"bei jedem 'form feed' (ASCII 12) in jeder Lade-Meldung wird geprüft, ob "
+"an der Tastatur ESC oder ENTER eingegeben wurde."
+
+#: floppy.cgi:280
+msgid "Floppy set from an ISO image"
+msgstr "Diskettensatz aus einem ISO-Abbild"
+
+#: powersaving.cgi:15 powersaving.cgi:24
+msgid "Power saving"
+msgstr "Energiesparen"
+
+#: powersaving.cgi:33
+msgid ""
+"DPMS enables power saving behaviour of monitors when the computer is not in "
+"use."
+msgstr ""
+"DPMS ermöglicht den Energiesparmodus von Bildschirmen, wenn der Rechner nicht "
+"benutzt wird."
+
+#: powersaving.cgi:54
+msgid "Identifier"
+msgstr "Identifikation"
+
+#: powersaving.cgi:55
+msgid "Vendor name"
+msgstr "Herstellername"
+
+#: powersaving.cgi:56 powersaving.cgi:137
+msgid "Model name"
+msgstr "Modellname"
+
+#: powersaving.cgi:57
+msgid "DPMS enabled"
+msgstr "DPMS aktiviert"
+
+#: powersaving.cgi:86
+msgid "DPMS times (in minutes):"
+msgstr "DPMS-Zeiten (in Minuten):"
+
+#: powersaving.cgi:99
+msgid "Manual edit"
+msgstr "Manuell bearbeiten"
+
+#: powersaving.cgi:129
+msgid "CPU"
+msgstr "CPU"
+
+#: powersaving.cgi:131
+msgid ""
+"CPU frequency scaling enables the operating system to scale the CPU "
+"frequency up or down in order to save power. CPU frequencies can be scaled "
+"automatically depending on the system load, in response to ACPI events, or "
+"manually by userspace programs."
+msgstr ""
+"Um Energie zu sparen, kann es dem Betriebssystem ermöglicht werden, die CPU-Taktung "
+"zu erhöhen und zu erniedrigen. Dies kann automatisch geschehen in Abhängigkeit von "
+"der CPU-Last und ACPI-Ereignissen oder manuell durch Anwenderprogramme."
+
+#: powersaving.cgi:138
+msgid "Current frequency"
+msgstr "Aktuelle Taktrate"
+
+#: powersaving.cgi:139
+msgid "Current driver"
+msgstr "Aktueller Treiber"
+
+#: powersaving.cgi:140
+msgid "Current governor"
+msgstr "Aktueller Regler"
+
+#: styles/default/header.html:35
+msgid "Confirm break"
+msgstr "Unterbrechung bestätigen"
+
+#: styles/default/header.html:48
+msgid "Processes"
+msgstr "Prozesse"
+
+#: styles/default/header.html:50
+msgid "Create Report"
+msgstr "Bericht erzeugen"
+
+#: styles/default/header.html:58
+msgid "Config file"
+msgstr "Konfigurationsdatei"
+
+#: styles/default/header.html:59
+msgid "Ethernet"
+msgstr "Kabelnetzwerk"
+
+#: styles/default/header.html:60
+msgid "Wireless"
+msgstr "Drahtlos-Netzwerk"
+
+#: styles/default/header.html:104
+msgid "Users"
+msgstr "Benutzer"
+
+#: styles/default/header.html:105
+msgid "Groups"
+msgstr "Benutzergruppen"
+
+#: styles/default/header.html:106
+msgid "Tweaks"
+msgstr "Einstellungen"
+
+#: styles/default/header.html:122
+msgid "Some features are disabled."
+msgstr "Einige Funktionen sind deaktiviert."
+
+#: styles/default/header.html:127
+msgid "You are logged in to the TazPanel as user %s."
+msgstr "Sie sind bei TazPanel mit dem Benutzernamen %s angemeldet."
+
+#: styles/default/header.html:128
+msgid "Click to re-login."
+msgstr "Zum Neu-Anmelden klicken."
+
+#: styles/default/header.html:138
+msgid "Copyright"
+msgstr "Copyright"
+
+#: styles/default/header.html:140
+msgid "BSD License"
+msgstr "BSD-Lizenz"
