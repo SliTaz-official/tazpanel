@@ -260,7 +260,7 @@ EOT
 EOT
 						;;
 					web)	cat <<EOT
-<a href="${i#$1:$2:}" title="${2:-$name website:} ${i#$1:$2:}" target="_blank" data-img="@web@"></a>
+<a href="${i#$1:$2:}" title="${2:-$name website:} ${i#$1:$2:}" target="_blank" rel="noopener" data-img="@web@"></a>
 EOT
 						;;
 					esac

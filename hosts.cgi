@@ -256,7 +256,7 @@ listlist | while read name info url updated letter; do
 	cat <<EOT
 <tr>
 	<td>$name</td>
-	<td><a data-icon="@info@" target="_blank" href="$info">$(_ 'info')</a></td>
+	<td><a data-icon="@info@" target="_blank" rel="noopener" href="$info">$(_ 'info')</a></td>
 	<td>
 		$([ "$updated" == 'monthly'   ] && _ 'Updated monthly')
 		$([ "$updated" == 'regularly' ] && _ 'Updated regularly')

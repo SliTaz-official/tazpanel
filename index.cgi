@@ -794,7 +794,7 @@ EOT
 
 
 	$(msg tip "$(_ 'This report can be attached with a bug report on:')
-	<a href="http://bugs.slitaz.org/" target="_blank">bugs.slitaz.org</a></p>")
+	<a href="http://bugs.slitaz.org/" target="_blank" rel="noopener">bugs.slitaz.org</a></p>")
 EOT
 		;;
 
