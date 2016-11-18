@@ -269,7 +269,7 @@ xhtml_header() {
 </script>
 EOT
 	fi
-	sed "s|@@TITLE@@|$TITLE|; s|@@SUBTITLE@@|$subtitle|" "$header"
+	sed "s|@@TITLE@@|${TITLE//&/\&}|; s|@@SUBTITLE@@|$subtitle|" "$header"
 
 	# Show debug output
 	if [ "$DEBUG" -eq 1 ]; then
