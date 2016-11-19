@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-15 20:37+0100\n"
+"POT-Creation-Date: 2016-11-20 00:00+0200\n"
 "PO-Revision-Date: 2012-07-11 11:33-0000\n"
 "Last-Translator: Emil Eklund <emileklund123@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -17,81 +17,81 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: lib/libtazpanel:153 network.cgi:455
+#: lib/libtazpanel:154 network.cgi:455
 msgid "Scan"
 msgstr "Skanna"
 
-#: lib/libtazpanel:156
+#: lib/libtazpanel:157
 msgid "connected"
 msgstr "ansluten"
 
-#: lib/libtazpanel:170 network.cgi:254
+#: lib/libtazpanel:171 network.cgi:254
 msgid "Interface"
 msgstr "Enhet"
 
-#: lib/libtazpanel:171 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
+#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
 #: network.cgi:345 hosts.cgi:243
 msgid "Name"
 msgstr "Namn"
 
-#: lib/libtazpanel:172 boot.cgi:145 network.cgi:349
+#: lib/libtazpanel:173 boot.cgi:145 network.cgi:349
 msgid "Status"
 msgstr "Status"
 
-#: lib/libtazpanel:173
+#: lib/libtazpanel:174
 msgid "IP Address"
 msgstr "IP adress"
 
-#: lib/libtazpanel:174
+#: lib/libtazpanel:175
 msgid "Scan ports"
 msgstr "Skanna portar"
 
-#: lib/libtazpanel:249
+#: lib/libtazpanel:250
 #, fuzzy
 msgid "Please wait"
 msgstr "Var god vänta..."
 
-#: lib/libtazpanel:318 hardware.cgi:498
+#: lib/libtazpanel:319 hardware.cgi:513
 msgid "Disk"
 msgstr "Disk"
 
-#: lib/libtazpanel:319
+#: lib/libtazpanel:320
 msgid "Label"
 msgstr "Etikett"
 
-#: lib/libtazpanel:320 hardware.cgi:500
+#: lib/libtazpanel:321 hardware.cgi:515
 msgid "Type"
 msgstr "Sort"
 
-#: lib/libtazpanel:321 hardware.cgi:182 hardware.cgi:534
+#: lib/libtazpanel:322 hardware.cgi:197 hardware.cgi:549
 msgid "Size"
 msgstr "Storlek"
 
-#: lib/libtazpanel:322
+#: lib/libtazpanel:323
 msgid "Available"
 msgstr "Tillgängligt"
 
-#: lib/libtazpanel:323 hardware.cgi:183 hardware.cgi:591
+#: lib/libtazpanel:324 hardware.cgi:198 hardware.cgi:606
 msgid "Used"
 msgstr "Använd"
 
-#: lib/libtazpanel:324 hardware.cgi:499
+#: lib/libtazpanel:325 hardware.cgi:514
 msgid "Mount point"
 msgstr "Monteringspunkt"
 
-#: lib/libtazpanel:371 index.cgi:315
+#: lib/libtazpanel:372 index.cgi:315
 msgid "Back"
 msgstr ""
 
-#: lib/libtazpanel:381 index.cgi:242 settings.cgi:791
+#: lib/libtazpanel:382 index.cgi:242 settings.cgi:804
 msgid "Edit"
 msgstr "Ändra"
 
-#: lib/libtazpanel:395
+#: lib/libtazpanel:396
 msgid "You must be root to show this page."
 msgstr ""
 
-#: lib/libtazpanel:418 lib/libtazpanel:428
+#: lib/libtazpanel:419 lib/libtazpanel:429
 msgid "Browse"
 msgstr ""
 
@@ -103,7 +103,7 @@ msgstr "Boot"
 msgid "Show more..."
 msgstr "Visa mer..."
 
-#: boot.cgi:40 boot.cgi:45 boot.cgi:482 styles/default/header.html:83
+#: boot.cgi:40 boot.cgi:45 boot.cgi:487 styles/default/header.html:83
 #, fuzzy
 msgid "System logs"
 msgstr "System språk"
@@ -128,7 +128,7 @@ msgstr "X server"
 msgid "X session"
 msgstr ""
 
-#: boot.cgi:115 boot.cgi:483 styles/default/header.html:84
+#: boot.cgi:115 boot.cgi:488 styles/default/header.html:84
 msgid "Manage daemons"
 msgstr "Hantera daemoner"
 
@@ -136,7 +136,7 @@ msgstr "Hantera daemoner"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Konstrollera, starta och stopa daemoner i SliTaz"
 
-#: boot.cgi:143 hardware.cgi:181 settings.cgi:459 powersaving.cgi:154
+#: boot.cgi:143 hardware.cgi:196 settings.cgi:472 powersaving.cgi:154
 msgid "Description"
 msgstr "Beskrivning"
 
@@ -237,8 +237,8 @@ msgstr "Timeout:"
 msgid "Splash image:"
 msgstr "Splash image:"
 
-#: boot.cgi:327 network.cgi:669 network.cgi:700 settings.cgi:633
-#: settings.cgi:747 powersaving.cgi:108
+#: boot.cgi:327 network.cgi:669 network.cgi:700 settings.cgi:646
+#: settings.cgi:760 powersaving.cgi:108
 msgid "Change"
 msgstr "Ändra"
 
@@ -254,102 +254,102 @@ msgstr "Start up bidrag"
 msgid "Entry"
 msgstr "Bidrag"
 
-#: boot.cgi:367
+#: boot.cgi:368
 msgid "Web boot is available with %s"
 msgstr "Nät start är tillgänglig med %s"
 
-#: boot.cgi:381 boot.cgi:486 styles/default/header.html:86
+#: boot.cgi:386 boot.cgi:491 styles/default/header.html:86
 msgid "ISO mine"
 msgstr ""
 
-#: boot.cgi:383
+#: boot.cgi:388
 msgid "Invalid ISO image."
 msgstr ""
 
-#: boot.cgi:403 floppy.cgi:288
+#: boot.cgi:408 floppy.cgi:288
 msgid "ISO image file full path"
 msgstr ""
 
-#: boot.cgi:404 floppy.cgi:289
+#: boot.cgi:409 floppy.cgi:289
 msgid "set /dev/cdrom for a physical CD-ROM"
 msgstr ""
 
-#: boot.cgi:407
+#: boot.cgi:412
 msgid "Working directory"
 msgstr ""
 
-#: boot.cgi:410
+#: boot.cgi:415
 msgid "Target partition"
 msgstr ""
 
-#: boot.cgi:411
+#: boot.cgi:416
 msgid ""
 "For hard disk installation only. Will create /slitaz tree and keep other "
 "files. No partitioning and no formatting."
 msgstr ""
 
-#: boot.cgi:414
+#: boot.cgi:419
 msgid "Choose a partition (optional)"
 msgstr ""
 
-#: boot.cgi:425
+#: boot.cgi:430
 msgid "USB key device"
 msgstr ""
 
-#: boot.cgi:426
+#: boot.cgi:431
 msgid "For USB boot key only. Will erase the full device."
 msgstr ""
 
-#: boot.cgi:429
+#: boot.cgi:434
 msgid "Choose a USB key (optional)"
 msgstr ""
 
-#: boot.cgi:450
+#: boot.cgi:455
 #, fuzzy
 msgid "Choose an action"
 msgstr "Anslutning"
 
-#: boot.cgi:463
+#: boot.cgi:468
 msgid "Mine"
 msgstr ""
 
-#: boot.cgi:476
+#: boot.cgi:481
 msgid "Boot &amp; Start services"
 msgstr "Starta &amp; Starta tjänster"
 
-#: boot.cgi:478
+#: boot.cgi:483
 msgid "Everything that happens before user login"
 msgstr "Allting som händer innan användaren loggar in"
 
-#: boot.cgi:481 styles/default/header.html:75
+#: boot.cgi:486 styles/default/header.html:75
 msgid "Boot logs"
 msgstr "Start uo loggar"
 
-#: boot.cgi:489 styles/default/header.html:71
+#: boot.cgi:494 styles/default/header.html:71
 msgid "Boot loader"
 msgstr "Start laddare"
 
-#: boot.cgi:496
+#: boot.cgi:501
 msgid "Configuration files"
 msgstr "Configurations filer"
 
-#: boot.cgi:499
+#: boot.cgi:504
 msgid "Main configuration file:"
 msgstr "Huvud konfigureringsfil:"
 
-#: boot.cgi:500 boot.cgi:502 index.cgi:791 index.cgi:887
+#: boot.cgi:505 boot.cgi:507 index.cgi:791 index.cgi:887
 msgid "View"
 msgstr ""
 
-#: boot.cgi:501
+#: boot.cgi:506
 msgid "Login manager settings:"
 msgstr "Login hanterar inställningar:"
 
-#: boot.cgi:509
+#: boot.cgi:514
 msgid "Kernel cmdline"
 msgstr "Kärn kommando linje"
 
-#: boot.cgi:516
+#: boot.cgi:521
 msgid "Local startup commands"
 msgstr "Lokala start kommandon"
 
@@ -361,7 +361,7 @@ msgstr "Hårdava"
 msgid "Bus"
 msgstr ""
 
-#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:532
+#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:547
 msgid "Device"
 msgstr ""
 
@@ -374,186 +374,186 @@ msgstr "PID"
 msgid "Slot"
 msgstr ""
 
-#: hardware.cgi:112
+#: hardware.cgi:127
 msgid "Detect hardware"
 msgstr "Upptäck hårdvara"
 
-#: hardware.cgi:114
+#: hardware.cgi:129
 msgid "Detect PCI and USB hardware"
 msgstr "Upptäck PCI och USB hårdvara"
 
-#: hardware.cgi:122 hardware.cgi:252 powersaving.cgi:150
+#: hardware.cgi:137 hardware.cgi:267 powersaving.cgi:150
 #: styles/default/header.html:94
 msgid "Kernel modules"
 msgstr "Kärn moduler"
 
-#: hardware.cgi:126
+#: hardware.cgi:141
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Hantera, sök eller samla information om Linux kärnmoduler"
 
-#: hardware.cgi:130
+#: hardware.cgi:145
 msgid "Modules search"
 msgstr "Moduler sökning"
 
-#: hardware.cgi:131
+#: hardware.cgi:146
 msgid "Search"
 msgstr ""
 
-#: hardware.cgi:139
+#: hardware.cgi:154
 msgid "Detailed information for module: %s"
 msgstr "Detaljerad information för modul: %s"
 
-#: hardware.cgi:163
+#: hardware.cgi:178
 msgid "Matching result(s) for: %s"
 msgstr "Matchande resultat för: %s"
 
-#: hardware.cgi:170
+#: hardware.cgi:185
 msgid "Module:"
 msgstr "Modul:"
 
-#: hardware.cgi:180 powersaving.cgi:153
+#: hardware.cgi:195 powersaving.cgi:153
 msgid "Module"
 msgstr "Modul"
 
-#: hardware.cgi:184
+#: hardware.cgi:199
 msgid "by"
 msgstr "av"
 
-#: hardware.cgi:208
+#: hardware.cgi:223
 msgid "Information for USB Device %s"
 msgstr ""
 
-#: hardware.cgi:210 hardware.cgi:228
+#: hardware.cgi:225 hardware.cgi:243
 msgid "Detailed information about specified device."
 msgstr ""
 
-#: hardware.cgi:226
+#: hardware.cgi:241
 msgid "Information for PCI Device %s"
 msgstr ""
 
-#: hardware.cgi:247
+#: hardware.cgi:262
 msgid "Drivers &amp; Devices"
 msgstr "Drivrutiner &amp; Enheter"
 
-#: hardware.cgi:249
+#: hardware.cgi:264
 msgid "Manage your computer hardware"
 msgstr "Hantera din dators hårdvara"
 
-#: hardware.cgi:253 styles/default/header.html:95
+#: hardware.cgi:268 styles/default/header.html:95
 msgid "Detect PCI/USB"
 msgstr "Upptäckt PCI/USB"
 
-#: hardware.cgi:254
+#: hardware.cgi:269
 msgid "Auto-install Xorg video driver"
 msgstr ""
 
-#: hardware.cgi:264 hardware.cgi:281
+#: hardware.cgi:279 hardware.cgi:296
 msgid "Battery"
 msgstr "Batteri"
 
-#: hardware.cgi:284
+#: hardware.cgi:299
 msgid "health"
 msgstr "hälsa"
 
-#: hardware.cgi:293
+#: hardware.cgi:308
 msgid "Discharging %d%% - %s"
 msgstr "Laddar ur %d%% - %s"
 
-#: hardware.cgi:297
+#: hardware.cgi:312
 msgid "Charging %d%% - %s"
 msgstr "Laddar %d%% - %s"
 
-#: hardware.cgi:299
+#: hardware.cgi:314
 #, fuzzy
 msgid "Charged 100%%"
 msgstr "Laddad 100%%"
 
-#: hardware.cgi:318
+#: hardware.cgi:333
 msgid "Temperature:"
 msgstr "Temperatur:"
 
-#: hardware.cgi:333
+#: hardware.cgi:348
 msgid "Brightness"
 msgstr "Ljusstyrka"
 
-#: hardware.cgi:353 index.cgi:851
+#: hardware.cgi:368 index.cgi:851
 msgid "Filesystem usage statistics"
 msgstr "Filsystemsanvändning"
 
-#: hardware.cgi:476
+#: hardware.cgi:491
 #, fuzzy
 msgid "new mount point:"
 msgstr "Monteringspunkt"
 
-#: hardware.cgi:477
+#: hardware.cgi:492
 msgid "read-only"
 msgstr ""
 
-#: hardware.cgi:492
+#: hardware.cgi:507
 msgid "Filesystems table"
 msgstr ""
 
-#: hardware.cgi:501
+#: hardware.cgi:516
 #, fuzzy
 msgid "Options"
 msgstr "Handling"
 
-#: hardware.cgi:502
+#: hardware.cgi:517
 msgid "Freq"
 msgstr ""
 
-#: hardware.cgi:503
+#: hardware.cgi:518
 #, fuzzy
 msgid "Pass"
 msgstr "Lösenord:"
 
-#: hardware.cgi:525
+#: hardware.cgi:540
 msgid "Loop devices"
 msgstr ""
 
-#: hardware.cgi:533
+#: hardware.cgi:548
 #, fuzzy
 msgid "Backing file"
 msgstr "Konfigurerings fil"
 
-#: hardware.cgi:535
+#: hardware.cgi:550
 #, fuzzy
 msgid "Access"
 msgstr "Åtkomst punkt"
 
-#: hardware.cgi:536
+#: hardware.cgi:551
 msgid "Offset"
 msgstr ""
 
-#: hardware.cgi:545
+#: hardware.cgi:560
 msgid "read/write"
 msgstr ""
 
-#: hardware.cgi:546 hardware.cgi:571
+#: hardware.cgi:561 hardware.cgi:586
 msgid "read only"
 msgstr ""
 
-#: hardware.cgi:568
+#: hardware.cgi:583
 msgid "Setup"
 msgstr ""
 
-#: hardware.cgi:569
+#: hardware.cgi:584
 msgid "new backing file:"
 msgstr ""
 
-#: hardware.cgi:570
+#: hardware.cgi:585
 msgid "offset in bytes:"
 msgstr ""
 
-#: hardware.cgi:588
+#: hardware.cgi:603
 msgid "System memory"
 msgstr "System minne"
 
-#: hardware.cgi:594
+#: hardware.cgi:609
 msgid "Buffers"
 msgstr ""
 
-#: hardware.cgi:597
+#: hardware.cgi:612
 msgid "Free"
 msgstr ""
 
@@ -1191,153 +1191,153 @@ msgstr ""
 msgid "System settings"
 msgstr "System inställningar"
 
-#: settings.cgi:101 settings.cgi:646 settings.cgi:673 settings.cgi:678
+#: settings.cgi:103 settings.cgi:659 settings.cgi:686 settings.cgi:691
 msgid "Set date"
 msgstr ""
 
-#: settings.cgi:233 settings.cgi:620
+#: settings.cgi:246 settings.cgi:633
 msgid "Manage groups"
 msgstr ""
 
-#: settings.cgi:241 settings.cgi:318
+#: settings.cgi:254 settings.cgi:331
 msgid "Selection:"
 msgstr "Val:"
 
-#: settings.cgi:242
+#: settings.cgi:255
 msgid "Delete group"
 msgstr ""
 
-#: settings.cgi:249
+#: settings.cgi:262
 msgid "Group"
 msgstr ""
 
-#: settings.cgi:250
+#: settings.cgi:263
 msgid "Group ID"
 msgstr ""
 
-#: settings.cgi:251
+#: settings.cgi:264
 msgid "Members"
 msgstr ""
 
-#: settings.cgi:278
+#: settings.cgi:291
 msgid "Add a new group"
 msgstr ""
 
-#: settings.cgi:281 settings.cgi:293
+#: settings.cgi:294 settings.cgi:306
 msgid "Group name:"
 msgstr ""
 
-#: settings.cgi:282
+#: settings.cgi:295
 msgid "Create group"
 msgstr ""
 
-#: settings.cgi:289
+#: settings.cgi:302
 msgid "Manage group membership"
 msgstr ""
 
-#: settings.cgi:294 settings.cgi:379
+#: settings.cgi:307 settings.cgi:392
 msgid "User login:"
 msgstr "Användar inloggning:"
 
-#: settings.cgi:297
+#: settings.cgi:310
 msgid "Add user"
 msgstr ""
 
-#: settings.cgi:298
+#: settings.cgi:311
 msgid "Remove user"
 msgstr ""
 
-#: settings.cgi:311 settings.cgi:619
+#: settings.cgi:324 settings.cgi:632
 msgid "Manage users"
 msgstr "Hantera användare"
 
-#: settings.cgi:319
+#: settings.cgi:332
 msgid "Delete user"
 msgstr "Ta bort användare"
 
-#: settings.cgi:320
+#: settings.cgi:333
 msgid "Lock user"
 msgstr "Lås användare"
 
-#: settings.cgi:321
+#: settings.cgi:334
 msgid "Unlock user"
 msgstr "Lås upp användare"
 
-#: settings.cgi:327
+#: settings.cgi:340
 msgid "Login"
 msgstr "Logga in"
 
-#: settings.cgi:328
+#: settings.cgi:341
 msgid "User ID"
 msgstr "Användar ID"
 
-#: settings.cgi:329
+#: settings.cgi:342
 #, fuzzy
 msgid "User Name"
 msgstr "Användar ID"
 
-#: settings.cgi:330
+#: settings.cgi:343
 msgid "Home"
 msgstr "Hem"
 
-#: settings.cgi:331
+#: settings.cgi:344
 msgid "Shell"
 msgstr "Shell"
 
-#: settings.cgi:365
+#: settings.cgi:378
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: settings.cgi:366
+#: settings.cgi:379
 #, fuzzy
 msgid "New password"
 msgstr "Nytt lösenord: "
 
-#: settings.cgi:367
+#: settings.cgi:380
 msgid "Change password"
 msgstr "Byt lösenord"
 
-#: settings.cgi:374
+#: settings.cgi:387
 msgid "Add a new user"
 msgstr "Lägg till ny användare"
 
-#: settings.cgi:381
+#: settings.cgi:394
 msgid "User name:"
 msgstr ""
 
-#: settings.cgi:383
+#: settings.cgi:396
 msgid "User password:"
 msgstr "Användar lösenord:"
 
-#: settings.cgi:388
+#: settings.cgi:401
 msgid "Create user"
 msgstr "Skapa användare"
 
-#: settings.cgi:398
+#: settings.cgi:411
 msgid "Current user sessions"
 msgstr "Nuvarande användarsessioner"
 
-#: settings.cgi:408
+#: settings.cgi:421
 msgid "Last user sessions"
 msgstr "Senaste användar sessioner"
 
-#: settings.cgi:420
+#: settings.cgi:433
 msgid "Choose locale"
 msgstr "Välj språk"
 
-#: settings.cgi:423
+#: settings.cgi:436
 msgid "Please wait..."
 msgstr "Var god vänta..."
 
-#: settings.cgi:428
+#: settings.cgi:441
 msgid "Current locale settings:"
 msgstr "Nuvarande språkinställningar:"
 
-#: settings.cgi:435
+#: settings.cgi:448
 msgid "Locales that are currently installed on the machine:"
 msgstr "Språk som är nuvarande installerade på maskinen:"
 
-#: settings.cgi:445
+#: settings.cgi:458
 #, fuzzy
 msgid ""
 "Can't see your language?<br/>You can <a href='pkgs.cgi?do=Install&amp;glibc-"
@@ -1347,158 +1347,158 @@ msgstr ""
 "locale'>installera glibc-locale</a> för att se en större lista av "
 "tillgängliga språk."
 
-#: settings.cgi:452
+#: settings.cgi:465
 msgid "Available locales:"
 msgstr "Tillgängliga språk:"
 
-#: settings.cgi:456
+#: settings.cgi:469
 msgid "Code"
 msgstr "Kod"
 
-#: settings.cgi:457
+#: settings.cgi:470
 msgid "Language"
 msgstr "Språk"
 
-#: settings.cgi:458
+#: settings.cgi:471
 msgid "Territory"
 msgstr "Territorium"
 
-#: settings.cgi:475 settings.cgi:476
+#: settings.cgi:488 settings.cgi:489
 msgid "-d"
 msgstr "-d"
 
-#: settings.cgi:487 settings.cgi:790 settings.cgi:802 settings.cgi:814
+#: settings.cgi:500 settings.cgi:803 settings.cgi:815 settings.cgi:827
 msgid "Activate"
 msgstr "Aktivera"
 
-#: settings.cgi:500 settings.cgi:522
+#: settings.cgi:513 settings.cgi:535
 msgid "Small quick tweaks for user %s"
 msgstr ""
 
-#: settings.cgi:525
+#: settings.cgi:538
 #, fuzzy
 msgid "Terminal prompt"
 msgstr "Terminal"
 
-#: settings.cgi:531
+#: settings.cgi:544
 msgid "Monochrome"
 msgstr ""
 
-#: settings.cgi:540
+#: settings.cgi:553
 msgid "Colored"
 msgstr ""
 
-#: settings.cgi:549 settings.cgi:597
+#: settings.cgi:562 settings.cgi:610
 #, fuzzy
 msgid "Manual edit: %s"
 msgstr "Manuell Ändring"
 
-#: settings.cgi:550
+#: settings.cgi:563
 msgid ""
-"To take effect: log out and log in to system or execute command in the "
+"To take effect: log out and log in to system or execute a command in the "
 "terminal:"
 msgstr ""
 
-#: settings.cgi:558
+#: settings.cgi:571
 msgid "Menu button appearance"
 msgstr ""
 
-#: settings.cgi:563
+#: settings.cgi:576
 msgid "Icon:"
 msgstr ""
 
-#: settings.cgi:566 settings.cgi:587
+#: settings.cgi:579 settings.cgi:600
 msgid "Do not show"
 msgstr ""
 
-#: settings.cgi:584
+#: settings.cgi:597
 msgid "Text:"
 msgstr ""
 
-#: settings.cgi:591
+#: settings.cgi:604
 msgid "Show text"
 msgstr ""
 
-#: settings.cgi:614
+#: settings.cgi:627
 msgid "Manage system time, users or language settings"
 msgstr "Hantera system tid, användare eller språk inställningar"
 
-#: settings.cgi:624
+#: settings.cgi:637
 msgid "System time"
 msgstr "System tid"
 
-#: settings.cgi:627
+#: settings.cgi:640
 msgid "Time zone:"
 msgstr "Tid zon:"
 
-#: settings.cgi:636
+#: settings.cgi:649
 msgid "System time:"
 msgstr "System tid:"
 
-#: settings.cgi:638
+#: settings.cgi:651
 msgid "Sync online"
 msgstr "Synkronisera online"
 
-#: settings.cgi:641
+#: settings.cgi:654
 msgid "Hardware clock:"
 msgstr "Hårdvaru klocka:"
 
-#: settings.cgi:643
+#: settings.cgi:656
 msgid "Set hardware clock"
 msgstr "Ställ in hårdvaru klocka"
 
-#: settings.cgi:729
+#: settings.cgi:742
 msgid "System language"
 msgstr "System språk"
 
-#: settings.cgi:742
+#: settings.cgi:755
 msgid ""
 "You must logout and login again to your current session to use %s locale."
 msgstr ""
 "Du måste logga ut och logga in till din nuvarande session för att använda %s "
 "språk."
 
-#: settings.cgi:745
+#: settings.cgi:758
 msgid "Current system locale:"
 msgstr "Nuvarande system språk:"
 
-#: settings.cgi:757
+#: settings.cgi:770
 msgid "Keyboard layout"
 msgstr ""
 
-#: settings.cgi:771
+#: settings.cgi:784
 msgid "Current console keymap: %s"
 msgstr "Nuvarande tangentbordsspråk: %s"
 
-#: settings.cgi:789
+#: settings.cgi:802
 msgid "Suggested keymap for Xorg:"
 msgstr "Föreslaget tangentbordsspråk för Xorg:"
 
-#: settings.cgi:798
+#: settings.cgi:811
 msgid "Available keymaps:"
 msgstr "Tillgängliga tangentbordsspråk:"
 
-#: settings.cgi:809
+#: settings.cgi:822
 msgid "Panel configuration"
 msgstr "Panel konfiguration"
 
-#: settings.cgi:812
+#: settings.cgi:825
 msgid "Style:"
 msgstr "Stil:"
 
-#: settings.cgi:818
+#: settings.cgi:831
 msgid "Configuration files:"
 msgstr "Konfigurations filer:"
 
-#: settings.cgi:819 styles/default/header.html:45
+#: settings.cgi:832 styles/default/header.html:45
 msgid "Panel"
 msgstr "Panel"
 
-#: settings.cgi:820
+#: settings.cgi:833
 msgid "Server"
 msgstr "Server"
 
-#: settings.cgi:823
+#: settings.cgi:836
 #, fuzzy
 msgid "TazPanel provides a debugging mode and page:"
 msgstr "TazPanel förser ett debugging läge och sida:"

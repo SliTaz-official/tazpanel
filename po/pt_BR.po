@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-15 20:37+0100\n"
+"POT-Creation-Date: 2016-11-20 00:00+0200\n"
 "PO-Revision-Date: 2016-03-27 04:06-0300\n"
 "Last-Translator: Leonardo Laporte <hackdorte@sapo.pt>\n"
 "Language-Team: Portuguese <i18n@slitaz.org>\n"
@@ -18,80 +18,80 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 1.8.6\n"
 
-#: lib/libtazpanel:153 network.cgi:455
+#: lib/libtazpanel:154 network.cgi:455
 msgid "Scan"
 msgstr "Procurar"
 
-#: lib/libtazpanel:156
+#: lib/libtazpanel:157
 msgid "connected"
 msgstr "Conectado"
 
-#: lib/libtazpanel:170 network.cgi:254
+#: lib/libtazpanel:171 network.cgi:254
 msgid "Interface"
 msgstr "Interface"
 
-#: lib/libtazpanel:171 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
+#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
 #: network.cgi:345 hosts.cgi:243
 msgid "Name"
 msgstr "Nome"
 
-#: lib/libtazpanel:172 boot.cgi:145 network.cgi:349
+#: lib/libtazpanel:173 boot.cgi:145 network.cgi:349
 msgid "Status"
 msgstr "Status"
 
-#: lib/libtazpanel:173
+#: lib/libtazpanel:174
 msgid "IP Address"
 msgstr "Endereço IP"
 
-#: lib/libtazpanel:174
+#: lib/libtazpanel:175
 msgid "Scan ports"
 msgstr "Buscar portas"
 
-#: lib/libtazpanel:249
+#: lib/libtazpanel:250
 msgid "Please wait"
 msgstr "Aguarde por favor"
 
-#: lib/libtazpanel:318 hardware.cgi:498
+#: lib/libtazpanel:319 hardware.cgi:513
 msgid "Disk"
 msgstr "Disco"
 
-#: lib/libtazpanel:319
+#: lib/libtazpanel:320
 msgid "Label"
 msgstr "Rótulo"
 
-#: lib/libtazpanel:320 hardware.cgi:500
+#: lib/libtazpanel:321 hardware.cgi:515
 msgid "Type"
 msgstr "Tipo"
 
-#: lib/libtazpanel:321 hardware.cgi:182 hardware.cgi:534
+#: lib/libtazpanel:322 hardware.cgi:197 hardware.cgi:549
 msgid "Size"
 msgstr "Tamanho"
 
-#: lib/libtazpanel:322
+#: lib/libtazpanel:323
 msgid "Available"
 msgstr "Disponível"
 
-#: lib/libtazpanel:323 hardware.cgi:183 hardware.cgi:591
+#: lib/libtazpanel:324 hardware.cgi:198 hardware.cgi:606
 msgid "Used"
 msgstr "Usado"
 
-#: lib/libtazpanel:324 hardware.cgi:499
+#: lib/libtazpanel:325 hardware.cgi:514
 msgid "Mount point"
 msgstr "Ponto de montagem"
 
-#: lib/libtazpanel:371 index.cgi:315
+#: lib/libtazpanel:372 index.cgi:315
 msgid "Back"
 msgstr "Voltar"
 
-#: lib/libtazpanel:381 index.cgi:242 settings.cgi:791
+#: lib/libtazpanel:382 index.cgi:242 settings.cgi:804
 msgid "Edit"
 msgstr "Editar"
 
-#: lib/libtazpanel:395
+#: lib/libtazpanel:396
 msgid "You must be root to show this page."
 msgstr "Você deve ser root para ver esta página."
 
-#: lib/libtazpanel:418 lib/libtazpanel:428
+#: lib/libtazpanel:419 lib/libtazpanel:429
 msgid "Browse"
 msgstr ""
 
@@ -103,7 +103,7 @@ msgstr "Boot"
 msgid "Show more..."
 msgstr "Mostrar mais..."
 
-#: boot.cgi:40 boot.cgi:45 boot.cgi:482 styles/default/header.html:83
+#: boot.cgi:40 boot.cgi:45 boot.cgi:487 styles/default/header.html:83
 msgid "System logs"
 msgstr "Logs do sistema"
 
@@ -127,7 +127,7 @@ msgstr "Servidor X"
 msgid "X session"
 msgstr "X session"
 
-#: boot.cgi:115 boot.cgi:483 styles/default/header.html:84
+#: boot.cgi:115 boot.cgi:488 styles/default/header.html:84
 msgid "Manage daemons"
 msgstr "Gerenciar daemons"
 
@@ -135,7 +135,7 @@ msgstr "Gerenciar daemons"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Checar, iniciar e parar daemons no SliTaz"
 
-#: boot.cgi:143 hardware.cgi:181 settings.cgi:459 powersaving.cgi:154
+#: boot.cgi:143 hardware.cgi:196 settings.cgi:472 powersaving.cgi:154
 msgid "Description"
 msgstr "Descrição"
 
@@ -235,8 +235,8 @@ msgstr "Timeout:"
 msgid "Splash image:"
 msgstr "Splash image:"
 
-#: boot.cgi:327 network.cgi:669 network.cgi:700 settings.cgi:633
-#: settings.cgi:747 powersaving.cgi:108
+#: boot.cgi:327 network.cgi:669 network.cgi:700 settings.cgi:646
+#: settings.cgi:760 powersaving.cgi:108
 msgid "Change"
 msgstr "Alterar"
 
@@ -252,35 +252,35 @@ msgstr "Entradas de boot"
 msgid "Entry"
 msgstr "Entrada"
 
-#: boot.cgi:367
+#: boot.cgi:368
 msgid "Web boot is available with %s"
 msgstr "Boot via web está disponível pelo %s"
 
-#: boot.cgi:381 boot.cgi:486 styles/default/header.html:86
+#: boot.cgi:386 boot.cgi:491 styles/default/header.html:86
 msgid "ISO mine"
 msgstr "ISO mime"
 
-#: boot.cgi:383
+#: boot.cgi:388
 msgid "Invalid ISO image."
 msgstr "Imagem ISO inválida."
 
-#: boot.cgi:403 floppy.cgi:288
+#: boot.cgi:408 floppy.cgi:288
 msgid "ISO image file full path"
 msgstr "Caminho completo da imagem ISO"
 
-#: boot.cgi:404 floppy.cgi:289
+#: boot.cgi:409 floppy.cgi:289
 msgid "set /dev/cdrom for a physical CD-ROM"
 msgstr "defina /dev/cdrom para um CD-ROM fisíco"
 
-#: boot.cgi:407
+#: boot.cgi:412
 msgid "Working directory"
 msgstr "Diretório de trabalho"
 
-#: boot.cgi:410
+#: boot.cgi:415
 msgid "Target partition"
 msgstr "Partição de destino"
 
-#: boot.cgi:411
+#: boot.cgi:416
 msgid ""
 "For hard disk installation only. Will create /slitaz tree and keep other "
 "files. No partitioning and no formatting."
@@ -288,67 +288,67 @@ msgstr ""
 "Para instalação no HD apenas. irá criar caminho /slitaz e manter outros "
 "arquivos. Não particionar e nem formatar."
 
-#: boot.cgi:414
+#: boot.cgi:419
 msgid "Choose a partition (optional)"
 msgstr "Escolha uma partição (opcional)"
 
-#: boot.cgi:425
+#: boot.cgi:430
 msgid "USB key device"
 msgstr "Dispositivo USB"
 
-#: boot.cgi:426
+#: boot.cgi:431
 msgid "For USB boot key only. Will erase the full device."
 msgstr "Para dispositivo USB. Todos os dados serão apagados por completo."
 
-#: boot.cgi:429
+#: boot.cgi:434
 msgid "Choose a USB key (optional)"
 msgstr "Escolha a entrada USB (opcional)"
 
-#: boot.cgi:450
+#: boot.cgi:455
 msgid "Choose an action"
 msgstr "Escolha uma ação"
 
-#: boot.cgi:463
+#: boot.cgi:468
 msgid "Mine"
 msgstr "Meu"
 
-#: boot.cgi:476
+#: boot.cgi:481
 msgid "Boot &amp; Start services"
 msgstr "Serviços de Boot &amp; inicialização"
 
-#: boot.cgi:478
+#: boot.cgi:483
 msgid "Everything that happens before user login"
 msgstr "Tudo o que ocorre antes do login de usuário"
 
-#: boot.cgi:481 styles/default/header.html:75
+#: boot.cgi:486 styles/default/header.html:75
 msgid "Boot logs"
 msgstr "Logs de boot"
 
-#: boot.cgi:489 styles/default/header.html:71
+#: boot.cgi:494 styles/default/header.html:71
 msgid "Boot loader"
 msgstr "Gerenciador de boot"
 
-#: boot.cgi:496
+#: boot.cgi:501
 msgid "Configuration files"
 msgstr "Arquivos de configuração"
 
-#: boot.cgi:499
+#: boot.cgi:504
 msgid "Main configuration file:"
 msgstr "Arquivo de configuração principal:"
 
-#: boot.cgi:500 boot.cgi:502 index.cgi:791 index.cgi:887
+#: boot.cgi:505 boot.cgi:507 index.cgi:791 index.cgi:887
 msgid "View"
 msgstr "Visão"
 
-#: boot.cgi:501
+#: boot.cgi:506
 msgid "Login manager settings:"
 msgstr "Configurações do gerenciador de login:"
 
-#: boot.cgi:509
+#: boot.cgi:514
 msgid "Kernel cmdline"
 msgstr "Opções de linha de comando do kernel"
 
-#: boot.cgi:516
+#: boot.cgi:521
 msgid "Local startup commands"
 msgstr "Comandos de inicialização locais"
 
@@ -360,7 +360,7 @@ msgstr "Hardware"
 msgid "Bus"
 msgstr "Bus"
 
-#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:532
+#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:547
 msgid "Device"
 msgstr "Dispositivo"
 
@@ -372,180 +372,180 @@ msgstr "ID"
 msgid "Slot"
 msgstr ""
 
-#: hardware.cgi:112
+#: hardware.cgi:127
 msgid "Detect hardware"
 msgstr "Detectar hardware"
 
-#: hardware.cgi:114
+#: hardware.cgi:129
 msgid "Detect PCI and USB hardware"
 msgstr "Detectar hardware PCI e USB"
 
-#: hardware.cgi:122 hardware.cgi:252 powersaving.cgi:150
+#: hardware.cgi:137 hardware.cgi:267 powersaving.cgi:150
 #: styles/default/header.html:94
 msgid "Kernel modules"
 msgstr "Módulos de kernel"
 
-#: hardware.cgi:126
+#: hardware.cgi:141
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Gerenciar, buscar e obter informações sobre módulos do kernel linux"
 
-#: hardware.cgi:130
+#: hardware.cgi:145
 msgid "Modules search"
 msgstr "Busca de módulos"
 
-#: hardware.cgi:131
+#: hardware.cgi:146
 msgid "Search"
 msgstr "Buscar"
 
-#: hardware.cgi:139
+#: hardware.cgi:154
 msgid "Detailed information for module: %s"
 msgstr "Informações detalhadas de módulo: %s"
 
-#: hardware.cgi:163
+#: hardware.cgi:178
 msgid "Matching result(s) for: %s"
 msgstr "Resultado(s) encontrado(s) para: %s"
 
-#: hardware.cgi:170
+#: hardware.cgi:185
 msgid "Module:"
 msgstr "Módulo:"
 
-#: hardware.cgi:180 powersaving.cgi:153
+#: hardware.cgi:195 powersaving.cgi:153
 msgid "Module"
 msgstr "Módulo"
 
-#: hardware.cgi:184
+#: hardware.cgi:199
 msgid "by"
 msgstr "por"
 
-#: hardware.cgi:208
+#: hardware.cgi:223
 msgid "Information for USB Device %s"
 msgstr "Informação sobre o dispositivo USB %s"
 
-#: hardware.cgi:210 hardware.cgi:228
+#: hardware.cgi:225 hardware.cgi:243
 msgid "Detailed information about specified device."
 msgstr "Informação detalhada sobre um dispositivo específico."
 
-#: hardware.cgi:226
+#: hardware.cgi:241
 msgid "Information for PCI Device %s"
 msgstr "Informação sobre o dispositivo PCI %s"
 
-#: hardware.cgi:247
+#: hardware.cgi:262
 msgid "Drivers &amp; Devices"
 msgstr "Drivers &amp; dispositivos"
 
-#: hardware.cgi:249
+#: hardware.cgi:264
 msgid "Manage your computer hardware"
 msgstr "Gerencie o hardware de seu computador"
 
-#: hardware.cgi:253 styles/default/header.html:95
+#: hardware.cgi:268 styles/default/header.html:95
 msgid "Detect PCI/USB"
 msgstr "Detectar PCI/USB"
 
-#: hardware.cgi:254
+#: hardware.cgi:269
 msgid "Auto-install Xorg video driver"
 msgstr "Auto instalar Xorg vídeo driver"
 
-#: hardware.cgi:264 hardware.cgi:281
+#: hardware.cgi:279 hardware.cgi:296
 msgid "Battery"
 msgstr "Bateria"
 
-#: hardware.cgi:284
+#: hardware.cgi:299
 msgid "health"
 msgstr "estado"
 
-#: hardware.cgi:293
+#: hardware.cgi:308
 msgid "Discharging %d%% - %s"
 msgstr "Descarregando %d%% - %s"
 
-#: hardware.cgi:297
+#: hardware.cgi:312
 msgid "Charging %d%% - %s"
 msgstr "Carregando %d%% - %s"
 
-#: hardware.cgi:299
+#: hardware.cgi:314
 msgid "Charged 100%%"
 msgstr "Completa 100%%"
 
-#: hardware.cgi:318
+#: hardware.cgi:333
 msgid "Temperature:"
 msgstr "Temperatura:"
 
-#: hardware.cgi:333
+#: hardware.cgi:348
 msgid "Brightness"
 msgstr "Brilho"
 
-#: hardware.cgi:353 index.cgi:851
+#: hardware.cgi:368 index.cgi:851
 msgid "Filesystem usage statistics"
 msgstr "Estatísticas de utilização do sistema de arquivos"
 
-#: hardware.cgi:476
+#: hardware.cgi:491
 msgid "new mount point:"
 msgstr "novo ponto de montagem:"
 
-#: hardware.cgi:477
+#: hardware.cgi:492
 msgid "read-only"
 msgstr "apenas leitura"
 
-#: hardware.cgi:492
+#: hardware.cgi:507
 msgid "Filesystems table"
 msgstr "Tabela do sistema de arquivos"
 
-#: hardware.cgi:501
+#: hardware.cgi:516
 msgid "Options"
 msgstr "Opções"
 
-#: hardware.cgi:502
+#: hardware.cgi:517
 msgid "Freq"
 msgstr "Freq"
 
-#: hardware.cgi:503
+#: hardware.cgi:518
 msgid "Pass"
 msgstr "Senha"
 
-#: hardware.cgi:525
+#: hardware.cgi:540
 msgid "Loop devices"
 msgstr "Dispositivos em loop"
 
-#: hardware.cgi:533
+#: hardware.cgi:548
 msgid "Backing file"
 msgstr "Arquivo de backup"
 
-#: hardware.cgi:535
+#: hardware.cgi:550
 msgid "Access"
 msgstr "Acesso"
 
-#: hardware.cgi:536
+#: hardware.cgi:551
 msgid "Offset"
 msgstr "Deslocamento"
 
-#: hardware.cgi:545
+#: hardware.cgi:560
 msgid "read/write"
 msgstr "leitura/gravação"
 
-#: hardware.cgi:546 hardware.cgi:571
+#: hardware.cgi:561 hardware.cgi:586
 msgid "read only"
 msgstr "apenas leitura"
 
-#: hardware.cgi:568
+#: hardware.cgi:583
 msgid "Setup"
 msgstr "Configurar"
 
-#: hardware.cgi:569
+#: hardware.cgi:584
 msgid "new backing file:"
 msgstr "novo arquivo de backup:"
 
-#: hardware.cgi:570
+#: hardware.cgi:585
 msgid "offset in bytes:"
 msgstr "deslocamento em bytes:"
 
-#: hardware.cgi:588
+#: hardware.cgi:603
 msgid "System memory"
 msgstr "Memória do sistema"
 
-#: hardware.cgi:594
+#: hardware.cgi:609
 msgid "Buffers"
 msgstr "Buffers"
 
-#: hardware.cgi:597
+#: hardware.cgi:612
 msgid "Free"
 msgstr "Livre"
 
@@ -1169,151 +1169,151 @@ msgstr "Instalar"
 msgid "System settings"
 msgstr "Configurações do sistema"
 
-#: settings.cgi:101 settings.cgi:646 settings.cgi:673 settings.cgi:678
+#: settings.cgi:103 settings.cgi:659 settings.cgi:686 settings.cgi:691
 msgid "Set date"
 msgstr "Configurar data"
 
-#: settings.cgi:233 settings.cgi:620
+#: settings.cgi:246 settings.cgi:633
 msgid "Manage groups"
 msgstr "Gerenciar grupos"
 
-#: settings.cgi:241 settings.cgi:318
+#: settings.cgi:254 settings.cgi:331
 msgid "Selection:"
 msgstr "Seleção:"
 
-#: settings.cgi:242
+#: settings.cgi:255
 msgid "Delete group"
 msgstr "Deletar grupo"
 
-#: settings.cgi:249
+#: settings.cgi:262
 msgid "Group"
 msgstr "Grupo"
 
-#: settings.cgi:250
+#: settings.cgi:263
 msgid "Group ID"
 msgstr "ID do Grupo"
 
-#: settings.cgi:251
+#: settings.cgi:264
 msgid "Members"
 msgstr "Membros"
 
-#: settings.cgi:278
+#: settings.cgi:291
 msgid "Add a new group"
 msgstr "Adicionar um novo grupo"
 
-#: settings.cgi:281 settings.cgi:293
+#: settings.cgi:294 settings.cgi:306
 msgid "Group name:"
 msgstr "Nome do grupo:"
 
-#: settings.cgi:282
+#: settings.cgi:295
 msgid "Create group"
 msgstr "Criar grupo"
 
-#: settings.cgi:289
+#: settings.cgi:302
 msgid "Manage group membership"
 msgstr "Gerenciar membros do grupo"
 
-#: settings.cgi:294 settings.cgi:379
+#: settings.cgi:307 settings.cgi:392
 msgid "User login:"
 msgstr "Login do usuário:"
 
-#: settings.cgi:297
+#: settings.cgi:310
 msgid "Add user"
 msgstr "Adicionar usuário"
 
-#: settings.cgi:298
+#: settings.cgi:311
 msgid "Remove user"
 msgstr "Remover usuário"
 
-#: settings.cgi:311 settings.cgi:619
+#: settings.cgi:324 settings.cgi:632
 msgid "Manage users"
 msgstr "Gerenciar usuários"
 
-#: settings.cgi:319
+#: settings.cgi:332
 msgid "Delete user"
 msgstr "Deletar usuário"
 
-#: settings.cgi:320
+#: settings.cgi:333
 msgid "Lock user"
 msgstr "Bloquear usuário"
 
-#: settings.cgi:321
+#: settings.cgi:334
 msgid "Unlock user"
 msgstr "Desbloquear usuário"
 
-#: settings.cgi:327
+#: settings.cgi:340
 msgid "Login"
 msgstr "Login"
 
-#: settings.cgi:328
+#: settings.cgi:341
 msgid "User ID"
 msgstr "ID de usuário"
 
-#: settings.cgi:329
+#: settings.cgi:342
 msgid "User Name"
 msgstr "Nome de usuário"
 
-#: settings.cgi:330
+#: settings.cgi:343
 msgid "Home"
 msgstr "Diretório Home"
 
-#: settings.cgi:331
+#: settings.cgi:344
 msgid "Shell"
 msgstr "Shell"
 
-#: settings.cgi:365
+#: settings.cgi:378
 msgid "Password:"
 msgstr "Senha:"
 
-#: settings.cgi:366
+#: settings.cgi:379
 msgid "New password"
 msgstr "Nova senha"
 
-#: settings.cgi:367
+#: settings.cgi:380
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: settings.cgi:374
+#: settings.cgi:387
 msgid "Add a new user"
 msgstr "Adicionar um novo usuário"
 
-#: settings.cgi:381
+#: settings.cgi:394
 msgid "User name:"
 msgstr "Nome de usuário:"
 
-#: settings.cgi:383
+#: settings.cgi:396
 msgid "User password:"
 msgstr "Senha do usuário:"
 
-#: settings.cgi:388
+#: settings.cgi:401
 msgid "Create user"
 msgstr "Criar usuário"
 
-#: settings.cgi:398
+#: settings.cgi:411
 msgid "Current user sessions"
 msgstr "Sessões do usuário atual"
 
-#: settings.cgi:408
+#: settings.cgi:421
 msgid "Last user sessions"
 msgstr "Sessões do último usuário"
 
-#: settings.cgi:420
+#: settings.cgi:433
 msgid "Choose locale"
 msgstr "Escolher locale"
 
-#: settings.cgi:423
+#: settings.cgi:436
 msgid "Please wait..."
 msgstr "Favor aguardar..."
 
-#: settings.cgi:428
+#: settings.cgi:441
 msgid "Current locale settings:"
 msgstr "Configuração atual de locale:"
 
-#: settings.cgi:435
+#: settings.cgi:448
 msgid "Locales that are currently installed on the machine:"
 msgstr "Locales instalados na máquina:"
 
-#: settings.cgi:445
+#: settings.cgi:458
 msgid ""
 "Can't see your language?<br/>You can <a href='pkgs.cgi?do=Install&amp;glibc-"
 "locale'>install glibc-locale</a> to see a larger list of available locales."
@@ -1322,156 +1322,156 @@ msgstr ""
 "do=Install&glibc-locale'>glibc-locale</a> para obter uma listagem maior de "
 "idiomas."
 
-#: settings.cgi:452
+#: settings.cgi:465
 msgid "Available locales:"
 msgstr "Idiomas disponíveis:"
 
-#: settings.cgi:456
+#: settings.cgi:469
 msgid "Code"
 msgstr "Código"
 
-#: settings.cgi:457
+#: settings.cgi:470
 msgid "Language"
 msgstr "Linguagem"
 
-#: settings.cgi:458
+#: settings.cgi:471
 msgid "Territory"
 msgstr "Território"
 
-#: settings.cgi:475 settings.cgi:476
+#: settings.cgi:488 settings.cgi:489
 msgid "-d"
 msgstr "-d"
 
-#: settings.cgi:487 settings.cgi:790 settings.cgi:802 settings.cgi:814
+#: settings.cgi:500 settings.cgi:803 settings.cgi:815 settings.cgi:827
 msgid "Activate"
 msgstr "Ativar"
 
-#: settings.cgi:500 settings.cgi:522
+#: settings.cgi:513 settings.cgi:535
 msgid "Small quick tweaks for user %s"
 msgstr "Pequeno ajuste do usuário %s"
 
-#: settings.cgi:525
+#: settings.cgi:538
 msgid "Terminal prompt"
 msgstr "Terminal"
 
-#: settings.cgi:531
+#: settings.cgi:544
 msgid "Monochrome"
 msgstr "Monocromático"
 
-#: settings.cgi:540
+#: settings.cgi:553
 msgid "Colored"
 msgstr "Colorido"
 
-#: settings.cgi:549 settings.cgi:597
+#: settings.cgi:562 settings.cgi:610
 msgid "Manual edit: %s"
 msgstr "Edição manual: %s"
 
-#: settings.cgi:550
+#: settings.cgi:563
 msgid ""
-"To take effect: log out and log in to system or execute command in the "
+"To take effect: log out and log in to system or execute a command in the "
 "terminal:"
 msgstr ""
 "Para registrar: sair e entrar na sua sessão ou executar o comando no "
 "terminal:"
 
-#: settings.cgi:558
+#: settings.cgi:571
 msgid "Menu button appearance"
 msgstr "Aparência do botão menu"
 
-#: settings.cgi:563
+#: settings.cgi:576
 msgid "Icon:"
 msgstr "Ícone:"
 
-#: settings.cgi:566 settings.cgi:587
+#: settings.cgi:579 settings.cgi:600
 msgid "Do not show"
 msgstr "Não mostrar"
 
-#: settings.cgi:584
+#: settings.cgi:597
 msgid "Text:"
 msgstr "Texto:"
 
-#: settings.cgi:591
+#: settings.cgi:604
 msgid "Show text"
 msgstr "Mostrar texto"
 
-#: settings.cgi:614
+#: settings.cgi:627
 msgid "Manage system time, users or language settings"
 msgstr "Gerencie configurações do tempo do sistema, usuários e linguagem"
 
-#: settings.cgi:624
+#: settings.cgi:637
 msgid "System time"
 msgstr "Tempo do sistema"
 
-#: settings.cgi:627
+#: settings.cgi:640
 msgid "Time zone:"
 msgstr "Zona horária:"
 
-#: settings.cgi:636
+#: settings.cgi:649
 msgid "System time:"
 msgstr "Tempo do sistema:"
 
-#: settings.cgi:638
+#: settings.cgi:651
 msgid "Sync online"
 msgstr "Sincronização online"
 
-#: settings.cgi:641
+#: settings.cgi:654
 msgid "Hardware clock:"
 msgstr "Relógio de hardware:"
 
-#: settings.cgi:643
+#: settings.cgi:656
 msgid "Set hardware clock"
 msgstr "Configurar relógio do hardware"
 
-#: settings.cgi:729
+#: settings.cgi:742
 msgid "System language"
 msgstr "Linguagem do sistema"
 
-#: settings.cgi:742
+#: settings.cgi:755
 msgid ""
 "You must logout and login again to your current session to use %s locale."
 msgstr "Você deve sair e fazer login novamente para usar o novo locale %s."
 
-#: settings.cgi:745
+#: settings.cgi:758
 msgid "Current system locale:"
 msgstr "Locale da sessão atual:"
 
-#: settings.cgi:757
+#: settings.cgi:770
 msgid "Keyboard layout"
 msgstr "Mapa do teclado"
 
-#: settings.cgi:771
+#: settings.cgi:784
 msgid "Current console keymap: %s"
 msgstr "Mapa de teclado do console atual: %s"
 
-#: settings.cgi:789
+#: settings.cgi:802
 msgid "Suggested keymap for Xorg:"
 msgstr "Mapa de teclado sugerido para o Xorg:"
 
-#: settings.cgi:798
+#: settings.cgi:811
 msgid "Available keymaps:"
 msgstr "Mapa de teclado disponíveis:"
 
-#: settings.cgi:809
+#: settings.cgi:822
 msgid "Panel configuration"
 msgstr "Configuração do Painel"
 
-#: settings.cgi:812
+#: settings.cgi:825
 msgid "Style:"
 msgstr "Estilo:"
 
-#: settings.cgi:818
+#: settings.cgi:831
 msgid "Configuration files:"
 msgstr "Arquivos de configuração:"
 
-#: settings.cgi:819 styles/default/header.html:45
+#: settings.cgi:832 styles/default/header.html:45
 msgid "Panel"
 msgstr "Painel"
 
-#: settings.cgi:820
+#: settings.cgi:833
 msgid "Server"
 msgstr "Servidor"
 
-#: settings.cgi:823
+#: settings.cgi:836
 msgid "TazPanel provides a debugging mode and page:"
 msgstr "O TazPanel oferece um modo de debug e uma página dedicada:"
 
