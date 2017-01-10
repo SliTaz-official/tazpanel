@@ -1,0 +1,1699 @@
+# Japanese translations for the tazpanel package.
+# Copyright (C) 2017 SliTaz
+# This file is distributed under the same license as the tazpanel package.
+# BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <balloonakafusen AT gmail DOT com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: TazPanel 522\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-02 18:56+0900\n"
+"PO-Revision-Date: 2017-01-10 17:18+0900\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <balloonakafusen　"
+"AT gmail DOT com>\n"
+"Language: ja_JP\n"
+
+#: lib/libtazpanel:154 network.cgi:455
+msgid "Scan"
+msgstr "検索"
+
+#: lib/libtazpanel:157
+msgid "connected"
+msgstr "接続済み"
+
+#: lib/libtazpanel:171 network.cgi:254
+msgid "Interface"
+msgstr "インターフェイス"
+
+#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
+#: network.cgi:345 hosts.cgi:243
+msgid "Name"
+msgstr "名前"
+
+#: lib/libtazpanel:173 boot.cgi:145 network.cgi:349
+msgid "Status"
+msgstr "状態"
+
+#: lib/libtazpanel:174
+msgid "IP Address"
+msgstr "IP アドレス"
+
+#: lib/libtazpanel:175
+msgid "Scan ports"
+msgstr "ポートを検索"
+
+#: lib/libtazpanel:250
+msgid "Please wait"
+msgstr "お待ち下さい"
+
+#: lib/libtazpanel:319 hardware.cgi:513
+msgid "Disk"
+msgstr "ディスク"
+
+#: lib/libtazpanel:320
+msgid "Label"
+msgstr "ラベル"
+
+#: lib/libtazpanel:321 hardware.cgi:515
+msgid "Type"
+msgstr "種類"
+
+#: lib/libtazpanel:322 hardware.cgi:197 hardware.cgi:549
+msgid "Size"
+msgstr "サイズ"
+
+#: lib/libtazpanel:323
+msgid "Available"
+msgstr "利用可能"
+
+#: lib/libtazpanel:324 hardware.cgi:198 hardware.cgi:606
+msgid "Used"
+msgstr "使用"
+
+#: lib/libtazpanel:325 hardware.cgi:514
+msgid "Mount point"
+msgstr "マウントポイント"
+
+#: lib/libtazpanel:372 index.cgi:315
+msgid "Back"
+msgstr "戻る"
+
+#: lib/libtazpanel:382 index.cgi:242 settings.cgi:804
+msgid "Edit"
+msgstr "編集"
+
+#: lib/libtazpanel:396
+msgid "You must be root to show this page."
+msgstr "このページを表示するには root でなければなりません。"
+
+#: lib/libtazpanel:419 lib/libtazpanel:429
+msgid "Browse"
+msgstr "参照"
+
+#: boot.cgi:16 floppy.cgi:11 styles/default/header.html:65
+msgid "Boot"
+msgstr "起動"
+
+#: boot.cgi:27
+msgid "Show more..."
+msgstr "つづきを表示..."
+
+#: boot.cgi:40 boot.cgi:45 boot.cgi:487 styles/default/header.html:83
+msgid "System logs"
+msgstr "システムログ"
+
+#: boot.cgi:90
+msgid "Boot log files"
+msgstr "起動ログファイル"
+
+#: boot.cgi:93 index.cgi:723 styles/default/header.html:77
+msgid "Kernel messages"
+msgstr "カーネルメッセージ"
+
+#: boot.cgi:94 index.cgi:726 styles/default/header.html:78
+msgid "Boot scripts"
+msgstr "起動スクリプト"
+
+#: boot.cgi:95 styles/default/header.html:79
+msgid "X server"
+msgstr "X サーバー"
+
+#: boot.cgi:96 styles/default/header.html:80
+msgid "X session"
+msgstr "X セッション"
+
+#: boot.cgi:115 boot.cgi:488 styles/default/header.html:84
+msgid "Manage daemons"
+msgstr "デーモンの管理"
+
+#: boot.cgi:118
+msgid "Check, start and stop daemons on SliTaz"
+msgstr "SliTaz デーモンの確認、起動、停止"
+
+#: boot.cgi:143 hardware.cgi:196 settings.cgi:472 powersaving.cgi:154
+msgid "Description"
+msgstr "説明"
+
+#: boot.cgi:144 network.cgi:248
+msgid "Configuration"
+msgstr "設定"
+
+#: boot.cgi:146
+msgid "Action"
+msgstr "動作"
+
+#: boot.cgi:147
+msgid "PID"
+msgstr "PID"
+
+#: boot.cgi:172
+msgid "SliTaz Firewall with iptables rules"
+msgstr "iptables ルールによる SliTaz ファイヤウォール"
+
+#: boot.cgi:174
+msgid "Small and fast web server with CGI support"
+msgstr "CGI に対応する小型で高速な Web サーバー"
+
+#: boot.cgi:177
+msgid "Network time protocol daemon"
+msgstr "ネットワークタイムプロトコルデーモン"
+
+#: boot.cgi:180
+msgid "Anonymous FTP server"
+msgstr "Anonymous FTP サーバ"
+
+#: boot.cgi:183
+msgid "Busybox DHCP server"
+msgstr "Busybox DHCP サーバ"
+
+#: boot.cgi:186
+msgid "Linux Kernel log daemon"
+msgstr "Linux カーネルログデーモン"
+
+#: boot.cgi:189
+msgid "Execute scheduled commands"
+msgstr "スケジュールされたコマンドを実行"
+
+#: boot.cgi:192
+msgid "Small static DNS server daemon"
+msgstr "小さな静的 DNS サーバーデーモン"
+
+#: boot.cgi:195
+msgid "Transfer a file on tftp request"
+msgstr "tftp 要求時のファイル転送"
+
+#: boot.cgi:198
+msgid "Printer daemon"
+msgstr "印刷デーモン"
+
+#: boot.cgi:200
+msgid "Listen for network connections and launch programs"
+msgstr "ネットワーク接続とプログラム起動"
+
+#: boot.cgi:203
+msgid "Manage a ZeroConf IPv4 link-local address"
+msgstr "ZeroConf IPv4 リンクローカルアドレス管理"
+
+#: boot.cgi:272
+msgid "Started"
+msgstr "再生中"
+
+#: boot.cgi:273 network.cgi:297 network.cgi:454 network.cgi:647
+msgid "Stop"
+msgstr "停止"
+
+#: boot.cgi:283
+msgid "Stopped"
+msgstr "停止中"
+
+#: boot.cgi:284 network.cgi:296 network.cgi:453 network.cgi:646
+msgid "Start"
+msgstr "再生"
+
+#: boot.cgi:309
+msgid "GRUB Boot loader"
+msgstr "GRUB ブートローダー"
+
+#: boot.cgi:311
+msgid "The first application started when the computer powers on"
+msgstr "最初のアプリケーションは、コンピュータの電源投入時に開始されます"
+
+#: boot.cgi:318
+msgid "Default entry:"
+msgstr "デフォルト項目："
+
+#: boot.cgi:320
+msgid "Timeout:"
+msgstr "タイムアウト:"
+
+#: boot.cgi:322
+msgid "Splash image:"
+msgstr "スプラッシュ画像:"
+
+#: boot.cgi:327 network.cgi:669 network.cgi:700 settings.cgi:646
+#: settings.cgi:760 powersaving.cgi:108
+msgid "Change"
+msgstr "変更"
+
+#: boot.cgi:334
+msgid "View or edit menu.lst"
+msgstr "menu.lst の表示・編集"
+
+#: boot.cgi:339
+msgid "Boot entries"
+msgstr "起動項目"
+
+#: boot.cgi:346
+msgid "Entry"
+msgstr "項目"
+
+#: boot.cgi:368
+msgid "Web boot is available with %s"
+msgstr "Web 起動は %s で利用可能です"
+
+#: boot.cgi:386 boot.cgi:491 styles/default/header.html:86
+msgid "ISO mine"
+msgstr "ISO mine"
+
+#: boot.cgi:388
+msgid "Invalid ISO image."
+msgstr "ISO イメージが無効です。"
+
+#: boot.cgi:408 floppy.cgi:288
+msgid "ISO image file full path"
+msgstr "ISO イメージファイルフルパス"
+
+#: boot.cgi:409 floppy.cgi:289
+msgid "set /dev/cdrom for a physical CD-ROM"
+msgstr "物理 CD-ROM は /dev/cdrom を設定して下さい"
+
+#: boot.cgi:412
+msgid "Working directory"
+msgstr "作業ディレクトリ"
+
+#: boot.cgi:415
+msgid "Target partition"
+msgstr "対象のパーティション"
+
+#: boot.cgi:416
+msgid ""
+"For hard disk installation only. Will create /slitaz tree and keep other "
+"files. No partitioning and no formatting."
+msgstr ""
+"ハードディスクのインストールのみ有効です。 /slitaz ツリーを作成し、他のファ"
+"イルを保存します。 パーティション分割とフォーマットは行いません。"
+
+#: boot.cgi:419
+msgid "Choose a partition (optional)"
+msgstr "パーティションを選択して下さい (オプション)"
+
+#: boot.cgi:430
+msgid "USB key device"
+msgstr "USB キーデバイス"
+
+#: boot.cgi:431
+msgid "For USB boot key only. Will erase the full device."
+msgstr "USB 起動キーの場合のみ有効です。 完全なデバイスを消去します。"
+
+#: boot.cgi:434
+msgid "Choose a USB key (optional)"
+msgstr "USB キーを選択して下さい (オプション)"
+
+#: boot.cgi:455
+msgid "Choose an action"
+msgstr "動作を選択して下さい"
+
+#: boot.cgi:468
+msgid "Mine"
+msgstr "Mine"
+
+#: boot.cgi:481
+msgid "Boot &amp; Start services"
+msgstr "起動 &amp; サービスの開始"
+
+#: boot.cgi:483
+msgid "Everything that happens before user login"
+msgstr "ユーザーログインの前にすべて発生します"
+
+#: boot.cgi:486 styles/default/header.html:75
+msgid "Boot logs"
+msgstr "起動ログ"
+
+#: boot.cgi:494 styles/default/header.html:71
+msgid "Boot loader"
+msgstr "ブートローダー"
+
+#: boot.cgi:501
+msgid "Configuration files"
+msgstr "設定ファイル"
+
+#: boot.cgi:504
+msgid "Main configuration file:"
+msgstr "メイン設定ファイル:"
+
+#: boot.cgi:505 boot.cgi:507 index.cgi:791 index.cgi:887
+msgid "View"
+msgstr "表示"
+
+#: boot.cgi:506
+msgid "Login manager settings:"
+msgstr "ログインマネージャー設定:"
+
+#: boot.cgi:514
+msgid "Kernel cmdline"
+msgstr "カーネルコマンドライン"
+
+#: boot.cgi:521
+msgid "Local startup commands"
+msgstr "ローカル起動コマンド"
+
+#: hardware.cgi:13 powersaving.cgi:22 styles/default/header.html:91
+msgid "Hardware"
+msgstr "ハードウェア"
+
+#: hardware.cgi:54
+msgid "Bus"
+msgstr "Bus"
+
+#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:547
+msgid "Device"
+msgstr "デバイス"
+
+#: hardware.cgi:56
+msgid "ID"
+msgstr "ID"
+
+#: hardware.cgi:76
+msgid "Slot"
+msgstr "スロット"
+
+#: hardware.cgi:127
+msgid "Detect hardware"
+msgstr "ハードウェアの検出"
+
+#: hardware.cgi:129
+msgid "Detect PCI and USB hardware"
+msgstr "PCI・USB ハードウェアの検出"
+
+#: hardware.cgi:137 hardware.cgi:267 powersaving.cgi:150
+#: styles/default/header.html:94
+msgid "Kernel modules"
+msgstr "カーネルモジュール"
+
+#: hardware.cgi:141
+msgid "Manage, search or get information about the Linux kernel modules"
+msgstr "Linux カーネルモジュールの管理、検索、情報の取得"
+
+#: hardware.cgi:145
+msgid "Modules search"
+msgstr "モジュール検索"
+
+#: hardware.cgi:146
+msgid "Search"
+msgstr "検索"
+
+#: hardware.cgi:154
+msgid "Detailed information for module: %s"
+msgstr "モジュールの詳細情報：%s"
+
+#: hardware.cgi:178
+msgid "Matching result(s) for: %s"
+msgstr "一致した結果: %s"
+
+#: hardware.cgi:185
+msgid "Module:"
+msgstr "モジュール:"
+
+#: hardware.cgi:195 powersaving.cgi:153
+msgid "Module"
+msgstr "モジュール"
+
+#: hardware.cgi:199
+msgid "by"
+msgstr "by"
+
+#: hardware.cgi:223
+msgid "Information for USB Device %s"
+msgstr "USB デバイス %s の情報"
+
+#: hardware.cgi:225 hardware.cgi:243
+msgid "Detailed information about specified device."
+msgstr "指定デバイスの詳細情報。"
+
+#: hardware.cgi:241
+msgid "Information for PCI Device %s"
+msgstr "PCI デバイス %s の情報"
+
+#: hardware.cgi:262
+msgid "Drivers &amp; Devices"
+msgstr "ドライバー &amp; デバイス"
+
+#: hardware.cgi:264
+msgid "Manage your computer hardware"
+msgstr "コンピュータハードウェアの管理"
+
+#: hardware.cgi:268 styles/default/header.html:95
+msgid "Detect PCI/USB"
+msgstr "PCI/USB の検出"
+
+#: hardware.cgi:269
+msgid "Auto-install Xorg video driver"
+msgstr "Xorg ビデオドライバーの自動インストール"
+
+#: hardware.cgi:279 hardware.cgi:296
+msgid "Battery"
+msgstr "バッテリー"
+
+#: hardware.cgi:299
+msgid "health"
+msgstr "ヘルス"
+
+#: hardware.cgi:308
+msgid "Discharging %d%% - %s"
+msgstr "放電中 %d%% - %s"
+
+#: hardware.cgi:312
+msgid "Charging %d%% - %s"
+msgstr "充電中 %d%% - %s"
+
+#: hardware.cgi:314
+msgid "Charged 100%%"
+msgstr "充電完了100%%"
+
+#: hardware.cgi:333
+msgid "Temperature:"
+msgstr "温度:"
+
+#: hardware.cgi:348
+msgid "Brightness"
+msgstr "輝度"
+
+#: hardware.cgi:368 index.cgi:851
+msgid "Filesystem usage statistics"
+msgstr "ファイルシステムの使用状況"
+
+#: hardware.cgi:491
+msgid "new mount point:"
+msgstr "新しいマウントポイント:"
+
+#: hardware.cgi:492
+msgid "read-only"
+msgstr "読み込み専用"
+
+#: hardware.cgi:507
+msgid "Filesystems table"
+msgstr "ファイルシステムテーブル"
+
+#: hardware.cgi:516
+msgid "Options"
+msgstr "オプション"
+
+#: hardware.cgi:517
+msgid "Freq"
+msgstr "Freq"
+
+#: hardware.cgi:518
+msgid "Pass"
+msgstr "Pass"
+
+#: hardware.cgi:540
+msgid "Loop devices"
+msgstr "ループデバイス"
+
+#: hardware.cgi:548
+msgid "Backing file"
+msgstr "ファイルを戻し中"
+
+#: hardware.cgi:550
+msgid "Access"
+msgstr "アクセス"
+
+#: hardware.cgi:551
+msgid "Offset"
+msgstr "オフセット"
+
+#: hardware.cgi:560
+msgid "read/write"
+msgstr "読み書き"
+
+#: hardware.cgi:561 hardware.cgi:586
+msgid "read only"
+msgstr "読込のみ"
+
+#: hardware.cgi:583
+msgid "Setup"
+msgstr "設定"
+
+#: hardware.cgi:584
+msgid "new backing file:"
+msgstr "新しい戻しファイル:"
+
+#: hardware.cgi:585
+msgid "offset in bytes:"
+msgstr "オフセット (バイト):"
+
+#: hardware.cgi:603
+msgid "System memory"
+msgstr "システムメモリ"
+
+#: hardware.cgi:609
+msgid "Buffers"
+msgstr "バッファ"
+
+#: hardware.cgi:612
+msgid "Free"
+msgstr "フリー"
+
+#: help.cgi:20
+msgid "Manual"
+msgstr "マニュアル"
+
+#: help.cgi:28
+msgid "Help &amp; Doc"
+msgstr "ヘルプ &amp; 文章"
+
+#: index.cgi:37 index.cgi:186
+msgid "Differences"
+msgstr "相違点"
+
+#: index.cgi:77
+msgid "Choose directory"
+msgstr "ディレクトリを選択"
+
+#: index.cgi:81
+msgid "Choose file"
+msgstr "ファイルを選択"
+
+#: index.cgi:142
+msgid "exec"
+msgstr "実行"
+
+#: index.cgi:175
+msgid "File"
+msgstr "ファイル"
+
+#: index.cgi:185 index.cgi:205 index.cgi:244
+msgid "Save"
+msgstr "保存"
+
+#: index.cgi:293 index.cgi:447 index.cgi:470 index.cgi:813
+#: styles/default/header.html:49
+msgid "Terminal"
+msgstr "ターミナル"
+
+#: index.cgi:314 index.cgi:399
+msgid "History"
+msgstr "履歴"
+
+#: index.cgi:322
+msgid "run"
+msgstr "実行"
+
+#: index.cgi:338
+msgid "Clear"
+msgstr "クリア"
+
+#: index.cgi:362
+msgid "Small non-interactive terminal emulator."
+msgstr "小さな非対話型端末エミュレータです。"
+
+#: index.cgi:363
+msgid "Run any command at your own risk, avoid interactive commands (%s)"
+msgstr "自己責任で任意のコマンドを実行して下さい。対話型コマンド (％s)"
+
+#: index.cgi:368
+msgid "Downloading to: %s"
+msgstr "ダウンロード中 先: %s"
+
+#: index.cgi:377
+msgid "%s needs an argument"
+msgstr "%s には引数が必要です"
+
+#: index.cgi:380
+msgid "Please, don't run interactive command \"%s\""
+msgstr "対話型コマンド \"%s\" を実行しないで下さい"
+
+#: index.cgi:398 styles/default/header.html:101
+msgid "Settings"
+msgstr "設定"
+
+#: index.cgi:468
+msgid "Terminal settings"
+msgstr "ターミナル設定"
+
+#: index.cgi:489
+msgid "Font:"
+msgstr "フォント:"
+
+#: index.cgi:491
+msgid "Default"
+msgstr "デフォルトを使用"
+
+#: index.cgi:497
+msgid "Palette:"
+msgstr "パレット:"
+
+#: index.cgi:503
+msgid "Apply"
+msgstr "適用"
+
+#: index.cgi:513 index.cgi:814
+msgid "Process activity"
+msgstr "プロセス活動"
+
+#: index.cgi:518
+msgid "Refresh:"
+msgstr "再読み込み:"
+
+#: index.cgi:521
+msgid "1s"
+msgstr "1 秒"
+
+#: index.cgi:523
+msgid "5s"
+msgstr "5 秒"
+
+#: index.cgi:525
+msgid "10s"
+msgstr "10 秒"
+
+#: index.cgi:527 floppy.cgi:110
+msgid "none"
+msgstr "なし"
+
+#: index.cgi:549
+msgid "Kill"
+msgstr "終了"
+
+#: index.cgi:553
+msgid "Start time:"
+msgstr "開始時間:"
+
+#: index.cgi:556
+msgid "Renice"
+msgstr "Renice"
+
+#: index.cgi:569
+msgid "I/O class"
+msgstr "I/O クラス"
+
+#: index.cgi:607
+msgid "Debug"
+msgstr "デバック"
+
+#: index.cgi:610
+msgid "HTTP Environment"
+msgstr "HTTP 環境"
+
+#: index.cgi:622
+msgid "System report"
+msgstr "システム報告"
+
+#: index.cgi:629
+msgid "Reporting to: %s"
+msgstr "レポート中: %s"
+
+#: index.cgi:632
+msgid "Creating report header..."
+msgstr "レポートヘッダーを生成中..."
+
+#: index.cgi:639 index.cgi:656
+msgid "SliTaz system report"
+msgstr "SliTaz システムレポート"
+
+#: index.cgi:653
+msgid "Creating system summary..."
+msgstr "システム結果の生成中..."
+
+#: index.cgi:657
+msgid "Date:"
+msgstr "日付:"
+
+#: index.cgi:668
+msgid "Getting hardware info..."
+msgstr "ハードウェア情報の取得中..."
+
+#: index.cgi:686
+msgid "Getting networking info..."
+msgstr "ネットワーク情報の取得中..."
+
+#: index.cgi:700
+msgid "Getting filesystems info..."
+msgstr "ファイルシステム情報の取得中..."
+
+#: index.cgi:720
+msgid "Getting boot logs..."
+msgstr "起動ログの取得中..."
+
+#: index.cgi:731
+msgid "Getting package list..."
+msgstr "パッケージ一覧の取得中..."
+
+#: index.cgi:734
+msgid "Packages"
+msgstr "パッケージ"
+
+#: index.cgi:772
+msgid "Getting extra reports..."
+msgstr "追加レポートの取得中..."
+
+#: index.cgi:780
+msgid "Creating report footer..."
+msgstr "レポートフッダーの生成中..."
+
+#: index.cgi:796
+msgid "This report can be attached with a bug report on:"
+msgstr "このレポートには、次のバグレポートを添付することができます:"
+
+#: index.cgi:806
+msgid "SliTaz administration and configuration Panel"
+msgstr "SliTaz 管理・設定パネル"
+
+#: index.cgi:815
+msgid "Create a report"
+msgstr "報告を作成"
+
+#: index.cgi:819 styles/default/header.html:47 styles/default/header.html:57
+#: styles/default/header.html:67 styles/default/header.html:93
+#: styles/default/header.html:103
+msgid "Summary"
+msgstr "内容"
+
+#: index.cgi:821 hosts.cgi:227
+msgid "Host:"
+msgstr "ホスト:"
+
+#: index.cgi:822
+msgid "Uptime:"
+msgstr "動作時間:"
+
+#: index.cgi:825
+msgid "Memory in Mb:"
+msgstr "メモリ (MB):"
+
+#: index.cgi:827
+msgid "Total: %d, Used: %d, Free: %d"
+msgstr "全体: %d, 使用: %d, 空き: %d"
+
+#: index.cgi:831 floppy.cgi:151
+msgid "Linux kernel:"
+msgstr "Linux カーネル:"
+
+#: index.cgi:840
+msgid "Network status"
+msgstr "ネットワークの状態"
+
+#: index.cgi:842 network.cgi:15 network.cgi:216 hosts.cgi:15
+#: styles/default/header.html:55
+msgid "Network"
+msgstr "ネットワーク"
+
+#: index.cgi:853 styles/default/header.html:96
+msgid "Disks"
+msgstr "ディスク"
+
+#: index.cgi:885
+msgid "Panel Activity"
+msgstr "パネルの動作"
+
+#: network.cgi:153
+msgid "Changed hostname: %s"
+msgstr "ホスト名を変更しました: %s"
+
+#: network.cgi:210
+msgid "Scanning open ports..."
+msgstr "開いてるポートの検索中..."
+
+#: network.cgi:215
+msgid "Port scanning for %s"
+msgstr "%s のポートを検索中"
+
+#: network.cgi:226
+msgid "Ethernet connection"
+msgstr "有線接続"
+
+#: network.cgi:244
+msgid ""
+"Here you can configure a wired connection using DHCP to automatically get a "
+"random IP or configure a static/fixed IP"
+msgstr ""
+"ここでは、DHCP を使用して有線接続を設定し、自動的にランダムな IP を取得した"
+"り、固定 IP を設定することができます"
+
+#: network.cgi:262
+msgid "Static IP"
+msgstr "固定 IP"
+
+#: network.cgi:264
+msgid "Use static IP"
+msgstr "固定 IP を使用"
+
+#: network.cgi:266
+msgid "IP address"
+msgstr "IP アドレス"
+
+#: network.cgi:269
+msgid "Netmask"
+msgstr "ネットマスク"
+
+#: network.cgi:272
+msgid "Gateway"
+msgstr "ゲートウェイ"
+
+#: network.cgi:275
+msgid "DNS server"
+msgstr "DNS サーバ"
+
+#: network.cgi:278 network.cgi:298
+msgid "Wake up"
+msgstr "復旧"
+
+#: network.cgi:280
+msgid "Wake up machines by network"
+msgstr "ネットワークを環境から復旧"
+
+#: network.cgi:282
+msgid "MAC address to wake up"
+msgstr "復旧時の MAC アドレス"
+
+#: network.cgi:283
+msgid "Leave empty for a general wakeup"
+msgstr "一般的な復旧のため空のままにします"
+
+#: network.cgi:284
+msgid "List"
+msgstr "一覧"
+
+#: network.cgi:287
+msgid "MAC/IP address password"
+msgstr "MAC・IP アドレスパスワード"
+
+#: network.cgi:288
+msgid "Optional"
+msgstr "オプション"
+
+#: network.cgi:289
+msgid "Help"
+msgstr "ヘルプ"
+
+#: network.cgi:322 network.cgi:609
+msgid "Configuration file"
+msgstr "設定ファイル"
+
+#: network.cgi:327
+msgid ""
+"These values are the ethernet settings in the main /etc/network.conf "
+"configuration file"
+msgstr "これらの値は、メイン /etc/network.conf 設定ファイルの有線設定です"
+
+#: network.cgi:339
+msgid "(hidden)"
+msgstr "(非表示)"
+
+#: network.cgi:346
+msgid "Signal level"
+msgstr "信号レベル"
+
+#: network.cgi:347
+msgid "Channel"
+msgstr "チャンネル"
+
+#: network.cgi:348
+msgid "Encryption"
+msgstr "暗号化"
+
+#: network.cgi:407 network.cgi:489 network.cgi:511
+msgid "None"
+msgstr "なし"
+
+#: network.cgi:413
+msgid "Connected"
+msgstr "接続済み"
+
+#: network.cgi:439
+msgid "Wireless connection"
+msgstr "無線接続"
+
+#: network.cgi:463
+msgid "Scanning wireless interface..."
+msgstr "無線インターフェイスのス検索中..."
+
+#: network.cgi:477
+msgid "Connection"
+msgstr "接続"
+
+#: network.cgi:483
+msgid "Network SSID"
+msgstr "ネットワーク SSID"
+
+#: network.cgi:487
+msgid "Security"
+msgstr "セキュリティ"
+
+#: network.cgi:498
+msgid "EAP method"
+msgstr "EAP メソッド"
+
+#: network.cgi:509
+msgid "Phase 2 authentication"
+msgstr "フェーズ 2 認証"
+
+#: network.cgi:521
+msgid "CA certificate"
+msgstr "CA 証明書"
+
+#: network.cgi:526
+msgid "User certificate"
+msgstr "ユーザー証明書"
+
+#: network.cgi:531
+msgid "Identity"
+msgstr "ID"
+
+#: network.cgi:536
+msgid "Anonymous identity"
+msgstr "匿名 ID"
+
+#: network.cgi:541
+msgid "Password"
+msgstr "パスワード"
+
+#: network.cgi:544
+msgid "Show password"
+msgstr "パスワードを表示"
+
+#: network.cgi:556 network.cgi:685
+msgid "Configure"
+msgstr "設定"
+
+#: network.cgi:557
+msgid "Share"
+msgstr "シェア"
+
+#: network.cgi:598
+msgid "Share Wi-Fi network with your friends"
+msgstr "お友達と Wi-Fi ネットワークを共有"
+
+#: network.cgi:614
+msgid ""
+"These values are the wifi settings in the main /etc/network.conf "
+"configuration file"
+msgstr "これらの値はメイン /etc/network.conf 設定ファイルの wifi 設定です"
+
+#: network.cgi:620
+msgid "Output of iwconfig"
+msgstr "iwconfig の出力"
+
+#: network.cgi:629
+msgid "Manage network connections and services"
+msgstr "ネットワーク接続・サービスの管理"
+
+#: network.cgi:648
+msgid "Restart"
+msgstr "再起動"
+
+#: network.cgi:652
+msgid "Configuration:"
+msgstr "設定:"
+
+#: network.cgi:660
+msgid "Network interfaces"
+msgstr "ネットワークインターフェイス"
+
+#: network.cgi:667
+msgid "forward packets between interfaces"
+msgstr "インタフェース間でパケットを転送する"
+
+#: network.cgi:677 hosts.cgi:203
+msgid "Hosts"
+msgstr "ホスト"
+
+#: network.cgi:679
+msgid "%d record in the hosts DB"
+msgid_plural "%d records in the hosts DB"
+msgstr[0] "ホストDBに %d 個のレコードがあります"
+
+#: network.cgi:686 hosts.cgi:16
+msgid "Use hosts file as Ad blocker"
+msgstr "hosts ファイルを広告ブロッカーとして使用"
+
+#: network.cgi:693
+msgid "Hostname"
+msgstr "ホスト名"
+
+#: network.cgi:712
+msgid "Output of ifconfig"
+msgstr "ifconfig の出力"
+
+#: network.cgi:718
+msgid "Routing table"
+msgstr "ルーティングテーブル"
+
+#: network.cgi:724
+msgid "Domain name resolution"
+msgstr "ドメイン名の解決"
+
+#: network.cgi:730
+msgid "ARP table"
+msgstr "ARP テーブル"
+
+#: network.cgi:750
+msgid "Proxy"
+msgstr "プロキシ"
+
+#: network.cgi:751 hosts.cgi:224 hosts.cgi:231
+msgid "Add"
+msgstr "追加"
+
+#: network.cgi:764
+msgid "IP Connections"
+msgstr "IP 接続"
+
+#: network.cgi:772
+msgid "Firewall"
+msgstr "ファイヤーウォール"
+
+#: network.cgi:773
+msgid "Port knocker"
+msgstr "ポートの検出"
+
+#: hosts.cgi:107
+msgid "Host \"%s\" added to /etc/hosts."
+msgstr "ホスト \"%s\" を /etc/hosts へ追加しました"
+
+#: hosts.cgi:120
+msgid "%d record disabled"
+msgid_plural "%d records disabled"
+msgstr[0] "%s レコードを無効にしました"
+
+#: hosts.cgi:130
+msgid "Installing the \"%s\"..."
+msgstr "\"%s\" をインストール中..."
+
+#: hosts.cgi:132 hosts.cgi:156 hosts.cgi:176
+msgid "Done"
+msgstr "完了"
+
+#: hosts.cgi:142
+msgid "Updating the \"%s\"..."
+msgstr "\"%s\" を更新中..."
+
+#: hosts.cgi:174
+msgid "Removing the \"%s\"..."
+msgstr "\"%s\" を削除中..."
+
+#: hosts.cgi:187
+msgid "%d record used for Ad blocking"
+msgid_plural "%d records used for Ad blocking"
+msgstr[0] "％d 個のレコードは広告ブロックに使用"
+
+#: hosts.cgi:193
+msgid "%d record found for \"%s\""
+msgid_plural "%d records found for \"%s\""
+msgstr[0] "%d レコード見つかりました \"%s\""
+
+#: hosts.cgi:197
+msgid " (The list is limited to the first 100 entries.)"
+msgstr "(一覧は最初から 100 項目に制限されています）"
+
+#: hosts.cgi:218
+msgid "Disable selected"
+msgstr "選択の無効"
+
+#: hosts.cgi:237
+msgid "Manage lists"
+msgstr "一覧の管理"
+
+#: hosts.cgi:238
+msgid ""
+"You can use one or more prepared hosts files to block advertisements, "
+"malware and other irritants."
+msgstr ""
+"いくつかの準備済み hosts ファイルを使用して、広告・マルウェアなどをブロック"
+"することができます。"
+
+#: hosts.cgi:244
+msgid "Details"
+msgstr "詳細"
+
+#: hosts.cgi:245
+msgid "Updates"
+msgstr "更新"
+
+#: hosts.cgi:246
+msgid "Actions"
+msgstr "動作"
+
+#: hosts.cgi:259
+msgid "info"
+msgstr "情報"
+
+#: hosts.cgi:261
+msgid "Updated monthly"
+msgstr "毎月更新"
+
+#: hosts.cgi:262
+msgid "Updated regularly"
+msgstr "定期更新"
+
+#: hosts.cgi:303
+msgid "Upgrade"
+msgstr "更新"
+
+#: hosts.cgi:308
+msgid "Remove"
+msgstr "削除"
+
+#: hosts.cgi:314
+msgid "Install"
+msgstr "インストール"
+
+#: settings.cgi:16
+msgid "System settings"
+msgstr "システム設定"
+
+#: settings.cgi:103 settings.cgi:659 settings.cgi:686 settings.cgi:691
+msgid "Set date"
+msgstr "日付の設定"
+
+#: settings.cgi:246 settings.cgi:633
+msgid "Manage groups"
+msgstr "グループの管理"
+
+#: settings.cgi:254 settings.cgi:331
+msgid "Selection:"
+msgstr "選択:"
+
+#: settings.cgi:255
+msgid "Delete group"
+msgstr "グループの削除"
+
+#: settings.cgi:262
+msgid "Group"
+msgstr "グループ"
+
+#: settings.cgi:263
+msgid "Group ID"
+msgstr "グループ ID"
+
+#: settings.cgi:264
+msgid "Members"
+msgstr "所属"
+
+#: settings.cgi:291
+msgid "Add a new group"
+msgstr "新しいグループの作成"
+
+#: settings.cgi:294 settings.cgi:306
+msgid "Group name:"
+msgstr "グループ名:"
+
+#: settings.cgi:295
+msgid "Create group"
+msgstr "グループの生成"
+
+#: settings.cgi:302
+msgid "Manage group membership"
+msgstr "グループ所属アカウントの管理"
+
+#: settings.cgi:307 settings.cgi:392
+msgid "User login:"
+msgstr "ユーザーログイン:"
+
+#: settings.cgi:310
+msgid "Add user"
+msgstr "ユーザーの追加"
+
+#: settings.cgi:311
+msgid "Remove user"
+msgstr "ユーザーの削除"
+
+#: settings.cgi:324 settings.cgi:632
+msgid "Manage users"
+msgstr "ユーザーの管理"
+
+#: settings.cgi:332
+msgid "Delete user"
+msgstr "ユーザーの削除"
+
+#: settings.cgi:333
+msgid "Lock user"
+msgstr "ユーザーをロック"
+
+#: settings.cgi:334
+msgid "Unlock user"
+msgstr "ユーザーのロックを解除"
+
+#: settings.cgi:340
+msgid "Login"
+msgstr "ログイン"
+
+#: settings.cgi:341
+msgid "User ID"
+msgstr "ユーザー ID"
+
+#: settings.cgi:342
+msgid "User Name"
+msgstr "ユーザー名"
+
+#: settings.cgi:343
+msgid "Home"
+msgstr "ホーム"
+
+#: settings.cgi:344
+msgid "Shell"
+msgstr "シェル"
+
+#: settings.cgi:378
+msgid "Password:"
+msgstr "パスワード:"
+
+#: settings.cgi:379
+msgid "New password"
+msgstr "新しいパスワード"
+
+#: settings.cgi:380
+msgid "Change password"
+msgstr "パスワードの変更"
+
+#: settings.cgi:387
+msgid "Add a new user"
+msgstr "新しいユーザーの追加"
+
+#: settings.cgi:394
+msgid "User name:"
+msgstr "ユーザー名:"
+
+#: settings.cgi:396
+msgid "User password:"
+msgstr "ユーザーパスワード:"
+
+#: settings.cgi:401
+msgid "Create user"
+msgstr "ユーザーの生成"
+
+#: settings.cgi:411
+msgid "Current user sessions"
+msgstr "現在のユーザーセッション"
+
+#: settings.cgi:421
+msgid "Last user sessions"
+msgstr "最終ユーザーセッション"
+
+#: settings.cgi:433
+msgid "Choose locale"
+msgstr "言語の選択"
+
+#: settings.cgi:436
+msgid "Please wait..."
+msgstr "お待ち下さい..."
+
+#: settings.cgi:441
+msgid "Current locale settings:"
+msgstr "現在の言語設定:"
+
+#: settings.cgi:448
+msgid "Locales that are currently installed on the machine:"
+msgstr "現在マシンにインストールされている言語:"
+
+#: settings.cgi:458
+msgid ""
+"Can't see your language?<br/>You can <a href='pkgs.cgi?do=Install&amp;glibc-"
+"locale'>install glibc-locale</a> to see a larger list of available locales."
+msgstr ""
+"言語が見えませんか？<br/><a href='pkgs.cgi?do=Install&amp;glibc-"
+"locale'>glibc-locale をインストール</a>すると、使用可能な言語一覧が表示され"
+"ます。"
+
+#: settings.cgi:465
+msgid "Available locales:"
+msgstr "有効な言語:"
+
+#: settings.cgi:469
+msgid "Code"
+msgstr "コード"
+
+#: settings.cgi:470
+msgid "Language"
+msgstr "言語"
+
+#: settings.cgi:471
+msgid "Territory"
+msgstr "地域"
+
+#: settings.cgi:488 settings.cgi:489
+msgid "-d"
+msgstr "-d"
+
+#: settings.cgi:500 settings.cgi:803 settings.cgi:815 settings.cgi:827
+msgid "Activate"
+msgstr "有効"
+
+#: settings.cgi:513 settings.cgi:535
+msgid "Small quick tweaks for user %s"
+msgstr "ユーザー %s の素早く微調整"
+
+#: settings.cgi:538
+msgid "Terminal prompt"
+msgstr "ターミナルプロンプト"
+
+#: settings.cgi:544
+msgid "Monochrome"
+msgstr "白黒"
+
+#: settings.cgi:553
+msgid "Colored"
+msgstr "カラー"
+
+#: settings.cgi:562 settings.cgi:610
+msgid "Manual edit: %s"
+msgstr "手動編集: %s"
+
+#: settings.cgi:563
+msgid ""
+"To take effect: log out and log in to system or execute a command in the "
+"terminal:"
+msgstr ""
+"有効にするには: システムからログアウトしてログインするか、端末でコマンドを実"
+"行します:"
+
+#: settings.cgi:571
+msgid "Menu button appearance"
+msgstr "メニューボタンの外観"
+
+#: settings.cgi:576
+msgid "Icon:"
+msgstr "アイコン:"
+
+#: settings.cgi:579 settings.cgi:600
+msgid "Do not show"
+msgstr "表示しない"
+
+#: settings.cgi:597
+msgid "Text:"
+msgstr "テキスト:"
+
+#: settings.cgi:604
+msgid "Show text"
+msgstr "テキストを表示"
+
+#: settings.cgi:627
+msgid "Manage system time, users or language settings"
+msgstr "システム時間・ユーザー言語設定の管理"
+
+#: settings.cgi:637
+msgid "System time"
+msgstr "システム時間"
+
+#: settings.cgi:640
+msgid "Time zone:"
+msgstr "タイムゾーン:"
+
+#: settings.cgi:649
+msgid "System time:"
+msgstr "システム時間:"
+
+#: settings.cgi:651
+msgid "Sync online"
+msgstr "オンラインで同期"
+
+#: settings.cgi:654
+msgid "Hardware clock:"
+msgstr "ハードウェアクロック:"
+
+#: settings.cgi:656
+msgid "Set hardware clock"
+msgstr "ハードウェアクロックの設定"
+
+#: settings.cgi:742
+msgid "System language"
+msgstr "システムの言語"
+
+#: settings.cgi:755
+msgid ""
+"You must logout and login again to your current session to use %s locale."
+msgstr ""
+"%s 言語を使用するには、ログアウトして現在のセッションに再度ログインする必要"
+"があります。"
+
+#: settings.cgi:758
+msgid "Current system locale:"
+msgstr "現在のシステム言語:"
+
+#: settings.cgi:770
+msgid "Keyboard layout"
+msgstr "キーボードレイアウト"
+
+#: settings.cgi:784
+msgid "Current console keymap: %s"
+msgstr "現在のコンソールキーボード設定: %s"
+
+#: settings.cgi:802
+msgid "Suggested keymap for Xorg:"
+msgstr "Xorg　の推奨キーボード設定："
+
+#: settings.cgi:811
+msgid "Available keymaps:"
+msgstr "有効なキーボード設定:"
+
+#: settings.cgi:822
+msgid "Panel configuration"
+msgstr "パネルの設定"
+
+#: settings.cgi:825
+msgid "Style:"
+msgstr "スタイル:"
+
+#: settings.cgi:831
+msgid "Configuration files:"
+msgstr "設定ファイル"
+
+#: settings.cgi:832 styles/default/header.html:45
+msgid "Panel"
+msgstr "パネル"
+
+#: settings.cgi:833
+msgid "Server"
+msgstr "サーバ"
+
+#: settings.cgi:836
+msgid "TazPanel provides a debugging mode and page:"
+msgstr "TazPanel はデバッグモードとページを提供します:"
+
+#: floppy.cgi:21
+msgid "Boot floppy"
+msgstr "フロッピー起動"
+
+#: floppy.cgi:72
+msgid "TazPanel - floppy"
+msgstr "TazPanel - フロッピー"
+
+#: floppy.cgi:94
+msgid "Floppy disk utilities"
+msgstr "フロッピーディスクユーティリティ"
+
+#: floppy.cgi:104
+msgid "Floppy disk format"
+msgstr "フロッピーディスクのフォーマット"
+
+#: floppy.cgi:107
+msgid "Format disk"
+msgstr "フロッピーディスク"
+
+#: floppy.cgi:118
+msgid "Floppy disk transfer"
+msgstr "フロッピーディスク転送"
+
+#: floppy.cgi:123
+msgid "Write image"
+msgstr "イメージの書き込み"
+
+#: floppy.cgi:129
+msgid "Read image"
+msgstr "イメージの読み込み"
+
+#: floppy.cgi:146
+msgid "Boot floppy set builder"
+msgstr "起動フロッピー設定ビルダー"
+
+#: floppy.cgi:152
+msgid "required"
+msgstr "必須"
+
+#: floppy.cgi:155
+msgid "Initramfs / Initrd:"
+msgstr "Initramfs / Initrd:"
+
+#: floppy.cgi:156 floppy.cgi:160 floppy.cgi:164 floppy.cgi:169
+msgid "optional"
+msgstr "オプション"
+
+#: floppy.cgi:159
+msgid "Extra initramfs:"
+msgstr "Extra initramfs:"
+
+#: floppy.cgi:163
+msgid "Boot message:"
+msgstr "起動メッセージ:"
+
+#: floppy.cgi:167
+msgid "Default cmdline:"
+msgstr "デフォルトコマンドライン:"
+
+#: floppy.cgi:168
+msgid "edit"
+msgstr "編集"
+
+#: floppy.cgi:172
+msgid "Root device:"
+msgstr "Root デバイス:"
+
+#: floppy.cgi:174
+msgid "Flags:"
+msgstr "フラグ:"
+
+#: floppy.cgi:214
+msgid "Output directory:"
+msgstr "ディレクトリの出力:"
+
+#: floppy.cgi:218
+msgid "Floppy size:"
+msgstr "フロッピーのサイズ:"
+
+#: floppy.cgi:247
+msgid "no limit"
+msgstr "制限なし"
+
+#: floppy.cgi:249
+msgid "RAM used"
+msgstr "使用 RAM"
+
+#: floppy.cgi:264 floppy.cgi:293
+msgid "Build floppy set"
+msgstr "フロッピー設定の構築"
+
+#: floppy.cgi:270 floppy.cgi:273
+msgid "Note"
+msgstr "注意"
+
+#: floppy.cgi:270
+msgid "the extra initramfs may be useful to add your own configuration files."
+msgstr "extra initramfs は独自の設定ファイルを追加するのに便利です。"
+
+#: floppy.cgi:273
+msgid ""
+"the keyboard is read for ESC or ENTER on every form feed (ASCII 12) in the "
+"boot message."
+msgstr ""
+"起動メッセージの各フォームフィード (ASCII 12) でキーボードが ESC または "
+"ENTER のために読み込まれます。"
+
+#: floppy.cgi:280
+msgid "Floppy set from an ISO image"
+msgstr "ISO イメージからのフロッピー設定"
+
+#: powersaving.cgi:15 powersaving.cgi:24
+msgid "Power saving"
+msgstr "省電力"
+
+#: powersaving.cgi:33
+msgid ""
+"DPMS enables power saving behaviour of monitors when the computer is not in "
+"use."
+msgstr ""
+"DPMS は、コンピュータが使用されていないときにモニタの省電力動作を可能にしま"
+"す。"
+
+#: powersaving.cgi:54
+msgid "Identifier"
+msgstr "識別子"
+
+#: powersaving.cgi:55
+msgid "Vendor name"
+msgstr "ベンダー名"
+
+#: powersaving.cgi:56 powersaving.cgi:137
+msgid "Model name"
+msgstr "モデル名"
+
+#: powersaving.cgi:57
+msgid "DPMS enabled"
+msgstr "DPMS 有効"
+
+#: powersaving.cgi:86
+msgid "DPMS times (in minutes):"
+msgstr "DMPS 時間 (分):"
+
+#: powersaving.cgi:99
+msgid "Manual edit"
+msgstr "手動編集"
+
+#: powersaving.cgi:129
+msgid "CPU"
+msgstr "CPU"
+
+#: powersaving.cgi:131
+msgid ""
+"CPU frequency scaling enables the operating system to scale the CPU "
+"frequency up or down in order to save power. CPU frequencies can be scaled "
+"automatically depending on the system load, in response to ACPI events, or "
+"manually by userspace programs."
+msgstr ""
+"CPU の周波数スケーリングにより、オペレーティングシステムは省電力のために "
+"CPU の周波数を上下に調整できます。 CPU の周波数は、システムの負荷、ACPI イベ"
+"ントに応じて自動的に、またはユーザー空間プログラムによって手動で調整すること"
+"ができます。"
+
+#: powersaving.cgi:138
+msgid "Current frequency"
+msgstr "現在の周波数"
+
+#: powersaving.cgi:139
+msgid "Current driver"
+msgstr "現在のドライバー"
+
+#: powersaving.cgi:140
+msgid "Current governor"
+msgstr "現在の governor"
+
+#: styles/default/header.html:35
+msgid "Confirm break"
+msgstr "中断しますか"
+
+#: styles/default/header.html:48
+msgid "Processes"
+msgstr "プロセス"
+
+#: styles/default/header.html:50
+msgid "Create Report"
+msgstr "レポートを作成"
+
+#: styles/default/header.html:58
+msgid "Config file"
+msgstr "設定ファイル"
+
+#: styles/default/header.html:59
+msgid "Ethernet"
+msgstr "有線"
+
+#: styles/default/header.html:60
+msgid "Wireless"
+msgstr "無線"
+
+#: styles/default/header.html:104
+msgid "Users"
+msgstr "ユーザー"
+
+#: styles/default/header.html:105
+msgid "Groups"
+msgstr "グループ"
+
+#: styles/default/header.html:106
+msgid "Tweaks"
+msgstr "微調整"
+
+#: styles/default/header.html:122
+msgid "Some features are disabled."
+msgstr "一部の機能は無効になっています。"
+
+#: styles/default/header.html:127
+msgid "You are logged in to the TazPanel as user %s."
+msgstr "TazPanel にユーザー ％s としてログインしています。"
+
+#: styles/default/header.html:128
+msgid "Click to re-login."
+msgstr "クリックで再ログインします。"
+
+#: styles/default/header.html:138
+msgid "Copyright"
+msgstr "Copyright"
+
+#: styles/default/header.html:140
+msgid "BSD License"
+msgstr "BSD License"
