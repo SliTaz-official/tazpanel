@@ -369,7 +369,7 @@ menu=$(tail -q -n +$(grep -n ^title $GRUBMENU | head -n1 | cut -d: -f1) $GRUBMEN
 </section>
 EOT
 	done <<EOT
-gpxe	%s
+gpxe	gPXE
 ipxe	iPXE
 EOT
 	;;
