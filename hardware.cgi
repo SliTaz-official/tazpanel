@@ -24,6 +24,7 @@ disk_info() {
 		d=${b#/dev/}
 		d="/sys/block/${d%:}/device"
 		[ -d $d ] && echo "$a $b $c, $(cat $d/vendor) $(cat $d/model)"
+		smartctl -a ${b%:} | sed '/^Model/,/^Firmware/!d'
 	done 2> /dev/null | sed 's/  */ /g'
 }
 
