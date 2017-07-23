@@ -6,7 +6,7 @@
 #
 
 # Common functions from libtazpanel
-. lib/libtazpanel
+. ./lib/libtazpanel
 get_config
 
 case "$1" in

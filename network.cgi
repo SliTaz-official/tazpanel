@@ -8,7 +8,7 @@
 
 # Common functions from libtazpanel
 
-. lib/libtazpanel
+. ./lib/libtazpanel
 get_config
 header
 

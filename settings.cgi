@@ -10,7 +10,7 @@
 
 # Common functions from libtazpanel
 
-. lib/libtazpanel
+. ./lib/libtazpanel
 get_config
 
 TITLE=$(_ 'System settings')

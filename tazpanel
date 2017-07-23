@@ -12,7 +12,7 @@ VERSION=522
 
 CONFIG="/etc/slitaz/tazpanel.conf"
 [ -f "$CONFIG" ] && . $CONFIG
-[ -f "data/tazpanel.conf" ] && . data/tazpanel.conf
+[ -f "data/tazpanel.conf" ] && . ./data/tazpanel.conf
 [ ! "$PANEL" ] && echo "No config file found: $CONFIG" && exit 1
 
 . /lib/libtaz.sh

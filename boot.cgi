@@ -8,7 +8,7 @@
 
 # Common functions from libtazpanel and source main boot config file.
 
-. lib/libtazpanel
+. ./lib/libtazpanel
 . /etc/rcS.conf
 get_config
 header
