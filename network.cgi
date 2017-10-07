@@ -160,6 +160,17 @@ case " $(GET) " in
 		arp -i $(GET interface) -Ds $(GET ip) $(GET interface) pub ;;
 	*\ toggleipforward\ *)
 		echo $((1 - $(cat $ip_forward))) > $ip_forward ;;
+	*\ delvlan\ *)
+		vconfig rem $(GET vlan) ;;
+	*\ addvlan\ *)
+		grep -q '^8021q ' /proc/modules || modprobe 8021q
+		vlan=$(GET if).$(GET id)
+		prio=$(GET priority)
+		[ -e /proc/net/vlan/$vlan ] || vconfig add ${vlan/./ }
+		for i in $(seq 0 7); do
+			vconfig set_ingress_map $vlan $i ${prio:-$i}
+			vconfig set_egress_map $vlan $i ${prio:-$i}
+		done ;;
 esac
 
 case " $(POST) " in
@@ -707,6 +718,65 @@ EOT
 	</footer>
 </section>
 
+EOT
+		devs="$(for i in $(sed '/:/!d;s/:.*//' /proc/net/dev); do
+			[ -e /proc/net/vlan/$i ] && continue
+			[ -e /sys/class/net/$i/flags ] || continue
+			[ $(($(cat /sys/class/net/$i/flags) & 0x1080)) -eq 4096 ] &&
+			echo $i
+		done)"
+		if [ "$REMOTE_USER" == "root" -a -n "$devs" ]; then
+			cat <<EOT
+<section>
+	<header id="vlan">$(_ 'VLAN')</header>
+	<footer>
+		<form>
+EOT
+			vlans="$(ls /proc/net/vlan/ 2> /dev/null | sed '/config/d')"
+			if [ -n "$vlans" ]; then
+				cat <<EOT
+		<table class="wide zebra center">
+			<thead>
+				<tr>
+					<td>$(_ 'Interface')</td>
+					<td>id</td>
+					<td>$(_ 'priority')</td>
+				</tr>
+			</thead>
+			<tbody>
+EOT
+				for i in $vlans ; do
+					cat <<EOT
+			<tr>
+			<td><input type="radio" name="vlan" value="$i"/>$i</td>
+			<td>$(sed '/VID/!d;s/.*VID: \([^ ]*\).*/\1/' /proc/net/vlan/$i)</td>
+			<td>$(sed '/EGRESS/!d;s/.*: 0:\([^: ]*\).*/\1/' /proc/net/vlan/$i)</td>
+			<td></td>
+			</tr>
+EOT
+				done
+				cat <<EOT
+			</tbody>
+		</table>
+		<button type="submit" data-icon="@remove@" name="delvlan">$(_ 'Remove')</button> $(_ 'or')
+EOT
+			fi
+			cat <<EOT
+			<button type="submit" data-icon="@add@" name="addvlan">$(_ 'Add')</button>
+			$(_ 'on') <select name="if"> 
+			$(for i in $devs; do echo "<option>$i</option>"; done)
+			</select> id
+			<input type="text" name="id" value="1" size="4" title="1..4095" />
+			$(_ 'priority') <select name="prio">
+			$(for i in $(seq 0 7); do echo "<option>$i</option>"; done)
+			</select>
+		</form>
+	</footer>
+</section>
+
+EOT
+		fi
+		cat <<EOT
 
 <section>
 	<header id="ifconfig">$(_ 'Output of ifconfig')</header>
@@ -746,9 +816,9 @@ EOT
 	</table>
 	<footer>
 		<form>
-			IP <input type="text" name="ip" value="10.20.30.40" size="12" /> on $(select_if)<!--
+			IP <input type="text" name="ip" value="10.20.30.40" size="12" /> $(_ 'on') $(select_if)<!--
 			--><button type="submit" data-icon="@upgrade@" name="proxyarp">$(_ 'Proxy')</button>
-			or <button type="submit" data-icon="@add@" name="addarp">$(_ 'Add')</button>
+			$(_ 'or') <button type="submit" data-icon="@add@" name="addarp">$(_ 'Add')</button>
 			 MAC <input type="text" name="mac" value="11:22:33:44:55:66" size="16" />
 		</form>
 EOT
