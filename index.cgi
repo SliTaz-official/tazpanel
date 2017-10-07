@@ -555,7 +555,7 @@ EOT
 	</p>
 	<p>$(_ 'Renice')
 	<input type="hidden" name="top"/>
-	<select name "renice" onchange="this.form.submit()">
+	<select name="renice" onchange="this.form.submit()">
 EOT
 			values="$(seq 20 -1 -20)"
 			[ $(id -u) -eq 0 ] || values="$(seq 20 -1 0)"
