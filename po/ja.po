@@ -7,19 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 522\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-02 18:56+0900\n"
+"POT-Creation-Date: 2017-10-07 13:15+0200\n"
 "PO-Revision-Date: 2017-01-10 17:18+0900\n"
+"Last-Translator: BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <balloonakafusen　AT "
+"gmail DOT com>\n"
 "Language-Team: \n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.7.1\n"
-"Last-Translator: BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <balloonakafusen　"
-"AT gmail DOT com>\n"
-"Language: ja_JP\n"
 
-#: lib/libtazpanel:154 network.cgi:455
+#: lib/libtazpanel:154 network.cgi:466
 msgid "Scan"
 msgstr "検索"
 
@@ -27,16 +27,16 @@ msgstr "検索"
 msgid "connected"
 msgstr "接続済み"
 
-#: lib/libtazpanel:171 network.cgi:254
+#: lib/libtazpanel:171 network.cgi:265 network.cgi:741
 msgid "Interface"
 msgstr "インターフェイス"
 
-#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
-#: network.cgi:345 hosts.cgi:243
+#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:58 hardware.cgi:79
+#: network.cgi:356 hosts.cgi:243
 msgid "Name"
 msgstr "名前"
 
-#: lib/libtazpanel:173 boot.cgi:145 network.cgi:349
+#: lib/libtazpanel:173 boot.cgi:145 network.cgi:360
 msgid "Status"
 msgstr "状態"
 
@@ -52,7 +52,7 @@ msgstr "ポートを検索"
 msgid "Please wait"
 msgstr "お待ち下さい"
 
-#: lib/libtazpanel:319 hardware.cgi:513
+#: lib/libtazpanel:319 hardware.cgi:514
 msgid "Disk"
 msgstr "ディスク"
 
@@ -60,11 +60,11 @@ msgstr "ディスク"
 msgid "Label"
 msgstr "ラベル"
 
-#: lib/libtazpanel:321 hardware.cgi:515
+#: lib/libtazpanel:321 hardware.cgi:516
 msgid "Type"
 msgstr "種類"
 
-#: lib/libtazpanel:322 hardware.cgi:197 hardware.cgi:549
+#: lib/libtazpanel:322 hardware.cgi:198 hardware.cgi:550
 msgid "Size"
 msgstr "サイズ"
 
@@ -72,11 +72,11 @@ msgstr "サイズ"
 msgid "Available"
 msgstr "利用可能"
 
-#: lib/libtazpanel:324 hardware.cgi:198 hardware.cgi:606
+#: lib/libtazpanel:324 hardware.cgi:199 hardware.cgi:607
 msgid "Used"
 msgstr "使用"
 
-#: lib/libtazpanel:325 hardware.cgi:514
+#: lib/libtazpanel:325 hardware.cgi:515
 msgid "Mount point"
 msgstr "マウントポイント"
 
@@ -136,11 +136,11 @@ msgstr "デーモンの管理"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "SliTaz デーモンの確認、起動、停止"
 
-#: boot.cgi:143 hardware.cgi:196 settings.cgi:472 powersaving.cgi:154
+#: boot.cgi:143 hardware.cgi:197 settings.cgi:472 powersaving.cgi:154
 msgid "Description"
 msgstr "説明"
 
-#: boot.cgi:144 network.cgi:248
+#: boot.cgi:144 network.cgi:259
 msgid "Configuration"
 msgstr "設定"
 
@@ -204,7 +204,7 @@ msgstr "ZeroConf IPv4 リンクローカルアドレス管理"
 msgid "Started"
 msgstr "再生中"
 
-#: boot.cgi:273 network.cgi:297 network.cgi:454 network.cgi:647
+#: boot.cgi:273 network.cgi:308 network.cgi:465 network.cgi:658
 msgid "Stop"
 msgstr "停止"
 
@@ -212,7 +212,7 @@ msgstr "停止"
 msgid "Stopped"
 msgstr "停止中"
 
-#: boot.cgi:284 network.cgi:296 network.cgi:453 network.cgi:646
+#: boot.cgi:284 network.cgi:307 network.cgi:464 network.cgi:657
 msgid "Start"
 msgstr "再生"
 
@@ -236,7 +236,7 @@ msgstr "タイムアウト:"
 msgid "Splash image:"
 msgstr "スプラッシュ画像:"
 
-#: boot.cgi:327 network.cgi:669 network.cgi:700 settings.cgi:646
+#: boot.cgi:327 network.cgi:680 network.cgi:711 settings.cgi:646
 #: settings.cgi:760 powersaving.cgi:108
 msgid "Change"
 msgstr "変更"
@@ -286,8 +286,8 @@ msgid ""
 "For hard disk installation only. Will create /slitaz tree and keep other "
 "files. No partitioning and no formatting."
 msgstr ""
-"ハードディスクのインストールのみ有効です。 /slitaz ツリーを作成し、他のファ"
-"イルを保存します。 パーティション分割とフォーマットは行いません。"
+"ハードディスクのインストールのみ有効です。 /slitaz ツリーを作成し、他のファイ"
+"ルを保存します。 パーティション分割とフォーマットは行いません。"
 
 #: boot.cgi:419
 msgid "Choose a partition (optional)"
@@ -357,196 +357,196 @@ msgstr "ローカル起動コマンド"
 msgid "Hardware"
 msgstr "ハードウェア"
 
-#: hardware.cgi:54
+#: hardware.cgi:55
 msgid "Bus"
 msgstr "Bus"
 
-#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:547
+#: hardware.cgi:56 hardware.cgi:78 hardware.cgi:548
 msgid "Device"
 msgstr "デバイス"
 
-#: hardware.cgi:56
+#: hardware.cgi:57
 msgid "ID"
 msgstr "ID"
 
-#: hardware.cgi:76
+#: hardware.cgi:77
 msgid "Slot"
 msgstr "スロット"
 
-#: hardware.cgi:127
+#: hardware.cgi:128
 msgid "Detect hardware"
 msgstr "ハードウェアの検出"
 
-#: hardware.cgi:129
+#: hardware.cgi:130
 msgid "Detect PCI and USB hardware"
 msgstr "PCI・USB ハードウェアの検出"
 
-#: hardware.cgi:137 hardware.cgi:267 powersaving.cgi:150
+#: hardware.cgi:138 hardware.cgi:268 powersaving.cgi:150
 #: styles/default/header.html:94
 msgid "Kernel modules"
 msgstr "カーネルモジュール"
 
-#: hardware.cgi:141
+#: hardware.cgi:142
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Linux カーネルモジュールの管理、検索、情報の取得"
 
-#: hardware.cgi:145
+#: hardware.cgi:146
 msgid "Modules search"
 msgstr "モジュール検索"
 
-#: hardware.cgi:146
+#: hardware.cgi:147
 msgid "Search"
 msgstr "検索"
 
-#: hardware.cgi:154
+#: hardware.cgi:155
 msgid "Detailed information for module: %s"
 msgstr "モジュールの詳細情報：%s"
 
-#: hardware.cgi:178
+#: hardware.cgi:179
 msgid "Matching result(s) for: %s"
 msgstr "一致した結果: %s"
 
-#: hardware.cgi:185
+#: hardware.cgi:186
 msgid "Module:"
 msgstr "モジュール:"
 
-#: hardware.cgi:195 powersaving.cgi:153
+#: hardware.cgi:196 powersaving.cgi:153
 msgid "Module"
 msgstr "モジュール"
 
-#: hardware.cgi:199
+#: hardware.cgi:200
 msgid "by"
 msgstr "by"
 
-#: hardware.cgi:223
+#: hardware.cgi:224
 msgid "Information for USB Device %s"
 msgstr "USB デバイス %s の情報"
 
-#: hardware.cgi:225 hardware.cgi:243
+#: hardware.cgi:226 hardware.cgi:244
 msgid "Detailed information about specified device."
 msgstr "指定デバイスの詳細情報。"
 
-#: hardware.cgi:241
+#: hardware.cgi:242
 msgid "Information for PCI Device %s"
 msgstr "PCI デバイス %s の情報"
 
-#: hardware.cgi:262
+#: hardware.cgi:263
 msgid "Drivers &amp; Devices"
 msgstr "ドライバー &amp; デバイス"
 
-#: hardware.cgi:264
+#: hardware.cgi:265
 msgid "Manage your computer hardware"
 msgstr "コンピュータハードウェアの管理"
 
-#: hardware.cgi:268 styles/default/header.html:95
+#: hardware.cgi:269 styles/default/header.html:95
 msgid "Detect PCI/USB"
 msgstr "PCI/USB の検出"
 
-#: hardware.cgi:269
+#: hardware.cgi:270
 msgid "Auto-install Xorg video driver"
 msgstr "Xorg ビデオドライバーの自動インストール"
 
-#: hardware.cgi:279 hardware.cgi:296
+#: hardware.cgi:280 hardware.cgi:297
 msgid "Battery"
 msgstr "バッテリー"
 
-#: hardware.cgi:299
+#: hardware.cgi:300
 msgid "health"
 msgstr "ヘルス"
 
-#: hardware.cgi:308
+#: hardware.cgi:309
 msgid "Discharging %d%% - %s"
 msgstr "放電中 %d%% - %s"
 
-#: hardware.cgi:312
+#: hardware.cgi:313
 msgid "Charging %d%% - %s"
 msgstr "充電中 %d%% - %s"
 
-#: hardware.cgi:314
+#: hardware.cgi:315
 msgid "Charged 100%%"
 msgstr "充電完了100%%"
 
-#: hardware.cgi:333
+#: hardware.cgi:334
 msgid "Temperature:"
 msgstr "温度:"
 
-#: hardware.cgi:348
+#: hardware.cgi:349
 msgid "Brightness"
 msgstr "輝度"
 
-#: hardware.cgi:368 index.cgi:851
+#: hardware.cgi:369 index.cgi:851
 msgid "Filesystem usage statistics"
 msgstr "ファイルシステムの使用状況"
 
-#: hardware.cgi:491
+#: hardware.cgi:492
 msgid "new mount point:"
 msgstr "新しいマウントポイント:"
 
-#: hardware.cgi:492
+#: hardware.cgi:493
 msgid "read-only"
 msgstr "読み込み専用"
 
-#: hardware.cgi:507
+#: hardware.cgi:508
 msgid "Filesystems table"
 msgstr "ファイルシステムテーブル"
 
-#: hardware.cgi:516
+#: hardware.cgi:517
 msgid "Options"
 msgstr "オプション"
 
-#: hardware.cgi:517
+#: hardware.cgi:518
 msgid "Freq"
 msgstr "Freq"
 
-#: hardware.cgi:518
+#: hardware.cgi:519
 msgid "Pass"
 msgstr "Pass"
 
-#: hardware.cgi:540
+#: hardware.cgi:541
 msgid "Loop devices"
 msgstr "ループデバイス"
 
-#: hardware.cgi:548
+#: hardware.cgi:549
 msgid "Backing file"
 msgstr "ファイルを戻し中"
 
-#: hardware.cgi:550
+#: hardware.cgi:551
 msgid "Access"
 msgstr "アクセス"
 
-#: hardware.cgi:551
+#: hardware.cgi:552
 msgid "Offset"
 msgstr "オフセット"
 
-#: hardware.cgi:560
+#: hardware.cgi:561
 msgid "read/write"
 msgstr "読み書き"
 
-#: hardware.cgi:561 hardware.cgi:586
+#: hardware.cgi:562 hardware.cgi:587
 msgid "read only"
 msgstr "読込のみ"
 
-#: hardware.cgi:583
+#: hardware.cgi:584
 msgid "Setup"
 msgstr "設定"
 
-#: hardware.cgi:584
+#: hardware.cgi:585
 msgid "new backing file:"
 msgstr "新しい戻しファイル:"
 
-#: hardware.cgi:585
+#: hardware.cgi:586
 msgid "offset in bytes:"
 msgstr "オフセット (バイト):"
 
-#: hardware.cgi:603
+#: hardware.cgi:604
 msgid "System memory"
 msgstr "システムメモリ"
 
-#: hardware.cgi:609
+#: hardware.cgi:610
 msgid "Buffers"
 msgstr "バッファ"
 
-#: hardware.cgi:612
+#: hardware.cgi:613
 msgid "Free"
 msgstr "フリー"
 
@@ -789,7 +789,7 @@ msgstr "Linux カーネル:"
 msgid "Network status"
 msgstr "ネットワークの状態"
 
-#: index.cgi:842 network.cgi:15 network.cgi:216 hosts.cgi:15
+#: index.cgi:842 network.cgi:15 network.cgi:227 hosts.cgi:15
 #: styles/default/header.html:55
 msgid "Network"
 msgstr "ネットワーク"
@@ -806,19 +806,19 @@ msgstr "パネルの動作"
 msgid "Changed hostname: %s"
 msgstr "ホスト名を変更しました: %s"
 
-#: network.cgi:210
+#: network.cgi:221
 msgid "Scanning open ports..."
 msgstr "開いてるポートの検索中..."
 
-#: network.cgi:215
+#: network.cgi:226
 msgid "Port scanning for %s"
 msgstr "%s のポートを検索中"
 
-#: network.cgi:226
+#: network.cgi:237
 msgid "Ethernet connection"
 msgstr "有線接続"
 
-#: network.cgi:244
+#: network.cgi:255
 msgid ""
 "Here you can configure a wired connection using DHCP to automatically get a "
 "random IP or configure a static/fixed IP"
@@ -826,240 +826,261 @@ msgstr ""
 "ここでは、DHCP を使用して有線接続を設定し、自動的にランダムな IP を取得した"
 "り、固定 IP を設定することができます"
 
-#: network.cgi:262
+#: network.cgi:273
 msgid "Static IP"
 msgstr "固定 IP"
 
-#: network.cgi:264
+#: network.cgi:275
 msgid "Use static IP"
 msgstr "固定 IP を使用"
 
-#: network.cgi:266
+#: network.cgi:277
 msgid "IP address"
 msgstr "IP アドレス"
 
-#: network.cgi:269
+#: network.cgi:280
 msgid "Netmask"
 msgstr "ネットマスク"
 
-#: network.cgi:272
+#: network.cgi:283
 msgid "Gateway"
 msgstr "ゲートウェイ"
 
-#: network.cgi:275
+#: network.cgi:286
 msgid "DNS server"
 msgstr "DNS サーバ"
 
-#: network.cgi:278 network.cgi:298
+#: network.cgi:289 network.cgi:309
 msgid "Wake up"
 msgstr "復旧"
 
-#: network.cgi:280
+#: network.cgi:291
 msgid "Wake up machines by network"
 msgstr "ネットワークを環境から復旧"
 
-#: network.cgi:282
+#: network.cgi:293
 msgid "MAC address to wake up"
 msgstr "復旧時の MAC アドレス"
 
-#: network.cgi:283
+#: network.cgi:294
 msgid "Leave empty for a general wakeup"
 msgstr "一般的な復旧のため空のままにします"
 
-#: network.cgi:284
+#: network.cgi:295
 msgid "List"
 msgstr "一覧"
 
-#: network.cgi:287
+#: network.cgi:298
 msgid "MAC/IP address password"
 msgstr "MAC・IP アドレスパスワード"
 
-#: network.cgi:288
+#: network.cgi:299
 msgid "Optional"
 msgstr "オプション"
 
-#: network.cgi:289
+#: network.cgi:300
 msgid "Help"
 msgstr "ヘルプ"
 
-#: network.cgi:322 network.cgi:609
+#: network.cgi:333 network.cgi:620
 msgid "Configuration file"
 msgstr "設定ファイル"
 
-#: network.cgi:327
+#: network.cgi:338
 msgid ""
 "These values are the ethernet settings in the main /etc/network.conf "
 "configuration file"
 msgstr "これらの値は、メイン /etc/network.conf 設定ファイルの有線設定です"
 
-#: network.cgi:339
+#: network.cgi:350
 msgid "(hidden)"
 msgstr "(非表示)"
 
-#: network.cgi:346
+#: network.cgi:357
 msgid "Signal level"
 msgstr "信号レベル"
 
-#: network.cgi:347
+#: network.cgi:358
 msgid "Channel"
 msgstr "チャンネル"
 
-#: network.cgi:348
+#: network.cgi:359
 msgid "Encryption"
 msgstr "暗号化"
 
-#: network.cgi:407 network.cgi:489 network.cgi:511
+#: network.cgi:418 network.cgi:500 network.cgi:522
 msgid "None"
 msgstr "なし"
 
-#: network.cgi:413
+#: network.cgi:424
 msgid "Connected"
 msgstr "接続済み"
 
-#: network.cgi:439
+#: network.cgi:450
 msgid "Wireless connection"
 msgstr "無線接続"
 
-#: network.cgi:463
+#: network.cgi:474
 msgid "Scanning wireless interface..."
 msgstr "無線インターフェイスのス検索中..."
 
-#: network.cgi:477
+#: network.cgi:488
 msgid "Connection"
 msgstr "接続"
 
-#: network.cgi:483
+#: network.cgi:494
 msgid "Network SSID"
 msgstr "ネットワーク SSID"
 
-#: network.cgi:487
+#: network.cgi:498
 msgid "Security"
 msgstr "セキュリティ"
 
-#: network.cgi:498
+#: network.cgi:509
 msgid "EAP method"
 msgstr "EAP メソッド"
 
-#: network.cgi:509
+#: network.cgi:520
 msgid "Phase 2 authentication"
 msgstr "フェーズ 2 認証"
 
-#: network.cgi:521
+#: network.cgi:532
 msgid "CA certificate"
 msgstr "CA 証明書"
 
-#: network.cgi:526
+#: network.cgi:537
 msgid "User certificate"
 msgstr "ユーザー証明書"
 
-#: network.cgi:531
+#: network.cgi:542
 msgid "Identity"
 msgstr "ID"
 
-#: network.cgi:536
+#: network.cgi:547
 msgid "Anonymous identity"
 msgstr "匿名 ID"
 
-#: network.cgi:541
+#: network.cgi:552
 msgid "Password"
 msgstr "パスワード"
 
-#: network.cgi:544
+#: network.cgi:555
 msgid "Show password"
 msgstr "パスワードを表示"
 
-#: network.cgi:556 network.cgi:685
+#: network.cgi:567 network.cgi:696
 msgid "Configure"
 msgstr "設定"
 
-#: network.cgi:557
+#: network.cgi:568
 msgid "Share"
 msgstr "シェア"
 
-#: network.cgi:598
+#: network.cgi:609
 msgid "Share Wi-Fi network with your friends"
 msgstr "お友達と Wi-Fi ネットワークを共有"
 
-#: network.cgi:614
+#: network.cgi:625
 msgid ""
 "These values are the wifi settings in the main /etc/network.conf "
 "configuration file"
 msgstr "これらの値はメイン /etc/network.conf 設定ファイルの wifi 設定です"
 
-#: network.cgi:620
+#: network.cgi:631
 msgid "Output of iwconfig"
 msgstr "iwconfig の出力"
 
-#: network.cgi:629
+#: network.cgi:640
 msgid "Manage network connections and services"
 msgstr "ネットワーク接続・サービスの管理"
 
-#: network.cgi:648
+#: network.cgi:659
 msgid "Restart"
 msgstr "再起動"
 
-#: network.cgi:652
+#: network.cgi:663
 msgid "Configuration:"
 msgstr "設定:"
 
-#: network.cgi:660
+#: network.cgi:671
 msgid "Network interfaces"
 msgstr "ネットワークインターフェイス"
 
-#: network.cgi:667
+#: network.cgi:678
 msgid "forward packets between interfaces"
 msgstr "インタフェース間でパケットを転送する"
 
-#: network.cgi:677 hosts.cgi:203
+#: network.cgi:688 hosts.cgi:203
 msgid "Hosts"
 msgstr "ホスト"
 
-#: network.cgi:679
+#: network.cgi:690
 msgid "%d record in the hosts DB"
 msgid_plural "%d records in the hosts DB"
 msgstr[0] "ホストDBに %d 個のレコードがあります"
 
-#: network.cgi:686 hosts.cgi:16
+#: network.cgi:697 hosts.cgi:16
 msgid "Use hosts file as Ad blocker"
 msgstr "hosts ファイルを広告ブロッカーとして使用"
 
-#: network.cgi:693
+#: network.cgi:704
 msgid "Hostname"
 msgstr "ホスト名"
 
-#: network.cgi:712
-msgid "Output of ifconfig"
-msgstr "ifconfig の出力"
+#: network.cgi:731
+msgid "VLAN"
+msgstr ""
 
-#: network.cgi:718
-msgid "Routing table"
-msgstr "ルーティングテーブル"
+#: network.cgi:743 network.cgi:770
+msgid "priority"
+msgstr ""
 
-#: network.cgi:724
-msgid "Domain name resolution"
-msgstr "ドメイン名の解決"
+#: network.cgi:761 hosts.cgi:308
+msgid "Remove"
+msgstr "削除"
 
-#: network.cgi:730
-msgid "ARP table"
-msgstr "ARP テーブル"
+#: network.cgi:761 network.cgi:821
+msgid "or"
+msgstr ""
 
-#: network.cgi:750
-msgid "Proxy"
-msgstr "プロキシ"
-
-#: network.cgi:751 hosts.cgi:224 hosts.cgi:231
+#: network.cgi:765 network.cgi:821 hosts.cgi:224 hosts.cgi:231
 msgid "Add"
 msgstr "追加"
 
-#: network.cgi:764
+#: network.cgi:766 network.cgi:819
+#, fuzzy
+msgid "on"
+msgstr "なし"
+
+#: network.cgi:782
+msgid "Output of ifconfig"
+msgstr "ifconfig の出力"
+
+#: network.cgi:788
+msgid "Routing table"
+msgstr "ルーティングテーブル"
+
+#: network.cgi:794
+msgid "Domain name resolution"
+msgstr "ドメイン名の解決"
+
+#: network.cgi:800
+msgid "ARP table"
+msgstr "ARP テーブル"
+
+#: network.cgi:820
+msgid "Proxy"
+msgstr "プロキシ"
+
+#: network.cgi:834
 msgid "IP Connections"
 msgstr "IP 接続"
 
-#: network.cgi:772
+#: network.cgi:842
 msgid "Firewall"
 msgstr "ファイヤーウォール"
 
-#: network.cgi:773
+#: network.cgi:843
 msgid "Port knocker"
 msgstr "ポートの検出"
 
@@ -1115,8 +1136,8 @@ msgid ""
 "You can use one or more prepared hosts files to block advertisements, "
 "malware and other irritants."
 msgstr ""
-"いくつかの準備済み hosts ファイルを使用して、広告・マルウェアなどをブロック"
-"することができます。"
+"いくつかの準備済み hosts ファイルを使用して、広告・マルウェアなどをブロックす"
+"ることができます。"
 
 #: hosts.cgi:244
 msgid "Details"
@@ -1145,10 +1166,6 @@ msgstr "定期更新"
 #: hosts.cgi:303
 msgid "Upgrade"
 msgstr "更新"
-
-#: hosts.cgi:308
-msgid "Remove"
-msgstr "削除"
 
 #: hosts.cgi:314
 msgid "Install"
@@ -1308,8 +1325,8 @@ msgid ""
 "locale'>install glibc-locale</a> to see a larger list of available locales."
 msgstr ""
 "言語が見えませんか？<br/><a href='pkgs.cgi?do=Install&amp;glibc-"
-"locale'>glibc-locale をインストール</a>すると、使用可能な言語一覧が表示され"
-"ます。"
+"locale'>glibc-locale をインストール</a>すると、使用可能な言語一覧が表示されま"
+"す。"
 
 #: settings.cgi:465
 msgid "Available locales:"
@@ -1419,8 +1436,8 @@ msgstr "システムの言語"
 msgid ""
 "You must logout and login again to your current session to use %s locale."
 msgstr ""
-"%s 言語を使用するには、ログアウトして現在のセッションに再度ログインする必要"
-"があります。"
+"%s 言語を使用するには、ログアウトして現在のセッションに再度ログインする必要が"
+"あります。"
 
 #: settings.cgi:758
 msgid "Current system locale:"
@@ -1625,10 +1642,10 @@ msgid ""
 "automatically depending on the system load, in response to ACPI events, or "
 "manually by userspace programs."
 msgstr ""
-"CPU の周波数スケーリングにより、オペレーティングシステムは省電力のために "
-"CPU の周波数を上下に調整できます。 CPU の周波数は、システムの負荷、ACPI イベ"
-"ントに応じて自動的に、またはユーザー空間プログラムによって手動で調整すること"
-"ができます。"
+"CPU の周波数スケーリングにより、オペレーティングシステムは省電力のために CPU "
+"の周波数を上下に調整できます。 CPU の周波数は、システムの負荷、ACPI イベント"
+"に応じて自動的に、またはユーザー空間プログラムによって手動で調整することがで"
+"きます。"
 
 #: powersaving.cgi:138
 msgid "Current frequency"

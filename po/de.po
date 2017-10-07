@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 522\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-20 00:00+0200\n"
+"POT-Creation-Date: 2017-10-07 13:15+0200\n"
 "PO-Revision-Date: 2016-10-15 10:40+0100\n"
 "Last-Translator: Hans-Günter Theisgen\n"
 "Language-Team: German\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: lib/libtazpanel:154 network.cgi:455
+#: lib/libtazpanel:154 network.cgi:466
 msgid "Scan"
 msgstr "Absuchen"
 
@@ -26,16 +26,16 @@ msgstr "Absuchen"
 msgid "connected"
 msgstr "verbunden"
 
-#: lib/libtazpanel:171 network.cgi:254
+#: lib/libtazpanel:171 network.cgi:265 network.cgi:741
 msgid "Interface"
 msgstr "Schnittstelle"
 
-#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
-#: network.cgi:345 hosts.cgi:243
+#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:58 hardware.cgi:79
+#: network.cgi:356 hosts.cgi:243
 msgid "Name"
 msgstr "Name"
 
-#: lib/libtazpanel:173 boot.cgi:145 network.cgi:349
+#: lib/libtazpanel:173 boot.cgi:145 network.cgi:360
 msgid "Status"
 msgstr "Status"
 
@@ -51,7 +51,7 @@ msgstr "Ports absuchen"
 msgid "Please wait"
 msgstr "Bitte warten"
 
-#: lib/libtazpanel:319 hardware.cgi:513
+#: lib/libtazpanel:319 hardware.cgi:514
 msgid "Disk"
 msgstr "Platte"
 
@@ -59,11 +59,11 @@ msgstr "Platte"
 msgid "Label"
 msgstr "Kennsatz"
 
-#: lib/libtazpanel:321 hardware.cgi:515
+#: lib/libtazpanel:321 hardware.cgi:516
 msgid "Type"
 msgstr "Typ"
 
-#: lib/libtazpanel:322 hardware.cgi:197 hardware.cgi:549
+#: lib/libtazpanel:322 hardware.cgi:198 hardware.cgi:550
 msgid "Size"
 msgstr "Größe"
 
@@ -71,11 +71,11 @@ msgstr "Größe"
 msgid "Available"
 msgstr "Verfügbar"
 
-#: lib/libtazpanel:324 hardware.cgi:198 hardware.cgi:606
+#: lib/libtazpanel:324 hardware.cgi:199 hardware.cgi:607
 msgid "Used"
 msgstr "Belegt"
 
-#: lib/libtazpanel:325 hardware.cgi:514
+#: lib/libtazpanel:325 hardware.cgi:515
 msgid "Mount point"
 msgstr "Einhängepunkt"
 
@@ -135,11 +135,11 @@ msgstr "Hintergrundprozesse verwalten"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Hintergrundprozesse von SliTaz prüfen, starten oder beenden"
 
-#: boot.cgi:143 hardware.cgi:196 settings.cgi:472 powersaving.cgi:154
+#: boot.cgi:143 hardware.cgi:197 settings.cgi:472 powersaving.cgi:154
 msgid "Description"
 msgstr "Beschreibung"
 
-#: boot.cgi:144 network.cgi:248
+#: boot.cgi:144 network.cgi:259
 msgid "Configuration"
 msgstr "Konfiguration"
 
@@ -203,7 +203,7 @@ msgstr "'ZeroConf'-IPv4-'link local'-Adressen verwalten"
 msgid "Started"
 msgstr "Gestartet"
 
-#: boot.cgi:273 network.cgi:297 network.cgi:454 network.cgi:647
+#: boot.cgi:273 network.cgi:308 network.cgi:465 network.cgi:658
 msgid "Stop"
 msgstr "Beenden"
 
@@ -211,7 +211,7 @@ msgstr "Beenden"
 msgid "Stopped"
 msgstr "Beendet"
 
-#: boot.cgi:284 network.cgi:296 network.cgi:453 network.cgi:646
+#: boot.cgi:284 network.cgi:307 network.cgi:464 network.cgi:657
 msgid "Start"
 msgstr "Starten"
 
@@ -236,7 +236,7 @@ msgstr "Zeitablauf:"
 msgid "Splash image:"
 msgstr "Startbildschirm:"
 
-#: boot.cgi:327 network.cgi:669 network.cgi:700 settings.cgi:646
+#: boot.cgi:327 network.cgi:680 network.cgi:711 settings.cgi:646
 #: settings.cgi:760 powersaving.cgi:108
 msgid "Change"
 msgstr "Ändern"
@@ -361,200 +361,200 @@ msgstr "Eigene Kommandos zur Systemeinleitung"
 msgid "Hardware"
 msgstr ""
 
-#: hardware.cgi:54
+#: hardware.cgi:55
 msgid "Bus"
 msgstr ""
 
-#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:547
+#: hardware.cgi:56 hardware.cgi:78 hardware.cgi:548
 msgid "Device"
 msgstr "Gerät"
 
-#: hardware.cgi:56
+#: hardware.cgi:57
 msgid "ID"
 msgstr "Bezeichner"
 
-#: hardware.cgi:76
+#: hardware.cgi:77
 msgid "Slot"
 msgstr "Einschub"
 
-#: hardware.cgi:127
+#: hardware.cgi:128
 msgid "Detect hardware"
 msgstr "Hardware ermitteln"
 
-#: hardware.cgi:129
+#: hardware.cgi:130
 msgid "Detect PCI and USB hardware"
 msgstr "PCI- und USB-Hardware ermitteln"
 
-#: hardware.cgi:137 hardware.cgi:267 powersaving.cgi:150
+#: hardware.cgi:138 hardware.cgi:268 powersaving.cgi:150
 #: styles/default/header.html:94
 msgid "Kernel modules"
 msgstr "Module des Linux-Kerns"
 
-#: hardware.cgi:141
+#: hardware.cgi:142
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr ""
 "Verwalten, suchen oder Informationen ermitteln von Modulen des Linux-Kerns"
 
-#: hardware.cgi:145
+#: hardware.cgi:146
 msgid "Modules search"
 msgstr "Module suchen"
 
-#: hardware.cgi:146
+#: hardware.cgi:147
 msgid "Search"
 msgstr "Suchen"
 
-#: hardware.cgi:154
+#: hardware.cgi:155
 msgid "Detailed information for module: %s"
 msgstr "Ausführliche Informationen über den Modul: %s"
 
 # Singular und Plural sollten getrennt werden!
-#: hardware.cgi:178
+#: hardware.cgi:179
 msgid "Matching result(s) for: %s"
 msgstr "Passende(s) Ergebnis(se) für: %s"
 
-#: hardware.cgi:185
+#: hardware.cgi:186
 msgid "Module:"
 msgstr "Modul:"
 
-#: hardware.cgi:195 powersaving.cgi:153
+#: hardware.cgi:196 powersaving.cgi:153
 msgid "Module"
 msgstr "Modul"
 
-#: hardware.cgi:199
+#: hardware.cgi:200
 msgid "by"
 msgstr "von"
 
-#: hardware.cgi:223
+#: hardware.cgi:224
 msgid "Information for USB Device %s"
 msgstr "Information über das USB-Gerät %s"
 
-#: hardware.cgi:225 hardware.cgi:243
+#: hardware.cgi:226 hardware.cgi:244
 msgid "Detailed information about specified device."
 msgstr "Ausführliche Information über das angegebene Gerät"
 
-#: hardware.cgi:241
+#: hardware.cgi:242
 msgid "Information for PCI Device %s"
 msgstr "Information über das PCI-Gerät %s"
 
-#: hardware.cgi:262
+#: hardware.cgi:263
 msgid "Drivers &amp; Devices"
 msgstr "Treiber und Geräte"
 
-#: hardware.cgi:264
+#: hardware.cgi:265
 msgid "Manage your computer hardware"
 msgstr "Computer-Hardware verwalten"
 
-#: hardware.cgi:268 styles/default/header.html:95
+#: hardware.cgi:269 styles/default/header.html:95
 msgid "Detect PCI/USB"
 msgstr "PCI- und USB-Geräte ermitteln"
 
-#: hardware.cgi:269
+#: hardware.cgi:270
 msgid "Auto-install Xorg video driver"
 msgstr "Selbsttätige Installation der Xorg-Video-Treiber"
 
-#: hardware.cgi:279 hardware.cgi:296
+#: hardware.cgi:280 hardware.cgi:297
 msgid "Battery"
 msgstr "Batterie"
 
-#: hardware.cgi:299
+#: hardware.cgi:300
 msgid "health"
 msgstr "Zustand"
 
-#: hardware.cgi:308
+#: hardware.cgi:309
 msgid "Discharging %d%% - %s"
 msgstr "Entladen %d%% - %s"
 
-#: hardware.cgi:312
+#: hardware.cgi:313
 msgid "Charging %d%% - %s"
 msgstr "Laden %d%% - %s"
 
-#: hardware.cgi:314
+#: hardware.cgi:315
 msgid "Charged 100%%"
 msgstr "100%% geladen"
 
-#: hardware.cgi:333
+#: hardware.cgi:334
 msgid "Temperature:"
 msgstr "Temperatur:"
 
-#: hardware.cgi:348
+#: hardware.cgi:349
 msgid "Brightness"
 msgstr "Helligkeit"
 
-#: hardware.cgi:368 index.cgi:851
+#: hardware.cgi:369 index.cgi:851
 msgid "Filesystem usage statistics"
 msgstr "Belegung des Dateisystems"
 
-#: hardware.cgi:491
+#: hardware.cgi:492
 msgid "new mount point:"
 msgstr "neuer Einhängepunkt:"
 
-#: hardware.cgi:492
+#: hardware.cgi:493
 msgid "read-only"
 msgstr "nur zum Lesen"
 
-#: hardware.cgi:507
+#: hardware.cgi:508
 msgid "Filesystems table"
 msgstr "Tabelle der Dateisysteme"
 
-#: hardware.cgi:516
+#: hardware.cgi:517
 msgid "Options"
 msgstr "Optionen"
 
 # bei fstab-Einträgen
-#: hardware.cgi:517
+#: hardware.cgi:518
 msgid "Freq"
 msgstr "Sicherungshäufigkeit"
 
 # bei fstab-Einträgen
-#: hardware.cgi:518
+#: hardware.cgi:519
 msgid "Pass"
 msgstr "Durchgang"
 
-#: hardware.cgi:540
+#: hardware.cgi:541
 msgid "Loop devices"
 msgstr "Virtuelle Geräte"
 
-#: hardware.cgi:548
+#: hardware.cgi:549
 msgid "Backing file"
 msgstr "Zugrundeliegende Datei"
 
-#: hardware.cgi:550
+#: hardware.cgi:551
 msgid "Access"
 msgstr "Zugriff"
 
-#: hardware.cgi:551
+#: hardware.cgi:552
 msgid "Offset"
 msgstr "Versatz"
 
-#: hardware.cgi:560
+#: hardware.cgi:561
 msgid "read/write"
 msgstr "lesen und schreiben"
 
-#: hardware.cgi:561 hardware.cgi:586
+#: hardware.cgi:562 hardware.cgi:587
 msgid "read only"
 msgstr "nur lesen"
 
-#: hardware.cgi:583
+#: hardware.cgi:584
 msgid "Setup"
 msgstr "Einstellung"
 
-#: hardware.cgi:584
+#: hardware.cgi:585
 msgid "new backing file:"
 msgstr "neue Datei:"
 
-#: hardware.cgi:585
+#: hardware.cgi:586
 msgid "offset in bytes:"
 msgstr "Versatz in Bytes:"
 
-#: hardware.cgi:603
+#: hardware.cgi:604
 msgid "System memory"
 msgstr "Arbeitsspeicher"
 
-#: hardware.cgi:609
+#: hardware.cgi:610
 msgid "Buffers"
 msgstr "Puffer"
 
-#: hardware.cgi:612
+#: hardware.cgi:613
 msgid "Free"
 msgstr "Frei"
 
@@ -800,7 +800,7 @@ msgstr "Linux-Kern:"
 msgid "Network status"
 msgstr "Netzwerk-Zustand"
 
-#: index.cgi:842 network.cgi:15 network.cgi:216 hosts.cgi:15
+#: index.cgi:842 network.cgi:15 network.cgi:227 hosts.cgi:15
 #: styles/default/header.html:55
 msgid "Network"
 msgstr "Netzwerk"
@@ -817,19 +817,19 @@ msgstr "Protokoll"
 msgid "Changed hostname: %s"
 msgstr "Geänderter Rechnername: %s"
 
-#: network.cgi:210
+#: network.cgi:221
 msgid "Scanning open ports..."
 msgstr "Suche offene Ports..."
 
-#: network.cgi:215
+#: network.cgi:226
 msgid "Port scanning for %s"
 msgstr "Port-Überprüfung für %s"
 
-#: network.cgi:226
+#: network.cgi:237
 msgid "Ethernet connection"
 msgstr "Ethernet-Verbindung"
 
-#: network.cgi:244
+#: network.cgi:255
 msgid ""
 "Here you can configure a wired connection using DHCP to automatically get a "
 "random IP or configure a static/fixed IP"
@@ -838,67 +838,67 @@ msgstr ""
 "DHCP verwendet werden, wenn automatisch eine beliebige IP-Adresse zugewiesen "
 "werden soll, oder es kann statisch eine feste IP-Adresse zugewiesen werden"
 
-#: network.cgi:262
+#: network.cgi:273
 msgid "Static IP"
 msgstr "Statische IP-Adresse"
 
-#: network.cgi:264
+#: network.cgi:275
 msgid "Use static IP"
 msgstr "Statische IP-Adresse verwenden"
 
-#: network.cgi:266
+#: network.cgi:277
 msgid "IP address"
 msgstr "IP-Adresse"
 
-#: network.cgi:269
+#: network.cgi:280
 msgid "Netmask"
 msgstr "Netzmaske"
 
-#: network.cgi:272
+#: network.cgi:283
 msgid "Gateway"
 msgstr "Netzkoppler"
 
-#: network.cgi:275
+#: network.cgi:286
 msgid "DNS server"
 msgstr "DNS-Server"
 
-#: network.cgi:278 network.cgi:298
+#: network.cgi:289 network.cgi:309
 msgid "Wake up"
 msgstr "Aufwecken"
 
-#: network.cgi:280
+#: network.cgi:291
 msgid "Wake up machines by network"
 msgstr "Rechner über das Netzwerk aufwecken"
 
-#: network.cgi:282
+#: network.cgi:293
 msgid "MAC address to wake up"
 msgstr "MAC-Adresse für das Aufwecken"
 
-#: network.cgi:283
+#: network.cgi:294
 msgid "Leave empty for a general wakeup"
 msgstr "Freilassen für generelles Aufwecken"
 
-#: network.cgi:284
+#: network.cgi:295
 msgid "List"
 msgstr "Liste"
 
-#: network.cgi:287
+#: network.cgi:298
 msgid "MAC/IP address password"
 msgstr "Kennwort für die MAC- oder IP-Adresse"
 
-#: network.cgi:288
+#: network.cgi:299
 msgid "Optional"
 msgstr "Optional"
 
-#: network.cgi:289
+#: network.cgi:300
 msgid "Help"
 msgstr "Anleitung"
 
-#: network.cgi:322 network.cgi:609
+#: network.cgi:333 network.cgi:620
 msgid "Configuration file"
 msgstr "Konfigurationsdatei"
 
-#: network.cgi:327
+#: network.cgi:338
 msgid ""
 "These values are the ethernet settings in the main /etc/network.conf "
 "configuration file"
@@ -906,95 +906,95 @@ msgstr ""
 "Dies sind die Ethernet-Einstellungen aus der zentralen Konfigurationsdatei /"
 "etc/network.conf"
 
-#: network.cgi:339
+#: network.cgi:350
 msgid "(hidden)"
 msgstr "(versteckt)"
 
-#: network.cgi:346
+#: network.cgi:357
 msgid "Signal level"
 msgstr "Signal-Stufe"
 
-#: network.cgi:347
+#: network.cgi:358
 msgid "Channel"
 msgstr "Kanal"
 
-#: network.cgi:348
+#: network.cgi:359
 msgid "Encryption"
 msgstr "Verschlüsselung"
 
-#: network.cgi:407 network.cgi:489 network.cgi:511
+#: network.cgi:418 network.cgi:500 network.cgi:522
 msgid "None"
 msgstr "Keine"
 
-#: network.cgi:413
+#: network.cgi:424
 msgid "Connected"
 msgstr "Verbunden"
 
-#: network.cgi:439
+#: network.cgi:450
 msgid "Wireless connection"
 msgstr "Drahtlose Verbindung"
 
-#: network.cgi:463
+#: network.cgi:474
 msgid "Scanning wireless interface..."
 msgstr "Überprüfe Drahtlos-Netzwerkschnittstelle..."
 
-#: network.cgi:477
+#: network.cgi:488
 msgid "Connection"
 msgstr "Verbindung"
 
-#: network.cgi:483
+#: network.cgi:494
 msgid "Network SSID"
 msgstr "Netzwerk-SSID"
 
-#: network.cgi:487
+#: network.cgi:498
 msgid "Security"
 msgstr "Sicherheit"
 
-#: network.cgi:498
+#: network.cgi:509
 msgid "EAP method"
 msgstr "EAP-Methode"
 
-#: network.cgi:509
+#: network.cgi:520
 msgid "Phase 2 authentication"
 msgstr "Phase-2-Authentifizierung"
 
-#: network.cgi:521
+#: network.cgi:532
 msgid "CA certificate"
 msgstr "CA-Zertifikat"
 
-#: network.cgi:526
+#: network.cgi:537
 msgid "User certificate"
 msgstr "Benutzer-Zertifikat"
 
-#: network.cgi:531
+#: network.cgi:542
 msgid "Identity"
 msgstr "Identität"
 
-#: network.cgi:536
+#: network.cgi:547
 msgid "Anonymous identity"
 msgstr "Anonyme Identität"
 
-#: network.cgi:541
+#: network.cgi:552
 msgid "Password"
 msgstr "Kennwort"
 
-#: network.cgi:544
+#: network.cgi:555
 msgid "Show password"
 msgstr "Kennwort anzeigen"
 
-#: network.cgi:556 network.cgi:685
+#: network.cgi:567 network.cgi:696
 msgid "Configure"
 msgstr "Konfigurieren"
 
-#: network.cgi:557
+#: network.cgi:568
 msgid "Share"
 msgstr "Teilen"
 
-#: network.cgi:598
+#: network.cgi:609
 msgid "Share Wi-Fi network with your friends"
 msgstr "Drahtlos-Netzwerk mit Freunden teilen"
 
-#: network.cgi:614
+#: network.cgi:625
 msgid ""
 "These values are the wifi settings in the main /etc/network.conf "
 "configuration file"
@@ -1002,82 +1002,104 @@ msgstr ""
 "Dies sind die Drahtlos-Netzwerk-Einstellungen aus der zentralen "
 "Konfigurationsdatei /etc/network.conf"
 
-#: network.cgi:620
+#: network.cgi:631
 msgid "Output of iwconfig"
 msgstr "Ausgabe von iwconfig"
 
-#: network.cgi:629
+#: network.cgi:640
 msgid "Manage network connections and services"
 msgstr "Netzwerk-Verbindungen und -Dienste verwalten"
 
-#: network.cgi:648
+#: network.cgi:659
 msgid "Restart"
 msgstr "Neu starten"
 
-#: network.cgi:652
+#: network.cgi:663
 msgid "Configuration:"
 msgstr "Konfiguration:"
 
-#: network.cgi:660
+#: network.cgi:671
 msgid "Network interfaces"
 msgstr "Netzwerkschnittstellen"
 
-#: network.cgi:667
+#: network.cgi:678
 msgid "forward packets between interfaces"
 msgstr "Pakete zwischen Schnittstellen weiterleiten"
 
-#: network.cgi:677 hosts.cgi:203
+#: network.cgi:688 hosts.cgi:203
 msgid "Hosts"
 msgstr "Rechner"
 
-#: network.cgi:679
+#: network.cgi:690
 msgid "%d record in the hosts DB"
 msgid_plural "%d records in the hosts DB"
 msgstr[0] "%d Satz in der hosts-Datenbank"
 msgstr[1] "%d Sätze in der hosts-Datenbank"
 
-#: network.cgi:686 hosts.cgi:16
+#: network.cgi:697 hosts.cgi:16
 msgid "Use hosts file as Ad blocker"
 msgstr "Die hosts-Datei zum Blockieren von Werbung verwenden"
 
-#: network.cgi:693
+#: network.cgi:704
 msgid "Hostname"
 msgstr "Rechnername"
 
-#: network.cgi:712
-msgid "Output of ifconfig"
-msgstr "Ausgabe von ifconfig"
+#: network.cgi:731
+msgid "VLAN"
+msgstr ""
 
-#: network.cgi:718
-msgid "Routing table"
-msgstr "Routing-Tabelle"
+#: network.cgi:743 network.cgi:770
+msgid "priority"
+msgstr ""
 
-#: network.cgi:724
-msgid "Domain name resolution"
-msgstr "Auflösung von Domänennamen"
+#: network.cgi:761 hosts.cgi:308
+msgid "Remove"
+msgstr "Deinstallieren"
 
-#: network.cgi:730
-msgid "ARP table"
-msgstr "ARP-Tabelle"
+#: network.cgi:761 network.cgi:821
+msgid "or"
+msgstr ""
 
-#: network.cgi:750
-msgid "Proxy"
-msgstr "Proxy"
-
-#: network.cgi:751 hosts.cgi:224 hosts.cgi:231
+#: network.cgi:765 network.cgi:821 hosts.cgi:224 hosts.cgi:231
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: network.cgi:764
+# Erneuerungszyklus
+#: network.cgi:766 network.cgi:819
+#, fuzzy
+msgid "on"
+msgstr "nie"
+
+#: network.cgi:782
+msgid "Output of ifconfig"
+msgstr "Ausgabe von ifconfig"
+
+#: network.cgi:788
+msgid "Routing table"
+msgstr "Routing-Tabelle"
+
+#: network.cgi:794
+msgid "Domain name resolution"
+msgstr "Auflösung von Domänennamen"
+
+#: network.cgi:800
+msgid "ARP table"
+msgstr "ARP-Tabelle"
+
+#: network.cgi:820
+msgid "Proxy"
+msgstr "Proxy"
+
+#: network.cgi:834
 msgid "IP Connections"
 msgstr "IP-Verbindungen"
 
-#: network.cgi:772
+#: network.cgi:842
 msgid "Firewall"
 msgstr "Zugangsschutzsystem"
 
 # Gibt es dafür ein deutsches Wort?
-#: network.cgi:773
+#: network.cgi:843
 msgid "Port knocker"
 msgstr ""
 
@@ -1166,10 +1188,6 @@ msgstr "Regelmäßig aktualisiert"
 #: hosts.cgi:303
 msgid "Upgrade"
 msgstr "Aktualisierung"
-
-#: hosts.cgi:308
-msgid "Remove"
-msgstr "Deinstallieren"
 
 #: hosts.cgi:314
 msgid "Install"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-20 00:00+0200\n"
+"POT-Creation-Date: 2017-10-07 13:15+0200\n"
 "PO-Revision-Date: 2012-07-11 11:33-0000\n"
 "Last-Translator: Emil Eklund <emileklund123@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: lib/libtazpanel:154 network.cgi:455
+#: lib/libtazpanel:154 network.cgi:466
 msgid "Scan"
 msgstr "Skanna"
 
@@ -25,16 +25,16 @@ msgstr "Skanna"
 msgid "connected"
 msgstr "ansluten"
 
-#: lib/libtazpanel:171 network.cgi:254
+#: lib/libtazpanel:171 network.cgi:265 network.cgi:741
 msgid "Interface"
 msgstr "Enhet"
 
-#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:57 hardware.cgi:78
-#: network.cgi:345 hosts.cgi:243
+#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:58 hardware.cgi:79
+#: network.cgi:356 hosts.cgi:243
 msgid "Name"
 msgstr "Namn"
 
-#: lib/libtazpanel:173 boot.cgi:145 network.cgi:349
+#: lib/libtazpanel:173 boot.cgi:145 network.cgi:360
 msgid "Status"
 msgstr "Status"
 
@@ -51,7 +51,7 @@ msgstr "Skanna portar"
 msgid "Please wait"
 msgstr "Var god vänta..."
 
-#: lib/libtazpanel:319 hardware.cgi:513
+#: lib/libtazpanel:319 hardware.cgi:514
 msgid "Disk"
 msgstr "Disk"
 
@@ -59,11 +59,11 @@ msgstr "Disk"
 msgid "Label"
 msgstr "Etikett"
 
-#: lib/libtazpanel:321 hardware.cgi:515
+#: lib/libtazpanel:321 hardware.cgi:516
 msgid "Type"
 msgstr "Sort"
 
-#: lib/libtazpanel:322 hardware.cgi:197 hardware.cgi:549
+#: lib/libtazpanel:322 hardware.cgi:198 hardware.cgi:550
 msgid "Size"
 msgstr "Storlek"
 
@@ -71,11 +71,11 @@ msgstr "Storlek"
 msgid "Available"
 msgstr "Tillgängligt"
 
-#: lib/libtazpanel:324 hardware.cgi:198 hardware.cgi:606
+#: lib/libtazpanel:324 hardware.cgi:199 hardware.cgi:607
 msgid "Used"
 msgstr "Använd"
 
-#: lib/libtazpanel:325 hardware.cgi:514
+#: lib/libtazpanel:325 hardware.cgi:515
 msgid "Mount point"
 msgstr "Monteringspunkt"
 
@@ -136,11 +136,11 @@ msgstr "Hantera daemoner"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Konstrollera, starta och stopa daemoner i SliTaz"
 
-#: boot.cgi:143 hardware.cgi:196 settings.cgi:472 powersaving.cgi:154
+#: boot.cgi:143 hardware.cgi:197 settings.cgi:472 powersaving.cgi:154
 msgid "Description"
 msgstr "Beskrivning"
 
-#: boot.cgi:144 network.cgi:248
+#: boot.cgi:144 network.cgi:259
 msgid "Configuration"
 msgstr "Konfiguration"
 
@@ -205,7 +205,7 @@ msgstr "Hantera en ZeroConf IPv4 link-lokal adress"
 msgid "Started"
 msgstr "Startade"
 
-#: boot.cgi:273 network.cgi:297 network.cgi:454 network.cgi:647
+#: boot.cgi:273 network.cgi:308 network.cgi:465 network.cgi:658
 msgid "Stop"
 msgstr "Stop"
 
@@ -213,7 +213,7 @@ msgstr "Stop"
 msgid "Stopped"
 msgstr "Stannade"
 
-#: boot.cgi:284 network.cgi:296 network.cgi:453 network.cgi:646
+#: boot.cgi:284 network.cgi:307 network.cgi:464 network.cgi:657
 msgid "Start"
 msgstr "Start"
 
@@ -237,7 +237,7 @@ msgstr "Timeout:"
 msgid "Splash image:"
 msgstr "Splash image:"
 
-#: boot.cgi:327 network.cgi:669 network.cgi:700 settings.cgi:646
+#: boot.cgi:327 network.cgi:680 network.cgi:711 settings.cgi:646
 #: settings.cgi:760 powersaving.cgi:108
 msgid "Change"
 msgstr "Ändra"
@@ -357,203 +357,203 @@ msgstr "Lokala start kommandon"
 msgid "Hardware"
 msgstr "Hårdava"
 
-#: hardware.cgi:54
+#: hardware.cgi:55
 msgid "Bus"
 msgstr ""
 
-#: hardware.cgi:55 hardware.cgi:77 hardware.cgi:547
+#: hardware.cgi:56 hardware.cgi:78 hardware.cgi:548
 msgid "Device"
 msgstr ""
 
-#: hardware.cgi:56
+#: hardware.cgi:57
 #, fuzzy
 msgid "ID"
 msgstr "PID"
 
-#: hardware.cgi:76
+#: hardware.cgi:77
 msgid "Slot"
 msgstr ""
 
-#: hardware.cgi:127
+#: hardware.cgi:128
 msgid "Detect hardware"
 msgstr "Upptäck hårdvara"
 
-#: hardware.cgi:129
+#: hardware.cgi:130
 msgid "Detect PCI and USB hardware"
 msgstr "Upptäck PCI och USB hårdvara"
 
-#: hardware.cgi:137 hardware.cgi:267 powersaving.cgi:150
+#: hardware.cgi:138 hardware.cgi:268 powersaving.cgi:150
 #: styles/default/header.html:94
 msgid "Kernel modules"
 msgstr "Kärn moduler"
 
-#: hardware.cgi:141
+#: hardware.cgi:142
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Hantera, sök eller samla information om Linux kärnmoduler"
 
-#: hardware.cgi:145
+#: hardware.cgi:146
 msgid "Modules search"
 msgstr "Moduler sökning"
 
-#: hardware.cgi:146
+#: hardware.cgi:147
 msgid "Search"
 msgstr ""
 
-#: hardware.cgi:154
+#: hardware.cgi:155
 msgid "Detailed information for module: %s"
 msgstr "Detaljerad information för modul: %s"
 
-#: hardware.cgi:178
+#: hardware.cgi:179
 msgid "Matching result(s) for: %s"
 msgstr "Matchande resultat för: %s"
 
-#: hardware.cgi:185
+#: hardware.cgi:186
 msgid "Module:"
 msgstr "Modul:"
 
-#: hardware.cgi:195 powersaving.cgi:153
+#: hardware.cgi:196 powersaving.cgi:153
 msgid "Module"
 msgstr "Modul"
 
-#: hardware.cgi:199
+#: hardware.cgi:200
 msgid "by"
 msgstr "av"
 
-#: hardware.cgi:223
+#: hardware.cgi:224
 msgid "Information for USB Device %s"
 msgstr ""
 
-#: hardware.cgi:225 hardware.cgi:243
+#: hardware.cgi:226 hardware.cgi:244
 msgid "Detailed information about specified device."
 msgstr ""
 
-#: hardware.cgi:241
+#: hardware.cgi:242
 msgid "Information for PCI Device %s"
 msgstr ""
 
-#: hardware.cgi:262
+#: hardware.cgi:263
 msgid "Drivers &amp; Devices"
 msgstr "Drivrutiner &amp; Enheter"
 
-#: hardware.cgi:264
+#: hardware.cgi:265
 msgid "Manage your computer hardware"
 msgstr "Hantera din dators hårdvara"
 
-#: hardware.cgi:268 styles/default/header.html:95
+#: hardware.cgi:269 styles/default/header.html:95
 msgid "Detect PCI/USB"
 msgstr "Upptäckt PCI/USB"
 
-#: hardware.cgi:269
+#: hardware.cgi:270
 msgid "Auto-install Xorg video driver"
 msgstr ""
 
-#: hardware.cgi:279 hardware.cgi:296
+#: hardware.cgi:280 hardware.cgi:297
 msgid "Battery"
 msgstr "Batteri"
 
-#: hardware.cgi:299
+#: hardware.cgi:300
 msgid "health"
 msgstr "hälsa"
 
-#: hardware.cgi:308
+#: hardware.cgi:309
 msgid "Discharging %d%% - %s"
 msgstr "Laddar ur %d%% - %s"
 
-#: hardware.cgi:312
+#: hardware.cgi:313
 msgid "Charging %d%% - %s"
 msgstr "Laddar %d%% - %s"
 
-#: hardware.cgi:314
+#: hardware.cgi:315
 #, fuzzy
 msgid "Charged 100%%"
 msgstr "Laddad 100%%"
 
-#: hardware.cgi:333
+#: hardware.cgi:334
 msgid "Temperature:"
 msgstr "Temperatur:"
 
-#: hardware.cgi:348
+#: hardware.cgi:349
 msgid "Brightness"
 msgstr "Ljusstyrka"
 
-#: hardware.cgi:368 index.cgi:851
+#: hardware.cgi:369 index.cgi:851
 msgid "Filesystem usage statistics"
 msgstr "Filsystemsanvändning"
 
-#: hardware.cgi:491
+#: hardware.cgi:492
 #, fuzzy
 msgid "new mount point:"
 msgstr "Monteringspunkt"
 
-#: hardware.cgi:492
+#: hardware.cgi:493
 msgid "read-only"
 msgstr ""
 
-#: hardware.cgi:507
+#: hardware.cgi:508
 msgid "Filesystems table"
 msgstr ""
 
-#: hardware.cgi:516
+#: hardware.cgi:517
 #, fuzzy
 msgid "Options"
 msgstr "Handling"
 
-#: hardware.cgi:517
+#: hardware.cgi:518
 msgid "Freq"
 msgstr ""
 
-#: hardware.cgi:518
+#: hardware.cgi:519
 #, fuzzy
 msgid "Pass"
 msgstr "Lösenord:"
 
-#: hardware.cgi:540
+#: hardware.cgi:541
 msgid "Loop devices"
 msgstr ""
 
-#: hardware.cgi:548
+#: hardware.cgi:549
 #, fuzzy
 msgid "Backing file"
 msgstr "Konfigurerings fil"
 
-#: hardware.cgi:550
+#: hardware.cgi:551
 #, fuzzy
 msgid "Access"
 msgstr "Åtkomst punkt"
 
-#: hardware.cgi:551
+#: hardware.cgi:552
 msgid "Offset"
 msgstr ""
 
-#: hardware.cgi:560
+#: hardware.cgi:561
 msgid "read/write"
 msgstr ""
 
-#: hardware.cgi:561 hardware.cgi:586
+#: hardware.cgi:562 hardware.cgi:587
 msgid "read only"
 msgstr ""
 
-#: hardware.cgi:583
+#: hardware.cgi:584
 msgid "Setup"
 msgstr ""
 
-#: hardware.cgi:584
+#: hardware.cgi:585
 msgid "new backing file:"
 msgstr ""
 
-#: hardware.cgi:585
+#: hardware.cgi:586
 msgid "offset in bytes:"
 msgstr ""
 
-#: hardware.cgi:603
+#: hardware.cgi:604
 msgid "System memory"
 msgstr "System minne"
 
-#: hardware.cgi:609
+#: hardware.cgi:610
 msgid "Buffers"
 msgstr ""
 
-#: hardware.cgi:612
+#: hardware.cgi:613
 msgid "Free"
 msgstr ""
 
@@ -806,7 +806,7 @@ msgstr "Linux kärna:"
 msgid "Network status"
 msgstr "Nätverks status"
 
-#: index.cgi:842 network.cgi:15 network.cgi:216 hosts.cgi:15
+#: index.cgi:842 network.cgi:15 network.cgi:227 hosts.cgi:15
 #: styles/default/header.html:55
 msgid "Network"
 msgstr "Nätverk"
@@ -823,19 +823,19 @@ msgstr "Panel Aktivitet"
 msgid "Changed hostname: %s"
 msgstr "Ändrat värdnamn: %s"
 
-#: network.cgi:210
+#: network.cgi:221
 msgid "Scanning open ports..."
 msgstr "Skannar öppna portar..."
 
-#: network.cgi:215
+#: network.cgi:226
 msgid "Port scanning for %s"
 msgstr "Port skanning för %s"
 
-#: network.cgi:226
+#: network.cgi:237
 msgid "Ethernet connection"
 msgstr "Ethernet Anslutning"
 
-#: network.cgi:244
+#: network.cgi:255
 msgid ""
 "Here you can configure a wired connection using DHCP to automatically get a "
 "random IP or configure a static/fixed IP"
@@ -843,69 +843,69 @@ msgstr ""
 "Här kan du konfigurera en trådbunden anslutning med DHCP för att automatiskt "
 "få en slumpmässig IP eller konfigurera en statisk/fast IP"
 
-#: network.cgi:262
+#: network.cgi:273
 msgid "Static IP"
 msgstr ""
 
-#: network.cgi:264
+#: network.cgi:275
 msgid "Use static IP"
 msgstr ""
 
-#: network.cgi:266
+#: network.cgi:277
 msgid "IP address"
 msgstr "IP adress"
 
-#: network.cgi:269
+#: network.cgi:280
 msgid "Netmask"
 msgstr "Netmask"
 
-#: network.cgi:272
+#: network.cgi:283
 msgid "Gateway"
 msgstr "Gateway"
 
-#: network.cgi:275
+#: network.cgi:286
 msgid "DNS server"
 msgstr "DNS server"
 
-#: network.cgi:278 network.cgi:298
+#: network.cgi:289 network.cgi:309
 msgid "Wake up"
 msgstr ""
 
-#: network.cgi:280
+#: network.cgi:291
 msgid "Wake up machines by network"
 msgstr ""
 
-#: network.cgi:282
+#: network.cgi:293
 msgid "MAC address to wake up"
 msgstr ""
 
-#: network.cgi:283
+#: network.cgi:294
 msgid "Leave empty for a general wakeup"
 msgstr ""
 
-#: network.cgi:284
+#: network.cgi:295
 msgid "List"
 msgstr ""
 
-#: network.cgi:287
+#: network.cgi:298
 #, fuzzy
 msgid "MAC/IP address password"
 msgstr "Byt lösenord"
 
-#: network.cgi:288
+#: network.cgi:299
 #, fuzzy
 msgid "Optional"
 msgstr "Handling"
 
-#: network.cgi:289
+#: network.cgi:300
 msgid "Help"
 msgstr ""
 
-#: network.cgi:322 network.cgi:609
+#: network.cgi:333 network.cgi:620
 msgid "Configuration file"
 msgstr "Konfigurations fil"
 
-#: network.cgi:327
+#: network.cgi:338
 msgid ""
 "These values are the ethernet settings in the main /etc/network.conf "
 "configuration file"
@@ -913,181 +913,202 @@ msgstr ""
 "Dessa värden är ethernet inställningarna för \"/etc/network.conf\" "
 "konfigurations filen"
 
-#: network.cgi:339
+#: network.cgi:350
 msgid "(hidden)"
 msgstr ""
 
-#: network.cgi:346
+#: network.cgi:357
 msgid "Signal level"
 msgstr ""
 
-#: network.cgi:347
+#: network.cgi:358
 #, fuzzy
 msgid "Channel"
 msgstr "Ändra"
 
-#: network.cgi:348
+#: network.cgi:359
 msgid "Encryption"
 msgstr "Kryptering"
 
-#: network.cgi:407 network.cgi:489 network.cgi:511
+#: network.cgi:418 network.cgi:500 network.cgi:522
 msgid "None"
 msgstr ""
 
-#: network.cgi:413
+#: network.cgi:424
 msgid "Connected"
 msgstr "Ansluten"
 
-#: network.cgi:439
+#: network.cgi:450
 msgid "Wireless connection"
 msgstr "Trådlös Anslutning"
 
-#: network.cgi:463
+#: network.cgi:474
 msgid "Scanning wireless interface..."
 msgstr "Skannar trådlös anslutning..."
 
-#: network.cgi:477
+#: network.cgi:488
 msgid "Connection"
 msgstr "Anslutning"
 
-#: network.cgi:483
+#: network.cgi:494
 #, fuzzy
 msgid "Network SSID"
 msgstr "Nätverk"
 
-#: network.cgi:487
+#: network.cgi:498
 msgid "Security"
 msgstr ""
 
-#: network.cgi:498
+#: network.cgi:509
 msgid "EAP method"
 msgstr ""
 
-#: network.cgi:509
+#: network.cgi:520
 msgid "Phase 2 authentication"
 msgstr ""
 
-#: network.cgi:521
+#: network.cgi:532
 msgid "CA certificate"
 msgstr ""
 
-#: network.cgi:526
+#: network.cgi:537
 msgid "User certificate"
 msgstr ""
 
-#: network.cgi:531
+#: network.cgi:542
 msgid "Identity"
 msgstr ""
 
-#: network.cgi:536
+#: network.cgi:547
 msgid "Anonymous identity"
 msgstr ""
 
-#: network.cgi:541
+#: network.cgi:552
 #, fuzzy
 msgid "Password"
 msgstr "Lösenord:"
 
-#: network.cgi:544
+#: network.cgi:555
 #, fuzzy
 msgid "Show password"
 msgstr "Nytt lösenord: "
 
-#: network.cgi:556 network.cgi:685
+#: network.cgi:567 network.cgi:696
 msgid "Configure"
 msgstr "Konfigurera"
 
-#: network.cgi:557
+#: network.cgi:568
 msgid "Share"
 msgstr ""
 
-#: network.cgi:598
+#: network.cgi:609
 msgid "Share Wi-Fi network with your friends"
 msgstr ""
 
-#: network.cgi:614
+#: network.cgi:625
 msgid ""
 "These values are the wifi settings in the main /etc/network.conf "
 "configuration file"
 msgstr ""
 "Dessa värden är WIFI inställningarna i /etc/network.conf konfigurerings filen"
 
-#: network.cgi:620
+#: network.cgi:631
 msgid "Output of iwconfig"
 msgstr "Svar från iwconfig"
 
-#: network.cgi:629
+#: network.cgi:640
 msgid "Manage network connections and services"
 msgstr "Hantera nätverksanslutningar och tjänster"
 
-#: network.cgi:648
+#: network.cgi:659
 msgid "Restart"
 msgstr "Starta om"
 
-#: network.cgi:652
+#: network.cgi:663
 msgid "Configuration:"
 msgstr "Konfiguration:"
 
-#: network.cgi:660
+#: network.cgi:671
 #, fuzzy
 msgid "Network interfaces"
 msgstr "Nätverks status"
 
-#: network.cgi:667
+#: network.cgi:678
 msgid "forward packets between interfaces"
 msgstr ""
 
-#: network.cgi:677 hosts.cgi:203
+#: network.cgi:688 hosts.cgi:203
 msgid "Hosts"
 msgstr "Värdar"
 
-#: network.cgi:679
+#: network.cgi:690
 msgid "%d record in the hosts DB"
 msgid_plural "%d records in the hosts DB"
 msgstr[0] ""
 msgstr[1] ""
 
-#: network.cgi:686 hosts.cgi:16
+#: network.cgi:697 hosts.cgi:16
 msgid "Use hosts file as Ad blocker"
 msgstr ""
 
-#: network.cgi:693
+#: network.cgi:704
 msgid "Hostname"
 msgstr "Värdnamn"
 
-#: network.cgi:712
-msgid "Output of ifconfig"
-msgstr "Svar av ifconfig"
-
-#: network.cgi:718
-msgid "Routing table"
-msgstr "dirigeringsbord"
-
-#: network.cgi:724
-msgid "Domain name resolution"
-msgstr "Domän namns upplösning"
-
-#: network.cgi:730
-msgid "ARP table"
-msgstr "ARP bord"
-
-#: network.cgi:750
-msgid "Proxy"
+#: network.cgi:731
+msgid "VLAN"
 msgstr ""
 
-#: network.cgi:751 hosts.cgi:224 hosts.cgi:231
+#: network.cgi:743 network.cgi:770
+msgid "priority"
+msgstr ""
+
+#: network.cgi:761 hosts.cgi:308
+msgid "Remove"
+msgstr ""
+
+#: network.cgi:761 network.cgi:821
+msgid "or"
+msgstr ""
+
+#: network.cgi:765 network.cgi:821 hosts.cgi:224 hosts.cgi:231
 msgid "Add"
 msgstr ""
 
-#: network.cgi:764
+#: network.cgi:766 network.cgi:819
+#, fuzzy
+msgid "on"
+msgstr "ingen"
+
+#: network.cgi:782
+msgid "Output of ifconfig"
+msgstr "Svar av ifconfig"
+
+#: network.cgi:788
+msgid "Routing table"
+msgstr "dirigeringsbord"
+
+#: network.cgi:794
+msgid "Domain name resolution"
+msgstr "Domän namns upplösning"
+
+#: network.cgi:800
+msgid "ARP table"
+msgstr "ARP bord"
+
+#: network.cgi:820
+msgid "Proxy"
+msgstr ""
+
+#: network.cgi:834
 msgid "IP Connections"
 msgstr "IP Anslutningar"
 
-#: network.cgi:772
+#: network.cgi:842
 msgid "Firewall"
 msgstr ""
 
-#: network.cgi:773
+#: network.cgi:843
 msgid "Port knocker"
 msgstr ""
 
@@ -1177,10 +1198,6 @@ msgstr ""
 
 #: hosts.cgi:303
 msgid "Upgrade"
-msgstr ""
-
-#: hosts.cgi:308
-msgid "Remove"
 msgstr ""
 
 #: hosts.cgi:314
