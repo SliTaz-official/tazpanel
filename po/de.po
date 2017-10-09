@@ -1,15 +1,15 @@
 # German translations for TazPanel package
 # Deutsche Übersetzungen für das Paket TazPanel.
-# Copyright (C) 2016 SliTaz
+# Copyright (C) 2017 SliTaz
 # This file is distributed under the same license as the TazPanel package.
-# Hans-Günter Theisgen, 2016.
+# Hans-Günter Theisgen, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 522\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-07 13:15+0200\n"
-"PO-Revision-Date: 2016-10-15 10:40+0100\n"
+"PO-Revision-Date: 2017-10-09 16:40+0100\n"
 "Last-Translator: Hans-Günter Theisgen\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -89,7 +89,9 @@ msgstr "Bearbeiten"
 
 #: lib/libtazpanel:396
 msgid "You must be root to show this page."
-msgstr "Diese Seite kann nur mit root-Berechtigung angezeigt werden"
+msgstr ""
+"Diese Seite kann nur mit "
+"Systemadministrator-Rechten angezeigt werden"
 
 #: lib/libtazpanel:419 lib/libtazpanel:429
 msgid "Browse"
@@ -157,7 +159,7 @@ msgstr "SliTaz-Zugangsschutzsystem mit 'iptables'-Regeln"
 
 #: boot.cgi:174
 msgid "Small and fast web server with CGI support"
-msgstr "Kleiner und schneller 'web server' mit CGI-Unterstützung"
+msgstr "Kleiner und schneller Webserver' mit CGI-Unterstützung"
 
 #: boot.cgi:177
 msgid "Network time protocol daemon"
@@ -281,14 +283,14 @@ msgstr "Aktuelles Verzeichnis"
 msgid "Target partition"
 msgstr "Zielpartition"
 
-# Wo gibt es ein Verzeichnis /slitaz ?
-# Ist vielleicht gemeint: Erzeugt nur Systemdateien, läßt alle anderen Dateien unverändert?
+# HGT: Wo gibt es ein Verzeichnis /slitaz ?
+# HGT: Ist vielleicht gemeint: Erzeugt nur Systemdateien, läßt alle anderen Dateien unverändert?
 #: boot.cgi:416
 msgid ""
 "For hard disk installation only. Will create /slitaz tree and keep other "
 "files. No partitioning and no formatting."
 msgstr ""
-"Nur für Installation auf Platte. /slitaz-Verzeichnisbaum wird erzeugt, "
+"Nur für Installation auf Platte. Wurzelverzeichnisbaum wird erzeugt, "
 "andere Dateien bleiben erhalten. Keine Partitionierung und keine "
 "Formatierung."
 
@@ -359,11 +361,11 @@ msgstr "Eigene Kommandos zur Systemeinleitung"
 
 #: hardware.cgi:13 powersaving.cgi:22 styles/default/header.html:91
 msgid "Hardware"
-msgstr ""
+msgstr "Hardware"
 
 #: hardware.cgi:55
 msgid "Bus"
-msgstr ""
+msgstr "Bus"
 
 #: hardware.cgi:56 hardware.cgi:78 hardware.cgi:548
 msgid "Device"
@@ -407,7 +409,7 @@ msgstr "Suchen"
 msgid "Detailed information for module: %s"
 msgstr "Ausführliche Informationen über den Modul: %s"
 
-# Singular und Plural sollten getrennt werden!
+# HGT: Singular und Plural sollten getrennt werden!
 #: hardware.cgi:179
 msgid "Matching result(s) for: %s"
 msgstr "Passende(s) Ergebnis(se) für: %s"
@@ -454,7 +456,7 @@ msgstr "Selbsttätige Installation der Xorg-Video-Treiber"
 
 #: hardware.cgi:280 hardware.cgi:297
 msgid "Battery"
-msgstr "Batterie"
+msgstr "Akku"
 
 #: hardware.cgi:300
 msgid "health"
@@ -500,12 +502,12 @@ msgstr "Tabelle der Dateisysteme"
 msgid "Options"
 msgstr "Optionen"
 
-# bei fstab-Einträgen
+# HGT: bei fstab-Einträgen
 #: hardware.cgi:518
 msgid "Freq"
 msgstr "Sicherungshäufigkeit"
 
-# bei fstab-Einträgen
+# HGT: bei fstab-Einträgen
 #: hardware.cgi:519
 msgid "Pass"
 msgstr "Durchgang"
@@ -663,17 +665,17 @@ msgstr "Erneuern:"
 
 #: index.cgi:521
 msgid "1s"
-msgstr ""
+msgstr "1 s"
 
 #: index.cgi:523
 msgid "5s"
-msgstr ""
+msgstr "5 s"
 
 #: index.cgi:525
 msgid "10s"
-msgstr ""
+msgstr "10 s"
 
-# Erneuerungszyklus
+# HGT: Erneuerungszyklus
 #: index.cgi:527 floppy.cgi:110
 msgid "none"
 msgstr "nie"
@@ -760,7 +762,7 @@ msgstr "Fußzeilen für Bericht erstellen..."
 
 #: index.cgi:796
 msgid "This report can be attached with a bug report on:"
-msgstr "Dieser Bericht kann einem Fehlerbericht angehängt werden auf:"
+msgstr "Dieser Bericht kann einer Fehlermeldung angehängt werden auf:"
 
 #: index.cgi:806
 msgid "SliTaz administration and configuration Panel"
@@ -786,7 +788,7 @@ msgstr "Betriebsdauer:"
 
 #: index.cgi:825
 msgid "Memory in Mb:"
-msgstr "Arbeitsspeicher in MB"
+msgstr "Arbeitsspeicher in MiB"
 
 #: index.cgi:827
 msgid "Total: %d, Used: %d, Free: %d"
@@ -1004,7 +1006,7 @@ msgstr ""
 
 #: network.cgi:631
 msgid "Output of iwconfig"
-msgstr "Ausgabe von iwconfig"
+msgstr "Ausgabe von 'iwconfig'"
 
 #: network.cgi:640
 msgid "Manage network connections and services"
@@ -1033,8 +1035,8 @@ msgstr "Rechner"
 #: network.cgi:690
 msgid "%d record in the hosts DB"
 msgid_plural "%d records in the hosts DB"
-msgstr[0] "%d Satz in der hosts-Datenbank"
-msgstr[1] "%d Sätze in der hosts-Datenbank"
+msgstr[0] "%d Satz in der hosts-Datei"
+msgstr[1] "%d Sätze in der hosts-Datei"
 
 #: network.cgi:697 hosts.cgi:16
 msgid "Use hosts file as Ad blocker"
@@ -1046,11 +1048,11 @@ msgstr "Rechnername"
 
 #: network.cgi:731
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 #: network.cgi:743 network.cgi:770
 msgid "priority"
-msgstr ""
+msgstr "Priorität"
 
 #: network.cgi:761 hosts.cgi:308
 msgid "Remove"
@@ -1058,17 +1060,15 @@ msgstr "Deinstallieren"
 
 #: network.cgi:761 network.cgi:821
 msgid "or"
-msgstr ""
+msgstr "oder"
 
 #: network.cgi:765 network.cgi:821 hosts.cgi:224 hosts.cgi:231
 msgid "Add"
 msgstr "Hinzufügen"
 
-# Erneuerungszyklus
 #: network.cgi:766 network.cgi:819
-#, fuzzy
 msgid "on"
-msgstr "nie"
+msgstr "ein"
 
 #: network.cgi:782
 msgid "Output of ifconfig"
@@ -1098,10 +1098,10 @@ msgstr "IP-Verbindungen"
 msgid "Firewall"
 msgstr "Zugangsschutzsystem"
 
-# Gibt es dafür ein deutsches Wort?
+# HGT: Gibt es dafür ein deutsches Wort?
 #: network.cgi:843
 msgid "Port knocker"
-msgstr ""
+msgstr "'Port knocker'"
 
 #: hosts.cgi:107
 msgid "Host \"%s\" added to /etc/hosts."
@@ -1342,13 +1342,12 @@ msgid "Locales that are currently installed on the machine:"
 msgstr "Im System installierte Lokalisierungen:"
 
 #: settings.cgi:458
-#, fuzzy
 msgid ""
 "Can't see your language?<br/>You can <a href='pkgs.cgi?do=Install&amp;glibc-"
 "locale'>install glibc-locale</a> to see a larger list of available locales."
 msgstr ""
 "Ihre Sprache ist nicht dabei?<br/>Sie können <a href='pkgs.cgi?"
-"do=Install&amp;glibc-locale'>glibc-locale installieren</a> um mehr "
+"do=Install&amp;glibc-locale'>glibc-locale installieren</a>, um mehr "
 "Lokalisierungen zu erhalten."
 
 #: settings.cgi:465
@@ -1357,7 +1356,7 @@ msgstr "Verfügbare Lokalisierungen:"
 
 #: settings.cgi:469
 msgid "Code"
-msgstr "Kürzel"
+msgstr "Landeskürzel"
 
 #: settings.cgi:470
 msgid "Language"
@@ -1502,9 +1501,8 @@ msgstr "Oberfläche"
 msgid "Server"
 msgstr "Server"
 
-# was heißt "and page"?
+# HGT: was heißt "and page"?
 #: settings.cgi:836
-#, fuzzy
 msgid "TazPanel provides a debugging mode and page:"
 msgstr "TazPanel bietet einen Testhilfe-Modus:"
 
@@ -1531,7 +1529,7 @@ msgstr "Platte formatieren"
 # Was bedeutet das? Kopieren auf Diskette? Diskettentransfer?
 #: floppy.cgi:118
 msgid "Floppy disk transfer"
-msgstr ""
+msgstr "Transfer auf Diskette"
 
 #: floppy.cgi:123
 msgid "Write image"
@@ -1541,10 +1539,10 @@ msgstr "Abbild schreiben"
 msgid "Read image"
 msgstr "Abbild lesen"
 
-# Ist das gemeint?
+# HGT: Ist das gemeint?
 #: floppy.cgi:146
 msgid "Boot floppy set builder"
-msgstr "Diskettensatzerzeuger laden"
+msgstr "Satz urladefähiger Disketten erzeugen"
 
 #: floppy.cgi:152
 msgid "required"
@@ -1552,7 +1550,7 @@ msgstr "benötigt"
 
 #: floppy.cgi:155
 msgid "Initramfs / Initrd:"
-msgstr ""
+msgstr "initramfs oder initrd:"
 
 #: floppy.cgi:156 floppy.cgi:160 floppy.cgi:164 floppy.cgi:169
 msgid "optional"
@@ -1609,8 +1607,8 @@ msgstr "Bemerkung"
 #: floppy.cgi:270
 msgid "the extra initramfs may be useful to add your own configuration files."
 msgstr ""
-"Ein extra 'initramfs' kann benutzt werden, um eigene Konfigurationsdateien "
-"hinzuzufügen."
+"Ein zusätzliches 'initramfs' kann benutzt werden, um eigene "
+"Konfigurationsdateien hinzuzufügen."
 
 #: floppy.cgi:273
 msgid ""
@@ -1671,9 +1669,9 @@ msgid ""
 "automatically depending on the system load, in response to ACPI events, or "
 "manually by userspace programs."
 msgstr ""
-"Um Energie zu sparen, kann es dem Betriebssystem ermöglicht werden, die CPU-"
-"Taktung zu erhöhen und zu erniedrigen. Dies kann automatisch geschehen in "
-"Abhängigkeit von der CPU-Last und ACPI-Ereignissen oder manuell durch "
+"Um Energie zu sparen, kann es dem Betriebssystem ermöglicht werden, die "
+"CPU-Taktung zu erhöhen und zu erniedrigen. Dies kann automatisch geschehen "
+"in Abhängigkeit von der CPU-Last und ACPI-Ereignissen oder manuell durch "
 "Anwenderprogramme."
 
 #: powersaving.cgi:138
