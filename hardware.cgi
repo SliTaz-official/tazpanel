@@ -23,7 +23,9 @@ disk_info() {
 	fdisk -l | fgrep Disk | while read a b c; do
 		d=${b#/dev/}
 		d="/sys/block/${d%:}/device"
-		[ -d $d ] && echo "$a $b $c, $(cat $d/vendor) $(cat $d/model)"
+		t="HD"
+		[ "$(cat /sys/block/${d%:}/queue/rotational)" -eq "0" ] && t="SSD"
+		[ -d $d ] && echo "$a $b $c, $t $(cat $d/vendor) $(cat $d/model)"
 		smartctl -a ${b%:} | sed '/^Model/,/^Firmware/!d'
 	done 2> /dev/null | sed 's/  */ /g'
 }
