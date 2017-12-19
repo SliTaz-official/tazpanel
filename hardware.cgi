@@ -412,6 +412,7 @@ EOT
 EOT
 		df_thead
 		echo '<tbody>'
+		bootdevs="$(fdisk -l | sed '/\*/!d;/^\/dev/!d;s/ .*//')"
 		for fs in $(blkid | sort | sed 's/:.*//'); do
 			set -- $(df -h | grep "^$fs ")
 			size=$2
@@ -453,12 +454,16 @@ EOT
 			1) disktype="@cd@" ;;
 			esac
 
+			# boot flag
+			dsk="${fs#/dev/}"
+			case " $bootdevs " in *\ $fs\ *) dsk="<i>$dsk</i>";; esac
+
 			radio="<input type=\"radio\" name=\"device\" value=\"$action $fs\" id=\"${fs#/dev/}\"/>"
 			[ "$REMOTE_USER" == "root" ] || radio=""
 			cat <<EOT
 			<tr>
 				<td>$radio<!--
-					--><label for="${fs#/dev/}" data-icon="$disktype">&thinsp;${fs#/dev/}</label></td>
+					--><label for="${fs#/dev/}" data-icon="$disktype">&thinsp;$dsk</label></td>
 				<td>$(blkid $fs | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/\1/')</td>
 				<td>$type</td>
 				<td>$size</td>
