@@ -412,7 +412,7 @@ EOT
 EOT
 		df_thead
 		echo '<tbody>'
-		bootdevs="$(fdisk -l | sed '/\*/!d;/^\/dev/!d;s/ .*//')"
+		bootdevs="$(fdisk -l | sed '/\*/!d;/^\/dev/!d;s/ .*//' | xargs)"
 		for fs in $(blkid | sort | sed 's/:.*//'); do
 			set -- $(df -h | grep "^$fs ")
 			size=$2
