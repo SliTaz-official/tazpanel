@@ -21,7 +21,7 @@ lib() {
 
 disk_info() {
 	fdisk -l | fgrep Disk | while read a b c; do
-		d=${b#/dev/}
+		d=${b##*/}
 		t="HD"
 		[ "$(cat /sys/block/${d%:}/queue/rotational)" -eq "0" ] && t="SSD"
 		d="/sys/block/${d%:}/device"
@@ -441,29 +441,29 @@ EOT
 
 			# size
 			[ -z "$size" ] &&
-			size="$(blk2h $(cat /sys/block/${fs#/dev/}/size /sys/block/*/${fs#/dev/}/size))"
+			size="$(blk2h $(cat /sys/block/${fs##*/}/size /sys/block/*/${fs##*/}/size))"
 
 			# image
 			disktype="@hdd@"
-			case "$(cat /sys/block/${fs#/dev/}/removable 2>/dev/null ||
+			case "$(cat /sys/block/${fs##*/}/removable 2>/dev/null ||
 				cat /sys/block/${fs:5:3}/removable 2>/dev/null)" in
 			1) disktype="@removable@" ;;
 			esac
-			case "$(cat /sys/block/${fs#/dev/}/ro 2>/dev/null ||
+			case "$(cat /sys/block/${fs##*/}/ro 2>/dev/null ||
 				cat /sys/block/${fs:5:3}/ro 2>/dev/null)" in
 			1) disktype="@cd@" ;;
 			esac
 
 			# boot flag
-			dsk="${fs#/dev/}"
+			dsk="${fs##*/}"
 			case " $bootdevs " in *\ $fs\ *) dsk="<i>$dsk</i>";; esac
 
-			radio="<input type=\"radio\" name=\"device\" value=\"$action $fs\" id=\"${fs#/dev/}\"/>"
+			radio="<input type=\"radio\" name=\"device\" value=\"$action $fs\" id=\"${fs##*/}\"/>"
 			[ "$REMOTE_USER" == "root" ] || radio=""
 			cat <<EOT
 			<tr>
 				<td>$radio<!--
-					--><label for="${fs#/dev/}" data-icon="$disktype">&thinsp;$dsk</label></td>
+					--><label for="${fs##*/}" data-icon="$disktype">&thinsp;$dsk</label></td>
 				<td>$(blkid $fs | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/\1/')</td>
 				<td>$type</td>
 				<td>$size</td>
@@ -562,7 +562,7 @@ EOT
 			<tbody>
 EOT
 for devloop in $(ls /dev/*loop[0-9]*); do
-	loop="${devloop#/dev/}"
+	loop="${devloop##*/}"
 	dir=/sys/block/$loop
 	case "$(cat $dir/ro 2>/dev/null)" in
 	0) ro="$(_ "read/write")" ;;
