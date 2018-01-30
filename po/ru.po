@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-07 13:15+0200\n"
+"POT-Creation-Date: 2018-01-30 12:05+0200\n"
 "PO-Revision-Date: 2016-11-20 00:01+0200\n"
 "Last-Translator: Aleksej Bobylev <al.bobylev@gmail.com>\n"
 "Language-Team: \n"
@@ -34,7 +34,7 @@ msgstr "соединён"
 msgid "Interface"
 msgstr "Интерфейс"
 
-#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:58 hardware.cgi:79
+#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:60 hardware.cgi:81
 #: network.cgi:356 hosts.cgi:243
 msgid "Name"
 msgstr "Название"
@@ -55,7 +55,7 @@ msgstr "Сканировать порты"
 msgid "Please wait"
 msgstr "Пожалуйста, подождите"
 
-#: lib/libtazpanel:319 hardware.cgi:514
+#: lib/libtazpanel:319 hardware.cgi:521
 msgid "Disk"
 msgstr "Диск"
 
@@ -63,11 +63,11 @@ msgstr "Диск"
 msgid "Label"
 msgstr "Метка"
 
-#: lib/libtazpanel:321 hardware.cgi:516
+#: lib/libtazpanel:321 hardware.cgi:523
 msgid "Type"
 msgstr "Тип"
 
-#: lib/libtazpanel:322 hardware.cgi:198 hardware.cgi:550
+#: lib/libtazpanel:322 hardware.cgi:200 hardware.cgi:557
 msgid "Size"
 msgstr "Размер"
 
@@ -75,11 +75,11 @@ msgstr "Размер"
 msgid "Available"
 msgstr "Доступно"
 
-#: lib/libtazpanel:324 hardware.cgi:199 hardware.cgi:607
+#: lib/libtazpanel:324 hardware.cgi:201 hardware.cgi:614
 msgid "Used"
 msgstr "Используется"
 
-#: lib/libtazpanel:325 hardware.cgi:515
+#: lib/libtazpanel:325 hardware.cgi:522
 msgid "Mount point"
 msgstr "Точка монтирования"
 
@@ -139,7 +139,7 @@ msgstr "Управление службами"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Проверка, запуск и остановка служб SliTaz"
 
-#: boot.cgi:143 hardware.cgi:197 settings.cgi:472 powersaving.cgi:154
+#: boot.cgi:143 hardware.cgi:199 settings.cgi:472 powersaving.cgi:154
 msgid "Description"
 msgstr "Описание"
 
@@ -362,196 +362,196 @@ msgstr "Локальные команды запуска"
 msgid "Hardware"
 msgstr "Оборудование"
 
-#: hardware.cgi:55
+#: hardware.cgi:57
 msgid "Bus"
 msgstr "Шина"
 
-#: hardware.cgi:56 hardware.cgi:78 hardware.cgi:548
+#: hardware.cgi:58 hardware.cgi:80 hardware.cgi:555
 msgid "Device"
 msgstr "Устройство"
 
-#: hardware.cgi:57
+#: hardware.cgi:59
 msgid "ID"
 msgstr "ID"
 
-#: hardware.cgi:77
+#: hardware.cgi:79
 msgid "Slot"
 msgstr "Слот"
 
-#: hardware.cgi:128
+#: hardware.cgi:130
 msgid "Detect hardware"
 msgstr "Поиск оборудования"
 
-#: hardware.cgi:130
+#: hardware.cgi:132
 msgid "Detect PCI and USB hardware"
 msgstr "Определение оборудования PCI и USB"
 
-#: hardware.cgi:138 hardware.cgi:268 powersaving.cgi:150
+#: hardware.cgi:140 hardware.cgi:270 powersaving.cgi:150
 #: styles/default/header.html:94
 msgid "Kernel modules"
 msgstr "Модули ядра"
 
-#: hardware.cgi:142
+#: hardware.cgi:144
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Управление, поиск и сведения о модулях ядра Linux"
 
-#: hardware.cgi:146
+#: hardware.cgi:148
 msgid "Modules search"
 msgstr "Поиск модулей"
 
-#: hardware.cgi:147
+#: hardware.cgi:149
 msgid "Search"
 msgstr "Искать"
 
-#: hardware.cgi:155
+#: hardware.cgi:157
 msgid "Detailed information for module: %s"
 msgstr "Подробности о модуле %s"
 
-#: hardware.cgi:179
+#: hardware.cgi:181
 msgid "Matching result(s) for: %s"
 msgstr "Результаты поиска %s"
 
-#: hardware.cgi:186
+#: hardware.cgi:188
 msgid "Module:"
 msgstr "Модуль:"
 
-#: hardware.cgi:196 powersaving.cgi:153
+#: hardware.cgi:198 powersaving.cgi:153
 msgid "Module"
 msgstr "Модуль"
 
-#: hardware.cgi:200
+#: hardware.cgi:202
 msgid "by"
 msgstr "кем"
 
-#: hardware.cgi:224
+#: hardware.cgi:226
 msgid "Information for USB Device %s"
 msgstr "Информация о USB-устройстве %s"
 
-#: hardware.cgi:226 hardware.cgi:244
+#: hardware.cgi:228 hardware.cgi:246
 msgid "Detailed information about specified device."
 msgstr "Подробная информация о выбранном устройстве."
 
-#: hardware.cgi:242
+#: hardware.cgi:244
 msgid "Information for PCI Device %s"
 msgstr "Информация о PCI-устройстве %s"
 
-#: hardware.cgi:263
+#: hardware.cgi:265
 msgid "Drivers &amp; Devices"
 msgstr "Драйверы и устройства"
 
-#: hardware.cgi:265
+#: hardware.cgi:267
 msgid "Manage your computer hardware"
 msgstr "Управление вашим компьютерным оборудованием"
 
-#: hardware.cgi:269 styles/default/header.html:95
+#: hardware.cgi:271 styles/default/header.html:95
 msgid "Detect PCI/USB"
 msgstr "Определить PCI/USB"
 
-#: hardware.cgi:270
+#: hardware.cgi:272
 msgid "Auto-install Xorg video driver"
 msgstr "Авто-установка видео-драйвера Xorg"
 
-#: hardware.cgi:280 hardware.cgi:297
+#: hardware.cgi:282 hardware.cgi:299
 msgid "Battery"
 msgstr "Батарея"
 
-#: hardware.cgi:300
+#: hardware.cgi:302
 msgid "health"
 msgstr "здоровье"
 
-#: hardware.cgi:309
+#: hardware.cgi:311
 msgid "Discharging %d%% - %s"
 msgstr "Разряжается: %d %% — осталось %s"
 
-#: hardware.cgi:313
+#: hardware.cgi:315
 msgid "Charging %d%% - %s"
 msgstr "Заряжается: %d %% — осталось %s"
 
-#: hardware.cgi:315
+#: hardware.cgi:317
 msgid "Charged 100%%"
 msgstr "Полностью заряжена"
 
-#: hardware.cgi:334
+#: hardware.cgi:336
 msgid "Temperature:"
 msgstr "Температура:"
 
-#: hardware.cgi:349
+#: hardware.cgi:351
 msgid "Brightness"
 msgstr "Яркость"
 
-#: hardware.cgi:369 index.cgi:851
+#: hardware.cgi:371 index.cgi:851
 msgid "Filesystem usage statistics"
 msgstr "Статистика использования файловых систем"
 
-#: hardware.cgi:492
+#: hardware.cgi:499
 msgid "new mount point:"
 msgstr "новая точка монтирования:"
 
-#: hardware.cgi:493
+#: hardware.cgi:500
 msgid "read-only"
 msgstr "только-чтение"
 
-#: hardware.cgi:508
+#: hardware.cgi:515
 msgid "Filesystems table"
 msgstr "Таблица файловых систем"
 
-#: hardware.cgi:517
+#: hardware.cgi:524
 msgid "Options"
 msgstr "Параметры"
 
-#: hardware.cgi:518
+#: hardware.cgi:525
 msgid "Freq"
 msgstr "Резерв."
 
-#: hardware.cgi:519
+#: hardware.cgi:526
 msgid "Pass"
 msgstr "Проверка"
 
-#: hardware.cgi:541
+#: hardware.cgi:548
 msgid "Loop devices"
 msgstr "Устройства loop"
 
-#: hardware.cgi:549
+#: hardware.cgi:556
 msgid "Backing file"
 msgstr "Файл образа"
 
-#: hardware.cgi:551
+#: hardware.cgi:558
 msgid "Access"
 msgstr "Доступ"
 
-#: hardware.cgi:552
+#: hardware.cgi:559
 msgid "Offset"
 msgstr "Смещение"
 
-#: hardware.cgi:561
+#: hardware.cgi:568
 msgid "read/write"
 msgstr "чтение/запись"
 
-#: hardware.cgi:562 hardware.cgi:587
+#: hardware.cgi:569 hardware.cgi:594
 msgid "read only"
 msgstr "только чтение"
 
-#: hardware.cgi:584
+#: hardware.cgi:591
 msgid "Setup"
 msgstr "Установить"
 
-#: hardware.cgi:585
+#: hardware.cgi:592
 msgid "new backing file:"
 msgstr "новый файл образа:"
 
-#: hardware.cgi:586
+#: hardware.cgi:593
 msgid "offset in bytes:"
 msgstr "смещение в байтах:"
 
-#: hardware.cgi:604
+#: hardware.cgi:611
 msgid "System memory"
 msgstr "Системная память"
 
-#: hardware.cgi:610
+#: hardware.cgi:617
 msgid "Buffers"
 msgstr "Буферы"
 
-#: hardware.cgi:613
+#: hardware.cgi:620
 msgid "Free"
 msgstr "Свободно"
 

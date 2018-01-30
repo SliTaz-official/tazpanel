@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-07 13:15+0200\n"
+"POT-Creation-Date: 2018-01-30 12:05+0200\n"
 "PO-Revision-Date: 2016-03-27 04:06-0300\n"
 "Last-Translator: Leonardo Laporte <hackdorte@sapo.pt>\n"
 "Language-Team: Portuguese <i18n@slitaz.org>\n"
@@ -30,7 +30,7 @@ msgstr "Conectado"
 msgid "Interface"
 msgstr "Interface"
 
-#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:58 hardware.cgi:79
+#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:60 hardware.cgi:81
 #: network.cgi:356 hosts.cgi:243
 msgid "Name"
 msgstr "Nome"
@@ -51,7 +51,7 @@ msgstr "Buscar portas"
 msgid "Please wait"
 msgstr "Aguarde por favor"
 
-#: lib/libtazpanel:319 hardware.cgi:514
+#: lib/libtazpanel:319 hardware.cgi:521
 msgid "Disk"
 msgstr "Disco"
 
@@ -59,11 +59,11 @@ msgstr "Disco"
 msgid "Label"
 msgstr "Rótulo"
 
-#: lib/libtazpanel:321 hardware.cgi:516
+#: lib/libtazpanel:321 hardware.cgi:523
 msgid "Type"
 msgstr "Tipo"
 
-#: lib/libtazpanel:322 hardware.cgi:198 hardware.cgi:550
+#: lib/libtazpanel:322 hardware.cgi:200 hardware.cgi:557
 msgid "Size"
 msgstr "Tamanho"
 
@@ -71,11 +71,11 @@ msgstr "Tamanho"
 msgid "Available"
 msgstr "Disponível"
 
-#: lib/libtazpanel:324 hardware.cgi:199 hardware.cgi:607
+#: lib/libtazpanel:324 hardware.cgi:201 hardware.cgi:614
 msgid "Used"
 msgstr "Usado"
 
-#: lib/libtazpanel:325 hardware.cgi:515
+#: lib/libtazpanel:325 hardware.cgi:522
 msgid "Mount point"
 msgstr "Ponto de montagem"
 
@@ -135,7 +135,7 @@ msgstr "Gerenciar daemons"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Checar, iniciar e parar daemons no SliTaz"
 
-#: boot.cgi:143 hardware.cgi:197 settings.cgi:472 powersaving.cgi:154
+#: boot.cgi:143 hardware.cgi:199 settings.cgi:472 powersaving.cgi:154
 msgid "Description"
 msgstr "Descrição"
 
@@ -356,196 +356,196 @@ msgstr "Comandos de inicialização locais"
 msgid "Hardware"
 msgstr "Hardware"
 
-#: hardware.cgi:55
+#: hardware.cgi:57
 msgid "Bus"
 msgstr "Bus"
 
-#: hardware.cgi:56 hardware.cgi:78 hardware.cgi:548
+#: hardware.cgi:58 hardware.cgi:80 hardware.cgi:555
 msgid "Device"
 msgstr "Dispositivo"
 
-#: hardware.cgi:57
+#: hardware.cgi:59
 msgid "ID"
 msgstr "ID"
 
-#: hardware.cgi:77
+#: hardware.cgi:79
 msgid "Slot"
 msgstr ""
 
-#: hardware.cgi:128
+#: hardware.cgi:130
 msgid "Detect hardware"
 msgstr "Detectar hardware"
 
-#: hardware.cgi:130
+#: hardware.cgi:132
 msgid "Detect PCI and USB hardware"
 msgstr "Detectar hardware PCI e USB"
 
-#: hardware.cgi:138 hardware.cgi:268 powersaving.cgi:150
+#: hardware.cgi:140 hardware.cgi:270 powersaving.cgi:150
 #: styles/default/header.html:94
 msgid "Kernel modules"
 msgstr "Módulos de kernel"
 
-#: hardware.cgi:142
+#: hardware.cgi:144
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Gerenciar, buscar e obter informações sobre módulos do kernel linux"
 
-#: hardware.cgi:146
+#: hardware.cgi:148
 msgid "Modules search"
 msgstr "Busca de módulos"
 
-#: hardware.cgi:147
+#: hardware.cgi:149
 msgid "Search"
 msgstr "Buscar"
 
-#: hardware.cgi:155
+#: hardware.cgi:157
 msgid "Detailed information for module: %s"
 msgstr "Informações detalhadas de módulo: %s"
 
-#: hardware.cgi:179
+#: hardware.cgi:181
 msgid "Matching result(s) for: %s"
 msgstr "Resultado(s) encontrado(s) para: %s"
 
-#: hardware.cgi:186
+#: hardware.cgi:188
 msgid "Module:"
 msgstr "Módulo:"
 
-#: hardware.cgi:196 powersaving.cgi:153
+#: hardware.cgi:198 powersaving.cgi:153
 msgid "Module"
 msgstr "Módulo"
 
-#: hardware.cgi:200
+#: hardware.cgi:202
 msgid "by"
 msgstr "por"
 
-#: hardware.cgi:224
+#: hardware.cgi:226
 msgid "Information for USB Device %s"
 msgstr "Informação sobre o dispositivo USB %s"
 
-#: hardware.cgi:226 hardware.cgi:244
+#: hardware.cgi:228 hardware.cgi:246
 msgid "Detailed information about specified device."
 msgstr "Informação detalhada sobre um dispositivo específico."
 
-#: hardware.cgi:242
+#: hardware.cgi:244
 msgid "Information for PCI Device %s"
 msgstr "Informação sobre o dispositivo PCI %s"
 
-#: hardware.cgi:263
+#: hardware.cgi:265
 msgid "Drivers &amp; Devices"
 msgstr "Drivers &amp; dispositivos"
 
-#: hardware.cgi:265
+#: hardware.cgi:267
 msgid "Manage your computer hardware"
 msgstr "Gerencie o hardware de seu computador"
 
-#: hardware.cgi:269 styles/default/header.html:95
+#: hardware.cgi:271 styles/default/header.html:95
 msgid "Detect PCI/USB"
 msgstr "Detectar PCI/USB"
 
-#: hardware.cgi:270
+#: hardware.cgi:272
 msgid "Auto-install Xorg video driver"
 msgstr "Auto instalar Xorg vídeo driver"
 
-#: hardware.cgi:280 hardware.cgi:297
+#: hardware.cgi:282 hardware.cgi:299
 msgid "Battery"
 msgstr "Bateria"
 
-#: hardware.cgi:300
+#: hardware.cgi:302
 msgid "health"
 msgstr "estado"
 
-#: hardware.cgi:309
+#: hardware.cgi:311
 msgid "Discharging %d%% - %s"
 msgstr "Descarregando %d%% - %s"
 
-#: hardware.cgi:313
+#: hardware.cgi:315
 msgid "Charging %d%% - %s"
 msgstr "Carregando %d%% - %s"
 
-#: hardware.cgi:315
+#: hardware.cgi:317
 msgid "Charged 100%%"
 msgstr "Completa 100%%"
 
-#: hardware.cgi:334
+#: hardware.cgi:336
 msgid "Temperature:"
 msgstr "Temperatura:"
 
-#: hardware.cgi:349
+#: hardware.cgi:351
 msgid "Brightness"
 msgstr "Brilho"
 
-#: hardware.cgi:369 index.cgi:851
+#: hardware.cgi:371 index.cgi:851
 msgid "Filesystem usage statistics"
 msgstr "Estatísticas de utilização do sistema de arquivos"
 
-#: hardware.cgi:492
+#: hardware.cgi:499
 msgid "new mount point:"
 msgstr "novo ponto de montagem:"
 
-#: hardware.cgi:493
+#: hardware.cgi:500
 msgid "read-only"
 msgstr "apenas leitura"
 
-#: hardware.cgi:508
+#: hardware.cgi:515
 msgid "Filesystems table"
 msgstr "Tabela do sistema de arquivos"
 
-#: hardware.cgi:517
+#: hardware.cgi:524
 msgid "Options"
 msgstr "Opções"
 
-#: hardware.cgi:518
+#: hardware.cgi:525
 msgid "Freq"
 msgstr "Freq"
 
-#: hardware.cgi:519
+#: hardware.cgi:526
 msgid "Pass"
 msgstr "Senha"
 
-#: hardware.cgi:541
+#: hardware.cgi:548
 msgid "Loop devices"
 msgstr "Dispositivos em loop"
 
-#: hardware.cgi:549
+#: hardware.cgi:556
 msgid "Backing file"
 msgstr "Arquivo de backup"
 
-#: hardware.cgi:551
+#: hardware.cgi:558
 msgid "Access"
 msgstr "Acesso"
 
-#: hardware.cgi:552
+#: hardware.cgi:559
 msgid "Offset"
 msgstr "Deslocamento"
 
-#: hardware.cgi:561
+#: hardware.cgi:568
 msgid "read/write"
 msgstr "leitura/gravação"
 
-#: hardware.cgi:562 hardware.cgi:587
+#: hardware.cgi:569 hardware.cgi:594
 msgid "read only"
 msgstr "apenas leitura"
 
-#: hardware.cgi:584
+#: hardware.cgi:591
 msgid "Setup"
 msgstr "Configurar"
 
-#: hardware.cgi:585
+#: hardware.cgi:592
 msgid "new backing file:"
 msgstr "novo arquivo de backup:"
 
-#: hardware.cgi:586
+#: hardware.cgi:593
 msgid "offset in bytes:"
 msgstr "deslocamento em bytes:"
 
-#: hardware.cgi:604
+#: hardware.cgi:611
 msgid "System memory"
 msgstr "Memória do sistema"
 
-#: hardware.cgi:610
+#: hardware.cgi:617
 msgid "Buffers"
 msgstr "Buffers"
 
-#: hardware.cgi:613
+#: hardware.cgi:620
 msgid "Free"
 msgstr "Livre"
 

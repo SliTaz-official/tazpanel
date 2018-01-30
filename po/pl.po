@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-07 13:15+0200\n"
+"POT-Creation-Date: 2018-01-30 12:05+0200\n"
 "PO-Revision-Date: 2013-07-23 12:33+0100\n"
 "Last-Translator: Paweł Pyrczak <tkr.tkr.pl@gmail.com>\n"
 "Language-Team: \n"
@@ -33,7 +33,7 @@ msgstr "połączony"
 msgid "Interface"
 msgstr "Interfejs"
 
-#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:58 hardware.cgi:79
+#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:60 hardware.cgi:81
 #: network.cgi:356 hosts.cgi:243
 msgid "Name"
 msgstr "Nazwa"
@@ -55,7 +55,7 @@ msgstr "Skanuj porty"
 msgid "Please wait"
 msgstr "Proszę czekać..."
 
-#: lib/libtazpanel:319 hardware.cgi:514
+#: lib/libtazpanel:319 hardware.cgi:521
 msgid "Disk"
 msgstr "Dysk"
 
@@ -63,11 +63,11 @@ msgstr "Dysk"
 msgid "Label"
 msgstr "Etykieta"
 
-#: lib/libtazpanel:321 hardware.cgi:516
+#: lib/libtazpanel:321 hardware.cgi:523
 msgid "Type"
 msgstr "Typ"
 
-#: lib/libtazpanel:322 hardware.cgi:198 hardware.cgi:550
+#: lib/libtazpanel:322 hardware.cgi:200 hardware.cgi:557
 msgid "Size"
 msgstr "Rozmiar"
 
@@ -75,11 +75,11 @@ msgstr "Rozmiar"
 msgid "Available"
 msgstr "Dostepny"
 
-#: lib/libtazpanel:324 hardware.cgi:199 hardware.cgi:607
+#: lib/libtazpanel:324 hardware.cgi:201 hardware.cgi:614
 msgid "Used"
 msgstr "Używany"
 
-#: lib/libtazpanel:325 hardware.cgi:515
+#: lib/libtazpanel:325 hardware.cgi:522
 msgid "Mount point"
 msgstr "Punkt montowania"
 
@@ -140,7 +140,7 @@ msgstr "Zarządzaj usługami (daemons)"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Sprawdź, uruchom i wyłącz usługi (daemons) w SliTaz"
 
-#: boot.cgi:143 hardware.cgi:197 settings.cgi:472 powersaving.cgi:154
+#: boot.cgi:143 hardware.cgi:199 settings.cgi:472 powersaving.cgi:154
 msgid "Description"
 msgstr "Opis"
 
@@ -361,203 +361,203 @@ msgstr "Lokalne polecenia podczas uruchamiania"
 msgid "Hardware"
 msgstr "Sprzęt"
 
-#: hardware.cgi:55
+#: hardware.cgi:57
 msgid "Bus"
 msgstr ""
 
-#: hardware.cgi:56 hardware.cgi:78 hardware.cgi:548
+#: hardware.cgi:58 hardware.cgi:80 hardware.cgi:555
 msgid "Device"
 msgstr ""
 
-#: hardware.cgi:57
+#: hardware.cgi:59
 #, fuzzy
 msgid "ID"
 msgstr "PID"
 
-#: hardware.cgi:77
+#: hardware.cgi:79
 msgid "Slot"
 msgstr ""
 
-#: hardware.cgi:128
+#: hardware.cgi:130
 msgid "Detect hardware"
 msgstr "Wykryj urządzenia"
 
-#: hardware.cgi:130
+#: hardware.cgi:132
 msgid "Detect PCI and USB hardware"
 msgstr "Wykryj urządzenia PCI i USB"
 
-#: hardware.cgi:138 hardware.cgi:268 powersaving.cgi:150
+#: hardware.cgi:140 hardware.cgi:270 powersaving.cgi:150
 #: styles/default/header.html:94
 msgid "Kernel modules"
 msgstr "Moduły jądra Linux"
 
-#: hardware.cgi:142
+#: hardware.cgi:144
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Zarządzaj, szukaj albo pobierz informacje na temat modułów jądra Linux"
 
-#: hardware.cgi:146
+#: hardware.cgi:148
 msgid "Modules search"
 msgstr "Szukaj moduły"
 
-#: hardware.cgi:147
+#: hardware.cgi:149
 msgid "Search"
 msgstr ""
 
-#: hardware.cgi:155
+#: hardware.cgi:157
 msgid "Detailed information for module: %s"
 msgstr "Szczegółowe informacje dla modułu: %s"
 
-#: hardware.cgi:179
+#: hardware.cgi:181
 msgid "Matching result(s) for: %s"
 msgstr "Pasujące rezultat(y) dla: %s"
 
-#: hardware.cgi:186
+#: hardware.cgi:188
 msgid "Module:"
 msgstr "Moduł:"
 
-#: hardware.cgi:196 powersaving.cgi:153
+#: hardware.cgi:198 powersaving.cgi:153
 msgid "Module"
 msgstr "Moduł"
 
-#: hardware.cgi:200
+#: hardware.cgi:202
 msgid "by"
 msgstr "przez"
 
-#: hardware.cgi:224
+#: hardware.cgi:226
 msgid "Information for USB Device %s"
 msgstr "Informacje i urządzeniu USB %s"
 
-#: hardware.cgi:226 hardware.cgi:244
+#: hardware.cgi:228 hardware.cgi:246
 msgid "Detailed information about specified device."
 msgstr "Szczegółowe informacje o wybranym urządzeniu."
 
-#: hardware.cgi:242
+#: hardware.cgi:244
 msgid "Information for PCI Device %s"
 msgstr "Informacje o urządzeniu PCI %s"
 
-#: hardware.cgi:263
+#: hardware.cgi:265
 msgid "Drivers &amp; Devices"
 msgstr "Sterowniki i Urządzenia"
 
-#: hardware.cgi:265
+#: hardware.cgi:267
 msgid "Manage your computer hardware"
 msgstr "Zarządzanie sprzętem i podłączonymi urządzeniami"
 
-#: hardware.cgi:269 styles/default/header.html:95
+#: hardware.cgi:271 styles/default/header.html:95
 msgid "Detect PCI/USB"
 msgstr "Wykryj urządzenia PCI/USB"
 
-#: hardware.cgi:270
+#: hardware.cgi:272
 msgid "Auto-install Xorg video driver"
 msgstr ""
 
-#: hardware.cgi:280 hardware.cgi:297
+#: hardware.cgi:282 hardware.cgi:299
 msgid "Battery"
 msgstr "Bateria"
 
-#: hardware.cgi:300
+#: hardware.cgi:302
 msgid "health"
 msgstr "zużycie"
 
-#: hardware.cgi:309
+#: hardware.cgi:311
 msgid "Discharging %d%% - %s"
 msgstr "Rozładowywanie %d%% - %s"
 
-#: hardware.cgi:313
+#: hardware.cgi:315
 msgid "Charging %d%% - %s"
 msgstr "Ładowanie %d%% - %s"
 
-#: hardware.cgi:315
+#: hardware.cgi:317
 #, fuzzy
 msgid "Charged 100%%"
 msgstr "Naładowana w 100%%"
 
-#: hardware.cgi:334
+#: hardware.cgi:336
 msgid "Temperature:"
 msgstr "Temperatura:"
 
-#: hardware.cgi:349
+#: hardware.cgi:351
 msgid "Brightness"
 msgstr "Jasność ekranu"
 
-#: hardware.cgi:369 index.cgi:851
+#: hardware.cgi:371 index.cgi:851
 msgid "Filesystem usage statistics"
 msgstr "Statystyka użycia systemu plików"
 
-#: hardware.cgi:492
+#: hardware.cgi:499
 #, fuzzy
 msgid "new mount point:"
 msgstr "Punkt montowania"
 
-#: hardware.cgi:493
+#: hardware.cgi:500
 msgid "read-only"
 msgstr ""
 
-#: hardware.cgi:508
+#: hardware.cgi:515
 msgid "Filesystems table"
 msgstr "Tabela systemów plików"
 
-#: hardware.cgi:517
+#: hardware.cgi:524
 #, fuzzy
 msgid "Options"
 msgstr "Akcja"
 
-#: hardware.cgi:518
+#: hardware.cgi:525
 msgid "Freq"
 msgstr ""
 
-#: hardware.cgi:519
+#: hardware.cgi:526
 #, fuzzy
 msgid "Pass"
 msgstr "Hasło:"
 
-#: hardware.cgi:541
+#: hardware.cgi:548
 msgid "Loop devices"
 msgstr ""
 
-#: hardware.cgi:549
+#: hardware.cgi:556
 #, fuzzy
 msgid "Backing file"
 msgstr "Plik konfiguracyjny"
 
-#: hardware.cgi:551
+#: hardware.cgi:558
 #, fuzzy
 msgid "Access"
 msgstr "Punkt dostępowy"
 
-#: hardware.cgi:552
+#: hardware.cgi:559
 msgid "Offset"
 msgstr ""
 
-#: hardware.cgi:561
+#: hardware.cgi:568
 msgid "read/write"
 msgstr ""
 
-#: hardware.cgi:562 hardware.cgi:587
+#: hardware.cgi:569 hardware.cgi:594
 msgid "read only"
 msgstr ""
 
-#: hardware.cgi:584
+#: hardware.cgi:591
 msgid "Setup"
 msgstr ""
 
-#: hardware.cgi:585
+#: hardware.cgi:592
 msgid "new backing file:"
 msgstr ""
 
-#: hardware.cgi:586
+#: hardware.cgi:593
 msgid "offset in bytes:"
 msgstr ""
 
-#: hardware.cgi:604
+#: hardware.cgi:611
 msgid "System memory"
 msgstr "Pamięć systemowa"
 
-#: hardware.cgi:610
+#: hardware.cgi:617
 msgid "Buffers"
 msgstr ""
 
-#: hardware.cgi:613
+#: hardware.cgi:620
 msgid "Free"
 msgstr ""
 

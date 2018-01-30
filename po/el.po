@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-07 13:15+0200\n"
+"POT-Creation-Date: 2018-01-30 12:05+0200\n"
 "PO-Revision-Date: 2012-06-10 17:15+0200\n"
 "Last-Translator: Douros Dimitris <dourosdimitris@gmail.com>\n"
 "Language-Team: \n"
@@ -31,7 +31,7 @@ msgstr "συνδεδεμένο"
 msgid "Interface"
 msgstr "Διεπαφή"
 
-#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:58 hardware.cgi:79
+#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:60 hardware.cgi:81
 #: network.cgi:356 hosts.cgi:243
 msgid "Name"
 msgstr "Όνομα"
@@ -53,7 +53,7 @@ msgstr "Σάρωση θυρών"
 msgid "Please wait"
 msgstr "Παρακαλώ περιμένετε..."
 
-#: lib/libtazpanel:319 hardware.cgi:514
+#: lib/libtazpanel:319 hardware.cgi:521
 msgid "Disk"
 msgstr "Δίσκος"
 
@@ -61,11 +61,11 @@ msgstr "Δίσκος"
 msgid "Label"
 msgstr "Ετικέτα"
 
-#: lib/libtazpanel:321 hardware.cgi:516
+#: lib/libtazpanel:321 hardware.cgi:523
 msgid "Type"
 msgstr "Τύπος"
 
-#: lib/libtazpanel:322 hardware.cgi:198 hardware.cgi:550
+#: lib/libtazpanel:322 hardware.cgi:200 hardware.cgi:557
 msgid "Size"
 msgstr "Μέγεθος"
 
@@ -73,11 +73,11 @@ msgstr "Μέγεθος"
 msgid "Available"
 msgstr "Διαθέσιμο"
 
-#: lib/libtazpanel:324 hardware.cgi:199 hardware.cgi:607
+#: lib/libtazpanel:324 hardware.cgi:201 hardware.cgi:614
 msgid "Used"
 msgstr "Σε χρήση"
 
-#: lib/libtazpanel:325 hardware.cgi:515
+#: lib/libtazpanel:325 hardware.cgi:522
 msgid "Mount point"
 msgstr "Σημείο προσάρτησης"
 
@@ -138,7 +138,7 @@ msgstr "Διαχείριση δαιμόνων (daemons)"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Έλεγχος, εκκίνηση και σταμάτημα δαιμόνων στο SliTaz"
 
-#: boot.cgi:143 hardware.cgi:197 settings.cgi:472 powersaving.cgi:154
+#: boot.cgi:143 hardware.cgi:199 settings.cgi:472 powersaving.cgi:154
 msgid "Description"
 msgstr "Περιγραφή"
 
@@ -359,203 +359,203 @@ msgstr "Τοπικές εντολές κατά την εκκίνηση"
 msgid "Hardware"
 msgstr "Υλικό"
 
-#: hardware.cgi:55
+#: hardware.cgi:57
 msgid "Bus"
 msgstr ""
 
-#: hardware.cgi:56 hardware.cgi:78 hardware.cgi:548
+#: hardware.cgi:58 hardware.cgi:80 hardware.cgi:555
 msgid "Device"
 msgstr ""
 
-#: hardware.cgi:57
+#: hardware.cgi:59
 msgid "ID"
 msgstr ""
 
-#: hardware.cgi:77
+#: hardware.cgi:79
 msgid "Slot"
 msgstr ""
 
-#: hardware.cgi:128
+#: hardware.cgi:130
 msgid "Detect hardware"
 msgstr "Ανίχνευση υλικού"
 
-#: hardware.cgi:130
+#: hardware.cgi:132
 msgid "Detect PCI and USB hardware"
 msgstr "Ανίχνευση υλικού PCI και USB"
 
-#: hardware.cgi:138 hardware.cgi:268 powersaving.cgi:150
+#: hardware.cgi:140 hardware.cgi:270 powersaving.cgi:150
 #: styles/default/header.html:94
 msgid "Kernel modules"
 msgstr "Αρθρώματα (modules) πυρήνα"
 
-#: hardware.cgi:142
+#: hardware.cgi:144
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr ""
 "Διαχείριση, αναζήτηση ή συλλογή πληροφοριών σχετικά με τα αρθρώματα του "
 "πυρήνα Linux"
 
-#: hardware.cgi:146
+#: hardware.cgi:148
 msgid "Modules search"
 msgstr "Αναζήτηση αρθρωμάτων"
 
-#: hardware.cgi:147
+#: hardware.cgi:149
 msgid "Search"
 msgstr ""
 
-#: hardware.cgi:155
+#: hardware.cgi:157
 msgid "Detailed information for module: %s"
 msgstr "Λεπτομερείς πληροφορίες για το άρθρωμα: %s"
 
-#: hardware.cgi:179
+#: hardware.cgi:181
 msgid "Matching result(s) for: %s"
 msgstr "Ταίριασμα αποτελέσματος(-ατων) για: %s"
 
-#: hardware.cgi:186
+#: hardware.cgi:188
 msgid "Module:"
 msgstr "Άρθρωμα:"
 
-#: hardware.cgi:196 powersaving.cgi:153
+#: hardware.cgi:198 powersaving.cgi:153
 msgid "Module"
 msgstr "Άρθρωμα"
 
-#: hardware.cgi:200
+#: hardware.cgi:202
 msgid "by"
 msgstr "από"
 
-#: hardware.cgi:224
+#: hardware.cgi:226
 msgid "Information for USB Device %s"
 msgstr ""
 
-#: hardware.cgi:226 hardware.cgi:244
+#: hardware.cgi:228 hardware.cgi:246
 msgid "Detailed information about specified device."
 msgstr ""
 
-#: hardware.cgi:242
+#: hardware.cgi:244
 msgid "Information for PCI Device %s"
 msgstr ""
 
-#: hardware.cgi:263
+#: hardware.cgi:265
 msgid "Drivers &amp; Devices"
 msgstr "Οδηγοί &amp; Συσκευές"
 
-#: hardware.cgi:265
+#: hardware.cgi:267
 msgid "Manage your computer hardware"
 msgstr "Διαχείριση του υλικού του υπολογιστή σας"
 
-#: hardware.cgi:269 styles/default/header.html:95
+#: hardware.cgi:271 styles/default/header.html:95
 msgid "Detect PCI/USB"
 msgstr "Ανίχνευση PCI/USB"
 
-#: hardware.cgi:270
+#: hardware.cgi:272
 msgid "Auto-install Xorg video driver"
 msgstr ""
 
-#: hardware.cgi:280 hardware.cgi:297
+#: hardware.cgi:282 hardware.cgi:299
 msgid "Battery"
 msgstr "Μπαταρία"
 
-#: hardware.cgi:300
+#: hardware.cgi:302
 msgid "health"
 msgstr "Υγεία"
 
-#: hardware.cgi:309
+#: hardware.cgi:311
 msgid "Discharging %d%% - %s"
 msgstr "Αποφορτίζεται %d%% - %s"
 
-#: hardware.cgi:313
+#: hardware.cgi:315
 msgid "Charging %d%% - %s"
 msgstr "Φορτίζεται %d%% - %s"
 
-#: hardware.cgi:315
+#: hardware.cgi:317
 #, fuzzy
 msgid "Charged 100%%"
 msgstr "Φορτίστηκε 100%%"
 
-#: hardware.cgi:334
+#: hardware.cgi:336
 msgid "Temperature:"
 msgstr "Θερμοκρασία:"
 
-#: hardware.cgi:349
+#: hardware.cgi:351
 msgid "Brightness"
 msgstr "Φωτεινότητα"
 
-#: hardware.cgi:369 index.cgi:851
+#: hardware.cgi:371 index.cgi:851
 msgid "Filesystem usage statistics"
 msgstr "Στατιστικά χρήσης συστήματος αρχείων"
 
-#: hardware.cgi:492
+#: hardware.cgi:499
 #, fuzzy
 msgid "new mount point:"
 msgstr "Σημείο προσάρτησης"
 
-#: hardware.cgi:493
+#: hardware.cgi:500
 msgid "read-only"
 msgstr ""
 
-#: hardware.cgi:508
+#: hardware.cgi:515
 msgid "Filesystems table"
 msgstr ""
 
-#: hardware.cgi:517
+#: hardware.cgi:524
 #, fuzzy
 msgid "Options"
 msgstr "Ενέργεια"
 
-#: hardware.cgi:518
+#: hardware.cgi:525
 msgid "Freq"
 msgstr ""
 
-#: hardware.cgi:519
+#: hardware.cgi:526
 #, fuzzy
 msgid "Pass"
 msgstr "Κωδικός:"
 
-#: hardware.cgi:541
+#: hardware.cgi:548
 msgid "Loop devices"
 msgstr ""
 
-#: hardware.cgi:549
+#: hardware.cgi:556
 #, fuzzy
 msgid "Backing file"
 msgstr "Αρχείο ρυθμίσεων"
 
-#: hardware.cgi:551
+#: hardware.cgi:558
 msgid "Access"
 msgstr ""
 
-#: hardware.cgi:552
+#: hardware.cgi:559
 msgid "Offset"
 msgstr ""
 
-#: hardware.cgi:561
+#: hardware.cgi:568
 msgid "read/write"
 msgstr ""
 
-#: hardware.cgi:562 hardware.cgi:587
+#: hardware.cgi:569 hardware.cgi:594
 msgid "read only"
 msgstr ""
 
-#: hardware.cgi:584
+#: hardware.cgi:591
 msgid "Setup"
 msgstr ""
 
-#: hardware.cgi:585
+#: hardware.cgi:592
 msgid "new backing file:"
 msgstr ""
 
-#: hardware.cgi:586
+#: hardware.cgi:593
 msgid "offset in bytes:"
 msgstr ""
 
-#: hardware.cgi:604
+#: hardware.cgi:611
 msgid "System memory"
 msgstr "Μνήμη συστήματος"
 
-#: hardware.cgi:610
+#: hardware.cgi:617
 msgid "Buffers"
 msgstr ""
 
-#: hardware.cgi:613
+#: hardware.cgi:620
 msgid "Free"
 msgstr ""
 

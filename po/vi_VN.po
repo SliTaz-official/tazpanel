@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 522\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-07 13:15+0200\n"
+"POT-Creation-Date: 2018-01-30 12:05+0200\n"
 "PO-Revision-Date: 2016-10-04 17:44+0200\n"
 "Last-Translator: tuananh88c25 <tuananh88c25@gmail.com>\n"
 "Language-Team: \n"
@@ -29,7 +29,7 @@ msgstr "Đã kết nối"
 msgid "Interface"
 msgstr "Giao diện"
 
-#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:58 hardware.cgi:79
+#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:60 hardware.cgi:81
 #: network.cgi:356 hosts.cgi:243
 msgid "Name"
 msgstr "Tên"
@@ -50,7 +50,7 @@ msgstr "Quét cổng"
 msgid "Please wait"
 msgstr "Xin đợi"
 
-#: lib/libtazpanel:319 hardware.cgi:514
+#: lib/libtazpanel:319 hardware.cgi:521
 msgid "Disk"
 msgstr "Disk"
 
@@ -58,11 +58,11 @@ msgstr "Disk"
 msgid "Label"
 msgstr "Nhãn"
 
-#: lib/libtazpanel:321 hardware.cgi:516
+#: lib/libtazpanel:321 hardware.cgi:523
 msgid "Type"
 msgstr "Thể loại"
 
-#: lib/libtazpanel:322 hardware.cgi:198 hardware.cgi:550
+#: lib/libtazpanel:322 hardware.cgi:200 hardware.cgi:557
 msgid "Size"
 msgstr "Kích cỡ"
 
@@ -70,11 +70,11 @@ msgstr "Kích cỡ"
 msgid "Available"
 msgstr "Có sẵn"
 
-#: lib/libtazpanel:324 hardware.cgi:199 hardware.cgi:607
+#: lib/libtazpanel:324 hardware.cgi:201 hardware.cgi:614
 msgid "Used"
 msgstr "Đã dùng"
 
-#: lib/libtazpanel:325 hardware.cgi:515
+#: lib/libtazpanel:325 hardware.cgi:522
 msgid "Mount point"
 msgstr "Điểm nối"
 
@@ -134,7 +134,7 @@ msgstr "Quản lý khởi chạy (daemon)"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Kiểm tra, bắt đầu và dừng lại khởi chạy (daemon) trên SliTaz"
 
-#: boot.cgi:143 hardware.cgi:197 settings.cgi:472 powersaving.cgi:154
+#: boot.cgi:143 hardware.cgi:199 settings.cgi:472 powersaving.cgi:154
 msgid "Description"
 msgstr "Miêu tả"
 
@@ -355,196 +355,196 @@ msgstr "lệnh khởi động địa phương"
 msgid "Hardware"
 msgstr "Phần cứng"
 
-#: hardware.cgi:55
+#: hardware.cgi:57
 msgid "Bus"
 msgstr "Bus"
 
-#: hardware.cgi:56 hardware.cgi:78 hardware.cgi:548
+#: hardware.cgi:58 hardware.cgi:80 hardware.cgi:555
 msgid "Device"
 msgstr "thiết bị"
 
-#: hardware.cgi:57
+#: hardware.cgi:59
 msgid "ID"
 msgstr "ID"
 
-#: hardware.cgi:77
+#: hardware.cgi:79
 msgid "Slot"
 msgstr "Slot"
 
-#: hardware.cgi:128
+#: hardware.cgi:130
 msgid "Detect hardware"
 msgstr "Phát hiện phần cứng"
 
-#: hardware.cgi:130
+#: hardware.cgi:132
 msgid "Detect PCI and USB hardware"
 msgstr "Phát hiện PCI và USB"
 
-#: hardware.cgi:138 hardware.cgi:268 powersaving.cgi:150
+#: hardware.cgi:140 hardware.cgi:270 powersaving.cgi:150
 #: styles/default/header.html:94
 msgid "Kernel modules"
 msgstr "Kernel modules"
 
-#: hardware.cgi:142
+#: hardware.cgi:144
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Quản lý, tìm kiếm hoặc nhận thông tin về các mô-đun hạt nhân Linux"
 
-#: hardware.cgi:146
+#: hardware.cgi:148
 msgid "Modules search"
 msgstr "Tìm mô-đun"
 
-#: hardware.cgi:147
+#: hardware.cgi:149
 msgid "Search"
 msgstr "Tìm"
 
-#: hardware.cgi:155
+#: hardware.cgi:157
 msgid "Detailed information for module: %s"
 msgstr "Thông tin chi tiết cho các mô-đun: %s"
 
-#: hardware.cgi:179
+#: hardware.cgi:181
 msgid "Matching result(s) for: %s"
 msgstr "kết quả cho: %s"
 
-#: hardware.cgi:186
+#: hardware.cgi:188
 msgid "Module:"
 msgstr "Mô-đun:"
 
-#: hardware.cgi:196 powersaving.cgi:153
+#: hardware.cgi:198 powersaving.cgi:153
 msgid "Module"
 msgstr "Mô-đun"
 
-#: hardware.cgi:200
+#: hardware.cgi:202
 msgid "by"
 msgstr "bởi"
 
-#: hardware.cgi:224
+#: hardware.cgi:226
 msgid "Information for USB Device %s"
 msgstr "Thông tin USB %s"
 
-#: hardware.cgi:226 hardware.cgi:244
+#: hardware.cgi:228 hardware.cgi:246
 msgid "Detailed information about specified device."
 msgstr "Thông tin chi tiết về thiết bị."
 
-#: hardware.cgi:242
+#: hardware.cgi:244
 msgid "Information for PCI Device %s"
 msgstr "Thông tin cho PCI %s"
 
-#: hardware.cgi:263
+#: hardware.cgi:265
 msgid "Drivers &amp; Devices"
 msgstr "Drivers &amp; Devices"
 
-#: hardware.cgi:265
+#: hardware.cgi:267
 msgid "Manage your computer hardware"
 msgstr "Quản lý phần cứng máy tính của bạn"
 
-#: hardware.cgi:269 styles/default/header.html:95
+#: hardware.cgi:271 styles/default/header.html:95
 msgid "Detect PCI/USB"
 msgstr "Phát hiện PCI/USB"
 
-#: hardware.cgi:270
+#: hardware.cgi:272
 msgid "Auto-install Xorg video driver"
 msgstr "Tự cài điều khiển Xorg video"
 
-#: hardware.cgi:280 hardware.cgi:297
+#: hardware.cgi:282 hardware.cgi:299
 msgid "Battery"
 msgstr "Pin"
 
-#: hardware.cgi:300
+#: hardware.cgi:302
 msgid "health"
 msgstr "sức khỏe"
 
-#: hardware.cgi:309
+#: hardware.cgi:311
 msgid "Discharging %d%% - %s"
 msgstr "Xả %d%% - %s"
 
-#: hardware.cgi:313
+#: hardware.cgi:315
 msgid "Charging %d%% - %s"
 msgstr "Sạc %d%% - %s"
 
-#: hardware.cgi:315
+#: hardware.cgi:317
 msgid "Charged 100%%"
 msgstr "Sạc 100%%"
 
-#: hardware.cgi:334
+#: hardware.cgi:336
 msgid "Temperature:"
 msgstr "Nhiệt:"
 
-#: hardware.cgi:349
+#: hardware.cgi:351
 msgid "Brightness"
 msgstr "Sáng"
 
-#: hardware.cgi:369 index.cgi:851
+#: hardware.cgi:371 index.cgi:851
 msgid "Filesystem usage statistics"
 msgstr "thống kê sử dụng hệ thống tập tin"
 
-#: hardware.cgi:492
+#: hardware.cgi:499
 msgid "new mount point:"
 msgstr "Điểm nối mới:"
 
-#: hardware.cgi:493
+#: hardware.cgi:500
 msgid "read-only"
 msgstr "Chỉ đọc"
 
-#: hardware.cgi:508
+#: hardware.cgi:515
 msgid "Filesystems table"
 msgstr "bảng hệ thống tập tin"
 
-#: hardware.cgi:517
+#: hardware.cgi:524
 msgid "Options"
 msgstr "Tùy chọn"
 
-#: hardware.cgi:518
+#: hardware.cgi:525
 msgid "Freq"
 msgstr "Thường"
 
-#: hardware.cgi:519
+#: hardware.cgi:526
 msgid "Pass"
 msgstr "Vượt qua"
 
-#: hardware.cgi:541
+#: hardware.cgi:548
 msgid "Loop devices"
 msgstr "Loop devices"
 
-#: hardware.cgi:549
+#: hardware.cgi:556
 msgid "Backing file"
 msgstr "tập tin sao lưu"
 
-#: hardware.cgi:551
+#: hardware.cgi:558
 msgid "Access"
 msgstr "Truy cập"
 
-#: hardware.cgi:552
+#: hardware.cgi:559
 msgid "Offset"
 msgstr "Offset"
 
-#: hardware.cgi:561
+#: hardware.cgi:568
 msgid "read/write"
 msgstr "read/write"
 
-#: hardware.cgi:562 hardware.cgi:587
+#: hardware.cgi:569 hardware.cgi:594
 msgid "read only"
 msgstr "chỉ đọc"
 
-#: hardware.cgi:584
+#: hardware.cgi:591
 msgid "Setup"
 msgstr "Cài đặt"
 
-#: hardware.cgi:585
+#: hardware.cgi:592
 msgid "new backing file:"
 msgstr "tập tin sao lưu mới:"
 
-#: hardware.cgi:586
+#: hardware.cgi:593
 msgid "offset in bytes:"
 msgstr "offset in bytes:"
 
-#: hardware.cgi:604
+#: hardware.cgi:611
 msgid "System memory"
 msgstr "hệ thống bộ nhớ"
 
-#: hardware.cgi:610
+#: hardware.cgi:617
 msgid "Buffers"
 msgstr "Buffers"
 
-#: hardware.cgi:613
+#: hardware.cgi:620
 msgid "Free"
 msgstr "Trống"
 

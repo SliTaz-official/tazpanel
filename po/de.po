@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 522\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-07 13:15+0200\n"
+"POT-Creation-Date: 2018-01-30 12:05+0200\n"
 "PO-Revision-Date: 2017-10-09 16:40+0100\n"
 "Last-Translator: Hans-Günter Theisgen\n"
 "Language-Team: German\n"
@@ -30,7 +30,7 @@ msgstr "verbunden"
 msgid "Interface"
 msgstr "Schnittstelle"
 
-#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:58 hardware.cgi:79
+#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:60 hardware.cgi:81
 #: network.cgi:356 hosts.cgi:243
 msgid "Name"
 msgstr "Name"
@@ -51,7 +51,7 @@ msgstr "Ports absuchen"
 msgid "Please wait"
 msgstr "Bitte warten"
 
-#: lib/libtazpanel:319 hardware.cgi:514
+#: lib/libtazpanel:319 hardware.cgi:521
 msgid "Disk"
 msgstr "Platte"
 
@@ -59,11 +59,11 @@ msgstr "Platte"
 msgid "Label"
 msgstr "Kennsatz"
 
-#: lib/libtazpanel:321 hardware.cgi:516
+#: lib/libtazpanel:321 hardware.cgi:523
 msgid "Type"
 msgstr "Typ"
 
-#: lib/libtazpanel:322 hardware.cgi:198 hardware.cgi:550
+#: lib/libtazpanel:322 hardware.cgi:200 hardware.cgi:557
 msgid "Size"
 msgstr "Größe"
 
@@ -71,11 +71,11 @@ msgstr "Größe"
 msgid "Available"
 msgstr "Verfügbar"
 
-#: lib/libtazpanel:324 hardware.cgi:199 hardware.cgi:607
+#: lib/libtazpanel:324 hardware.cgi:201 hardware.cgi:614
 msgid "Used"
 msgstr "Belegt"
 
-#: lib/libtazpanel:325 hardware.cgi:515
+#: lib/libtazpanel:325 hardware.cgi:522
 msgid "Mount point"
 msgstr "Einhängepunkt"
 
@@ -89,9 +89,7 @@ msgstr "Bearbeiten"
 
 #: lib/libtazpanel:396
 msgid "You must be root to show this page."
-msgstr ""
-"Diese Seite kann nur mit "
-"Systemadministrator-Rechten angezeigt werden"
+msgstr "Diese Seite kann nur mit Systemadministrator-Rechten angezeigt werden"
 
 #: lib/libtazpanel:419 lib/libtazpanel:429
 msgid "Browse"
@@ -137,7 +135,7 @@ msgstr "Hintergrundprozesse verwalten"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "Hintergrundprozesse von SliTaz prüfen, starten oder beenden"
 
-#: boot.cgi:143 hardware.cgi:197 settings.cgi:472 powersaving.cgi:154
+#: boot.cgi:143 hardware.cgi:199 settings.cgi:472 powersaving.cgi:154
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -290,9 +288,8 @@ msgid ""
 "For hard disk installation only. Will create /slitaz tree and keep other "
 "files. No partitioning and no formatting."
 msgstr ""
-"Nur für Installation auf Platte. Wurzelverzeichnisbaum wird erzeugt, "
-"andere Dateien bleiben erhalten. Keine Partitionierung und keine "
-"Formatierung."
+"Nur für Installation auf Platte. Wurzelverzeichnisbaum wird erzeugt, andere "
+"Dateien bleiben erhalten. Keine Partitionierung und keine Formatierung."
 
 #: boot.cgi:419
 msgid "Choose a partition (optional)"
@@ -363,200 +360,200 @@ msgstr "Eigene Kommandos zur Systemeinleitung"
 msgid "Hardware"
 msgstr "Hardware"
 
-#: hardware.cgi:55
+#: hardware.cgi:57
 msgid "Bus"
 msgstr "Bus"
 
-#: hardware.cgi:56 hardware.cgi:78 hardware.cgi:548
+#: hardware.cgi:58 hardware.cgi:80 hardware.cgi:555
 msgid "Device"
 msgstr "Gerät"
 
-#: hardware.cgi:57
+#: hardware.cgi:59
 msgid "ID"
 msgstr "Bezeichner"
 
-#: hardware.cgi:77
+#: hardware.cgi:79
 msgid "Slot"
 msgstr "Einschub"
 
-#: hardware.cgi:128
+#: hardware.cgi:130
 msgid "Detect hardware"
 msgstr "Hardware ermitteln"
 
-#: hardware.cgi:130
+#: hardware.cgi:132
 msgid "Detect PCI and USB hardware"
 msgstr "PCI- und USB-Hardware ermitteln"
 
-#: hardware.cgi:138 hardware.cgi:268 powersaving.cgi:150
+#: hardware.cgi:140 hardware.cgi:270 powersaving.cgi:150
 #: styles/default/header.html:94
 msgid "Kernel modules"
 msgstr "Module des Linux-Kerns"
 
-#: hardware.cgi:142
+#: hardware.cgi:144
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr ""
 "Verwalten, suchen oder Informationen ermitteln von Modulen des Linux-Kerns"
 
-#: hardware.cgi:146
+#: hardware.cgi:148
 msgid "Modules search"
 msgstr "Module suchen"
 
-#: hardware.cgi:147
+#: hardware.cgi:149
 msgid "Search"
 msgstr "Suchen"
 
-#: hardware.cgi:155
+#: hardware.cgi:157
 msgid "Detailed information for module: %s"
 msgstr "Ausführliche Informationen über den Modul: %s"
 
 # HGT: Singular und Plural sollten getrennt werden!
-#: hardware.cgi:179
+#: hardware.cgi:181
 msgid "Matching result(s) for: %s"
 msgstr "Passende(s) Ergebnis(se) für: %s"
 
-#: hardware.cgi:186
+#: hardware.cgi:188
 msgid "Module:"
 msgstr "Modul:"
 
-#: hardware.cgi:196 powersaving.cgi:153
+#: hardware.cgi:198 powersaving.cgi:153
 msgid "Module"
 msgstr "Modul"
 
-#: hardware.cgi:200
+#: hardware.cgi:202
 msgid "by"
 msgstr "von"
 
-#: hardware.cgi:224
+#: hardware.cgi:226
 msgid "Information for USB Device %s"
 msgstr "Information über das USB-Gerät %s"
 
-#: hardware.cgi:226 hardware.cgi:244
+#: hardware.cgi:228 hardware.cgi:246
 msgid "Detailed information about specified device."
 msgstr "Ausführliche Information über das angegebene Gerät"
 
-#: hardware.cgi:242
+#: hardware.cgi:244
 msgid "Information for PCI Device %s"
 msgstr "Information über das PCI-Gerät %s"
 
-#: hardware.cgi:263
+#: hardware.cgi:265
 msgid "Drivers &amp; Devices"
 msgstr "Treiber und Geräte"
 
-#: hardware.cgi:265
+#: hardware.cgi:267
 msgid "Manage your computer hardware"
 msgstr "Computer-Hardware verwalten"
 
-#: hardware.cgi:269 styles/default/header.html:95
+#: hardware.cgi:271 styles/default/header.html:95
 msgid "Detect PCI/USB"
 msgstr "PCI- und USB-Geräte ermitteln"
 
-#: hardware.cgi:270
+#: hardware.cgi:272
 msgid "Auto-install Xorg video driver"
 msgstr "Selbsttätige Installation der Xorg-Video-Treiber"
 
-#: hardware.cgi:280 hardware.cgi:297
+#: hardware.cgi:282 hardware.cgi:299
 msgid "Battery"
 msgstr "Akku"
 
-#: hardware.cgi:300
+#: hardware.cgi:302
 msgid "health"
 msgstr "Zustand"
 
-#: hardware.cgi:309
+#: hardware.cgi:311
 msgid "Discharging %d%% - %s"
 msgstr "Entladen %d%% - %s"
 
-#: hardware.cgi:313
+#: hardware.cgi:315
 msgid "Charging %d%% - %s"
 msgstr "Laden %d%% - %s"
 
-#: hardware.cgi:315
+#: hardware.cgi:317
 msgid "Charged 100%%"
 msgstr "100%% geladen"
 
-#: hardware.cgi:334
+#: hardware.cgi:336
 msgid "Temperature:"
 msgstr "Temperatur:"
 
-#: hardware.cgi:349
+#: hardware.cgi:351
 msgid "Brightness"
 msgstr "Helligkeit"
 
-#: hardware.cgi:369 index.cgi:851
+#: hardware.cgi:371 index.cgi:851
 msgid "Filesystem usage statistics"
 msgstr "Belegung des Dateisystems"
 
-#: hardware.cgi:492
+#: hardware.cgi:499
 msgid "new mount point:"
 msgstr "neuer Einhängepunkt:"
 
-#: hardware.cgi:493
+#: hardware.cgi:500
 msgid "read-only"
 msgstr "nur zum Lesen"
 
-#: hardware.cgi:508
+#: hardware.cgi:515
 msgid "Filesystems table"
 msgstr "Tabelle der Dateisysteme"
 
-#: hardware.cgi:517
+#: hardware.cgi:524
 msgid "Options"
 msgstr "Optionen"
 
 # HGT: bei fstab-Einträgen
-#: hardware.cgi:518
+#: hardware.cgi:525
 msgid "Freq"
 msgstr "Sicherungshäufigkeit"
 
 # HGT: bei fstab-Einträgen
-#: hardware.cgi:519
+#: hardware.cgi:526
 msgid "Pass"
 msgstr "Durchgang"
 
-#: hardware.cgi:541
+#: hardware.cgi:548
 msgid "Loop devices"
 msgstr "Virtuelle Geräte"
 
-#: hardware.cgi:549
+#: hardware.cgi:556
 msgid "Backing file"
 msgstr "Zugrundeliegende Datei"
 
-#: hardware.cgi:551
+#: hardware.cgi:558
 msgid "Access"
 msgstr "Zugriff"
 
-#: hardware.cgi:552
+#: hardware.cgi:559
 msgid "Offset"
 msgstr "Versatz"
 
-#: hardware.cgi:561
+#: hardware.cgi:568
 msgid "read/write"
 msgstr "lesen und schreiben"
 
-#: hardware.cgi:562 hardware.cgi:587
+#: hardware.cgi:569 hardware.cgi:594
 msgid "read only"
 msgstr "nur lesen"
 
-#: hardware.cgi:584
+#: hardware.cgi:591
 msgid "Setup"
 msgstr "Einstellung"
 
-#: hardware.cgi:585
+#: hardware.cgi:592
 msgid "new backing file:"
 msgstr "neue Datei:"
 
-#: hardware.cgi:586
+#: hardware.cgi:593
 msgid "offset in bytes:"
 msgstr "Versatz in Bytes:"
 
-#: hardware.cgi:604
+#: hardware.cgi:611
 msgid "System memory"
 msgstr "Arbeitsspeicher"
 
-#: hardware.cgi:610
+#: hardware.cgi:617
 msgid "Buffers"
 msgstr "Puffer"
 
-#: hardware.cgi:613
+#: hardware.cgi:620
 msgid "Free"
 msgstr "Frei"
 
@@ -1669,9 +1666,9 @@ msgid ""
 "automatically depending on the system load, in response to ACPI events, or "
 "manually by userspace programs."
 msgstr ""
-"Um Energie zu sparen, kann es dem Betriebssystem ermöglicht werden, die "
-"CPU-Taktung zu erhöhen und zu erniedrigen. Dies kann automatisch geschehen "
-"in Abhängigkeit von der CPU-Last und ACPI-Ereignissen oder manuell durch "
+"Um Energie zu sparen, kann es dem Betriebssystem ermöglicht werden, die CPU-"
+"Taktung zu erhöhen und zu erniedrigen. Dies kann automatisch geschehen in "
+"Abhängigkeit von der CPU-Last und ACPI-Ereignissen oder manuell durch "
 "Anwenderprogramme."
 
 #: powersaving.cgi:138

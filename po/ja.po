@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 522\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-07 13:15+0200\n"
+"POT-Creation-Date: 2018-01-30 12:05+0200\n"
 "PO-Revision-Date: 2017-01-10 17:18+0900\n"
 "Last-Translator: BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <balloonakafusen　AT "
 "gmail DOT com>\n"
@@ -31,7 +31,7 @@ msgstr "接続済み"
 msgid "Interface"
 msgstr "インターフェイス"
 
-#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:58 hardware.cgi:79
+#: lib/libtazpanel:172 boot.cgi:142 hardware.cgi:60 hardware.cgi:81
 #: network.cgi:356 hosts.cgi:243
 msgid "Name"
 msgstr "名前"
@@ -52,7 +52,7 @@ msgstr "ポートを検索"
 msgid "Please wait"
 msgstr "お待ち下さい"
 
-#: lib/libtazpanel:319 hardware.cgi:514
+#: lib/libtazpanel:319 hardware.cgi:521
 msgid "Disk"
 msgstr "ディスク"
 
@@ -60,11 +60,11 @@ msgstr "ディスク"
 msgid "Label"
 msgstr "ラベル"
 
-#: lib/libtazpanel:321 hardware.cgi:516
+#: lib/libtazpanel:321 hardware.cgi:523
 msgid "Type"
 msgstr "種類"
 
-#: lib/libtazpanel:322 hardware.cgi:198 hardware.cgi:550
+#: lib/libtazpanel:322 hardware.cgi:200 hardware.cgi:557
 msgid "Size"
 msgstr "サイズ"
 
@@ -72,11 +72,11 @@ msgstr "サイズ"
 msgid "Available"
 msgstr "利用可能"
 
-#: lib/libtazpanel:324 hardware.cgi:199 hardware.cgi:607
+#: lib/libtazpanel:324 hardware.cgi:201 hardware.cgi:614
 msgid "Used"
 msgstr "使用"
 
-#: lib/libtazpanel:325 hardware.cgi:515
+#: lib/libtazpanel:325 hardware.cgi:522
 msgid "Mount point"
 msgstr "マウントポイント"
 
@@ -136,7 +136,7 @@ msgstr "デーモンの管理"
 msgid "Check, start and stop daemons on SliTaz"
 msgstr "SliTaz デーモンの確認、起動、停止"
 
-#: boot.cgi:143 hardware.cgi:197 settings.cgi:472 powersaving.cgi:154
+#: boot.cgi:143 hardware.cgi:199 settings.cgi:472 powersaving.cgi:154
 msgid "Description"
 msgstr "説明"
 
@@ -357,196 +357,196 @@ msgstr "ローカル起動コマンド"
 msgid "Hardware"
 msgstr "ハードウェア"
 
-#: hardware.cgi:55
+#: hardware.cgi:57
 msgid "Bus"
 msgstr "Bus"
 
-#: hardware.cgi:56 hardware.cgi:78 hardware.cgi:548
+#: hardware.cgi:58 hardware.cgi:80 hardware.cgi:555
 msgid "Device"
 msgstr "デバイス"
 
-#: hardware.cgi:57
+#: hardware.cgi:59
 msgid "ID"
 msgstr "ID"
 
-#: hardware.cgi:77
+#: hardware.cgi:79
 msgid "Slot"
 msgstr "スロット"
 
-#: hardware.cgi:128
+#: hardware.cgi:130
 msgid "Detect hardware"
 msgstr "ハードウェアの検出"
 
-#: hardware.cgi:130
+#: hardware.cgi:132
 msgid "Detect PCI and USB hardware"
 msgstr "PCI・USB ハードウェアの検出"
 
-#: hardware.cgi:138 hardware.cgi:268 powersaving.cgi:150
+#: hardware.cgi:140 hardware.cgi:270 powersaving.cgi:150
 #: styles/default/header.html:94
 msgid "Kernel modules"
 msgstr "カーネルモジュール"
 
-#: hardware.cgi:142
+#: hardware.cgi:144
 msgid "Manage, search or get information about the Linux kernel modules"
 msgstr "Linux カーネルモジュールの管理、検索、情報の取得"
 
-#: hardware.cgi:146
+#: hardware.cgi:148
 msgid "Modules search"
 msgstr "モジュール検索"
 
-#: hardware.cgi:147
+#: hardware.cgi:149
 msgid "Search"
 msgstr "検索"
 
-#: hardware.cgi:155
+#: hardware.cgi:157
 msgid "Detailed information for module: %s"
 msgstr "モジュールの詳細情報：%s"
 
-#: hardware.cgi:179
+#: hardware.cgi:181
 msgid "Matching result(s) for: %s"
 msgstr "一致した結果: %s"
 
-#: hardware.cgi:186
+#: hardware.cgi:188
 msgid "Module:"
 msgstr "モジュール:"
 
-#: hardware.cgi:196 powersaving.cgi:153
+#: hardware.cgi:198 powersaving.cgi:153
 msgid "Module"
 msgstr "モジュール"
 
-#: hardware.cgi:200
+#: hardware.cgi:202
 msgid "by"
 msgstr "by"
 
-#: hardware.cgi:224
+#: hardware.cgi:226
 msgid "Information for USB Device %s"
 msgstr "USB デバイス %s の情報"
 
-#: hardware.cgi:226 hardware.cgi:244
+#: hardware.cgi:228 hardware.cgi:246
 msgid "Detailed information about specified device."
 msgstr "指定デバイスの詳細情報。"
 
-#: hardware.cgi:242
+#: hardware.cgi:244
 msgid "Information for PCI Device %s"
 msgstr "PCI デバイス %s の情報"
 
-#: hardware.cgi:263
+#: hardware.cgi:265
 msgid "Drivers &amp; Devices"
 msgstr "ドライバー &amp; デバイス"
 
-#: hardware.cgi:265
+#: hardware.cgi:267
 msgid "Manage your computer hardware"
 msgstr "コンピュータハードウェアの管理"
 
-#: hardware.cgi:269 styles/default/header.html:95
+#: hardware.cgi:271 styles/default/header.html:95
 msgid "Detect PCI/USB"
 msgstr "PCI/USB の検出"
 
-#: hardware.cgi:270
+#: hardware.cgi:272
 msgid "Auto-install Xorg video driver"
 msgstr "Xorg ビデオドライバーの自動インストール"
 
-#: hardware.cgi:280 hardware.cgi:297
+#: hardware.cgi:282 hardware.cgi:299
 msgid "Battery"
 msgstr "バッテリー"
 
-#: hardware.cgi:300
+#: hardware.cgi:302
 msgid "health"
 msgstr "ヘルス"
 
-#: hardware.cgi:309
+#: hardware.cgi:311
 msgid "Discharging %d%% - %s"
 msgstr "放電中 %d%% - %s"
 
-#: hardware.cgi:313
+#: hardware.cgi:315
 msgid "Charging %d%% - %s"
 msgstr "充電中 %d%% - %s"
 
-#: hardware.cgi:315
+#: hardware.cgi:317
 msgid "Charged 100%%"
 msgstr "充電完了100%%"
 
-#: hardware.cgi:334
+#: hardware.cgi:336
 msgid "Temperature:"
 msgstr "温度:"
 
-#: hardware.cgi:349
+#: hardware.cgi:351
 msgid "Brightness"
 msgstr "輝度"
 
-#: hardware.cgi:369 index.cgi:851
+#: hardware.cgi:371 index.cgi:851
 msgid "Filesystem usage statistics"
 msgstr "ファイルシステムの使用状況"
 
-#: hardware.cgi:492
+#: hardware.cgi:499
 msgid "new mount point:"
 msgstr "新しいマウントポイント:"
 
-#: hardware.cgi:493
+#: hardware.cgi:500
 msgid "read-only"
 msgstr "読み込み専用"
 
-#: hardware.cgi:508
+#: hardware.cgi:515
 msgid "Filesystems table"
 msgstr "ファイルシステムテーブル"
 
-#: hardware.cgi:517
+#: hardware.cgi:524
 msgid "Options"
 msgstr "オプション"
 
-#: hardware.cgi:518
+#: hardware.cgi:525
 msgid "Freq"
 msgstr "Freq"
 
-#: hardware.cgi:519
+#: hardware.cgi:526
 msgid "Pass"
 msgstr "Pass"
 
-#: hardware.cgi:541
+#: hardware.cgi:548
 msgid "Loop devices"
 msgstr "ループデバイス"
 
-#: hardware.cgi:549
+#: hardware.cgi:556
 msgid "Backing file"
 msgstr "ファイルを戻し中"
 
-#: hardware.cgi:551
+#: hardware.cgi:558
 msgid "Access"
 msgstr "アクセス"
 
-#: hardware.cgi:552
+#: hardware.cgi:559
 msgid "Offset"
 msgstr "オフセット"
 
-#: hardware.cgi:561
+#: hardware.cgi:568
 msgid "read/write"
 msgstr "読み書き"
 
-#: hardware.cgi:562 hardware.cgi:587
+#: hardware.cgi:569 hardware.cgi:594
 msgid "read only"
 msgstr "読込のみ"
 
-#: hardware.cgi:584
+#: hardware.cgi:591
 msgid "Setup"
 msgstr "設定"
 
-#: hardware.cgi:585
+#: hardware.cgi:592
 msgid "new backing file:"
 msgstr "新しい戻しファイル:"
 
-#: hardware.cgi:586
+#: hardware.cgi:593
 msgid "offset in bytes:"
 msgstr "オフセット (バイト):"
 
-#: hardware.cgi:604
+#: hardware.cgi:611
 msgid "System memory"
 msgstr "システムメモリ"
 
-#: hardware.cgi:610
+#: hardware.cgi:617
 msgid "Buffers"
 msgstr "バッファ"
 
-#: hardware.cgi:613
+#: hardware.cgi:620
 msgid "Free"
 msgstr "フリー"
 
