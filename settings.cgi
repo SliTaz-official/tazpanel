@@ -456,7 +456,7 @@ EOT
 		[ $? = 1 ] &&
 			msg tip $(_ \
 			"Can't see your language?<br/>You can \
-<a href='pkgs.cgi?do=Install&amp;glibc-locale'>install glibc-locale</a> \
+<a href='pkgs.cgi?do=Install&amp;pkg=glibc-locale'>install glibc-locale</a> \
 to see a larger list of available locales.")
 
 
