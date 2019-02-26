@@ -404,7 +404,7 @@ EOT
 				fi
 
 				# Check encryption type
-				if [ "$ENCRYPTION" == 'on' ]; then
+				if [ "$ENCRYPTION" = 'on' ]; then
 					# "WPA" or "WPA2" or "WPA/WPA2" (maybe also "WPA2/WPA")
 					ENC_SIMPLE=$(echo "$SCAN" | sed -n '/.*WPA.*/ s|.*\(WPA[^ ]*\).*|\1|p')
 					ENC_SIMPLE=$(echo $ENC_SIMPLE | sed 's| |/|')
@@ -676,7 +676,7 @@ EOT
 		[ $(cat $ip_forward) -eq 1 ] && echo ' checked')/>
 EOT
 		_ 'forward packets between interfaces'
-		[ "$REMOTE_USER" == 'root' ] && cat <<EOT
+		[ "$REMOTE_USER" = 'root' ] && cat <<EOT
 		<button form="mainform" name="toggleipforward" data-icon="@ok@">$(_ 'Change')</button>
 EOT
 		cat <<EOT
@@ -725,7 +725,7 @@ EOT
 			[ $(($(cat /sys/class/net/$i/flags) & 0x1080)) -eq 4096 ] &&
 			echo $i
 		done)"
-		if [ "$REMOTE_USER" == "root" -a -n "$devs" ]; then
+		if [ "$REMOTE_USER" = "root" -a -n "$devs" ]; then
 			cat <<EOT
 <section>
 	<header id="vlan">$(_ 'VLAN')</header>
@@ -799,7 +799,7 @@ EOT
 <section>
 	<header id="arp">$(_ 'ARP table')</header>
 EOT
-		if [ "$REMOTE_USER" == "root" ]; then
+		if [ "$REMOTE_USER" = "root" ]; then
 			echo "<table>"
 			arp -n | while read line ; do
 				cat <<EOT
@@ -837,7 +837,7 @@ EOT
 </section>
 
 EOT
-		[ "$REMOTE_USER" == "root" -a "$(which iptables-save)" ] && cat <<EOT
+		[ "$REMOTE_USER" = "root" -a "$(which iptables-save)" ] && cat <<EOT
 <section>
 	<header id="iptables">$(_ 'Firewall')
 		$(edit_button /etc/knockd.conf "$(_ 'Port knocker')")

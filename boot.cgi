@@ -36,7 +36,7 @@ EOT
 case " $(GET) " in
 	*\ syslog\ *)
 		logtype="$(GET syslog)"
-		[ "${logtype:-syslog}" == 'syslog' ] && logtype='messages'
+		[ "${logtype:-syslog}" = 'syslog' ] && logtype='messages'
 		xhtml_header "$(_ 'System logs')"
 
 		cat <<EOT
@@ -54,7 +54,7 @@ EOT
 EOT
 		for i in $(sed '/var\/log/!d;s|.*/log/||' /etc/syslog.conf); do
 			unset act
-			[ "$i" == "$logtype" ] && act=' class="active"'
+			[ "$i" = "$logtype" ] && act=' class="active"'
 			cat <<EOT
 	<li$act><a href="?syslog=$i" title="$(sed "/$i$/!d;s/[\t ].*//" /etc/syslog.conf)">$i</a></li>
 EOT
@@ -487,7 +487,7 @@ EOT
 	<button name="syslog"  data-icon="@logs@">$(_ 'System logs')</button>
 	<button name="daemons" data-icon="@daemons@" data-root>$(_ 'Manage daemons')</button>
 EOT
-		[ "$REMOTE_USER" == "root" -a -x /usr/bin/taziso ] && cat <<EOT
+		[ "$REMOTE_USER" = "root" -a -x /usr/bin/taziso ] && cat <<EOT
 	<button name="iso"     data-icon="@cd@">$(_ 'ISO mine')</button>
 EOT
 		[ -w /boot/grub/menu.lst ] && cat <<EOT

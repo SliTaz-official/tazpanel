@@ -258,8 +258,8 @@ listlist | while read name info url updated letter; do
 	<td>$name</td>
 	<td><a data-icon="@info@" target="_blank" rel="noopener" href="$info">$(_ 'info')</a></td>
 	<td>
-		$([ "$updated" == 'monthly'   ] && _ 'Updated monthly')
-		$([ "$updated" == 'regularly' ] && _ 'Updated regularly')
+		$([ "$updated" = 'monthly'   ] && _ 'Updated monthly')
+		$([ "$updated" = 'regularly' ] && _ 'Updated regularly')
 	</td>
 	<td>
 EOT
@@ -285,7 +285,7 @@ EOT
 			check='yes'
 		fi
 
-		if [ "$check" == 'yes' ]; then
+		if [ "$check" = 'yes' ]; then
 			# Check for update (not really download)
 			busybox wget -s --header "If-Modified-Since: $(date -Rur "$HOSTSDIR/$letter")" "$url"
 			if [ "$?" -eq 0 ]; then

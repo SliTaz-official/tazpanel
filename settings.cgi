@@ -48,7 +48,7 @@ restart_lxpanel() {
 		lxpanel_user="$(ps -o pid,user 2>/dev/null | fgrep "$lxpanel_pid " | awk '{print $2}')"
 
 		# ... current user?
-		if [ "$USER" == "$lxpanel_user" ]; then
+		if [ "$USER" = "$lxpanel_user" ]; then
 			# custom command?
 			lxpanel_comm="$(ps -o pid,args 2>/dev/null | grep -e "^\ *$lxpanel_pid " | awk '{$1="";print}')"
 			[ -z "$lxpanel_comm" ] && lxpanel_comm='lxpanel -p slitaz'
@@ -478,7 +478,7 @@ EOT
 		locale_name=$(basename $locale)
 		locale_title=$(grep -m 1 -e '^	*title' $locale | cut -d'"' -f2)
 		if [ -n "$locale_title" ]; then
-			sel=''; [ "$locale_name" == "$cur_loc" ] && sel='checked="checked"'
+			sel=''; [ "$locale_name" = "$cur_loc" ] && sel='checked="checked"'
 			cat <<EOT
 				<tr>
 					<td>
@@ -663,7 +663,7 @@ EOT
 			<input type="number" name="day" value="$(date +%d)" min="1" max="31" size="4" required/>
 			<select name="month" value="$(date +%m)">
 				$(for i in $(seq 12); do
-					sel=''; [ "$i" == "$(date +%-m)" ] && sel=' selected'
+					sel=''; [ "$i" = "$(date +%-m)" ] && sel=' selected'
 					printf "<option value=\"%s\"$sel>%s</option>" $(date -d $i.01-01:01 '+%m %B')
 				done)
 			</select>

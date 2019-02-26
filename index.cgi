@@ -52,7 +52,7 @@ ok_status_t() {
 # Terminal prompt
 
 term_prompt() {
-	if [ "$user" == 'root' ]; then
+	if [ "$user" = 'root' ]; then
 		local color1='color31' sign='#'
 	else
 		local color1='color32' sign='$'
@@ -73,7 +73,7 @@ case " $(GET) " in
 		case "$(GET do)" in
 
 		*-selection)		# display Yad file/dir picker (AJAX)
-			if [ "$(GET do)" == 'dir-selection' ]; then
+			if [ "$(GET do)" = 'dir-selection' ]; then
 				title="$(_ 'Choose directory')"
 				extra='--directory'
 				icon='folder'
@@ -307,7 +307,7 @@ EOT
 
 		# Terminal history
 
-		if [ "$cmd" == 'history' ]; then
+		if [ "$cmd" = 'history' ]; then
 			cat <<EOT
 <section>
 	<header>
@@ -517,11 +517,11 @@ EOT
 <form>
 	<p>$(_ 'Refresh:')
 	<input type="hidden" name="top"/>
-	<input type="radio" name="refresh" value="1"  id="r1" $([ "$r" == 1  ] && echo checked) onchange="this.form.submit()"/>
+	<input type="radio" name="refresh" value="1"  id="r1" $([ "$r" = 1  ] && echo checked) onchange="this.form.submit()"/>
 	<label for="r1">$(_ '1s'  )</label>
-	<input type="radio" name="refresh" value="5"  id="r2" $([ "$r" == 5  ] && echo checked) onchange="this.form.submit()"/>
+	<input type="radio" name="refresh" value="5"  id="r2" $([ "$r" = 5  ] && echo checked) onchange="this.form.submit()"/>
 	<label for="r2">$(_ '5s'  )</label>
-	<input type="radio" name="refresh" value="10" id="r3" $([ "$r" == 10 ] && echo checked) onchange="this.form.submit()"/>
+	<input type="radio" name="refresh" value="10" id="r3" $([ "$r" = 10 ] && echo checked) onchange="this.form.submit()"/>
 	<label for="r3">$(_ '10s' )</label>
 	<input type="radio" name="refresh" value=""   id="r4" $([ -z "$r"    ] && echo checked) onchange="this.form.submit()"/>
 	<label for="r4">$(_ 'none')</label>

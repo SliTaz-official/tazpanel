@@ -428,7 +428,7 @@ EOT
 			[ -n "$mp" ] && action="umount"
 			type=$(blkid $fs | sed '/ TYPE=/!d;s/.* TYPE="\([^"]*\).*/\1/')
 			[ -n "$type" ] || continue
-			[ "$type" == "swap" ] && action="swapon"
+			[ "$type" = "swap" ] && action="swapon"
 			if grep -q "^$fs " /proc/swaps; then
 				action="swapoff"
 				set -- $(grep "^$fs " /proc/swaps)
@@ -459,7 +459,7 @@ EOT
 			case " $bootdevs " in *\ $fs\ *) dsk="<i>$dsk</i>";; esac
 
 			radio="<input type=\"radio\" name=\"device\" value=\"$action $fs\" id=\"${fs##*/}\"/>"
-			[ "$REMOTE_USER" == "root" ] || radio=""
+			[ "$REMOTE_USER" = "root" ] || radio=""
 			cat <<EOT
 			<tr>
 				<td>$radio<!--
@@ -491,7 +491,7 @@ EOT
 			</tbody>
 		</table>
 EOT
-		[ "$REMOTE_USER" == "root" ] && cat <<EOT
+		[ "$REMOTE_USER" = "root" ] && cat <<EOT
 		$(lib crypto input)
 
 		<footer>
@@ -570,7 +570,7 @@ for devloop in $(ls /dev/*loop[0-9]*); do
 	*) ro="" ;;
 	esac
 	size=$(blk2h $(cat $dir/size))
-	[ "$size" == "0.0K" ] && size="" && ro=""
+	[ "$size" = "0.0K" ] && size="" && ro=""
 	set -- $(losetup $devloop)
 	set -- "${3:-$(cat $dir/loop/backing_file)}" "${2:-$(cat $dir/loop/offset)}" ${ro// /&nbsp;}
 	cat <<EOT

@@ -14,16 +14,16 @@ _()  { local T="$1"; shift; printf "$(gettext "$T")" "$@"; echo; }
 _n() { local T="$1"; shift; printf "$(gettext "$T")" "$@"; }
 
 
-[ $(busybox ps | grep '127.0.0.1.*guiuser=root' |grep -v grep| awk {'print $2'}) == 'root' ] && REMOTE_USER='root'
+[ $(busybox ps | grep '127.0.0.1.*guiuser=root' |grep -v grep| awk {'print $2'}) = 'root' ] && REMOTE_USER='root'
 GUI_USER=nobody
-[ "${HTTP_HOST/:*/:}" == "127.0.0.1:" ] &&
+[ "${HTTP_HOST/:*/:}" = "127.0.0.1:" ] &&
 for i in "$HTTP_COOKIE" "$QUERY_STRING" ; do
 	v="$(echo "$i" | sed '/guiuser=/!d;s/.*guiuser=\([A-Za-z0-9_]*\).*/\1/')"
 	[ "$v" ] || continue
 	busybox ps | sed '/d;/d;/127\.0\.0\.1:/!d' | grep -q " $v " || continue
 	GUI_USER="$v"
 done
-[ "$(id -un)" == "${REMOTE_USER:=$GUI_USER}" ] || exec su -s /bin/sh -c "$(realpath $0) $@" $REMOTE_USER
+[ "$(id -un)" = "${REMOTE_USER:=$GUI_USER}" ] || exec su -s /bin/sh -c "$(realpath $0) $@" $REMOTE_USER
 
 
 # Get parameters with GET, POST, COOKIE and FILE functions
@@ -150,10 +150,10 @@ interface_status() {
 	scan=""
 	if ifconfig | grep -A1 $1 | grep -q inet; then
 		ip=$(ifconfig | grep -A1 $1 | grep inet | awk '{ print $2 }' | cut -d: -f2)
-		[ "$(cat /sys/class/net/$1/carrier)" == "1" ] &&
+		[ "$(cat /sys/class/net/$1/carrier)" = "1" ] &&
 		scan='<a data-icon="@scan@" href="network.cgi?scan='$ip'&amp;back=network.cgi">'$(_ 'Scan')'</a>'
 	fi
-	[ "$(cat /sys/class/net/$1/carrier)" == "1" ] &&
+	[ "$(cat /sys/class/net/$1/carrier)" = "1" ] &&
 	status="$(_ 'connected')" &&
 	speed="$(cat /sys/class/net/$1/speed 2> /dev/null)" &&
 	[ "$speed" ] && status="$status ${speed}M"
@@ -387,7 +387,7 @@ EOT
 # Mark select option as checked
 
 selected() {
-	[ "$1" == "$2" ] && echo -n 'selected'
+	[ "$1" = "$2" ] && echo -n 'selected'
 }
 
 
