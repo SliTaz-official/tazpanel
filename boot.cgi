@@ -478,7 +478,7 @@ EOT
 		# Default content with summary
 		#
 		. /etc/rcS.conf
-		xhtml_header "$(_ 'Boot &amp; Start services')"
+		xhtml_header "$(_ 'Boot \&amp; Start services')"
 		cat <<EOT
 <p>$(_ 'Everything that happens before user login')</p>
 
