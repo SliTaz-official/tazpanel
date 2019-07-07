@@ -17,6 +17,15 @@ EOT
 		exit
 esac
 
+for p in $(POST); do
+	case "$p" in
+	governor)
+		for i in /sys/devices/system/cpu/cpu*/cpufreq ; do
+			echo "$(POST $p)" > $i/scaling_governor
+		done
+	esac
+done
+
 header
 
 TITLE=$(_ 'Hardware')
@@ -123,6 +132,7 @@ multiplier=$(echo "$cpu" | wc -l)
 [ "$multiplier" -ne 1 ] && cpu="$multiplier × $(echo "$cpu" | head -n1)"
 
 freq=$(awk -F: 'BEGIN{N=0}$1~"MHz"{printf "%d:<b>%s</b>MHz ",N,$2; N++}' /proc/cpuinfo)
+cpufreq=/sys/devices/system/cpu/cpu0/cpufreq
 
 cat <<EOT
 <section>
@@ -133,12 +143,27 @@ CPU frequency up or down in order to save power. CPU frequencies can be scaled \
 automatically depending on the system load, in response to ACPI events, or \
 manually by userspace programs.")</div>
 
+	<form method="post" class="wide">
+
 	<table class="wide zebra">
 		<tr><td>$(_ 'Model name')</td><td>$cpu</td></tr>
 		<tr><td>$(_ 'Current frequency')</td><td>$freq</td></tr>
-		<tr><td>$(_ 'Current driver')</td><td>$(cat '/sys/devices/system/cpu/cpu0/cpufreq/scaling_driver')
-		<tr><td>$(_ 'Current governor')</td><td>$(cat '/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor')
+		<tr><td>$(_ 'Current driver')</td><td>$(cat "$cpufreq/scaling_driver")
+		<tr><td>$(_ 'Current governor')</td><td><select name="governor">
+EOT
+
+for i in $(cat "$cpufreq/scaling_available_governors"); do
+	sel=""; [ $i = $(cat "$cpufreq/scaling_governor") ] && sel=" selected"
+	echo "			<option$sel>$i</option>"
+done
+
+cat <<EOT
+		</select></td></tr>
 	</table>
+		<footer>
+			<button type="submit" data-icon="@ok@">$(_ 'Change')</button>
+		</footer>
+	</form>
 </section>
 EOT
 

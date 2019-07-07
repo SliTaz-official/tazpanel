@@ -271,7 +271,7 @@ msgstr "Chemin complet de l'image ISO"
 
 #: boot.cgi:409 floppy.cgi:289
 msgid "set /dev/cdrom for a physical CD-ROM"
-msgstr "Mettre à jour /dev/cdrom pour indiquer le lecteur de CD-ROM"
+msgstr "Mettre /dev/cdrom pour indiquer le lecteur de CD-ROM"
 
 #: boot.cgi:412
 msgid "Working directory"
