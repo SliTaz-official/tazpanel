@@ -342,7 +342,7 @@ EOT
 
 		# CPU frequency
 		if [ -n "$(ls /sys/devices/system/cpu/*/cpufreq/cpuinfo_cur_freq 2>/dev/null)" ]; then
-			echo "<p><span data-icon=\"@cpu@\">$(sed '/name/!d;s|.*: ||;s|(TM)|™|;s|(R)|®|;q' /proc/cpuinfo) :</span>"
+			echo "<p><span data-icon=\"@cpu@\">$(sed '/name/!d;s|.*: ||;s|(TM)|™|g;s|(R)|®|g' /proc/cpuinfo | uniq -c) :</span>"
 			for f in /sys/devices/system/cpu/*/cpufreq/cpuinfo_cur_freq; do
 				awk '{ print $1/1000 "MHz" }' < $f
 			done
