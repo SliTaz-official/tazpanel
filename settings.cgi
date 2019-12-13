@@ -124,7 +124,7 @@ case " $(GET) " in
 
 			rdate)
 				# get and possibly set the system date/time from a remote host
-				sh -l -c "rdate -s tick.greyware.com" ;;
+				sh -l -c "ntpd -q -p pool.ntp.org || rdate -s tick.greyware.com" ;;
 
 			hwclock)
 				# query and set hardware clock (RTC)
