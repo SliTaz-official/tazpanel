@@ -1,15 +1,15 @@
 # German translations for TazPanel package
 # Deutsche Übersetzungen für das Paket TazPanel.
-# Copyright (C) 2017 SliTaz
+# Copyright (C) 2020 SliTaz
 # This file is distributed under the same license as the TazPanel package.
-# Hans-Günter Theisgen, 2017.
+# Hans-Günter Theisgen, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TazPanel 522\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-30 12:05+0200\n"
-"PO-Revision-Date: 2017-10-09 16:40+0100\n"
+"PO-Revision-Date: 2020-09-24 11:14+0100\n"
 "Last-Translator: Hans-Günter Theisgen\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -157,7 +157,7 @@ msgstr "SliTaz-Zugangsschutzsystem mit 'iptables'-Regeln"
 
 #: boot.cgi:174
 msgid "Small and fast web server with CGI support"
-msgstr "Kleiner und schneller Webserver' mit CGI-Unterstützung"
+msgstr "Kleiner und schneller 'Webserver' mit CGI-Unterstützung"
 
 #: boot.cgi:177
 msgid "Network time protocol daemon"
@@ -288,8 +288,8 @@ msgid ""
 "For hard disk installation only. Will create /slitaz tree and keep other "
 "files. No partitioning and no formatting."
 msgstr ""
-"Nur für Installation auf Platte. Wurzelverzeichnisbaum wird erzeugt, andere "
-"Dateien bleiben erhalten. Keine Partitionierung und keine Formatierung."
+"Nur für Installation auf Platte. Verzeichnisbaum mit Systemdateien wird neu erstellt, "
+"andere Dateien bleiben erhalten. Keine Partitionierung und keine Formatierung."
 
 #: boot.cgi:419
 msgid "Choose a partition (optional)"
@@ -350,7 +350,7 @@ msgstr "Einstellungen der Anmeldeverwaltung:"
 
 #: boot.cgi:514
 msgid "Kernel cmdline"
-msgstr "Linux-Kern-Parameter"
+msgstr "Parameter für den Linux-Kern"
 
 #: boot.cgi:521
 msgid "Local startup commands"
@@ -419,9 +419,11 @@ msgstr "Modul:"
 msgid "Module"
 msgstr "Modul"
 
+# HGT:	Titel der Spalte der Modultabelle, die die Namen
+#	der Module enthält, die den Modul in Spalte 1 verwenden
 #: hardware.cgi:202
 msgid "by"
-msgstr "von"
+msgstr "verwendet von"
 
 #: hardware.cgi:226
 msgid "Information for USB Device %s"
@@ -826,7 +828,7 @@ msgstr "Port-Überprüfung für %s"
 
 #: network.cgi:237
 msgid "Ethernet connection"
-msgstr "Ethernet-Verbindung"
+msgstr "Kabelnetzwerk-Verbindung"
 
 #: network.cgi:255
 msgid ""
@@ -902,8 +904,8 @@ msgid ""
 "These values are the ethernet settings in the main /etc/network.conf "
 "configuration file"
 msgstr ""
-"Dies sind die Ethernet-Einstellungen aus der zentralen Konfigurationsdatei /"
-"etc/network.conf"
+"Dies sind die Kabelnetzwerk-Einstellungen aus der zentralen Konfigurationsdatei "
+"/etc/network.conf"
 
 #: network.cgi:350
 msgid "(hidden)"
@@ -1037,7 +1039,7 @@ msgstr[1] "%d Sätze in der hosts-Datei"
 
 #: network.cgi:697 hosts.cgi:16
 msgid "Use hosts file as Ad blocker"
-msgstr "Die hosts-Datei zum Blockieren von Werbung verwenden"
+msgstr "Die 'hosts'-Datei zum Blockieren von Werbung verwenden"
 
 #: network.cgi:704
 msgid "Hostname"
@@ -1063,9 +1065,10 @@ msgstr "oder"
 msgid "Add"
 msgstr "Hinzufügen"
 
+# HGT: Add ... on -> Hinzufügen auf
 #: network.cgi:766 network.cgi:819
 msgid "on"
-msgstr "ein"
+msgstr "auf"
 
 #: network.cgi:782
 msgid "Output of ifconfig"
@@ -1083,6 +1086,7 @@ msgstr "Auflösung von Domänennamen"
 msgid "ARP table"
 msgstr "ARP-Tabelle"
 
+# HGT: Gibt es dafür ein anderes deutsches Wort als Vermittlungsrechner?
 #: network.cgi:820
 msgid "Proxy"
 msgstr "Proxy"
@@ -1095,7 +1099,7 @@ msgstr "IP-Verbindungen"
 msgid "Firewall"
 msgstr "Zugangsschutzsystem"
 
-# HGT: Gibt es dafür ein deutsches Wort?
+# HGT: Gibt es dafür ein deutsches Wort? Anschluss-Anklopfer klingt komisch.
 #: network.cgi:843
 msgid "Port knocker"
 msgstr "'Port knocker'"
@@ -1490,6 +1494,7 @@ msgstr "Stil:"
 msgid "Configuration files:"
 msgstr "Konfigurationsdateien:"
 
+# HGT:	bessere Übersetzung als Oberfläche?
 #: settings.cgi:832 styles/default/header.html:45
 msgid "Panel"
 msgstr "Oberfläche"
