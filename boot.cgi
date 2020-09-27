@@ -423,7 +423,7 @@ EOT
 		    -e 's|TYPE="\([^"]*\)"|\1|;s|/dev/||' | \
 		while read dev label type; do
 			echo -n "<option value=\"/dev/$dev\">/dev/$dev $label $type "
-			echo "$(blk2h < /sys/block/${dev:0:3}/$dev/size)</option>"
+			echo "$(blk2h < /sys/block/*/$dev/size)</option>"
 		done 
 		cat <<EOT
 			</select></td></tr>
