@@ -434,7 +434,7 @@ EOT
 			# action
 			action="mount"
 			[ -n "$mp" ] && action="umount"
-			type=$(blkid $fs | sed '/ TYPE=/!d;s/.* TYPE="\([^"]*\).*/\1/')
+			type=$(busybox blkid $fs | sed '/ TYPE=/!d;s/.* TYPE="\([^"]*\).*/\1/')
 			[ -n "$type" ] || continue
 			[ "$type" = "swap" ] && action="swapon"
 			if grep -q "^$fs " /proc/swaps; then
@@ -472,7 +472,7 @@ EOT
 			<tr>
 				<td>$radio<!--
 					--><label for="${fs##*/}" data-icon="$disktype">&thinsp;$dsk</label></td>
-				<td>$(blkid $fs | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/\1/')</td>
+				<td>$(busybox blkid $fs | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/\1/')</td>
 				<td>$type</td>
 				<td>$size</td>
 				<td>$av</td>
@@ -491,7 +491,7 @@ EOT
 		fi
 		cat <<EOT
 				<td>$mp</td>
-				<td>$(blkid $fs | sed '/UUID=/!d;s/.*UUID="\([^"]*\).*/\1/')</td>
+				<td>$(busybox blkid $fs | sed '/UUID=/!d;s/.*UUID="\([^"]*\).*/\1/')</td>
 			</tr>
 EOT
 		done

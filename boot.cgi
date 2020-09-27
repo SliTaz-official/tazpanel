@@ -418,7 +418,7 @@ EOT
 		<td><select name="instdev">
 			<option value="/dev/null">$(_ 'Choose a partition (optional)')</option>
 EOT
-		blkid | grep -iE "(msdos|vfat|ntfs|ext[234]|xfs|btrfs)" | \
+		busybox blkid | grep -iE "(msdos|vfat|ntfs|ext[234]|xfs|btrfs)" | \
 		sed -e 's|[A-Z]*ID="[^"]*"||g;s| SEC[^ ]*||;s|LABEL=||;s|:||' \
 		    -e 's|TYPE="\([^"]*\)"|\1|;s|/dev/||' | \
 		while read dev label type; do
@@ -440,7 +440,7 @@ EOT
 			echo -n "<option value=\"/dev/$dev\">/dev/$dev "
 			echo -n "$(blk2h < /sys/block/$dev/size) "
 			echo -n "$(cat /sys/block/$dev/device/model 2>/dev/null) "
-			blkid | grep $dev | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/"\1"/;q'
+			busybox blkid | grep $dev | sed '/LABEL=/!d;s/.*LABEL="\([^"]*\).*/"\1"/;q'
 			echo "</option>"
 		done
 		cat <<EOT
