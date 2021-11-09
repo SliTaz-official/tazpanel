@@ -158,7 +158,7 @@ case " $(GET) " in
 		# Show diff
 		if [ -s "$HOSTSDIR/diff" ]; then
 			echo '<section><pre class="scroll">'
-			cat "$HOSTSDIR/diff" | syntax_highlighter diff
+			syntax_highlighter diff < "$HOSTSDIR/diff"
 			echo '</pre></section>'
 		fi
 
@@ -264,7 +264,7 @@ listlist | while read name info url updated letter; do
 	<td>
 EOT
 
-	if [ -e "$HOSTSDIR/$letter" -o -n "$(grep -m1 "#$letter\$" /etc/hosts)" ]; then
+	if [ -e "$HOSTSDIR/$letter" ] || grep -qm1 "#$letter\$" /etc/hosts; then
 		# List installed
 
 		# If /var/run/tazpkg/hosts/ was mistakenly cleaned
@@ -287,8 +287,7 @@ EOT
 
 		if [ "$check" = 'yes' ]; then
 			# Check for update (not really download)
-			busybox wget -s --header "If-Modified-Since: $(date -Rur "$HOSTSDIR/$letter")" "$url"
-			if [ "$?" -eq 0 ]; then
+			if busybox wget -s --header "If-Modified-Since: $(date -Rur "$HOSTSDIR/$letter")" "$url"; then
 				# Update available
 				touch "$HOSTSDIR/$letter.avail"
 			else

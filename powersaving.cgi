@@ -21,7 +21,7 @@ for p in $(POST); do
 	case "$p" in
 	governor)
 		for i in /sys/devices/system/cpu/cpu*/cpufreq ; do
-			echo "$(POST $p)" > $i/scaling_governor
+			POST $p > $i/scaling_governor
 		done
 	esac
 done

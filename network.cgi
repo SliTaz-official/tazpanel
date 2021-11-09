@@ -29,7 +29,7 @@ start_wifi() {
 
 	# Sleep until connection established (max 5 seconds)
 	for i in $(seq 5); do
-		[ -n "$(iwconfig 2>/dev/null | fgrep Link)" ] && break
+		iwconfig 2>/dev/null | fgrep -q Link && break
 		sleep 1
 	done
 }
@@ -108,7 +108,7 @@ parse_wpa_conf() {
 
 wait_up() {
 	for i in $(seq 5); do
-		[ -z "$(cat /sys/class/net/*/operstate | fgrep up)"] && sleep 1
+		cat /sys/class/net/*/operstate | fgrep -q up || sleep 1
 	done
 }
 
@@ -150,7 +150,7 @@ case " $(GET) " in
 		;;
 	*\ hostname\ *)
 		hostname="$(GET hostname)"
-		echo $(_ 'Changed hostname: %s' "$hostname") | log
+		_ 'Changed hostname: %s' "$hostname" | log
 		echo "$hostname" > /etc/hostname;;
 	*\ rmarp\ *)
 		arp -d $(urldecode "$(GET entry)") ;;
@@ -393,10 +393,10 @@ EOT
 
 				# Authentication type
 				AUTH="$(echo "$SCAN" | sed -n 's|.*Authentication Suites[^:]*: *\(.*\)|\1|p')"
-				if [ -n "$(echo -n $AUTH | fgrep PSK)" ]; then
+				if echo -n $AUTH | fgrep -q PSK; then
 					# WPA-Personal. Authentication using password (PSK = pre-shared key)
 					WIFI_KEY_TYPE='WPA'
-				elif [ -n "$(echo -n $AUTH | fgrep 802.1x)" ]; then
+				elif echo -n $AUTH | fgrep -q 802.1x; then
 					# WPA-Enterprise. Authentication using username, password, certificates...
 					WIFI_KEY_TYPE='EAP'
 				else
@@ -725,7 +725,7 @@ EOT
 			[ $(($(cat /sys/class/net/$i/flags) & 0x1080)) -eq 4096 ] &&
 			echo $i
 		done)"
-		if [ "$REMOTE_USER" = "root" -a -n "$devs" ]; then
+		if [ "$REMOTE_USER" = "root" ] && [ -n "$devs" ]; then
 			cat <<EOT
 <section>
 	<header id="vlan">$(_ 'VLAN')</header>
@@ -837,7 +837,7 @@ EOT
 </section>
 
 EOT
-		[ "$REMOTE_USER" = "root" -a "$(which iptables-save)" ] && cat <<EOT
+		[ "$REMOTE_USER" = "root" ] && [ "$(which iptables-save)" ] && cat <<EOT
 <section>
 	<header id="iptables">$(_ 'Firewall')
 		$(edit_button /etc/knockd.conf "$(_ 'Port knocker')")

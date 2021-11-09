@@ -102,7 +102,7 @@ EOT
 						# Localized description
 						desc="$(sed -n "s|^.*xml:lang=\"${LANG%%_*}\">\(.*\)<.*|\1|p" $mimefile)"
 					fi
-					if [ -z "$LANG" -o -z "$desc" ]; then
+					if [ -z "$LANG" ] || [ -z "$desc" ]; then
 						# Default (English) description
 						desc="$(sed -n "s|^.*<comment>\(.*\)<.*|\1|p" $mimefile)"
 					fi
@@ -110,7 +110,7 @@ EOT
 					pattern=$(sed -n 's|^.*pattern=\"\(.*\)\".*|\1|p' $mimefile)
 					extra="$extra --file-filter='$desc|$(echo $pattern)'"
 				fi
-				icon="$(echo $(GET type) | tr '/' '-')"
+				icon="$(GET type | tr '/' '-')"
 			fi
 
 			header
@@ -268,7 +268,7 @@ EOT
 				*.ini)
 					echo '<code class="language-ini">'; end_code='</code>'
 					htmlize ;;
-				*.conf|*.lst)
+				*.lst)
 					syntax_highlighter conf ;;
 				*Xorg.0.log)
 					syntax_highlighter xlog ;;

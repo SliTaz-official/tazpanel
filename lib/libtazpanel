@@ -404,7 +404,7 @@ getdb() {
 	if [ -n "$(which getent)" ]; then
 		getent "$1"
 	else
-		cat "/etc/$1" | sed '/^#/d'
+		sed '/^#/d' < "/etc/$1"
 	fi
 }
 

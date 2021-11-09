@@ -157,7 +157,7 @@ EOT
 			# Name
 			echo "<td>$name</td>"
 			# First check if daemon is started at boottime
-			[ echo "RUN_DAEMONS" | fgrep $name ] && boot="on boot"
+			echo "RUN_DAEMONS" | fgrep -q $name && boot="on boot"
 			# Standard SliTaz busybox daemons and firewall
 			echo -n "<td>"
 			grep -qi "^${name}_OPTIONS=" /etc/daemons.conf && cfg="options|$cfg"
@@ -350,7 +350,7 @@ menu=$(tail -q -n +$(grep -n ^title $GRUBMENU | head -n1 | cut -d: -f1) $GRUBMEN
 	entry='-1'
 	echo "$menu" | while read line
 	do
-		if [ -n "$(echo $line | grep '#</header>')" ]; then
+		if echo $line | grep -q '#</header>'; then
 			entry=$(($entry + 1))
 		fi
 		echo $line | sed "s|#</header>|$entry</header>|"
@@ -387,7 +387,7 @@ EOT
 
 		[ "$iso" ] || msg err "$(_ 'Invalid ISO image.')"
 
-		if [ "$iso" -a "$action" -a "$action" != "nop" ]; then
+		if [ "$iso" ] && [ "$action" ] && [ "$action" != "nop" ]; then
 			case "$action" in
 				install*) dev=$(POST instdev) ;;
 				*) dev=$(POST usbkeydev) ;;
@@ -487,7 +487,7 @@ EOT
 	<button name="syslog"  data-icon="@logs@">$(_ 'System logs')</button>
 	<button name="daemons" data-icon="@daemons@" data-root>$(_ 'Manage daemons')</button>
 EOT
-		[ "$REMOTE_USER" = "root" -a -x /usr/bin/taziso ] && cat <<EOT
+		[ "$REMOTE_USER" = "root" ] && [ -x /usr/bin/taziso ] && cat <<EOT
 	<button name="iso"     data-icon="@cd@">$(_ 'ISO mine')</button>
 EOT
 		[ -w /boot/grub/menu.lst ] && cat <<EOT

@@ -18,7 +18,7 @@ TITLE=$(_ 'System settings')
 
 listdb() {
 	for item in $(getdb $1 | cut -d: -f1); do
-		echo "<option>$item</option>\n"
+		echo -e "<option>$item</option>\n"
 	done
 }
 
