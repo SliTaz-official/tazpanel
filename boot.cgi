@@ -377,7 +377,7 @@ EOT
 
 	*\ iso\ *)
 		xhtml_header
-		iso=$(POST iso); [ -s "$iso" ] || unset iso
+		iso=$(POST iso); [ -s "$iso" -o -b "$iso" ] || unset iso
 		action=$(POST action); [ "$action" ] || action=$(GET action)
 		workdir=$(POST workdir)
 		[ -d $workdir ] || workdir=$(dirname $workdir)
